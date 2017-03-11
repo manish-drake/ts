@@ -29,3 +29,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-core/release/ -lts-core
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-core/debug/ -lts-core
+else:unix: LIBS += -L$$OUT_PWD/../ts-core/ -lts-core
+
+INCLUDEPATH += $$PWD/../ts-core
+DEPENDPATH += $$PWD/../ts-core
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-model/release/ -lts-model
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-model/debug/ -lts-model
+else:unix: LIBS += -L$$OUT_PWD/../ts-model/ -lts-model
+
+INCLUDEPATH += $$PWD/../ts-model
+DEPENDPATH += $$PWD/../ts-model

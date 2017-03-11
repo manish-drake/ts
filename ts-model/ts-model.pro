@@ -31,3 +31,17 @@ unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-core/release/ -lts-core
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-core/debug/ -lts-core
+else:unix: LIBS += -L$$OUT_PWD/../ts-core/ -lts-core
+
+INCLUDEPATH += $$PWD/../ts-core
+DEPENDPATH += $$PWD/../ts-core
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-dao/release/ -lts-dao
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-dao/debug/ -lts-dao
+else:unix: LIBS += -L$$OUT_PWD/../ts-dao/ -lts-dao
+
+INCLUDEPATH += $$PWD/../ts-dao
+DEPENDPATH += $$PWD/../ts-dao
