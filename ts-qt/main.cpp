@@ -1,12 +1,24 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+const int DATA_CREATION_MODE = 1;
+
+int createData(){
+
+    return 1;
+}
+
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    if(DATA_CREATION_MODE){
+        return createData();
+    } else {
+        QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+        QQmlApplicationEngine engine;
+        engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    return app.exec();
+        return app.exec();
+    }
 }
+

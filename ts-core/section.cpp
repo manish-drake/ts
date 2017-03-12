@@ -23,3 +23,8 @@ void Section::setId(int id)
 Section::Section()
 {
 }
+
+Section::~Section()
+{
+
+}
