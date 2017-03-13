@@ -8,13 +8,13 @@ class TSCORESHARED_EXPORT Section
 {
 
 public:
-    int id();
+    int id() const;
     void setId(int id);
 
-    QString name();
+    QString name() const;
     void setName(QString name);
 
-    Section();
+    explicit Section(const QString &name = "");
     ~Section();
 private:
     int m_id;

@@ -1,10 +1,25 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "datamanager.h"
+#include "sectionmodel.h"
 
-const int DATA_CREATION_MODE = 1;
+const int DATA_CREATION_MODE = 0;
 
 int createData(){
+    DataManager::deleteExitingDBFile();
 
+    SectionModel sectionModel{};
+
+    sectionModel.addSection(Section("Start"));
+    sectionModel.addSection(Section("Transponder"));
+    sectionModel.addSection(Section("Mode S"));
+    sectionModel.addSection(Section("ADS-B"));
+    sectionModel.addSection(Section("NAV"));
+    sectionModel.addSection(Section("Comm"));
+    sectionModel.addSection(Section("Antenna"));
+    sectionModel.addSection(Section("Reports"));
+    sectionModel.addSection(Section("Setup"));
+    sectionModel.addSection(Section("Search"));
     return 1;
 }
 

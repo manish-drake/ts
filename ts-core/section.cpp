@@ -1,12 +1,12 @@
 #include "section.h"
 
 
-int Section::id()
+int Section::id() const
 {
     return this->m_id;
 }
 
-QString Section::name()
+QString Section::name() const
 {
     return this->m_name;
 }
@@ -20,8 +20,9 @@ void Section::setId(int id)
     this->m_id = id;
 }
 
-Section::Section()
+Section::Section(const QString &name)
 {
+    this->m_name = name;
 }
 
 Section::~Section()

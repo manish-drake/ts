@@ -3,6 +3,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QVariant>
+#include <QDebug>
 
 #include "section.h"
 #include "datamanager.h"
@@ -17,6 +18,11 @@ SectionDao::SectionDao(QSqlDatabase &database)
 
 void SectionDao::init() const
 {
+    if(!m_database.isOpen()){
+        qDebug() << "Failed to open the database";
+        return;
+    }
+
     if(!m_database.tables().contains("sections")) {
         QSqlQuery query(m_database);
         const QString strQuery(
@@ -43,7 +49,16 @@ void SectionDao::addSection(Section &section) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Section> > > SectionDao::sections() const
+void SectionDao::removeSection(int id) const
+{
+    QSqlQuery query(m_database);
+    query.prepare("DELETE FROM sections WHERE id = (:id)");
+    query.bindValue(":id", id);
+    query.exec();
+    DataManager::debugQuery(query);
+}
+
+unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
 {
     QSqlQuery query(m_database);
     const QString strQuery(
@@ -61,4 +76,9 @@ unique_ptr<vector<unique_ptr<Section> > > SectionDao::sections() const
         list->push_back(move(section));
     }
     return list;
+}
+
+SectionDao::~SectionDao()
+{
+
 }
