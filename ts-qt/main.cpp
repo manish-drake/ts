@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 #include "datamanager.h"
 #include "sectionmodel.h"
 
@@ -31,6 +32,10 @@ int main(int argc, char *argv[])
         QGuiApplication app(argc, argv);
 
         QQmlApplicationEngine engine;
+        SectionModel sectionModel;
+        QQmlContext *context = engine.rootContext();
+        context->setContextProperty("sectionModel", &sectionModel);
+
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         return app.exec();
