@@ -20,9 +20,10 @@ void Section::setId(int id)
     this->m_id = id;
 }
 
-Section::Section(const QString &name)
+Section::Section(const QString &name):
+    m_id{0},
+    m_name{name}
 {
-    this->m_name = name;
 }
 
 Section::~Section()

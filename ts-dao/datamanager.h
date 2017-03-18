@@ -6,6 +6,7 @@
 #include "ts-dao_global.h"
 #include "section.h"
 #include "sectiondao.h"
+#include "testdao.h"
 #include "dao.h"
 
 class QSqlDatabase;
@@ -20,6 +21,7 @@ public:
     static void deleteExitingDBFile();
     static DataManager &instance();
     std::shared_ptr<const SectionDao> sectionDao() const;
+    std::shared_ptr<const TestDao> testDao() const;
     ~DataManager();
 
 protected:

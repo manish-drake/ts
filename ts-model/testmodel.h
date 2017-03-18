@@ -1,5 +1,6 @@
-#ifndef SECTIONMODEL_H
-#define SECTIONMODEL_H
+#ifndef TESTMODEL_H
+#define TESTMODEL_H
+
 
 #include <QAbstractListModel>
 #include <QHash>
@@ -7,28 +8,29 @@
 #include <vector>
 #include <memory>
 
-#include <section.h>
+#include <test.h>
 #include <datamanager.h>
 
 #include "ts-model_global.h"
 
-class TSMODELSHARED_EXPORT SectionModel: public QAbstractListModel
+class TSMODELSHARED_EXPORT TestModel: public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
-        NameRole
+        NameRole,
+        SectionIDRole
     };
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
 
-    SectionModel(QObject *parent = 0);
+    TestModel(QObject *parent = 0);
 
     double listHeight();
     void setListHeight(double listHeight);
 
-    QModelIndex addSection(Section &section);
+    QModelIndex addTest(Test &test);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -36,7 +38,7 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    ~SectionModel();
+    ~TestModel();
 signals:
     void listHeightChanged(double listHeight);
 private:
@@ -44,7 +46,7 @@ private:
     double m_listHeight;
 private:
     DataManager &m_db;
-    std::unique_ptr<std::vector<std::unique_ptr<Section>>> m_sections;
+    std::unique_ptr<std::vector<std::unique_ptr<Test>>> m_tests;
 };
 
-#endif // SECTIONMODEL_H
+#endif // TESTMODEL_H

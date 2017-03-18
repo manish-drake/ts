@@ -1,8 +1,9 @@
 #include "test.h"
 
 Test::Test(const QString &name, const int sectionId):
-    m_name(name),
-    m_sectionId(sectionId)
+    m_id{0},
+    m_name{name},
+    m_sectionId{sectionId}
 {
 
 }

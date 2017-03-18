@@ -11,8 +11,6 @@
 DataManager &DataManager::instance()
 {
     static DataManager singelton;
-
-
     return singelton;
 }
 
@@ -21,6 +19,13 @@ std::shared_ptr<const SectionDao> DataManager::sectionDao() const
     auto daoPtr = this->daoRegistry["section"];
     auto sectionDaoPtr = std::dynamic_pointer_cast<SectionDao>(daoPtr);
     return  sectionDaoPtr;
+}
+
+std::shared_ptr<const TestDao> DataManager::testDao() const
+{
+    auto daoPtr = this->daoRegistry["test"];
+    auto testDaoPtr = std::dynamic_pointer_cast<TestDao>(daoPtr);
+    return  testDaoPtr;
 }
 
 DataManager::~DataManager()
@@ -47,7 +52,9 @@ DataManager::DataManager(const QString &path):
 void DataManager::createRegistry()
 {
     daoRegistry.insert("section",
-                                 std::shared_ptr<Dao>(new SectionDao(*m_database)));
+                       std::shared_ptr<Dao>(new SectionDao(*m_database)));
+    daoRegistry.insert("test",
+                       std::shared_ptr<Dao>(new TestDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)
