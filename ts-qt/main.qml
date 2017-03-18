@@ -35,10 +35,13 @@ ApplicationWindow {
                     width: parent.width/5
                     height: parent.height
                     anchors.left: parent.left
+                    onHeightChanged: {
+                        sectionModel.listHeight = sections.height;
+                    }
 
                     delegate: Rectangle {
                         width: parent.width
-                        height: 15
+                        height: 28
                         color: "#e5e5f7"
 
                         Text {

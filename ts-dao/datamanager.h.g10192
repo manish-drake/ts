@@ -19,7 +19,8 @@ public:
     static void debugQuery(const QSqlQuery& query);
     static void deleteExitingDBFile();
     static DataManager &instance();
-    std::shared_ptr<const SectionDao> sectionDao() const;
+
+    template<class Tsearched> Tsearched *dao();
     ~DataManager();
 
 protected:
@@ -31,5 +32,13 @@ private:
     void createRegistry();
 };
 
-
+template<class Tsearched>
+Tsearched *DataManager::dao()
+{
+        for(auto key : this->daoRegistry.keys()) {
+            if(Tsearched *ptr = dynamic_cast<Tsearched*>(&*this->daoRegistry[key]))
+                return ptr;
+        }
+        return nullptr;
+}
 #endif // DATAMANAGER_H

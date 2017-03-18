@@ -21,7 +21,12 @@ public:
         NameRole
     };
 
+    Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
+
     SectionModel(QObject *parent = 0);
+
+    double listHeight();
+    void setListHeight(double listHeight);
 
     QModelIndex addSection(const Section &section);
 
@@ -32,9 +37,11 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     ~SectionModel();
+signals:
+    void listHeightChanged(double listHeight);
 private:
     bool isIndexValid(const QModelIndex &index) const;
-
+    double m_listHeight;
 private:
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Section>>> m_sections;

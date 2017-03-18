@@ -4,7 +4,7 @@
 #include "datamanager.h"
 #include "sectionmodel.h"
 
-const int DATA_CREATION_MODE = 0;
+const int DATA_CREATION_MODE = 1;
 
 int createData(){
     DataManager::deleteExitingDBFile();

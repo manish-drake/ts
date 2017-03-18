@@ -11,7 +11,16 @@
 DataManager &DataManager::instance()
 {
     static DataManager singelton;
+
+
     return singelton;
+}
+
+std::shared_ptr<const SectionDao> DataManager::sectionDao() const
+{
+    auto daoPtr = this->daoRegistry["section"];
+    auto sectionDaoPtr = std::dynamic_pointer_cast<SectionDao>(daoPtr);
+    return  sectionDaoPtr;
 }
 
 DataManager::~DataManager()
@@ -20,14 +29,25 @@ DataManager::~DataManager()
 }
 
 DataManager::DataManager(const QString &path):
-    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"))),
-    sectionDao(*m_database)
+    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
 {
     m_database->setDatabaseName(path);
 
     bool openStatus = m_database->open();
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
-    sectionDao.init();
+
+    this->createRegistry();
+
+    for(auto key: daoRegistry.keys()){
+        auto dao = daoRegistry[key];
+        dao->init();
+    }
+}
+
+void DataManager::createRegistry()
+{
+    daoRegistry.insert("section",
+                                 std::shared_ptr<Dao>(new SectionDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)
@@ -45,3 +65,6 @@ void DataManager::deleteExitingDBFile()
     QDir dir;
     dir.remove(DB_FILE);
 }
+
+
+

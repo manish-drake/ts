@@ -1,21 +1,32 @@
 #include "sectionmodel.h"
-
+#include "sectiondao.h"
 using namespace std;
 
 SectionModel::SectionModel(QObject *parent)
     :QAbstractListModel(parent),
       m_db(DataManager::instance()),
-      m_sections(m_db.sectionDao.sections())
+      m_sections(m_db.sectionDao()->sections())
 {
+}
+
+double SectionModel::listHeight()
+{
+    return this->m_listHeight;
+}
+
+void SectionModel::setListHeight(double listHeight)
+{
+    this->m_listHeight = listHeight;
+    emit this->listHeightChanged(listHeight);
 }
 
 QModelIndex SectionModel::addSection(const Section &section)
 {
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
-    SectionDao sectionDao =  this->m_db.sectionDao;
+    auto sectionDao = this->m_db.sectionDao();
     unique_ptr<Section> newSection(new Section(section));
-    sectionDao.addSection(*newSection);
+    sectionDao->addSection(*newSection);
     endInsertRows();
     this->m_sections->push_back(move(newSection));
     return index(row, 0);
@@ -78,7 +89,7 @@ bool SectionModel::removeRows(int row, int count, const QModelIndex &parent)
     int countLeft = count;
     while (countLeft--) {
         const Section &section = *m_sections->at(row + countLeft);
-        m_db.sectionDao.removeSection(section.id());
+        m_db.sectionDao()->removeSection(section.id());
     }
     m_sections->erase(m_sections->begin() + row, m_sections->begin() + row + count);
     endRemoveRows();

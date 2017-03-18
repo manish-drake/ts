@@ -10,8 +10,8 @@
 
 using namespace std;
 
-SectionDao::SectionDao(QSqlDatabase &database)
-    :m_database(database)
+SectionDao::SectionDao(QSqlDatabase &database):
+    Dao(database)
 {
 
 }
