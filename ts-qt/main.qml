@@ -47,7 +47,7 @@ ApplicationWindow {
                         Text {
                             text: name
                             font.pointSize: 10
-                            color:"#fd4a4a"
+                            color:"gray"
                             anchors.verticalCenter: parent.verticalCenter
                         }
                     }
