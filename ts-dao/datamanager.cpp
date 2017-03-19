@@ -28,6 +28,20 @@ std::shared_ptr<const TestDao> DataManager::testDao() const
     return  testDaoPtr;
 }
 
+std::shared_ptr<const SummaryDao> DataManager::summaryDao() const
+{
+    auto daoPtr = this->daoRegistry["summary"];
+    auto summaryDaoPtr = std::dynamic_pointer_cast<SummaryDao>(daoPtr);
+    return  summaryDaoPtr;
+}
+
+std::shared_ptr<const TestParamDao> DataManager::testParamDao() const
+{
+    auto daoPtr = this->daoRegistry["testparam"];
+    auto testParamDaoPtr = std::dynamic_pointer_cast<TestParamDao>(daoPtr);
+    return  testParamDaoPtr;
+}
+
 DataManager::~DataManager()
 {
     m_database->close();
@@ -55,6 +69,10 @@ void DataManager::createRegistry()
                        std::shared_ptr<Dao>(new SectionDao(*m_database)));
     daoRegistry.insert("test",
                        std::shared_ptr<Dao>(new TestDao(*m_database)));
+    daoRegistry.insert("summary",
+                       std::shared_ptr<Dao>(new SummaryDao(*m_database)));
+    daoRegistry.insert("testparam",
+                       std::shared_ptr<Dao>(new TestParamDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)

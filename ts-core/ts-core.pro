@@ -23,11 +23,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += section.cpp \
-    test.cpp
+    test.cpp \
+    summary.cpp \
+    testparam.cpp
 
 HEADERS += section.h\
         ts-core_global.h \
-    test.h
+    test.h \
+    summary.h \
+    testparam.h
 
 unix {
     target.path = /usr/lib

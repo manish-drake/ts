@@ -7,6 +7,8 @@
 #include "section.h"
 #include "sectiondao.h"
 #include "testdao.h"
+#include "summarydao.h"
+#include "testparamdao.h"
 #include "dao.h"
 
 class QSqlDatabase;
@@ -22,6 +24,8 @@ public:
     static DataManager &instance();
     std::shared_ptr<const SectionDao> sectionDao() const;
     std::shared_ptr<const TestDao> testDao() const;
+    std::shared_ptr<const SummaryDao> summaryDao() const;
+    std::shared_ptr<const TestParamDao> testParamDao() const;
     ~DataManager();
 
 protected:

@@ -27,13 +27,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += datamanager.cpp \
     sectiondao.cpp \
     dao.cpp \
-    testdao.cpp
+    testdao.cpp \
+    summarydao.cpp \
+    testparamdao.cpp
 
 HEADERS += datamanager.h\
         ts-dao_global.h \
     sectiondao.h \
     dao.h \
-    testdao.h
+    testdao.h \
+    summarydao.h \
+    testparamdao.h
 
 unix {
     target.path = /usr/lib

@@ -1,7 +1,5 @@
-#ifndef SUMMARYMODEL_H
-#define SUMMARYMODEL_H
-
-
+#ifndef TESTPARAMMODEL_H
+#define TESTPARAMMODEL_H
 
 #include <QAbstractListModel>
 #include <QHash>
@@ -9,32 +7,35 @@
 #include <vector>
 #include <memory>
 
-#include "summary.h"
+#include "testparam.h"
 #include "datamanager.h"
 
 #include "ts-model_global.h"
 
-class TSMODELSHARED_EXPORT SummaryModel: public QAbstractListModel
+class TSMODELSHARED_EXPORT TestParamModel: public QAbstractListModel
 {
     Q_OBJECT
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
         NameRole,
-        TestIDRole,
-        IndexRole,
-        OrderRole,
+        SummaryIDRole,
+        KeyRole,
+        ValRole,
+        UnitRole,
+        RowRole,
+        ColRole,
         StyleRole
     };
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
 
-    SummaryModel(QObject *parent = 0);
+    TestParamModel(QObject *parent = 0);
 
     double listHeight();
     void setListHeight(double listHeight);
 
-    QModelIndex addSummary(Summary &summary);
+    QModelIndex addTestParam(TestParam &testParam);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -42,7 +43,7 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    ~SummaryModel();
+    ~TestParamModel();
 signals:
     void listHeightChanged(double listHeight);
 private:
@@ -50,6 +51,7 @@ private:
     double m_listHeight;
 private:
     DataManager &m_db;
-    std::unique_ptr<std::vector<std::unique_ptr<Summary>>> m_summaries;
+    std::unique_ptr<std::vector<std::unique_ptr<TestParam>>> m_testParams;
 };
-#endif // SUMMARYMODEL_H
+
+#endif // TESTPARAMMODEL_H

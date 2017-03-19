@@ -24,12 +24,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     sectionmodel.cpp \
-    testmodel.cpp
+    testmodel.cpp \
+    summarymodel.cpp \
+    testparammodel.cpp
 
 HEADERS +=\
         ts-model_global.h \
     sectionmodel.h \
-    testmodel.h
+    testmodel.h \
+    summarymodel.h \
+    testparammodel.h
 
 unix {
     target.path = /usr/lib
