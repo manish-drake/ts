@@ -4,7 +4,8 @@ QT += qml quick
 
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    databuilder.cpp
 
 RESOURCES += qml.qrc
 
@@ -50,3 +51,6 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-dao/ -lts-dao
 
 INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
+
+HEADERS += \
+    databuilder.h
