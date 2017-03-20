@@ -6,9 +6,6 @@
 #include "ts-dao_global.h"
 #include "section.h"
 #include "sectiondao.h"
-#include "testdao.h"
-#include "summarydao.h"
-#include "testparamdao.h"
 #include "dao.h"
 
 class QSqlDatabase;
@@ -22,10 +19,8 @@ public:
     static void debugQuery(const QSqlQuery& query);
     static void deleteExitingDBFile();
     static DataManager &instance();
-    std::shared_ptr<const SectionDao> sectionDao() const;
-    std::shared_ptr<const TestDao> testDao() const;
-    std::shared_ptr<const SummaryDao> summaryDao() const;
-    std::shared_ptr<const TestParamDao> testParamDao() const;
+
+    template<class Tsearched> Tsearched *dao();
     ~DataManager();
 
 protected:
@@ -37,5 +32,13 @@ private:
     void createRegistry();
 };
 
-
+template<class Tsearched>
+Tsearched *DataManager::dao()
+{
+        for(auto key : this->daoRegistry.keys()) {
+            if(Tsearched *ptr = dynamic_cast<Tsearched*>(&*this->daoRegistry[key]))
+                return ptr;
+        }
+        return nullptr;
+}
 #endif // DATAMANAGER_H

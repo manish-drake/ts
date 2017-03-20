@@ -1,15 +1,17 @@
 #ifndef SECTIONDAO_H
 #define SECTIONDAO_H
 
-#include "ts-dao_global.h"
 #include <vector>
 #include <memory>
+
+#include "ts-dao_global.h"
+
+#include "dao.h"
 
 class Section;
 class QSqlDatabase;
 
-
-class TSDAOSHARED_EXPORT SectionDao
+class TSDAOSHARED_EXPORT SectionDao: public Dao
 {
 public:
     SectionDao(QSqlDatabase &database);
@@ -21,8 +23,6 @@ public:
     std::unique_ptr<std::vector<std::unique_ptr<Section> > > sections() const;
     
     ~SectionDao();
-private:
-    QSqlDatabase &m_database;
 };
 
 #endif // SECTIONDAO_H
