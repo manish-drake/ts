@@ -49,6 +49,7 @@ void ViewDao::addView(View &view) const
     DataManager::debugQuery(query);
 }
 
+
 void ViewDao::removeView(int id) const
 {
     QSqlQuery query(m_database);

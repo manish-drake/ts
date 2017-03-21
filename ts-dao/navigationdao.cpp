@@ -6,6 +6,7 @@
 #include "navigation.h"
 #include "navigationdao.h"
 
+
 void NavigationDao::init() const
 {
     if(!m_database.isOpen()){
@@ -13,7 +14,7 @@ void NavigationDao::init() const
         return;
     }
 
-    if(!m_database.tables().contains("sections")) {
+    if(!m_database.tables().contains("navigation")) {
         QSqlQuery query(m_database);
         const QString strQuery(
                     "CREATE TABLE navigation "
@@ -57,6 +58,11 @@ void NavigationDao::removeNavigation(int id) const
 
 NavigationDao::NavigationDao(QSqlDatabase &database):
     Dao{database}
+{
+
+}
+
+NavigationDao::~NavigationDao()
 {
 
 }
