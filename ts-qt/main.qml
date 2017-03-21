@@ -19,9 +19,26 @@ ApplicationWindow {
                 id: txtHeader
                 text: qsTr("Header")
             }
+
+            Rectangle{
+                height: 30
+                width: 30
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                color:"red"
+            }
+
             CenterMenu{
-                visible: true
+                visible: !true
                 anchors.horizontalCenter: parent.horizontalCenter
+            }
+
+            Rectangle{
+                height: 30
+                width: 30
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                color:"red"
             }
         }
         contentItem: StackView{
@@ -101,6 +118,10 @@ ApplicationWindow {
                         }
                     }
                 }
+
+                Cards{
+                anchors.fill:parent
+                }
             }
         }
         footer: Rectangle{
@@ -108,6 +129,21 @@ ApplicationWindow {
             height: parent.height/10
             color: "#86f50e"
             anchors.bottom: parent.bottom
+            Rectangle{
+                height: 30
+                width: 30
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
+                color:"red"
+            }
+
+            Rectangle{
+                height: 30
+                width: 30
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                color:"red"
+            }
             Text {
                 id: txtFooter
                 text: qsTr("Footer")
