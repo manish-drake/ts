@@ -1,5 +1,8 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.2
+import QtQuick.Controls.Styles 1.2
+import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     visible: true
@@ -120,8 +123,12 @@ ApplicationWindow {
                 }
 
                 Cards{
-                anchors.fill:parent
+                    visible: !false
+                    anchors.fill:parent
                 }
+
+
+
             }
         }
         footer: Rectangle{
@@ -147,6 +154,12 @@ ApplicationWindow {
             Text {
                 id: txtFooter
                 text: qsTr("Footer")
+            }
+            ButtonSamples{
+                visible: !true
+            }
+            NetworkInfo{
+ visible: !true
             }
         }
     }
