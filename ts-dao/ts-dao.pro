@@ -29,7 +29,9 @@ SOURCES += datamanager.cpp \
     dao.cpp \
     testdao.cpp \
     summarydao.cpp \
-    testparamdao.cpp
+    testparamdao.cpp \
+    viewdao.cpp \
+    navigationdao.cpp
 
 HEADERS += datamanager.h\
         ts-dao_global.h \
@@ -37,7 +39,9 @@ HEADERS += datamanager.h\
     dao.h \
     testdao.h \
     summarydao.h \
-    testparamdao.h
+    testparamdao.h \
+    viewdao.h \
+    navigationdao.h
 
 unix {
     target.path = /usr/lib

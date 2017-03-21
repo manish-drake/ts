@@ -9,6 +9,8 @@
 #include "testdao.h"
 #include "summarydao.h"
 #include "testparamdao.h"
+#include "viewdao.h"
+#include "navigationdao.h"
 #include "dao.h"
 
 class QSqlDatabase;
@@ -26,6 +28,8 @@ public:
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;
     std::shared_ptr<const TestParamDao> testParamDao() const;
+    std::shared_ptr<const ViewDao> viewDao() const;
+    std::shared_ptr<const NavigationDao> navigationDao() const;
     ~DataManager();
 
 protected:

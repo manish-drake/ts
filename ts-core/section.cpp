@@ -21,6 +21,7 @@ void Section::setId(int id)
 }
 
 Section::Section(const QString &name):
+    Link {0},
     m_id{0},
     m_name{name}
 {

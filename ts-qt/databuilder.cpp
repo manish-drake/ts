@@ -5,6 +5,14 @@
 #include "summarymodel.h"
 #include "testparammodel.h"
 
+#include "view.h"
+#include "viewdao.h"
+
+#include "navigation.h"
+#include "navigationdao.h"
+#include "sectionnavigation.h"
+#include "testnavigation.h"
+
 DataBuilder::DataBuilder()
 {
 
@@ -15,7 +23,22 @@ int DataBuilder::build()
 
     DataManager::deleteExitingDBFile();
 
+    auto viewDao = DataManager::instance().viewDao();
+
+    View globalView("Global");
+    viewDao->addView(globalView);
+
+    View mainStartView("Main-Start");
+    viewDao->addView(mainStartView);
+
+    View mainADSBView("Main-ADSB");
+    viewDao->addView(mainADSBView);
+
+    View detailView("Detail");
+    viewDao->addView(detailView);
+
     SectionModel sectionModel{};
+
     Section start("Start");
     sectionModel.addSection(start);
 
@@ -90,6 +113,12 @@ int DataBuilder::build()
 
     Test uatIn("UAT ADS-B IN", sectionADSB.id());
     testModel.addTest(uatIn);
+
+
+    auto navigationDaoPtr = DataManager::instance().navigationDao();
+    SectionNavigation startNav(start.id(), globalView.id(), mainStartView.id());
+    navigationDaoPtr->addNavigation(startNav);
+
 
     return 1;
 }

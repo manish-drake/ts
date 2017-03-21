@@ -1,6 +1,7 @@
 #include "test.h"
 
 Test::Test(const QString &name, const int sectionId):
+    Link {0},
     m_id{0},
     m_name{name},
     m_sectionId{sectionId}

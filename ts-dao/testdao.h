@@ -20,7 +20,7 @@ public:
     void addTest(Test &test) const;
     void removeTest(int id) const;
 
-    std::unique_ptr<std::vector<std::unique_ptr<Test> > > tests() const;
+    std::unique_ptr<std::vector<std::unique_ptr<Test> > > tests(const int viewId = 1) const;
 
     ~TestDao();
 };

@@ -20,7 +20,7 @@ public:
     void addSection(Section &section) const;
     void removeSection(int id) const;
 
-    std::unique_ptr<std::vector<std::unique_ptr<Section> > > sections() const;
+    std::unique_ptr<std::vector<std::unique_ptr<Section> > > sections(const int viewId = 1) const;
     
     ~SectionDao();
 };

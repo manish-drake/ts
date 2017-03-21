@@ -3,9 +3,10 @@
 
 #include <QString>
 #include "ts-core_global.h"
+#include "link.h"
 
 
-class TSCORESHARED_EXPORT Test
+class TSCORESHARED_EXPORT Test: public Link
 {
 public:
     int id() const;

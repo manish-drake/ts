@@ -1,11 +1,11 @@
-#ifndef SECTION_H
-#define SECTION_H
+#ifndef VIEW_H
+#define VIEW_H
 
 #include "ts-core_global.h"
 #include <QString>
-#include "link.h"
 
-class TSCORESHARED_EXPORT Section: public Link
+
+class TSCORESHARED_EXPORT View
 {
 
 public:
@@ -15,11 +15,11 @@ public:
     QString name() const;
     void setName(QString name);
 
-    explicit Section(const QString &name = "");
-    ~Section();
+    View(const QString &name);
+    ~View();
 private:
     int m_id;
     QString m_name;
 };
 
-#endif // SECTION_H
+#endif // VIEW_H

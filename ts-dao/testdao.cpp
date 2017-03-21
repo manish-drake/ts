@@ -60,11 +60,16 @@ void TestDao::removeTest(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Test>>> TestDao::tests() const
+unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int viewId) const
 {
     QSqlQuery query(m_database);
-    const QString strQuery(
-                "SELECT * FROM tests ");
+    const QString strQuery = QString(
+                "SELECT * FROM tests "
+                "INNER JOIN navigation "
+                "ON tests.ID = navgation.linkID "
+                "WHERE navigation.link = 'Test' "
+                "AND navigation.fromViewID = %1")
+            .arg(viewId);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);

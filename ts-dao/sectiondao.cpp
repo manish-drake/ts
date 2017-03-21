@@ -58,11 +58,16 @@ void SectionDao::removeSection(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
+unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections(const int viewId) const
 {
     QSqlQuery query(m_database);
-    const QString strQuery(
-                "SELECT * FROM sections ");
+    const QString strQuery = QString(
+                "SELECT sections.* FROM sections "
+                "INNER JOIN navigation "
+                "ON sections.ID = navgation.linkID "
+                "WHERE navigation.link = 'Section' "
+                "AND navigation.fromViewID = %1")
+            .arg(viewId);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);
@@ -73,6 +78,7 @@ unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
         unique_ptr<Section> section(new Section());
         section->setId(query.value("ID").toInt());
         section->setName(query.value("name").toString());
+
         list->push_back(move(section));
     }
     return list;

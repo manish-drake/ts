@@ -25,13 +25,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += section.cpp \
     test.cpp \
     summary.cpp \
-    testparam.cpp
+    testparam.cpp \
+    view.cpp \
+    navigation.cpp \
+    sectionnavigation.cpp \
+    testnavigation.cpp \
+    link.cpp
 
 HEADERS += section.h\
         ts-core_global.h \
     test.h \
     summary.h \
-    testparam.h
+    testparam.h \
+    view.h \
+    navigation.h \
+    sectionnavigation.h \
+    testnavigation.h \
+    link.h
 
 unix {
     target.path = /usr/lib
