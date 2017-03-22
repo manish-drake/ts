@@ -63,11 +63,11 @@ unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections(const int viewId) c
     QSqlQuery query(m_database);
     const QString strQuery = QString(
                 "SELECT sections.* FROM sections "
-                "INNER JOIN navigation "
-                "ON sections.ID = navgation.linkID "
-                "WHERE navigation.link = 'Section' "
-                "AND navigation.fromViewID = %1")
-            .arg(viewId);
+//                "INNER JOIN navigation "
+//                "ON sections.ID = navgation.linkID "
+//                "WHERE navigation.link = 'Section' "
+//                "AND navigation.fromViewID = %1")
+            ).arg(viewId);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);

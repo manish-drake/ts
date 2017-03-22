@@ -31,10 +31,6 @@ ApplicationWindow {
                 color:"red"
             }
 
-            CenterMenu{
-                visible: !true
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
 
             Rectangle{
                 height: 30
@@ -52,31 +48,6 @@ ApplicationWindow {
                 Text {
                     anchors.centerIn: parent
                     text: qsTr("Content comes here!")
-                }
-                ListView {
-                    id: sections
-                    model: sectionModel
-                    spacing: 2
-                    width: parent.width/5
-                    height: parent.height
-                    anchors.left: parent.left
-                    onHeightChanged: {
-                        sectionModel.listHeight = sections.height;
-                    }
-
-                    delegate: Rectangle {
-
-                        width: parent.width
-                        height: 28
-                        color: "#e5e5f7"
-
-                        Text {
-                            text: name
-                            font.pointSize: 10
-                            color:"gray"
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
                 }
                 ListView {
                     visible: !false
@@ -111,22 +82,15 @@ ApplicationWindow {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left:parent.left
                         }
-
                         MouseArea{
                             anchors.fill:parent
                             z:1
                             onClicked: {
-                                //  userSettings.currentIndex = index
+                                navigationModel.currentView = navigationModel.getViewName(targetViewId)
                             }
                         }
                     }
                 }
-
-                Cards{
-                    visible: !false
-                    anchors.fill:parent
-                }
-
 
 
             }

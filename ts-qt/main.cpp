@@ -7,8 +7,9 @@
 #include "testmodel.h"
 #include "summarymodel.h"
 #include "testparammodel.h"
+#include "navigationmodel.h"
 
-const int DATA_CREATION_MODE = 1;
+const int DATA_CREATION_MODE = 0;
 
 
 int main(int argc, char *argv[])
@@ -33,6 +34,10 @@ int main(int argc, char *argv[])
 
         TestParamModel testParamModel;
         context->setContextProperty("testParamModel", &testParamModel);
+
+        NavigationModel navigationModel;
+        context->setContextProperty("navigationModel", &navigationModel);
+
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

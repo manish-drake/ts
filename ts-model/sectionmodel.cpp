@@ -38,7 +38,8 @@ QModelIndex SectionModel::addSection(Section &section)
 int SectionModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return this->m_sections->size();
+    auto sz = this->m_sections->size();
+    return sz;
 }
 
 QVariant SectionModel::data(const QModelIndex &index, int role) const
@@ -50,6 +51,8 @@ QVariant SectionModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case Roles::IDRole:
             return section.id();
+        case Roles::TargetViewIDRole:
+            return section.targetViewId();
         case Roles::NameRole:
         case Qt::DisplayRole:
             return section.name();
@@ -104,6 +107,7 @@ QHash<int, QByteArray> SectionModel::roleNames() const
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::NameRole, "name");
+    hash.insert(Roles::TargetViewIDRole, "targetViewId");
     return hash;
 }
 

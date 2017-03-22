@@ -26,14 +26,16 @@ SOURCES += \
     sectionmodel.cpp \
     testmodel.cpp \
     summarymodel.cpp \
-    testparammodel.cpp
+    testparammodel.cpp \
+    navigationmodel.cpp
 
 HEADERS +=\
         ts-model_global.h \
     sectionmodel.h \
     testmodel.h \
     summarymodel.h \
-    testparammodel.h
+    testparammodel.h \
+    navigationmodel.h
 
 unix {
     target.path = /usr/lib

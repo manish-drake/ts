@@ -15,7 +15,7 @@ Rectangle{
         anchors.bottomMargin: 10
         anchors.left: parent.left
         anchors.leftMargin: 10
-columnSpacing: 0
+        columnSpacing: 0
         rowSpacing: 0
         rows: 2
         columns: 2
