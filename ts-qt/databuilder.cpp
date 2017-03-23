@@ -116,9 +116,12 @@ int DataBuilder::build()
 
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
+
     SectionNavigation startNav(start.id(), globalView.id(), mainStartView.id());
     navigationDaoPtr->addNavigation(startNav);
 
+    SectionNavigation adsbNav(sectionADSB.id(), globalView.id(), mainADSBView.id());
+    navigationDaoPtr->addNavigation(adsbNav);
 
     return 1;
 }

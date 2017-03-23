@@ -15,7 +15,7 @@ public:
     QString name() const;
     void setName(QString name);
 
-    explicit Section(const QString &name = "");
+    explicit Section(const QString &name = "", const int targetViewId = 1);
     ~Section();
 private:
     int m_id;

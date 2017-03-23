@@ -10,6 +10,7 @@
 
 class Section;
 class QSqlDatabase;
+class QSqlQuery;
 
 class TSDAOSHARED_EXPORT SectionDao: public Dao
 {
@@ -23,6 +24,7 @@ public:
     std::unique_ptr<std::vector<std::unique_ptr<Section> > > sections(const int viewId = 1) const;
     
     ~SectionDao();
+private:
+    int getIntOrDefault(const QSqlQuery &query, const QString &col, const int defaultVal) const ;
 };
-
 #endif // SECTIONDAO_H

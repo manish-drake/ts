@@ -10,8 +10,9 @@ NavigationModel::NavigationModel(QObject *parent) :
 QString NavigationModel::getViewName(const int viewId) const
 {
     switch (viewId) {
+    case 4:
+        return "ADS-B";
     case 0:
-        return "Main";
     default:
         return "Global";
     }

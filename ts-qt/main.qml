@@ -40,59 +40,60 @@ ApplicationWindow {
                 color:"red"
             }
         }
-        contentItem: StackView{
+        contentItem: Rectangle{
+            id:contentRect
+            color: "#136be6"
+            ListView {
+                visible: !false
+                id: hbMenu
+                model: sectionModel
+                spacing:0
+                width: parent.width/5
+                height: parent.height
+                anchors.left: parent.left
 
-            id: svContent
-            initialItem: Rectangle{
-                color: "#136be6"
-                Text {
-                    anchors.centerIn: parent
-                    text: qsTr("Content comes here!")
-                }
-                ListView {
-                    visible: !false
-                    id: userSettings
-                    model: sectionModel
-                    spacing:0
-                    width: parent.width/5
-                    height: parent.height
-                    anchors.right: parent.right
+                delegate: Rectangle {
+                    border.color: "lightgray"
+                    border.width: 1
+                    width:  contentRect.width/4
+                    height: contentRect.height/10
+                    color: "#e5e5f7"
 
-                    delegate: Rectangle {
+                    Rectangle{
+                        id:imageRect
+                        height:15
+                        width:15
+                        color:"blue"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left:parent.left
+                        anchors.leftMargin: 3
+                    }
 
-                        width: parent.width
-                        height: 22
-                        color: "#e5e5f7"
-
-                        Rectangle{
-                            id:imageRect
-                            height:15
-                            width:15
-                            color:"blue"
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left:parent.left
-                            anchors.leftMargin: 3
-                        }
-
-                        Text {
-                            anchors.leftMargin: 20
-                            text: name
-                            font.pointSize: 10
-                            color:"gray"
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left:parent.left
-                        }
-                        MouseArea{
-                            anchors.fill:parent
-                            z:1
-                            onClicked: {
-                                navigationModel.currentView = navigationModel.getViewName(targetViewId)
-                            }
+                    Text {
+                        anchors.leftMargin: 20
+                        text: name
+                        font.pointSize: 10
+                        color:"gray"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left:parent.left
+                    }
+                    Text {
+                        id: tvid
+                        text: targetViewId
+                    }
+                    MouseArea{
+                        anchors.fill:parent
+                        z:1
+                        onClicked: {
+                            navigationModel.currentView = navigationModel.getViewName(targetViewId)
                         }
                     }
                 }
-
-
+            }
+            Loader {
+                id: content
+                anchors.fill: parent
+                source: "%1.qml".arg(navigationModel.currentView)
             }
         }
         footer: Rectangle{

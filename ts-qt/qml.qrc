@@ -6,6 +6,8 @@
         <file>Cards.qml</file>
         <file>ButtonSamples.qml</file>
         <file>NetworkInfo.qml</file>
+        <file>Global.qml</file>
+        <file>ADS-B.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
