@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     visible: true
-    width: 480
+    width:480
     height: 800
     title: qsTr("TS")
 
@@ -97,15 +97,13 @@ ApplicationWindow {
                         }
                     }
                 }
-                Loader {
-                    id: content
-                    source: "%1.qml".arg(navigationModel.currentView)
-                    onLoaded: {
-                        width: 300
-                        anchors.right= parent.right
-                        height: 600
 
-                    }
+                Cards{
+                    visible: false
+                    anchors.fill:parent
+                }
+                Aircrafts{
+                     anchors.fill:parent
                 }
             }
         }
@@ -137,7 +135,7 @@ ApplicationWindow {
                 visible: !true
             }
             NetworkInfo{
- visible: !true
+                visible: !true
             }
         }
     }
