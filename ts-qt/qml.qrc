@@ -11,6 +11,11 @@
         <file>Global.qml</file>
         <file>ADS-B.qml</file>
         <file>SetupCards.qml</file>
+        <file>SetupConnectionDetail.qml</file>
+        <file>SetupDisplay.qml</file>
+        <file>SetupGPS.qml</file>
+        <file>SetupNetwork.qml</file>
+        <file>SetupSystemInfo.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

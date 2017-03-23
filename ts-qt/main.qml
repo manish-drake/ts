@@ -91,11 +91,28 @@ ApplicationWindow {
                 }
 
                 Cards{
-                    visible: false
+                    visible: !true
                     anchors.fill:parent
                 }
                 Aircrafts{
+                     visible: !true
                      anchors.fill:parent
+                }
+                SetupConnectionDetail{
+                     visible: !true
+                    anchors.fill:parent
+                }
+                SetupDisplay{
+                    visible: !true
+                   anchors.fill:parent
+                }
+                SetupNetwork{
+                    visible: true
+                   anchors.fill:parent
+                }
+                SetupSystemInfo{
+                    visible: !true
+                   anchors.fill:parent
                 }
             }
             Loader {
