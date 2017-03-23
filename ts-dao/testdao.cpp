@@ -64,12 +64,15 @@ unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int viewId) const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT * FROM tests "
-                "INNER JOIN navigation "
-                "ON tests.ID = navgation.linkID "
-                "WHERE navigation.link = 'Test' "
-                "AND navigation.fromViewID = %1")
-            .arg(viewId);
+                "SELECT tests.ID, tests.name, navigation.toViewID "
+                "FROM tests "
+                "LEFT OUTER JOIN navigation "
+                "ON tests.ID = navigation.linkID "
+                "WHERE (navigation.link = 'Test' "
+                "OR navigation.link IS NULL) "
+                "AND (navigation.fromViewID = %1 "
+                "OR navigation.fromViewID IS NULL) "
+            ).arg(viewId);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);

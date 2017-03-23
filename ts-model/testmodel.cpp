@@ -2,6 +2,12 @@
 #include "testdao.h"
 using namespace std;
 
+
+QString TestModel::getName() const
+{
+    return "From test model..";
+}
+
 TestModel::TestModel(QObject *parent)
     :QAbstractListModel(parent),
       m_db(DataManager::instance()),

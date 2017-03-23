@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QUrl>
 
 #include "databuilder.h"
 #include "sectionmodel.h"
@@ -37,7 +38,6 @@ int main(int argc, char *argv[])
 
         NavigationModel navigationModel;
         context->setContextProperty("navigationModel", &navigationModel);
-
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

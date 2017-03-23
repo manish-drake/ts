@@ -9,6 +9,7 @@ SectionModel::SectionModel(QObject *parent)
 {
 }
 
+
 double SectionModel::listHeight()
 {
     return this->m_listHeight;

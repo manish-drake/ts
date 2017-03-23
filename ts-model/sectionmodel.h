@@ -24,7 +24,9 @@ public:
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
 
+
     SectionModel(QObject *parent = 0);
+
 
     double listHeight();
     void setListHeight(double listHeight);

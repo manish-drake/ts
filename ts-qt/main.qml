@@ -93,7 +93,9 @@ ApplicationWindow {
             Loader {
                 id: content
                 anchors.fill: parent
+                anchors.centerIn: parent
                 source: "%1.qml".arg(navigationModel.currentView)
+                onLoaded: console.log(content.source);
             }
         }
         footer: Rectangle{

@@ -1,4 +1,6 @@
 #include "navigationmodel.h"
+#include <QDebug>
+#include <QUrl>
 
 NavigationModel::NavigationModel(QObject *parent) :
     QObject(parent),
@@ -18,6 +20,11 @@ QString NavigationModel::getViewName(const int viewId) const
     }
 }
 
+void NavigationModel::onLoaded(const QString &str) const
+{
+    qDebug() << str;
+}
+
 QString NavigationModel::currentView() const
 {
     return this->m_currentView;
@@ -30,3 +37,4 @@ void NavigationModel::setCurrentView(const QString currentView)
         emit this->currentViewChanged(currentView);
     }
 }
+

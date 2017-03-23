@@ -13,12 +13,14 @@ public:
 
     Q_PROPERTY(QString currentView READ currentView WRITE setCurrentView NOTIFY currentViewChanged)
     Q_INVOKABLE QString getViewName(const int viewId) const;
+    Q_INVOKABLE void onLoaded(const QString &str) const;
 
     QString currentView() const;
     void setCurrentView(const QString currentView);
 signals:
     void currentViewChanged(const QString currentView);
 public slots:
+
 private:
     QString m_currentView;
 };
