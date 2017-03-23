@@ -6,7 +6,7 @@ import QtQuick.Dialogs 1.2
 
 ApplicationWindow {
     visible: true
-    width: 480
+    width:480
     height: 800
     title: qsTr("TS")
 
@@ -89,6 +89,14 @@ ApplicationWindow {
                         }
                     }
                 }
+
+                Cards{
+                    visible: false
+                    anchors.fill:parent
+                }
+                Aircrafts{
+                     anchors.fill:parent
+                }
             }
             Loader {
                 id: content
@@ -126,7 +134,7 @@ ApplicationWindow {
                 visible: !true
             }
             NetworkInfo{
- visible: !true
+                visible: !true
             }
         }
     }
