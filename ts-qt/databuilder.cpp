@@ -12,6 +12,23 @@
 #include "navigationdao.h"
 #include "sectionnavigation.h"
 #include "testnavigation.h"
+#include <QVector>
+#include <QAbstractListModel>
+
+
+inline QVector<int> toVector(QAbstractListModel &list)  {
+    QVector<int> v;
+
+    const int nbRow = list.rowCount();
+    v.reserve(nbRow);
+
+    for (int i = 0; i < nbRow; ++i)
+    {
+        auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
+        v.append(elemT);
+    }
+    return v;
+}
 
 DataBuilder::DataBuilder()
 {
@@ -117,11 +134,20 @@ int DataBuilder::build()
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
+    for(auto sectId: toVector(sectionModel)){
+        SectionNavigation sectNav(sectId, globalView.id(), mainStartView.id());
+        navigationDaoPtr->addNavigation(sectNav);
+    }
+
     SectionNavigation startNav(start.id(), globalView.id(), mainStartView.id());
     navigationDaoPtr->addNavigation(startNav);
 
     SectionNavigation adsbNav(sectionADSB.id(), globalView.id(), mainADSBView.id());
     navigationDaoPtr->addNavigation(adsbNav);
 
+    for(auto testId: toVector(testModel)){
+        TestNavigation testNav(testId, globalView.id(), mainStartView.id());
+        navigationDaoPtr->addNavigation(testNav);
+    }
     return 1;
 }
