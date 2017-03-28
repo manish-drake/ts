@@ -24,12 +24,10 @@ public:
 
     Navigation(const int viewId, const QString &link, const int linkId, const int targetViewId);
 
-    ~Navigation();
-
 private:
     int m_id;
     int m_viewId;
-    QString m_link;
+    const QString &m_link;
     int m_linkId;
     int m_targetViewId;
 };

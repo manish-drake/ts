@@ -10,8 +10,7 @@
 
 #include "navigation.h"
 #include "navigationdao.h"
-#include "sectionnavigation.h"
-#include "testnavigation.h"
+#include <QAbstractListModel>
 #include <QVector>
 #include <QAbstractListModel>
 
@@ -34,6 +33,15 @@ DataBuilder::DataBuilder()
 {
 
 }
+inline std::vector<int> toIdVector(const QAbstractListModel &list){
+    int sz = list.rowCount();
+    std::vector<int> v;
+    for(int i = 0; i < sz; ++i){
+        int id = list.index(i, 0).data(SectionModel::IDRole/*Roles::ID*/).toInt();
+        v.push_back(id);
+    }
+    return v;
+}
 
 int DataBuilder::build()
 {
@@ -51,8 +59,8 @@ int DataBuilder::build()
     View mainADSBView("Main-ADSB");
     viewDao->addView(mainADSBView);
 
-    View detailView("Detail");
-    viewDao->addView(detailView);
+    View out1090DetailScan("Out1090-Detail-Scan");
+    viewDao->addView(out1090DetailScan);
 
     SectionModel sectionModel{};
 
@@ -134,16 +142,19 @@ int DataBuilder::build()
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    for(auto sectId: toVector(sectionModel)){
-        SectionNavigation sectNav(sectId, globalView.id(), mainStartView.id());
-        navigationDaoPtr->addNavigation(sectNav);
+    for(auto id: toIdVector(sectionModel)){
+        Navigation n(globalView.id(), "_section", id, globalView.id());
+        navigationDaoPtr->addNavigation(n);
     }
+    Navigation navAdsb(globalView.id(), "_section", sectionADSB.id(), mainADSBView.id());
+    navigationDaoPtr->addNavigation(navAdsb);
 
-    SectionNavigation startNav(start.id(), globalView.id(), mainStartView.id());
-    navigationDaoPtr->addNavigation(startNav);
-
-    SectionNavigation adsbNav(sectionADSB.id(), globalView.id(), mainADSBView.id());
-    navigationDaoPtr->addNavigation(adsbNav);
+    for(auto id: toIdVector(testModel)){
+        Navigation t(globalView.id(), "_test", id, globalView.id());
+        navigationDaoPtr->addNavigation(t);
+    }
+    Navigation navAdsbToScan(mainADSBView.id(), "_test", out1090.id(), out1090DetailScan.id());
+    navigationDaoPtr->addNavigation(navAdsbToScan);
 
     for(auto testId: toVector(testModel)){
         TestNavigation testNav(testId, globalView.id(), mainStartView.id());

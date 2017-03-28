@@ -8,6 +8,7 @@
         <file>NetworkInfo.qml</file>
         <file>Global.qml</file>
         <file>ADS-B.qml</file>
+        <file>ADSB-Scan.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

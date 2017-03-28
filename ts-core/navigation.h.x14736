@@ -2,7 +2,6 @@
 #define NAVIGATION_H
 
 #include "ts-core_global.h"
-#include <QString>
 
 class TSCORESHARED_EXPORT Navigation
 {
@@ -10,8 +9,7 @@ public:
     int id() const;
     void setId(const int id);
 
-    QString link() const;
-    void setLink(const QString &link);
+    virtual QString link() const = 0;
 
     int linkId() const;
     void setLinkId(const int id);
@@ -22,14 +20,12 @@ public:
     int targetViewId() const;
     void setToViewId(const int id);
 
-    Navigation(const int viewId, const QString &link, const int linkId, const int targetViewId);
-
-    ~Navigation();
+    Navigation(const int viewId, QString &link, const int linkId, const int targetViewId);
 
 private:
     int m_id;
     int m_viewId;
-    QString m_link;
+    QString &m_link;
     int m_linkId;
     int m_targetViewId;
 };

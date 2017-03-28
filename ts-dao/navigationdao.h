@@ -1,6 +1,8 @@
 #ifndef NAVIGATIONDAO_H
 #define NAVIGATIONDAO_H
 
+#include <memory>
+#include <vector>
 #include "ts-dao_global.h"
 #include "dao.h"
 class QSqlDatabase;
@@ -15,6 +17,9 @@ public:
     void removeNavigation(int id) const;
 
     NavigationDao(QSqlDatabase &database);
+
+    std::unique_ptr<std::vector<std::unique_ptr<Navigation> > > navigations(const int currentViewId) const;
+    std::unique_ptr<std::vector<std::unique_ptr<Navigation> > > navigations(const QString currentView) const;
 
     ~NavigationDao();
 };

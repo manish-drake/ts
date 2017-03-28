@@ -52,8 +52,6 @@ QVariant SectionModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case Roles::IDRole:
             return section.id();
-        case Roles::TargetViewIDRole:
-            return section.targetViewId();
         case Roles::NameRole:
         case Qt::DisplayRole:
             return section.name();
@@ -108,7 +106,6 @@ QHash<int, QByteArray> SectionModel::roleNames() const
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::NameRole, "name");
-    hash.insert(Roles::TargetViewIDRole, "targetViewId");
     return hash;
 }
 

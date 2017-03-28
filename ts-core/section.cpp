@@ -20,8 +20,7 @@ void Section::setId(int id)
     this->m_id = id;
 }
 
-Section::Section(const QString &name, const int targetViewId):
-    Link {targetViewId},
+Section::Section(const QString &name):
     m_id{0},
     m_name{name}
 {

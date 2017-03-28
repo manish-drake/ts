@@ -67,19 +67,13 @@ int SectionDao::getIntOrDefault(const QSqlQuery &query, const QString &col, cons
     }
 }
 
-unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections(const int viewId) const
+unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT sections.ID, sections.name, navigation.toViewID "
+                "SELECT * "
                 "FROM sections "
-                "LEFT OUTER JOIN navigation "
-                "ON sections.ID = navigation.linkID "
-                "WHERE (navigation.link = 'Section' "
-                "OR navigation.link IS NULL) "
-                "AND (navigation.fromViewID = %1 "
-                "OR navigation.fromViewID IS NULL) "
-            ).arg(viewId);
+            );
 
     query.exec(strQuery);
     DataManager::debugQuery(query);
@@ -88,8 +82,7 @@ unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections(const int viewId) c
 
     while (query.next()) {
         unique_ptr<Section> section(
-                    new Section(query.value("name").toString(),
-                                this->getIntOrDefault(query,"toViewID", 0)));
+                    new Section(query.value("name").toString()));
         section->setId(query.value("ID").toInt());
 
         list->push_back(move(section));

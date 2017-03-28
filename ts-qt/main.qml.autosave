@@ -103,6 +103,7 @@ ApplicationWindow {
                     onLoaded: {
                         width: 300
                         anchors.right= parent.right
+                        anchors.
                         height: 600
 
                     }
