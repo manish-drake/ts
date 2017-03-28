@@ -5,7 +5,8 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    databuilder.cpp
+    databuilder.cpp \
+    resourcenamecoupling.cpp
 
 RESOURCES += qml.qrc
 
@@ -53,4 +54,5 @@ INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
 
 HEADERS += \
-    databuilder.h
+    databuilder.h \
+    resourcenamecoupling.h

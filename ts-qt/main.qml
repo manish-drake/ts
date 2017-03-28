@@ -13,147 +13,55 @@ ApplicationWindow {
 
     Page {
         anchors.fill: parent
-        header: Rectangle{
-            width: parent.width
-            height: parent.height/10
-            border.color: "#f1400a"
-            color: "#86f50e"
-            anchors.top: parent.top
-            Text {
-                id: txtHeader
-                text: qsTr("Header")
-            }
+        header: Header{}
 
-            Rectangle{
-                height: 30
-                width: 30
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                color:"red"
-            }
-
-
-            Rectangle{
-                height: 30
-                width: 30
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                color:"red"
-            }
-        }
-        contentItem: Rectangle{
-            id:contentRect
-            color: "#136be6"
-            RowLayout {
-                anchors.fill: parent
-                ListView {
-//                    Layout.fillWidth: true
-//                    Layout.minimumWidth: 50
-//                    Layout.preferredWidth: 100
-//                    Layout.maximumWidth: 300
-                    visible: !false
-                    id: hbMenu
-                    model: sectionModel
-                    spacing:0
-                    width: parent.width/5
+        contentItem: Rectangle {
+            color: "yellow"
+            Rectangle {
+                id: popupContainer
+                width: 0
+                height: parent.height
+                Popup {
+                    id: popup
+                    x: 0
+                    y: 0
+                    width: parent.width
                     height: parent.height
-                    anchors.left: parent.left
+                    modal: true
+                    focus: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    ListView {
+                        anchors.fill: parent
+                        model: sectionModel
+                        delegate:  Rectangle {
+                            height: 60
+                            width: parent.width
+                            color: "red"
+                            Text {
+                                anchors.fill: parent
+                                text: name
+                            }
 
-                    delegate: Rectangle {
-                        border.color: "lightgray"
-                        border.width: 1
-                        width:  contentRect.width/4
-                        height: contentRect.height/10
-                        color: "#e5e5f7"
-
-                        Rectangle{
-                            id:imageRect
-                            height:15
-                            width:15
-                            color:"blue"
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left:parent.left
-                            anchors.leftMargin: 3
-                        }
-
-                        Text {
-                            anchors.leftMargin: 20
-                            text: name
-                            font.pointSize: 10
-                            color:"gray"
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left:parent.left
-                        }
-                        Text {
-                            id: tvid
-                            text: navigationModel.getTargetView("_section", id)
-                        }
-                        MouseArea{
-                            anchors.fill:parent
-                            z:1
-                            onClicked: {
-                                navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    popup.close()
+                                    navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                                }
                             }
                         }
                     }
+                    onClosed: parent.width = 0
+                    onOpened: parent.width = 180
                 }
-
-                Cards{
-                    visible: !true
-                    anchors.fill:parent
-                }
-                Aircrafts{
-                     visible: !true
-                     anchors.fill:parent
-                }
-                SetupConnectionDetail{
-                     visible: !true
-                    anchors.fill:parent
-                }
-                SetupDisplay{
-                    visible: !true
-                   anchors.fill:parent
-                }
-                SetupNetwork{
-                    visible: true
-                   anchors.fill:parent
-                }
-                SetupSystemInfo{
-                    visible: !true
-                   anchors.fill:parent
-                }
-            }
-        }
-        footer: Rectangle{
-            width: parent.width
-            height: parent.height/10
-            color: "#86f50e"
-            anchors.bottom: parent.bottom
-            Rectangle{
-                height: 30
-                width: 30
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                color:"red"
             }
 
-            Rectangle{
-                height: 30
-                width: 30
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                color:"red"
-            }
-            Text {
-                id: txtFooter
-                text: qsTr("Footer")
-            }
-            ButtonSamples{
-                visible: !true
-            }
-            NetworkInfo{
-                visible: !true
+            Loader {
+                anchors.fill: parent
+                source: "%1.qml".arg(navigationModel.currentView)
             }
         }
+
+        footer: Footer{}
     }
 }

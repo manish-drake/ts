@@ -56,7 +56,7 @@ int DataBuilder::build()
     View mainStartView("Main-Start");
     viewDao->addView(mainStartView);
 
-    View mainADSBView("Main-ADSB");
+    View mainADSBView("ADS-B");
     viewDao->addView(mainADSBView);
 
     View out1090DetailScan("Out1090-Detail-Scan");
@@ -156,9 +156,9 @@ int DataBuilder::build()
     Navigation navAdsbToScan(mainADSBView.id(), "_test", out1090.id(), out1090DetailScan.id());
     navigationDaoPtr->addNavigation(navAdsbToScan);
 
-    for(auto testId: toVector(testModel)){
-        TestNavigation testNav(testId, globalView.id(), mainStartView.id());
-        navigationDaoPtr->addNavigation(testNav);
-    }
+//    for(auto testId: toVector(testModel)){
+//        Navigation testNav(testId, globalView.id(), mainStartView.id());
+//        navigationDaoPtr->addNavigation(testNav);
+//    }
     return 1;
 }

@@ -3,26 +3,24 @@ import QtQuick 2.0
 Item {
     anchors.centerIn: parent
     anchors.fill: parent
-    Rectangle {
-        anchors.fill: parent
-        anchors.centerIn: parent
-        Text {
-            id: txt
-            text: testModel.getName()
-        }
-    }
-
 
     Component {
-        id: testCardDelegate
-        Item {
-            width: grid.cellWidth; height: grid.cellHeight
-            Column {
+        id: testCardDelegate        
+        Rectangle {
+            anchors.verticalCenterOffset: 5
+            anchors.horizontalCenterOffset: 5
+            id: wrapper
+            border.color: "gray"
+            border.width: 1
+            radius: 5
+            width: grid.cellWidth - 5; height: grid.cellHeight - 5
+            Text {
+                anchors.centerIn: parent
+                text: name
+            }
+            MouseArea {
                 anchors.fill: parent
-                Text {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Card"
-                }
+                onClicked: navigationModel.currentView = navigationModel.getTargetView("_test", id)
             }
         }
     }
@@ -30,11 +28,10 @@ Item {
     GridView {
         id: grid
         anchors.fill: parent
-        cellWidth: 80; cellHeight: 80
-
+        cellWidth: grid.width/2; cellHeight: 200
         model: testModel
+
         delegate: testCardDelegate
-        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
         focus: true
     }
 }
