@@ -90,10 +90,10 @@ ApplicationWindow {
                     }
                 }
 
-                Cards{
-                    visible: !true
-                    anchors.fill:parent
-                }
+//                Cards{
+//                    visible: !true
+//                    anchors.fill:parent
+//                }
                 Aircrafts{
                      visible: !true
                      anchors.fill:parent
@@ -102,14 +102,14 @@ ApplicationWindow {
                      visible: !true
                     anchors.fill:parent
                 }
-                SetupDisplay{
-                    visible: !true
-                   anchors.fill:parent
-                }
-                SetupNetwork{
-                    visible: true
-                   anchors.fill:parent
-                }
+//                SetupDisplay{
+//                    visible: !true
+//                   anchors.fill:parent
+//                }
+//                SetupNetwork{
+//                    visible: true
+//                   anchors.fill:parent
+//                }
                 SetupSystemInfo{
                     visible: !true
                    anchors.fill:parent

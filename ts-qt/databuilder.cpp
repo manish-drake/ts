@@ -25,102 +25,245 @@ int DataBuilder::build()
 
     auto viewDao = DataManager::instance().viewDao();
 
-    View globalView("Global");
-    viewDao->addView(globalView);
+    View vwGlobal("Global");
+    viewDao->addView(vwGlobal);
 
-    View mainStartView("Main-Start");
-    viewDao->addView(mainStartView);
+    View vwMainStart("Main-Start");
+    viewDao->addView(vwMainStart);
 
-    View mainADSBView("Main-ADSB");
-    viewDao->addView(mainADSBView);
+    View vwMainADSB("Main-ADSB");
+    viewDao->addView(vwMainADSB);    
 
-    View detailView("Detail");
-    viewDao->addView(detailView);
+    View vwADSBout1090Scan("ADSB-OUT-1090-Scan");
+    viewDao->addView(vwADSBout1090Scan);
+
+    View vwADSBout1090P1("ADSB-OUT-1090-P1");
+    viewDao->addView(vwADSBout1090P1);
+
+    View vwADSBout1090P2("ADSB-OUT-1090-P2");
+    viewDao->addView(vwADSBout1090P2);
+
+    View vwADSBout1090P3("ADSB-OUT-1090-P3");
+    viewDao->addView(vwADSBout1090P3);
+
+    View vwADSBout1090P4("ADSB-OUT-1090-P4");
+    viewDao->addView(vwADSBout1090P4);
+
+    View vwADSBout1090P5("ADSB-OUT-1090-P5");
+    viewDao->addView(vwADSBout1090P5);
+
+    View vwADSBout1090P6("ADSB-OUT-1090-P6");
+    viewDao->addView(vwADSBout1090P6);
+
+    View vwADSBout1090P7("ADSB-OUT-1090-P7");
+    viewDao->addView(vwADSBout1090P7);
+
+    View vwADSBoutUATScan("ADSB-OUT-UAT-Scan");
+    viewDao->addView(vwADSBoutUATScan);
+
+    View vwADSBoutUATP1("ADSB-OUT-UAT-P1");
+    viewDao->addView(vwADSBoutUATP1);
+
+    View vwADSBoutUATP2("ADSB-OUT-UAT-P2");
+    viewDao->addView(vwADSBoutUATP2);
+
+    View vwADSBoutUATP3("ADSB-OUT-UAT-P3");
+    viewDao->addView(vwADSBoutUATP3);
+
+    View vwADSBoutUATP4("ADSB-OUT-UAT-P4");
+    viewDao->addView(vwADSBoutUATP4);
+
+    View vwADSBoutUATP5("ADSB-OUT-UAT-P5");
+    viewDao->addView(vwADSBoutUATP5);
+
+    View vwADSBoutUATP6("ADSB-OUT-UAT-P6");
+    viewDao->addView(vwADSBoutUATP6);
+
+    View vwMainSetup("Main-Setup");
+    viewDao->addView(vwMainSetup);
+
+    View vwSetupUser("Setup-User");
+    viewDao->addView(vwSetupUser);
+
+    View vwSetupEditUser("Setup-User-EditUser");
+    viewDao->addView(vwSetupEditUser);
+
+    View vwSetupDisplay("Setup-Display");
+    viewDao->addView(vwSetupDisplay);
+
+    View vwSetupGPS("Setup-GPS");
+    viewDao->addView(vwSetupGPS);
+
+    View vwSetupNetwork("Setup-Network");
+    viewDao->addView(vwSetupNetwork);
+
+    View vwSetupSysInfo("Setup-System-Info");
+    viewDao->addView(vwSetupSysInfo);
+
+    View vwSetupConn("Setup-Connection");
+    viewDao->addView(vwSetupConn);
+
+    View vwSetupRMBit("Setup-Run-Manual-Bit");
+    viewDao->addView(vwSetupRMBit);
+
+
+    View vwDetail("Detail");
+    viewDao->addView(vwDetail);
 
     SectionModel sectionModel{};
 
-    Section start("Start");
-    sectionModel.addSection(start);
+    Section secStart("Start");
+    sectionModel.addSection(secStart);
 
-    Section transponder("Transponder");
-    sectionModel.addSection(transponder);
+    Section secTransponder("Transponder");
+    sectionModel.addSection(secTransponder);
 
-    Section modeS("Mode S");
-    sectionModel.addSection(modeS);
+    Section secModeS("Mode S");
+    sectionModel.addSection(secModeS);
 
-    Section sectionADSB("ADS-B");
-    sectionModel.addSection(sectionADSB);
+    Section secADSB("ADS-B");
+    sectionModel.addSection(secADSB);
 
-    Section nav("NAV");
-    sectionModel.addSection(nav);
+    Section secNav("NAV");
+    sectionModel.addSection(secNav);
 
-    Section comm("Comm");
-    sectionModel.addSection(comm);
+    Section secComm("Comm");
+    sectionModel.addSection(secComm);
 
-    Section antenna("Antenna");
-    sectionModel.addSection(antenna);
+    Section secAntenna("Antenna");
+    sectionModel.addSection(secAntenna);
 
-    Section reports("Reports");
-    sectionModel.addSection(reports);
+    Section secReports("Reports");
+    sectionModel.addSection(secReports);
 
-    Section setup("Setup");
-    sectionModel.addSection(setup);
+    Section secSetup("Setup");
+    sectionModel.addSection(secSetup);
 
-    Section search("Search");
-    sectionModel.addSection(search);
+    Section secSearch("Search");
+    sectionModel.addSection(secSearch);
 
     TestModel testModel { };
-    SummaryModel summaryModel { };
-    TestParamModel testParamModel { };
+    SummaryModel sumModel { };
+    TestParamModel tpModel { };
 
-    Test out1090("1090 ADS-B OUT", sectionADSB.id());
-    testModel.addTest(out1090);
+    Test adsbOut1090("1090 ADS-B OUT", secADSB.id());
+    testModel.addTest(adsbOut1090);
 
-    Summary airVeh("Aircraft/Vehicle:", out1090.id(), 0, 0, 0);
-    summaryModel.addSummary(airVeh);
+    Summary airVeh("Aircraft/Vehicle:", adsbOut1090.id(), 0, 0, 0);
+    sumModel.addSummary(airVeh);
 
     TestParam airVehAdd("address", airVeh.id(), "ADDRESS", "2345AA (H)/23734510 (O)", "", 0, 0, 0);
-    testParamModel.addTestParam(airVehAdd);
+    tpModel.addTestParam(airVehAdd);
 
-    TestParam airVehFId("flightId", airVeh.id(), "Flight ID", "234N1246W", "", 1, 0, 0);
-    testParamModel.addTestParam(airVehFId);
+    TestParam airVehFId("flightId", airVeh.id(), "Flight ID", "N1246W", "", 1, 0, 0);
+    tpModel.addTestParam(airVehFId);
 
     TestParam airVehBds("bdsRcvd", airVeh.id(), "BDS Rcvd (DF17)", "0,5,0,8,0,9,6,0,6,1,6,5", "", 2, 0, 0);
-    testParamModel.addTestParam(airVehBds);
+    tpModel.addTestParam(airVehBds);
 
     TestParam airVehRfLvl("rfLvl", airVeh.id(), "RF Level", "Strong", "", 1, 1, 0);
-    testParamModel.addTestParam(airVehRfLvl);
+    tpModel.addTestParam(airVehRfLvl);
 
 
-    Summary farElems("FAR 91.227 REQUIRED ELEMENTS", out1090.id(), 0, 1, 1);
-    summaryModel.addSummary(farElems);
+    Summary farElems("FAR 91.227 REQUIRED ELEMENTS", adsbOut1090.id(), 0, 1, 1);
+    sumModel.addSummary(farElems);
 
-    Summary avInfo("Aircraft/Vehicle info:", out1090.id(), 0, 2, 0);
-    summaryModel.addSummary(avInfo);
+    Summary avInfo("Aircraft/Vehicle info:", adsbOut1090.id(), 0, 2, 2);
+    sumModel.addSummary(avInfo);
 
-    Summary ynDisc("YES/NO Discretes:", out1090.id(), 0, 3, 0);
-    summaryModel.addSummary(ynDisc);
+    TestParam avInfoFId("flightId", avInfo.id(), "Flight ID", "N1246W", "", 0, 0, 0);
+    tpModel.addTestParam(avInfoFId);
 
-    Summary intgFld("Integrity Fields:", out1090.id(), 0, 4, 0);
-    summaryModel.addSummary(intgFld);
+    TestParam avInfoMsAdd("modeSAddr", avInfo.id(), "Mode S Addr", "", "", 0, 1, 0);
+    tpModel.addTestParam(avInfoMsAdd);
+
+    TestParam avInfoEc("emitterCat", avInfo.id(), "Emitter Cat", "", "", 1, 0, 0);
+    tpModel.addTestParam(avInfoEc);
+
+    TestParam avInfoAcode("3/ACode", avInfo.id(), "3/A Code", "", "", 1, 1, 0);
+    tpModel.addTestParam(avInfoAcode);
+
+    TestParam avInfoEp("emg/Prty", avInfo.id(), "Emg/Prty", "", "", 2, 0, 0);
+    tpModel.addTestParam(avInfoEp);
+
+    TestParam avInfoLw("l/w", avInfo.id(), "L/W", "", "", 2, 1, 0);
+    tpModel.addTestParam(avInfoLw);
+
+    TestParam avInfoLat("latitude", avInfo.id(), "Latitude", "", "N", 3, 0, 0);
+    tpModel.addTestParam(avInfoLat);
+
+    TestParam avInfoAltbaro("altitude(baro)", avInfo.id(), "Altitude(baro)", "", "ft", 3, 1, 0);
+    tpModel.addTestParam(avInfoAltbaro);
+
+    TestParam avInfoLong("longitude", avInfo.id(), "Longitude", "", "W", 4, 0, 0);
+    tpModel.addTestParam(avInfoLong);
+
+    TestParam avInfoAltgeom("altitude(geom)", avInfo.id(), "Altitude(geom)", "", "ft", 4, 1, 0);
+    tpModel.addTestParam(avInfoAltgeom);
+
+    TestParam avInfoVct("velocity", avInfo.id(), "Velocity", "", "kts", 5, 0, 0);
+    tpModel.addTestParam(avInfoVct);
+
+    Summary ynDisc("YES/NO Discretes:", adsbOut1090.id(), 0, 3, 2);
+    sumModel.addSummary(ynDisc);
+
+    TestParam ynDiscUin("uat-In", avInfo.id(), "UAT IN", "", "", 0, 0, 0);
+    tpModel.addTestParam(ynDiscUin);
+
+    TestParam ynDiscTop("tcas-Op", avInfo.id(), "TCAS Op", "", "", 0, 1, 0);
+    tpModel.addTestParam(ynDiscTop);
+
+    TestParam ynDiscEsin("1090ES-In", avInfo.id(), "1090ES IN", "", "", 1, 0, 0);
+    tpModel.addTestParam(ynDiscEsin);
+
+    TestParam ynDiscIdt("ident", avInfo.id(), "IDENT", "", "", 1, 1, 0);
+    tpModel.addTestParam(ynDiscIdt);
+
+    TestParam ynDiscTra("tcas-Ra", avInfo.id(), "TCAS RA", "", "", 2, 0, 0);
+    tpModel.addTestParam(ynDiscTra);
+
+    Summary intgFld("Integrity Fields:", adsbOut1090.id(), 0, 4, 2);
+    sumModel.addSummary(intgFld);
+
+    TestParam intgFldNacp("nacp", intgFld.id(), "NACp", "", "", 0, 0, 0);
+    tpModel.addTestParam(intgFldNacp);
+
+    TestParam intgFldNacv("nacv", intgFld.id(), "NACv", "", "", 0, 1, 0);
+    tpModel.addTestParam(intgFldNacv);
+
+    TestParam intgFldSil("sil", intgFld.id(), "SIL", "", "", 1, 0, 0);
+    tpModel.addTestParam(intgFldSil);
+
+    TestParam intgFldSda("sda", intgFld.id(), "SDA", "", "", 1, 1, 0);
+    tpModel.addTestParam(intgFldSda);
+
+    TestParam intgFldGva("gva", intgFld.id(), "GVA", "", "", 2, 0, 0);
+    tpModel.addTestParam(intgFldGva);
+
+    TestParam intgFldNic("nic", intgFld.id(), "NIC", "", "", 2, 1, 0);
+    tpModel.addTestParam(intgFldNic);
+
+    //-----------------------------------------------------------------
 
 
-    Test in1090("1090 ADS-B IN", sectionADSB.id());
+
+
+    Test in1090("1090 ADS-B IN", secADSB.id());
     testModel.addTest(in1090);
 
-    Test uatOut("UAT ADS-B OUT", sectionADSB.id());
+    Test uatOut("UAT ADS-B OUT", secADSB.id());
     testModel.addTest(uatOut);
 
-    Test uatIn("UAT ADS-B IN", sectionADSB.id());
+    Test uatIn("UAT ADS-B IN", secADSB.id());
     testModel.addTest(uatIn);
 
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    SectionNavigation startNav(start.id(), globalView.id(), mainStartView.id());
+    SectionNavigation startNav(secStart.id(), vwGlobal.id(), vwMainStart.id());
     navigationDaoPtr->addNavigation(startNav);
 
-    SectionNavigation adsbNav(sectionADSB.id(), globalView.id(), mainADSBView.id());
+    SectionNavigation adsbNav(secADSB.id(), vwGlobal.id(), vwMainADSB.id());
     navigationDaoPtr->addNavigation(adsbNav);
 
     return 1;
