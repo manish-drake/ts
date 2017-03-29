@@ -277,6 +277,8 @@ int DataBuilder::build()
     Navigation main1090ToScanPage(vwMainADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
 
+    Navigation scanToDetail(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(scanToDetail);
 
 
     return 1;

@@ -13,6 +13,8 @@ public:
             return "ADS-B.qml";
         case 4:
             return "ADSB-Scan.qml";
+        case 5 ... 11:
+            return "ADSB-Pages.qml";
         case 1:
         default:
             return "Global.qml";
