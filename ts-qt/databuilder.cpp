@@ -617,14 +617,82 @@ int DataBuilder::build()
     Summary sumAvInfo3("Aircraft/Vehicle info:", uatOut.id(), 0, 2, 2);
     sumModel.addSummary(sumAvInfo3);
 
+    TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpAvInfo3fid);
+
+    TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpAvInfo3csid);
+
+    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpAvInfo3ect);
+
+    TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "", "", 1, 1, 0);
+    tpModel.addTestParam(tpAvInfo3acode);
+
+    TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "", "", 2, 0, 0);
+    tpModel.addTestParam(tpAvInfo3ep);
+
     Summary sumCCodes("Capability Codes:", uatOut.id(), 0, 3, 2);
     sumModel.addSummary(sumCCodes);
+
+    TestParam tpCCodesuin("uat-IN", sumCCodes.id(), "UAT IN", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpCCodesuin);
+
+    TestParam tpCCodestOp("tcas-Op", sumCCodes.id(), "TCAS Op", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpCCodestOp);
+
+    TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpCCodesesin);
 
     Summary sumOModes("Operational Modes:", uatOut.id(), 0, 4, 2);
     sumModel.addSummary(sumOModes);
 
+    TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpOModesAtcS);
+
+    TestParam tpOModesidt("ident", sumOModes.id(), "IDENT", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpOModesidt);
+
+    TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpOModestra);
+
     Summary sumOtherFld("Other Fields:", uatOut.id(), 0, 5, 2);
     sumModel.addSummary(sumOtherFld);
+
+    TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpOtherFldnacp);
+
+    TestParam tpOtherFldtmso("transmit-MSO", sumOtherFld.id(), "Transmit MSO", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpOtherFldtmso);
+
+    TestParam tpOtherFldnacv("nacv", sumOtherFld.id(), "NACv", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpOtherFldnacv);
+
+    TestParam tpOtherFldsil("sil", sumOtherFld.id(), "SIL", "", "", 1, 1, 0);
+    tpModel.addTestParam(tpOtherFldsil);
+
+    TestParam tpOtherFldsda("sda", sumOtherFld.id(), "SDA", "", "", 2, 0, 0);
+    tpModel.addTestParam(tpOtherFldsda);
+
+    TestParam tpOtherFldgva("gva", sumOtherFld.id(), "GVA", "", "", 2, 1, 0);
+    tpModel.addTestParam(tpOtherFldgva);
+
+    TestParam tpOtherFldmops("mops", sumOtherFld.id(), "MOPS", "", "", 3, 0, 0);
+    tpModel.addTestParam(tpOtherFldmops);
+
+    TestParam tpOtherFldssup("sil-Sup", sumOtherFld.id(), "SIL Sup", "", "", 3, 1, 0);
+    tpModel.addTestParam(tpOtherFldssup);
+
+    TestParam tpOtherFldsant("sgl-Ant", sumOtherFld.id(), "Sgl Ant", "", "", 4, 0, 0);
+    tpModel.addTestParam(tpOtherFldsant);
+
+    TestParam tpOtherFldnbaro("nicbaro", sumOtherFld.id(), "NICbaro", "", "", 4, 1, 0);
+    tpModel.addTestParam(tpOtherFldnbaro);
+
+    TestParam tpOtherFldnsup("nicsup", sumOtherFld.id(), "NICsup", "", "", 5, 0, 0);
+    tpModel.addTestParam(tpOtherFldnsup);
+
+
 
     //------------------------------P2-------------------------------
 
@@ -649,11 +717,48 @@ int DataBuilder::build()
     Summary sumPosVel1("Position & Velocity:", uatOut.id(), 1, 2, 2);
     sumModel.addSummary(sumPosVel1);
 
+    TestParam tpPosVel1agst("air/Gnd State", sumPosVel1.id(), "Air/Gnd State", "Air-Subsonic", "", 0, 0, 0);
+    tpModel.addTestParam(tpPosVel1agst);
+
+    TestParam tpPosVel1lat("latitude", sumPosVel1.id(), "Latitude", "", "N", 1, 0, 0);
+    tpModel.addTestParam(tpPosVel1lat);
+
+    TestParam tpPosVel1long("longitude", sumPosVel1.id(), "Longitude", "", "W", 2, 0, 0);
+    tpModel.addTestParam(tpPosVel1long);
+
+    TestParam tpPosVel1alt("altitude", sumPosVel1.id(), "Altitude", "", "ft", 3, 0, 0);
+    tpModel.addTestParam(tpPosVel1alt);
+
+    TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "", "", 3, 1, 0);
+    tpModel.addTestParam(tpPosVel1typ);
+
+    TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "", "", 4, 0, 0);
+    tpModel.addTestParam(tpPosVel1hv);
+
+    TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "", "", 5, 0, 0);
+    tpModel.addTestParam(tpPosVel1trh);
+
+    TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "", "", 5, 1, 0);
+    tpModel.addTestParam(tpPosVel1src);
+
     Summary sumOtherFld1("Other Fields:", uatOut.id(), 1, 3, 2);
     sumModel.addSummary(sumOtherFld1);
 
+    TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpOtherFld1Nic);
+
+    TestParam tpOtherFld1Utc("utc", sumOtherFld1.id(), "UTC", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpOtherFld1Utc);
+
+    TestParam tpOtherFld1Uf("uplink-Feedback", sumOtherFld1.id(), "Uplink Feedback", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpOtherFld1Uf);
+
+
     Summary sumAuxSv1("Aux.State Vector Element (AUX SV):", uatOut.id(), 1, 4, 2);
     sumModel.addSummary(sumAuxSv1);
+
+    TestParam tpAuxSv1SecAlt("secondary-Altitude", sumAuxSv1.id(), "Secondary Altitude", "", "ft", 0, 0, 0);
+    tpModel.addTestParam(tpAuxSv1SecAlt);
 
 
     //------------------------------P3-------------------------------
@@ -674,46 +779,61 @@ int DataBuilder::build()
     tpModel.addTestParam(tpAirVeh9Bds);
 
     Summary sumSV2("State Vector Element (SV)", uatOut.id(), 2, 1, 1);
-    sumModel.addSummary(sumSV2);
-
-    TestParam tpSV2agst("air/Gnd State", sumSV2.id(), "Air/Gnd State", "Ground", "", 0, 0, 0);
-    tpModel.addTestParam(tpSV2agst);
-
-    TestParam tpSV2lat("latitude", sumSV2.id(), "Latitude", "", "N", 1, 0, 0);
-    tpModel.addTestParam(tpSV2lat);
-
-    TestParam tpSV2long("longitude", sumSV2.id(), "Longitude", "", "W", 2, 0, 0);
-    tpModel.addTestParam(tpSV2long);
-
-    TestParam tpSV2alt("altitude", sumSV2.id(), "Altitude", "", "ft", 3, 0, 0);
-    tpModel.addTestParam(tpSV2alt);
-
-    TestParam tpSV2typ("type", sumSV2.id(), "Type", "", "", 3, 1, 0);
-    tpModel.addTestParam(tpSV2typ);
-
-    TestParam tpSV2gsp("groundspeed", sumSV2.id(), "Groundspeed", "", "kts", 4, 0, 0);
-    tpModel.addTestParam(tpSV2gsp);
-
-    TestParam tpSV2trh("track/Heading", sumSV2.id(), "Track/Heading", "deg", "", 5, 0, 0);
-    tpModel.addTestParam(tpSV2trh);
-
-    TestParam tpSV2th("t/h", sumSV2.id(), "T/H", "", "", 5, 1, 0);
-    tpModel.addTestParam(tpSV2th);
-
-    TestParam tpSV2avlw("a/v-L/W", sumSV2.id(), "A/V L/W", "", "", 6, 0, 0);
-    tpModel.addTestParam(tpSV2avlw);
-
-    TestParam tpSV2gao("gps-Ant-Offset", sumSV2.id(), "GPS Ant Offset", "", "", 7, 0, 0);
-    tpModel.addTestParam(tpSV2gao);
+    sumModel.addSummary(sumSV2);    
 
     Summary sumPosVel2("Position & Velocity:", uatOut.id(), 2, 2, 2);
     sumModel.addSummary(sumPosVel2);
 
+    TestParam tpPosVel2agst("air/Gnd State", sumPosVel2.id(), "Air/Gnd State", "Ground", "", 0, 0, 0);
+    tpModel.addTestParam(tpPosVel2agst);
+
+    TestParam tpPosVel2lat("latitude", sumPosVel2.id(), "Latitude", "", "N", 1, 0, 0);
+    tpModel.addTestParam(tpPosVel2lat);
+
+    TestParam tpPosVel2long("longitude", sumPosVel2.id(), "Longitude", "", "W", 2, 0, 0);
+    tpModel.addTestParam(tpPosVel2long);
+
+    TestParam tpPosVel2alt("altitude", sumPosVel2.id(), "Altitude", "", "ft", 3, 0, 0);
+    tpModel.addTestParam(tpPosVel2alt);
+
+    TestParam tpPosVel2typ("type", sumPosVel2.id(), "Type", "", "", 3, 1, 0);
+    tpModel.addTestParam(tpPosVel2typ);
+
+    TestParam tpPosVel2gsp("groundspeed", sumPosVel2.id(), "Groundspeed", "", "kts", 4, 0, 0);
+    tpModel.addTestParam(tpPosVel2gsp);
+
+    TestParam tpPosVel2trh("track/Heading", sumPosVel2.id(), "Track/Heading", "", "deg", 5, 0, 0);
+    tpModel.addTestParam(tpPosVel2trh);
+
+    TestParam tpPosVel2th("t/h", sumPosVel2.id(), "T/H", "", "", 5, 1, 0);
+    tpModel.addTestParam(tpPosVel2th);
+
+    TestParam tpPosVel2avlw("a/v-L/W", sumPosVel2.id(), "A/V L/W", "", "", 6, 0, 0);
+    tpModel.addTestParam(tpPosVel2avlw);
+
+    TestParam tpPosVel2gao("gps-Ant-Offset", sumPosVel2.id(), "GPS Ant Offset", "", "", 7, 0, 0);
+    tpModel.addTestParam(tpPosVel2gao);
+
     Summary sumOtherFld2("Other Fields:", uatOut.id(), 2, 3, 2);
     sumModel.addSummary(sumOtherFld2);
 
+    TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpOtherFld2Nic);
+
+    TestParam tpOtherFld2Utc("utc", sumOtherFld2.id(), "UTC", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpOtherFld2Utc);
+
+    TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "", "", 1, 0, 0);
+    tpModel.addTestParam(tpOtherFld2Uf);
+
     Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", uatOut.id(), 2, 4, 2);
     sumModel.addSummary(sumAuxSv2);
+
+    TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "", "", 0, 0, 0);
+    tpModel.addTestParam(tpAuxSv2secAlt);
+
+    TestParam tpAuxSv2typ("type", sumAuxSv2.id(), "Type", "", "", 0, 1, 0);
+    tpModel.addTestParam(tpAuxSv2typ);
 
     //------------------------------P4-------------------------------
 
