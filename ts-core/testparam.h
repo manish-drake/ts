@@ -32,6 +32,12 @@ public:
     int col() const;
     void setCol(const int col);
 
+    int rowSpan() const;
+    void setRowSpan(const int row);
+
+    int colSpan() const;
+    void setColSpan(const int col);
+
     int style() const;
     void setStyle(const int style);
 
@@ -42,7 +48,9 @@ public:
               const QString unit,
               const int row,
               const int col,
-              const int style);
+              const int rowSpan = 1,
+              const int colSpan = 1,
+              const int style = 0);
 private:
     int m_id;
     QString m_name;
@@ -52,6 +60,8 @@ private:
     QString m_unit;
     int m_row;
     int m_col;
+    int m_rowSpan;
+    int m_colSpan;
     int m_style;
 };
 

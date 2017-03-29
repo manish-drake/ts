@@ -4,3 +4,5 @@
 ts.pro.user
 ts.db
 *.autosave
+*.h.*
+*.cpp.*
