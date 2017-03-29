@@ -70,7 +70,8 @@ NavigationDao::navigations(const int currentViewId) const
     const QString strQuery = QString(
                 "SELECT navigation.* "
                 "FROM navigation "
-                "WHERE navigation.viewID = %1"
+                "WHERE navigation.viewID = %1 "
+                "OR navigation.viewID = 1"
             ).arg(currentViewId);
 
     query.exec(strQuery);

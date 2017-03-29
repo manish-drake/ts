@@ -271,18 +271,9 @@ int DataBuilder::build()
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    for(auto id: toVector(sectionModel)){
-        Navigation nav(vwGlobal.id(), "_section", id, vwGlobal.id());
-        navigationDaoPtr->addNavigation(nav);
-    }
-
     Navigation adsbTo1090(vwGlobal.id(), "_section", secADSB.id(), vwMainADSB.id());
     navigationDaoPtr->addNavigation(adsbTo1090);
 
-    for(auto id: toVector(testModel)){
-        Navigation nav(vwGlobal.id(), "_test", id, vwGlobal.id());
-        navigationDaoPtr->addNavigation(nav);
-    }
     Navigation main1090ToScanPage(vwMainADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
 

@@ -15,20 +15,20 @@ class TSMODELSHARED_EXPORT NavigationModel : public QObject
 public:
     explicit NavigationModel(QObject *parent = 0);
 
-    Q_PROPERTY(QString currentView READ currentView WRITE setCurrentView NOTIFY currentViewChanged)
-    Q_INVOKABLE QString getViewName(const int viewId) const;
-    Q_INVOKABLE void onLoaded(const QString &str) const;
-    Q_INVOKABLE const QString getTargetView(const QString link, const int linkId = 0) const;
+    Q_PROPERTY(int currentView READ currentView WRITE setCurrentView NOTIFY currentViewChanged)
+    Q_INVOKABLE int getTargetView(const QString link, const int linkId = 0) const;
 
-    QString currentView() const;
-    void setCurrentView(const QString currentView);
+    Q_INVOKABLE void onLoaded(const QString &str) const;
+
+    int currentView() const;
+    void setCurrentView(const int currentView);
 signals:
-    void currentViewChanged(const QString currentView);
+    void currentViewChanged(const int currentView);
 public slots:
 
 private:
     DataManager &m_db;
-    QString m_currentView;
+    int m_currentView;
     std::unique_ptr<std::vector<std::unique_ptr<Navigation>>> m_navigations;
 };
 

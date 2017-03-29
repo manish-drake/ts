@@ -9,13 +9,13 @@ public:
     ResourceNameCoupling(){};
     Q_INVOKABLE QString getPageFromViewId(int viewId){
         switch (viewId) {
-        case 2:
-            return "ADS-B";
+        case 3:
+            return "ADS-B.qml";
         case 4:
-            return "ADSB-Scan";
+            return "ADSB-Scan.qml";
         case 1:
         default:
-            return "Global";
+            return "Global.qml";
             break;
         }
     }

@@ -58,7 +58,7 @@ ApplicationWindow {
 
             Loader {
                 anchors.fill: parent
-                source: "%1.qml".arg(navigationModel.currentView)
+                source: registry.getPageFromViewId(navigationModel.currentView)
             }
         }
 
