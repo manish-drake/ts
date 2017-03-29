@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     visible: true
-    width:480
+    width: 480
     height: 800
     title: qsTr("TS")
 
