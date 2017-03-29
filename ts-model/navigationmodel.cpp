@@ -19,7 +19,7 @@ QString NavigationModel::getViewName(const int viewId) const
         return "ADS-B";
     case 4:
         return "ADSB-Scan";
-    case 0:
+    case 1:
     default:
         return "Global";
     }
@@ -54,6 +54,7 @@ void NavigationModel::setCurrentView(const QString currentView)
     if(this->m_currentView != currentView){
         this->m_navigations = m_db.navigationDao()->navigations(currentView);
         this->m_currentView = currentView;        
+
         emit this->currentViewChanged(currentView);
     }
 }

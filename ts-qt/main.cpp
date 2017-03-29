@@ -11,7 +11,7 @@
 #include "navigationmodel.h"
 #include "resourcenamecoupling.h"
 
-const int DATA_CREATION_MODE = 1;
+const int DATA_CREATION_MODE = 0;
 
 
 int main(int argc, char *argv[])
