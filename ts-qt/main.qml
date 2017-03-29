@@ -16,6 +16,7 @@ ApplicationWindow {
         header: Header{}
 
         contentItem: Rectangle {
+            id:contentRect
             color: "#55FFFF00"
             Rectangle {
                 id: popupContainer
@@ -23,8 +24,6 @@ ApplicationWindow {
                 height: 10 * 50
                 Popup {
                     id: popup
-                    x: 0
-                    y: 0
                     width: parent.width
                     height: 10 * 50
                     modal: true
@@ -66,6 +65,27 @@ ApplicationWindow {
             Loader {
                 anchors.fill: parent
                 source: registry.getPageFromViewId(navigationModel.currentView)
+            }
+
+            Rectangle {
+                anchors.horizontalCenter:parent.horizontalCenter
+                id: popupContainerCenter
+                width: 0
+                height: 424
+                Popup {
+                    id: popupCenter
+                    width: parent.width
+                    height: 424
+                    modal: true
+                    focus: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    padding: 0
+
+                    CenterMenu{}
+
+                    onClosed: parent.width = 0
+                    onOpened: parent.width = 270;
+                }
             }
         }
 

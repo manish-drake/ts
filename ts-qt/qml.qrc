@@ -23,6 +23,8 @@
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
+        <file>img/start.png</file>
+        <file>img/centermenu.png</file>
     </qresource>
     <qresource prefix="/garbage"/>
 </RCC>
