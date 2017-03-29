@@ -6,6 +6,7 @@
 #include "navigation.h"
 #include "navigationdao.h"
 
+using namespace std;
 
 void NavigationDao::init() const
 {
@@ -19,10 +20,10 @@ void NavigationDao::init() const
         const QString strQuery(
                     "CREATE TABLE navigation "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                    "viewID INTEGER,"
                     "link TEXT,"
                     "linkID INTEGER,"
-                    "fromViewID INTEGER,"
-                    "toViewID INTEGER)");
+                    "targetViewID INTEGER)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -33,13 +34,13 @@ void NavigationDao::addNavigation(Navigation &navigation) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO navigation "
-                "(link, linkID, fromViewID, toViewID) "
-                "VALUES (:link, :linkID, :fromViewID, :toViewID)");
+                "(viewID, link, linkID, targetViewID) "
+                "VALUES (:viewID, :link, :linkID, :targetViewID)");
     query.prepare(strQuery);
+    query.bindValue(":viewID", navigation.viewId());
     query.bindValue(":link", navigation.link());
     query.bindValue(":linkID", navigation.linkId());
-    query.bindValue(":fromViewID", navigation.fromViewId());
-    query.bindValue(":toViewID", navigation.toViewId());
+    query.bindValue(":targetViewID", navigation.targetViewId());
     query.exec();
     navigation.setId(query.lastInsertId().toInt());
 
@@ -62,6 +63,65 @@ NavigationDao::NavigationDao(QSqlDatabase &database):
 
 }
 
+std::unique_ptr<std::vector<std::unique_ptr<Navigation> > >
+NavigationDao::navigations(const int currentViewId) const
+{
+    QSqlQuery query(m_database);
+    const QString strQuery = QString(
+                "SELECT navigation.* "
+                "FROM navigation "
+                "WHERE navigation.viewID = %1 "
+                "OR navigation.viewID = 1"
+            ).arg(currentViewId);
+
+    query.exec(strQuery);
+    DataManager::debugQuery(query);
+
+    unique_ptr<vector<unique_ptr<Navigation>>> list(new vector<unique_ptr<Navigation>>());
+
+    while (query.next()) {
+        unique_ptr<Navigation> navigationPtr(
+                    new Navigation(query.value("viewID").toInt(),
+                                   query.value("link").toString(),
+                                   query.value("linkID").toInt(),
+                                   query.value("targetViewID").toInt()));
+        navigationPtr->setId(query.value("ID").toInt());
+
+        list->push_back(move(navigationPtr));
+    }
+    return list;
+}
+
+std::unique_ptr<std::vector<std::unique_ptr<Navigation> > >
+NavigationDao::navigations(const QString currentView) const
+{
+    QSqlQuery query(m_database);
+    const QString strQuery = QString(
+                "SELECT navigation.* "
+                "FROM navigation "
+                "INNER JOIN views "
+                "ON navigation.viewID = views.ID "
+                "WHERE views.name = '%1' "
+                "OR views.name = 'Global'"
+            ).arg(currentView);
+
+    query.exec(strQuery);
+    DataManager::debugQuery(query);
+
+    unique_ptr<vector<unique_ptr<Navigation>>> list(new vector<unique_ptr<Navigation>>());
+
+    while (query.next()) {
+        unique_ptr<Navigation> navigationPtr(
+                    new Navigation(query.value("viewID").toInt(),
+                                   query.value("link").toString(),
+                                   query.value("linkID").toInt(),
+                                   query.value("targetViewID").toInt()));
+        navigationPtr->setId(query.value("ID").toInt());
+
+        list->push_back(move(navigationPtr));
+    }
+    return list;
+}
 NavigationDao::~NavigationDao()
 {
 

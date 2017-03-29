@@ -18,8 +18,7 @@ class TSMODELSHARED_EXPORT SectionModel: public QAbstractListModel
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
-        NameRole,
-        TargetViewIDRole
+        NameRole
     };
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)

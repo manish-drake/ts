@@ -3,9 +3,8 @@
 
 #include "ts-core_global.h"
 #include <QString>
-#include "link.h"
 
-class TSCORESHARED_EXPORT Section: public Link
+class TSCORESHARED_EXPORT Section
 {
 
 public:
@@ -15,7 +14,7 @@ public:
     QString name() const;
     void setName(QString name);
 
-    explicit Section(const QString &name = "", const int targetViewId = 1);
+    explicit Section(const QString &name = "");
     ~Section();
 private:
     int m_id;

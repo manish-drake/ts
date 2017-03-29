@@ -1,6 +1,8 @@
 #ifndef DATABUILDER_H
 #define DATABUILDER_H
 
+#include <QVector>
+#include <QAbstractListModel>
 
 class DataBuilder
 {

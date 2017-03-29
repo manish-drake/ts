@@ -27,10 +27,7 @@ SOURCES += section.cpp \
     summary.cpp \
     testparam.cpp \
     view.cpp \
-    navigation.cpp \
-    sectionnavigation.cpp \
-    testnavigation.cpp \
-    link.cpp
+    navigation.cpp
 
 HEADERS += section.h\
         ts-core_global.h \
@@ -38,10 +35,7 @@ HEADERS += section.h\
     summary.h \
     testparam.h \
     view.h \
-    navigation.h \
-    sectionnavigation.h \
-    testnavigation.h \
-    link.h
+    navigation.h
 
 unix {
     target.path = /usr/lib

@@ -53,4 +53,5 @@ INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
 
 HEADERS += \
-    databuilder.h
+    databuilder.h \
+    resourcenamecoupling.h

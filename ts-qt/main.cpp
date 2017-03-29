@@ -9,6 +9,7 @@
 #include "summarymodel.h"
 #include "testparammodel.h"
 #include "navigationmodel.h"
+#include "resourcenamecoupling.h"
 
 const int DATA_CREATION_MODE = 1;
 
@@ -38,6 +39,10 @@ int main(int argc, char *argv[])
 
         NavigationModel navigationModel;
         context->setContextProperty("navigationModel", &navigationModel);
+
+        ResourceNameCoupling resourceNameCoupling;
+        context->setContextProperty("registry", &resourceNameCoupling);
+
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

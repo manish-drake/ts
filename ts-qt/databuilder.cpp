@@ -10,13 +10,24 @@
 
 #include "navigation.h"
 #include "navigationdao.h"
-#include "sectionnavigation.h"
-#include "testnavigation.h"
 
 DataBuilder::DataBuilder()
 {
 
 }
+inline QVector<int> toVector(QAbstractListModel &list)  {
+     QVector<int> v;
+
+     const int nbRow = list.rowCount();
+     v.reserve(nbRow);
+
+     for (int i = 0; i < nbRow; ++i)
+     {
+         auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
+         v.append(elemT);
+     }
+     return v;
+ }
 
 int DataBuilder::build()
 {
@@ -857,11 +868,16 @@ int DataBuilder::build()
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    SectionNavigation startNav(secStart.id(), vwGlobal.id(), vwStart.id());
-    navigationDaoPtr->addNavigation(startNav);
+    Navigation adsbTo1090(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
+    navigationDaoPtr->addNavigation(adsbTo1090);
 
-    SectionNavigation adsbNav(secADSB.id(), vwGlobal.id(), vwADSB.id());
-    navigationDaoPtr->addNavigation(adsbNav);
+    Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(main1090ToScanPage);
+
+    Navigation scanToDetail(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(scanToDetail);
+
+
 
     return 1;
 }

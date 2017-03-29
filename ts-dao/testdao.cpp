@@ -60,19 +60,13 @@ void TestDao::removeTest(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int viewId) const
+unique_ptr<vector<unique_ptr<Test>>> TestDao::tests() const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT tests.ID, tests.name, navigation.toViewID "
+                "SELECT * "
                 "FROM tests "
-                "LEFT OUTER JOIN navigation "
-                "ON tests.ID = navigation.linkID "
-                "WHERE (navigation.link = 'Test' "
-                "OR navigation.link IS NULL) "
-                "AND (navigation.fromViewID = %1 "
-                "OR navigation.fromViewID IS NULL) "
-            ).arg(viewId);
+            );
 
     query.exec(strQuery);
     DataManager::debugQuery(query);
@@ -91,5 +85,4 @@ unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int viewId) const
 
 TestDao::~TestDao()
 {
-
 }

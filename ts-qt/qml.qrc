@@ -16,6 +16,10 @@
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
+        <file>Header.qml</file>
+        <file>Footer.qml</file>
+        <file>ADSB-Scan.qml</file>
+        <file>ADSB-Pages.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

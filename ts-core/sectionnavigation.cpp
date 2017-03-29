@@ -4,11 +4,11 @@
 
 QString SectionNavigation::link() const
 {
-    return "Section";
+    return "_section";
 }
 
-SectionNavigation::SectionNavigation(const int sectionId, const int fromViewId, const int toViewId):
-    Navigation {sectionId, fromViewId, toViewId}
+SectionNavigation::SectionNavigation(const int sectionId, const int viewId, const int targetViewId):
+    Navigation {sectionId, viewId, targetViewId}
 {
 
 }

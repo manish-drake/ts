@@ -4,11 +4,11 @@
 
 QString TestNavigation::link() const
 {
-    return "Test";
+    return "_test";
 }
 
-TestNavigation::TestNavigation(const int sectionId, const int fromViewId, const int toViewId):
-    Navigation {sectionId, fromViewId, toViewId}
+TestNavigation::TestNavigation(const int sectionId, const int viewId, const int targetViewId):
+    Navigation {sectionId, viewId, targetViewId}
 {
 
 }
