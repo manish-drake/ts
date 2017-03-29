@@ -24,4 +24,5 @@
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
     </qresource>
+    <qresource prefix="/garbage"/>
 </RCC>

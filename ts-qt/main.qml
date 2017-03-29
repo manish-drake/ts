@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     visible: true
-    width:480
+    width: 480
     height: 800
     title: qsTr("TS")
 
@@ -16,30 +16,37 @@ ApplicationWindow {
         header: Header{}
 
         contentItem: Rectangle {
-            color: "yellow"
+            color: "#55FFFF00"
             Rectangle {
                 id: popupContainer
                 width: 0
-                height: parent.height
+                height: 10 * 50
                 Popup {
                     id: popup
                     x: 0
                     y: 0
                     width: parent.width
-                    height: parent.height
+                    height: 10 * 50
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    padding: 0
+
                     ListView {
+                        id: listViewLeftMenu
                         anchors.fill: parent
                         model: sectionModel
                         delegate:  Rectangle {
-                            height: 60
+                            height: 50
                             width: parent.width
-                            color: "red"
+                            color: "#dedede"
+
                             Text {
-                                anchors.fill: parent
+                                anchors.verticalCenter: parent.verticalCenter
+                                padding:5
                                 text: name
+                                font.bold: true
+                                font.pointSize: 12
                             }
 
                             MouseArea {
