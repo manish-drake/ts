@@ -4,24 +4,22 @@
         <file>CenterMenu.qml</file>
         <file>Card.qml</file>
         <file>Cards.qml</file>
-        <file>ButtonSamples.qml</file>
         <file>NetworkInfo.qml</file>
         <file>Aircraft.qml</file>
         <file>Aircrafts.qml</file>
         <file>Global.qml</file>
         <file>ADS-B.qml</file>
-        <file>SetupCards.qml</file>
-        <file>SetupConnectionDetail.qml</file>
         <file>SetupDisplay.qml</file>
-        <file>SetupGPS.qml</file>
-        <file>SetupNetwork.qml</file>
-        <file>SetupSystemInfo.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>ADSB-Scan.qml</file>
         <file>ADSB-Pages.qml</file>
+        <file>TestDetail.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
+        <file>img/start.png</file>
+        <file>img/centermenu.png</file>
     </qresource>
+    <qresource prefix="/garbage"/>
 </RCC>
