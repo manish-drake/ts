@@ -21,7 +21,7 @@ public:
     void addSummary(Summary &summary) const;
     void removeSummary(int id) const;
 
-    std::unique_ptr<std::vector<std::unique_ptr<Summary> > > summaries() const;
+    std::unique_ptr<std::vector<std::unique_ptr<Summary> > > summaries(const int testId, const int index) const;
 
     ~SummaryDao();
 };

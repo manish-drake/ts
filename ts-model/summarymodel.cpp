@@ -5,9 +5,9 @@
 using namespace std;
 
 SummaryModel::SummaryModel(QObject *parent)
-    :QAbstractListModel(parent),
+    :ModelBase (parent),
       m_db(DataManager::instance()),
-      m_summaries(m_db.summaryDao()->summaries())
+      m_summaries(m_db.summaryDao()->summaries(0, 0))
 {
 }
 
@@ -135,6 +135,25 @@ SummaryModel::~SummaryModel()
 
 }
 
+void SummaryModel::qualifyByView(const int view)
+{
+    decltype (m_summaries) temp_summaries;
+    switch (view) {
+    case 6 ... 12:
+        temp_summaries = m_db.summaryDao()->summaries(1, view - 6);
+        break;
+    case 14 ... 19:
+        temp_summaries = m_db.summaryDao()->summaries(3, view - 14);
+        break;
+    default:
+        temp_summaries = m_db.summaryDao()->summaries(0, 0);
+        break;
+    }
+    beginInsertRows(QModelIndex(), 0, temp_summaries->size() - 1);
+    m_summaries = std::move(temp_summaries);
+    endInsertRows();
+}
+
 bool SummaryModel::isIndexValid(const QModelIndex &index) const
 {
     int row = index.row();
@@ -146,3 +165,5 @@ bool SummaryModel::isIndexValid(const QModelIndex &index) const
         return true;
     }
 }
+
+

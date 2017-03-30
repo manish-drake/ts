@@ -27,7 +27,8 @@ SOURCES += \
     testmodel.cpp \
     summarymodel.cpp \
     testparammodel.cpp \
-    navigationmodel.cpp
+    navigationmodel.cpp \
+    modelbase.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -35,7 +36,8 @@ HEADERS +=\
     testmodel.h \
     summarymodel.h \
     testparammodel.h \
-    navigationmodel.h
+    navigationmodel.h \
+    modelbase.h
 
 unix {
     target.path = /usr/lib

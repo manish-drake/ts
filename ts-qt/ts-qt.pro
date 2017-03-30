@@ -5,7 +5,8 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
-    databuilder.cpp
+    databuilder.cpp \
+    resourcenamecoupling.cpp
 
 RESOURCES += qml.qrc
 

@@ -11,8 +11,9 @@
 #include <datamanager.h>
 
 #include "ts-model_global.h"
+#include "modelbase.h"
 
-class TSMODELSHARED_EXPORT SectionModel: public QAbstractListModel
+class TSMODELSHARED_EXPORT SectionModel: public ModelBase
 {
     Q_OBJECT
 public:
@@ -42,6 +43,7 @@ public:
 signals:
     void listHeightChanged(double listHeight);
 private:
+    void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;
 private:

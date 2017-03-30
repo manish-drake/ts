@@ -11,10 +11,11 @@
 
 #include "summary.h"
 #include "datamanager.h"
+#include "modelbase.h"
 
 #include "ts-model_global.h"
 
-class TSMODELSHARED_EXPORT SummaryModel: public QAbstractListModel
+class TSMODELSHARED_EXPORT SummaryModel: public ModelBase
 {
     Q_OBJECT
 public:
@@ -43,9 +44,11 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     ~SummaryModel();
+
 signals:
     void listHeightChanged(double listHeight);
 private:
+    void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;
 private:
