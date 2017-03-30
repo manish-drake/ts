@@ -1,8 +1,16 @@
 #include "summarymodel.h"
 #include "summarydao.h"
 #include "datamanager.h"
+#include "testparammodel.h"
 
 using namespace std;
+
+
+
+const TestParamModel &SummaryModel::getTestParamsForsummary(const int summaryId) const
+{
+    return new TestParamModel(this->parent());
+}
 
 SummaryModel::SummaryModel(QObject *parent)
     :ModelBase (parent),

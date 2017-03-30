@@ -15,6 +15,8 @@
 
 #include "ts-model_global.h"
 
+class TestParamModel;
+
 class TSMODELSHARED_EXPORT SummaryModel: public ModelBase
 {
     Q_OBJECT
@@ -29,6 +31,7 @@ public:
     };
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
+    Q_INVOKABLE const TestParamModel &getTestParamsForsummary(const int summaryId) const;
 
     SummaryModel(QObject *parent = 0);
 

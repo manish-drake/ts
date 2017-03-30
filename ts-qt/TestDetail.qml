@@ -2,8 +2,7 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.1
 
 Item {
-    width: 300
-    height: 300
+    anchors.fill: parent
 
     ListModel {
         id: nestedModel
@@ -47,7 +46,7 @@ Item {
             Text {
                 id:summaryHeader
                 anchors.top: parent.top
-                text: summaryName
+                text: name
             }
             ListView {
                 anchors.top:summaryHeader.bottom
@@ -55,7 +54,7 @@ Item {
                 height: 100
                 width: 100
                 id: subItemRepeater
-                model: subItems
+                model: testParamModel
 
                 delegate: Rectangle {
                     height: 15
@@ -77,28 +76,29 @@ Item {
 
 
                         Text {
-                            text: itemName + " : " + itemValue
-                            Layout.column: myColumn
+                            text: key + " : " + val
+                            Layout.column: 1
                         }
 
                         Text {
-                            text: itemName + " : " + itemValue
-                            Layout.column: myColumn
+                            text: key + " : " + val
+                            Layout.column: 2
                         }
 
                         Text {
-                            text: itemName + " : " + itemValue
-                            Layout.column: myColumn
+                            text: key + " : " + val
+                            Layout.column: 3
                         }
                     }
                 }
             }
+
         }
     }
     
     ListView {
         anchors.fill: parent
-        model: nestedModel
+        model: summaryModel
         delegate: summaryDelegate
     }
 
