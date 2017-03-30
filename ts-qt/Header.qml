@@ -30,6 +30,8 @@ Rectangle {
                 onClicked: {
                     popup.open()
                 }
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
             }
         }
         Rectangle {
@@ -49,6 +51,8 @@ Rectangle {
                 onClicked: {
                     popupCenter.open()
                 }
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
             }
         }
         Rectangle {
@@ -86,6 +90,8 @@ Rectangle {
                 onClicked: {
                   console.log("TODO: add code for right menu");
                 }
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
             }
         }
 
