@@ -60,13 +60,14 @@ void TestDao::removeTest(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Test>>> TestDao::tests() const
+unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int sectionId) const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
                 "SELECT * "
                 "FROM tests "
-            );
+                "WHERE tests.sectionID = %1"
+            ).arg(sectionId);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);

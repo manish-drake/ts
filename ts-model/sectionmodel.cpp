@@ -2,10 +2,10 @@
 #include "sectiondao.h"
 using namespace std;
 
-SectionModel::SectionModel(QObject *parent)
-    :QAbstractListModel(parent),
-      m_db(DataManager::instance()),
-      m_sections(m_db.sectionDao()->sections())
+SectionModel::SectionModel(QObject *parent):
+    ModelBase(parent),
+    m_db(DataManager::instance()),
+    m_sections(m_db.sectionDao()->sections())
 {
 }
 
@@ -112,6 +112,11 @@ QHash<int, QByteArray> SectionModel::roleNames() const
 SectionModel::~SectionModel()
 {
 
+}
+
+void SectionModel::qualifyByView(const int view)
+{
+    Q_UNUSED(view);
 }
 
 bool SectionModel::isIndexValid(const QModelIndex &index) const

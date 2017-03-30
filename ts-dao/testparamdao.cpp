@@ -79,7 +79,8 @@ unique_ptr<vector<unique_ptr<TestParam>>> TestParamDao::testParams() const
 {
     QSqlQuery query(m_database);
     const QString strQuery(
-                "SELECT * FROM testparams ");
+                "SELECT * FROM testparams "
+                "WHERE testparams.summaryID = 1");
 
     query.exec(strQuery);
     DataManager::debugQuery(query);
