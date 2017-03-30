@@ -20,6 +20,12 @@
         <file>img/battery-half.png</file>
         <file>img/start.png</file>
         <file>img/centermenu.png</file>
+        <file>img/battery.png</file>
+        <file>img/direct.png</file>
+        <file>img/wifi.png</file>
+        <file>img/play.png</file>
+        <file>img/close.png</file>
+        <file>img/pointer.png</file>
     </qresource>
     <qresource prefix="/garbage"/>
 </RCC>
