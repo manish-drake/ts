@@ -98,6 +98,12 @@ ApplicationWindow {
                     onOpened: parent.width = 270;
                 }
             }
+            TestDetail{
+                anchors.fill:parent
+            }
+//            SampleNested{
+
+//            }
         }
 
         footer: Footer{}

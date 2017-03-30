@@ -10,8 +10,7 @@ Rectangle {
         color: "transparent"
 
         Text {
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: imageStart.right
+            anchors.verticalCenter: parent.verticalCenter            
             text:"Operator"
             font.capitalization: Font.AllUppercase
             fontSizeMode: Text.HorizontalFit
