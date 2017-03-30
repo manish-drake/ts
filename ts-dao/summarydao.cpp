@@ -65,11 +65,15 @@ void SummaryDao::removeSummary(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries() const
+unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, const int index) const
 {
     QSqlQuery query(m_database);
-    const QString strQuery(
-                "SELECT * FROM summaries ");
+    const QString strQuery = QString(
+                "SELECT * FROM summaries "
+                "WHERE summaries.testID = %1 "
+                "AND summaries.pageIdx = %2")
+            .arg(testId)
+            .arg(index);
 
     query.exec(strQuery);
     DataManager::debugQuery(query);

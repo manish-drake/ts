@@ -8,10 +8,10 @@ QString TestModel::getName() const
     return "From test model..";
 }
 
-TestModel::TestModel(QObject *parent)
-    :QAbstractListModel(parent),
-      m_db(DataManager::instance()),
-      m_tests(m_db.testDao()->tests())
+TestModel::TestModel(QObject *parent):
+    ModelBase(parent),
+    m_db(DataManager::instance()),
+    m_tests(m_db.testDao()->tests(0))
 {
 }
 
@@ -119,6 +119,24 @@ QHash<int, QByteArray> TestModel::roleNames() const
 TestModel::~TestModel()
 {
 
+}
+
+void TestModel::qualifyByView(const int view)
+{
+    decltype (m_tests) temp_Tests;
+
+    switch (view) {
+    case 3:
+        temp_Tests = m_db.testDao()->tests(4);
+        break;
+    default:
+        temp_Tests = m_db.testDao()->tests(0);
+        break;
+    }
+
+    beginInsertRows(QModelIndex(), 0, temp_Tests->size() - 1);
+    m_tests = std::move(temp_Tests);
+    endInsertRows();
 }
 
 bool TestModel::isIndexValid(const QModelIndex &index) const

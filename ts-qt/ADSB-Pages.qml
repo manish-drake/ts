@@ -1,7 +1,6 @@
 import QtQuick 2.0
 
-Item {
-    Text{
-        text: "ADS-B Pages"
-    }
+TestDetail{
+    anchors.fill: parent
+
 }

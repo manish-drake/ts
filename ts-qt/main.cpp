@@ -43,6 +43,12 @@ int main(int argc, char *argv[])
         ResourceNameCoupling resourceNameCoupling;
         context->setContextProperty("registry", &resourceNameCoupling);
 
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
+                         &sectionModel, SLOT(currentViewChanged(int)));
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
+                         &testModel, SLOT(currentViewChanged(int)));
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
+                         &summaryModel, SLOT(currentViewChanged(int)));
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
