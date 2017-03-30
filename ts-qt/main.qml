@@ -16,6 +16,7 @@ ApplicationWindow {
         header: Header{}
 
         contentItem: Rectangle {
+            id:contentRect
             color: "#55FFFF00"
             Rectangle {
                 id: popupContainer
@@ -23,9 +24,8 @@ ApplicationWindow {
                 height: 10 * 50
                 Popup {
                     id: popup
-                    x: 0
-                    y: 0
                     width: parent.width
+
                     height: 10 * 50
                     modal: true
                     focus: true
@@ -36,26 +36,36 @@ ApplicationWindow {
                         id: listViewLeftMenu
                         anchors.fill: parent
                         model: sectionModel
-                        delegate:  Rectangle {
-                            height: 50
-                            width: parent.width
-                            color: "#dedede"
+                        clip:true
+                        focus: true
 
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                padding:5
-                                text: name
-                                font.bold: true
-                                font.pointSize: 12
-                            }
 
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    popup.close()
-                                    navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                        delegate:  Component {
+                            Item{
+                                height: 50
+                                width: parent.width
+
+                                Text {
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    padding:5
+                                    text: name
+                                    font.bold: true
+                                    font.pointSize: 12
+                                }
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                                        listViewLeftMenu.currentIndex = index
+                                        popup.close()
+                                    }
                                 }
                             }
+                        }
+
+                        highlight: Rectangle {
+                            color: '#e6e6e6'
                         }
                     }
                     onClosed: parent.width = 0
@@ -67,6 +77,33 @@ ApplicationWindow {
                 anchors.fill: parent
                 source: registry.getPageFromViewId(navigationModel.currentView)
             }
+
+            Rectangle {
+                anchors.horizontalCenter:parent.horizontalCenter
+                id: popupContainerCenter
+                width: 0
+                height: 424
+                Popup {
+                    id: popupCenter
+                    width: parent.width
+                    height: 424
+                    modal: true
+                    focus: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    padding: 0
+
+                    CenterMenu{}
+
+                    onClosed: parent.width = 0
+                    onOpened: parent.width = 270;
+                }
+            }
+            TestDetail{
+                anchors.fill:parent
+            }
+//            SampleNested{
+
+//            }
         }
 
         footer: Footer{}

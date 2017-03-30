@@ -5,18 +5,19 @@ import QtQuick.Controls 1.4
 
 Item {
     id: item1
+    anchors.left:parent.left
     Rectangle{
-        height:424//605//*0.6;
-        width:270// 193*2+4// * .6;
+        y: 0
+        height:424
+        width:270
         color:"#d3d3d3"
-        clip:true
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.topMargin: 5
+        anchors.horizontalCenterOffset: 0
+        anchors.left: parent.left
+        anchors.leftMargin: 0
         GridLayout {
             columnSpacing: 1
             rowSpacing: 1
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.fill: parent
             columns: 2
             Layout.margins:  0
 
