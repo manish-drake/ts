@@ -275,7 +275,7 @@ int DataBuilder::build()
     Summary sumAirPos("BDS 0,5: Airborne Postion", adsbOut1090.id(), 1, 1, 1);
     sumModel.addSummary(sumAirPos);
 
-    TestParam tpAirPosMsgEle("message-Element", sumAirPos.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 1);
+    TestParam tpAirPosMsgEle("message-Element", sumAirPos.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirPosMsgEle);
 
 
@@ -328,7 +328,7 @@ int DataBuilder::build()
     Summary sumAcIdCat("BDS 0,8: A/C ID & Category", adsbOut1090.id(), 2, 1, 1);
     sumModel.addSummary(sumAcIdCat);
 
-    TestParam tpAcIdCatMsgEle("message-Element", sumAcIdCat.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 1);
+    TestParam tpAcIdCatMsgEle("message-Element", sumAcIdCat.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 0);
     tpModel.addTestParam(tpAcIdCatMsgEle);
 
     Summary sumAVInfo2("Aircraft/Vechile Info:", adsbOut1090.id(), 2, 2, 2);
@@ -360,7 +360,7 @@ int DataBuilder::build()
     Summary sumAirVelocity("BDS 0,9: Airborne Velocity", adsbOut1090.id(), 3, 1, 1);
     sumModel.addSummary(sumAirVelocity);
 
-    TestParam tpAirVelocityMsgEle("message-Element", sumAirVelocity.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 1);
+    TestParam tpAirVelocityMsgEle("message-Element", sumAirVelocity.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVelocityMsgEle);
 
 
@@ -417,7 +417,7 @@ int DataBuilder::build()
     Summary sumOprSts("BDS 6,5: Operational Status", adsbOut1090.id(), 4, 1, 1);
     sumModel.addSummary(sumOprSts);
 
-    TestParam tpOprStsMsgEle("message-Element", sumOprSts.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 1);
+    TestParam tpOprStsMsgEle("message-Element", sumOprSts.id(), "Message Element", "__ __ __ __ __ __ __", "", 0, 0, 1, 2, 0);
     tpModel.addTestParam(tpOprStsMsgEle);
 
 
@@ -569,7 +569,7 @@ int DataBuilder::build()
     Summary sumRfST("RF/ Squitter Timming", adsbOut1090.id(), 6, 1, 1);
     sumModel.addSummary(sumRfST);
 
-    TestParam tpRfSTEsr("extended-Squitter-Rate", sumRfST.id(), "Extended Squitter Rate", "__.__", "sec", 0, 0, 1, 2, 1);
+    TestParam tpRfSTEsr("extended-Squitter-Rate", sumRfST.id(), "Extended Squitter Rate", "__.__", "sec", 0, 0, 1, 2, 0);
     tpModel.addTestParam(tpRfSTEsr);
 
     Summary sumRfData("1090 MHz RF Data:", adsbOut1090.id(), 6, 2, 2);
