@@ -995,5 +995,32 @@ int DataBuilder::build()
     Navigation scanToDetail(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanToDetail);
 
+    Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
+    navigationDaoPtr->addNavigation(secToSetup);
+
+    Navigation setupToUser(vwSetup.id(), "User", 0, vwSetupUser.id());
+    navigationDaoPtr->addNavigation(setupToUser);
+
+    Navigation userToEditUser(vwSetupUser.id(), "EditUser", 0, vwSetupEditUser.id());
+    navigationDaoPtr->addNavigation(userToEditUser);
+
+    Navigation setupToDisplay(vwSetup.id(), "Display", 0, vwSetupDisplay.id());
+    navigationDaoPtr->addNavigation(setupToDisplay);
+
+    Navigation setupToGps(vwSetup.id(), "GPS", 0, vwSetupGPS.id());
+    navigationDaoPtr->addNavigation(setupToGps);
+
+    Navigation setupToNetwork(vwSetup.id(), "Network", 0, vwSetupNetwork.id());
+    navigationDaoPtr->addNavigation(setupToNetwork);
+
+    Navigation setupToSysInfo(vwSetup.id(), "System-Info", 0, vwSetupSysInfo.id());
+    navigationDaoPtr->addNavigation(setupToSysInfo);
+
+    Navigation setupToRMBit(vwSetup.id(), "Run Manual Bit", 0, vwSetupRMBit.id());
+    navigationDaoPtr->addNavigation(setupToRMBit);
+
+    Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
+    navigationDaoPtr->addNavigation(setupToConn);
+
     return 1;
 }
