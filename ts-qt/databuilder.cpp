@@ -992,8 +992,96 @@ int DataBuilder::build()
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
 
-    Navigation scanToDetail(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
-    navigationDaoPtr->addNavigation(scanToDetail);
+    Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(scanTo1090P1);
+
+    Navigation out1090P1To1090P2(vwADSBout1090P1.id(), "Next", 0, vwADSBout1090P2.id());
+    navigationDaoPtr->addNavigation(out1090P1To1090P2);
+
+    Navigation out1090P2To1090P3(vwADSBout1090P2.id(), "Next", 0, vwADSBout1090P3.id());
+    navigationDaoPtr->addNavigation(out1090P2To1090P3);
+
+    Navigation out1090P3To1090P4(vwADSBout1090P3.id(), "Next", 0, vwADSBout1090P4.id());
+    navigationDaoPtr->addNavigation(out1090P3To1090P4);
+
+    Navigation out1090P4To1090P5(vwADSBout1090P4.id(), "Next", 0, vwADSBout1090P5.id());
+    navigationDaoPtr->addNavigation(out1090P4To1090P5);
+
+    Navigation out1090P5To1090P6(vwADSBout1090P5.id(), "Next", 0, vwADSBout1090P6.id());
+    navigationDaoPtr->addNavigation(out1090P5To1090P6);
+
+    Navigation out1090P6To1090P7(vwADSBout1090P6.id(), "Next", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(out1090P6To1090P7);
+
+    Navigation out1090P7Toscan(vwADSBout1090P7.id(), "Next", 0, vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(out1090P7Toscan);
+
+    Navigation scanTo1090P7(vwADSBout1090Scan.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(scanTo1090P7);
+
+    Navigation out1090P7To1090P6(vwADSBout1090P7.id(), "Previous", 0, vwADSBout1090P6.id());
+    navigationDaoPtr->addNavigation(out1090P7To1090P6);
+
+    Navigation out1090P6To1090P5(vwADSBout1090P6.id(), "Previous", 0, vwADSBout1090P5.id());
+    navigationDaoPtr->addNavigation(out1090P6To1090P5);
+
+    Navigation out1090P5To1090P4(vwADSBout1090P5.id(), "Previous", 0, vwADSBout1090P4.id());
+    navigationDaoPtr->addNavigation(out1090P5To1090P4);
+
+    Navigation out1090P4To1090P3(vwADSBout1090P4.id(), "Previous", 0, vwADSBout1090P3.id());
+    navigationDaoPtr->addNavigation(out1090P4To1090P3);
+
+    Navigation out1090P3To1090P2(vwADSBout1090P3.id(), "Previous", 0, vwADSBout1090P2.id());
+    navigationDaoPtr->addNavigation(out1090P3To1090P2);
+
+    Navigation out1090P2To1090P1(vwADSBout1090P2.id(), "Previous", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(out1090P2To1090P1);
+
+    Navigation out1090P1Toscan(vwADSBout1090P1.id(), "Previous", 0, vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(out1090P1Toscan);
+
+    Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(outUATscanToUATP1);
+
+    Navigation outUATP1ToUATP2(vwADSBoutUATP1.id(), "Next", 0, vwADSBoutUATP2.id());
+    navigationDaoPtr->addNavigation(outUATP1ToUATP2);
+
+    Navigation outUATP2ToUATP3(vwADSBoutUATP2.id(), "Next", 0, vwADSBoutUATP3.id());
+    navigationDaoPtr->addNavigation(outUATP2ToUATP3);
+
+    Navigation outUATP3ToUATP4(vwADSBoutUATP3.id(), "Next", 0, vwADSBoutUATP4.id());
+    navigationDaoPtr->addNavigation(outUATP3ToUATP4);
+
+    Navigation outUATP4ToUATP5(vwADSBoutUATP4.id(), "Next", 0, vwADSBoutUATP5.id());
+    navigationDaoPtr->addNavigation(outUATP4ToUATP5);
+
+    Navigation outUATP5ToUATP6(vwADSBoutUATP5.id(), "Next", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(outUATP5ToUATP6);
+
+    Navigation outUATP6ToUATscan(vwADSBoutUATP6.id(), "Next", 0, vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(outUATP6ToUATscan);
+
+    Navigation outUATScanToUATP6(vwADSBoutUATScan.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(outUATScanToUATP6);
+
+    Navigation outUATP6ToUATP5(vwADSBoutUATP6.id(), "Previous", 0, vwADSBoutUATP5.id());
+    navigationDaoPtr->addNavigation(outUATP6ToUATP5);
+
+    Navigation outUATP5ToUATP4(vwADSBoutUATP5.id(), "Previous", 0, vwADSBoutUATP4.id());
+    navigationDaoPtr->addNavigation(outUATP5ToUATP4);
+
+    Navigation outUATP4ToUATP3(vwADSBoutUATP4.id(), "Previous", 0, vwADSBoutUATP3.id());
+    navigationDaoPtr->addNavigation(outUATP4ToUATP3);
+
+    Navigation outUATP3ToUATP2(vwADSBoutUATP3.id(), "Previous", 0, vwADSBoutUATP2.id());
+    navigationDaoPtr->addNavigation(outUATP3ToUATP2);
+
+    Navigation outUATP2ToUATP1(vwADSBoutUATP2.id(), "Previous", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(outUATP2ToUATP1);
+
+    Navigation outUATP1ToUATscan(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(outUATP1ToUATscan);
+
 
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
