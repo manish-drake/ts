@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.0
 
 Item {
     id: item1
@@ -59,37 +59,13 @@ Item {
                 model: testParamModel
 
                 delegate: Rectangle {
-                    height: 15
+                    height: 50
                     width: parent.width
-                    GridLayout{
-                        width: parent.width
-                        anchors.fill:parent
-                        //columns: 9
-                        /* 0|1|2|3|4|5|6|7|8|9
-                           -|-|s|-|-|s|-|-
-                        */
-                        //spacers
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 0}
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 1}
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 2}
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 3}
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 4}
-                        Rectangle{width: 30;height: 10;color: "#44FF0000";Layout.column: 5}
-
-
+                    Item {
+                        x: col * 20
+                        y: row * 20
                         Text {
-                            text: key + " : " + val
-                            Layout.column: 1
-                        }
-
-                        Text {
-                            text: key + " : " + val
-                            Layout.column: 2
-                        }
-
-                        Text {
-                            text: key + " : " + val
-                            Layout.column: 3
+                            text: key
                         }
                     }
                 }
@@ -151,15 +127,46 @@ Item {
 
     }
 
-    ListView {
+    GridLayout{
         anchors.top:testHeaderRect.bottom
         anchors.bottom:testFooterRect.top
         anchors.topMargin: 25
         anchors.fill: parent
-        model: summaryModel
-        delegate: summaryDelegate
-    }
+        Repeater{
+            model: summaryModel
+            delegate: Rectangle {
+                color: "lightgray"
+                Layout.row: order
+                height: 100
+                ColumnLayout {
+                    Text {
+                        text: name
+                        font.bold: true
+                        font.pointSize: 12
+                    }
+                    GridLayout {
+                        Repeater {
+                            model: testParamModel
+                            delegate: Rectangle{
+                                color: "yellow"
+                                Layout.row: row
+                                Layout.fillWidth: true
+                                Layout.preferredWidth : 170
+                                Layout.column: col
+                                Layout.columnSpan: 1
+                                Layout.rowSpan: 1
+                                height: 20
+                                Text {
+                                    text: "%1: %2 %3".arg(key).arg(val).arg(unit)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
+        }
+    }
     Rectangle{
         id:testFooterRect
         height: 38
