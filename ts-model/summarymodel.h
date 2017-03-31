@@ -31,12 +31,16 @@ public:
     };
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
-    Q_INVOKABLE const TestParamModel &getTestParamsForsummary(const int summaryId) const;
+    Q_PROPERTY(int currentPage READ currentPage WRITE setCurrentPage NOTIFY currentPageChanged)
+    Q_INVOKABLE const TestParamModel *getTestParamsForsummary(const int summaryId) const;
 
     SummaryModel(QObject *parent = 0);
 
     double listHeight();
     void setListHeight(double listHeight);
+
+    int currentPage();
+    void setCurrentPage(int currentPage);
 
     QModelIndex addSummary(Summary &summary);
 
@@ -50,6 +54,7 @@ public:
 
 signals:
     void listHeightChanged(double listHeight);
+    void currentPageChanged(int currentPage);
 private:
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
@@ -57,5 +62,6 @@ private:
 private:
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Summary>>> m_summaries;
+    int m_currentPage;
 };
 #endif // SUMMARYMODEL_H

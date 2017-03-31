@@ -55,28 +55,54 @@ Rectangle{
         }
     }
 
-    Item {
-        id: navigation
+    Rectangle{
+        id:testFooterRect
+        height: 38
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
         width: parent.width
-        height: 30
-        Text {
-            anchors.left: parent.left
-            anchors.margins: 20
-            id: prev
-            text: qsTr("Previous")
+
+        Text{
+            text:"<PREVIOUS"
+            anchors.verticalCenter: parent.verticalCenter
+            font.bold:true
+            color: "#387EF5"
+            font.pointSize: 10
+            MouseArea {
+                anchors.fill: parent
+                onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
+            }
+
+        }
+
+        Rectangle{
+            color: "blue"
+            height:38
+            width: 38
+            anchors.verticalCenter: parent.verticalCenter
+            radius:12.5
+            anchors.horizontalCenter: parent.horizontalCenter
+            Image {
+                id: playImage
+                source: "qrc:/img/img/play.png"
+            }
         }
 
         Text {
+            id: name
+            text: qsTr("NEXT>")
+            font.bold:true
+            font.pointSize: 10
+            anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.margins: 20
-            id: nxt
-            text: qsTr("Next")
+            anchors.rightMargin: 0
+            color: "#387EF5"
             MouseArea {
                 anchors.fill: parent
-                onClicked: navigationModel.currentView = navigationModel.getTargetView("Next")
+                onClicked:navigationModel.currentView = navigationModel.getTargetView("Next")
             }
         }
     }
+
 }
 

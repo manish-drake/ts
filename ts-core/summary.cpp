@@ -1,4 +1,5 @@
 #include "summary.h"
+#include "testparam.h"
 
 Summary::Summary(const QString &name, const int testId, const int index, const int order, const int style):
     m_id{0},
@@ -7,6 +8,11 @@ Summary::Summary(const QString &name, const int testId, const int index, const i
     m_index{index},
     m_order{order},
     m_style{style}
+{
+
+}
+
+Summary::~Summary()
 {
 
 }
@@ -69,5 +75,15 @@ int Summary::style() const
 void Summary::setStyle(const int style)
 {
     this->m_style = style;
+}
+
+const std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &Summary::testParams() const
+{
+    return this->m_testParams;
+}
+
+void Summary::setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > testParams)
+{
+    this->m_testParams = std::move(testParams);
 }
 
