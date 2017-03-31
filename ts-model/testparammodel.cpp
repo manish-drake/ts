@@ -61,6 +61,10 @@ QVariant TestParamModel::data(const QModelIndex &index, int role) const
             return testParam.row();
         case Roles::ColRole:
             return testParam.col();
+        case Roles::RowSpanRole:
+            return testParam.rowSpan();
+        case Roles::ColSpanRole:
+            return testParam.colSpan();
         case Roles::StyleRole:
             return testParam.style();
         case Roles::NameRole:
@@ -100,6 +104,12 @@ bool TestParamModel::setData(const QModelIndex &index, const QVariant &value, in
             break;
         case Roles::ColRole:
             testParam.setCol(value.toInt());
+            break;
+        case Roles::RowSpanRole:
+            testParam.setRowSpan(value.toInt());
+            break;
+        case Roles::ColSpanRole:
+            testParam.setColSpan(value.toInt());
             break;
         case Roles::StyleRole:
             testParam.setStyle(value.toInt());
@@ -144,6 +154,8 @@ QHash<int, QByteArray> TestParamModel::roleNames() const
     hash.insert(Roles::UnitRole, "unit");
     hash.insert(Roles::RowRole, "row");
     hash.insert(Roles::ColRole, "col");
+    hash.insert(Roles::RowSpanRole, "rowSpan");
+    hash.insert(Roles::ColSpanRole, "colSpan");
     hash.insert(Roles::StyleRole, "style");
     return hash;
 }

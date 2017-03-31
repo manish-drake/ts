@@ -995,7 +995,5 @@ int DataBuilder::build()
     Navigation scanToDetail(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanToDetail);
 
-
-
     return 1;
 }

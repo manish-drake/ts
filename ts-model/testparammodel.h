@@ -25,6 +25,8 @@ public:
         UnitRole,
         RowRole,
         ColRole,
+        RowSpanRole,
+        ColSpanRole,
         StyleRole
     };
 
