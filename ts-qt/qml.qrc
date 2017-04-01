@@ -43,5 +43,7 @@
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
+        <file>Card.qml</file>
+        <file>Cards.qml</file>
     </qresource>
 </RCC>
