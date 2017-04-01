@@ -6,7 +6,7 @@ QString ResourceNameCoupling::getPageFromViewId(int viewId){
         return "ADS-B.qml";
     case 5:
         return "ADSB-Scan.qml";
-    case 6 ... 12:
+    case 6 ... 12:        
         return "ADSB-Pages.qml";
     case 4:
         return "Setup.qml";
@@ -30,7 +30,18 @@ QString ResourceNameCoupling::getPageFromViewId(int viewId){
     }
 }
 
+ResourceNameCoupling &ResourceNameCoupling::instance()
+{
+    static ResourceNameCoupling singelton;
+    return  singelton;
+}
+
 ResourceNameCoupling::ResourceNameCoupling()
 {
 
+}
+
+bool ResourceNameCoupling::compare(const int viewId1, const int viewId2)
+{
+    return (this->getPageFromViewId(viewId1) == this->getPageFromViewId(viewId2));
 }

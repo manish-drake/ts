@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <memory>
+#include <QList>
 
 #include "summary.h"
 #include "datamanager.h"
@@ -15,7 +16,8 @@
 
 #include "ts-model_global.h"
 
-class TestParamModel;
+//#include "testparammodel.h"
+#include "qtestparams.h"
 
 class TSMODELSHARED_EXPORT SummaryModel: public ModelBase
 {
@@ -32,7 +34,7 @@ public:
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
     Q_PROPERTY(int currentPage READ currentPage WRITE setCurrentPage NOTIFY currentPageChanged)
-    Q_INVOKABLE const TestParamModel *getTestParamsForsummary(const int summaryId) const;
+    Q_INVOKABLE const QList<QTestParams> getTestParamsForsummary(const int summaryId) const;
 
     SummaryModel(QObject *parent = 0);
 

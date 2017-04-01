@@ -78,7 +78,8 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                 "INNER JOIN testparams "
                 "ON summaries.ID = testparams.summaryID "
                 "WHERE summaries.testID = %1 "
-                "AND summaries.pageIdx = %2")
+                "AND summaries.pageIdx = %2 "
+                "ORDER BY summaryID")
             .arg(testId)
             .arg(index);
 

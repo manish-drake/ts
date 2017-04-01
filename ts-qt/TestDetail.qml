@@ -82,10 +82,10 @@ Page {
                             model: testParamModel//summaryModel.getTestParamsForsummary(id)
                             delegate: Rectangle{
                                 //                                color: "yellow"
-                                Layout.row: row
+                                Layout.row: 0//row
+                                Layout.column: 0//col
                                 Layout.fillWidth: true
                                 Layout.preferredWidth : 170
-                                Layout.column: col
                                 Layout.columnSpan: 1
                                 Layout.rowSpan: 1
                                 height: 15
@@ -143,7 +143,9 @@ Page {
             color: "#387EF5"
             MouseArea {
                 anchors.fill: parent
-                onClicked:navigationModel.currentView = navigationModel.getTargetView("Next")
+                onClicked:{
+                    navigationModel.currentView = navigationModel.getTargetView("Next")
+                }
             }
         }
     }

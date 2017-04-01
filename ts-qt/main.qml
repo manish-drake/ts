@@ -74,8 +74,11 @@ ApplicationWindow {
             }
 
             Loader {
+                id:contentLoader
+
                 anchors.fill: parent
                 source: registry.getPageFromViewId(navigationModel.currentView)
+                onLoaded: console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
             }
 
             Rectangle {

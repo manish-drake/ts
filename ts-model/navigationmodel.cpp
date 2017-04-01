@@ -43,7 +43,9 @@ void NavigationModel::setCurrentView(const int currentView)
 
         qDebug() << "Current view: " << currentView;
 
+
         this->m_currentView = currentView;
+
         emit this->currentViewChanged(currentView);
 
         this->m_navigations = m_db.navigationDao()->navigations(currentView);
