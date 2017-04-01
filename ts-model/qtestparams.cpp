@@ -1,6 +1,13 @@
 #include "qtestparams.h"
 
-QTestParams::QTestParams(QObject *parent) //: QObject(parent)
+
+QTestParams::QTestParams(QString data, int row, int col, int rowSpan, int colSpan, QObject *parent):
+    QObject(parent),
+    m_data{data},
+    m_row{row},
+    m_col{col},
+    m_rowSpan{rowSpan},
+    m_colSpan{colSpan}
 {
 
 }
@@ -10,10 +17,24 @@ QString QTestParams::data() const
     return this->m_data;
 }
 
-void QTestParams::setData(QString data)
+int QTestParams::row() const
 {
-    this->m_data = data;
-//    emit dataChanged(data);
+    return this->m_row;
+}
+
+int QTestParams::col() const
+{
+    return this->m_col;
+}
+
+int QTestParams::rowSpan() const
+{
+    return this->m_rowSpan;
+}
+
+int QTestParams::colSpan() const
+{
+    return this->m_colSpan;
 }
 
 QTestParams::~QTestParams()

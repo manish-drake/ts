@@ -79,18 +79,18 @@ Page {
                     }
                     GridLayout {
                         Repeater {
-                            model: testParamModel//summaryModel.getTestParamsForsummary(id)
+                            model: summaryModel.getTestParamsForsummary(id)
                             delegate: Rectangle{
                                 //                                color: "yellow"
-                                Layout.row: 0//row
-                                Layout.column: 0//col
+                                Layout.row: model.modelData.row
+                                Layout.column: model.modelData.col
                                 Layout.fillWidth: true
                                 Layout.preferredWidth : 170
-                                Layout.columnSpan: 1
-                                Layout.rowSpan: 1
+                                Layout.columnSpan: model.modelData.colSpan
+                                Layout.rowSpan: model.modelData.rowSpan
                                 height: 15
                                 Text {
-                                    text: "%1: %2 %3".arg(key).arg(val).arg(unit)
+                                    text: model.modelData.data
                                 }
                             }
                         }
