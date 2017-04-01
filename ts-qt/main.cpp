@@ -40,8 +40,7 @@ int main(int argc, char *argv[])
         NavigationModel navigationModel;
         context->setContextProperty("navigationModel", &navigationModel);
 
-        ResourceNameCoupling resourceNameCoupling;
-        context->setContextProperty("registry", &resourceNameCoupling);
+        context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
                          &sectionModel, SLOT(currentViewChanged(int)));

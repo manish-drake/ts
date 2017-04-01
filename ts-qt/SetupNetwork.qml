@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.1
+import QtQuick.Controls 2.0
 
 Item {
     Rectangle {
@@ -37,7 +37,7 @@ Item {
             Switch {
                 id: switch1
                 text:switch1.checked ? qsTr("Yes"):qsTr("No")
-                checkable: false
+                checked: false
                 Layout.fillWidth: true
                 Layout.rowSpan: 1
                 Layout.preferredWidth: -1

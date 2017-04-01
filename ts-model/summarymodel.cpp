@@ -1,21 +1,39 @@
 #include "summarymodel.h"
 #include "summarydao.h"
 #include "datamanager.h"
-#include "testparammodel.h"
 
 using namespace std;
 
 
 
-const TestParamModel &SummaryModel::getTestParamsForsummary(const int summaryId) const
+//const QStringList SummaryModel::getTestParamsForsummary(const int summaryId) const
+//{
+//    Q_UNUSED(summaryId);
+////    m_summaries->at(0)->testParams();
+////    return new TestParamModel(this->parent());
+//    QStringList list;
+//    list.push_back("ABCD");
+//    return list;
+//}
+
+const QList<QTestParams> SummaryModel::getTestParamsForsummary(const int summaryId) const
 {
-    return new TestParamModel(this->parent());
+    Q_UNUSED(summaryId);
+//    m_summaries->at(0)->testParams();
+//    const TestParamModel &tpm = TestParamModel(this->parent());
+//    return tpm;
+    QTestParams q;
+    q.setData("ABCDE");
+    QList<QTestParams> qtp;
+    qtp.push_back(q);
+    return qtp;
 }
 
 SummaryModel::SummaryModel(QObject *parent)
     :ModelBase (parent),
       m_db(DataManager::instance()),
-      m_summaries(m_db.summaryDao()->summaries(0, 0))
+      m_summaries(m_db.summaryDao()->summaries(0, 0)),
+      m_currentPage{1}
 {
 }
 
@@ -28,6 +46,19 @@ void SummaryModel::setListHeight(double listHeight)
 {
     this->m_listHeight = listHeight;
     emit this->listHeightChanged(listHeight);
+}
+
+int SummaryModel::currentPage()
+{
+    return this->m_currentPage;
+}
+
+void SummaryModel::setCurrentPage(int currentPage)
+{
+    if(m_currentPage != currentPage){
+        m_currentPage = currentPage;
+        emit currentPageChanged(currentPage);
+    }
 }
 
 QModelIndex SummaryModel::addSummary(Summary &summary)
@@ -45,7 +76,8 @@ QModelIndex SummaryModel::addSummary(Summary &summary)
 int SummaryModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
-    return this->m_summaries->size();
+    auto sz = this->m_summaries->size();
+    return sz;
 }
 
 QVariant SummaryModel::data(const QModelIndex &index, int role) const
@@ -149,17 +181,24 @@ void SummaryModel::qualifyByView(const int view)
     switch (view) {
     case 6 ... 12:
         temp_summaries = m_db.summaryDao()->summaries(1, view - 6);
+        this->setCurrentPage(view - 6);
         break;
     case 14 ... 19:
         temp_summaries = m_db.summaryDao()->summaries(3, view - 14);
+        this->setCurrentPage(view - 14);
         break;
     default:
         temp_summaries = m_db.summaryDao()->summaries(0, 0);
+        this->setCurrentPage(0);
         break;
     }
+    beginRemoveRows(QModelIndex(), 0, m_summaries->size() - 1);
+    m_summaries->clear();
+    endRemoveRows();
     beginInsertRows(QModelIndex(), 0, temp_summaries->size() - 1);
     m_summaries = std::move(temp_summaries);
     endInsertRows();
+
 }
 
 bool SummaryModel::isIndexValid(const QModelIndex &index) const

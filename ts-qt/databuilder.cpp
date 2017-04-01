@@ -1083,6 +1083,7 @@ int DataBuilder::build()
     navigationDaoPtr->addNavigation(outUATP1ToUATscan);
 
 
+
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
 
