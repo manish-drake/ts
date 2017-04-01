@@ -15,6 +15,17 @@
         <file>ADSB-Scan.qml</file>
         <file>ADSB-Pages.qml</file>
         <file>TestDetail.qml</file>
+        <file>SwipeViewSample.qml</file>
+        <file>SetupUser.qml</file>
+        <file>MoreOptions.qml</file>
+        <file>SetupCards.qml</file>
+        <file>SetupConnectionDetail.qml</file>
+        <file>SetupGPS.qml</file>
+        <file>SetupNetwork.qml</file>
+        <file>SetupSystemInfo.qml</file>
+        <file>Card.qml</file>
+        <file>Cards.qml</file>
+        <file>SwipeViewSample.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
@@ -25,17 +36,18 @@
         <file>img/wifi.png</file>
         <file>img/play.png</file>
         <file>img/close.png</file>
-        <file>img/pointer.png</file>
+        <file>img/pointer.png</file>        
+        <file>img/clear.png</file>
+        <file>img/dualpanel.png</file>
+        <file>img/filter.png</file>
+        <file>img/help.png</file>
+        <file>img/setuptest.png</file>
+        <file>img/logdata.png</file>
+        <file>img/repeat.png</file>
+        <file>img/runall.png</file>
     </qresource>
     <qresource prefix="/garbage">
         <file>SampleUI.qml</file>
         <file>SampleNested.qml</file>
-        <file>SetupCards.qml</file>
-        <file>SetupConnectionDetail.qml</file>
-        <file>SetupGPS.qml</file>
-        <file>SetupNetwork.qml</file>
-        <file>SetupSystemInfo.qml</file>
-        <file>Card.qml</file>
-        <file>Cards.qml</file>
     </qresource>
 </RCC>

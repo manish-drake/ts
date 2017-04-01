@@ -4,6 +4,7 @@ import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
+import "."
 
 ApplicationWindow {
     visible: true
@@ -98,6 +99,32 @@ ApplicationWindow {
                     onOpened: parent.width = 270;
                 }
             }
+            Rectangle {
+                anchors.right:parent.right
+                id: popupContainerMoreOptions
+                width: 160
+                height: 424
+                color:"#33454545"
+                Popup {
+                    id: popupMoreOption
+                    width: parent.width
+                    height: 424
+                    modal: true
+                    focus: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    padding: 0
+
+                   MoreOptions{}
+                    onClosed: parent.width = 0
+                    onOpened: parent.width = 160;
+                }
+
+            }
+
+            // SwipeViewSample{anchors.fill:parent}
+            //            SetupUser{
+            //                anchors.fill:parent
+            //            }
         }
 
         footer: Footer{}
