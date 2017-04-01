@@ -15,6 +15,14 @@
         <file>ADSB-Scan.qml</file>
         <file>ADSB-Pages.qml</file>
         <file>TestDetail.qml</file>
+        <file>SampleNested.qml</file>
+        <file>SampleUI.qml</file>
+        <file>SetupCards.qml</file>
+        <file>SetupConnectionDetail.qml</file>
+        <file>SetupGPS.qml</file>
+        <file>SetupNetwork.qml</file>
+        <file>SetupSystemInfo.qml</file>
+        <file>Setup.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

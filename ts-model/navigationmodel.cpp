@@ -39,7 +39,7 @@ int NavigationModel::currentView() const
 
 void NavigationModel::setCurrentView(const int currentView)
 {
-//    if(this->m_currentView != currentView){
+    if(this->m_currentView != currentView){
 
         qDebug() << "Current view: " << currentView;
 
@@ -48,7 +48,7 @@ void NavigationModel::setCurrentView(const int currentView)
 
         this->m_navigations = m_db.navigationDao()->navigations(currentView);
         this->m_navigationParameter = QVariant();
-//    }
+    }
 }
 void NavigationModel::setCurrentView(const int currentView, QVariant navParam)
 {

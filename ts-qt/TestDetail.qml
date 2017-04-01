@@ -59,7 +59,7 @@ Page {
     }
 
     contentItem: Rectangle {
-//        color: "green"
+        //        color: "green"
         GridLayout{
             anchors.topMargin: 5
             anchors.bottomMargin: 20
@@ -81,7 +81,7 @@ Page {
                         Repeater {
                             model: testParamModel//summaryModel.getTestParamsForsummary(id)
                             delegate: Rectangle{
-//                                color: "yellow"
+                                //                                color: "yellow"
                                 Layout.row: row
                                 Layout.fillWidth: true
                                 Layout.preferredWidth : 170
@@ -95,10 +95,7 @@ Page {
                             }
                         }
                     }
-
                 }
-
-
             }
         }
     }
