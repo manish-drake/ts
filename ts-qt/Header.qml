@@ -88,6 +88,7 @@ Rectangle {
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
+                    popupMoreOption.open()
                   console.log("TODO: add code for right menu");
                 }
                 onPressed: parent.opacity = 0.5
