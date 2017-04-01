@@ -203,6 +203,7 @@ Item {
                     anchors.topMargin: 5
                 }
                 Slider {
+                    id: sld
                     anchors.rightMargin: 10
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
@@ -214,7 +215,7 @@ Item {
                     maximumValue: 250
                 }
                 Text{
-                    text:"200 Ft"
+                    text:"%1 Ft".arg(sld.value)
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                 }

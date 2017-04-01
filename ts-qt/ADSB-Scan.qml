@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle{
     anchors.fill: parent
-    color: "#f9ecec"
+//    color: "#f9ecec"
     ListModel {//as per discussion only top four values will be displayed here
         id:aircraftModel
         ListElement {

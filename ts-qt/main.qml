@@ -9,7 +9,7 @@ import "."
 ApplicationWindow {
     visible: true
     width: 480
-    height: 800
+    height: 700
     title: qsTr("TS")
 
     Page {
@@ -18,7 +18,7 @@ ApplicationWindow {
 
         contentItem: Rectangle {
             id:contentRect
-            color: "#55FFFF00"
+            color: "#55f7f7ee"
             Rectangle {
                 id: popupContainer
                 width: 0
@@ -105,13 +105,13 @@ ApplicationWindow {
             Rectangle {
                 anchors.right:parent.right
                 id: popupContainerMoreOptions
-                width: 160
+                color: "transparent"
+                width: 0
                 height: 424
-                color:"#33454545"
-                Popup {
+                Popup {                    
                     id: popupMoreOption
                     width: parent.width
-                    height: 424
+                    height: parent.height
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
