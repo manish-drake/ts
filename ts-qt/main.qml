@@ -104,28 +104,31 @@ ApplicationWindow {
             }
 
             Rectangle {
-                anchors.right:parent.right
+                anchors.right: parent.right
                 id: popupContainerMoreOptions
+                border.width:.5
+                border.color: "#000000"
                 width: 0
-                height: 424
+                height: 422
+                Popup {
                     id: popupMoreOption
-                    width: parent.width
-                    height: 424
+                    width: parent.width-2
+                    height: 422
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                    padding: 0
+                    padding: 1
 
-                   
                     MoreOptions{}
 
                     onClosed: parent.width = 0
-                    onOpened: parent.width = 160;
+                    onOpened: parent.width = 162;
                 }
             }
-          
         }
 
         footer: Footer{}
     }
 }
+
+
