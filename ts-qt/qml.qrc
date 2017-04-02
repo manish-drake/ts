@@ -18,22 +18,14 @@
         <file>SampleNested.qml</file>
         <file>SampleUI.qml</file>
         <file>SetupCards.qml</file>
-        <file>SetupConnectionDetail.qml</file>
-        <file>SetupGPS.qml</file>
-        <file>SetupNetwork.qml</file>
-        <file>SetupSystemInfo.qml</file>
         <file>Setup.qml</file>
         <file>SwipeViewSample.qml</file>
         <file>SetupUser.qml</file>
         <file>MoreOptions.qml</file>
-        <file>SetupCards.qml</file>
         <file>SetupConnectionDetail.qml</file>
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
-        <file>Card.qml</file>
-        <file>Cards.qml</file>
-        <file>SwipeViewSample.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

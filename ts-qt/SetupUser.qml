@@ -161,7 +161,7 @@ Grid{
         Text {
             anchors.verticalCenter: parent.verticalCenter
             anchors.   horizontalCenter: parent.horizontalCenter
-            text: qsTr("STAVE O'HARA")
+            text: qsTr("STEVE O'HARA")
             font.pixelSize: 12
         }
 
