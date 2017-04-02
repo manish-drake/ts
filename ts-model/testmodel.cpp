@@ -134,9 +134,12 @@ void TestModel::qualifyByView(const int view)
         break;
     }
 
-    beginInsertRows(QModelIndex(), 0, temp_Tests->size() - 1);
-    m_tests = std::move(temp_Tests);
-    endInsertRows();
+    auto sz = temp_Tests->size();
+    if(sz > 0){
+        beginInsertRows(QModelIndex(), 0, sz - 1);
+        m_tests = std::move(temp_Tests);
+        endInsertRows();
+    }
 }
 
 bool TestModel::isIndexValid(const QModelIndex &index) const

@@ -200,13 +200,20 @@ void SummaryModel::qualifyByView(const int view)
         this->setCurrentPage(0);
         break;
     }
-    beginRemoveRows(QModelIndex(), 0, m_summaries->size() - 1);
-    m_summaries->clear();
-    endRemoveRows();
-    beginInsertRows(QModelIndex(), 0, temp_summaries->size() - 1);
-    m_summaries = std::move(temp_summaries);
-    endInsertRows();
 
+    auto sz = m_summaries->size();
+    if(sz > 0){
+        beginRemoveRows(QModelIndex(), 0, sz - 1);
+        m_summaries->clear();
+        endRemoveRows();
+    }
+
+    auto sz_temp = temp_summaries->size();
+    if(sz_temp > 0){
+        beginInsertRows(QModelIndex(), 0, sz_temp - 1);
+        m_summaries = std::move(temp_summaries);
+        endInsertRows();
+    }
 }
 
 bool SummaryModel::isIndexValid(const QModelIndex &index) const
