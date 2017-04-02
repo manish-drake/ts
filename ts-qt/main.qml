@@ -102,34 +102,33 @@ ApplicationWindow {
                     onOpened: parent.width = 270;
                 }
             }
+
             Rectangle {
-                anchors.right:parent.right
+                anchors.right: parent.right
                 id: popupContainerMoreOptions
-                color: "transparent"
+                border.width:.5
+                border.color: "#000000"
                 width: 0
-                height: 424
-                Popup {                    
+                height: 422
+                Popup {
                     id: popupMoreOption
-                    width: parent.width
-                    height: parent.height
+                    width: parent.width-2
+                    height: 422
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                    padding: 0
+                    padding: 1
 
-                   MoreOptions{}
+                    MoreOptions{}
+
                     onClosed: parent.width = 0
-                    onOpened: parent.width = 160;
+                    onOpened: parent.width = 162;
                 }
-
             }
-
-            // SwipeViewSample{anchors.fill:parent}
-            //            SetupUser{
-            //                anchors.fill:parent
-            //            }
         }
 
         footer: Footer{}
     }
 }
+
+
