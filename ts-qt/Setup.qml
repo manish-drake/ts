@@ -7,6 +7,10 @@ Item {
     GridLayout{
         anchors.fill: parent
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
+
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5
@@ -20,7 +24,9 @@ Item {
             }
             ColumnLayout {
                 anchors.bottom: parent.bottom
-                anchors.margins: 5
+                anchors.left: parent.left
+                anchors.bottomMargin: 10
+                anchors.leftMargin: 10
                 Text {
                     text: qsTr("Current User: Operator")
                 }
@@ -35,6 +41,9 @@ Item {
             }
         }
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5
@@ -48,6 +57,9 @@ Item {
             }
             ColumnLayout {
                 anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.bottomMargin: 10
+                anchors.leftMargin: 10
                 anchors.margins: 5
                 Text {
                     text: qsTr("Current Theme: Indoor")
@@ -63,6 +75,9 @@ Item {
             }
         }
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5
@@ -76,6 +91,9 @@ Item {
             }
             ColumnLayout {
                 anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.bottomMargin: 10
+                anchors.leftMargin: 10
                 anchors.margins: 5
                 Text {
                     text: qsTr("Current Source: Internal")
@@ -94,6 +112,9 @@ Item {
             }
         }
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5
@@ -107,6 +128,9 @@ Item {
             }
             ColumnLayout {
                 anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.bottomMargin: 10
+                anchors.leftMargin: 10
                 anchors.margins: 5
                 Text {
                     text: qsTr("WiFi Enabled: Yes")
@@ -125,6 +149,9 @@ Item {
             }
         }
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5
@@ -142,6 +169,9 @@ Item {
             }
         }
         Rectangle{
+            border.width: 1
+            border.color: "lightgray"
+            radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.margins: 5

@@ -442,7 +442,7 @@ int DataBuilder::build()
     TestParam tpIntDatassup("silsup", sumIntData.id(), "SILSup", "__", "", 2, 1);
     tpModel.addTestParam(tpIntDatassup);
 
-    Summary sumCapSts("Capability/Status:", adsbOut1090.id(), 4, 2, 2);
+    Summary sumCapSts("Capability/Status:", adsbOut1090.id(), 4, 2, 3);
     sumModel.addSummary(sumCapSts);
 
     TestParam tpCapStsAcc("airb-Cap.-Class", sumCapSts.id(), "Airb Cap. Class", "___", "", 0, 0);
@@ -475,7 +475,7 @@ int DataBuilder::build()
     TestParam tpCapStsidt("ident", sumCapSts.id(), "IDENT", "__ (____)", "", 4, 1);
     tpModel.addTestParam(tpCapStsidt);
 
-    Summary sumOFlds2("Other Fields:", adsbOut1090.id(), 4, 3, 2);
+    Summary sumOFlds2("Other Fields:", adsbOut1090.id(), 4, 3, 4);
     sumModel.addSummary(sumOFlds2);
 
     TestParam tpOFlds2Vrs("version", sumOFlds2.id(), "Version", "__ (_____)", "", 0, 0);

@@ -34,7 +34,7 @@ public:
 
     Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
     Q_PROPERTY(int currentPage READ currentPage WRITE setCurrentPage NOTIFY currentPageChanged)
-    Q_INVOKABLE const QList<QTestParams> getTestParamsForsummary(const int summaryId) const;
+    Q_INVOKABLE const QList<QObject *> getTestParamsForsummary(const int summaryId) const;
 
     SummaryModel(QObject *parent = 0);
 

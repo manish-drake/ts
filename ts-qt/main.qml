@@ -9,7 +9,7 @@ import "."
 ApplicationWindow {
     visible: true
     width: 480
-    height: 800
+    height: 700
     title: qsTr("TS")
 
     Page {
@@ -18,7 +18,7 @@ ApplicationWindow {
 
         contentItem: Rectangle {
             id:contentRect
-            color: "#55FFFF00"
+            color: "#55f7f7ee"
             Rectangle {
                 id: popupContainer
                 width: 0
@@ -108,8 +108,6 @@ ApplicationWindow {
                 id: popupContainerMoreOptions
                 width: 0
                 height: 424
-                color:"#33454545"
-                Popup {
                     id: popupMoreOption
                     width: parent.width
                     height: 424
@@ -118,12 +116,14 @@ ApplicationWindow {
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                     padding: 0
 
+                   
                     MoreOptions{}
 
                     onClosed: parent.width = 0
                     onOpened: parent.width = 160;
                 }
             }
+          
         }
 
         footer: Footer{}

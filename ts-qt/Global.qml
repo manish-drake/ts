@@ -4,6 +4,6 @@ Item {
     anchors.centerIn: parent
     Text{
         anchors.centerIn: parent
-        text: qsTr("Global")
+        text: qsTr("Start placeholder")
     }
 }

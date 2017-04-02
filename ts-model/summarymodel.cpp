@@ -1,6 +1,8 @@
 #include "summarymodel.h"
 #include "summarydao.h"
 #include "datamanager.h"
+#include <QVariant>
+#include "testparam.h"
 
 using namespace std;
 
@@ -16,16 +18,22 @@ using namespace std;
 //    return list;
 //}
 
-const QList<QTestParams> SummaryModel::getTestParamsForsummary(const int summaryId) const
+const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId) const
 {
-    Q_UNUSED(summaryId);
-//    m_summaries->at(0)->testParams();
-//    const TestParamModel &tpm = TestParamModel(this->parent());
-//    return tpm;
-    QTestParams q;
-    q.setData("ABCDE");
-    QList<QTestParams> qtp;
-    qtp.push_back(q);
+    QList<QObject*> qtp;
+    for(auto &summ: *m_summaries){
+        if(summ->id() == summaryId){
+            for(std::unique_ptr<TestParam> &tp: *(summ->testParams())){
+                qtp.append(new QTestParams(
+                               QString("%1: %2 %3").arg(tp->key()).arg(tp->val()).arg(tp->unit()),
+                               tp->row(),
+                               tp->col(),
+                               tp->rowSpan(),
+                               tp->colSpan()
+                               ));
+            }
+        }
+    }
     return qtp;
 }
 
