@@ -102,10 +102,11 @@ ApplicationWindow {
                     onOpened: parent.width = 270;
                 }
             }
+
             Rectangle {
                 anchors.right:parent.right
                 id: popupContainerMoreOptions
-                width: 160
+                width: 0
                 height: 424
                 color:"#33454545"
                 Popup {
@@ -117,17 +118,12 @@ ApplicationWindow {
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                     padding: 0
 
-                   MoreOptions{}
+                    MoreOptions{}
+
                     onClosed: parent.width = 0
                     onOpened: parent.width = 160;
                 }
-
             }
-
-            // SwipeViewSample{anchors.fill:parent}
-            //            SetupUser{
-            //                anchors.fill:parent
-            //            }
         }
 
         footer: Footer{}
