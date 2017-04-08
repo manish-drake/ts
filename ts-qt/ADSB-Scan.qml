@@ -1,10 +1,13 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
+import QtQuick.Layouts 1.1
 
 Rectangle{
     anchors.fill: parent
-//    color: "#f9ecec"
+    color: "#fafafa"
     ListModel {//as per discussion only top four values will be displayed here
         id:aircraftModel
+
         ListElement {
             aircraftId: "#1"
             address: "2345AA (H) /23734510 (0)"
@@ -75,18 +78,16 @@ Rectangle{
 
         }
 
-        Rectangle{
-            color: "blue"
+
+        Image {
+            id: playImage
             height:38
             width: 38
             anchors.verticalCenter: parent.verticalCenter
-            radius:12.5
             anchors.horizontalCenter: parent.horizontalCenter
-            Image {
-                id: playImage
-                source: "qrc:/img/img/play.png"
-            }
+            source: "qrc:/img/img/play.png"
         }
+
 
         Text {
             id: name

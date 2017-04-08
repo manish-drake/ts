@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.1
 Item {
     Rectangle {
         id: rectangle
-        color: "#dcdcdc"
+        color: "#fafafa"
         anchors.fill: parent
 
         Text {

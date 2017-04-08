@@ -1,22 +1,23 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.1
-
+import QtGraphicalEffects 1.0
 
 
 Grid{
     id: gridSetupUser
     columns: 2
-    spacing: 2.5
+    spacing: 7
     anchors.fill: parent.width
-    anchors.topMargin: 2.5
-    anchors.leftMargin: 2.5
+    x: 5; y: 5;
     Rectangle{
         id: rectangle
-        height: 110
+        height: 150
         color:"#FFFFFF"
-        width:parent.width/2 - 2.5
-        radius:10
+        width:parent.width/2-9
+        border.color: "Lightgray"
+        border.width: 1
+        radius: 5
 
         Row {
             anchors.bottom: parent.bottom
@@ -49,14 +50,24 @@ Grid{
             text: qsTr("OPERATOR")
             font.pixelSize: 12
         }
-
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "Lightgray"
+            spread: 0
+        }
     }
     Rectangle{
-
-        width:parent.width/2-2.5
-        height: 110
+        id: rectangle1
+        height: 150
         color:"#FFFFFF"
-        radius:10
+        width:parent.width/2-9
+        border.color: "Lightgray"
+        border.width: 1
+        radius: 5
         Row {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
@@ -88,13 +99,23 @@ Grid{
             text: qsTr("KEN FILARDO")
             font.pixelSize: 12
         }
-
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "Lightgray"
+            spread: 0
+        }
     }
     Rectangle{
-        height: 110
+        height: 150
         color:"#FFFFFF"
-        width:parent.width/2-2.5
-        radius:10
+        width:parent.width/2-9
+        border.color: "Lightgray"
+        border.width: 1
+        radius: 5
         Row {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
@@ -126,13 +147,24 @@ Grid{
             text: qsTr("DAVE KLAMET")
             font.pixelSize: 12
         }
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "Lightgray"
+            spread: 0
+        }
 
     }
     Rectangle{
-        height: 110
+        height: 150
         color:"#FFFFFF"
-        width:parent.width/2-2.5
-        radius:10
+        width:parent.width/2-9
+        border.color: "Lightgray"
+        border.width: 1
+        radius: 5
         Row {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 10
@@ -163,6 +195,16 @@ Grid{
             anchors.   horizontalCenter: parent.horizontalCenter
             text: qsTr("STEVE O'HARA")
             font.pixelSize: 12
+        }
+
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "Lightgray"
+            spread: 0
         }
 
     }
