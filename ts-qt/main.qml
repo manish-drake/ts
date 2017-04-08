@@ -4,6 +4,7 @@ import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
+import QtGraphicalEffects 1.0
 import "."
 
 ApplicationWindow {
@@ -21,8 +22,15 @@ ApplicationWindow {
             id:contentRect
             color: "#fafafa"
 
-            Rectangle {
-                id: sideMenuContainer
+            Loader {
+                id:contentLoader
+
+                anchors.fill: parent
+                source: registry.getPageFromViewId(navigationModel.currentView)
+                onLoaded: console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
+            }
+
+            Item {
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 Popup {
@@ -70,16 +78,7 @@ ApplicationWindow {
                 }
             }
 
-            Loader {
-                id:contentLoader
-
-                anchors.fill: parent
-                source: registry.getPageFromViewId(navigationModel.currentView)
-                onLoaded: console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
-            }
-
-            Rectangle {
-                id: popupContainerCenter
+            Item {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
                     id: configPanel
@@ -94,9 +93,8 @@ ApplicationWindow {
                 }
             }
 
-            Rectangle {
+            Item{
                 anchors.right: parent.right
-                id: popupContainerMoreOptions
                 Popup {
                     id: moreActionsPopover
                     width: parent.width
@@ -105,6 +103,7 @@ ApplicationWindow {
                     rightMargin: 5
                     modal: true
                     focus: true
+                    clip: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                     onClosed: parent.width = 0
                     onOpened: parent.width = 160;
@@ -112,6 +111,7 @@ ApplicationWindow {
                 }
             }
         }
+
 
         footer: Footer{}
     }

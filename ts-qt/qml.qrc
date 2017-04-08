@@ -26,8 +26,8 @@
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
-        <file>ToggleStateSample.qml</file>
         <file>CustomSwitchDelegate.qml</file>
+        <file>ToggleStateSample.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
