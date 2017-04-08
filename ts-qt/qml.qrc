@@ -47,6 +47,10 @@
         <file>img/logdata.png</file>
         <file>img/repeat.png</file>
         <file>img/runall.png</file>
+        <file>img/guide.png</file>
+        <file>img/cout.png</file>
+        <file>img/fav.png</file>
+        <file>img/save.png</file>
     </qresource>
     <qresource prefix="/garbage">
         <file>SampleUI.qml</file>
