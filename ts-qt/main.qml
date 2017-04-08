@@ -14,59 +14,55 @@ ApplicationWindow {
 
     Page {
         anchors.fill: parent
-        header: Header{}
+
+        header: Header{id: header}
 
         contentItem: Rectangle {
             id:contentRect
-            color: "#55f7f7ee"
-            Rectangle {
-                id: popupContainer
-                width: 0
-                height: 10 * 50
-                Popup {
-                    id: popup
-                    width: parent.width
+            color: "#fafafa"
 
-                    height: 10 * 50
+            Rectangle {
+                id: sideMenuContainer
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                Popup {
+                    id: sideMenu
+                    width: parent.width
+                    height: parent.height
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                     padding: 0
-
                     ListView {
                         id: listViewLeftMenu
                         anchors.fill: parent
                         model: sectionModel
                         clip:true
                         focus: true
-
-
                         delegate:  Component {
                             Item{
                                 height: 50
                                 width: parent.width
-
                                 Text {
                                     anchors.verticalCenter: parent.verticalCenter
-                                    padding:5
+                                    padding:10
                                     text: name
-                                    font.bold: true
+                                    font.weight: Font.DemiBold
                                     font.pointSize: 12
                                 }
-
                                 MouseArea {
                                     anchors.fill: parent
                                     onClicked: {
                                         navigationModel.currentView = navigationModel.getTargetView("_section", id)
                                         listViewLeftMenu.currentIndex = index
-                                        popup.close()
+                                        sideMenu.close()
                                     }
                                 }
                             }
                         }
 
                         highlight: Rectangle {
-                            color: '#e6e6e6'
+                            color: '#0d000000'
                         }
                     }
                     onClosed: parent.width = 0
@@ -83,46 +79,36 @@ ApplicationWindow {
             }
 
             Rectangle {
-                anchors.horizontalCenter:parent.horizontalCenter
                 id: popupContainerCenter
-                width: 0
-                height: 424
+                anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
-                    id: popupCenter
-                    width: parent.width
-                    height: 424
+                    id: configPanel
+                    padding: 0
+                    topMargin: 55
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                    padding: 0
-
-                    CenterMenu{}
-
                     onClosed: parent.width = 0
                     onOpened: parent.width = 270;
+                    contentItem: CenterMenu{}
                 }
             }
 
             Rectangle {
                 anchors.right: parent.right
                 id: popupContainerMoreOptions
-                border.width:.5
-                border.color: "#000000"
-                width: 0
-                height: 422
                 Popup {
-                    id: popupMoreOption
-                    width: parent.width-2
-                    height: 422
+                    id: moreActionsPopover
+                    width: parent.width
+                    padding: 0
+                    topMargin: 55
+                    rightMargin: 5
                     modal: true
                     focus: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                    padding: 1
-
-                    MoreOptions{}
-
                     onClosed: parent.width = 0
-                    onOpened: parent.width = 162;
+                    onOpened: parent.width = 160;
+                    contentItem: MoreOptions{}
                 }
             }
         }

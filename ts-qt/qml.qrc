@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>Main.qml</file>
         <file>CenterMenu.qml</file>
         <file>Card.qml</file>
         <file>Cards.qml</file>

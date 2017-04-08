@@ -5,12 +5,14 @@ import QtQuick.Controls 2.1
 Rectangle{
     id:itemOption
     height: 50
-    width: 160
+    width: parent.width
+    color: "#00000000"
     property alias source: image.source
     property alias text: switchDelegate.text
 
     SwitchDelegate {
         id:switchDelegate
+        width: parent.width
         checked: false
         font.pixelSize: 14
         indicator: Image {
@@ -30,12 +32,6 @@ Rectangle{
             verticalAlignment: Text.AlignVCenter
             anchors.left:parent.indicator.right
             anchors.leftMargin: 10            
-        }
-        background: Rectangle {
-            implicitWidth: 160
-            implicitHeight: 50
-            visible: parent.down || parent.highlighted
-            color: parent.down ? "#FFEFEFEF" : "#00000000"
         }
     }
 }

@@ -6,8 +6,10 @@ import QtQuick.Layouts 1.1
 
 Item{
     id: item1
+    width: parent.width
     Column{
         id: columnLayout
+        width: parent.width
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/setuptest.png"
@@ -40,19 +42,12 @@ Item{
             text: "LOG DATA"
             source: "qrc:/img/img/logdata.png"
         }
-    }
-    Rectangle{
-        id: rectangle
-        width: 160
-        height: 20
-        color: "#FFFFFF"
-        anchors.top: columnLayout.bottom
-        anchors.topMargin: 0
         Text{
             text: "Version"
             anchors.right: parent.right
-            anchors.rightMargin: 10
-            anchors.verticalCenter: parent.verticalCenter
+            padding: 10
         }
     }
+
+
 }
