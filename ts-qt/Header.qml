@@ -4,96 +4,100 @@ Rectangle {
     height: 50
     color: "#377DF3"
 
-        Rectangle {
-            anchors.verticalCenter: parent.verticalCenter
-            height: 30
-            width: 80
-            color: "transparent"
+    Rectangle {
+        id: toggleMenu
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: 50
+        color: "transparent"
 
-            Image {
-                id: imageStart
-                anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/start.png"
-            }
-
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.left: imageStart.right
-                text:"Start"
-                font.bold: true
-                color: "#ffffff"
-                font.pointSize: 10
-                anchors.leftMargin: 10
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    popup.open()
-                }
-                onPressed: parent.opacity = 0.5
-                onReleased: parent.opacity = 1
-            }
-        }
-        Rectangle {
+        Image {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-
-            height: 30
-            width: 30
-            color: "transparent"
-            Image {
-                id: imageCenter
-                anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/centermenu.png"
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    popupCenter.open()
-                }
-                onPressed: parent.opacity = 0.5
-                onReleased: parent.opacity = 1
-            }
+            source: "qrc:/img/img/start.png"
         }
-        Rectangle {
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                sideMenu.open()
+            }
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1
+        }
+    }
+
+    Text {
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: toggleMenu.right
+        anchors.right: toggleConfigPanel.left
+        text: "Start"
+        font.bold: true
+        color: "#ffffff"
+        font.pointSize: 12
+        anchors.leftMargin: 5
+        elide: Text.ElideRight
+    }
+
+    Rectangle {
+        id: toggleConfigPanel
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: 50
+        color: "transparent"
+        Image {
+            id: imageCenter
             anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-
-            height: 30
-            width: 30
-            color: "transparent"
-            Column{
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.verticalCenter:  parent.verticalCenter
-                spacing: 3
-                Rectangle{
-                    color:"#ffffff"
-                    height: 5
-                    width: 5
-                    radius: 2
-                }
-                Rectangle{
-                    color:"#ffffff"
-                    height: 5
-                    width: 5
-                    radius: 2
-                }
-                Rectangle{
-                    color:"#ffffff"
-                    height: 5
-                    width: 5
-                    radius: 2
-                }
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "qrc:/img/img/centermenu.png"
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                configPanel.open()
             }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    popupMoreOption.open()
-                  console.log("TODO: add code for right menu");
-                }
-                onPressed: parent.opacity = 0.5
-                onReleased: parent.opacity = 1
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1
+        }
+    }
+    Rectangle {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: 50
+        color: "transparent"
+        Column{
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter:  parent.verticalCenter
+            spacing: 3
+            Rectangle{
+                color:"#ffffff"
+                height: 5
+                width: 5
+                radius: 2
+            }
+            Rectangle{
+                color:"#ffffff"
+                height: 5
+                width: 5
+                radius: 2
+            }
+            Rectangle{
+                color:"#ffffff"
+                height: 5
+                width: 5
+                radius: 2
             }
         }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                moreActionsPopover.open()
+                console.log("TODO: add code for right menu");
+            }
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1
+        }
+    }
 
 }
