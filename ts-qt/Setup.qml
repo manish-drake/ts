@@ -7,14 +7,16 @@ Item {
     anchors.fill: parent
     GridLayout{
         anchors.fill: parent
+        anchors.margins: 10
+        rowSpacing: 10
+        columnSpacing: 10
+        clip: true
         Rectangle{
+            border.color: "#0d000000"
             border.width: 1
-            border.color: "lightgray"
             radius: 5
-
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 0
             Layout.row: 0
             Text {
@@ -56,7 +58,6 @@ Item {
             radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 1
             Layout.row: 0
             Text {
@@ -99,7 +100,6 @@ Item {
             radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 0
             Layout.row: 1
             Text {
@@ -145,7 +145,6 @@ Item {
             radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 1
             Layout.row: 1
             Text {
@@ -191,7 +190,6 @@ Item {
             radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 0
             Layout.row: 2
             Text {
@@ -220,7 +218,6 @@ Item {
             radius: 5
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.margins: 5
             Layout.column: 1
             Layout.row: 2
             Text {
