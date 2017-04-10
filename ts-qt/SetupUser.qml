@@ -16,7 +16,7 @@ Grid{
         color:"#FFFFFF"
         width:parent.width/2-9
         border.color: "Lightgray"
-        border.width: 1
+        border.width: 0.4
         radius: 5
 
         Row {
@@ -66,7 +66,7 @@ Grid{
         color:"#FFFFFF"
         width:parent.width/2-9
         border.color: "Lightgray"
-        border.width: 1
+        border.width: 0.4
         radius: 5
         Row {
             anchors.bottom: parent.bottom
@@ -114,7 +114,7 @@ Grid{
         color:"#FFFFFF"
         width:parent.width/2-9
         border.color: "Lightgray"
-        border.width: 1
+        border.width: 0.4
         radius: 5
         Row {
             anchors.bottom: parent.bottom
@@ -163,7 +163,7 @@ Grid{
         color:"#FFFFFF"
         width:parent.width/2-9
         border.color: "Lightgray"
-        border.width: 1
+        border.width: 0.4
         radius: 5
         Row {
             anchors.bottom: parent.bottom
