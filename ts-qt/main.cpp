@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
                          &summaryModel, SLOT(currentViewChanged(int)));
 
-        engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+        engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 
         return app.exec();
     }

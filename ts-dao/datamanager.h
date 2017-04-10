@@ -17,7 +17,6 @@ class QSqlDatabase;
 class QSqlQuery;
 
 const QString DB_FILE = "c:/git/qt/ts/ts.db";
-//const QString DB_FILE = "d:/git/ts/ts.db";
 
 class TSDAOSHARED_EXPORT DataManager
 {

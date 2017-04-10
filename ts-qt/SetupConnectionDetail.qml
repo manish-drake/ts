@@ -6,7 +6,7 @@ Item {
 
     Rectangle {
         id: rectangle
-        color: "#dcdcdc"
+        color: "#fafafa"
         anchors.fill: parent
 
         Text {

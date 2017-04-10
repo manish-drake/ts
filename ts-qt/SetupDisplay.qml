@@ -5,7 +5,7 @@ import QtQuick.Controls 2.0
 Item {
     Rectangle {
         id: rectangle
-        color: "#dcdcdc"
+        color: "#fafafa"
         anchors.fill: parent
 
         Text {
@@ -19,7 +19,7 @@ Item {
         }
 
         GridLayout {
-            y: 50
+            y: 70
             columnSpacing: 25
             anchors.left: parent.left
             anchors.leftMargin: 50

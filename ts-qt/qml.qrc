@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
+        <file>Main.qml</file>
         <file>CenterMenu.qml</file>
         <file>Card.qml</file>
         <file>Cards.qml</file>
@@ -25,8 +25,8 @@
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
-        <file>ToggleStateSample.qml</file>
         <file>CustomSwitchDelegate.qml</file>
+        <file>ToggleStateSample.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
@@ -46,6 +46,10 @@
         <file>img/logdata.png</file>
         <file>img/repeat.png</file>
         <file>img/runall.png</file>
+        <file>img/guide.png</file>
+        <file>img/cout.png</file>
+        <file>img/fav.png</file>
+        <file>img/save.png</file>
     </qresource>
     <qresource prefix="/garbage">
         <file>SampleUI.qml</file>

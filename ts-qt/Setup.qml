@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtGraphicalEffects 1.0
 
 Item {
     anchors.fill: parent
@@ -35,6 +36,15 @@ Item {
                 }
 
             }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked:navigationModel.currentView = navigationModel.getTargetView("User")
@@ -68,6 +78,15 @@ Item {
                     text: qsTr("Brightness: 5/10")
                 }
 
+            }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
             }
             MouseArea {
                 anchors.fill: parent
@@ -106,6 +125,15 @@ Item {
                 }
 
             }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked:navigationModel.currentView = navigationModel.getTargetView("GPS")
@@ -143,6 +171,15 @@ Item {
                 }
 
             }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked:navigationModel.currentView = navigationModel.getTargetView("Network")
@@ -163,6 +200,15 @@ Item {
                 text: qsTr("SYSTEM INFO")
                 font.bold: true
             }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
+            }
             MouseArea {
                 anchors.fill: parent
                 onClicked:navigationModel.currentView = navigationModel.getTargetView("System-Info")
@@ -182,6 +228,15 @@ Item {
                 id: conn
                 text: qsTr("CONNECTION")
                 font.bold: true
+            }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
             }
             MouseArea {
                 anchors.fill: parent

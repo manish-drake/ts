@@ -5,7 +5,7 @@ import QtQuick.Controls 2.0
 Item {
     Rectangle {
         id: rectangle
-        color: "#dcdcdc"
+        color: "#fafafa"
         anchors.fill: parent
 
         Text {
