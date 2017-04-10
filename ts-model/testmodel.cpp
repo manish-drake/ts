@@ -134,9 +134,16 @@ void TestModel::qualifyByView(const int view)
         break;
     }
 
-    auto sz = temp_Tests->size();
+    auto sz = m_tests->size();
     if(sz > 0){
-        beginInsertRows(QModelIndex(), 0, sz - 1);
+        beginRemoveRows(QModelIndex(), 0, sz -1);
+        m_tests->clear();
+        endRemoveRows();
+    }
+
+    auto sz_temp = temp_Tests->size();
+    if(sz_temp > 0){
+        beginInsertRows(QModelIndex(), 0, sz_temp - 1);
         m_tests = std::move(temp_Tests);
         endInsertRows();
     }
