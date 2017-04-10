@@ -1,19 +1,15 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 
 Item {
     id: item1
     Rectangle {
         id: rectangle
-        height: 100
-        color: "#ffffff"
-        border.color: "darkgray"
-        border.width:1
-        anchors.top: parent.top
-        anchors.topMargin: 0
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-        anchors.left: parent.left
-        anchors.leftMargin: 0
+        anchors.fill: parent
+        color: "#fcfcfc"
+        border.color: "#0d000000"
+        border.width: 1
+
 
         Text {
             id: text1
@@ -21,7 +17,8 @@ Item {
             y: 9
             text: qsTr("Aircraft/Vehicle:")
             fontSizeMode: Text.Fit
-            font.pixelSize: 12
+            font.pixelSize: 14
+            font.weight: Font.DemiBold
         }
 
         Text {
@@ -30,7 +27,8 @@ Item {
             y: 9
             text:aircraftId
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
+            font.weight: Font.DemiBold
         }
 
         Text {
@@ -40,7 +38,7 @@ Item {
             text: qsTr("address:")
             font.capitalization: Font.AllUppercase
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
         }
 
         Text {
@@ -49,8 +47,8 @@ Item {
             y: 29
             text: address
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
             font.capitalization: Font.AllUppercase
+            font.pixelSize: 14
         }
 
         Text {
@@ -59,7 +57,7 @@ Item {
             y: 49
             text: qsTr("flight:")
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.capitalization: Font.AllUppercase
         }
 
@@ -69,7 +67,7 @@ Item {
             y: 49
             text: flight
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.capitalization: Font.AllUppercase
         }
 
@@ -79,7 +77,7 @@ Item {
             y: 69
             text: qsTr("BSD Revd:")
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.capitalization: Font.MixedCase
         }
 
@@ -89,7 +87,7 @@ Item {
             y: 69
             text: bsdrevd
             fontSizeMode: Text.HorizontalFit
-            font.pixelSize: 12
+            font.pixelSize: 14
             font.capitalization: Font.MixedCase
         }
 
@@ -106,14 +104,24 @@ Item {
             Text {
                 id: text9
                 text: qsTr("RF Level:")
-                font.pixelSize: 12
+                font.pixelSize: 14
             }
 
             Text {
                 id: text10
                 text: rflevel
-                font.pixelSize: 12
+                font.pixelSize: 14
             }
+        }
+
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "Lightgray"
+            spread: 0
         }
     }
 }
