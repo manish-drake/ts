@@ -162,7 +162,7 @@ Item {
                     text: qsTr("IP ADDRESS:")
                     Layout.row: 4
                     font.pixelSize: 12
-                    Layout.bottomMargin: 20
+                    Layout.bottomMargin: 35
                     Layout.rightMargin:80
                     font.bold: Font.Medium
                 }
@@ -173,7 +173,7 @@ Item {
                     Layout.row: 4
                     Layout.column: 1
                     font.pixelSize: 12
-                    Layout.bottomMargin: 20
+                    Layout.bottomMargin: 35
                 }
 
                 Text {
@@ -193,7 +193,18 @@ Item {
                     Layout.column: 1
                     font.pixelSize: 12
                     Layout.bottomMargin: 20
+                }
 
+                Text{
+                    text:"Edit"
+                    color: "#387EF5"
+                    font.pointSize: 10
+                    Layout.row:5
+                    Layout.column:2
+                    Layout.bottomMargin: 20
+                    MouseArea {
+                        anchors.fill: parent
+                    }
                 }
 
                 Text {
@@ -212,6 +223,17 @@ Item {
                     Layout.row: 6
                     font.pixelSize: 12
                     Layout.column: 1
+                }
+
+                Text{
+                    text:"Edit"
+                    color: "#387EF5"
+                    font.pointSize: 10
+                    Layout.row:6
+                    Layout.column:2
+                    MouseArea {
+                        anchors.fill: parent
+                    }
                 }
             }
 
