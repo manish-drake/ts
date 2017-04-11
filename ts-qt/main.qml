@@ -89,7 +89,7 @@ ApplicationWindow {
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                     onClosed: parent.width = 0
                     onOpened: parent.width = 270;
-                    contentItem: CenterMenu{}
+                    contentItem: ConfigPanel{}
                 }
             }
 

@@ -1,10 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>Main.qml</file>
-        <file>CenterMenu.qml</file>
+        <file>ConfigPanel.qml</file>
         <file>Card.qml</file>
         <file>Cards.qml</file>
-        <file>NetworkInfo.qml</file>
         <file>Aircraft.qml</file>
         <file>Aircrafts.qml</file>
         <file>Global.qml</file>
@@ -15,11 +14,7 @@
         <file>ADSB-Scan.qml</file>
         <file>ADSB-Pages.qml</file>
         <file>TestDetail.qml</file>
-        <file>SampleNested.qml</file>
-        <file>SampleUI.qml</file>
-        <file>SetupCards.qml</file>
         <file>Setup.qml</file>
-        <file>SwipeViewSample.qml</file>
         <file>SetupUser.qml</file>
         <file>MoreOptions.qml</file>
         <file>SetupConnectionDetail.qml</file>
@@ -27,7 +22,6 @@
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
         <file>CustomSwitchDelegate.qml</file>
-        <file>ToggleStateSample.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>
@@ -54,9 +48,5 @@
         <file>img/stop.png</file>
         <file>img/light.png</file>
         <file>img/top.png</file>
-    </qresource>
-    <qresource prefix="/garbage">
-        <file>SampleUI.qml</file>
-        <file>SampleNested.qml</file>
     </qresource>
 </RCC>

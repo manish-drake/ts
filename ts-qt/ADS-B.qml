@@ -150,7 +150,6 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
-
                     }
                 }
                 Rectangle{
@@ -176,7 +175,7 @@ Item {
                 horizontalOffset: 1.1
                 verticalOffset: 1.1
                 radius: 4.0
-                color: "Lightgray"
+                color: "#0d000000"
                 spread: 0
             }
             MouseArea {
