@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 2.1
 
 Item {
     Rectangle {
@@ -32,12 +33,11 @@ Item {
             GridLayout {
                 y: 70
                 anchors.left: parent.left
-                anchors.leftMargin: 50
+                anchors.leftMargin: 40
                 anchors.right: parent.right
-                anchors.rightMargin: 50
+                anchors.rightMargin: 40
                 rows: 11
-                columns: 2
-                rowSpacing:20
+                columns: 3
 
                 Text {
                     id: text1
@@ -46,12 +46,25 @@ Item {
                     font.bold: Font.Medium
                 }
 
-                Text {
-                    id: text5
-                    color: "#575656"
-                    text: qsTr("Internal")
+                Text{
+                    id:gpsSourceText
+                    text:gpsSourceSwitch.checked ? qsTr("External"):qsTr("Internal")
                     font.pixelSize: 12
-                    Layout.column: 1
+                    font.family: "Arial"
+                    Layout.row: 0
+                    Layout.column:1
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: gpsSourceSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 0
+                    font.family: "Arial"
+                    spacing: 10
+                    Layout.column: 2
+                    onCheckedChanged: {
+                        console.log(gpsSourceSwitch.checked)
+                    }
                 }
 
                 Text {
@@ -62,15 +75,27 @@ Item {
                     font.bold: Font.Medium
                 }
 
-                Text {
-                    id: text6
-                    color: "#575656"
-                    text: qsTr("DMS")
-                    renderType: Text.NativeRendering
+                Text{
+                    id:gpsFormatText
+                    text:gpsFormatSwitch.checked ? qsTr("D.D°"):qsTr("D°M'S")
                     font.pixelSize: 12
+                    font.family: "Arial"
                     Layout.column: 1
                     Layout.row: 1
                 }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: gpsFormatSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 1
+                    font.family: "Arial"
+                    spacing: 10
+                    Layout.column: 2
+                    onCheckedChanged: {
+                        console.log(gpsFormatSwitch.checked)
+                    }
+                }
+
 
                 Text {
                     id: text3
@@ -78,15 +103,28 @@ Item {
                     font.pixelSize: 12
                     Layout.row: 2
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 10
                 }
 
-                Text {
-                    id: text7
-                    color: "#575656"
-                    text: qsTr("Feet")
+                Text{
+                    id:altFormatText
+                    text:altFormatSwitch.checked ? qsTr("Meters"):qsTr("Feet")
                     font.pixelSize: 12
+                    font.family: "Arial"
                     Layout.column: 1
                     Layout.row: 2
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: altFormatSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 2
+                    font.family: "Arial"
+                    spacing: 10
+                    Layout.column: 2
+                    onCheckedChanged: {
+                        console.log(altFormatSwitch.checked)
+                    }
                 }
 
                 Text {
@@ -95,14 +133,18 @@ Item {
                     font.pixelSize: 12
                     Layout.row: 3
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
                     id: text8
-                    text: qsTr("51-3012.1VN?")
+                    text: qsTr("51°30'12.11 N")
                     font.pixelSize: 12
                     Layout.column: 1
+                    Layout.columnSpan: 2
                     Layout.row: 3
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -111,15 +153,19 @@ Item {
                     Layout.row: 4
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
                     id: text11
-                    text: qsTr("107’39.45-W?")
+                    text: qsTr("10°7'39.45 W")
                     font.capitalization: Font.AllUppercase
                     Layout.row: 4
                     Layout.column: 1
+                     Layout.columnSpan: 2
                     font.pixelSize: 12
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -128,6 +174,8 @@ Item {
                     Layout.row: 5
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
@@ -135,7 +183,9 @@ Item {
                     text: qsTr("09:15:45")
                     Layout.row: 5
                     Layout.column: 1
+                     Layout.columnSpan: 2
                     font.pixelSize: 12
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -145,6 +195,8 @@ Item {
                     font.pixelSize: 12
                     Layout.column: 0
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
@@ -153,6 +205,8 @@ Item {
                     Layout.row: 6
                     font.pixelSize: 12
                     Layout.column: 1
+                     Layout.columnSpan: 2
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -162,14 +216,18 @@ Item {
                     font.pixelSize: 12
                     Layout.column: 0
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
                     id: text17
-                    text: qsTr("124 Ft")
+                    text: qsTr("124 Ft.")
                     Layout.row: 7
                     font.pixelSize: 12
                     Layout.column: 1
+                    Layout.columnSpan: 2
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -178,16 +236,22 @@ Item {
                     Layout.row: 8
                     font.pixelSize: 12
                     Layout.column: 0
+                    Layout.topMargin: 20
                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
                 }
 
                 Text {
                     id: text19
-                    text: qsTr("407484 N")
+                    text: qsTr("40.7484° N")
                     Layout.row: 8
                     font.capitalization: Font.AllUppercase
                     font.pixelSize: 12
                     Layout.column: 1
+                     Layout.columnSpan: 2
+                    Layout.topMargin: 20
+                    Layout.bottomMargin: 20
                 }
 
                 Text {
@@ -197,17 +261,22 @@ Item {
                     font.capitalization: Font.AllUppercase
                     font.pixelSize: 12
                     Layout.column: 0
+                    Layout.rightMargin:80
                     font.bold: Font.Medium
                 }
+
                 Text {
                     id: text21
-                    text: qsTr("73.9857 W")
+                    text: qsTr("73.9857° W")
                     Layout.row: 9
                     font.capitalization: Font.AllUppercase
                     font.pixelSize: 12
                     Layout.column: 1
+                     Layout.columnSpan: 2
                 }
+
             }
+
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
