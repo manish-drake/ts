@@ -53,15 +53,25 @@ Item {
                     Layout.rightMargin: 50
                 }
 
+                Text{
+                    id:switchText
+                    text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
+                    font.pixelSize: 12
+                    font.family: "Arial"
+                    Layout.row: 0
+                    Layout.column:1
+                    Layout.columnSpan: 2
+                }
+
                 Switch { //we can use delegate switch as well for binging
                     id: switch1
-                    text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
                     Layout.fillWidth: true
                     Layout.row: 0
                     font.family: "Arial"
-                    spacing: 20
-                    Layout.column: 1
-                    Layout.columnSpan: 3
+                    spacing: 10
+                    Layout.column: 3
+                    width:30
+                    height:30
                     onCheckedChanged: {
                         console.log(switch1.checked)
                     }
@@ -69,8 +79,7 @@ Item {
 
                 Text {
                     id: text2
-                    text: qsTr("brightness")
-                    font.capitalization: Font.AllUppercase
+                    text: qsTr("BRIGHTNESS")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: "Arial"

@@ -1,19 +1,15 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
+
 
 Item {
     anchors.fill: parent
 
-    //    SwipeView {
-    //        anchors.fill: parent
-    //        Repeater {
-    //            model: summaryModel
-    //            Loader {
-    //                active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
-    //                sourceComponent:
     Rectangle{
         anchors.fill: parent
         border.color: "#0d000000"
@@ -85,6 +81,12 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/close.png"
                     }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                        }
+                    }
                 }
 
 
@@ -92,42 +94,47 @@ Item {
 
             contentItem: Rectangle {
                 color: "transparent"
-                GridLayout{
-                    anchors.leftMargin: 10
-                    anchors.rightMargin: 10
-                    anchors.topMargin: 5
-                    anchors.bottomMargin: 20
-                    anchors.fill: parent
-                    columnSpacing: 5
-                    Repeater{
-                        model: summaryModel
-                        delegate:
-                            ColumnLayout {
-                            Layout.row: order
-                            Layout.minimumHeight: 120
-                            Layout.topMargin: 20
-                            Text {
-                                Layout.fillHeight: true
-                                text: name
-                                font.weight: Font.DemiBold
-                                font.pointSize: 12
-                            }
-                            GridLayout {
-                                Repeater {
-                                    model: summaryModel.getTestParamsForsummary(id)
-                                    delegate: Rectangle{
-                                        //                                color: "yellow"
-                                        Layout.row: model.modelData.row
-                                        Layout.column: model.modelData.col
-                                        Layout.fillWidth: true
-                                        Layout.preferredWidth : 170
-                                        Layout.columnSpan: model.modelData.colSpan
-                                        Layout.rowSpan: model.modelData.rowSpan
-                                        height: 15
-                                        Text {
 
-                                            font.pointSize: 10
-                                            text: model.modelData.data
+                ScrollView{
+                    anchors.fill: parent
+                    anchors.margins: 10
+                    horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
+                    verticalScrollBarPolicy: Qt.ScrollBarAsNeeded
+                    style:ScrollViewStyle{
+                        transientScrollBars: true
+                    }
+                    contentItem: Column{
+                        anchors.fill: ScrollView.viewport
+                        spacing: 25
+                        Repeater{
+                            model: summaryModel
+                            delegate:
+                                ColumnLayout {
+                                Layout.row: order
+                                Layout.minimumHeight: 120
+                                Layout.topMargin: 20
+                                Text {
+                                    Layout.fillHeight: true
+                                    text: name
+                                    font.weight: Font.DemiBold
+                                    font.pointSize: 12
+                                }
+                                GridLayout {
+                                    Repeater {
+                                        model: summaryModel.getTestParamsForsummary(id)
+                                        delegate: Rectangle{
+                                            //                                color: "yellow"
+                                            Layout.row: model.modelData.row
+                                            Layout.column: model.modelData.col
+                                            Layout.fillWidth: true
+                                            Layout.preferredWidth : 170
+                                            Layout.columnSpan: model.modelData.colSpan
+                                            Layout.rowSpan: model.modelData.rowSpan
+                                            height: 15
+                                            Text {
+                                                font.pointSize: 10
+                                                text: model.modelData.data
+                                            }
                                         }
                                     }
                                 }
@@ -252,8 +259,4 @@ Item {
             spread: 0
         }
     }
-    //            }
-    //        }
-    //    }
-
 }

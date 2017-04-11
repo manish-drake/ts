@@ -72,6 +72,10 @@ Item {
                     color:"gray"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    Image{
+                        anchors.fill: parent
+                        source: "qrc:/img/img/light.png"
+                    }
                 }
             }
             Text{
@@ -136,6 +140,10 @@ Item {
                     color:"gray"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    Image{
+                        anchors.fill: parent
+                        source: "qrc:/img/img/wifi.png"
+                    }
                 }
             }
             ComboBox{
@@ -231,6 +239,10 @@ Item {
                     color:"gray"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    Image{
+                        anchors.fill: parent
+                        source: "qrc:/img/img/top.png"
+                    }
                 }
             }
             Text{
@@ -265,6 +277,10 @@ Item {
                     color:"gray"
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    Image{
+                        anchors.fill: parent
+                        source: "qrc:/img/img/filter.png"
+                    }
                 }
             }
             ComboBox{

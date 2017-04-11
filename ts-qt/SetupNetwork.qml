@@ -33,30 +33,37 @@ Item {
             GridLayout {
                 y: 70
                 anchors.left: parent.left
-                anchors.leftMargin: 50
+                anchors.leftMargin: 40
                 anchors.right: parent.right
-                anchors.rightMargin: 50
+                anchors.rightMargin: 40
                 rows: 11
-                columns: 2
+                columns: 3
 
                 Text {
                     id: text1
                     text: qsTr("ENABlE Wi-Fi:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    Layout.rightMargin:80
                 }
 
-                Switch {
-                    id: switch1
-                    text:switch1.checked ? qsTr("Yes"):qsTr("No")
-                    checked: false
+                Text{
+                    id:wifiText
+                    text:wifiSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    font.pixelSize: 12
+                    font.family: "Arial"
+                    Layout.row: 0
+                    Layout.column:1
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: wifiSwitch
                     Layout.fillWidth: true
-                    Layout.rowSpan: 1
-                    Layout.preferredWidth: -1
-                    spacing: 6
-                    Layout.column: 1
+                    Layout.row: 0
+                    spacing: 10
+                    Layout.column: 2
                     onCheckedChanged: {
-                        console.log(switch1.checked)
+                        console.log(wifiSwitch.checked)
                     }
                 }
 
@@ -65,19 +72,28 @@ Item {
                     text: qsTr("ENABLE REMOTE:")
                     font.pixelSize: 12
                     Layout.row: 1
-                     font.bold: Font.Medium
+                    font.bold: Font.Medium
+                    Layout.rightMargin:80
                 }
 
-                Switch {
-                    id: switch2
-                    text:switch2.checked ? qsTr("Yes"):qsTr("No")
-                    Layout.fillWidth: true
-                    spacing: 6
-                    onCheckedChanged: {
-                        console.log(switch2.checked)
-                    }
-                    Layout.column: 1
+                Text{
+                    id:remoteText
+                    text:remoteSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    font.pixelSize: 12
+                    font.family: "Arial"
                     Layout.row: 1
+                    Layout.column:1
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: remoteSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 1
+                    spacing: 10
+                    Layout.column: 2
+                    onCheckedChanged: {
+                        console.log(remoteSwitch.checked)
+                    }
                 }
 
                 Text {
@@ -85,20 +101,28 @@ Item {
                     text: qsTr("Wi-Fi DIRECT:")
                     font.pixelSize: 12
                     Layout.row: 2
-                     font.bold: Font.Medium
+                    font.bold: Font.Medium
+                    Layout.rightMargin:80
                 }
 
-                Switch {
-                    id: switch3
-                    text:switch3.checked ? qsTr("Yes"):qsTr("No")
-                    Layout.fillWidth: true
-                    spacing: 6
-                    onCheckedChanged: {
-                        console.log(switch3.checked)
-                    }
-
-                    Layout.column: 1
+                Text{
+                    id:wifiDirectText
+                    text:wifiDirectSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    font.pixelSize: 12
+                    font.family: "Arial"
                     Layout.row: 2
+                    Layout.column:1
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: wifiDirectSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 2
+                    spacing: 10
+                    Layout.column: 2
+                    onCheckedChanged: {
+                        console.log(wifiDirectSwitch.checked)
+                    }
                 }
 
                 Text {
@@ -106,19 +130,31 @@ Item {
                     text: qsTr("DHCP:")
                     font.pixelSize: 12
                     Layout.row: 3
-                     font.bold: Font.Medium
+                    font.bold: Font.Medium
+                    Layout.bottomMargin: 10
+                    Layout.rightMargin:80
                 }
 
-                Switch {
-                    id: switch4
-                    text:switch4.checked ? qsTr("Yes"):qsTr("No")
-                    Layout.fillWidth: true
-                    spacing: 6
-                    onCheckedChanged: {
-                        console.log(switch4.checked)
-                    }
-                    Layout.column: 1
+                Text{
+                    id:dhcpText
+                    text:dhcpSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    font.pixelSize: 12
+                    font.family: "Arial"
                     Layout.row: 3
+                    Layout.column:1
+                    Layout.bottomMargin: 10
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: dhcpSwitch
+                    Layout.fillWidth: true
+                    Layout.row: 3
+                    spacing: 10
+                    Layout.column: 2
+                    Layout.bottomMargin: 10
+                    onCheckedChanged: {
+                        console.log(dhcpSwitch.checked)
+                    }
                 }
 
                 Text {
@@ -126,8 +162,9 @@ Item {
                     text: qsTr("IP ADDRESS:")
                     Layout.row: 4
                     font.pixelSize: 12
-                    Layout.bottomMargin: 15
-                     font.bold: Font.Medium
+                    Layout.bottomMargin: 35
+                    Layout.rightMargin:80
+                    font.bold: Font.Medium
                 }
 
                 Text {
@@ -136,7 +173,7 @@ Item {
                     Layout.row: 4
                     Layout.column: 1
                     font.pixelSize: 12
-                    Layout.bottomMargin: 15
+                    Layout.bottomMargin: 35
                 }
 
                 Text {
@@ -144,8 +181,9 @@ Item {
                     text: qsTr("MANUAL IP ADDRESS:")
                     Layout.row: 5
                     font.pixelSize: 12
-                    Layout.bottomMargin: 10
-                     font.bold: Font.Medium
+                    Layout.bottomMargin: 20
+                    Layout.rightMargin:80
+                    font.bold: Font.Medium
                 }
 
                 TextEdit {
@@ -154,8 +192,19 @@ Item {
                     Layout.row: 5
                     Layout.column: 1
                     font.pixelSize: 12
-                    Layout.bottomMargin: 10
+                    Layout.bottomMargin: 20
+                }
 
+                Text{
+                    text:"Edit"
+                    color: "#387EF5"
+                    font.pointSize: 10
+                    Layout.row:5
+                    Layout.column:2
+                    Layout.bottomMargin: 20
+                    MouseArea {
+                        anchors.fill: parent
+                    }
                 }
 
                 Text {
@@ -164,7 +213,8 @@ Item {
                     Layout.row: 6
                     font.pixelSize: 12
                     Layout.column: 0
-                     font.bold: Font.Medium
+                    font.bold: Font.Medium
+                    Layout.rightMargin:80
                 }
 
                 TextEdit {
@@ -173,6 +223,17 @@ Item {
                     Layout.row: 6
                     font.pixelSize: 12
                     Layout.column: 1
+                }
+
+                Text{
+                    text:"Edit"
+                    color: "#387EF5"
+                    font.pointSize: 10
+                    Layout.row:6
+                    Layout.column:2
+                    MouseArea {
+                        anchors.fill: parent
+                    }
                 }
             }
 
