@@ -83,10 +83,11 @@ Rectangle{
         }
 
         contentItem: Rectangle{
+            anchors.top: Header.bottom
+            anchors.bottom: Footer.top
             color: "transparent"
             ListModel {//as per discussion only top four values will be displayed here
                 id:aircraftModel
-
                 ListElement {
                     aircraftId: "#1"
                     address: "2345AA (H) /23734510 (0)"
@@ -126,19 +127,27 @@ Rectangle{
                         anchors.fill:parent
                         anchors.margins: 1
                     }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked:{
+                            listView.currentIndex = index
+                        }
+                    }
                 }
             }
             ListView{
+                id: listView
                 anchors.fill:parent
                 model:aircraftModel
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
+                clip: true
                 highlight:Rectangle{
                     color:"#377DF3"
                     radius:5
                 }
-                highlightFollowsCurrentItem: true
             }
         }
 
