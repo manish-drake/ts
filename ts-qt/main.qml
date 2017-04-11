@@ -20,7 +20,7 @@ ApplicationWindow {
 
         contentItem: Rectangle {
             id:contentRect
-            color: "#fafafa"
+            color: "#f4f4f4"
 
             Loader {
                 id:contentLoader

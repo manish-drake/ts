@@ -50,6 +50,7 @@
         <file>img/cout.png</file>
         <file>img/fav.png</file>
         <file>img/save.png</file>
+        <file>img/stop.png</file>
     </qresource>
     <qresource prefix="/garbage">
         <file>SampleUI.qml</file>

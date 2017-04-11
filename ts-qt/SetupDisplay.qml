@@ -1,71 +1,123 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtGraphicalEffects 1.0
 
 Item {
     Rectangle {
         id: rectangle
-        color: "#fafafa"
+        color: "#f4f4f4"
         anchors.fill: parent
+        anchors.topMargin: 6
+        anchors.leftMargin: 6
 
-        Text {
-            id: text9
-            text: qsTr("display")
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 20
-            font.capitalization: Font.AllUppercase
-            font.pixelSize: 12
-        }
+        Rectangle {
+            id:card
+            color:"#ffffff"
+            width: parent.width-6
+            height: parent.height-6
+            border.color: "Lightgray"
+            border.width: 0.5
+            radius: 5
 
-        GridLayout {
-            y: 70
-            columnSpacing: 25
-            anchors.left: parent.left
-            anchors.leftMargin: 50
-            anchors.right: parent.right
-            anchors.rightMargin: 50
-            rows: 2
-            columns: 2
 
             Text {
-                id: text1
-                text: qsTr("theme")
+                id: text9
+                text: qsTr("display")
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: parent.top
+                anchors.topMargin: 20
                 font.capitalization: Font.AllUppercase
-                font.pixelSize: 12
+                font.pixelSize: 13
+                font.bold: Font.DemiBold
+                font.family: "Arial"
             }
 
-            Switch { //we can use delegate switch as well for binging
-                id: switch1
-                text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
-                Layout.fillWidth: true
-                Layout.rowSpan: 1
-                Layout.preferredWidth: -1
-                spacing: 6
-                Layout.column: 1
-                onCheckedChanged: {
-                    console.log(switch1.checked)
+            GridLayout {
+                y: 70
+                rowSpacing: 15
+                anchors.left: parent.left
+                anchors.leftMargin: 50
+                anchors.right: parent.right
+                anchors.rightMargin: 50
+                rows: 2
+                columns: 4
+
+                Text {
+                    id: text1
+                    text: qsTr("theme")
+                    font.capitalization: Font.AllUppercase
+                    font.pixelSize: 12
+                    font.bold: Font.Medium
+                    font.family: "Arial"
+                    Layout.rightMargin: 50
+                }
+
+                Switch { //we can use delegate switch as well for binging
+                    id: switch1
+                    text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
+                    Layout.fillWidth: true
+                    Layout.row: 0
+                    font.family: "Arial"
+                    spacing: 20
+                    Layout.column: 1
+                    Layout.columnSpan: 3
+                    onCheckedChanged: {
+                        console.log(switch1.checked)
+                    }
+                }
+
+                Text {
+                    id: text2
+                    text: qsTr("brightness")
+                    font.capitalization: Font.AllUppercase
+                    font.pixelSize: 12
+                    font.bold: Font.Medium
+                    font.family: "Arial"
+                    Layout.row: 1
+                    Layout.column: 0
+                    Layout.rightMargin: 50
+                }
+
+                Text {
+                    id: text3
+                    text: "1"
+                    width: 5
+                    font.pixelSize: 12
+                    font.family: "Arial"
+                    Layout.row: 1
+                    Layout.column: 1
+                }
+
+                Slider {
+                    id: slider
+                    Layout.fillWidth: true
+                    value: 0.5
+                    Layout.row: 1
+                    Layout.column: 2
+                    onValueChanged: {
+                        console.log(slider.value)
+                    }
+                }
+                Text {
+                    id: text4
+                    text: "10"
+                    width: 5
+                    font.pixelSize: 12
+                    font.family: "Arial"
+                    Layout.row: 1
+                    Layout.column: 3
                 }
             }
 
-            Text {
-                id: text2
-                text: qsTr("brightness")
-                font.capitalization: Font.AllUppercase
-                font.pixelSize: 12
-                Layout.row: 1
-                Layout.column: 0
-            }
-
-            Slider {
-                id: slider
-                Layout.fillWidth: true
-                value: 0.5
-                Layout.row: 1
-                Layout.column: 1
-                onValueChanged: {
-                    console.log(slider.value)
-                }
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "Lightgray"
+                spread: 0
             }
         }
     }
