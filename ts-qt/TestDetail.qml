@@ -81,6 +81,12 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/close.png"
                     }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                        }
+                    }
                 }
 
 
