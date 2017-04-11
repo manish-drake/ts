@@ -4,8 +4,10 @@ QString ResourceNameCoupling::getPageFromViewId(int viewId){
     switch (viewId) {
     case 3:
         return "ADS-B.qml";
+    case 13:
     case 5:
         return "ADSB-Scan.qml";
+    case 14 ... 19:
     case 6 ... 12:        
         return "ADSB-Pages.qml";
     case 4:
