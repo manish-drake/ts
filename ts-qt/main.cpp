@@ -10,6 +10,7 @@
 #include "testparammodel.h"
 #include "navigationmodel.h"
 #include "resourcenamecoupling.h"
+#include "controls.h"
 
 const int DATA_CREATION_MODE = 0;
 
@@ -21,6 +22,8 @@ int main(int argc, char *argv[])
         return builder.build();
     } else {
         QGuiApplication app(argc, argv);
+
+        qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
 
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();

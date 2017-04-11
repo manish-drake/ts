@@ -125,6 +125,7 @@ Item {
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
                                         Text {
+
                                             font.pointSize: 10
                                             text: model.modelData.data
                                         }

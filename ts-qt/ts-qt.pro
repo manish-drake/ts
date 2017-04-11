@@ -6,7 +6,10 @@ CONFIG += c++11
 
 SOURCES += main.cpp \
     databuilder.cpp \
-    resourcenamecoupling.cpp
+    resourcenamecoupling.cpp \
+    controls.cpp \
+    controlsattachedtype.cpp \
+    controlstyles.cpp
 
 RESOURCES += qml.qrc
 
@@ -55,4 +58,7 @@ DEPENDPATH += $$PWD/../ts-dao
 
 HEADERS += \
     databuilder.h \
-    resourcenamecoupling.h
+    resourcenamecoupling.h \
+    controls.h \
+    controlsattachedtype.h \
+    controlstyles.h
