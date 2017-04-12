@@ -40,8 +40,7 @@ Item {
                 Rectangle{
                     id: rectangle
                     width: 40
-                    Layout.fillHeight: true
-                    anchors.verticalCenter: parent.verticalCenter
+                    height: parent.height
                     anchors.right: parent.right
                     color:"transparent"
                     Text{
@@ -52,7 +51,7 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-
+                            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
                         }
                     }
                 }
