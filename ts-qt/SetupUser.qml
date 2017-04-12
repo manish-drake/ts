@@ -27,10 +27,10 @@ Item{
                 height: parent.height
                 anchors.right: parent.right
                 color:"transparent"
-                Text{
-                    anchors.centerIn: parent
-                    text: "X"
-                    font.pixelSize: 14
+                Image {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "qrc:/img/img/close.png"
                 }
                 MouseArea {
                     anchors.fill: parent
