@@ -12,7 +12,7 @@ public:
     void setId(int id);
 
     QString name() const;
-    void setName(QString name);
+    void setName(const QString &name);
 
     explicit Section(const QString &name = "");
     ~Section();

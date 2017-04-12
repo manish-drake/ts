@@ -31,7 +31,7 @@ public:
     void setStyle(const int style);
 
     const std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &testParams() const;
-    void setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > testParams);
+    void setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &testParams);
 
     Summary(const QString &name, const int testId, const int index, const int order, const int style);
     ~Summary();

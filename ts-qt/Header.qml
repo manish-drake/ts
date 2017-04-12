@@ -31,7 +31,7 @@ Rectangle {
         anchors.left: toggleMenu.right
         anchors.right: toggleConfigPanel.left
         text: "Start"
-        font.bold: true
+        font.bold: Font.DemiBold
         color: "#ffffff"
         font.pointSize: 12
         anchors.leftMargin: 5

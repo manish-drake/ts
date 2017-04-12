@@ -7,7 +7,7 @@ ControlStyles ControlStyles::instance()
     return singleton;
 }
 
-QHash<const char *, QVariant> ControlStyles::getStyleForType(const int styleId, const QString typeName)
+QHash<const char *, QVariant> ControlStyles::getStyleForType(const int &styleId, const QString &typeName)
 {
     if(m_repository.contains(styleId)){
         auto styles = m_repository[styleId];
@@ -20,11 +20,37 @@ QHash<const char *, QVariant> ControlStyles::getStyleForType(const int styleId, 
 
 ControlStyles::ControlStyles()
 {
+    m_repository.insert(0, AddStyle0());
     m_repository.insert(1, AddStyle1());
 }
 
 /*
+#0 Add styles
+Add styles for id = 0
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle0()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", AddStyleText0());
+    return  styles;
+}
+
+/*
+Add styles for id = 0, for QQuickText
+*/
+QHash<const char *, QVariant> ControlStyles::AddStyleText0(){
+    QHash<const char *, QVariant> style;
+
+    QFont font;
+    font.setPointSize(12);
+    style.insert("font", QVariant::fromValue(font));
+
+    return style;
+}
+
+/*
 #1 Add styles
+Add styles for id = 1
 */
 QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle1()
 {
@@ -34,15 +60,16 @@ QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle1()
 }
 
 /*
-#1 Add styles for plain text
+Add styles for id = 1, for QQuickText
 */
 QHash<const char *, QVariant> ControlStyles::AddStyleText1(){
     QHash<const char *, QVariant> style;
 
     QFont font;
-    font.setPointSize(15);
+    font.setPointSize(10);
     style.insert("font", QVariant::fromValue(font));
-    style.insert("color", QVariant::fromValue(QString("red")));
+    style.insert("color", QVariant::fromValue(QString("#B0B0B0")));
 
     return style;
 }
+

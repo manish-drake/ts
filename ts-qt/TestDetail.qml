@@ -5,6 +5,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
+import com.ti.controls 1.0
 
 
 Item {
@@ -22,7 +23,6 @@ Item {
         Page {
             id: item1
             anchors.fill: parent
-
             header: Rectangle{
                 id:testHeaderRect
                 height: 40
@@ -42,8 +42,6 @@ Item {
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/pointer.png"
                     }
-
-
                 }
 
                 Column{
@@ -70,6 +68,7 @@ Item {
 
                 Rectangle{
                     id: rectangle
+                    height:25
                     width: 25
                     Layout.fillHeight: true
                     anchors.verticalCenter: parent.verticalCenter
@@ -83,13 +82,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: {
-                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
-                        }
+                        onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
                     }
                 }
-
-
             }
 
             contentItem: Rectangle {
@@ -123,7 +118,7 @@ Item {
                                     Repeater {
                                         model: summaryModel.getTestParamsForsummary(id)
                                         delegate: Rectangle{
-                                            //                                color: "yellow"
+                                            // color: "yellow"
                                             Layout.row: model.modelData.row
                                             Layout.column: model.modelData.col
                                             Layout.fillWidth: true
@@ -132,7 +127,7 @@ Item {
                                             Layout.rowSpan: model.modelData.rowSpan
                                             height: 15
                                             Text {
-                                                font.pointSize: 10
+                                                Controls.style:model.modelData.style
                                                 text: model.modelData.data
                                             }
                                         }

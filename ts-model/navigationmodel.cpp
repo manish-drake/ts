@@ -18,7 +18,7 @@ void NavigationModel::onLoaded(const QString &str) const
 }
 
 
-int NavigationModel::getTargetView(const QString link, const int linkId) const
+int NavigationModel::getTargetView(const QString &link, const int &linkId) const
 {
     for(auto const &navPtr: *m_navigations){
         if((navPtr->link() == link) && (navPtr->linkId() == linkId)){
@@ -37,7 +37,7 @@ int NavigationModel::currentView() const
     return this->m_currentView;
 }
 
-void NavigationModel::setCurrentView(const int currentView)
+void NavigationModel::setCurrentView(const int &currentView)
 {
     if(this->m_currentView != currentView){
 
@@ -52,7 +52,7 @@ void NavigationModel::setCurrentView(const int currentView)
         this->m_navigationParameter = QVariant();
     }
 }
-void NavigationModel::setCurrentView(const int currentView, QVariant navParam)
+void NavigationModel::setCurrentView(const int &currentView, const QVariant &navParam)
 {
     this->setCurrentView(currentView);
     this->m_navigationParameter = navParam;

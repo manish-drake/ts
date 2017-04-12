@@ -8,12 +8,13 @@ class ControlStyles
 {
 public:
     static ControlStyles instance();
-    QHash<const char*, QVariant> getStyleForType(const int styleId, const QString typeName);
+    QHash<const char*, QVariant> getStyleForType(const int &styleId, const QString &typeName);
 protected:
     ControlStyles();
 private:
     QHash<int, QHash<QString, QHash<const char*, QVariant>>> m_repository;
-
+    QHash<QString, QHash<const char*, QVariant>> AddStyle0();
+    QHash<const char*, QVariant> AddStyleText0();
     QHash<QString, QHash<const char*, QVariant>> AddStyle1();
     QHash<const char*, QVariant> AddStyleText1();
 };

@@ -13,7 +13,7 @@ public:
     void setId(int id);
 
     QString name() const;
-    void setName(QString name);
+    void setName(const QString &name);
 
     View(const QString &name);
     ~View();

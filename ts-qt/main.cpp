@@ -45,12 +45,12 @@ int main(int argc, char *argv[])
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
-        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
-                         &sectionModel, SLOT(currentViewChanged(int)));
-        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
-                         &testModel, SLOT(currentViewChanged(int)));
-        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(int)),
-                         &summaryModel, SLOT(currentViewChanged(int)));
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
+                         &sectionModel, SLOT(currentViewChanged(const int&)));
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
+                         &summaryModel, SLOT(currentViewChanged(const int&)));
+        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
+                         &testModel, SLOT(currentViewChanged(const int&)));
 
         engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 

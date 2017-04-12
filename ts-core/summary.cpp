@@ -82,7 +82,7 @@ const std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &Summary::testP
     return this->m_testParams;
 }
 
-void Summary::setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > testParams)
+void Summary::setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &testParams)
 {
     this->m_testParams = std::move(testParams);
 }

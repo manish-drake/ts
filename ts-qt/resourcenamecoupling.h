@@ -6,9 +6,9 @@ class ResourceNameCoupling:public QObject
 {
     Q_OBJECT
 public:
-    Q_INVOKABLE QString getPageFromViewId(int viewId);
+    Q_INVOKABLE QString getPageFromViewId(const int &viewId);
     static ResourceNameCoupling &instance();
-    bool compare(const int viewId1, const int viewId2);
+    bool compare(const int &viewId1, const int &viewId2);
 protected:
     ResourceNameCoupling();
 };

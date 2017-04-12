@@ -24,14 +24,9 @@ public:
         SectionIDRole
     };
 
-    Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
     Q_INVOKABLE QString getName() const;
 
     TestModel(QObject *parent = 0);
-
-    double listHeight();
-    void setListHeight(double listHeight);
-
 
     QModelIndex addTest(Test &test);
 
@@ -43,7 +38,6 @@ public:
 
     ~TestModel();
 signals:
-    void listHeightChanged(double listHeight);
 private:
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;

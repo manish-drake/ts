@@ -15,17 +15,6 @@ TestModel::TestModel(QObject *parent):
 {
 }
 
-double TestModel::listHeight()
-{
-    return this->m_listHeight;
-}
-
-void TestModel::setListHeight(double listHeight)
-{
-    this->m_listHeight = listHeight;
-    emit this->listHeightChanged(listHeight);
-}
-
 QModelIndex TestModel::addTest(Test &test)
 {
     int row = this->rowCount();
