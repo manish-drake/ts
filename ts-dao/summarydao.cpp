@@ -124,7 +124,7 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
         summaryTestParams[inLoop_id]->push_back(std::move(testParam));
     }
     for(auto &up_sum: *list){
-        up_sum->setTestParams(move(summaryTestParams[up_sum->id()]));
+        up_sum->setTestParams(summaryTestParams[up_sum->id()]);
     }
     return list;
 }

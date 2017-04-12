@@ -19,7 +19,7 @@ public:
     NavigationDao(QSqlDatabase &database);
 
     std::unique_ptr<std::vector<std::unique_ptr<Navigation> > > navigations(const int currentViewId) const;
-    std::unique_ptr<std::vector<std::unique_ptr<Navigation> > > navigations(const QString currentView) const;
+    std::unique_ptr<std::vector<std::unique_ptr<Navigation> > > navigations(const QString &currentView) const;
 
     ~NavigationDao();
 };

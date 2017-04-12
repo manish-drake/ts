@@ -11,10 +11,11 @@ QString Section::name() const
     return this->m_name;
 }
 
-void Section::setName(QString name)
+void Section::setName(const QString &name)
 {
     this->m_name = name;
 }
+
 void Section::setId(int id)
 {
     this->m_id = id;

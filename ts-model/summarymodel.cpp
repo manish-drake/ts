@@ -7,17 +7,6 @@
 using namespace std;
 
 
-
-//const QStringList SummaryModel::getTestParamsForsummary(const int summaryId) const
-//{
-//    Q_UNUSED(summaryId);
-////    m_summaries->at(0)->testParams();
-////    return new TestParamModel(this->parent());
-//    QStringList list;
-//    list.push_back("ABCD");
-//    return list;
-//}
-
 const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId) const
 {
     QList<QObject*> qtp;
@@ -43,17 +32,6 @@ SummaryModel::SummaryModel(QObject *parent)
       m_summaries(m_db.summaryDao()->summaries(0, 0)),
       m_currentPage{1}
 {
-}
-
-double SummaryModel::listHeight()
-{
-    return this->m_listHeight;
-}
-
-void SummaryModel::setListHeight(double listHeight)
-{
-    this->m_listHeight = listHeight;
-    emit this->listHeightChanged(listHeight);
 }
 
 int SummaryModel::currentPage()

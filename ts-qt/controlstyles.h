@@ -8,7 +8,7 @@ class ControlStyles
 {
 public:
     static ControlStyles instance();
-    QHash<const char*, QVariant> getStyleForType(const int styleId, const QString typeName);
+    QHash<const char*, QVariant> getStyleForType(const int &styleId, const QString &typeName);
 protected:
     ControlStyles();
 private:

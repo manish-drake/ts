@@ -93,7 +93,7 @@ NavigationDao::navigations(const int currentViewId) const
 }
 
 std::unique_ptr<std::vector<std::unique_ptr<Navigation> > >
-NavigationDao::navigations(const QString currentView) const
+NavigationDao::navigations(const QString &currentView) const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(

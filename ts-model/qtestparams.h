@@ -22,7 +22,7 @@ public:
     int colSpan() const;
     ~QTestParams();
 signals:
-    void dataChanged(QString data);
+    void dataChanged(const QString &data);
 public slots:
 private:
     QString m_data;

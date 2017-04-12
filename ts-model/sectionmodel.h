@@ -22,14 +22,9 @@ public:
         NameRole
     };
 
-    Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
 
 
     SectionModel(QObject *parent = 0);
-
-
-    double listHeight();
-    void setListHeight(double listHeight);
 
     QModelIndex addSection(Section &section);
 
@@ -41,7 +36,6 @@ public:
 
     ~SectionModel();
 signals:
-    void listHeightChanged(double listHeight);
 private:
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
