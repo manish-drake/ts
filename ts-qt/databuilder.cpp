@@ -589,12 +589,12 @@ int DataBuilder::build()
 
     //------------------------------uatOut-------------------------------
 
-    Test uatOut("UAT ADS-B OUT", secADSB.id());
-    testModel.addTest(uatOut);
+    Test adsbOutUat("UAT ADS-B OUT", secADSB.id());
+    testModel.addTest(adsbOutUat);
 
     //------------------------------P1-------------------------------
 
-    Summary sumAirVeh7("Aircraft/Vehicle:", uatOut.id(), 0, 0, 2);
+    Summary sumAirVeh7("Aircraft/Vehicle:", adsbOutUat.id(), 0, 0, 2);
     sumModel.addSummary(sumAirVeh7);
 
     TestParam tpAirVeh7Add("address", sumAirVeh7.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -609,10 +609,10 @@ int DataBuilder::build()
     TestParam tpAirVeh7Bds("payloads-Rcvd", sumAirVeh7.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh7Bds);
 
-    Summary sumMS("Mode Status Element (MS)", uatOut.id(), 0, 1, 1);
+    Summary sumMS("Mode Status Element (MS)", adsbOutUat.id(), 0, 1, 1);
     sumModel.addSummary(sumMS);
 
-    Summary sumAvInfo3("Aircraft/Vehicle info:", uatOut.id(), 0, 2, 2);
+    Summary sumAvInfo3("Aircraft/Vehicle info:", adsbOutUat.id(), 0, 2, 2);
     sumModel.addSummary(sumAvInfo3);
 
     TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", 0, 0);
@@ -630,7 +630,7 @@ int DataBuilder::build()
     TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "_ (________)", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAvInfo3ep);
 
-    Summary sumCCodes("Capability Codes:", uatOut.id(), 0, 3, 2);
+    Summary sumCCodes("Capability Codes:", adsbOutUat.id(), 0, 3, 2);
     sumModel.addSummary(sumCCodes);
 
     TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", 0, 0);
@@ -642,7 +642,7 @@ int DataBuilder::build()
     TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "_ (_)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpCCodesesin);
 
-    Summary sumOModes("Operational Modes:", uatOut.id(), 0, 4, 2);
+    Summary sumOModes("Operational Modes:", adsbOutUat.id(), 0, 4, 2);
     sumModel.addSummary(sumOModes);
 
     TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", 0, 0);
@@ -654,7 +654,7 @@ int DataBuilder::build()
     TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA",  "_ (_)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpOModestra);
 
-    Summary sumOtherFld("Other Fields:", uatOut.id(), 0, 5, 2);
+    Summary sumOtherFld("Other Fields:", adsbOutUat.id(), 0, 5, 2);
     sumModel.addSummary(sumOtherFld);
 
     TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", 0, 0);
@@ -694,7 +694,7 @@ int DataBuilder::build()
 
     //------------------------------P2-------------------------------
 
-    Summary sumAirVeh8("Aircraft/Vehicle:", uatOut.id(), 1, 0, 2);
+    Summary sumAirVeh8("Aircraft/Vehicle:", adsbOutUat.id(), 1, 0, 2);
     sumModel.addSummary(sumAirVeh8);
 
     TestParam tpAirVeh8Add("address", sumAirVeh8.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -709,10 +709,10 @@ int DataBuilder::build()
     TestParam tpAirVeh8Bds("payloads-Rcvd", sumAirVeh8.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh8Bds);
 
-    Summary sumSV1("State Vector Element (SV)", uatOut.id(), 1, 1, 1);
+    Summary sumSV1("State Vector Element (SV)", adsbOutUat.id(), 1, 1, 1);
     sumModel.addSummary(sumSV1);
 
-    Summary sumPosVel1("Position & Velocity:", uatOut.id(), 1, 2, 2);
+    Summary sumPosVel1("Position & Velocity:", adsbOutUat.id(), 1, 2, 2);
     sumModel.addSummary(sumPosVel1);
 
     TestParam tpPosVel1agst("air/Gnd State", sumPosVel1.id(), "Air/Gnd State", "Air-Subsonic", "", 0, 0, 1, 2, 0);
@@ -739,7 +739,7 @@ int DataBuilder::build()
     TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", 5, 1);
     tpModel.addTestParam(tpPosVel1src);
 
-    Summary sumOtherFld1("Other Fields:", uatOut.id(), 1, 3, 2);
+    Summary sumOtherFld1("Other Fields:", adsbOutUat.id(), 1, 3, 2);
     sumModel.addSummary(sumOtherFld1);
 
     TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", 0, 0);
@@ -752,7 +752,7 @@ int DataBuilder::build()
     tpModel.addTestParam(tpOtherFld1Uf);
 
 
-    Summary sumAuxSv1("Aux.State Vector Element (AUX SV):", uatOut.id(), 1, 4, 2);
+    Summary sumAuxSv1("Aux.State Vector Element (AUX SV):", adsbOutUat.id(), 1, 4, 2);
     sumModel.addSummary(sumAuxSv1);
 
     TestParam tpAuxSv1SecAlt("secondary-Altitude", sumAuxSv1.id(), "Secondary Altitude", "____,_____", "ft", 0, 0, 1, 2, 0);
@@ -761,7 +761,7 @@ int DataBuilder::build()
 
     //------------------------------P3-------------------------------
 
-    Summary sumAirVeh9("Aircraft/Vehicle:", uatOut.id(), 2, 0, 2);
+    Summary sumAirVeh9("Aircraft/Vehicle:", adsbOutUat.id(), 2, 0, 2);
     sumModel.addSummary(sumAirVeh9);
 
     TestParam tpAirVeh9Add("address", sumAirVeh9.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -776,10 +776,10 @@ int DataBuilder::build()
     TestParam tpAirVeh9Bds("payloads-Rcvd", sumAirVeh9.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh9Bds);
 
-    Summary sumSV2("State Vector Element (SV)", uatOut.id(), 2, 1, 1);
+    Summary sumSV2("State Vector Element (SV)", adsbOutUat.id(), 2, 1, 1);
     sumModel.addSummary(sumSV2);    
 
-    Summary sumPosVel2("Position & Velocity:", uatOut.id(), 2, 2, 2);
+    Summary sumPosVel2("Position & Velocity:", adsbOutUat.id(), 2, 2, 2);
     sumModel.addSummary(sumPosVel2);
 
     TestParam tpPosVel2agst("air/Gnd State", sumPosVel2.id(), "Air/Gnd State", "Ground", "", 0, 0, 1, 2, 0);
@@ -812,7 +812,7 @@ int DataBuilder::build()
     TestParam tpPosVel2gao("gps-Ant-Offset", sumPosVel2.id(), "GPS Ant Offset", "_ m Right; _ m Aft", "", 7, 0, 1, 2, 0);
     tpModel.addTestParam(tpPosVel2gao);
 
-    Summary sumOtherFld2("Other Fields:", uatOut.id(), 2, 3, 2);
+    Summary sumOtherFld2("Other Fields:", adsbOutUat.id(), 2, 3, 2);
     sumModel.addSummary(sumOtherFld2);
 
     TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", 0, 0);
@@ -824,7 +824,7 @@ int DataBuilder::build()
     TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "__ (_____=___)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpOtherFld2Uf);
 
-    Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", uatOut.id(), 2, 4, 2);
+    Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", adsbOutUat.id(), 2, 4, 2);
     sumModel.addSummary(sumAuxSv2);
 
     TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", 0, 0);
@@ -835,7 +835,7 @@ int DataBuilder::build()
 
     //------------------------------P4-------------------------------
 
-    Summary sumAirVe10("Aircraft/Vehicle:", uatOut.id(), 3, 0, 2);
+    Summary sumAirVe10("Aircraft/Vehicle:", adsbOutUat.id(), 3, 0, 2);
     sumModel.addSummary(sumAirVe10);
 
     TestParam tpAirVeh10Add("address", sumAirVe10.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -850,7 +850,7 @@ int DataBuilder::build()
     TestParam tpAirVeh10Bds("payloads-Rcvd", sumAirVe10.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh10Bds);
 
-    Summary sumTS("Target state Element (TS)", uatOut.id(), 3, 1, 1);
+    Summary sumTS("Target state Element (TS)", adsbOutUat.id(), 3, 1, 1);
     sumModel.addSummary(sumTS);
 
     TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", 0, 0);
@@ -868,7 +868,7 @@ int DataBuilder::build()
     TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", 2, 1);
     tpModel.addTestParam(tpTSSts);
 
-    Summary sumApM2("AutoPilot Modes:", uatOut.id(), 3, 2, 2);
+    Summary sumApM2("AutoPilot Modes:", adsbOutUat.id(), 3, 2, 2);
     sumModel.addSummary(sumApM2);
 
     TestParam tpApM2Mbs("mode-bits-status", sumApM2.id(), "Mode bits status", "__(_____)", "", 0, 0, 1, 2, 0);
@@ -891,7 +891,7 @@ int DataBuilder::build()
 
     //------------------------------P5-------------------------------
 
-    Summary sumAirVe11("Aircraft/Vehicle:", uatOut.id(), 4, 0, 2);
+    Summary sumAirVe11("Aircraft/Vehicle:", adsbOutUat.id(), 4, 0, 2);
     sumModel.addSummary(sumAirVe11);
 
     TestParam tpAirVeh11Add("address", sumAirVe11.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -906,7 +906,7 @@ int DataBuilder::build()
     TestParam tpAirVeh11Bds("payloads-Rcvd", sumAirVe11.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh11Bds);
 
-    Summary sumTce("Trajectory Change Element", uatOut.id(), 4, 1, 1);
+    Summary sumTce("Trajectory Change Element", adsbOutUat.id(), 4, 1, 1);
     sumModel.addSummary(sumTce);
 
     TestParam tpTceTcFld("tc-Field", sumTce.id(), "TC Field", "_________________", "", 0, 0, 1, 2, 0);
@@ -914,7 +914,7 @@ int DataBuilder::build()
 
     //------------------------------P6-------------------------------
 
-    Summary sumAirVe12("Aircraft/Vehicle:", uatOut.id(), 5, 0, 2);
+    Summary sumAirVe12("Aircraft/Vehicle:", adsbOutUat.id(), 5, 0, 2);
     sumModel.addSummary(sumAirVe12);
 
     TestParam tpAirVeh12Add("address", sumAirVe12.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -929,7 +929,7 @@ int DataBuilder::build()
     TestParam tpAirVeh12Bds("payloads-Rcvd", sumAirVe12.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh12Bds);
 
-    Summary sumRflM("978 MHz RF Link Measurements", uatOut.id(), 5, 1, 1);
+    Summary sumRflM("978 MHz RF Link Measurements", adsbOutUat.id(), 5, 1, 1);
     sumModel.addSummary(sumRflM);
 
     TestParam tpRflMFq("frequency", sumRflM.id(), "Frequency", "___.___", "MHz", 0, 0, 1, 2, 0);
@@ -959,7 +959,7 @@ int DataBuilder::build()
     TestParam tpRflMMTErr("message-Time-Error", sumRflM.id(), "Message Time Error", "__.__", "uS", 8, 0, 1, 2, 0);
     tpModel.addTestParam(tpRflMMTErr);
 
-    Summary sumUatMsgSum("UAT Message Summary:", uatOut.id(), 5, 2, 2);
+    Summary sumUatMsgSum("UAT Message Summary:", adsbOutUat.id(), 5, 2, 2);
     sumModel.addSummary(sumUatMsgSum);
 
     TestParam tpUatMsgSumMsgRcvd("message-Received", sumUatMsgSum.id(), "Message Received", "___", "", 0, 0, 1, 2, 0);
@@ -991,6 +991,9 @@ int DataBuilder::build()
 
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
+
+    Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(mainUatToScanPage);
 
     Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanTo1090P1);

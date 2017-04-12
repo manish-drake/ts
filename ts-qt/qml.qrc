@@ -12,7 +12,6 @@
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>ADSB-Scan.qml</file>
-        <file>ADSB-Pages.qml</file>
         <file>TestDetail.qml</file>
         <file>Setup.qml</file>
         <file>SetupUser.qml</file>
