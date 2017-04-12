@@ -1105,7 +1105,7 @@ int DataBuilder::build()
     Navigation setupToSysInfo(vwSetup.id(), "System-Info", 0, vwSetupSysInfo.id());
     navigationDaoPtr->addNavigation(setupToSysInfo);
 
-    Navigation setupToRMBit(vwSetup.id(), "Run Manual Bit", 0, vwSetupRMBit.id());
+    Navigation setupToRMBit(vwSetup.id(), "Run-Manual-Bit", 0, vwSetupRMBit.id());
     navigationDaoPtr->addNavigation(setupToRMBit);
 
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());

@@ -8,15 +8,16 @@ Item{
     Column{
         anchors.fill: parent
         Rectangle{
+            id: header
             anchors.left: parent.left
             anchors.right: parent.right
             height:40
             color:"transparent"
             Text {
                 anchors.centerIn: parent
-                text: qsTr("Users")
+                text: qsTr("USERS")
                 elide:Text.ElideRight
-                font.pointSize: 12
+                font.pixelSize: 14
                 font.weight: Font.DemiBold
                 clip:true
             }
@@ -43,14 +44,18 @@ Item{
 
         Flickable {
             width: parent.width;
-            height: parent.height
+            anchors.top: header.bottom
+            anchors.bottom: parent.bottom
             contentWidth: parent.width;
             contentHeight: grid.height
             clip: true
             Grid{
                 id: grid
-                anchors.fill: parent
-                anchors.margins: 5
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 5
+                anchors.rightMargin: 5
+                anchors.bottomMargin: 5
                 columns: 2
                 Rectangle{
                     width: grid.width/2
