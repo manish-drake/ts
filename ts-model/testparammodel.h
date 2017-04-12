@@ -30,12 +30,9 @@ public:
         StyleRole
     };
 
-    Q_PROPERTY(double listHeight READ listHeight WRITE setListHeight NOTIFY listHeightChanged)
 
     TestParamModel(QObject *parent = 0);
 
-    double listHeight();
-    void setListHeight(double listHeight);
 
     QModelIndex addTestParam(TestParam &testParam);
 
@@ -47,7 +44,6 @@ public:
 
     ~TestParamModel();
 signals:
-    void listHeightChanged(double listHeight);
 private:
     bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;

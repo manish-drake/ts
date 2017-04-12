@@ -11,16 +11,6 @@ TestParamModel::TestParamModel(QObject *parent)
 {
 }
 
-double TestParamModel::listHeight()
-{
-    return this->m_listHeight;
-}
-
-void TestParamModel::setListHeight(double listHeight)
-{
-    this->m_listHeight = listHeight;
-    emit this->listHeightChanged(listHeight);
-}
 
 QModelIndex TestParamModel::addTestParam(TestParam &testParam)
 {

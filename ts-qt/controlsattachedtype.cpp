@@ -13,10 +13,11 @@ int ControlsAttachedType::style()
     return this->m_style;
 }
 
-void ControlsAttachedType::setStyle(const int style)
+void ControlsAttachedType::setStyle(const int &style)
 {
     auto typeName = this->parent()->metaObject()->className();
-    auto styleHash = ControlStyles::instance().getStyleForType(style, typeName);
+    auto styleHash = ControlStyles::instance()
+            .getStyleForType(style, typeName);
     for(auto propertyName: styleHash.keys()){
         this->parent()->setProperty(propertyName, styleHash[propertyName]);
     }

@@ -16,6 +16,6 @@ protected:
     virtual void qualifyByView(const int view) = 0;
 
 public slots:
-    void currentViewChanged(const int currentView);
+    void currentViewChanged(const int &currentView);
 };
 #endif // MODELBASE_H

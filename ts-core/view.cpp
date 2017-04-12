@@ -15,7 +15,7 @@ QString View::name() const
     return this->m_name;
 }
 
-void View::setName(QString name)
+void View::setName(const QString &name)
 {
     this->m_name = name;
 }

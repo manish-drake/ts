@@ -9,18 +9,6 @@ SectionModel::SectionModel(QObject *parent):
 {
 }
 
-
-double SectionModel::listHeight()
-{
-    return this->m_listHeight;
-}
-
-void SectionModel::setListHeight(double listHeight)
-{
-    this->m_listHeight = listHeight;
-    emit this->listHeightChanged(listHeight);
-}
-
 QModelIndex SectionModel::addSection(Section &section)
 {
     int row = this->rowCount();

@@ -19,16 +19,16 @@ public:
     Q_PROPERTY(int currentView READ currentView WRITE setCurrentView NOTIFY currentViewChanged)
     Q_PROPERTY(QVariant navigationParameter READ navigationParameter)
 
-    Q_INVOKABLE int getTargetView(const QString link, const int linkId = 0) const;
-    Q_INVOKABLE void setCurrentView(int currentView, QVariant navParam);
+    Q_INVOKABLE int getTargetView(const QString &link, const int &linkId = 0) const;
+    Q_INVOKABLE void setCurrentView(const int &currentView, const QVariant &navParam);
     Q_INVOKABLE void onLoaded(const QString &str) const;
 
     int currentView() const;
-    void setCurrentView(const int currentView);
+    void setCurrentView(const int &currentView);
 
     QVariant navigationParameter();
 signals:
-    void currentViewChanged(const int currentView);
+    void currentViewChanged(const int &currentView);
 public slots:
 
 private:

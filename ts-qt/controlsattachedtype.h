@@ -15,7 +15,7 @@ signals:
 public slots:
 private:
     int style();
-    void setStyle(const int);
+    void setStyle(const int&);
     int m_style;
 };
 
