@@ -42,7 +42,7 @@ QHash<const char *, QVariant> ControlStyles::AddStyleText0(){
     QHash<const char *, QVariant> style;
 
     QFont font;
-    font.setPointSize(12);
+    font.setPointSize(10);
     style.insert("font", QVariant::fromValue(font));
 
     return style;
