@@ -20,7 +20,32 @@ QHash<const char *, QVariant> ControlStyles::getStyleForType(const int styleId, 
 
 ControlStyles::ControlStyles()
 {
+    m_repository.insert(0, AddStyle0());
     m_repository.insert(1, AddStyle1());
+}
+
+/*
+#0 Add styles
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle0()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", AddStyleText0());
+    return  styles;
+}
+
+/*
+#0 Add styles for plain text
+*/
+QHash<const char *, QVariant> ControlStyles::AddStyleText0(){
+    QHash<const char *, QVariant> style;
+
+    QFont font;
+    font.setPointSize(12);
+    style.insert("font", QVariant::fromValue(font));
+   // style.insert("color", QVariant::fromValue(QString("blue")));
+
+    return style;
 }
 
 /*
@@ -40,9 +65,10 @@ QHash<const char *, QVariant> ControlStyles::AddStyleText1(){
     QHash<const char *, QVariant> style;
 
     QFont font;
-    font.setPointSize(15);
+    font.setPointSize(10);
     style.insert("font", QVariant::fromValue(font));
-    style.insert("color", QVariant::fromValue(QString("red")));
+    style.insert("color", QVariant::fromValue(QString("#B0B0B0")));
 
     return style;
 }
+

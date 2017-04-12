@@ -38,8 +38,6 @@ Rectangle{
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/pointer.png"
                 }
-
-
             }
 
             Column{
@@ -66,6 +64,7 @@ Rectangle{
 
             Rectangle{
                 id: rectangle
+                height:25
                 width: 25
                 Layout.fillHeight: true
                 anchors.verticalCenter: parent.verticalCenter
@@ -76,6 +75,10 @@ Rectangle{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/close.png"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
                 }
             }
 

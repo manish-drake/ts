@@ -13,7 +13,8 @@ protected:
     ControlStyles();
 private:
     QHash<int, QHash<QString, QHash<const char*, QVariant>>> m_repository;
-
+    QHash<QString, QHash<const char*, QVariant>> AddStyle0();
+    QHash<const char*, QVariant> AddStyleText0();
     QHash<QString, QHash<const char*, QVariant>> AddStyle1();
     QHash<const char*, QVariant> AddStyleText1();
 };
