@@ -261,7 +261,7 @@ Rectangle{
         horizontalOffset: 1.1
         verticalOffset: 1.1
         radius: 4.0
-        color: "Lightgray"
+        color: "#0d000000"
         spread: 0
     }
 }
