@@ -89,18 +89,20 @@ Item {
 
             contentItem: Rectangle {
                 color: "transparent"
-
-                ScrollView{
-                    anchors.fill: parent
-                    anchors.margins: 10
-                    horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-                    verticalScrollBarPolicy: Qt.ScrollBarAsNeeded
-                    style:ScrollViewStyle{
-                        transientScrollBars: true
-                    }
-                    contentItem: Column{
-                        anchors.fill: ScrollView.viewport
-                        spacing: 25
+                Flickable {
+                    width: parent.width;
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    contentWidth: parent.width;
+                    contentHeight: content.height + content.y + 10
+                    clip: true
+                    Column{
+                        id: content
+                        y: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: 10
+                        spacing: 30
                         Repeater{
                             model: summaryModel
                             delegate:

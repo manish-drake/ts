@@ -17,11 +17,12 @@
         <file>Setup.qml</file>
         <file>SetupUser.qml</file>
         <file>MoreOptions.qml</file>
-        <file>SetupConnectionDetail.qml</file>
+        <file>SetupConnection.qml</file>
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
         <file>CustomSwitchDelegate.qml</file>
+        <file>SetupManualBit.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

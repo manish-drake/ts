@@ -1,239 +1,214 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle {
-        id: rectangle
-        color: "#f4f4f4"
+    Rectangle{
         anchors.fill: parent
-        anchors.topMargin: 6
-        anchors.leftMargin: 6
-
-        Rectangle {
-            id:card
-            color:"#ffffff"
-            width: parent.width-6
-            height: parent.height-6
-            border.color: "Lightgray"
-            border.width: 0.5
-            radius: 5
-            Text {
-                id: text9
-                text: qsTr("SYSTEM INFO")
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                font.pixelSize: 13
-                font.bold: Font.DemiBold
-                font.family: "Arial"
-            }
-
-            GridLayout {
-                y:70
+        anchors.margins: 10
+        clip: true
+        border.color: "#0d000000"
+        border.width: 1
+        radius: 5
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "#0d000000"
+            spread: 0
+        }
+        Column{
+            anchors.fill: parent
+            Rectangle{
+                id: header
                 anchors.left: parent.left
-                anchors.leftMargin: 50
                 anchors.right: parent.right
-                anchors.rightMargin: 50
-                rows: 10
-                columns: 3
-                rowSpacing: 20
-
+                height:40
+                color:"transparent"
                 Text {
-                    id: text1
-                    text: qsTr("SERIAL NUMBER:")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    font.bold:Font.Medium
+                    anchors.centerIn: parent
+                    text: qsTr("SYSTEM INFO")
+                    elide:Text.ElideRight
+                    font.pointSize: 13
+                    font.weight: Font.DemiBold
+                    clip:true
                 }
-
-                Text {
-                    id: text5
-                    text: qsTr("12986A")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                }
-
-                Text {
-                    id: text2
-                    text: qsTr("SOFTWARE RELEASE:")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 1
-                    font.bold:Font.Medium
-                }
-
-                Text {
-                    id: text6
-                    text: qsTr("7885")
-                    renderType: Text.NativeRendering
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 1
-                }
-
-                Text {
-                    id: text3
-                    text: qsTr("CAUBRATION DUE:")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 2
-                    font.bold:Font.Medium
-                }
-
-                Text {
-                    id: text7
-                    text: qsTr("06/15/2018")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 2
-                }
-
-                Text {
-                    id: text4
-                    text: qsTr("WARRANTY EXPIRATION:")
-                    Layout.minimumHeight: 40
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 3
-                    font.bold:Font.Medium
-                }
-
-                Text {
-                    id: text8
-                    text: qsTr("03/22/2020")
-                    Layout.minimumHeight: 40
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 3
-                }
-
                 Rectangle{
-                    height: 50
-                    Layout.column: 0
-                    Layout.row: 4
-                }
-
-                Text {
-                    id: text10
-                    text: qsTr("INSTAllED FEATURES")
-                    Layout.minimumHeight: 24
-                    font.underline: true
-                    font.family: "Arial"
-                    font.pixelSize: 12
-                    Layout.column: 0
-                    Layout.row: 4
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text11
-                    text: qsTr("LICENCE KEY")
-                    font.underline: true
-                     font.family: "Arial"
-                    font.pixelSize: 12
-                    Layout.column: 1
-                    Layout.row: 4
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text12
-                    text: qsTr("INSTALLED")
-                    font.underline: true
-                     font.family: "Arial"
-                    font.pixelSize: 12
-                    Layout.column: 2
-                    Layout.row: 4
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text13
-                    text: qsTr("TRANSPONDER:")
-                    font.pixelSize: 12
-                     font.family: "Arial"
-                    Layout.column: 0
-                    Layout.row: 5
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text14
-                    text: qsTr("AlR9876345")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 5
-                }
-                Text {
-                    id: text15
-                    text: qsTr("2/15/2017")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 2
-                    Layout.row: 5
-                }Text {
-                    id: text16
-                    text: qsTr("NAV:")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 0
-                    Layout.row: 6
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text17
-                    text: qsTr("8vC9876348")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 6
-                }
-                Text {
-                    id: text18
-                    text: qsTr("3/12/2017")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 2
-                    Layout.row: 6
-                }
-                Text {
-                    id: text19
-                    text: qsTr("SECURE COMM:")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 0
-                    Layout.row: 7
-                    font.bold:Font.Medium
-                }
-                Text {
-                    id: text20
-                    text: qsTr("A1TFD76349")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 1
-                    Layout.row: 7
-                }
-
-                Text {
-                    id: text21
-                    text: qsTr("4/18/2018")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.column: 2
-                    Layout.row: 7
+                    id: rectangle
+                    width: 40
+                    height: parent.height
+                    anchors.right: parent.right
+                    color:"transparent"
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/close.png"
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+                        }
+                    }
                 }
             }
 
-            layer.enabled: true
-            layer.effect: DropShadow {
-                transparentBorder: true
-                horizontalOffset: 1.1
-                verticalOffset: 1.1
-                radius: 4.0
-                color: "Lightgray"
-                spread: 0
+            Flickable {
+                width: parent.width;
+                anchors.top: header.bottom
+                anchors.bottom: parent.bottom
+                contentWidth: parent.width;
+                contentHeight: grid.height + grid.y + 10
+                clip: true
+
+                GridLayout {
+                    id: grid
+                    y: 30
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 20
+                    rowSpacing: 25
+                    columnSpacing: 15
+
+                    Text {
+                        text: qsTr("SERIAL NUMBER:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+
+                    Text {
+                        Layout.column: 1
+                        text: qsTr("14986A")
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 1
+                        text: qsTr("SOFTWARE RELEASE:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+
+                    Text {
+                        Layout.row: 1
+                        Layout.column: 1
+                        text: qsTr("7885")
+                        renderType: Text.NativeRendering
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 2
+                        text: qsTr("CAUBRATION DUE:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 2
+                        Layout.column: 1
+                        text: qsTr("06/15/2018")
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 3
+                        Layout.bottomMargin: 30
+                        text: qsTr("WARRANTY EXPIRATION:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 3
+                        Layout.column: 1
+                        text: qsTr("03/22/2020")
+                        Layout.bottomMargin: 30
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 4
+                        text: qsTr("INSTAllED FEATURES")
+                        font.underline: true
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 4
+                        Layout.column: 1
+                        text: qsTr("LICENCE KEY")
+                        font.underline: true
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 4
+                        Layout.column: 2
+                        text: qsTr("INSTALLED")
+                        font.underline: true
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 5
+                        text: qsTr("TRANSPONDER:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 5
+                        Layout.column: 1
+                        text: qsTr("AlR9876345")
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        Layout.row: 5
+                        Layout.column: 2
+                        text: qsTr("2/15/2017")
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 6
+                        text: qsTr("NAV:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 6
+                        Layout.column: 1
+                        text: qsTr("8vC9876348")
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        Layout.row: 6
+                        Layout.column: 2
+                        text: qsTr("3/14/2017")
+                        font.pixelSize: 14
+                    }
+                    Text {
+                        Layout.row: 7
+                        text: qsTr("SECURE COMM:")
+                        font.pixelSize: 14
+                        font.bold:Font.Medium
+                    }
+                    Text {
+                        Layout.row: 7
+                        Layout.column: 1
+                        text: qsTr("A1TFD76349")
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 7
+                        Layout.column: 2
+                        text: qsTr("4/18/2018")
+                        font.pixelSize: 14
+                    }
+                }
             }
         }
     }

@@ -25,7 +25,9 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId){
     case 25:
         return "SetupSystemInfo.qml";
     case 26:
-        return "SetupConnectionDetail.qml";
+        return "SetupConnection.qml";
+    case 27:
+        return "SetupManualBit.qml";
     case 1:
     default:
         return "Global.qml";

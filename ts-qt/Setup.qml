@@ -6,11 +6,14 @@ import QtGraphicalEffects 1.0
 Item {
     anchors.fill: parent
     Flickable {
-        width: parent.width; height: parent.height
-        contentWidth: parent.width; contentHeight: grid.height
+        width: parent.width;
+        height: parent.height
+        contentWidth: parent.width;
+        contentHeight: grid.height + 10
         Grid{
             id: grid
-            anchors.fill: parent
+            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.margins: 5
             columns: 2
             Rectangle{
@@ -293,6 +296,41 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Connection")
+                    }
+                }
+            }
+            Rectangle{
+                width: grid.width/2
+                height: 200
+                color:"transparent"
+                Rectangle{
+                    anchors.fill: parent
+                    anchors.margins: 5
+                    anchors.horizontalCenter: parent
+                    anchors.verticalCenter: parent
+                    border.color: "#0d000000"
+                    border.width: 1
+                    radius: 5
+                    layer.enabled: true
+                    layer.effect: DropShadow {
+                        transparentBorder: true
+                        horizontalOffset: 1.1
+                        verticalOffset: 1.1
+                        radius: 4.0
+                        color: "#0d000000"
+                        spread: 0
+                    }
+                    Text {
+                        anchors.centerIn: parent
+                        text: qsTr("RUN MANUAL BIT")
+                        elide:Text.ElideRight
+                        font.pointSize: 12
+                        font.weight: Font.DemiBold
+                        clip:true
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Run-Manual-Bit")
                     }
                 }
             }
