@@ -14,8 +14,8 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId){
         return "Setup.qml";
     case 20://Setup-User
         return "SetupUser.qml";
-    case 21://Setup-User-EditUser
-        return "";
+    case 21:
+        return "SetupUserDetail.qml";
     case 22:
         return "SetupDisplay.qml";
     case 23:

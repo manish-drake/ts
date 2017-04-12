@@ -23,6 +23,7 @@
         <file>SetupSystemInfo.qml</file>
         <file>CustomSwitchDelegate.qml</file>
         <file>SetupManualBit.qml</file>
+        <file>SetupUserDetail.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery-half.png</file>

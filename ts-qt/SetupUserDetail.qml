@@ -31,7 +31,7 @@ Item {
                 color:"transparent"
                 Text {
                     anchors.centerIn: parent
-                    text: qsTr("RUN MANUAL BIT")
+                    text: qsTr("USER")
                     elide:Text.ElideRight
                     font.pointSize: 13
                     font.weight: Font.DemiBold
@@ -75,148 +75,84 @@ Item {
                     columnSpacing: 30
 
                     Text {
-                        Layout.row: 0
-                        Layout.column: 0
-                        text: qsTr("CPU:")
+                        text: qsTr("USER ID:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
                     Text {
-                        Layout.row: 0
                         Layout.column: 1
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
-                    }
-
-                    Text {
-                        Layout.row: 0
-                        Layout.column: 2
-                        text: qsTr("CALIBRATION:")
-                        font.pixelSize: 12
-                        font.bold: Font.Medium
-                    }
-                    Text {
-                        Layout.row: 0
-                        Layout.column: 3
-                        text: qsTr("PASS")
+                        text: qsTr("Default")
                         font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 1
-                        Layout.column: 0
-                        text: qsTr("DSP:")
+                        text: qsTr("NAME:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
                     Text {
                         Layout.row: 1
                         Layout.column: 1
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
-                    }
-
-                    Text {
-                        Layout.row: 1
-                        Layout.column: 2
-                        text: qsTr("RTC:")
-                        font.pixelSize: 12
-                        font.bold: Font.Medium
-                    }
-                    Text {
-                        Layout.row: 1
-                        Layout.column: 3
-                        text: qsTr("PASS")
+                        text: qsTr("OPERATOR")
                         font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 2
-                        Layout.column: 0
-                        text: qsTr("FPGA:")
+                        text: qsTr("LANGUAGE:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 1
-                        text: qsTr("PASS")
+                        text: qsTr("ENGLISH")
                         font.pixelSize: 12
                     }
-
-                    Text {
-                        Layout.row: 2
-                        Layout.column: 2
-                        text: qsTr("POWER:")
-                        font.pixelSize: 12
-                        font.bold: Font.Medium
-                    }
-                    Text {
-                        Layout.row: 2
-                        Layout.column: 3
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
-                    }
-
 
                     Text {
                         Layout.row: 3
-                        Layout.column: 0
-                        text: qsTr("MEMORY:")
+                        text: qsTr("EMAIL:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
+
                     Text {
                         Layout.row: 3
                         Layout.column: 1
-                        text: qsTr("PASS")
+                        text: qsTr("operator@mail.com")
                         font.pixelSize: 12
                     }
-
-                    Text {
-                        Layout.row: 3
-                        Layout.column: 2
-                        text: qsTr("ETC:")
-                        font.pixelSize: 12
-                        font.bold: Font.Medium
-                    }
-                    Text {
-                        Layout.row: 3
-                        Layout.column: 3
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
-                    }
-
                     Text {
                         Layout.row: 4
-                        Layout.column: 0
-                        text: qsTr("RF PATH:")
+                        Layout.rowSpan: 2
+                        text: qsTr("EMAIL SAVED TESTS:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
-                    Text {
+
+                    Switch {
                         Layout.row: 4
                         Layout.column: 1
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
                     }
 
-                    Text {
-                        Layout.row: 4
-                        Layout.column: 2
-                        text: qsTr("ETC:")
-                        font.pixelSize: 12
-                        font.bold: Font.Medium
-                    }
-                    Text {
-                        Layout.row: 4
-                        Layout.column: 3
-                        text: qsTr("PASS")
-                        font.pixelSize: 12
+                    Button{
+                        Layout.row: 6
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "RESTORE FACTORY DEFAULTS"
                     }
 
+                    Button{
+                        Layout.row: 8
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "DELETE USER"
+                    }
                 }
+
+
             }
         }
     }
 }
+

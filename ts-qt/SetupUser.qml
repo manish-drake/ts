@@ -46,7 +46,7 @@ Item{
             anchors.top: header.bottom
             anchors.bottom: parent.bottom
             contentWidth: parent.width;
-            contentHeight: grid.height
+            contentHeight: grid.height + addButton.height + 10
             clip: true
             Grid{
                 id: grid
@@ -100,6 +100,10 @@ Item{
 
                         }
                     }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
+                    }
                 }
                 Rectangle{
                     width: grid.width/2
@@ -146,6 +150,10 @@ Item{
 
                         }
                     }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
+                    }
                 }
                 Rectangle{
                     width: grid.width/2
@@ -190,6 +198,10 @@ Item{
                             }
 
                         }
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
                     }
                 }
                 Rectangle{
@@ -236,7 +248,44 @@ Item{
 
                         }
                     }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
+                    }
                 }
+            }
+        }
+
+        Rectangle{
+            id: addButton
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 10
+            anchors.horizontalCenter: parent.horizontalCenter
+            height: 40
+            width: 40
+            radius: width*0.5
+            color: "transparent"
+            border.width: 3
+            border.color: "#377DF3"
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "#0d000000"
+                spread: 0
+            }
+            Text{
+                anchors.centerIn: parent
+                text:"+"
+                font.pixelSize: 28
+                font.weight: Font.ExtraBold
+                color:"#377DF3"
+            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
             }
         }
     }

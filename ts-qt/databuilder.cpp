@@ -96,8 +96,8 @@ int DataBuilder::build()
     View vwSetupUser("Setup-User");
     viewDao->addView(vwSetupUser);
 
-    View vwSetupEditUser("Setup-User-EditUser");
-    viewDao->addView(vwSetupEditUser);
+    View vwSetupUserDetail("Setup-User-Detail");
+    viewDao->addView(vwSetupUserDetail);
 
     View vwSetupDisplay("Setup-Display");
     viewDao->addView(vwSetupDisplay);
@@ -1130,6 +1130,9 @@ int DataBuilder::build()
     Navigation sUserToSetup (vwSetupUser.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sUserToSetup);
 
+    Navigation sUserDetailToUser (vwSetupUserDetail.id(), "back", 0, vwSetupUser.id());
+    navigationDaoPtr->addNavigation(sUserDetailToUser);
+
     Navigation sDisplayToSetup (vwSetupDisplay.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sDisplayToSetup);
 
@@ -1154,8 +1157,8 @@ int DataBuilder::build()
     Navigation setupToUser(vwSetup.id(), "User", 0, vwSetupUser.id());
     navigationDaoPtr->addNavigation(setupToUser);
 
-    Navigation userToEditUser(vwSetupUser.id(), "EditUser", 0, vwSetupEditUser.id());
-    navigationDaoPtr->addNavigation(userToEditUser);
+    Navigation userToUserDetail(vwSetupUser.id(), "UserDetail", 0, vwSetupUserDetail.id());
+    navigationDaoPtr->addNavigation(userToUserDetail);
 
     Navigation setupToDisplay(vwSetup.id(), "Display", 0, vwSetupDisplay.id());
     navigationDaoPtr->addNavigation(setupToDisplay);
