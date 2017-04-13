@@ -66,17 +66,12 @@ Item {
                 anchors.bottom: label2.top
                 anchors.left: parent.left
                 anchors.right: parent.right
-                Rectangle{
-                    height:20
-                    width: 20
-                    color:"gray"
+                Image{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    Image{
-                        anchors.fill: parent
-                        source: "qrc:/img/img/light.png"
-                    }
+                    source: "qrc:/img/img/Sun Filled-25.png"
                 }
+
             }
             Text{
                 id: label2
@@ -134,16 +129,10 @@ Item {
                 anchors.bottom: ctrl4.top
                 anchors.left: parent.left
                 anchors.right: parent.right
-                Rectangle{
-                    height:20
-                    width: 20
-                    color:"gray"
+                Image{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    Image{
-                        anchors.fill: parent
-                        source: "qrc:/img/img/wifi.png"
-                    }
+                    source: "qrc:/img/img/wifi-signal-waves.png"
                 }
             }
             ComboBox{
@@ -233,16 +222,10 @@ Item {
                 anchors.bottom: label7.top
                 anchors.left: parent.left
                 anchors.right: parent.right
-                Rectangle{
-                    height:20
-                    width: 20
-                    color:"gray"
+                Image{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    Image{
-                        anchors.fill: parent
-                        source: "qrc:/img/img/top.png"
-                    }
+                    source: "qrc:/img/img/Up-25.png"
                 }
             }
             Text{
@@ -271,16 +254,10 @@ Item {
                 anchors.bottom: ctrl8.top
                 anchors.left: parent.left
                 anchors.right: parent.right
-                Rectangle{
-                    height:20
-                    width: 20
-                    color:"gray"
+                Image{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    Image{
-                        anchors.fill: parent
-                        source: "qrc:/img/img/filter.png"
-                    }
+                    source: "qrc:/img/img/filter-results-button.png"
                 }
             }
             ComboBox{
@@ -332,8 +309,9 @@ Item {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 minimumValue: 10
-                value: 200
                 maximumValue: 250
+                stepSize: 1
+                value: 200
             }
             Text{
                 text:"10 Ft"
@@ -351,5 +329,4 @@ Item {
             }
         }
     }
-
 }

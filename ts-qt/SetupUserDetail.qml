@@ -46,7 +46,7 @@ Item {
                     Image {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/close.png"
+                        source: "qrc:/img/img/Delete-25.png"
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -126,7 +126,6 @@ Item {
                     }
                     Text {
                         Layout.row: 4
-                        Layout.rowSpan: 2
                         text: qsTr("EMAIL SAVED TESTS:")
                         font.pixelSize: 12
                         font.bold: Font.Medium

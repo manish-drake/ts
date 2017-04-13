@@ -30,7 +30,7 @@ Item{
                 Image {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/close.png"
+                    source: "qrc:/img/img/Delete-25.png"
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -264,24 +264,25 @@ Item{
             height: 40
             width: 40
             radius: width*0.5
-            color: "transparent"
-            border.width: 3
-            border.color: "#377DF3"
+            color: "#377DF3"
             layer.enabled: true
             layer.effect: DropShadow {
                 transparentBorder: true
                 horizontalOffset: 1.1
                 verticalOffset: 1.1
                 radius: 4.0
-                color: "#0d000000"
+                color: "#80000000"
                 spread: 0
             }
             Text{
-                anchors.centerIn: parent
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.topMargin: 1
+                anchors.leftMargin: 10
                 text:"+"
                 font.pixelSize: 28
-                font.weight: Font.ExtraBold
-                color:"#377DF3"
+                font.weight: Font.bold
+                color:"white"
             }
             MouseArea{
                 anchors.fill: parent

@@ -12,15 +12,15 @@ Item{
         width: parent.width
         CustomSwitchDelegate{
             text: "SETUP TEST"
-            source: "qrc:/img/img/setuptest.png"
+            source: "qrc:/img/img/Settings-25.png"
         }
         CustomSwitchDelegate{
             text: "HELP"
-            source: "qrc:/img/img/help.png"
+            source: "qrc:/img/img/Help Filled-25.png"
         }
         CustomSwitchDelegate{
             text: "CLEAR"
-            source: "qrc:/img/img/clear.png"
+            source: "qrc:/img/img/Minus-30.png"
         }
         CustomSwitchDelegate{
             text: "DUAL PANEL"
@@ -28,19 +28,19 @@ Item{
         }
         CustomSwitchDelegate{
             text: "FILTER"
-            source: "qrc:/img/img/filter.png"
+            source: "qrc:/img/img/filter-results-button.png"
         }
         CustomSwitchDelegate{
             text: "RUN ALL"
-            source: "qrc:/img/img/runall.png"
+            source: "qrc:/img/img/Running-25.png"
         }
         CustomSwitchDelegate{
             text: "REPEAT"
-            source: "qrc:/img/img/repeat.png"
+            source: "qrc:/img/img/Repeat-25.png"
         }
         CustomSwitchDelegate{
             text: "LOG DATA"
-            source: "qrc:/img/img/logdata.png"
+            source: "qrc:/img/img/Upload to the Cloud-25.png"
         }
         Text{
             text: "Version"

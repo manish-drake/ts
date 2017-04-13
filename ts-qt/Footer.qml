@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Layouts 1.1
+import QtQuick.Layouts 1.3
 
 Rectangle {
     id: rectangle4
@@ -40,16 +40,19 @@ Rectangle {
         GridLayout{
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
+            rowSpacing: 2
+            columnSpacing: 7
             Image {
                 id: directImage
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                source: "qrc:/img/img/direct.png"
+                source: "qrc:/img/img/Network Cable-25.png"
             }
 
             Text{
                 text:"Direct"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.row: 1
+                elide: Text.ElideRight
             }
 
             Image {
@@ -65,13 +68,14 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.column: 1
                 Layout.row: 1
+                elide: Text.ElideRight
             }
 
             Image {
                 Layout.column: 2
                 id: wifiImage
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                source: "qrc:/img/img/wifi.png"
+                source: "qrc:/img/img/wifi-signal-waves.png"
             }
 
             Text{
@@ -79,6 +83,7 @@ Rectangle {
                 Layout.row: 1
                 text:"Wifi"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                elide: Text.ElideRight
             }
         }
     }

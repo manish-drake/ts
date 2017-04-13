@@ -74,7 +74,7 @@ Rectangle{
                 Image {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/close.png"
+                    source: "qrc:/img/img/Delete-25.png"
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -173,7 +173,6 @@ Rectangle{
                 }
 
             }
-
             Rectangle {
                 id: toggleButton
                 anchors.horizontalCenter: parent.horizontalCenter

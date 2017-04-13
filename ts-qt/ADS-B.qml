@@ -109,55 +109,30 @@ Item {
                                 Layout.fillHeight: true
                                 width: 30
                                 color: "transparent"
-
                                 Image {
                                     id: favImage
                                     anchors.verticalCenter: parent.verticalCenter
-                                    source: "qrc:/img/img/fav.png"
-                                }
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        //  popupCenter.open()
-                                    }
-                                    onPressed: parent.opacity = 0.5
-                                    onReleased: parent.opacity = 1
+                                    source: "qrc:/img/img/Star Filled-20.png"
                                 }
                             }
 
-                            Rectangle {
+                            GridLayout {
+                                id: gridLayout1
                                 Layout.column: 4
                                 Layout.fillHeight: true
-                                width: 45
-                                color: "transparent"
-
-                                GridLayout {
-                                    id: gridLayout1
-                                    anchors.fill: parent
-                                    Image {
-                                        id: image1
-                                        Layout.column: 0
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        source: "qrc:/img/img/cout.png"
-                                    }
-                                    Text {
-                                        anchors.left: image1.right
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        Layout.column: 1
-                                        text: "7"
-                                        font.pointSize: 10
-                                    }
+                                columnSpacing: 5
+                                Image {
+                                    id: image1
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    source: "qrc:/img/img/album.png"
                                 }
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        //  popupCenter.open()
-                                    }
-                                    onPressed: parent.opacity = 0.5
-                                    onReleased: parent.opacity = 1
+                                Text {
+                                    Layout.column: 1
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: "7"
+                                    font.pointSize: 10
                                 }
                             }
-
                         }
                     }
                     Rectangle{
