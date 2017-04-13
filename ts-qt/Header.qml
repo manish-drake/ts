@@ -99,5 +99,4 @@ Rectangle {
             onReleased: parent.opacity = 1
         }
     }
-
 }

@@ -9,13 +9,13 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId){
         return "ADSB-Scan.qml";
     case 14 ... 19:
     case 6 ... 12:        
-        return "ADSB-Pages.qml";
+        return "TestDetail.qml";
     case 4:
         return "Setup.qml";
     case 20://Setup-User
         return "SetupUser.qml";
-    case 21://Setup-User-EditUser
-        return "";
+    case 21:
+        return "SetupUserDetail.qml";
     case 22:
         return "SetupDisplay.qml";
     case 23:

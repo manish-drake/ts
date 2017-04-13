@@ -64,7 +64,7 @@ Item {
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
                 clip: true
-
+                boundsBehavior: Flickable.StopAtBounds
                 GridLayout {
                     id: grid
                     y: 30
@@ -72,13 +72,13 @@ Item {
                     anchors.right: parent.right
                     anchors.margins: 20
                     rowSpacing: 25
-                    columnSpacing: 30
+                    columnSpacing: 20
 
                     Text {
                         id: text1
                         Layout.row: 0
                         Layout.column:0
-                        text: qsTr("THEME")
+                        text: qsTr("THEME:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
                     }
@@ -87,7 +87,7 @@ Item {
                         id:switchText
                         Layout.row: 0
                         Layout.column: 1
-                        Layout.minimumWidth: 50
+                        Layout.minimumWidth: 60
                         text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
                         font.pixelSize: 14
                     }
@@ -111,7 +111,7 @@ Item {
                         id: text2
                         Layout.row: 1
                         Layout.column: 0
-                        text: qsTr("BRIGHTNESS")
+                        text: qsTr("BRIGHTNESS:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
                     }

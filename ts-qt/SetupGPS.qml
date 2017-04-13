@@ -64,7 +64,7 @@ Item {
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
                 clip: true
-
+                boundsBehavior: Flickable.StopAtBounds
                 GridLayout {
                     id: grid
                     y: 30
@@ -72,7 +72,7 @@ Item {
                     anchors.right: parent.right
                     anchors.margins: 20
                     rowSpacing: 25
-                    columnSpacing: 30
+                    columnSpacing: 20
 
                     Text {
                         text: qsTr("GPS SOURCE:")

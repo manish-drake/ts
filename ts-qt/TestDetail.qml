@@ -1,9 +1,8 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
-import QtQuick 2.7
 import QtGraphicalEffects 1.0
 import com.ti.controls 1.0
 
@@ -94,6 +93,7 @@ Item {
                     contentWidth: parent.width;
                     contentHeight: content.height + content.y + 10
                     clip: true
+                    boundsBehavior: Flickable.StopAtBounds
                     Column{
                         id: content
                         y: 10
