@@ -64,8 +64,6 @@ Item {
                     }
                 }
 
-
-
                 Rectangle{
                     id: rectangle
                     height:25
