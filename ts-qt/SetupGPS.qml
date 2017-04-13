@@ -72,7 +72,7 @@ Item {
                     anchors.right: parent.right
                     anchors.margins: 20
                     rowSpacing: 25
-                    columnSpacing: 30
+                    columnSpacing: 20
 
                     Text {
                         text: qsTr("GPS SOURCE:")

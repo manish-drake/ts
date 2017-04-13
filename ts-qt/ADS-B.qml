@@ -194,7 +194,9 @@ Item {
             }
         }
         highlight:Rectangle{
-            color:"#377DF3"
+            color: "transparent"
+            border.color: "#377DF3"
+            border.width: 1
             radius:5
         }
     }
