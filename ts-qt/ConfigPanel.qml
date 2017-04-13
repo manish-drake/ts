@@ -4,7 +4,6 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 
 Item {
-    id: item1
     GridLayout {
         id: grid
         columnSpacing: 0

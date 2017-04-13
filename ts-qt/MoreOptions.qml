@@ -5,7 +5,6 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 
 Item{
-    id: item1
     width: parent.width
     Column{
         id: columnLayout
