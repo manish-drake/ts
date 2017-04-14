@@ -107,18 +107,16 @@ Rectangle{
                 boundsBehavior: Flickable.StopAtBounds
                 Column{
                     id: content
-                    y: 10
+                    y: 20
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 10
-                    Text {
-                        id: text1
-                        text: qsTr("Radar")
-                        font.pixelSize: 12
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "qrc:/img/img/radar.png"
                     }
                 }
             }
-
         }
 
         footer: Rectangle{
