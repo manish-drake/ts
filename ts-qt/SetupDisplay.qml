@@ -146,7 +146,7 @@ Item {
                             minimumValue: 1
                             maximumValue: 10
                             stepSize: 1
-                            value: 0.5
+                            value: 7
                             updateValueWhileDragging: true
                             onValueChanged: {
                                 console.log(slider.value)

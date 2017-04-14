@@ -44,7 +44,7 @@ Rectangle{
                 Image {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/pointer.png"
+                    source: "qrc:/img/img/Area Chart-25.png"
                 }
                 MouseArea {
                     anchors.fill: parent

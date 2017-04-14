@@ -12,10 +12,18 @@ Item{
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/Settings-25.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {moreActionsPopover.close();  }
+            }
         }
         CustomSwitchDelegate{
             text: "HELP"
             source: "qrc:/img/img/Help Filled-25.png"
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {moreActionsPopover.close();  }
+            }
         }
         CustomSwitchDelegate{
             text: "CLEAR"
@@ -41,10 +49,20 @@ Item{
             text: "LOG DATA"
             source: "qrc:/img/img/Upload to the Cloud-25.png"
         }
+        CustomSwitchDelegate{
+            text: "START"
+            source: "qrc:/img/img/Star Filled-20.png"
+        }
+        CustomSwitchDelegate{
+            text: "GUIDE"
+            source: "qrc:/img/img/Info-24.png"
+        }
         Text{
-            text: "Version"
+            text: "Version 0.0.01"
             anchors.right: parent.right
-            padding: 10
+            bottomPadding: 10
+            leftPadding: 10
+            rightPadding: 10
         }
     }
 }

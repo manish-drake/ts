@@ -44,9 +44,10 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 color:"transparent"
                 Image {
+                    id: viewImage
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/pointer.png"
+                    source: "qrc:/img/img/Radar-25.png"
                 }
                 MouseArea {
                     anchors.fill: parent

@@ -30,17 +30,13 @@
     <qresource prefix="/img">
         <file>img/battery.png</file>
         <file>img/play.png</file>
-        <file>img/pointer.png</file>
         <file>img/dualpanel.png</file>
-        <file>img/guide.png</file>
-        <file>img/save.png</file>
         <file>img/stop.png</file>
         <file>img/Menu-25.png</file>
         <file>img/Circled Chevron Down-30.png</file>
         <file>img/Delete-25.png</file>
         <file>img/Sun Filled-25.png</file>
         <file>img/wifi-signal-waves.png</file>
-        <file>img/Up-25.png</file>
         <file>img/filter-results-button.png</file>
         <file>img/Network Cable-25.png</file>
         <file>img/Minus-30.png</file>
@@ -51,7 +47,14 @@
         <file>img/Upload to the Cloud-25.png</file>
         <file>img/album.png</file>
         <file>img/Star Filled-20.png</file>
+        <file>img/Info-24.png</file>
+        <file>img/Download-22.png</file>
         <file>img/waveform.png</file>
         <file>img/radar.png</file>
+        <file>img/Radar-25.png</file>
+        <file>img/View Details-25.png</file>
+        <file>img/Area Chart-25.png</file>
+        <file>img/Circled Up-25.png</file>
+        <file>img/Marker-25.png</file>
     </qresource>
 </RCC>
