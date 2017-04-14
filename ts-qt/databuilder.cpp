@@ -16,18 +16,18 @@ DataBuilder::DataBuilder()
 
 }
 inline QVector<int> toVector(QAbstractListModel &list)  {
-     QVector<int> v;
+    QVector<int> v;
 
-     const int nbRow = list.rowCount();
-     v.reserve(nbRow);
+    const int nbRow = list.rowCount();
+    v.reserve(nbRow);
 
-     for (int i = 0; i < nbRow; ++i)
-     {
-         auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
-         v.append(elemT);
-     }
-     return v;
- }
+    for (int i = 0; i < nbRow; ++i)
+    {
+        auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
+        v.append(elemT);
+    }
+    return v;
+}
 
 int DataBuilder::build()
 {
@@ -45,7 +45,7 @@ int DataBuilder::build()
     View vwADSB("ADSB");
     viewDao->addView(vwADSB);
 
-    View vwSetup(" Setup");
+    View vwSetup("Setup");
     viewDao->addView(vwSetup);
 
     View vwADSBout1090Scan("ADSB-OUT-1090-Scan");
@@ -117,9 +117,20 @@ int DataBuilder::build()
     View vwSetupRMBit("Setup-Run-Manual-Bit");
     viewDao->addView(vwSetupRMBit);
 
-
     View vwDetail("Detail");
     viewDao->addView(vwDetail);
+
+    View vwADSBout1090Radar("ADSB-OUT-1090-Radar");
+    viewDao->addView(vwADSBout1090Radar);
+
+    View vwADSBoutUatRadar("ADSB-OUT-UAT-Radar");
+    viewDao->addView(vwADSBoutUatRadar);
+
+    View vwADSBout1090Graph("ADSB-OUT-1090-Graph");
+    viewDao->addView(vwADSBout1090Graph);
+
+    View vwADSBoutUatGraph("ADSB-OUT-UAT-Graph");
+    viewDao->addView(vwADSBoutUatGraph);
 
     SectionModel secModel{};
 
@@ -255,7 +266,7 @@ int DataBuilder::build()
     TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", 2, 1);
     tpModel.addTestParam(tpIntgFldNic);
 
-     //------------------------------P2-------------------------------
+    //------------------------------P2-------------------------------
 
     Summary sumAirVeh1("Aircraft/Vehicle:", adsbOut1090.id(), 1, 0, 2);
     sumModel.addSummary(sumAirVeh1);
@@ -777,7 +788,7 @@ int DataBuilder::build()
     tpModel.addTestParam(tpAirVeh9Bds);
 
     Summary sumSV2("State Vector Element (SV)", adsbOutUat.id(), 2, 1, 1);
-    sumModel.addSummary(sumSV2);    
+    sumModel.addSummary(sumSV2);
 
     Summary sumPosVel2("Position & Velocity:", adsbOutUat.id(), 2, 2, 2);
     sumModel.addSummary(sumPosVel2);
@@ -992,6 +1003,24 @@ int DataBuilder::build()
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
 
+    Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
+    navigationDaoPtr->addNavigation(scan1090ToRadar);
+
+    Navigation scanUatToRadar(vwADSBoutUATScan.id(), "Radar", 0, vwADSBoutUatRadar.id());
+    navigationDaoPtr->addNavigation(scanUatToRadar);
+
+    Navigation radar1090ToGraph (vwADSBout1090Radar.id(), "Graph", 0, vwADSBout1090Graph.id());
+    navigationDaoPtr->addNavigation(radar1090ToGraph);
+
+    Navigation radarUatToGraph (vwADSBoutUatRadar.id(), "Graph", 0, vwADSBoutUatGraph.id());
+    navigationDaoPtr->addNavigation(radarUatToGraph);
+
+    Navigation graph1090ToScan (vwADSBout1090Graph.id(), "Scan", 0, vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(graph1090ToScan);
+
+    Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(graphUatToScan);
+
     Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(mainUatToScanPage);
 
@@ -1085,6 +1114,12 @@ int DataBuilder::build()
     Navigation outUATP1ToUATscan(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(outUATP1ToUATscan);
 
+    Navigation out1090RadarTomainADSB(vwADSBout1090Radar.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090RadarTomainADSB);
+
+    Navigation out1090GraphTomainADSB(vwADSBout1090Graph.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090GraphTomainADSB);
+
     Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(out1090scanTomainADSB);
 
@@ -1108,6 +1143,12 @@ int DataBuilder::build()
 
     Navigation out1090P7TomainADSB(vwADSBout1090P7.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(out1090P7TomainADSB);
+
+    Navigation outUATRadarTomainADSB(vwADSBoutUatRadar.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATRadarTomainADSB);
+
+    Navigation outUATGraphTomainADSB(vwADSBoutUatGraph.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATGraphTomainADSB);
 
     Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(outUATscanTomainADSB);

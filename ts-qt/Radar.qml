@@ -4,8 +4,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import QtQuick 2.7
 
-
-
 Rectangle{
     anchors.fill: parent
     border.color: "#0d000000"
@@ -50,7 +48,7 @@ Rectangle{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Graph")
                 }
             }
 
@@ -95,79 +93,32 @@ Rectangle{
                     onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
                 }
             }
-
-
         }
 
         contentItem: Rectangle{
-            anchors.top: Header.bottom
-            anchors.bottom: Footer.top
             color: "transparent"
-            ListView{
-                id: listView
-                anchors.fill:parent
-                model:aircraftModel
-                delegate:aircraftDetail
-                spacing: 10
-                anchors.margins: 10
+            Flickable {
+                width: parent.width;
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                contentWidth: parent.width;
+                contentHeight: content.height + content.y + 10
                 clip: true
-                highlight:Rectangle{
-                    color:"transparent"
-                    border.color: "#377DF3"
-                    border.width: 1
-                    radius:5
-                }
-                Component{
-                    id:aircraftDetail
-                    Item{
-                        width: parent.width
-                        height: 100
-
-                        Aircraft{
-                            anchors.fill:parent
-                            anchors.margins: 1
-                        }
-
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked:{
-                                listView.currentIndex = index
-                            }
-                        }
-                    }
-                }
-                ListModel {//as per discussion only top four values will be displayed here
-                    id:aircraftModel
-                    ListElement {
-                        aircraftId: "#1"
-                        address: "2345AA (H) /23734510 (0)"
-                        flight: "N 1246W"
-                        bsdrevd: "0,5 0.8 0,9 6,0 6.1 6.5"
-                        rflevel: "Strong"
-                    }
-                    ListElement {
-                        aircraftId: "#2"
-                        address: "CA310A (H) I 74361202 (0)"
-                        flight: "Device1"
-                        bsdrevd: "0.6 0.8 6,5"
-                        rflevel: "Medium"
-                    }
-                    ListElement {
-                        aircraftId: "#3"
-                        address: "9CDA34 (H)/47800213 (0)"
-                        flight: "VIPER1"
-                        bsdrevd: "0,5 0.8 0,8 0.9 6.5"
-                        rflevel: "Weak"
-                    }
-                    ListElement {
-                        aircraftId: "#4"
-                        address: "3BCA14 (H) /12800208 (0)"
-                        flight: "Device2"
-                        bsdrevd: "0,3 0,7 0.7 0.8 6.4"
-                        rflevel: "Strong"
+                boundsBehavior: Flickable.StopAtBounds
+                Column{
+                    id: content
+                    y: 10
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 10
+                    Text {
+                        id: text1
+                        text: qsTr("Radar")
+                        font.pixelSize: 12
                     }
                 }
             }
+
         }
 
         footer: Rectangle{

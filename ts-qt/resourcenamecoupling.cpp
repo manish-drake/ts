@@ -10,9 +10,13 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId){
     case 14 ... 19:
     case 6 ... 12:        
         return "TestDetail.qml";
+    case 29 ... 30:
+        return "Radar.qml";
+    case 31 ... 32:
+        return "Graph.qml";
     case 4:
         return "Setup.qml";
-    case 20://Setup-User
+    case 20:
         return "SetupUser.qml";
     case 21:
         return "SetupUserDetail.qml";

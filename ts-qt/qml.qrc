@@ -23,6 +23,8 @@
         <file>CustomSwitchDelegate.qml</file>
         <file>SetupManualBit.qml</file>
         <file>SetupUserDetail.qml</file>
+        <file>Radar.qml</file>
+        <file>Graph.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery.png</file>
