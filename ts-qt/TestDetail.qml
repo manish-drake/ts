@@ -27,21 +27,21 @@ Item {
                 height: 40
                 width: parent.width
                 color:"transparent"
-                Rectangle{
-                    id: rectangle1
-                    anchors.margins: 10
-                    Layout.fillHeight: true
-                    width: 25
-                    anchors.left: parent.left
-                    anchors.leftMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    color:"transparent"
-                    Image {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/pointer.png"
-                    }
-                }
+//                Rectangle{
+//                    id: rectangle1
+//                    anchors.margins: 10
+//                    Layout.fillHeight: true
+//                    width: 25
+//                    anchors.left: parent.left
+//                    anchors.leftMargin: 5
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    color:"transparent"
+//                    Image {
+//                        anchors.horizontalCenter: parent.horizontalCenter
+//                        anchors.verticalCenter: parent.verticalCenter
+//                        source: "qrc:/img/img/pointer.png"
+//                    }
+//                }
 
                 Column{
                     topPadding: 10
