@@ -1022,10 +1022,16 @@ int DataBuilder::build()
     navigationDaoPtr->addNavigation(graphUatToScan);
 
     Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(mainUatToScanPage);
+    navigationDaoPtr->addNavigation(mainUatToScanPage);    
 
     Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanTo1090P1);
+
+    Navigation radarTo1090P1(vwADSBout1090Radar.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(radarTo1090P1);
+
+    Navigation graphTo1090P1(vwADSBout1090Graph.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(graphTo1090P1);
 
     Navigation out1090P1To1090P2(vwADSBout1090P1.id(), "Next", 0, vwADSBout1090P2.id());
     navigationDaoPtr->addNavigation(out1090P1To1090P2);
@@ -1051,6 +1057,12 @@ int DataBuilder::build()
     Navigation scanTo1090P7(vwADSBout1090Scan.id(), "Previous", 0, vwADSBout1090P7.id());
     navigationDaoPtr->addNavigation(scanTo1090P7);
 
+    Navigation radarTo1090P7(vwADSBout1090Radar.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(radarTo1090P7);
+
+    Navigation graphTo1090P7(vwADSBout1090Graph.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(graphTo1090P7);
+
     Navigation out1090P7To1090P6(vwADSBout1090P7.id(), "Previous", 0, vwADSBout1090P6.id());
     navigationDaoPtr->addNavigation(out1090P7To1090P6);
 
@@ -1075,6 +1087,12 @@ int DataBuilder::build()
     Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
     navigationDaoPtr->addNavigation(outUATscanToUATP1);
 
+    Navigation radarToUATP1(vwADSBoutUatRadar.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(radarToUATP1);
+
+    Navigation graphToUATP1(vwADSBoutUatGraph.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(graphToUATP1);
+
     Navigation outUATP1ToUATP2(vwADSBoutUATP1.id(), "Next", 0, vwADSBoutUATP2.id());
     navigationDaoPtr->addNavigation(outUATP1ToUATP2);
 
@@ -1095,6 +1113,12 @@ int DataBuilder::build()
 
     Navigation outUATScanToUATP6(vwADSBoutUATScan.id(), "Previous", 0, vwADSBoutUATP6.id());
     navigationDaoPtr->addNavigation(outUATScanToUATP6);
+
+    Navigation radarToUATP6(vwADSBoutUatRadar.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(radarToUATP6);
+
+    Navigation graphToUATP6(vwADSBoutUatGraph.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(graphToUATP6);
 
     Navigation outUATP6ToUATP5(vwADSBoutUATP6.id(), "Previous", 0, vwADSBoutUATP5.id());
     navigationDaoPtr->addNavigation(outUATP6ToUATP5);
