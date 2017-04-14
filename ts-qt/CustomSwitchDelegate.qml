@@ -23,7 +23,7 @@ Rectangle{
             anchors.bottom: parent.bottom
             Image {
                 id: image
-                opacity:  parent.checked ? 0.3 : 1.0
+                opacity:  switchDelegate.checked ? 0.4 : 1.0
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
             }
@@ -32,7 +32,7 @@ Rectangle{
             rightPadding: parent.spacing
             text: parent.text
             font: parent.font
-            opacity: parent.checked ? 0.3 : 1.0
+            opacity: switchDelegate.checked ? 0.4 : 1.0
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

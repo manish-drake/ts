@@ -19,7 +19,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                sideMenu.open()
+                sideMenuPopup.open()
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
@@ -54,7 +54,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                configPanel.open()
+                configPanelPopup.open()
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1

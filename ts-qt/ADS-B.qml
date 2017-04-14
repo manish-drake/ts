@@ -114,6 +114,11 @@ Item {
                                     anchors.verticalCenter: parent.verticalCenter
                                     source: "qrc:/img/img/Star Filled-20.png"
                                 }
+                                ColorOverlay {
+                                    anchors.fill: favImage
+                                    source: favImage
+                                    color: "#666666"
+                                }
                             }
 
                             GridLayout {
@@ -122,9 +127,14 @@ Item {
                                 Layout.fillHeight: true
                                 columnSpacing: 5
                                 Image {
-                                    id: image1
+                                    id: album
                                     anchors.verticalCenter: parent.verticalCenter
                                     source: "qrc:/img/img/album.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: album
+                                    source: album
+                                    color: "#666666"
                                 }
                                 Text {
                                     Layout.column: 1
