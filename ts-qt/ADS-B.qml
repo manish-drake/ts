@@ -59,13 +59,17 @@ Item {
                             Rectangle {
                                 Layout.column: 0
                                 Layout.fillHeight: true
-                                width: 30
+                                width: 35
                                 color: "transparent"
-                                Layout.leftMargin: 5
                                 Image {
                                     id: guideImage
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    source: "qrc:/img/img/guide.png"
+                                    anchors.centerIn: parent
+                                    source: "qrc:/img/img/Info-24.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: guideImage
+                                    source: guideImage
+                                    color: "#377DF3"
                                 }
                                 MouseArea {
                                     anchors.fill: parent
@@ -80,12 +84,17 @@ Item {
                             Rectangle {
                                 Layout.column: 1
                                 Layout.fillHeight: true
-                                width: 30
+                                width: 35
                                 color: "transparent"
                                 Image {
                                     id: saveImage
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    source: "qrc:/img/img/save.png"
+                                    anchors.centerIn: parent
+                                    source: "qrc:/img/img/Download-22.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: saveImage
+                                    source: saveImage
+                                    color: "#377DF3"
                                 }
                                 MouseArea {
                                     anchors.fill: parent
@@ -100,18 +109,17 @@ Item {
                             Rectangle {
                                 Layout.column: 2
                                 Layout.fillWidth: true
-                                height: 30
                                 color: "transparent"
                             }
 
                             Rectangle {
                                 Layout.column: 3
                                 Layout.fillHeight: true
-                                width: 30
+                                width: 35
                                 color: "transparent"
                                 Image {
                                     id: favImage
-                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.centerIn: parent
                                     source: "qrc:/img/img/Star Filled-20.png"
                                 }
                                 ColorOverlay {
