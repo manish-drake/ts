@@ -80,37 +80,7 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
             }
         }
-        Rectangle {
-            border.color: "#d3d3d3"
-            Layout.preferredWidth : grid.prefWidth(this)
-            Layout.preferredHeight : grid.prefHeight(this)
-            Text{
-                id: header3
-                anchors.horizontalCenter: parent.horizontalCenter
-                text:"LANGUAGE"
-                anchors.top: parent.top
-                anchors.topMargin: 10
-            }
-            Rectangle{
-                color: "#00000000"
-                anchors.top: header3.bottom
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.right: parent.right
-                ComboBox{
-                    width: 100
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    currentIndex: 1
-                    model: ListModel{
-                        id:cbLaguageItems
-                        ListElement{text:"English"}
-                        ListElement{text:"French"}
-                        ListElement{text:"Spanish"}
-                    }
-                }
-            }
-        }
+
         Rectangle {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
@@ -149,6 +119,59 @@ Item {
                 }
             }
         }
+
+        Rectangle {
+            border.color: "#d3d3d3"
+            Layout.preferredWidth : grid.prefWidth(this)
+            Layout.preferredHeight : grid.prefHeight(this)
+            Text{
+                id: header10
+                anchors.horizontalCenter: parent.horizontalCenter
+                text:"DISPLAY BRIGHTNESS"
+                anchors.top: parent.top
+                anchors.topMargin: 10
+            }
+            Rectangle{
+                color: "#00000000"
+                anchors.top: header10.bottom
+                anchors.bottom: sld2.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                Text{
+                    text: sld2.value
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+            }
+            Slider {
+                id: sld2
+                anchors.rightMargin: 15
+                anchors.leftMargin: 15
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 25
+                anchors.left: parent.left
+                anchors.right: parent.right
+                minimumValue: 1
+                maximumValue: 10
+                stepSize: 1
+                value: 7
+            }
+            Text{
+                text: sld2.minimumValue
+                anchors.left: parent.left
+                anchors.leftMargin: 10
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+            }
+            Text{
+                text: sld2.maximumValue
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+            }
+        }
+
         Rectangle {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
@@ -180,6 +203,38 @@ Item {
                 }
             }
         }
+
+        Rectangle {
+            border.color: "#d3d3d3"
+            Layout.preferredWidth : grid.prefWidth(this)
+            Layout.preferredHeight : grid.prefHeight(this)
+            Text{
+                id: header11
+                anchors.horizontalCenter: parent.horizontalCenter
+                text:"GPS SOURCE"
+                anchors.top: parent.top
+                anchors.topMargin: 10
+            }
+            Rectangle{
+                color: "#00000000"
+                anchors.top: header11.bottom
+                anchors.bottom: label11.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                Image{
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "qrc:/img/img/Marker-25.png"
+                }
+            }
+            Text{
+                id: label11
+                anchors.horizontalCenter: parent.horizontalCenter
+                text:"Internal"
+                anchors.bottom: parent.bottom
+                anchors.bottomMargin: 10
+            }
+        }
         Rectangle {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
@@ -202,8 +257,9 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                 }
-            }
+            }       
         }
+
         Rectangle {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
@@ -224,7 +280,7 @@ Item {
                 Image{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Up-25.png"
+                    source: "qrc:/img/img/Circled Up-25.png"
                 }
             }
             Text{
@@ -279,7 +335,6 @@ Item {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
-            Layout.columnSpan: 2;
             Text{
                 id: header9
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -313,19 +368,52 @@ Item {
                 value: 200
             }
             Text{
-                text:"10 Ft"
+                text:"%1 Ft".arg(sld.minimumValue)
                 anchors.left: parent.left
                 anchors.leftMargin: 10
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
             }
             Text{
-                text:"250 Ft"
+                text:"%1 Ft".arg(sld.maximumValue)
                 anchors.right: parent.right
                 anchors.rightMargin: 10
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
             }
         }
+
+
+//        Rectangle {
+//            border.color: "#d3d3d3"
+//            Layout.preferredWidth : grid.prefWidth(this)
+//            Layout.preferredHeight : grid.prefHeight(this)
+//            Text{
+//                id: header3
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                text:"LANGUAGE"
+//                anchors.top: parent.top
+//                anchors.topMargin: 10
+//            }
+//            Rectangle{
+//                color: "#00000000"
+//                anchors.top: header3.bottom
+//                anchors.bottom: parent.bottom
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                ComboBox{
+//                    width: 100
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    currentIndex: 1
+//                    model: ListModel{
+//                        id:cbLaguageItems
+//                        ListElement{text:"English"}
+//                        ListElement{text:"French"}
+//                        ListElement{text:"Spanish"}
+//                    }
+//                }
+//            }
+//        }
     }
 }

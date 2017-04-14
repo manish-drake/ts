@@ -41,6 +41,14 @@ Item{
             text: "LOG DATA"
             source: "qrc:/img/img/Upload to the Cloud-25.png"
         }
+        CustomSwitchDelegate{
+            text: "START"
+            source: "qrc:/img/img/Star Filled-20.png"
+        }
+        CustomSwitchDelegate{
+            text: "GUIDE"
+            source: "qrc:/img/img/Info-24.png"
+        }
         Text{
             text: "Version"
             anchors.right: parent.right
