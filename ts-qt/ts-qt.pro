@@ -62,3 +62,4 @@ HEADERS += \
     controls.h \
     controlsattachedtype.h \
     controlstyles.h
+

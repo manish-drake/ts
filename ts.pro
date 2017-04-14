@@ -4,4 +4,5 @@ SUBDIRS += \
     ts-core \
     ts-dao \
     ts-model \
-    ts-qt
+    ts-qt \
+    ts-client
