@@ -52,5 +52,6 @@
         <file>img/album.png</file>
         <file>img/Star Filled-20.png</file>
         <file>img/waveform.png</file>
+        <file>img/radar.png</file>
     </qresource>
 </RCC>

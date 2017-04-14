@@ -98,26 +98,13 @@ Rectangle{
                 boundsBehavior: Flickable.StopAtBounds
                 Column{
                     id: content
-                    y: 90
-                    height:parent.height
+                    y: 20
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 10
-                    Rectangle{
-                        id: rectangle2
-                        anchors.margins: 10
-                        Layout.fillHeight: true
-                        height:600
-                        width: 400
-                        anchors.top:parent.top
+                    Image {
                         anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        color:"transparent"
-                        Image {
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
-                            source: "qrc:/img/img/waveform.png"
-                        }
+                        source: "qrc:/img/img/waveform.png"
                     }
                 }
             }
