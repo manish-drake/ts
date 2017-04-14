@@ -1,13 +1,14 @@
 #include "qtestparams.h"
 
 
-QTestParams::QTestParams(QString data, int row, int col, int rowSpan, int colSpan, QObject *parent):
+QTestParams::QTestParams(QString data, int row, int col, int rowSpan, int colSpan, int style, QObject *parent):
     QObject(parent),
     m_data{data},
     m_row{row},
     m_col{col},
     m_rowSpan{rowSpan},
-    m_colSpan{colSpan}
+    m_colSpan{colSpan},
+    m_style{style}
 {
 
 }
@@ -35,6 +36,11 @@ int QTestParams::rowSpan() const
 int QTestParams::colSpan() const
 {
     return this->m_colSpan;
+}
+
+int QTestParams::style() const
+{
+    return this->m_style;
 }
 
 QTestParams::~QTestParams()

@@ -12,41 +12,49 @@
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>ADSB-Scan.qml</file>
-        <file>ADSB-Pages.qml</file>
         <file>TestDetail.qml</file>
         <file>Setup.qml</file>
         <file>SetupUser.qml</file>
         <file>MoreOptions.qml</file>
-        <file>SetupConnectionDetail.qml</file>
+        <file>SetupConnection.qml</file>
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
         <file>SetupSystemInfo.qml</file>
         <file>CustomSwitchDelegate.qml</file>
+        <file>SetupManualBit.qml</file>
+        <file>SetupUserDetail.qml</file>
+        <file>Radar.qml</file>
+        <file>Graph.qml</file>
+        <file>SideMenu.qml</file>
     </qresource>
     <qresource prefix="/img">
-        <file>img/battery-half.png</file>
-        <file>img/start.png</file>
-        <file>img/centermenu.png</file>
         <file>img/battery.png</file>
-        <file>img/direct.png</file>
-        <file>img/wifi.png</file>
         <file>img/play.png</file>
-        <file>img/close.png</file>
-        <file>img/pointer.png</file>
-        <file>img/clear.png</file>
         <file>img/dualpanel.png</file>
-        <file>img/filter.png</file>
-        <file>img/help.png</file>
-        <file>img/setuptest.png</file>
-        <file>img/logdata.png</file>
-        <file>img/repeat.png</file>
-        <file>img/runall.png</file>
-        <file>img/guide.png</file>
-        <file>img/cout.png</file>
-        <file>img/fav.png</file>
-        <file>img/save.png</file>
         <file>img/stop.png</file>
-        <file>img/light.png</file>
-        <file>img/top.png</file>
+        <file>img/Menu-25.png</file>
+        <file>img/Circled Chevron Down-30.png</file>
+        <file>img/Delete-25.png</file>
+        <file>img/Sun Filled-25.png</file>
+        <file>img/wifi-signal-waves.png</file>
+        <file>img/filter-results-button.png</file>
+        <file>img/Network Cable-25.png</file>
+        <file>img/Minus-30.png</file>
+        <file>img/Help Filled-25.png</file>
+        <file>img/Settings-25.png</file>
+        <file>img/Running-25.png</file>
+        <file>img/Repeat-25.png</file>
+        <file>img/Upload to the Cloud-25.png</file>
+        <file>img/album.png</file>
+        <file>img/Star Filled-20.png</file>
+        <file>img/Info-24.png</file>
+        <file>img/Download-22.png</file>
+        <file>img/waveform.png</file>
+        <file>img/radar.png</file>
+        <file>img/Radar-25.png</file>
+        <file>img/View Details-25.png</file>
+        <file>img/Area Chart-25.png</file>
+        <file>img/Circled Up-25.png</file>
+        <file>img/Marker-25.png</file>
     </qresource>
 </RCC>

@@ -15,23 +15,29 @@ Rectangle{
         width: parent.width
         checked: false
         font.pixelSize: 14
-        indicator: Image {
-            id: image
-            opacity:  parent.checked ? 0.3 : 1.0
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left;
-            anchors.leftMargin: 10
+        indicator:
+            Rectangle{
+            color: "transparent"
+            width: 50
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            Image {
+                id: image
+                opacity:  switchDelegate.checked ? 0.4 : 1.0
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
         }
         contentItem: Text {
             rightPadding: parent.spacing
             text: parent.text
             font: parent.font
-            opacity: parent.checked ? 0.3 : 1.0
+            opacity: switchDelegate.checked ? 0.4 : 1.0
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
             anchors.left:parent.indicator.right
-            anchors.leftMargin: 10            
+            anchors.leftMargin: 10
         }
     }
 }

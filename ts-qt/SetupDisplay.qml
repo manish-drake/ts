@@ -1,132 +1,168 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle {
-        id: rectangle
-        color: "#f4f4f4"
+    Rectangle{
         anchors.fill: parent
-        anchors.topMargin: 6
-        anchors.leftMargin: 6
-
-        Rectangle {
-            id:card
-            color:"#ffffff"
-            width: parent.width-6
-            height: parent.height-6
-            border.color: "Lightgray"
-            border.width: 0.5
-            radius: 5
-
-
-            Text {
-                id: text9
-                text: qsTr("display")
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                font.capitalization: Font.AllUppercase
-                font.pixelSize: 13
-                font.bold: Font.DemiBold
-                font.family: "Arial"
-            }
-
-            GridLayout {
-                y: 70
-                rowSpacing: 15
+        anchors.margins: 10
+        clip: true
+        border.color: "#0d000000"
+        border.width: 1
+        radius: 5
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "#0d000000"
+            spread: 0
+        }
+        Column{
+            anchors.fill: parent
+            Rectangle{
+                id: header
                 anchors.left: parent.left
-                anchors.leftMargin: 50
                 anchors.right: parent.right
-                anchors.rightMargin: 50
-                rows: 2
-                columns: 4
-
+                height:40
+                color:"transparent"
                 Text {
-                    id: text1
-                    text: qsTr("theme")
-                    font.capitalization: Font.AllUppercase
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    font.family: "Arial"
-                    Layout.rightMargin: 50
+                    anchors.centerIn: parent
+                    text: qsTr("DISPLAY")
+                    elide:Text.ElideRight
+                    font.pointSize: 13
+                    font.weight: Font.DemiBold
+                    clip:true
                 }
-
-                Text{
-                    id:switchText
-                    text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 0
-                    Layout.column:1
-                    Layout.columnSpan: 2
-                }
-
-                Switch { //we can use delegate switch as well for binging
-                    id: switch1
-                    Layout.fillWidth: true
-                    Layout.row: 0
-                    font.family: "Arial"
-                    spacing: 10
-                    Layout.column: 3
-                    width:30
-                    height:30
-                    onCheckedChanged: {
-                        console.log(switch1.checked)
+                Rectangle{
+                    id: rectangle
+                    width: 40
+                    height: parent.height
+                    anchors.right: parent.right
+                    color:"transparent"
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/Delete-25.png"
                     }
-                }
-
-                Text {
-                    id: text2
-                    text: qsTr("BRIGHTNESS")
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    font.family: "Arial"
-                    Layout.row: 1
-                    Layout.column: 0
-                    Layout.rightMargin: 50
-                }
-
-                Text {
-                    id: text3
-                    text: "1"
-                    width: 5
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 1
-                    Layout.column: 1
-                }
-
-                Slider {
-                    id: slider
-                    Layout.fillWidth: true
-                    value: 0.5
-                    Layout.row: 1
-                    Layout.column: 2
-                    onValueChanged: {
-                        console.log(slider.value)
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+                        }
                     }
-                }
-                Text {
-                    id: text4
-                    text: "10"
-                    width: 5
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 1
-                    Layout.column: 3
                 }
             }
 
-            layer.enabled: true
-            layer.effect: DropShadow {
-                transparentBorder: true
-                horizontalOffset: 1.1
-                verticalOffset: 1.1
-                radius: 4.0
-                color: "Lightgray"
-                spread: 0
+            Flickable {
+                width: parent.width;
+                anchors.top: header.bottom
+                anchors.bottom: parent.bottom
+                contentWidth: parent.width;
+                contentHeight: grid.height + grid.y + 10
+                clip: true
+                boundsBehavior: Flickable.StopAtBounds
+                GridLayout {
+                    id: grid
+                    y: 30
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 20
+                    rowSpacing: 25
+                    columnSpacing: 20
+
+                    Text {
+                        id: text1
+                        Layout.row: 0
+                        Layout.column:0
+                        text: qsTr("THEME:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        id:switchText
+                        Layout.row: 0
+                        Layout.column: 1
+                        Layout.minimumWidth: 60
+                        text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
+                        font.pixelSize: 14
+                    }
+
+                    Row{
+                        Layout.row: 0
+                        Layout.column: 2
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                        Switch { //we can use delegate switch as well for binging
+                            id: switch1
+                            anchors.verticalCenter: parent.verticalCenter
+                            onCheckedChanged: {
+                                console.log(switch1.checked)
+                            }
+                        }
+                    }
+
+                    Text {
+                        id: text2
+                        Layout.row: 1
+                        Layout.column: 0
+                        text: qsTr("BRIGHTNESS:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        Layout.row: 1
+                        Layout.column: 1
+                        text: slider.value
+                        font.pixelSize: 14
+                    }
+
+                    Row{
+                        Layout.row: 1
+                        Layout.column: 2
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+
+                        Text {
+                            id: startValue
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: slider.minimumValue
+                            font.pixelSize: 14
+                            color:"gray"
+                            rightPadding: 10
+                        }
+
+                        Slider {
+                            id: slider
+                            anchors.left: startValue.right
+                            anchors.right: endValue.left
+                            anchors.verticalCenter: parent.verticalCenter
+                            minimumValue: 1
+                            maximumValue: 10
+                            stepSize: 1
+                            value: 7
+                            updateValueWhileDragging: true
+                            onValueChanged: {
+                                console.log(slider.value)
+                            }
+                        }
+                        Text {
+                            id: endValue
+                            anchors.right: parent.right
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: slider.maximumValue
+                            font.pixelSize: 14
+                            color:"gray"
+                            leftPadding: 10
+                        }
+                    }
+                }
             }
         }
     }

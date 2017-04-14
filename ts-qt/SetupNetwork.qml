@@ -1,252 +1,242 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
+import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle {
-        id: rectangle
-        color: "#f4f4f4"
+    Rectangle{
         anchors.fill: parent
-        anchors.topMargin: 6
-        anchors.leftMargin: 6
-
-        Rectangle {
-            id:card
-            color:"#ffffff"
-            width: parent.width-6
-            height: parent.height-6
-            border.color: "Lightgray"
-            border.width: 0.5
-            radius: 5
-
-            Text {
-                id: text9
-                text: qsTr("NETWORK")
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                font.pixelSize: 13
-                font.bold: Font.DemiBold
-            }
-
-            GridLayout {
-                y: 70
+        anchors.margins: 10
+        clip: true
+        border.color: "#0d000000"
+        border.width: 1
+        radius: 5
+        layer.enabled: true
+        layer.effect: DropShadow {
+            transparentBorder: true
+            horizontalOffset: 1.1
+            verticalOffset: 1.1
+            radius: 4.0
+            color: "#0d000000"
+            spread: 0
+        }
+        Column{
+            anchors.fill: parent
+            Rectangle{
+                id: header
                 anchors.left: parent.left
-                anchors.leftMargin: 40
                 anchors.right: parent.right
-                anchors.rightMargin: 40
-                rows: 11
-                columns: 3
-
+                height:40
+                color:"transparent"
                 Text {
-                    id: text1
-                    text: qsTr("ENABlE Wi-Fi:")
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    Layout.rightMargin:80
+                    anchors.centerIn: parent
+                    text: qsTr("NETWORK")
+                    elide:Text.ElideRight
+                    font.pointSize: 13
+                    font.weight: Font.DemiBold
+                    clip:true
                 }
-
-                Text{
-                    id:wifiText
-                    text:wifiSwitch.checked ? qsTr("Yes"):qsTr("No")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 0
-                    Layout.column:1
-                }
-
-                Switch { //we can use delegate switch as well for binging
-                    id: wifiSwitch
-                    Layout.fillWidth: true
-                    Layout.row: 0
-                    spacing: 10
-                    Layout.column: 2
-                    onCheckedChanged: {
-                        console.log(wifiSwitch.checked)
+                Rectangle{
+                    id: rectangle
+                    width: 40
+                    height: parent.height
+                    anchors.right: parent.right
+                    color:"transparent"
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/Delete-25.png"
                     }
-                }
-
-                Text {
-                    id: text2
-                    text: qsTr("ENABLE REMOTE:")
-                    font.pixelSize: 12
-                    Layout.row: 1
-                    font.bold: Font.Medium
-                    Layout.rightMargin:80
-                }
-
-                Text{
-                    id:remoteText
-                    text:remoteSwitch.checked ? qsTr("Yes"):qsTr("No")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 1
-                    Layout.column:1
-                }
-
-                Switch { //we can use delegate switch as well for binging
-                    id: remoteSwitch
-                    Layout.fillWidth: true
-                    Layout.row: 1
-                    spacing: 10
-                    Layout.column: 2
-                    onCheckedChanged: {
-                        console.log(remoteSwitch.checked)
-                    }
-                }
-
-                Text {
-                    id: text3
-                    text: qsTr("Wi-Fi DIRECT:")
-                    font.pixelSize: 12
-                    Layout.row: 2
-                    font.bold: Font.Medium
-                    Layout.rightMargin:80
-                }
-
-                Text{
-                    id:wifiDirectText
-                    text:wifiDirectSwitch.checked ? qsTr("Yes"):qsTr("No")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 2
-                    Layout.column:1
-                }
-
-                Switch { //we can use delegate switch as well for binging
-                    id: wifiDirectSwitch
-                    Layout.fillWidth: true
-                    Layout.row: 2
-                    spacing: 10
-                    Layout.column: 2
-                    onCheckedChanged: {
-                        console.log(wifiDirectSwitch.checked)
-                    }
-                }
-
-                Text {
-                    id: text4
-                    text: qsTr("DHCP:")
-                    font.pixelSize: 12
-                    Layout.row: 3
-                    font.bold: Font.Medium
-                    Layout.bottomMargin: 10
-                    Layout.rightMargin:80
-                }
-
-                Text{
-                    id:dhcpText
-                    text:dhcpSwitch.checked ? qsTr("Yes"):qsTr("No")
-                    font.pixelSize: 12
-                    font.family: "Arial"
-                    Layout.row: 3
-                    Layout.column:1
-                    Layout.bottomMargin: 10
-                }
-
-                Switch { //we can use delegate switch as well for binging
-                    id: dhcpSwitch
-                    Layout.fillWidth: true
-                    Layout.row: 3
-                    spacing: 10
-                    Layout.column: 2
-                    Layout.bottomMargin: 10
-                    onCheckedChanged: {
-                        console.log(dhcpSwitch.checked)
-                    }
-                }
-
-                Text {
-                    id: text10
-                    text: qsTr("IP ADDRESS:")
-                    Layout.row: 4
-                    font.pixelSize: 12
-                    Layout.bottomMargin: 35
-                    Layout.rightMargin:80
-                    font.bold: Font.Medium
-                }
-
-                Text {
-                    id: text11
-                    text: qsTr("192.168 10.196")
-                    Layout.row: 4
-                    Layout.column: 1
-                    font.pixelSize: 12
-                    Layout.bottomMargin: 35
-                }
-
-                Text {
-                    id: text12
-                    text: qsTr("MANUAL IP ADDRESS:")
-                    Layout.row: 5
-                    font.pixelSize: 12
-                    Layout.bottomMargin: 20
-                    Layout.rightMargin:80
-                    font.bold: Font.Medium
-                }
-
-                TextEdit {
-                    id: textedit1
-                    text: qsTr("192.168 10.19")
-                    Layout.row: 5
-                    Layout.column: 1
-                    font.pixelSize: 12
-                    Layout.bottomMargin: 20
-                }
-
-                Text{
-                    text:"Edit"
-                    color: "#387EF5"
-                    font.pointSize: 10
-                    Layout.row:5
-                    Layout.column:2
-                    Layout.bottomMargin: 20
                     MouseArea {
                         anchors.fill: parent
-                    }
-                }
-
-                Text {
-                    id: text14
-                    text: qsTr("DEVICE NAME:")
-                    Layout.row: 6
-                    font.pixelSize: 12
-                    Layout.column: 0
-                    font.bold: Font.Medium
-                    Layout.rightMargin:80
-                }
-
-                TextEdit {
-                    id: textedit2
-                    text: qsTr("TestSet14")
-                    Layout.row: 6
-                    font.pixelSize: 12
-                    Layout.column: 1
-                }
-
-                Text{
-                    text:"Edit"
-                    color: "#387EF5"
-                    font.pointSize: 10
-                    Layout.row:6
-                    Layout.column:2
-                    MouseArea {
-                        anchors.fill: parent
+                        onClicked: {
+                            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+                        }
                     }
                 }
             }
 
-            layer.enabled: true
-            layer.effect: DropShadow {
-                transparentBorder: true
-                horizontalOffset: 1.1
-                verticalOffset: 1.1
-                radius: 4.0
-                color: "Lightgray"
-                spread: 0
+            Flickable {
+                width: parent.width;
+                anchors.top: header.bottom
+                anchors.bottom: parent.bottom
+                contentWidth: parent.width;
+                contentHeight: grid.height + grid.y + 10
+                clip: true
+                boundsBehavior: Flickable.StopAtBounds
+                GridLayout {
+                    id: grid
+                    y: 30
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 20
+                    rowSpacing: 25
+                    columnSpacing: 20
+
+                    Text {
+                        text: qsTr("ENABlE Wi-Fi:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        Layout.column:1
+                        Layout.minimumWidth: 20
+                        text:wifiSwitch.checked ? qsTr("Yes"):qsTr("No")
+                        font.pixelSize: 14
+                    }
+
+                    Switch { //we can use delegate switch as well for binging
+                        id: wifiSwitch
+                        Layout.column: 2
+                        onCheckedChanged: {
+                            console.log(wifiSwitch.checked)
+                        }
+                    }
+
+                    Text {
+                        Layout.row: 1
+                        text: qsTr("ENABLE REMOTE:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        Layout.row: 1
+                        Layout.column:1
+                        text:remoteSwitch.checked ? qsTr("Yes"):qsTr("No")
+                        font.pixelSize: 14
+                    }
+
+                    Switch { //we can use delegate switch as well for binging
+                        id: remoteSwitch
+                        Layout.row: 1
+                        Layout.column: 2
+                        onCheckedChanged: {
+                            console.log(remoteSwitch.checked)
+                        }
+                    }
+
+                    Text {
+                        Layout.row: 2
+                        text: qsTr("Wi-Fi DIRECT:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        Layout.row: 2
+                        Layout.column:1
+                        text:wifiDirectSwitch.checked ? qsTr("Yes"):qsTr("No")
+                        font.pixelSize: 14
+                    }
+
+                    Switch { //we can use delegate switch as well for binging
+                        id: wifiDirectSwitch
+                        Layout.row: 2
+                        Layout.column: 2
+                        onCheckedChanged: {
+                            console.log(wifiDirectSwitch.checked)
+                        }
+                    }
+
+                    Text {
+                        Layout.row: 3
+                        text: qsTr("DHCP:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text{
+                        id:dhcpText
+                        Layout.row: 3
+                        Layout.column:1
+                        text:dhcpSwitch.checked ? qsTr("Yes"):qsTr("No")
+                        font.pixelSize: 14
+                    }
+
+                    Switch { //we can use delegate switch as well for binging
+                        id: dhcpSwitch
+                        Layout.row: 3
+                        Layout.column: 2
+                        onCheckedChanged: {
+                            console.log(dhcpSwitch.checked)
+                        }
+                    }
+
+                    Text {
+                        Layout.row: 4
+                        Layout.bottomMargin: 30
+                        text: qsTr("IP ADDRESS:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    Text {
+                        Layout.row: 4
+                        Layout.column: 1
+                        Layout.columnSpan: 2
+                        Layout.bottomMargin: 30
+                        text: qsTr("192.168 10.196")
+                        font.pixelSize: 14
+                    }
+
+                    Text {
+                        Layout.row: 5
+                        text: qsTr("MANUAL IP ADDRESS:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    TextEdit {
+                        id: textedit1
+                        Layout.row: 5
+                        Layout.column: 1
+                        Layout.columnSpan: 2
+                        text: qsTr("192.168 10.19")
+                        font.pixelSize: 14
+                    }
+
+                    Text{
+                        text:"Edit"
+                        Layout.row:5
+                        Layout.column:3
+                        color: "#387EF5"
+                        font.pointSize: 12
+                        MouseArea {
+                            anchors.fill: parent
+                        }
+                    }
+
+                    Text {
+                        Layout.row: 6
+                        text: qsTr("DEVICE NAME:")
+                        font.pixelSize: 14
+                        font.bold: Font.Medium
+                    }
+
+                    TextEdit {
+                        id: textedit2
+                        Layout.row: 6
+                        Layout.column: 1
+                        Layout.columnSpan: 2
+                        text: qsTr("TestSet14")
+                        font.pixelSize: 14
+                    }
+
+                    Text{
+                        Layout.row:6
+                        Layout.column:3
+                        text:"Edit"
+                        color: "#387EF5"
+                        font.pointSize: 12
+                        MouseArea {
+                            anchors.fill: parent
+                        }
+                    }
+                }
             }
         }
     }
-
 }

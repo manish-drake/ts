@@ -16,18 +16,18 @@ DataBuilder::DataBuilder()
 
 }
 inline QVector<int> toVector(QAbstractListModel &list)  {
-     QVector<int> v;
+    QVector<int> v;
 
-     const int nbRow = list.rowCount();
-     v.reserve(nbRow);
+    const int nbRow = list.rowCount();
+    v.reserve(nbRow);
 
-     for (int i = 0; i < nbRow; ++i)
-     {
-         auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
-         v.append(elemT);
-     }
-     return v;
- }
+    for (int i = 0; i < nbRow; ++i)
+    {
+        auto elemT = list.index(i, 0).data(SectionModel::IDRole).toInt();
+        v.append(elemT);
+    }
+    return v;
+}
 
 int DataBuilder::build()
 {
@@ -45,7 +45,7 @@ int DataBuilder::build()
     View vwADSB("ADSB");
     viewDao->addView(vwADSB);
 
-    View vwSetup(" Setup");
+    View vwSetup("Setup");
     viewDao->addView(vwSetup);
 
     View vwADSBout1090Scan("ADSB-OUT-1090-Scan");
@@ -96,8 +96,8 @@ int DataBuilder::build()
     View vwSetupUser("Setup-User");
     viewDao->addView(vwSetupUser);
 
-    View vwSetupEditUser("Setup-User-EditUser");
-    viewDao->addView(vwSetupEditUser);
+    View vwSetupUserDetail("Setup-User-Detail");
+    viewDao->addView(vwSetupUserDetail);
 
     View vwSetupDisplay("Setup-Display");
     viewDao->addView(vwSetupDisplay);
@@ -117,9 +117,20 @@ int DataBuilder::build()
     View vwSetupRMBit("Setup-Run-Manual-Bit");
     viewDao->addView(vwSetupRMBit);
 
-
     View vwDetail("Detail");
     viewDao->addView(vwDetail);
+
+    View vwADSBout1090Radar("ADSB-OUT-1090-Radar");
+    viewDao->addView(vwADSBout1090Radar);
+
+    View vwADSBoutUatRadar("ADSB-OUT-UAT-Radar");
+    viewDao->addView(vwADSBoutUatRadar);
+
+    View vwADSBout1090Graph("ADSB-OUT-1090-Graph");
+    viewDao->addView(vwADSBout1090Graph);
+
+    View vwADSBoutUatGraph("ADSB-OUT-UAT-Graph");
+    viewDao->addView(vwADSBoutUatGraph);
 
     SectionModel secModel{};
 
@@ -255,7 +266,7 @@ int DataBuilder::build()
     TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", 2, 1);
     tpModel.addTestParam(tpIntgFldNic);
 
-     //------------------------------P2-------------------------------
+    //------------------------------P2-------------------------------
 
     Summary sumAirVeh1("Aircraft/Vehicle:", adsbOut1090.id(), 1, 0, 2);
     sumModel.addSummary(sumAirVeh1);
@@ -589,12 +600,12 @@ int DataBuilder::build()
 
     //------------------------------uatOut-------------------------------
 
-    Test uatOut("UAT ADS-B OUT", secADSB.id());
-    testModel.addTest(uatOut);
+    Test adsbOutUat("UAT ADS-B OUT", secADSB.id());
+    testModel.addTest(adsbOutUat);
 
     //------------------------------P1-------------------------------
 
-    Summary sumAirVeh7("Aircraft/Vehicle:", uatOut.id(), 0, 0, 2);
+    Summary sumAirVeh7("Aircraft/Vehicle:", adsbOutUat.id(), 0, 0, 2);
     sumModel.addSummary(sumAirVeh7);
 
     TestParam tpAirVeh7Add("address", sumAirVeh7.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -609,10 +620,10 @@ int DataBuilder::build()
     TestParam tpAirVeh7Bds("payloads-Rcvd", sumAirVeh7.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh7Bds);
 
-    Summary sumMS("Mode Status Element (MS)", uatOut.id(), 0, 1, 1);
+    Summary sumMS("Mode Status Element (MS)", adsbOutUat.id(), 0, 1, 1);
     sumModel.addSummary(sumMS);
 
-    Summary sumAvInfo3("Aircraft/Vehicle info:", uatOut.id(), 0, 2, 2);
+    Summary sumAvInfo3("Aircraft/Vehicle info:", adsbOutUat.id(), 0, 2, 2);
     sumModel.addSummary(sumAvInfo3);
 
     TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", 0, 0);
@@ -630,7 +641,7 @@ int DataBuilder::build()
     TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "_ (________)", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAvInfo3ep);
 
-    Summary sumCCodes("Capability Codes:", uatOut.id(), 0, 3, 2);
+    Summary sumCCodes("Capability Codes:", adsbOutUat.id(), 0, 3, 2);
     sumModel.addSummary(sumCCodes);
 
     TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", 0, 0);
@@ -642,7 +653,7 @@ int DataBuilder::build()
     TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "_ (_)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpCCodesesin);
 
-    Summary sumOModes("Operational Modes:", uatOut.id(), 0, 4, 2);
+    Summary sumOModes("Operational Modes:", adsbOutUat.id(), 0, 4, 2);
     sumModel.addSummary(sumOModes);
 
     TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", 0, 0);
@@ -654,7 +665,7 @@ int DataBuilder::build()
     TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA",  "_ (_)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpOModestra);
 
-    Summary sumOtherFld("Other Fields:", uatOut.id(), 0, 5, 2);
+    Summary sumOtherFld("Other Fields:", adsbOutUat.id(), 0, 5, 2);
     sumModel.addSummary(sumOtherFld);
 
     TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", 0, 0);
@@ -694,7 +705,7 @@ int DataBuilder::build()
 
     //------------------------------P2-------------------------------
 
-    Summary sumAirVeh8("Aircraft/Vehicle:", uatOut.id(), 1, 0, 2);
+    Summary sumAirVeh8("Aircraft/Vehicle:", adsbOutUat.id(), 1, 0, 2);
     sumModel.addSummary(sumAirVeh8);
 
     TestParam tpAirVeh8Add("address", sumAirVeh8.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -709,10 +720,10 @@ int DataBuilder::build()
     TestParam tpAirVeh8Bds("payloads-Rcvd", sumAirVeh8.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh8Bds);
 
-    Summary sumSV1("State Vector Element (SV)", uatOut.id(), 1, 1, 1);
+    Summary sumSV1("State Vector Element (SV)", adsbOutUat.id(), 1, 1, 1);
     sumModel.addSummary(sumSV1);
 
-    Summary sumPosVel1("Position & Velocity:", uatOut.id(), 1, 2, 2);
+    Summary sumPosVel1("Position & Velocity:", adsbOutUat.id(), 1, 2, 2);
     sumModel.addSummary(sumPosVel1);
 
     TestParam tpPosVel1agst("air/Gnd State", sumPosVel1.id(), "Air/Gnd State", "Air-Subsonic", "", 0, 0, 1, 2, 0);
@@ -739,7 +750,7 @@ int DataBuilder::build()
     TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", 5, 1);
     tpModel.addTestParam(tpPosVel1src);
 
-    Summary sumOtherFld1("Other Fields:", uatOut.id(), 1, 3, 2);
+    Summary sumOtherFld1("Other Fields:", adsbOutUat.id(), 1, 3, 2);
     sumModel.addSummary(sumOtherFld1);
 
     TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", 0, 0);
@@ -752,7 +763,7 @@ int DataBuilder::build()
     tpModel.addTestParam(tpOtherFld1Uf);
 
 
-    Summary sumAuxSv1("Aux.State Vector Element (AUX SV):", uatOut.id(), 1, 4, 2);
+    Summary sumAuxSv1("Aux.State Vector Element (AUX SV):", adsbOutUat.id(), 1, 4, 2);
     sumModel.addSummary(sumAuxSv1);
 
     TestParam tpAuxSv1SecAlt("secondary-Altitude", sumAuxSv1.id(), "Secondary Altitude", "____,_____", "ft", 0, 0, 1, 2, 0);
@@ -761,7 +772,7 @@ int DataBuilder::build()
 
     //------------------------------P3-------------------------------
 
-    Summary sumAirVeh9("Aircraft/Vehicle:", uatOut.id(), 2, 0, 2);
+    Summary sumAirVeh9("Aircraft/Vehicle:", adsbOutUat.id(), 2, 0, 2);
     sumModel.addSummary(sumAirVeh9);
 
     TestParam tpAirVeh9Add("address", sumAirVeh9.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -776,10 +787,10 @@ int DataBuilder::build()
     TestParam tpAirVeh9Bds("payloads-Rcvd", sumAirVeh9.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh9Bds);
 
-    Summary sumSV2("State Vector Element (SV)", uatOut.id(), 2, 1, 1);
-    sumModel.addSummary(sumSV2);    
+    Summary sumSV2("State Vector Element (SV)", adsbOutUat.id(), 2, 1, 1);
+    sumModel.addSummary(sumSV2);
 
-    Summary sumPosVel2("Position & Velocity:", uatOut.id(), 2, 2, 2);
+    Summary sumPosVel2("Position & Velocity:", adsbOutUat.id(), 2, 2, 2);
     sumModel.addSummary(sumPosVel2);
 
     TestParam tpPosVel2agst("air/Gnd State", sumPosVel2.id(), "Air/Gnd State", "Ground", "", 0, 0, 1, 2, 0);
@@ -812,7 +823,7 @@ int DataBuilder::build()
     TestParam tpPosVel2gao("gps-Ant-Offset", sumPosVel2.id(), "GPS Ant Offset", "_ m Right; _ m Aft", "", 7, 0, 1, 2, 0);
     tpModel.addTestParam(tpPosVel2gao);
 
-    Summary sumOtherFld2("Other Fields:", uatOut.id(), 2, 3, 2);
+    Summary sumOtherFld2("Other Fields:", adsbOutUat.id(), 2, 3, 2);
     sumModel.addSummary(sumOtherFld2);
 
     TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", 0, 0);
@@ -824,7 +835,7 @@ int DataBuilder::build()
     TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "__ (_____=___)", "", 1, 0, 1, 2, 0);
     tpModel.addTestParam(tpOtherFld2Uf);
 
-    Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", uatOut.id(), 2, 4, 2);
+    Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", adsbOutUat.id(), 2, 4, 2);
     sumModel.addSummary(sumAuxSv2);
 
     TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", 0, 0);
@@ -835,7 +846,7 @@ int DataBuilder::build()
 
     //------------------------------P4-------------------------------
 
-    Summary sumAirVe10("Aircraft/Vehicle:", uatOut.id(), 3, 0, 2);
+    Summary sumAirVe10("Aircraft/Vehicle:", adsbOutUat.id(), 3, 0, 2);
     sumModel.addSummary(sumAirVe10);
 
     TestParam tpAirVeh10Add("address", sumAirVe10.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -850,7 +861,7 @@ int DataBuilder::build()
     TestParam tpAirVeh10Bds("payloads-Rcvd", sumAirVe10.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh10Bds);
 
-    Summary sumTS("Target state Element (TS)", uatOut.id(), 3, 1, 1);
+    Summary sumTS("Target state Element (TS)", adsbOutUat.id(), 3, 1, 1);
     sumModel.addSummary(sumTS);
 
     TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", 0, 0);
@@ -868,7 +879,7 @@ int DataBuilder::build()
     TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", 2, 1);
     tpModel.addTestParam(tpTSSts);
 
-    Summary sumApM2("AutoPilot Modes:", uatOut.id(), 3, 2, 2);
+    Summary sumApM2("AutoPilot Modes:", adsbOutUat.id(), 3, 2, 2);
     sumModel.addSummary(sumApM2);
 
     TestParam tpApM2Mbs("mode-bits-status", sumApM2.id(), "Mode bits status", "__(_____)", "", 0, 0, 1, 2, 0);
@@ -891,7 +902,7 @@ int DataBuilder::build()
 
     //------------------------------P5-------------------------------
 
-    Summary sumAirVe11("Aircraft/Vehicle:", uatOut.id(), 4, 0, 2);
+    Summary sumAirVe11("Aircraft/Vehicle:", adsbOutUat.id(), 4, 0, 2);
     sumModel.addSummary(sumAirVe11);
 
     TestParam tpAirVeh11Add("address", sumAirVe11.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -906,7 +917,7 @@ int DataBuilder::build()
     TestParam tpAirVeh11Bds("payloads-Rcvd", sumAirVe11.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh11Bds);
 
-    Summary sumTce("Trajectory Change Element", uatOut.id(), 4, 1, 1);
+    Summary sumTce("Trajectory Change Element", adsbOutUat.id(), 4, 1, 1);
     sumModel.addSummary(sumTce);
 
     TestParam tpTceTcFld("tc-Field", sumTce.id(), "TC Field", "_________________", "", 0, 0, 1, 2, 0);
@@ -914,7 +925,7 @@ int DataBuilder::build()
 
     //------------------------------P6-------------------------------
 
-    Summary sumAirVe12("Aircraft/Vehicle:", uatOut.id(), 5, 0, 2);
+    Summary sumAirVe12("Aircraft/Vehicle:", adsbOutUat.id(), 5, 0, 2);
     sumModel.addSummary(sumAirVe12);
 
     TestParam tpAirVeh12Add("address", sumAirVe12.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
@@ -929,7 +940,7 @@ int DataBuilder::build()
     TestParam tpAirVeh12Bds("payloads-Rcvd", sumAirVe12.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 0);
     tpModel.addTestParam(tpAirVeh12Bds);
 
-    Summary sumRflM("978 MHz RF Link Measurements", uatOut.id(), 5, 1, 1);
+    Summary sumRflM("978 MHz RF Link Measurements", adsbOutUat.id(), 5, 1, 1);
     sumModel.addSummary(sumRflM);
 
     TestParam tpRflMFq("frequency", sumRflM.id(), "Frequency", "___.___", "MHz", 0, 0, 1, 2, 0);
@@ -959,7 +970,7 @@ int DataBuilder::build()
     TestParam tpRflMMTErr("message-Time-Error", sumRflM.id(), "Message Time Error", "__.__", "uS", 8, 0, 1, 2, 0);
     tpModel.addTestParam(tpRflMMTErr);
 
-    Summary sumUatMsgSum("UAT Message Summary:", uatOut.id(), 5, 2, 2);
+    Summary sumUatMsgSum("UAT Message Summary:", adsbOutUat.id(), 5, 2, 2);
     sumModel.addSummary(sumUatMsgSum);
 
     TestParam tpUatMsgSumMsgRcvd("message-Received", sumUatMsgSum.id(), "Message Received", "___", "", 0, 0, 1, 2, 0);
@@ -992,8 +1003,35 @@ int DataBuilder::build()
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
 
+    Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
+    navigationDaoPtr->addNavigation(scan1090ToRadar);
+
+    Navigation scanUatToRadar(vwADSBoutUATScan.id(), "Radar", 0, vwADSBoutUatRadar.id());
+    navigationDaoPtr->addNavigation(scanUatToRadar);
+
+    Navigation radar1090ToGraph (vwADSBout1090Radar.id(), "Graph", 0, vwADSBout1090Graph.id());
+    navigationDaoPtr->addNavigation(radar1090ToGraph);
+
+    Navigation radarUatToGraph (vwADSBoutUatRadar.id(), "Graph", 0, vwADSBoutUatGraph.id());
+    navigationDaoPtr->addNavigation(radarUatToGraph);
+
+    Navigation graph1090ToScan (vwADSBout1090Graph.id(), "Scan", 0, vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(graph1090ToScan);
+
+    Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(graphUatToScan);
+
+    Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(mainUatToScanPage);    
+
     Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanTo1090P1);
+
+    Navigation radarTo1090P1(vwADSBout1090Radar.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(radarTo1090P1);
+
+    Navigation graphTo1090P1(vwADSBout1090Graph.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(graphTo1090P1);
 
     Navigation out1090P1To1090P2(vwADSBout1090P1.id(), "Next", 0, vwADSBout1090P2.id());
     navigationDaoPtr->addNavigation(out1090P1To1090P2);
@@ -1019,6 +1057,12 @@ int DataBuilder::build()
     Navigation scanTo1090P7(vwADSBout1090Scan.id(), "Previous", 0, vwADSBout1090P7.id());
     navigationDaoPtr->addNavigation(scanTo1090P7);
 
+    Navigation radarTo1090P7(vwADSBout1090Radar.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(radarTo1090P7);
+
+    Navigation graphTo1090P7(vwADSBout1090Graph.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(graphTo1090P7);
+
     Navigation out1090P7To1090P6(vwADSBout1090P7.id(), "Previous", 0, vwADSBout1090P6.id());
     navigationDaoPtr->addNavigation(out1090P7To1090P6);
 
@@ -1043,6 +1087,12 @@ int DataBuilder::build()
     Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
     navigationDaoPtr->addNavigation(outUATscanToUATP1);
 
+    Navigation radarToUATP1(vwADSBoutUatRadar.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(radarToUATP1);
+
+    Navigation graphToUATP1(vwADSBoutUatGraph.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(graphToUATP1);
+
     Navigation outUATP1ToUATP2(vwADSBoutUATP1.id(), "Next", 0, vwADSBoutUATP2.id());
     navigationDaoPtr->addNavigation(outUATP1ToUATP2);
 
@@ -1064,6 +1114,12 @@ int DataBuilder::build()
     Navigation outUATScanToUATP6(vwADSBoutUATScan.id(), "Previous", 0, vwADSBoutUATP6.id());
     navigationDaoPtr->addNavigation(outUATScanToUATP6);
 
+    Navigation radarToUATP6(vwADSBoutUatRadar.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(radarToUATP6);
+
+    Navigation graphToUATP6(vwADSBoutUatGraph.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(graphToUATP6);
+
     Navigation outUATP6ToUATP5(vwADSBoutUATP6.id(), "Previous", 0, vwADSBoutUATP5.id());
     navigationDaoPtr->addNavigation(outUATP6ToUATP5);
 
@@ -1082,7 +1138,86 @@ int DataBuilder::build()
     Navigation outUATP1ToUATscan(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(outUATP1ToUATscan);
 
+    Navigation out1090RadarTomainADSB(vwADSBout1090Radar.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090RadarTomainADSB);
 
+    Navigation out1090GraphTomainADSB(vwADSBout1090Graph.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090GraphTomainADSB);
+
+    Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090scanTomainADSB);
+
+    Navigation out1090P1TomainADSB(vwADSBout1090P1.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P1TomainADSB);
+
+    Navigation out1090P2TomainADSB(vwADSBout1090P2.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P2TomainADSB);
+
+    Navigation out1090P3TomainADSB(vwADSBout1090P3.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P3TomainADSB);
+
+    Navigation out1090P4TomainADSB(vwADSBout1090P4.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P4TomainADSB);
+
+    Navigation out1090P5TomainADSB(vwADSBout1090P5.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P5TomainADSB);
+
+    Navigation out1090P6TomainADSB(vwADSBout1090P6.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P6TomainADSB);
+
+    Navigation out1090P7TomainADSB(vwADSBout1090P7.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(out1090P7TomainADSB);
+
+    Navigation outUATRadarTomainADSB(vwADSBoutUatRadar.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATRadarTomainADSB);
+
+    Navigation outUATGraphTomainADSB(vwADSBoutUatGraph.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATGraphTomainADSB);
+
+    Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATscanTomainADSB);
+
+    Navigation outUATP1TomainADSB(vwADSBoutUATP1.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP1TomainADSB);
+
+    Navigation outUATP2TomainADSB(vwADSBoutUATP2.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP2TomainADSB);
+
+    Navigation outUATP3TomainADSB(vwADSBoutUATP3.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP3TomainADSB);
+
+    Navigation outUATP4TomainADSB(vwADSBoutUATP4.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP4TomainADSB);
+
+    Navigation outUATP5TomainADSB(vwADSBoutUATP5.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP5TomainADSB);
+
+    Navigation outUATP6TomainADSB(vwADSBoutUATP6.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(outUATP6TomainADSB);
+
+    Navigation sUserToSetup (vwSetupUser.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sUserToSetup);
+
+    Navigation sUserDetailToUser (vwSetupUserDetail.id(), "back", 0, vwSetupUser.id());
+    navigationDaoPtr->addNavigation(sUserDetailToUser);
+
+    Navigation sDisplayToSetup (vwSetupDisplay.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sDisplayToSetup);
+
+    Navigation sGPSToSetup (vwSetupGPS.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sGPSToSetup);
+
+    Navigation sNetworkToSetup (vwSetupNetwork.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sNetworkToSetup);
+
+    Navigation sSysInfoToSetup (vwSetupSysInfo.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sSysInfoToSetup);
+
+    Navigation sRMBitToSetup (vwSetupRMBit.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sRMBitToSetup);
+
+    Navigation sConnToSetup (vwSetupConn.id(), "back", 0, vwSetup.id());
+    navigationDaoPtr->addNavigation(sConnToSetup);
 
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
@@ -1090,8 +1225,8 @@ int DataBuilder::build()
     Navigation setupToUser(vwSetup.id(), "User", 0, vwSetupUser.id());
     navigationDaoPtr->addNavigation(setupToUser);
 
-    Navigation userToEditUser(vwSetupUser.id(), "EditUser", 0, vwSetupEditUser.id());
-    navigationDaoPtr->addNavigation(userToEditUser);
+    Navigation userToUserDetail(vwSetupUser.id(), "UserDetail", 0, vwSetupUserDetail.id());
+    navigationDaoPtr->addNavigation(userToUserDetail);
 
     Navigation setupToDisplay(vwSetup.id(), "Display", 0, vwSetupDisplay.id());
     navigationDaoPtr->addNavigation(setupToDisplay);
@@ -1105,7 +1240,7 @@ int DataBuilder::build()
     Navigation setupToSysInfo(vwSetup.id(), "System-Info", 0, vwSetupSysInfo.id());
     navigationDaoPtr->addNavigation(setupToSysInfo);
 
-    Navigation setupToRMBit(vwSetup.id(), "Run Manual Bit", 0, vwSetupRMBit.id());
+    Navigation setupToRMBit(vwSetup.id(), "Run-Manual-Bit", 0, vwSetupRMBit.id());
     navigationDaoPtr->addNavigation(setupToRMBit);
 
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());

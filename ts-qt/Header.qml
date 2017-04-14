@@ -14,12 +14,12 @@ Rectangle {
         Image {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:/img/img/start.png"
+            source: "qrc:/img/img/Menu-25.png"
         }
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                sideMenu.open()
+                sideMenuPopup.open()
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
@@ -31,7 +31,7 @@ Rectangle {
         anchors.left: toggleMenu.right
         anchors.right: toggleConfigPanel.left
         text: "Start"
-        font.bold: true
+        font.bold: Font.DemiBold
         color: "#ffffff"
         font.pointSize: 12
         anchors.leftMargin: 5
@@ -49,12 +49,12 @@ Rectangle {
             id: imageCenter
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:/img/img/centermenu.png"
+            source: "qrc:/img/img/Circled Chevron Down-30.png"
         }
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                configPanel.open()
+                configPanelPopup.open()
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
@@ -99,5 +99,4 @@ Rectangle {
             onReleased: parent.opacity = 1
         }
     }
-
 }

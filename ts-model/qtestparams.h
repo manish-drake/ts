@@ -13,20 +13,22 @@ public:
     Q_PROPERTY(int col READ col CONSTANT)
     Q_PROPERTY(int rowSpan READ rowSpan CONSTANT)
     Q_PROPERTY(int colSpan READ colSpan CONSTANT)
-    explicit QTestParams(QString data = "", int row = 0, int col = 0, int rowSpan = 1, int colSpan = 1, QObject *parent = 0);
+     Q_PROPERTY(int style READ style CONSTANT)
+    explicit QTestParams(QString data = "", int row = 0, int col = 0, int rowSpan = 1, int colSpan = 1, int style = 0, QObject *parent = 0);
 
     QString data() const;
     int row() const;
     int col() const;
     int rowSpan() const;
     int colSpan() const;
+    int style() const;
     ~QTestParams();
 signals:
     void dataChanged(const QString &data);
 public slots:
 private:
     QString m_data;
-    int m_row, m_col, m_rowSpan, m_colSpan;
+    int m_row, m_col, m_rowSpan, m_colSpan,m_style;
 };
 
 #endif // QTESTPARAMS_H

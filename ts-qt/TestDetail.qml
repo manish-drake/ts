@@ -1,10 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
-import QtQuick 2.7
 import QtGraphicalEffects 1.0
+import com.ti.controls 1.0
 
 
 Item {
@@ -22,37 +22,18 @@ Item {
         Page {
             id: item1
             anchors.fill: parent
-
             header: Rectangle{
                 id:testHeaderRect
                 height: 40
                 width: parent.width
                 color:"transparent"
-                Rectangle{
-                    id: rectangle1
-                    anchors.margins: 10
-                    Layout.fillHeight: true
-                    width: 25
-                    anchors.left: parent.left
-                    anchors.leftMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    color:"transparent"
-                    Image {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/pointer.png"
-                    }
-
-
-                }
-
                 Column{
                     topPadding: 10
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
                         id: title
-                        text: "Title"
+                        text: navigationModel.navigationParameter.title
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -66,10 +47,9 @@ Item {
                     }
                 }
 
-
-
                 Rectangle{
                     id: rectangle
+                    height:25
                     width: 25
                     Layout.fillHeight: true
                     anchors.verticalCenter: parent.verticalCenter
@@ -79,33 +59,32 @@ Item {
                     Image {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/close.png"
+                        source: "qrc:/img/img/Delete-25.png"
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: {
-                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
-                        }
+                        onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
                     }
                 }
-
-
             }
 
             contentItem: Rectangle {
                 color: "transparent"
-
-                ScrollView{
-                    anchors.fill: parent
-                    anchors.margins: 10
-                    horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-                    verticalScrollBarPolicy: Qt.ScrollBarAsNeeded
-                    style:ScrollViewStyle{
-                        transientScrollBars: true
-                    }
-                    contentItem: Column{
-                        anchors.fill: ScrollView.viewport
-                        spacing: 25
+                Flickable {
+                    width: parent.width;
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    contentWidth: parent.width;
+                    contentHeight: content.height + content.y + 10
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    Column{
+                        id: content
+                        y: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: 10
+                        spacing: 30
                         Repeater{
                             model: summaryModel
                             delegate:
@@ -123,7 +102,7 @@ Item {
                                     Repeater {
                                         model: summaryModel.getTestParamsForsummary(id)
                                         delegate: Rectangle{
-                                            //                                color: "yellow"
+                                            // color: "yellow"
                                             Layout.row: model.modelData.row
                                             Layout.column: model.modelData.col
                                             Layout.fillWidth: true
@@ -132,7 +111,7 @@ Item {
                                             Layout.rowSpan: model.modelData.rowSpan
                                             height: 15
                                             Text {
-                                                font.pointSize: 10
+                                                Controls.style:model.modelData.style
                                                 text: model.modelData.data
                                             }
                                         }
@@ -172,7 +151,7 @@ Item {
                     signal selected()
                     signal pushed()
                     color: "transparent"
-                    state: "off"
+                    state: navigationModel.navigationParameter.playState
                     onStateChanged: {
                         if (state == "on") {
                             selected()

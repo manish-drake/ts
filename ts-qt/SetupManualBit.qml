@@ -31,7 +31,7 @@ Item {
                 color:"transparent"
                 Text {
                     anchors.centerIn: parent
-                    text: qsTr("SYSTEM INFO")
+                    text: qsTr("RUN MANUAL BIT")
                     elide:Text.ElideRight
                     font.pointSize: 13
                     font.weight: Font.DemiBold
@@ -72,142 +72,149 @@ Item {
                     anchors.right: parent.right
                     anchors.margins: 20
                     rowSpacing: 25
-                    columnSpacing: 15
+                    columnSpacing: 30
 
                     Text {
-                        text: qsTr("SERIAL NUMBER:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        Layout.row: 0
+                        Layout.column: 0
+                        text: qsTr("CPU:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 0
+                        Layout.column: 1
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
-                        Layout.column: 1
-                        text: qsTr("14986A")
-                        font.pixelSize: 14
+                        Layout.row: 0
+                        Layout.column: 2
+                        text: qsTr("CALIBRATION:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 0
+                        Layout.column: 3
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 1
-                        text: qsTr("SOFTWARE RELEASE:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        Layout.column: 0
+                        text: qsTr("DSP:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 1
+                        Layout.column: 1
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 1
-                        Layout.column: 1
-                        text: qsTr("7885")
-                        renderType: Text.NativeRendering
-                        font.pixelSize: 14
+                        Layout.column: 2
+                        text: qsTr("RTC:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 1
+                        Layout.column: 3
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 2
-                        text: qsTr("CAUBRATION DUE:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        Layout.column: 0
+                        text: qsTr("FPGA:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 1
-                        text: qsTr("06/15/2018")
-                        font.pixelSize: 14
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
+                    }
+
+                    Text {
+                        Layout.row: 2
+                        Layout.column: 2
+                        text: qsTr("POWER:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 2
+                        Layout.column: 3
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
+                    }
+
+
+                    Text {
+                        Layout.row: 3
+                        Layout.column: 0
+                        text: qsTr("MEMORY:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
+                    }
+                    Text {
+                        Layout.row: 3
+                        Layout.column: 1
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 3
-                        Layout.bottomMargin: 30
-                        text: qsTr("WARRANTY EXPIRATION:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        Layout.column: 2
+                        text: qsTr("ETC:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
                     }
                     Text {
                         Layout.row: 3
-                        Layout.column: 1
-                        text: qsTr("03/22/2020")
-                        Layout.bottomMargin: 30
-                        font.pixelSize: 14
+                        Layout.column: 3
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
                     Text {
                         Layout.row: 4
-                        text: qsTr("INSTAllED FEATURES")
-                        font.underline: true
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        Layout.column: 0
+                        text: qsTr("RF PATH:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
                     }
                     Text {
                         Layout.row: 4
                         Layout.column: 1
-                        text: qsTr("LICENCE KEY")
-                        font.underline: true
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
+
                     Text {
                         Layout.row: 4
                         Layout.column: 2
-                        text: qsTr("INSTALLED")
-                        font.underline: true
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
+                        text: qsTr("ETC:")
+                        font.pixelSize: 12
+                        font.bold: Font.Medium
                     }
                     Text {
-                        Layout.row: 5
-                        text: qsTr("TRANSPONDER:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
-                    }
-                    Text {
-                        Layout.row: 5
-                        Layout.column: 1
-                        text: qsTr("AlR9876345")
-                        font.pixelSize: 14
-                    }
-                    Text {
-                        Layout.row: 5
-                        Layout.column: 2
-                        text: qsTr("2/15/2017")
-                        font.pixelSize: 14
+                        Layout.row: 4
+                        Layout.column: 3
+                        text: qsTr("PASS")
+                        font.pixelSize: 12
                     }
 
-                    Text {
-                        Layout.row: 6
-                        text: qsTr("NAV:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
-                    }
-                    Text {
-                        Layout.row: 6
-                        Layout.column: 1
-                        text: qsTr("8vC9876348")
-                        font.pixelSize: 14
-                    }
-                    Text {
-                        Layout.row: 6
-                        Layout.column: 2
-                        text: qsTr("3/14/2017")
-                        font.pixelSize: 14
-                    }
-                    Text {
-                        Layout.row: 7
-                        text: qsTr("SECURE COMM:")
-                        font.pixelSize: 14
-                        font.bold:Font.Medium
-                    }
-                    Text {
-                        Layout.row: 7
-                        Layout.column: 1
-                        text: qsTr("A1TFD76349")
-                        font.pixelSize: 14
-                    }
-
-                    Text {
-                        Layout.row: 7
-                        Layout.column: 2
-                        text: qsTr("4/18/2018")
-                        font.pixelSize: 14
-                    }
                 }
             }
         }
