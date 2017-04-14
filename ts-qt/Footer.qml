@@ -50,7 +50,7 @@ Rectangle {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             rowSpacing: 2
-            columnSpacing: 7
+            columnSpacing: 12
             Image {
                 id: directImage
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
