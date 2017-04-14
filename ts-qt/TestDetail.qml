@@ -49,7 +49,7 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
                         id: title
-                        text: "Title"
+                        text: navigationModel.navigationParameter.title
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -167,7 +167,7 @@ Item {
                     signal selected()
                     signal pushed()
                     color: "transparent"
-                    state: "off"
+                    state: navigationModel.navigationParameter.playState
                     onStateChanged: {
                         if (state == "on") {
                             selected()

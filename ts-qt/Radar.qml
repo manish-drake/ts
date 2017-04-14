@@ -58,7 +58,7 @@ Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter
                 Text {
                     id: title
-                    text: "Title"
+                    text: navigationModel.navigationParameter
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter

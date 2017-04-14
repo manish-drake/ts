@@ -49,13 +49,12 @@ void NavigationModel::setCurrentView(const int &currentView)
         emit this->currentViewChanged(currentView);
 
         this->m_navigations = m_db.navigationDao()->navigations(currentView);
-        this->m_navigationParameter = QVariant();
     }
 }
 void NavigationModel::setCurrentView(const int &currentView, const QVariant &navParam)
 {
-    this->setCurrentView(currentView);
     this->m_navigationParameter = navParam;
+    this->setCurrentView(currentView);
 }
 
 QVariant NavigationModel::navigationParameter()

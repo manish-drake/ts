@@ -60,7 +60,7 @@ Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter
                 Text {
                     id: title
-                    text: "Title"
+                    text: navigationModel.navigationParameter.title
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -100,11 +100,14 @@ Rectangle{
         }
 
         contentItem: Rectangle{
+            id:scanResults
+            visible: false
             anchors.top: Header.bottom
             anchors.bottom: Footer.top
             color: "transparent"
             ListView{
                 id: listView
+                currentIndex:-1
                 anchors.fill:parent
                 model:aircraftModel
                 delegate:aircraftDetail
@@ -231,6 +234,10 @@ Rectangle{
                             scale: 0.95
                             imageSource: "qrc:/img/img/stop.png"
                         }
+                        PropertyChanges {
+                            target: scanResults
+                            visible:true
+                        }
                     },
                     State {
                         name: "off"
@@ -266,7 +273,10 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{
-                        navigationModel.currentView = navigationModel.getTargetView("Next")
+                        navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
+                                                           "title": navigationModel.navigationParameter,
+                                                           "playState": toggleButton.state
+                                                       })
                     }
                 }
             }
