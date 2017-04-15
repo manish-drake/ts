@@ -176,16 +176,16 @@ int DataBuilder::build()
     Summary sumAirVeh("Aircraft/Vehicle:", adsbOut1090.id(), 0, 0, 2);
     sumModel.addSummary(sumAirVeh);
 
-    TestParam tpAirVehAdd("address", sumAirVeh.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 0);
+    TestParam tpAirVehAdd("address", sumAirVeh.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 1300);
     tpModel.addTestParam(tpAirVehAdd);
 
-    TestParam tpAirVehFId("flight-Id", sumAirVeh.id(), "Flight ID", "______", "", 1, 0);
+    TestParam tpAirVehFId("flight-Id", sumAirVeh.id(), "Flight ID", "______", "", 1, 0, 1 , 1, 1400);
     tpModel.addTestParam(tpAirVehFId);
 
-    TestParam tpAirVehRfLvl("rfLvl", sumAirVeh.id(), "RF Level",  "______", "", 1, 1);
+    TestParam tpAirVehRfLvl("rfLvl", sumAirVeh.id(), "RF Level",  "______", "", 1, 1, 1 , 1, 600);
     tpModel.addTestParam(tpAirVehRfLvl);
 
-    TestParam tpAirVehBds("bds-Rcvd", sumAirVeh.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, 0);
+    TestParam tpAirVehBds("bds-Rcvd", sumAirVeh.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, 1300);
     tpModel.addTestParam(tpAirVehBds);
 
     Summary sumFarElems("FAR 91.227 REQUIRED ELEMENTS", adsbOut1090.id(), 0, 1, 1);
@@ -194,76 +194,76 @@ int DataBuilder::build()
     Summary sumAvInfo1("Aircraft/Vehicle info:", adsbOut1090.id(), 0, 2, 2);
     sumModel.addSummary(sumAvInfo1);
 
-    TestParam tpAvInfoFId("flight-Id", sumAvInfo1.id(), "Flight ID", "______", "", 0, 0);
+    TestParam tpAvInfoFId("flight-Id", sumAvInfo1.id(), "Flight ID", "______", "", 0, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpAvInfoFId);
 
-    TestParam tpAvInfoMsAdd("mode-S-Addr", sumAvInfo1.id(), "Mode S Addr", "______", "", 0, 1);
+    TestParam tpAvInfoMsAdd("mode-S-Addr", sumAvInfo1.id(), "Mode S Addr", "______", "", 0, 1, 1 , 1, 700);
     tpModel.addTestParam(tpAvInfoMsAdd);
 
-    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______) ", "", 1, 0);
+    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______) ", "", 1, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpAvInfoEc);
 
-    TestParam tpAvInfoAcode("3/A-Code", sumAvInfo1.id(), "3/A Code", "_____", "", 1, 1);
+    TestParam tpAvInfoAcode("3/A-Code", sumAvInfo1.id(), "3/A Code", "_____", "", 1, 1, 1 , 1, 700);
     tpModel.addTestParam(tpAvInfoAcode);
 
-    TestParam tpAvInfoEp("emg/Prty", sumAvInfo1.id(), "Emg/Prty", "_ (________)", "", 2, 0);
+    TestParam tpAvInfoEp("emg/Prty", sumAvInfo1.id(), "Emg/Prty", "_ (________)", "", 2, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpAvInfoEp);
 
-    TestParam tpAvInfoLw("l/w", sumAvInfo1.id(), "L/W", "__ ( __ m / __._m)", "", 2, 1);
+    TestParam tpAvInfoLw("l/w", sumAvInfo1.id(), "L/W", "__ ( __ m / __._m)", "", 2, 1, 1 , 1, 700);
     tpModel.addTestParam(tpAvInfoLw);
 
-    TestParam tpAvInfoLat("latitude", sumAvInfo1.id(), "Latitude", "__._____°", "N", 3, 0);
+    TestParam tpAvInfoLat("latitude", sumAvInfo1.id(), "Latitude", "__._____°", "N", 3, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpAvInfoLat);
 
-    TestParam tpAvInfoAltbaro("altitude(baro)", sumAvInfo1.id(), "Altitude(baro)"," ____,_____", "ft", 3, 1);
+    TestParam tpAvInfoAltbaro("altitude(baro)", sumAvInfo1.id(), "Altitude(baro)"," ____,_____", "ft", 3, 1, 1 , 1, 700);
     tpModel.addTestParam(tpAvInfoAltbaro);
 
-    TestParam tpAvInfoLong("longitude", sumAvInfo1.id(), "Longitude", "____._____°", "W", 4, 0);
+    TestParam tpAvInfoLong("longitude", sumAvInfo1.id(), "Longitude", "____._____°", "W", 4, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpAvInfoLong);
 
-    TestParam tpAvInfoAltgeom("altitude(geom)", sumAvInfo1.id(), "Altitude(geom)", "__,___", "ft", 4, 1);
+    TestParam tpAvInfoAltgeom("altitude(geom)", sumAvInfo1.id(), "Altitude(geom)", "__,___", "ft", 4, 1, 1 , 1, 700);
     tpModel.addTestParam(tpAvInfoAltgeom);
 
-    TestParam tpAvInfoVct("velocity", sumAvInfo1.id(), "Velocity", "___", "kts", 5, 0, 1, 2, 0);
+    TestParam tpAvInfoVct("velocity", sumAvInfo1.id(), "Velocity", "___", "kts", 5, 0, 1, 2, 1700);
     tpModel.addTestParam(tpAvInfoVct);
 
     Summary sumYnDisc("YES/NO Discretes:", adsbOut1090.id(), 0, 3, 2);
     sumModel.addSummary(sumYnDisc);
 
-    TestParam tpYnDiscUin("uat-In", sumYnDisc.id(),  "UAT IN", "_ (_)", "", 0, 0);
+    TestParam tpYnDiscUin("uat-In", sumYnDisc.id(),  "UAT IN", "_ (_)", "", 0, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpYnDiscUin);
 
-    TestParam tpYnDiscTop("tcas-Op", sumYnDisc.id(), "TCAS Op", "_ (_)", "", 0, 1);
+    TestParam tpYnDiscTop("tcas-Op", sumYnDisc.id(), "TCAS Op", "_ (_)", "", 0, 1, 1 , 1, 700);
     tpModel.addTestParam(tpYnDiscTop);
 
-    TestParam tpYnDiscEsin("1090-ES-In", sumYnDisc.id(), "1090ES IN", "_ (_)", "", 1, 0);
+    TestParam tpYnDiscEsin("1090-ES-In", sumYnDisc.id(), "1090ES IN", "_ (_)", "", 1, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpYnDiscEsin);
 
-    TestParam tpYnDiscIdt("ident", sumYnDisc.id(), "IDENT", "_ (_)", "", 1, 1);
+    TestParam tpYnDiscIdt("ident", sumYnDisc.id(), "IDENT", "_ (_)", "", 1, 1, 1 , 1, 700);
     tpModel.addTestParam(tpYnDiscIdt);
 
-    TestParam tpYnDiscTra("tcas-Ra", sumYnDisc.id(), "TCAS RA",  "_ (_)", "", 2, 0, 1, 2, 0);
+    TestParam tpYnDiscTra("tcas-Ra", sumYnDisc.id(), "TCAS RA",  "_ (_)", "", 2, 0, 1, 2, 1700);
     tpModel.addTestParam(tpYnDiscTra);
 
     Summary sumIntgFld("Integrity Fields:", adsbOut1090.id(), 0, 4, 2);
     sumModel.addSummary(sumIntgFld);
 
-    TestParam tpIntgFldNacp("nacp", sumIntgFld.id(), "NACp", "__ (< __nm)", "", 0, 0);
+    TestParam tpIntgFldNacp("nacp", sumIntgFld.id(), "NACp", "__ (< __nm)", "", 0, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpIntgFldNacp);
 
-    TestParam tpIntgFldNacv("nacv", sumIntgFld.id(), "NACv", "__ (< __m/s)", "", 0, 1);
+    TestParam tpIntgFldNacv("nacv", sumIntgFld.id(), "NACv", "__ (< __m/s)", "", 0, 1, 1 , 1, 700);
     tpModel.addTestParam(tpIntgFldNacv);
 
-    TestParam tpIntgFldSil("sil", sumIntgFld.id(), "SIL", "__ (< __ -__ )", "", 1, 0);
+    TestParam tpIntgFldSil("sil", sumIntgFld.id(), "SIL", "__ (< __ -__ )", "", 1, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpIntgFldSil);
 
-    TestParam tpIntgFldSda("sda", sumIntgFld.id(), "SDA", "__", "", 1, 1);
+    TestParam tpIntgFldSda("sda", sumIntgFld.id(), "SDA", "__", "", 1, 1, 1 , 1, 700);
     tpModel.addTestParam(tpIntgFldSda);
 
-    TestParam tpIntgFldGva("gva", sumIntgFld.id(), "GVA", "__ (< ___m)", "", 2, 0);
+    TestParam tpIntgFldGva("gva", sumIntgFld.id(), "GVA", "__ (< ___m)", "", 2, 0, 1 , 1, 1700);
     tpModel.addTestParam(tpIntgFldGva);
 
-    TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", 2, 1);
+    TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", 2, 1, 1 , 1, 700);
     tpModel.addTestParam(tpIntgFldNic);
 
     //------------------------------P2-------------------------------
