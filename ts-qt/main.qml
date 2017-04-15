@@ -95,7 +95,7 @@ ApplicationWindow {
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                         onClosed: {parent.width = 0; moreActions.visible = false }
                         onOpened: {parent.width = 160; moreActions.visible = true }
-                        contentItem: MoreOptions{}
+                        contentItem: MoreActions{}
                     }
                 }
             }

@@ -275,7 +275,7 @@ Rectangle{
                     anchors.fill: parent
                     onClicked:{
                         navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
-                                                           "title": navigationModel.navigationParameter,
+                                                           "title": navigationModel.navigationParameter.title,
                                                            "playState": toggleButton.state
                                                        })
                     }

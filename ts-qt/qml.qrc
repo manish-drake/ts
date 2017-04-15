@@ -15,7 +15,7 @@
         <file>TestDetail.qml</file>
         <file>Setup.qml</file>
         <file>SetupUser.qml</file>
-        <file>MoreOptions.qml</file>
+        <file>MoreActions.qml</file>
         <file>SetupConnection.qml</file>
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
