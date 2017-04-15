@@ -26,6 +26,8 @@
         <file>Radar.qml</file>
         <file>Graph.qml</file>
         <file>SideMenu.qml</file>
+        <file>TestSetup.qml</file>
+        <file>TestHelp.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery.png</file>

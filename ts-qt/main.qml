@@ -29,7 +29,7 @@ ApplicationWindow {
             }
 
             Rectangle{
-                id: sideMenu
+                id: sideMenuDialog
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
@@ -45,15 +45,15 @@ ApplicationWindow {
                         focus: true
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                         padding: 0
-                        onClosed: { parent.width = 0; sideMenu.visible = false }
-                        onOpened: { parent.width = 180; sideMenu.visible = true }
+                        onClosed: { parent.width = 0; sideMenuDialog.visible = false }
+                        onOpened: { parent.width = 180; sideMenuDialog.visible = true }
                         contentItem: SideMenu{}
                     }
                 }
             }
 
             Rectangle{
-                id: configPanel
+                id: configPanelDialog
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
@@ -67,8 +67,8 @@ ApplicationWindow {
                         modal: true
                         focus: true
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        onClosed: { parent.width = 0; configPanel.visible = false }
-                        onOpened: { parent.width = 270; configPanel.visible = true }
+                        onClosed: { parent.width = 0; configPanelDialog.visible = false }
+                        onOpened: { parent.width = 270; configPanelDialog.visible = true }
                         contentItem: ConfigPanel{}
                     }
                 }
@@ -76,7 +76,7 @@ ApplicationWindow {
             }
 
             Rectangle{
-                id: moreActions
+                id: moreActionsDialog
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
@@ -93,16 +93,72 @@ ApplicationWindow {
                         focus: true
                         clip: true
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        onClosed: {parent.width = 0; moreActions.visible = false }
-                        onOpened: {parent.width = 160; moreActions.visible = true }
+                        onClosed: {parent.width = 0; moreActionsDialog.visible = false }
+                        onOpened: {parent.width = 160; moreActionsDialog.visible = true }
                         contentItem: MoreActions{}
                     }
                 }
             }
+
+
         }
 
 
         footer: Footer{}
+    }
+
+    Rectangle{
+        id: testSetupDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.fill: parent
+            anchors.topMargin: 70
+            anchors.bottomMargin: 70
+            anchors.leftMargin: 30
+            anchors.rightMargin: 30
+            Popup {
+                id: testSetupPopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: {testSetupDialog.visible = false }
+                onOpened: {testSetupDialog.visible = true }
+                contentItem: TestSetup{}
+            }
+        }
+    }
+
+    Rectangle{
+        id: helpDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.fill: parent
+            anchors.topMargin: 70
+            anchors.bottomMargin: 70
+            anchors.leftMargin: 30
+            anchors.rightMargin: 30
+            Popup {
+                id: helpPopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: {helpDialog.visible = false }
+                onOpened: {helpDialog.visible = true }
+                contentItem: TestHelp{}
+            }
+        }
     }
 }
 
