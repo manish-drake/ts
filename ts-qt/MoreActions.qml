@@ -14,7 +14,7 @@ Item{
             source: "qrc:/img/img/Settings-25.png"
             MouseArea{
                 anchors.fill: parent
-                onClicked: {moreActionsPopover.close();  }
+                onClicked: { moreActionsPopover.close(); }
             }
         }
         CustomSwitchDelegate{
@@ -22,7 +22,7 @@ Item{
             source: "qrc:/img/img/Help Filled-25.png"
             MouseArea{
                 anchors.fill: parent
-                onClicked: {moreActionsPopover.close();  }
+                onClicked: { moreActionsPopover.close(); }
             }
         }
         CustomSwitchDelegate{
