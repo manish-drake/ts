@@ -286,7 +286,7 @@ Item{
             }
             MouseArea{
                 anchors.fill: parent
-                onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
+                onClicked: navigationModel.currentView = navigationModel.getTargetView("AddUser")
             }
         }
     }
