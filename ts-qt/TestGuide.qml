@@ -24,17 +24,13 @@ Item {
                         anchors.centerIn: parent
                         source: "qrc:/img/img/Info-24.png"
                     }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
-                    }
                 }
                 Column{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
                         id: title
-                        text: "{{Test Title}} GUIDE"
+                        text: "%1 GUIDE".arg(grid.currentItem.name)
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
