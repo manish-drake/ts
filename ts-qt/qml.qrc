@@ -15,7 +15,7 @@
         <file>TestDetail.qml</file>
         <file>Setup.qml</file>
         <file>SetupUser.qml</file>
-        <file>MoreOptions.qml</file>
+        <file>MoreActions.qml</file>
         <file>SetupConnection.qml</file>
         <file>SetupGPS.qml</file>
         <file>SetupNetwork.qml</file>
@@ -26,6 +26,9 @@
         <file>Radar.qml</file>
         <file>Graph.qml</file>
         <file>SideMenu.qml</file>
+        <file>TestSetup.qml</file>
+        <file>TestHelp.qml</file>
+        <file>TestGuide.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/battery.png</file>
@@ -56,5 +59,6 @@
         <file>img/Area Chart-25.png</file>
         <file>img/Circled Up-25.png</file>
         <file>img/Marker-25.png</file>
+        <file>img/aeroplane.png</file>
     </qresource>
 </RCC>

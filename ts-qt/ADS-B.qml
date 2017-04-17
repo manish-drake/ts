@@ -1,30 +1,29 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 2.0
 
-Item {
-    anchors.centerIn: parent
+
+Item{
     anchors.fill: parent
-    anchors.leftMargin: 10
-    anchors.topMargin: 10
-
-    GridView {
+    GridView{
         id: grid
         anchors.fill: parent
+        anchors.topMargin: 10
+        anchors.leftMargin: 10
         cellWidth: grid.width/2; cellHeight: 200
         model: testModel
         delegate: testCardDelegate
         focus: true
-
-        Component {
+        Component{
             id: testCardDelegate
             Rectangle {
                 id: wrapper
+                width: grid.cellWidth - 10
+                height: grid.cellHeight -10
                 border.color: "#0d000000"
                 border.width: 1
                 radius: 5
-                width: grid.cellWidth - 10;
-                height: grid.cellHeight - 10
                 layer.enabled: true
                 layer.effect: DropShadow {
                     transparentBorder: true
@@ -39,7 +38,6 @@ Item {
                     onClicked: grid.currentIndex = index
                     onDoubleClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name})
                 }
-
                 GridLayout{
                     anchors.fill: parent
                     anchors.margins: 10
@@ -73,9 +71,7 @@ Item {
                                 }
                                 MouseArea {
                                     anchors.fill: parent
-                                    onClicked: {
-                                        //  popupCenter.open()
-                                    }
+                                    onClicked: guidePopup.open()
                                     onPressed: parent.opacity = 0.5
                                     onReleased: parent.opacity = 1
                                 }
@@ -191,6 +187,33 @@ Item {
             border.color: "#377DF3"
             border.width: 1
             radius:5
+        }
+    }
+
+    Rectangle{
+        id: guideDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.fill: parent
+            anchors.topMargin: 70
+            anchors.bottomMargin: 70
+            anchors.leftMargin: 30
+            anchors.rightMargin: 30
+            Popup {
+                id: guidePopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: { guideDialog.visible = false }
+                onOpened: { guideDialog.visible = true }
+                contentItem: TestGuide{}
+            }
         }
     }
 }
