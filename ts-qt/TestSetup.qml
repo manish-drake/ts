@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.1
+import QtQuick.Controls 1.4
 
 Item {
     Rectangle{
@@ -60,15 +61,70 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage1
                                 width:15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"
+                            }
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                powerSliderRect.visible = !powerSliderRect.visible
+                                if(powerSliderRect.visible){
+                                    arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+
+                            }
+
+                        }
+                    }
+                    Rectangle {
+                        id:powerSliderRect
+                        visible:false
+                        height: 30
+                        width:contentRect.width
+                        color: "transparent"
+                        Row{
+                            anchors.fill: parent
+                            Slider {
+                                id: slider
+                                anchors.left: parent.left
+                                anchors.leftMargin: 20
+                                minimumValue: -70
+                                maximumValue: 17
+                                stepSize: 1
+                                value:-39
+                                width:200
+                                updateValueWhileDragging: true
+                                onValueChanged: {
+                                    console.log(slider.value)
+                                }
+                            }
+                            Rectangle{
+                                anchors.right: parent.right
+                                anchors.rightMargin: 50
+                                Row{
+                                    anchors.fill: parent
+
+                                    Text{
+                                        text:slider.value
+                                        font.pixelSize: 14
+                                        color:"#377DF3"
+                                    }
+                                    Text{
+                                        text:"dB"
+                                        font.pixelSize: 14
+                                        color:"#377DF3"
+                                    }
+                                }
                             }
                         }
                     }
@@ -83,7 +139,7 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage2
@@ -106,7 +162,7 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage3
@@ -121,7 +177,7 @@ Item {
 
                     Rectangle {
                         height: 20
-                          width:contentRect.width
+                        width:contentRect.width
                         color: "transparent"
                         Row{
                             anchors.fill: parent
@@ -130,12 +186,12 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage4
                                 width: 15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"
@@ -144,7 +200,7 @@ Item {
                     }
                     Rectangle {
                         height: 20
-                          width:contentRect.width
+                        width:contentRect.width
                         color: "transparent"
                         Row{
                             anchors.fill: parent
@@ -158,7 +214,7 @@ Item {
                             Image {
                                 id: arrowImage5
                                 width:15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"
@@ -167,7 +223,7 @@ Item {
                     }
                     Rectangle {
                         height: 20
-                         width:contentRect.width
+                        width:contentRect.width
                         color: "transparent"
                         Row{
                             anchors.fill: parent
@@ -176,12 +232,12 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage6
                                 width:15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"
@@ -191,7 +247,7 @@ Item {
 
                     Rectangle {
                         height: 20
-                          width:contentRect.width
+                        width:contentRect.width
                         color: "transparent"
                         Row{
                             anchors.fill: parent
@@ -205,7 +261,7 @@ Item {
                             Image {
                                 id: arrowImage7
                                 width:15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"
@@ -214,7 +270,7 @@ Item {
                     }
                     Rectangle {
                         height: 20
-                         width:contentRect.width
+                        width:contentRect.width
                         color: "transparent"
                         Row{
                             anchors.fill: parent
@@ -223,12 +279,12 @@ Item {
                                 anchors.left: parent.left
                                 anchors.leftMargin:20
                                 font.pixelSize: 14
-                                 color:"#377DF3"
+                                color:"#377DF3"
                             }
                             Image {
                                 id: arrowImage8
                                 width:15
-                                 height: 15
+                                height: 15
                                 anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 source: "qrc:/img/img/Expand Arrow-20.png"

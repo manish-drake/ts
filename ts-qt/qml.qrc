@@ -62,5 +62,6 @@
         <file>img/Marker-25.png</file>
         <file>img/aeroplane.png</file>
         <file>img/Expand Arrow-20.png</file>
+        <file>img/Collapse Arrow-20.png</file>
     </qresource>
 </RCC>
