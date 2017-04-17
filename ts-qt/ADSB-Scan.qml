@@ -107,9 +107,10 @@ Rectangle{
             color: "transparent"
             ListView{
                 id: listView
-                currentIndex:-1
+                currentIndex: -1
                 anchors.fill:parent
                 model:zmq.scanResults
+//                model: aircraftModel
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
@@ -218,6 +219,7 @@ Rectangle{
                     anchors.fill: parent
                     onPressed: {
                         zmq.toggleScan()
+                        console.log(zmq.scanResults)
                         if (parent.state == "off") {
                             parent.state = "on"
                         }
