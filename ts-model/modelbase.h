@@ -17,5 +17,7 @@ protected:
 
 public slots:
     void currentViewChanged(const int &currentView);
+public:
+    virtual ~ModelBase();
 };
 #endif // MODELBASE_H

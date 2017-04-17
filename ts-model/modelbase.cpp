@@ -9,3 +9,8 @@ void ModelBase::currentViewChanged(const int &currentView)
 {
     this->qualifyByView(currentView);
 }
+
+ModelBase::~ModelBase()
+{
+
+}

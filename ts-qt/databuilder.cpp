@@ -132,6 +132,9 @@ int DataBuilder::build()
     View vwADSBoutUatGraph("ADSB-OUT-UAT-Graph");
     viewDao->addView(vwADSBoutUatGraph);
 
+    View vwSetupAddUser("Setup-Add-User");
+    viewDao->addView(vwSetupAddUser);
+
     SectionModel secModel{};
 
     Section secStart("Start");
@@ -1201,6 +1204,9 @@ int DataBuilder::build()
     Navigation sUserDetailToUser (vwSetupUserDetail.id(), "back", 0, vwSetupUser.id());
     navigationDaoPtr->addNavigation(sUserDetailToUser);
 
+    Navigation sAddUserToUser (vwSetupAddUser.id(), "back", 0, vwSetupUser.id());
+    navigationDaoPtr->addNavigation(sAddUserToUser);
+
     Navigation sDisplayToSetup (vwSetupDisplay.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sDisplayToSetup);
 
@@ -1227,6 +1233,9 @@ int DataBuilder::build()
 
     Navigation userToUserDetail(vwSetupUser.id(), "UserDetail", 0, vwSetupUserDetail.id());
     navigationDaoPtr->addNavigation(userToUserDetail);
+
+    Navigation userToAddUser(vwSetupUser.id(), "AddUser", 0, vwSetupAddUser.id());
+    navigationDaoPtr->addNavigation(userToAddUser);
 
     Navigation setupToDisplay(vwSetup.id(), "Display", 0, vwSetupDisplay.id());
     navigationDaoPtr->addNavigation(setupToDisplay);
