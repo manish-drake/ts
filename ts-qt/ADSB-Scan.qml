@@ -102,7 +102,6 @@ Rectangle{
 
         contentItem: Rectangle{
             id:scanResults
-            visible: false
             anchors.top: Header.bottom
             anchors.bottom: Footer.top
             color: "transparent"
@@ -126,23 +125,17 @@ Rectangle{
                     Item{
                         width: parent.width
                         height: 100
-                        Text {
+                        Aircraft{
                             anchors.fill:parent
                             anchors.margins: 1
-                            text: address
                         }
 
-//                        Aircraft{
-//                            anchors.fill:parent
-//                            anchors.margins: 1
-//                        }
-
-//                        MouseArea {
-//                            anchors.fill: parent
-//                            onClicked:{
-//                                listView.currentIndex = index
-//                            }
-//                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:{
+                                listView.currentIndex = index
+                            }
+                        }
                     }
                 }
                 ListModel {//as per discussion only top four values will be displayed here
@@ -241,10 +234,10 @@ Rectangle{
                             scale: 0.95
                             imageSource: "qrc:/img/img/stop.png"
                         }
-                        PropertyChanges {
-                            target: scanResults
-                            visible:true
-                        }
+//                        PropertyChanges {
+//                            target: scanResults
+//                            visible:true
+//                        }
                     },
                     State {
                         name: "off"
