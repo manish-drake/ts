@@ -63,3 +63,15 @@ HEADERS += \
     controlsattachedtype.h \
     controlstyles.h
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-client/debug/ -lts-client
+else:unix: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
+
+INCLUDEPATH += $$PWD/../ts-client
+DEPENDPATH += $$PWD/../ts-client
+
+unix|win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+
+INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'

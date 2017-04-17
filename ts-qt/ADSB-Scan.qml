@@ -110,7 +110,7 @@ Rectangle{
                 id: listView
                 currentIndex:-1
                 anchors.fill:parent
-                model:aircraftModel
+                model:zmq.scanResults
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
@@ -126,18 +126,23 @@ Rectangle{
                     Item{
                         width: parent.width
                         height: 100
-
-                        Aircraft{
+                        Text {
                             anchors.fill:parent
                             anchors.margins: 1
+                            text: address
                         }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked:{
-                                listView.currentIndex = index
-                            }
-                        }
+//                        Aircraft{
+//                            anchors.fill:parent
+//                            anchors.margins: 1
+//                        }
+
+//                        MouseArea {
+//                            anchors.fill: parent
+//                            onClicked:{
+//                                listView.currentIndex = index
+//                            }
+//                        }
                     }
                 }
                 ListModel {//as per discussion only top four values will be displayed here
@@ -202,7 +207,7 @@ Rectangle{
                 signal pushed()
                 color: "transparent"
                 state: "off"
-                onStateChanged: {
+                onStateChanged: {                    
                     if (state == "on") {
                         selected()
                     }
@@ -219,6 +224,7 @@ Rectangle{
                     id: mouseArea
                     anchors.fill: parent
                     onPressed: {
+                        zmq.toggleScan()
                         if (parent.state == "off") {
                             parent.state = "on"
                         }

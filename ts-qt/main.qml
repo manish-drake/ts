@@ -11,7 +11,6 @@ ApplicationWindow {
     width: 480
     height: 700
     title: qsTr("TS")
-
     Page {
         anchors.fill: parent
 
