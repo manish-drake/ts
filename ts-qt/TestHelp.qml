@@ -45,6 +45,7 @@ Item {
                 id:contentRect
                 color: "transparent"
                 Column{
+                    spacing: 20
                     anchors.horizontalCenter: parent.horizontalCenter
                     Image {
                         anchors.horizontalCenter: parent.horizontalCenter
