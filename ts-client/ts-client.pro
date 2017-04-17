@@ -22,10 +22,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += client.cpp
+SOURCES += client.cpp \
+    jsonarraymodel.cpp \
+    request.cpp \
+    requestfactory.cpp \
+    response.cpp \
+    scan.cpp \
+    session.cpp
 
 HEADERS += client.h\
-        ts-client_global.h
+        ts-client_global.h \
+    jsonarraymodel.h \
+    request.h \
+    requestfactory.h \
+    response.h \
+    scan.h \
+    session.h
 
 unix {
     target.path = /usr/lib

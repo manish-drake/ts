@@ -13,9 +13,6 @@ ApplicationWindow {
     width: 480
     height: 700
     title: qsTr("TS")
-
-    Universal.theme: Universal.Dark
-
     Page {
         anchors.fill: parent
 

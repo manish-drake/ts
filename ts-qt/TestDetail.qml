@@ -190,6 +190,7 @@ Item {
                         id: mouseArea
                         anchors.fill: parent
                         onPressed: {
+
                             if (parent.state == "off") {
                                 parent.state = "on"
                             }

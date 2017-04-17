@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include <QUrl>
 
+
 #include "databuilder.h"
 #include "sectionmodel.h"
 #include "testmodel.h"
@@ -11,6 +12,9 @@
 #include "navigationmodel.h"
 #include "resourcenamecoupling.h"
 #include "controls.h"
+#include "client.h"
+#include "zmq.hpp"
+
 
 const int DATA_CREATION_MODE = 0;
 
@@ -27,6 +31,9 @@ int main(int argc, char *argv[])
 
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
+
+        Client client("tcp://192.168.10.7:6000");
+        context->setContextProperty("zmq", &client);
 
         SectionModel sectionModel;
         context->setContextProperty("sectionModel", &sectionModel);

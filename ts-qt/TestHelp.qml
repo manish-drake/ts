@@ -9,30 +9,31 @@ Item {
             anchors.fill: parent
             header: Rectangle{
                 id:testHeaderRect
-                height: 40
+                height: 60
                 width: parent.width
                 color:"transparent"
                 Image {
                     id: viewImage
-                    anchors.leftMargin: 20
                     anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    anchors.bottomMargin: 20
                     source: "qrc:/img/img/Help Filled-25.png"
                 }
                 Column{
-                    topPadding: 10
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
                         id: title
-                        text: "{{Test Title}}"
+                        text: "ADS-B Velocity Test"
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
-
                     }
                     Text {
                         text: "HELP"
                         font.pointSize: 12
+                        anchors.topMargin: 40
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
 
@@ -40,8 +41,33 @@ Item {
                 }
             }
 
-            contentItem: {
 
+            contentItem: Rectangle {
+                id:contentRect
+                color: "transparent"
+                Column{
+                    spacing: 20
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "qrc:/img/img/aeroplane.png"
+                    }
+
+                    Text{
+                        font.pixelSize: 14
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        font.wordSpacing: 5
+                        horizontalAlignment: Text.AlignHCenter
+                        text:"<p> Lorem ipsum dolor sit amet, consectetur<br>
+                              adipiscing elit. Fusce vel felis justo. Nam<br>
+                              consectetur auctor lorem non<br>
+                              condimentum. Fusce sodales metus et<br>
+                              consequat fermentum. Curabitur luctus<br>
+                              sit amet turpis eget condimentum. Cras<br>
+                              aliquet sapien ante, in volutpat orci<br>
+                              gravida non.<p/>"
+                    }
+                }
             }
 
             footer:Rectangle{
