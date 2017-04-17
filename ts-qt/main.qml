@@ -6,11 +6,15 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
+import QtQuick.Controls.Universal 2.0
+
 ApplicationWindow {
     visible: true
     width: 480
     height: 700
     title: qsTr("TS")
+
+    Universal.theme: Universal.Dark
 
     Page {
         anchors.fill: parent
@@ -72,7 +76,6 @@ ApplicationWindow {
                         contentItem: ConfigPanel{}
                     }
                 }
-
             }
 
             Rectangle{

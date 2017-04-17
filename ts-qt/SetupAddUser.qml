@@ -1,8 +1,10 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
+
+import QtQuick.Controls.Material 2.1
 
 Item {
     Rectangle{
@@ -31,7 +33,7 @@ Item {
                 color:"transparent"
                 Text {
                     anchors.centerIn: parent
-                    text: qsTr("USER")
+                    text: qsTr("ADD USER")
                     elide:Text.ElideRight
                     font.pointSize: 13
                     font.weight: Font.DemiBold

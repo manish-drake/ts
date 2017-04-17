@@ -31,7 +31,7 @@ Item {
                 color:"transparent"
                 Text {
                     anchors.centerIn: parent
-                    text: qsTr("USER")
+                    text: qsTr("USER DETAIL")
                     elide:Text.ElideRight
                     font.pointSize: 13
                     font.weight: Font.DemiBold
