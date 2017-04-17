@@ -79,10 +79,10 @@ Item {
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
-                    Text {
+                    TextField {
                         Layout.column: 1
-                        text: qsTr("Default")
                         font.pixelSize: 12
+                        placeholderText: "Enter User ID"
                     }
 
                     Text {
@@ -91,11 +91,11 @@ Item {
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
-                    Text {
+                    TextField {
                         Layout.row: 1
                         Layout.column: 1
-                        text: qsTr("OPERATOR")
                         font.pixelSize: 12
+                        placeholderText: "Enter Name"
                     }
 
                     Text {
@@ -104,11 +104,13 @@ Item {
                         font.pixelSize: 12
                         font.bold: Font.Medium
                     }
-                    Text {
+                    ComboBox{
                         Layout.row: 2
                         Layout.column: 1
-                        text: qsTr("ENGLISH")
-                        font.pixelSize: 12
+                        currentIndex: 0
+                        model: ListModel{
+                            ListElement{text:"English"}
+                        }
                     }
 
                     Text {
@@ -118,11 +120,11 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text {
+                    TextField {
                         Layout.row: 3
                         Layout.column: 1
-                        text: qsTr("operator@mail.com")
                         font.pixelSize: 12
+                        placeholderText: "Enter Email ID"
                     }
                     Text {
                         Layout.row: 4
@@ -138,14 +140,16 @@ Item {
 
                     Button{
                         Layout.row: 6
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: "RESTORE FACTORY DEFAULTS"
+                        Layout.column: 0
+                        Layout.alignment: Qt.AlignRight
+                        text: "Save"
                     }
 
                     Button{
-                        Layout.row: 8
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: "DELETE USER"
+                        Layout.row: 6
+                        Layout.column: 1
+                        text: "Cancel"
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
                     }
                 }
 
