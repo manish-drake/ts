@@ -26,7 +26,7 @@ public:
     int currentView() const;
     void setCurrentView(const int &currentView);
 
-    QVariant navigationParameter();
+    QVariant navigationParameter() const;
 signals:
     void currentViewChanged(const int &currentView);
 public slots:

@@ -67,7 +67,7 @@ void Client::parseMessage(const QString &msg)
 }
 
 
-JsonArrayModel *Client::scanResults()
+JsonArrayModel *Client::scanResults() const
 {
     return this->m_up_scanResults.get();
 }

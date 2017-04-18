@@ -23,7 +23,7 @@ signals:
 
 public slots:
 private:
-    JsonArrayModel* scanResults();
+    JsonArrayModel* scanResults() const;
     void setScanResults(std::unique_ptr<JsonArrayModel> model);
 private:
     std::unique_ptr<JsonArrayModel> m_up_scanResults;
