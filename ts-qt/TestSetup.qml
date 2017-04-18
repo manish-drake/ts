@@ -50,8 +50,6 @@ Item {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Power"
                             anchors.left: parent.left
@@ -66,7 +64,6 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -86,8 +83,6 @@ Item {
                     height: 30
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Slider {
                             id: slider
                             anchors.left: parent.left
@@ -122,15 +117,12 @@ Item {
                                 }
                             }
                         }
-                    }
                 }
 
                 Rectangle {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Distance"
                             anchors.left: parent.left
@@ -145,15 +137,12 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
                 Rectangle {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Flight-line"
                             anchors.left: parent.left
@@ -168,7 +157,6 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
 
@@ -176,8 +164,6 @@ Item {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Delay"
                             anchors.left: parent.left
@@ -192,15 +178,12 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
                 Rectangle {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Cable Loss"
                             anchors.left: parent.left
@@ -215,15 +198,12 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
                 Rectangle {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"PIN Time"
                             anchors.left: parent.left
@@ -238,7 +218,6 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
 
@@ -246,8 +225,6 @@ Item {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Lat"
                             anchors.left: parent.left
@@ -262,15 +239,12 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
                 Rectangle {
                     height: 20
                     width:colSetup.width
                     color: "transparent"
-                    Row{
-                        anchors.fill: parent
                         Text{
                             text:"Lon"
                             anchors.left: parent.left
@@ -285,7 +259,6 @@ Item {
                             anchors.right: parent.right
                             anchors.rightMargin: 10
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                        }
                     }
                 }
             }
