@@ -84,7 +84,12 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("UserDetail")
+                            onClicked: {
+                                navigationModel.setCurrentView(navigationModel.getTargetView("UserDetail"), {
+                                                                   "user": usersModel.get(index),
+
+                                                               })
+                            }
                         }
 
                         Text {
@@ -115,20 +120,32 @@ Item{
                 ListModel {//as per discussion only top four values will be displayed here
                     id:usersModel
                     ListElement {
+                        userID: "Default"
                         userName: "OPERATOR"
                         language: "English"
+                        emailID: "operator@mail.com"
+                        isRemovable: false
                     }
                     ListElement {
+                        userID: "ken"
                         userName: "KEN FILARDO"
                         language: "English"
+                        emailID: "ken@mail.com"
+                        isRemovable: true
                     }
                     ListElement {
+                        userID: "dave"
                         userName: "DAVE KLAMET"
                         language: "English"
+                        emailID: "dave@mail.com"
+                        isRemovable: true
                     }
                     ListElement {
+                        userID: "steve"
                         userName: "STEVE O'HARA"
                         language: "English"
+                        emailID: "steve@mail.com"
+                        isRemovable: true
                     }
                 }
             }
