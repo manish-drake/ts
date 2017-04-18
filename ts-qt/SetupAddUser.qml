@@ -145,6 +145,9 @@ Item {
                         Layout.column: 0
                         Layout.alignment: Qt.AlignRight
                         text: "Save"
+                        onClicked: {
+
+                        }
                     }
 
                     Button{

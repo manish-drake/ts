@@ -73,8 +73,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -124,8 +124,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -179,8 +179,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -234,8 +234,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -270,8 +270,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -306,8 +306,8 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    anchors.horizontalCenter: parent
-                    anchors.verticalCenter: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
