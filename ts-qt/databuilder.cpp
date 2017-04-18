@@ -188,7 +188,43 @@ int DataBuilder::build()
     TestParam tpAirVehRfLvl("rfLvl", sumAirVeh.id(), "RF Level",  "______", "", 1, 1, 1 , 1, 600);
     tpModel.addTestParam(tpAirVehRfLvl);
 
-    TestParam tpAirVehBds("bds-Rcvd", sumAirVeh.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, 1300);
+    TestParam tpAirVehBds("bds-R"
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          ""
+                          "cvd", sumAirVeh.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, 1300);
     tpModel.addTestParam(tpAirVehBds);
 
     Summary sumFarElems("FAR 91.227 REQUIRED ELEMENTS", adsbOut1090.id(), 0, 1, 1);

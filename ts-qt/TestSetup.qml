@@ -42,261 +42,254 @@ Item {
                 }
             }
 
-            contentItem: Rectangle {
-                id:contentRect
-                color: "transparent"
-                width:parent.width
-                Column{
-                    id:colSetup
-                    spacing: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Power"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage1
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
+            contentItem: Column{
+                id:colSetup
+                spacing: 10
+
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Power"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
                         }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: {
-                                powerSliderRect.visible = !powerSliderRect.visible
-                                if(powerSliderRect.visible){
-                                    arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
-                                }else{
-                                    arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
-                                }
-
-                            }
-
+                        Image {
+                            id: arrowImage1
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
                         }
                     }
-                    Rectangle {
-                        id:powerSliderRect
-                        visible:false
-                        height: 30
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Slider {
-                                id: slider
-                                anchors.left: parent.left
-                                anchors.leftMargin: 20
-                                minimumValue: -70
-                                maximumValue: 17
-                                stepSize: 1
-                                value:-39
-                                width:200
-                                updateValueWhileDragging: true
-                                onValueChanged: {
-                                    console.log(slider.value)
-                                }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            powerSliderRect.visible = !powerSliderRect.visible
+                            if(powerSliderRect.visible){
+                                arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
+                            }else{
+                                arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
                             }
-                            Rectangle{
-                                anchors.right: parent.right
-                                anchors.rightMargin: 50
-                                Row{
-                                    anchors.fill: parent
+                        }
+                    }
+                }
+                Rectangle {
+                    id:powerSliderRect
+                    visible:false
+                    height: 30
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Slider {
+                            id: slider
+                            anchors.left: parent.left
+                            anchors.leftMargin: 20
+                            anchors.right: slidervaluerect.left
+                            anchors.rightMargin: 20
+                            minimumValue: -70
+                            maximumValue: 17
+                            stepSize: 1
+                            value:-39.9
+                            updateValueWhileDragging: true
+                            onValueChanged: {
+                                console.log(slider.value)
+                            }
+                        }
+                        Rectangle{
+                            id:slidervaluerect
+                            anchors.right: parent.right
+                            anchors.rightMargin: 50
+                            Row{
+                                anchors.fill: parent
 
-                                    Text{
-                                        text:slider.value
-                                        font.pixelSize: 14
-                                        color:"#377DF3"
-                                    }
-                                    Text{
-                                        text:"dB"
-                                        font.pixelSize: 14
-                                        color:"#377DF3"
-                                    }
+                                Text{
+                                    text:slider.value
+                                    font.pixelSize: 14
+                                    color:"#377DF3"
+                                }
+                                Text{
+                                    text:"dB"
+                                    font.pixelSize: 14
+                                    color:"#377DF3"
                                 }
                             }
                         }
                     }
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Distance"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage2
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Flight-line"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage3
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Delay"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage4
-                                width: 15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Cable Loss"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage5
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"PIN Time"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage6
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Lat"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage7
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-                    Rectangle {
-                        height: 20
-                        width:contentRect.width
-                        color: "transparent"
-                        Row{
-                            anchors.fill: parent
-                            Text{
-                                text:"Lon"
-                                anchors.left: parent.left
-                                anchors.leftMargin:20
-                                font.pixelSize: 14
-                                color:"#377DF3"
-                            }
-                            Image {
-                                id: arrowImage8
-                                width:15
-                                height: 15
-                                anchors.right: parent.right
-                                anchors.rightMargin: 10
-                                source: "qrc:/img/img/Expand Arrow-20.png"
-                            }
-                        }
-                    }
-
-
-
                 }
 
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Distance"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage2
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Flight-line"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage3
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Delay"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage4
+                            width: 15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Cable Loss"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage5
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"PIN Time"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage6
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Lat"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage7
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
+                Rectangle {
+                    height: 20
+                    width:colSetup.width
+                    color: "transparent"
+                    Row{
+                        anchors.fill: parent
+                        Text{
+                            text:"Lon"
+                            anchors.left: parent.left
+                            anchors.leftMargin:20
+                            font.pixelSize: 14
+                            color:"#377DF3"
+                        }
+                        Image {
+                            id: arrowImage8
+                            width:15
+                            height: 15
+                            anchors.right: parent.right
+                            anchors.rightMargin: 10
+                            source: "qrc:/img/img/Expand Arrow-20.png"
+                        }
+                    }
+                }
             }
+
             footer:Rectangle{
                 height: 40
                 width: parent.width
