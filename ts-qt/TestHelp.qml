@@ -42,23 +42,21 @@ Item {
             }
 
 
-            contentItem: Rectangle {
-                id:contentRect
-                color: "transparent"
-                Column{
-                    spacing: 20
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Image {
+            contentItem:
+                    Column{
+                        spacing: 20
                         anchors.horizontalCenter: parent.horizontalCenter
-                        source: "qrc:/img/img/aeroplane.png"
-                    }
+                        Image {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            source: "qrc:/img/img/aeroplane.png"
+                        }
 
-                    Text{
-                        font.pixelSize: 14
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        font.wordSpacing: 5
-                        horizontalAlignment: Text.AlignHCenter
-                        text:"<p> Lorem ipsum dolor sit amet, consectetur<br>
+                        Text{
+                            font.pixelSize: 14
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            font.wordSpacing: 5
+                            horizontalAlignment: Text.AlignHCenter
+                            text:"<p> Lorem ipsum dolor sit amet, consectetur<br>
                               adipiscing elit. Fusce vel felis justo. Nam<br>
                               consectetur auctor lorem non<br>
                               condimentum. Fusce sodales metus et<br>
@@ -66,28 +64,27 @@ Item {
                               sit amet turpis eget condimentum. Cras<br>
                               aliquet sapien ante, in volutpat orci<br>
                               gravida non.<p/>"
+                        }
                     }
-                }
-            }
 
             footer:Rectangle{
                 height: 40
                 width: parent.width
                 color:"transparent"
-                    Text{
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: parent.right
-                        anchors.rightMargin: 20
-                        text: "CLOSE"
-                        font.pointSize: 12
-                        font.weight: Font.DemiBold
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: helpPopup.close()
-                        }
+                Text{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: 20
+                    text: "CLOSE"
+                    font.pointSize: 12
+                    font.weight: Font.DemiBold
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: helpPopup.close()
                     }
                 }
             }
         }
     }
+}
 
