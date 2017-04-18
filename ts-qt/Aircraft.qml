@@ -15,18 +15,8 @@ Item {
             id: text1
             x: 8
             y: 9
-            text: qsTr("Aircraft/Vehicle:")
+            text: qsTr("Aircraft/Vehicle #"+(index+1))
             fontSizeMode: Text.Fit
-            font.pixelSize: 14
-            font.weight: Font.DemiBold
-        }
-
-        Text {
-            id: text2
-            x: 106
-            y: 9
-            text:aircraftId
-            fontSizeMode: Text.HorizontalFit
             font.pixelSize: 14
             font.weight: Font.DemiBold
         }

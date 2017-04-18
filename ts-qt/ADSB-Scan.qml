@@ -106,10 +106,11 @@ Rectangle{
             anchors.bottom: Footer.top
             color: "transparent"
             ListView{
-                id: listView
-                currentIndex:-1
+                id: aircraftListView
+                currentIndex: -1
                 anchors.fill:parent
                 model:zmq.scanResults
+                //model: aircraftModel
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
@@ -133,7 +134,7 @@ Rectangle{
                         MouseArea {
                             anchors.fill: parent
                             onClicked:{
-                                listView.currentIndex = index
+                                aircraftListView.currentIndex = index
                             }
                         }
                     }
@@ -200,7 +201,7 @@ Rectangle{
                 signal pushed()
                 color: "transparent"
                 state: "off"
-                onStateChanged: {                    
+                onStateChanged: {
                     if (state == "on") {
                         selected()
                     }
@@ -218,6 +219,7 @@ Rectangle{
                     anchors.fill: parent
                     onPressed: {
                         zmq.toggleScan()
+                        console.log(zmq.scanResults)
                         if (parent.state == "off") {
                             parent.state = "on"
                         }
@@ -234,10 +236,10 @@ Rectangle{
                             scale: 0.95
                             imageSource: "qrc:/img/img/stop.png"
                         }
-//                        PropertyChanges {
-//                            target: scanResults
-//                            visible:true
-//                        }
+                        //                        PropertyChanges {
+                        //                            target: scanResults
+                        //                            visible:true
+                        //                        }
                     },
                     State {
                         name: "off"
