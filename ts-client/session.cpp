@@ -25,5 +25,5 @@ Response Session::request(std::unique_ptr<Request> request)
 
 void Session::dispose()
 {
-
+    m_socket.disconnect(m_endpoint);
 }

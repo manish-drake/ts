@@ -13,7 +13,7 @@ Response Response::receive(zmq::socket_t &sock)
 
 QString Response::string() const
 {
-    return this->m_string;
+    return m_string;
 }
 
 Response::Response():
