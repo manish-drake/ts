@@ -194,7 +194,11 @@ Item {
                     Layout.column: 1
                     Layout.columnSpan: 2
                     visible: editIPAddSwitch.checked
-                    text: qsTr("192.168 10.19")
+                    placeholderText: "IP Address"
+                    text: qsTr("192.168.10.19")
+                    validator : RegExpValidator {
+                        regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                    }
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     clip: true
@@ -214,6 +218,7 @@ Item {
 
                 SwitchDelegate{
                     id: editIPAddSwitch
+                    enabled: ipAddressField.acceptableInput
                     Layout.row:5
                     Layout.column:3
                     spacing: 0
@@ -225,7 +230,7 @@ Item {
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
                             text: editIPAddSwitch.checked ? "DONE" : "EDIT"
-                            color: "#387EF5"
+                            color: parent.enabled ? "#387EF5" : "gray"
                             font.pointSize: 10
                         }
                     }
@@ -244,7 +249,9 @@ Item {
                     Layout.column: 1
                     Layout.columnSpan: 2
                     visible: editDNameSwitch.checked
+                    placeholderText: "Device Name"
                     text: qsTr("TestSet14")
+                    validator: RegExpValidator{regExp: /([^\s]+)/ }
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     clip: true
@@ -264,6 +271,7 @@ Item {
 
                 SwitchDelegate{
                     id: editDNameSwitch
+                    enabled: deviceNameField.acceptableInput
                     Layout.row:6
                     Layout.column:3
                     spacing: 0
@@ -275,7 +283,7 @@ Item {
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
                             text: editDNameSwitch.checked ? "DONE" : "EDIT"
-                            color: "#387EF5"
+                            color: parent.enabled ? "#387EF5" : "gray"
                             font.pointSize: 10
                         }
                     }
