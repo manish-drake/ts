@@ -81,7 +81,7 @@ Item {
                     }
                     Text {
                         Layout.column: 1
-                        text: qsTr("Default")
+                        text: qsTr(navigationModel.navigationParameter.user.userID)
                         font.pixelSize: 12
                     }
 
@@ -94,7 +94,7 @@ Item {
                     Text {
                         Layout.row: 1
                         Layout.column: 1
-                        text: qsTr("OPERATOR")
+                        text: qsTr(navigationModel.navigationParameter.user.userName)
                         font.pixelSize: 12
                     }
 
@@ -107,7 +107,7 @@ Item {
                     Text {
                         Layout.row: 2
                         Layout.column: 1
-                        text: qsTr("ENGLISH")
+                        text: qsTr(navigationModel.navigationParameter.user.language)
                         font.pixelSize: 12
                     }
 
@@ -121,7 +121,7 @@ Item {
                     Text {
                         Layout.row: 3
                         Layout.column: 1
-                        text: qsTr("operator@mail.com")
+                        text: qsTr(navigationModel.navigationParameter.user.emailID)
                         font.pixelSize: 12
                     }
                     Text {
@@ -146,6 +146,7 @@ Item {
                         Layout.row: 8
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: "DELETE USER"
+                        enabled: navigationModel.navigationParameter.user.isRemovable
                     }
                 }
 

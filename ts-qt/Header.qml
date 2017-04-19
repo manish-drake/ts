@@ -27,10 +27,11 @@ Rectangle {
     }
 
     Text {
+        id: headerTitleText
+        text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: toggleMenu.right
         anchors.right: toggleConfigPanel.left
-        text: "Start"
         font.bold: Font.DemiBold
         color: "#ffffff"
         font.pointSize: 12

@@ -86,7 +86,7 @@ Item {
                         Layout.column:1
                         Layout.minimumWidth: 50
                         text:gpsSourceSwitch.checked ? qsTr("External"):qsTr("Internal")
-                        font.pixelSize: 14                        
+                        font.pixelSize: 14
                     }
 
                     Switch { //we can use delegate switch as well for binging
@@ -189,12 +189,19 @@ Item {
                         font.pixelSize: 14
                         font.bold: Font.Medium
                     }
+                    Timer{
+                        interval: 1000
+                        running: true
+                        repeat: true
+                        triggeredOnStart: true
+                        onTriggered: timeText.text = Qt.formatDateTime(new Date(),"hh:mm:ss")
+                    }
 
                     Text {
+                        id: timeText
                         Layout.row: 5
                         Layout.column: 1
                         Layout.columnSpan: 2
-                        text: qsTr("09:15:45")
                         font.pixelSize: 14
                     }
 
@@ -205,11 +212,19 @@ Item {
                         font.bold: Font.Medium
                     }
 
+                    Timer{
+                        interval: 1000
+                        running: true
+                        repeat: true
+                        triggeredOnStart: true
+                        onTriggered: dateText.text = Qt.formatDateTime(new Date(),"MM/dd/yyyy")
+                    }
+
                     Text {
+                        id: dateText
                         Layout.row: 6
                         Layout.column: 1
                         Layout.columnSpan: 2
-                        text: qsTr("03/15/2017")
                         font.pixelSize: 14
                     }
 
