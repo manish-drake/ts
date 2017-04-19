@@ -22,6 +22,7 @@ Item {
                     anchors.fill: parent
                     onClicked: {
                         navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                        headerTitle = name
                         listViewLeftMenu.currentIndex = index
                         sideMenuPopup.close()
                     }
