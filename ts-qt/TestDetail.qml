@@ -27,27 +27,27 @@ Item {
                 height: 40
                 width: parent.width
                 color:"transparent"
-                Rectangle{
-                    id: rectangle1
-                    anchors.margins: 10
-                    Layout.fillHeight: true
-                    height:25
-                    width: 25
-                    anchors.left: parent.left
-                    anchors.leftMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    color:"transparent"
-                    Image {
-                        id: viewImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/Radar-25.png"
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
-                    }
-                }
+//                Rectangle{
+//                    id: rectangle1
+//                    anchors.margins: 10
+//                    Layout.fillHeight: true
+//                    height:25
+//                    width: 25
+//                    anchors.left: parent.left
+//                    anchors.leftMargin: 5
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    color:"transparent"
+//                    Image {
+//                        id: viewImage
+//                        anchors.horizontalCenter: parent.horizontalCenter
+//                        anchors.verticalCenter: parent.verticalCenter
+//                        source: "qrc:/img/img/Radar-25.png"
+//                    }
+//                    MouseArea {
+//                        anchors.fill: parent
+//                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
+//                    }
+//                }
                 Column{
                     topPadding: 10
                     anchors.verticalCenter: parent.verticalCenter

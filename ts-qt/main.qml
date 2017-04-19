@@ -15,6 +15,8 @@ ApplicationWindow {
     title: qsTr("TS")
     Universal.theme: Universal.Dark
     Universal.accent: Universal.Red
+    property string headerTitle: "Start"
+
     Page {
         anchors.fill: parent
 
