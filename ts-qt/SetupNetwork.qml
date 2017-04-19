@@ -198,7 +198,7 @@ Item {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     clip: true
-                    inputMethodHints: Qt.ImhDigitsOnly
+                    onEditingFinished: editIPAddSwitch.checked = false
                 }
                 Text {
                     Layout.row: 5
@@ -248,6 +248,7 @@ Item {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     clip: true
+                    onEditingFinished: editDNameSwitch.checked = false
                 }
                 Text {
                     Layout.row: 6
