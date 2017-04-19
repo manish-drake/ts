@@ -80,7 +80,7 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
+                    Text {
                         id:gpsSourceText
                         Layout.row: 0
                         Layout.column:1
@@ -107,7 +107,7 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
+                    Text {
                         id:gpsFormatText
                         Layout.row: 1
                         Layout.column: 1
@@ -133,7 +133,7 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
+                    Text {
                         Layout.row: 2
                         Layout.column: 1
                         id:altFormatText
@@ -163,7 +163,7 @@ Item {
                         Layout.column: 1
                         Layout.columnSpan: 2
                         id: text8
-                        text: qsTr("51°30'14.11 N")
+                        text: gpsFormatSwitch.checked ? "51.50392°" : "51°30'14.11 N"
                         font.pixelSize: 14
                     }
 
@@ -178,7 +178,7 @@ Item {
                         Layout.row: 4
                         Layout.column: 1
                         Layout.columnSpan: 2
-                        text: qsTr("10°7'39.45 W")
+                        text: gpsFormatSwitch.checked ? "10.12763°" : "10°7'39.45 W"
                         font.capitalization: Font.AllUppercase
                         font.pixelSize: 14
                     }
@@ -242,7 +242,7 @@ Item {
                         Layout.column: 1
                         Layout.columnSpan: 2
                         Layout.bottomMargin: 30
-                        text: qsTr("144 Ft.")
+                        text: altFormatSwitch.checked ? "%1 m".arg(144*0.3048) : "%1 Ft.".arg(144)
                         font.pixelSize: 14
                     }
 
