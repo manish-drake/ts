@@ -81,44 +81,44 @@ Item {
             }
         }
 
-        Rectangle {
-            border.color: "#d3d3d3"
-            Layout.preferredWidth : grid.prefWidth(this)
-            Layout.preferredHeight : grid.prefHeight(this)
-            Text{
-                id: header4
-                anchors.horizontalCenter: parent.horizontalCenter
-                text:"REMOTE CONNECT"
-                anchors.top: parent.top
-                anchors.topMargin: 10
-            }
-            Rectangle{
-                color: "#00000000"
-                anchors.top: header4.bottom
-                anchors.bottom: ctrl4.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                Image{
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/wifi-signal-waves.png"
-                }
-            }
-            ComboBox{
-                id: ctrl4
-                width: 100
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
-                currentIndex: 1
-                model: ListModel{
-                    id:cbTestSetItems
-                    ListElement{text:"TestSet#3"}
-                    ListElement{text:"TestSet#4"}
-                    ListElement{text:"TestSet#5"}
-                }
-            }
-        }
+//        Rectangle {
+//            border.color: "#d3d3d3"
+//            Layout.preferredWidth : grid.prefWidth(this)
+//            Layout.preferredHeight : grid.prefHeight(this)
+//            Text{
+//                id: header4
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                text:"REMOTE CONNECT"
+//                anchors.top: parent.top
+//                anchors.topMargin: 10
+//            }
+//            Rectangle{
+//                color: "#00000000"
+//                anchors.top: header4.bottom
+//                anchors.bottom: ctrl4.top
+//                anchors.left: parent.left
+//                anchors.right: parent.right
+//                Image{
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    source: "qrc:/img/img/wifi-signal-waves.png"
+//                }
+//            }
+//            ComboBox{
+//                id: ctrl4
+//                width: 100
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                anchors.bottom: parent.bottom
+//                anchors.bottomMargin: 10
+//                currentIndex: 1
+//                model: ListModel{
+//                    id:cbTestSetItems
+//                    ListElement{text:"TestSet#3"}
+//                    ListElement{text:"TestSet#4"}
+//                    ListElement{text:"TestSet#5"}
+//                }
+//            }
+//        }
 
         Rectangle {
             border.color: "#d3d3d3"
@@ -335,6 +335,7 @@ Item {
             border.color: "#d3d3d3"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
+            Layout.columnSpan: 2
             Text{
                 id: header9
                 anchors.horizontalCenter: parent.horizontalCenter
