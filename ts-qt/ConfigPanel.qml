@@ -42,8 +42,8 @@ Item {
                     model: ListModel{
                         id:cbOperatorItems
                         ListElement{text:"Operator1"}
-                        ListElement{text:"Operator1"}
-                        ListElement{text:"Operator1"}
+                        ListElement{text:"Operator2"}
+                        ListElement{text:"Operator3"}
                     }
                 }
             }
