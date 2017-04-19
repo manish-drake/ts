@@ -188,40 +188,40 @@ Item{
         }
     }
 
-    Rectangle{
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 10
-        anchors.right: parent.right
-        anchors.rightMargin: 80
-        height: 40
-        width: 40
-        radius: width*0.5
-        color: "red"
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 1.1
-            verticalOffset: 1.1
-            radius: 4.0
-            color: "#80000000"
-            spread: 0
-        }
-        Text{
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 1
-            anchors.leftMargin: 10
-            text:""
-            font.pixelSize: 28
-            font.weight: Font.bold
-            color:"white"
-        }
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {usersModel.remove(0,1)}
+//    Rectangle{
+//        anchors.bottom: parent.bottom
+//        anchors.bottomMargin: 10
+//        anchors.right: parent.right
+//        anchors.rightMargin: 80
+//        height: 40
+//        width: 40
+//        radius: width*0.5
+//        color: "red"
+//        layer.enabled: true
+//        layer.effect: DropShadow {
+//            transparentBorder: true
+//            horizontalOffset: 1.1
+//            verticalOffset: 1.1
+//            radius: 4.0
+//            color: "#80000000"
+//            spread: 0
+//        }
+//        Text{
+//            anchors.top: parent.top
+//            anchors.left: parent.left
+//            anchors.topMargin: 1
+//            anchors.leftMargin: 10
+//            text:""
+//            font.pixelSize: 28
+//            font.weight: Font.bold
+//            color:"white"
+//        }
+//        MouseArea{
+//            anchors.fill: parent
+//            onClicked: {usersModel.remove(0,1)}
 
-        }
-    }
+//        }
+//    }
 
 }
 
