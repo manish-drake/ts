@@ -15,15 +15,13 @@ public:
     explicit Client(const std::string &endpoint, QObject *parent = 0);
     Q_PROPERTY(JsonArrayModel* scanResults READ scanResults NOTIFY scanResultsChanged)
 
-    void parseMessage(const QString&);
-
     Q_INVOKABLE bool toggleScan();
 signals:
     void scanResultsChanged(const JsonArrayModel *model);
 
 public slots:
 private:
-    JsonArrayModel* scanResults();
+    JsonArrayModel *scanResults() const;
     void setScanResults(std::unique_ptr<JsonArrayModel> model);
 private:
     std::unique_ptr<JsonArrayModel> m_up_scanResults;

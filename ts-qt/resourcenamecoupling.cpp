@@ -1,6 +1,6 @@
 #include "resourcenamecoupling.h"
 
-QString ResourceNameCoupling::getPageFromViewId(const int &viewId){
+QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     switch (viewId) {
     case 3:
         return "ADS-B.qml";
@@ -51,7 +51,7 @@ ResourceNameCoupling::ResourceNameCoupling()
 
 }
 
-bool ResourceNameCoupling::compare(const int &viewId1, const int &viewId2)
+bool ResourceNameCoupling::compare(const int &viewId1, const int &viewId2) const
 {
     return (this->getPageFromViewId(viewId1) == this->getPageFromViewId(viewId2));
 }

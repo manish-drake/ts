@@ -57,7 +57,7 @@ void NavigationModel::setCurrentView(const int &currentView, const QVariant &nav
     this->setCurrentView(currentView);
 }
 
-QVariant NavigationModel::navigationParameter()
+QVariant NavigationModel::navigationParameter() const
 {
     return this->m_navigationParameter;
 }

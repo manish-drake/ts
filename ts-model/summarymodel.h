@@ -37,7 +37,7 @@ public:
 
     SummaryModel(QObject *parent = 0);
 
-    int currentPage();
+    int currentPage() const;
     void setCurrentPage(int currentPage);
 
     QModelIndex addSummary(Summary &summary);

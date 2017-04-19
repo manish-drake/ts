@@ -8,9 +8,9 @@ class RequestFactory
 {
 public:
     static RequestFactory instance();
-    std::unique_ptr<Request> createBeginScan();
-    std::unique_ptr<Request> createScan();
-    std::unique_ptr<Request> createEndScan();
+    std::unique_ptr<Request> createBeginScan() const;
+    std::unique_ptr<Request> createScan() const;
+    std::unique_ptr<Request> createEndScan() const;
 private:
     RequestFactory();
 };
