@@ -14,11 +14,15 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
         if(summ->id() == summaryId){
             for(std::unique_ptr<TestParam> &tp: *(summ->testParams())){
                 qtp.append(new QTestParams(
-                               QString("%1: %2 %3").arg(tp->key()).arg(tp->val()).arg(tp->unit()),
+//                               QString("%1: %2 %3").arg(tp->key()).arg(tp->val()).arg(tp->unit()),
+                               tp->key(),
+                               tp->val(),
+                               tp->unit(),
                                tp->row(),
                                tp->col(),
                                tp->rowSpan(),
-                               tp->colSpan()
+                               tp->colSpan(),
+                               tp->style()
                                ));
             }
         }

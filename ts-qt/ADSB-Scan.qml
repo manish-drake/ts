@@ -64,7 +64,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 Text {
-                    id: title
+                    id: testDetailTitleText
                     text: navigationModel.navigationParameter.title
                     font.pointSize: 12
                     font.weight: Font.DemiBold
@@ -74,7 +74,7 @@ Rectangle{
                 PageIndicator {
                     id: pageIndicator
                     anchors.horizontalCenter: parent.horizontalCenter
-                    count: 7
+                    count: pageIdx
                     currentIndex: summaryModel.currentPage
                     ColorOverlay{
                         anchors.fill: parent

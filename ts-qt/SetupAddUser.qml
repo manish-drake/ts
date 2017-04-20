@@ -3,13 +3,14 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
-import QtQuick.Controls.Material 2.1
+import QtQuick.Controls.Universal 2.1
 
 Item {
     Rectangle{
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -37,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -48,6 +50,11 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                        ColorOverlay{
+                            anchors.fill: parent
+                            source: parent
+                            color: Universal.foreground
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -79,6 +86,7 @@ Item {
                         text: qsTr("USER ID:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     TextField {
                         Layout.column: 1
@@ -91,6 +99,7 @@ Item {
                         text: qsTr("NAME:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     TextField {
                         Layout.row: 1
@@ -104,6 +113,7 @@ Item {
                         text: qsTr("LANGUAGE:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     ComboBox{
                         Layout.row: 2
@@ -119,6 +129,7 @@ Item {
                         text: qsTr("EMAIL:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     TextField {
@@ -132,6 +143,7 @@ Item {
                         text: qsTr("EMAIL SAVED TESTS:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Switch {

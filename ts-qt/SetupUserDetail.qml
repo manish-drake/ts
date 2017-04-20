@@ -10,6 +10,7 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -37,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -48,6 +50,11 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                        ColorOverlay{
+                            anchors.fill: parent
+                            source: parent
+                            color: Universal.foreground
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -79,11 +86,13 @@ Item {
                         text: qsTr("USER ID:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.column: 1
                         text: qsTr(navigationModel.navigationParameter.user.userID)
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -91,12 +100,14 @@ Item {
                         text: qsTr("NAME:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 1
                         Layout.column: 1
                         text: qsTr(navigationModel.navigationParameter.user.userName)
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -104,12 +115,14 @@ Item {
                         text: qsTr("LANGUAGE:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 1
                         text: qsTr(navigationModel.navigationParameter.user.language)
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -117,6 +130,7 @@ Item {
                         text: qsTr("EMAIL:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -124,12 +138,14 @@ Item {
                         Layout.column: 1
                         text: qsTr(navigationModel.navigationParameter.user.emailID)
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 4
                         text: qsTr("EMAIL SAVED TESTS:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Switch {

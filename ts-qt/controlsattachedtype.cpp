@@ -15,7 +15,8 @@ int ControlsAttachedType::style()
 
 void ControlsAttachedType::setStyle(const int &style)
 {
-    auto typeName = this->parent()->metaObject()->className();
+    QString typeName = this->parent()->metaObject()->className();
+    typeName = validateTypeName(typeName);
     auto styleHash = ControlStyles::instance()
             .getStyleForType(style, typeName);
     for(auto propertyName: styleHash.keys()){
@@ -23,3 +24,4 @@ void ControlsAttachedType::setStyle(const int &style)
     }
     this->m_style = style;
 }
+

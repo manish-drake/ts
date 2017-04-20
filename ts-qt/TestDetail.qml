@@ -87,7 +87,6 @@ Rectangle{
                 }
             }
         }
-
         contentItem: Rectangle {
             color: Universal.background
             Flickable {
@@ -131,10 +130,11 @@ Rectangle{
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
-                                        Text {
+                                        CompositeControl{
                                             Controls.style:model.modelData.style
-                                            text: model.modelData.data
-                                            color: Universal.foreground
+                                            key:model.modelData.key
+                                            value:model.modelData.value
+                                            unit:model.modelData.unit
                                         }
                                     }
                                 }
