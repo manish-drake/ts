@@ -17,7 +17,6 @@ void NavigationModel::onLoaded(const QString &str) const
     qDebug() << str;
 }
 
-
 int NavigationModel::getTargetView(const QString &link, const int &linkId) const
 {
     for(auto const &navPtr: *m_navigations){

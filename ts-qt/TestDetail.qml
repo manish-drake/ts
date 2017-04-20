@@ -53,7 +53,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
-                        id: title
+                        id: testDetailTitleText
                         text: navigationModel.navigationParameter.title
                         font.pointSize: 12
                         font.weight: Font.DemiBold
@@ -131,9 +131,11 @@ Item {
                                             Layout.columnSpan: model.modelData.colSpan
                                             Layout.rowSpan: model.modelData.rowSpan
                                             height: 15
-                                            Text {
+                                            CompositeControl{
                                                 Controls.style:model.modelData.style
-                                                text: model.modelData.data
+                                                key:model.modelData.key
+                                                value:model.modelData.value
+                                                unit:model.modelData.unit
                                             }
                                         }
                                     }

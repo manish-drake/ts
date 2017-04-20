@@ -73,8 +73,15 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT summaries.*, testparams.* "
-                "FROM summaries "
+                "SELECT summaries.ID as sID, summaries.name as sName, "
+                "summaries.testID, summaries.pageIdx, "
+                "summaries.ordr, summaries.style as sStyle, "
+                "testparams.ID as tID, testparams.name as tName, "
+                "testparams.summaryID, testparams.key, testparams.val, "
+                "testparams.unit, testparams.row, testparams.col, "
+                "testparams.rowSpan, testparams.colSpan, "
+                "testparams.style as tStyle "
+                "FROM summaries  "
                 "INNER JOIN testparams "
                 "ON summaries.ID = testparams.summaryID "
                 "WHERE summaries.testID = %1 "
@@ -91,26 +98,26 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
     int temp_id = 0;
     std::map<int, UP_VEC_UP_TP> summaryTestParams;
     while (query.next()) {
-        int inLoop_id = query.value("ID").toInt();
+        int inLoop_id = query.value("sID").toInt();
 
         if(temp_id != inLoop_id) {
             temp_id = inLoop_id;
             summaryTestParams.insert(std::pair<int, UP_VEC_UP_TP>(inLoop_id,UP_VEC_UP_TP(new VEC_UP_TP())));
 
             unique_ptr<Summary> summary(
-                        new Summary(query.value("name").toString(),
+                        new Summary(query.value("sName").toString(),
                                     query.value("testID").toInt(),
                                     query.value("pageIdx").toInt(),
                                     query.value("ordr").toInt(),
-                                    query.value("style").toInt()));
-            summary->setId(query.value("ID").toInt());
+                                    query.value("sStyle").toInt()));
+            summary->setId(query.value("sID").toInt());
 
             list->push_back(move(summary));
         }
 
         UP_TP testParam(
                     new TestParam{
-                        query.value("name").toString(),
+                        query.value("tName").toString(),
                         inLoop_id,
                         query.value("key").toString(),
                         query.value("val").toString(),
@@ -119,8 +126,10 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                         query.value("col").toInt(),
                         query.value("rowSpan").toInt(),
                         query.value("colSpan").toInt(),
-                        query.value("style").toInt()
+                        query.value("tStyle").toInt()
                     });
+
+        testParam->setId(query.value("tID").toInt());
         summaryTestParams[inLoop_id]->push_back(std::move(testParam));
     }
     for(auto &up_sum: *list){

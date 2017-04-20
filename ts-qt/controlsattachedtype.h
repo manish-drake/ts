@@ -2,6 +2,7 @@
 #define CONTROLSATTACHEDTYPE_H
 
 #include <QObject>
+#include <QString>
 
 class ControlsAttachedType : public QObject
 {

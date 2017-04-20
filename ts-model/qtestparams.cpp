@@ -1,9 +1,11 @@
 #include "qtestparams.h"
 
 
-QTestParams::QTestParams(QString data, int row, int col, int rowSpan, int colSpan, int style, QObject *parent):
+QTestParams::QTestParams(QString key, QString value, QString unit, int row, int col, int rowSpan, int colSpan, int style, QObject *parent):
     QObject(parent),
-    m_data{data},
+    m_key{key},
+    m_value{value},
+    m_unit{unit},
     m_row{row},
     m_col{col},
     m_rowSpan{rowSpan},
@@ -13,9 +15,19 @@ QTestParams::QTestParams(QString data, int row, int col, int rowSpan, int colSpa
 
 }
 
-QString QTestParams::data() const
+QString QTestParams::key() const
 {
-    return this->m_data;
+    return this->m_key;
+}
+
+QString QTestParams::value() const
+{
+    return this->m_value;
+}
+
+QString QTestParams::unit() const
+{
+    return this->m_unit;
 }
 
 int QTestParams::row() const
