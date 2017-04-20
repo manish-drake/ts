@@ -21,7 +21,7 @@ const QString DB_FILE = "c:/git/qt/ts/ts.db";
 class TSDAOSHARED_EXPORT DataManager
 {
 public:
-    static void debugQuery(const QSqlQuery &query);
+    static void debugQuery(const QSqlQuery &query) ;
     static void deleteExitingDBFile();
     static DataManager &instance();
     std::shared_ptr<const SectionDao> sectionDao() const;

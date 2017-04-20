@@ -81,8 +81,7 @@ Item {
 
                 Text{
                     Layout.column:1
-                    Layout.minimumWidth: 20
-                    text:wifiSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    text: qsTr("No")
                     font.pixelSize: 14
                 }
 
@@ -92,6 +91,13 @@ Item {
                     onCheckedChanged: {
                         console.log(wifiSwitch.checked)
                     }
+                }
+
+                Text{
+                    Layout.column:3
+                    Layout.fillWidth: true
+                    text: qsTr("Yes")
+                    font.pixelSize: 14
                 }
 
                 Text {
@@ -104,7 +110,7 @@ Item {
                 Text{
                     Layout.row: 1
                     Layout.column:1
-                    text:remoteSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    text: qsTr("No")
                     font.pixelSize: 14
                 }
 
@@ -117,6 +123,13 @@ Item {
                     }
                 }
 
+                Text{
+                    Layout.row: 1
+                    Layout.column:3
+                    text: qsTr("Yes")
+                    font.pixelSize: 14
+                }
+
                 Text {
                     Layout.row: 2
                     text: qsTr("Wi-Fi DIRECT:")
@@ -127,7 +140,7 @@ Item {
                 Text{
                     Layout.row: 2
                     Layout.column:1
-                    text:wifiDirectSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    text: qsTr("No")
                     font.pixelSize: 14
                 }
 
@@ -140,6 +153,13 @@ Item {
                     }
                 }
 
+                Text{
+                    Layout.row: 2
+                    Layout.column:3
+                    text: qsTr("Yes")
+                    font.pixelSize: 14
+                }
+
                 Text {
                     Layout.row: 3
                     text: qsTr("DHCP:")
@@ -148,10 +168,9 @@ Item {
                 }
 
                 Text{
-                    id:dhcpText
                     Layout.row: 3
                     Layout.column:1
-                    text:dhcpSwitch.checked ? qsTr("Yes"):qsTr("No")
+                    text: qsTr("No")
                     font.pixelSize: 14
                 }
 
@@ -162,6 +181,13 @@ Item {
                     onCheckedChanged: {
                         console.log(dhcpSwitch.checked)
                     }
+                }
+
+                Text{
+                    Layout.row: 3
+                    Layout.column:3
+                    text: qsTr("Yes")
+                    font.pixelSize: 14
                 }
 
                 Text {

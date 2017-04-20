@@ -95,21 +95,35 @@ Rectangle {
                 elide: Text.ElideRight
             }
 
+            Timer{
+                interval: 1000
+                running: true
+                repeat: true
+                triggeredOnStart: true
+                onTriggered: timeText.text = Qt.formatDateTime(new Date(),"hh:mm")
+            }
+
             Text{
                 id:timeText
                 Layout.column: 3
                 Layout.row: 0
                 font.pixelSize: 12
-                text: Qt.formatDateTime(new Date(),"hh:mm")
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 elide: Text.ElideRight
+            }
+
+            Timer{
+                interval: 1000
+                running: true
+                repeat: true
+                triggeredOnStart: true
+                onTriggered: dateText.text = Qt.formatDateTime(new Date(),"M/d/yy")
             }
 
             Text{
                 id: dateText
                 Layout.column: 3
                 Layout.row: 1
-                text: Qt.formatDateTime(new Date(),"M/d/yy")
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 elide: Text.ElideRight
             }

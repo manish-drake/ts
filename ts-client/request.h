@@ -6,10 +6,10 @@
 
 class Request
 {
-    virtual std::string message();
+    virtual std::string message() const;
 public:
     void send(zmq::socket_t &sock);
-    zmq::message_t zmqMessage();
+    zmq::message_t zmqMessage() const;
 protected:
     Request();
 };

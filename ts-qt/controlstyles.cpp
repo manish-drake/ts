@@ -7,7 +7,7 @@ ControlStyles ControlStyles::instance()
     return singleton;
 }
 
-QHash<const char *, QVariant> ControlStyles::getStyleForType(const int &styleId, const QString &typeName)
+QHash<const char *, QVariant> ControlStyles::getStyleForType(const int &styleId, const QString &typeName) const
 {
     if(m_repository.contains(styleId)){
         auto styles = m_repository[styleId];
@@ -71,17 +71,15 @@ QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle0()
 /*
 Add styles for id = 0, for QQuickText
 */
+
 QHash<const char *, QVariant> ControlStyles::AddStyleText0(){
     QHash<const char *, QVariant> style;
-
     QFont font;
     font.setPointSize(10);
     style.insert("font", QVariant::fromValue(font));
     style.insert("color", QVariant::fromValue(QString("#B0B0B0")));
-
     return style;
 }
-
 /*
 #100 Add styles
 Add styles for id = 100

@@ -38,7 +38,7 @@ SummaryModel::SummaryModel(QObject *parent)
 {
 }
 
-int SummaryModel::currentPage()
+int SummaryModel::currentPage() const
 {
     return this->m_currentPage;
 }

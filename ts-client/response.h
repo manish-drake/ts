@@ -8,7 +8,7 @@ class Response
 {
 public:
     static Response receive(zmq::socket_t&);
-    QString string();
+    QString string() const;
 private:
     Response();
     QString m_string;

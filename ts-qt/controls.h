@@ -11,7 +11,7 @@ class Controls : public QObject
     Q_OBJECT
 public:
     explicit Controls(QObject *parent = 0);
-    static ControlsAttachedType *qmlAttachedProperties(QObject *object);
+    static ControlsAttachedType *qmlAttachedProperties(QObject *object) ;
 signals:
 
 public slots:

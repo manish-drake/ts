@@ -7,9 +7,9 @@
 #include "datamanager.h"
 #include "summary.h"
 #include "testparam.h"
-#define UP_TP std::unique_ptr<TestParam>
-#define VEC_UP_TP std::vector<UP_TP>
-#define UP_VEC_UP_TP std::unique_ptr<VEC_UP_TP>
+using UP_TP = std::unique_ptr<TestParam>;
+using VEC_UP_TP = std::vector<UP_TP>;
+using UP_VEC_UP_TP = std::unique_ptr<VEC_UP_TP>;
 
 using namespace std;
 

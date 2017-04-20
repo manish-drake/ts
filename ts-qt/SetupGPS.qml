@@ -80,23 +80,28 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
-                        id:gpsSourceText
+                    Text {
                         Layout.row: 0
                         Layout.column:1
-                        Layout.minimumWidth: 50
-                        text:gpsSourceSwitch.checked ? qsTr("External"):qsTr("Internal")
-                        font.pixelSize: 14                        
+                        text: qsTr("Internal")
+                        font.pixelSize: 14
                     }
 
                     Switch { //we can use delegate switch as well for binging
                         id: gpsSourceSwitch
                         Layout.row: 0
                         Layout.column: 2
-                        Layout.fillWidth: true
                         onCheckedChanged: {
                             console.log(gpsSourceSwitch.checked)
                         }
+                    }
+
+                    Text {
+                        Layout.row: 0
+                        Layout.column:3
+                        Layout.fillWidth: true
+                        text: qsTr("External")
+                        font.pixelSize: 14
                     }
 
                     Text {
@@ -107,11 +112,10 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
-                        id:gpsFormatText
+                    Text {
                         Layout.row: 1
                         Layout.column: 1
-                        text:gpsFormatSwitch.checked ? qsTr("D.D°"):qsTr("D°M'S")
+                        text: qsTr("D°M'S")
                         font.pixelSize: 14
                     }
 
@@ -119,12 +123,17 @@ Item {
                         id: gpsFormatSwitch
                         Layout.row: 1
                         Layout.column: 2
-                        Layout.fillWidth: true
                         onCheckedChanged: {
                             console.log(gpsFormatSwitch.checked)
                         }
                     }
 
+                    Text {
+                        Layout.row: 1
+                        Layout.column: 3
+                        text: qsTr("D.D°")
+                        font.pixelSize: 14
+                    }
 
                     Text {
                         Layout.row: 2
@@ -133,11 +142,11 @@ Item {
                         font.bold: Font.Medium
                     }
 
-                    Text{
+                    Text {
                         Layout.row: 2
                         Layout.column: 1
                         id:altFormatText
-                        text:altFormatSwitch.checked ? qsTr("Meters"):qsTr("Feet")
+                        text: qsTr("Feet")
                         font.pixelSize: 14
                     }
 
@@ -145,10 +154,16 @@ Item {
                         id: altFormatSwitch
                         Layout.row: 2
                         Layout.column: 2
-                        Layout.fillWidth: true
                         onCheckedChanged: {
                             console.log(altFormatSwitch.checked)
                         }
+                    }
+
+                    Text {
+                        Layout.row: 2
+                        Layout.column: 3
+                        text: qsTr("Meters")
+                        font.pixelSize: 14
                     }
 
                     Text {
@@ -161,9 +176,9 @@ Item {
                     Text {
                         Layout.row: 3
                         Layout.column: 1
-                        Layout.columnSpan: 2
+                        Layout.columnSpan: 3
                         id: text8
-                        text: qsTr("51°30'14.11 N")
+                        text: gpsFormatSwitch.checked ? "51.50392°" : "51°30'14.11 N"
                         font.pixelSize: 14
                     }
 
@@ -177,8 +192,8 @@ Item {
                     Text {
                         Layout.row: 4
                         Layout.column: 1
-                        Layout.columnSpan: 2
-                        text: qsTr("10°7'39.45 W")
+                        Layout.columnSpan: 3
+                        text: gpsFormatSwitch.checked ? "10.12763°" : "10°7'39.45 W"
                         font.capitalization: Font.AllUppercase
                         font.pixelSize: 14
                     }
@@ -189,12 +204,19 @@ Item {
                         font.pixelSize: 14
                         font.bold: Font.Medium
                     }
+                    Timer{
+                        interval: 1000
+                        running: true
+                        repeat: true
+                        triggeredOnStart: true
+                        onTriggered: timeText.text = Qt.formatDateTime(new Date(),"hh:mm:ss")
+                    }
 
                     Text {
+                        id: timeText
                         Layout.row: 5
                         Layout.column: 1
-                        Layout.columnSpan: 2
-                        text: qsTr("09:15:45")
+                        Layout.columnSpan: 3
                         font.pixelSize: 14
                     }
 
@@ -205,11 +227,19 @@ Item {
                         font.bold: Font.Medium
                     }
 
+                    Timer{
+                        interval: 1000
+                        running: true
+                        repeat: true
+                        triggeredOnStart: true
+                        onTriggered: dateText.text = Qt.formatDateTime(new Date(),"MM/dd/yyyy")
+                    }
+
                     Text {
+                        id: dateText
                         Layout.row: 6
                         Layout.column: 1
-                        Layout.columnSpan: 2
-                        text: qsTr("03/15/2017")
+                        Layout.columnSpan: 3
                         font.pixelSize: 14
                     }
 
@@ -225,9 +255,9 @@ Item {
                     Text {
                         Layout.row: 7
                         Layout.column: 1
-                        Layout.columnSpan: 2
+                        Layout.columnSpan: 3
                         Layout.bottomMargin: 30
-                        text: qsTr("144 Ft.")
+                        text: altFormatSwitch.checked ? "%1 m".arg(144*0.3048) : "%1 Ft.".arg(144)
                         font.pixelSize: 14
                     }
 
@@ -238,12 +268,50 @@ Item {
                         font.bold: Font.Medium
                     }
 
+                    TextField {
+                        id: manualLatField
+                        Layout.row: 8
+                        Layout.column: 1
+                        Layout.columnSpan: 2
+                        visible: manualLatSwitch.checked
+                        placeholderText: "Enter Latitude"
+                        text: qsTr("40.7484")
+                        validator: DoubleValidator{}
+                        font.pixelSize: 14
+                        Layout.maximumWidth: 100
+                        clip: true
+                        onEditingFinished: manualLatSwitch.checked = false
+                    }
                     Text {
                         Layout.row: 8
                         Layout.column: 1
                         Layout.columnSpan: 2
-                        text: qsTr("40.7484° N")
+                        visible: !manualLatSwitch.checked
+                        text: "%1 ° N".arg(manualLatField.text)
                         font.pixelSize: 14
+                        Layout.maximumWidth: 100
+                        clip: true
+                        elide: Text.ElideRight
+                    }
+
+                    SwitchDelegate{
+                        id: manualLatSwitch
+                        enabled: manualLatField.acceptableInput
+                        Layout.row:8
+                        Layout.column:3
+                        spacing: 0
+                        implicitHeight: 25
+                        implicitWidth: 50
+                        checked: false
+                        indicator:Rectangle{
+                            anchors.fill: parent
+                            Text{
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: parent.checked ? "DONE" : "EDIT"
+                                color: parent.enabled ? "#387EF5" : "gray"
+                                font.pointSize: 10
+                            }
+                        }
                     }
 
                     Text {
@@ -253,15 +321,51 @@ Item {
                         font.bold: Font.Medium
                     }
 
+                    TextField {
+                        id: manualLonField
+                        Layout.row: 9
+                        Layout.column: 1
+                        Layout.columnSpan: 2
+                        visible: manualLonSwitch.checked
+                        placeholderText: "Enter Latitude"
+                        text: qsTr("73.9857")
+                        validator: DoubleValidator{}
+                        font.pixelSize: 14
+                        Layout.maximumWidth: 100
+                        clip: true
+                        onEditingFinished: manualLonSwitch.checked = false
+                    }
                     Text {
                         Layout.row: 9
                         Layout.column: 1
                         Layout.columnSpan: 2
-                        text: qsTr("73.9857° W")
-                        font.capitalization: Font.AllUppercase
+                        visible: !manualLonSwitch.checked
+                        text: "%1 ° W".arg(manualLonField.text)
                         font.pixelSize: 14
+                        Layout.maximumWidth: 100
+                        clip: true
+                        elide: Text.ElideRight
                     }
 
+                    SwitchDelegate{
+                        id: manualLonSwitch
+                        enabled: manualLonField.acceptableInput
+                        Layout.row:9
+                        Layout.column:3
+                        spacing: 0
+                        implicitHeight: 25
+                        implicitWidth: 50
+                        checked: false
+                        indicator:Rectangle{
+                            anchors.fill: parent
+                            Text{
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: parent.checked ? "DONE" : "EDIT"
+                                color: parent.enabled ? "#387EF5" : "gray"
+                                font.pointSize: 10
+                            }
+                        }
+                    }
                 }
             }
         }

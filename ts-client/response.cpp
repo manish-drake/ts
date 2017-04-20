@@ -11,9 +11,9 @@ Response Response::receive(zmq::socket_t &sock)
     return resp;
 }
 
-QString Response::string()
+QString Response::string() const
 {
-    return this->m_string;
+    return m_string;
 }
 
 Response::Response():
