@@ -1,22 +1,22 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
-import QtQuick.Controls.Universal 2.0
+import QtQuick.Controls.Universal 2.1
 
 ApplicationWindow {
+    id: appWindow
     visible: true
     width: 480
     height: 700
     title: qsTr("TS")
-    Universal.theme: Universal.Dark
-    Universal.accent: Universal.Red
     property string headerTitle: "Start"
-
+    property var _theme: Universal.Light
+    Universal.theme: _theme
     Page {
         anchors.fill: parent
 
@@ -24,8 +24,7 @@ ApplicationWindow {
 
         contentItem: Rectangle {
             id:contentRect
-            color: "#f4f4f4"
-
+            color: Universal.theme == Universal.Dark ? "#444444" : "#f4f4f4"
             Loader {
                 id:contentLoader
                 anchors.fill: parent

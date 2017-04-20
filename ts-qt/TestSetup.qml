@@ -1,18 +1,21 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
+import QtGraphicalEffects 1.0
 
 Item {
     Rectangle{
         anchors.fill: parent
+        color: "transparent"
         Page{
             anchors.fill: parent
             header: Rectangle{
                 id:testHeaderRect
                 height: 60
                 width: parent.width
-                color:"transparent"
+                color: Universal.background
                 Image {
                     id: viewImage
                     anchors.verticalCenter: parent.verticalCenter
@@ -20,6 +23,11 @@ Item {
                     anchors.leftMargin: 10
                     anchors.bottomMargin: 20
                     source: "qrc:/img/img/Settings-25.png"
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.foreground
+                    }
                 }
                 Column{
                     anchors.verticalCenter: parent.verticalCenter
@@ -30,6 +38,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
+                        color: Universal.foreground
                     }
                     Text {
                         text: "SETUP"
@@ -37,228 +46,275 @@ Item {
                         anchors.topMargin: 40
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
-
+                        color: Universal.foreground
                     }
                 }
             }
 
-            contentItem: Column{
-                id:colSetup
-                spacing: 10
-
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Power"
+            contentItem:Rectangle{
+                color: Universal.background
+                Flickable {
+                    width: parent.width;
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    contentWidth: parent.width;
+                    contentHeight: content.height + content.y + 10
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    Column{
+                        id: content
+                        y: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: 20
+                        spacing: 20
+                        Rectangle {
+                            height: 20
                             anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage1
-                            width:15
-                            height: 15
                             anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            powerSliderRect.visible = !powerSliderRect.visible
-                            if(powerSliderRect.visible){
-                                arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
-                            }else{
-                                arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
+                            color: "transparent"
+                            Text{
+                                text:"Power"
+                                font.pixelSize: 14
+                                color: Universal.foreground
                             }
-                        }
-                    }
-                }
-                Rectangle {
-                    id:powerSliderRect
-                    visible:false
-                    height: 30
-                    width:colSetup.width
-                    color: "transparent"
-                        Slider {
-                            id: slider
-                            anchors.left: parent.left
-                            anchors.leftMargin: 20
-                            anchors.right: slidervaluerect.left
-                            anchors.rightMargin: 20
-                            minimumValue: -70
-                            maximumValue: 17
-                            stepSize: 1
-                            value:-39.9
-                            updateValueWhileDragging: true
-                            onValueChanged: {
-                                console.log(slider.value)
+                            Image {
+                                id: arrowImage1
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
                             }
-                        }
-                        Rectangle{
-                            id:slidervaluerect
-                            anchors.right: parent.right
-                            anchors.rightMargin: 50
-                            Row{
+                            MouseArea {
                                 anchors.fill: parent
-
-                                Text{
-                                    text:slider.value
-                                    font.pixelSize: 14
-                                    color:"#377DF3"
-                                }
-                                Text{
-                                    text:"dB"
-                                    font.pixelSize: 14
-                                    color:"#377DF3"
+                                onClicked: {
+                                    powerSliderRect.visible = !powerSliderRect.visible
+                                    if(powerSliderRect.visible){
+                                        arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                    }else{
+                                        arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    }
                                 }
                             }
                         }
-                }
+                        Rectangle {
+                            id:powerSliderRect
+                            visible:false
+                            height: 30
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: "transparent"
+                            Slider {
+                                id: slider
+                                anchors.left: parent.left
+                                anchors.leftMargin: 20
+                                anchors.right: slidervaluerect.left
+                                anchors.rightMargin: 20
+                                minimumValue: -70
+                                maximumValue: 17
+                                stepSize: 1
+                                value:-39.9
+                                updateValueWhileDragging: true
+                                onValueChanged: {
+                                    console.log(slider.value)
+                                }
+                            }
+                            Rectangle{
+                                id:slidervaluerect
+                                anchors.right: parent.right
+                                anchors.rightMargin: 50
+                                Row{
+                                    anchors.fill: parent
 
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Distance"
-                            anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
+                                    Text{
+                                        text:slider.value
+                                        font.pixelSize: 14
+                                        color: Universal.foreground
+                                    }
+                                    Text{
+                                        text:"dB"
+                                        font.pixelSize: 14
+                                        color: Universal.foreground
+                                    }
+                                }
+                            }
                         }
-                        Image {
-                            id: arrowImage2
-                            width:15
-                            height: 15
-                            anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Flight-line"
-                            anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage3
-                            width:15
-                            height: 15
-                            anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
 
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Delay"
+                        Rectangle {
+                            height: 20
                             anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage4
-                            width: 15
-                            height: 15
                             anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Cable Loss"
+                            color: "transparent"
+                            Text{
+                                text:"Distance"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage2
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
+                        Rectangle {
+                            height: 20
                             anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage5
-                            width:15
-                            height: 15
                             anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"PIN Time"
-                            anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
+                            color: "transparent"
+                            Text{
+                                text:"Flight-line"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage3
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
                         }
-                        Image {
-                            id: arrowImage6
-                            width:15
-                            height: 15
-                            anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
 
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Lat"
+                        Rectangle {
+                            height: 20
                             anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage7
-                            width:15
-                            height: 15
                             anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                    }
-                }
-                Rectangle {
-                    height: 20
-                    width:colSetup.width
-                    color: "transparent"
-                        Text{
-                            text:"Lon"
+                            color: "transparent"
+                            Text{
+                                text:"Delay"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage4
+                                width: 15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
+                        Rectangle {
+                            height: 20
                             anchors.left: parent.left
-                            anchors.leftMargin:20
-                            font.pixelSize: 14
-                            color:"#377DF3"
-                        }
-                        Image {
-                            id: arrowImage8
-                            width:15
-                            height: 15
                             anchors.right: parent.right
-                            anchors.rightMargin: 10
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            color: "transparent"
+                            Text{
+                                text:"Cable Loss"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage5
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
+                        Rectangle {
+                            height: 20
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: "transparent"
+                            Text{
+                                text:"PIN Time"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage6
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
+
+                        Rectangle {
+                            height: 20
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: "transparent"
+                            Text{
+                                text:"Lat"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage7
+                                width:15
+                                height: 15
+                                anchors.right: parent.right
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
+                        Rectangle {
+                            height: 20
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            color: "transparent"
+                            Text{
+                                text:"Lon"
+                                anchors.left: parent.left
+                                font.pixelSize: 14
+                                color: Universal.foreground
+                            }
+                            Image {
+                                id: arrowImage8
+                                width:15
+                                height: 15
+                                anchors.right: parent.rightr
+                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                ColorOverlay{
+                                    anchors.fill: parent
+                                    source: parent
+                                    color: Universal.foreground
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -266,7 +322,7 @@ Item {
             footer:Rectangle{
                 height: 40
                 width: parent.width
-                color:"transparent"
+                color: Universal.background
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
@@ -274,6 +330,7 @@ Item {
                     text: "CLOSE"
                     font.pointSize: 12
                     font.weight: Font.DemiBold
+                    color: Universal.foreground
                     MouseArea {
                         anchors.fill: parent
                         onClicked: testSetupPopup.close()

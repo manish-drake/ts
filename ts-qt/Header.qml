@@ -1,8 +1,17 @@
 import QtQuick 2.0
+import QtQuick.Controls.Universal 2.1
+import QtGraphicalEffects 1.0
 
 Rectangle {
+    id: content
     height: 50
-    color: "#377DF3"
+    color: Universal.accent
+    ColorOverlay{
+        anchors.fill: content
+        source: content
+        color: "#33000000"
+        visible: Universal.theme == Universal.Dark
+    }
 
     Rectangle {
         id: toggleMenu

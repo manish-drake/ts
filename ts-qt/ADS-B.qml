@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 
 
 Item{
@@ -15,12 +16,19 @@ Item{
         model: testModel
         delegate: testCardDelegate
         focus: true
+        highlight:Rectangle{
+            color: "transparent"
+            border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+            border.width: 1
+            radius:5
+        }
         Component{
             id: testCardDelegate
             Rectangle {
                 id: wrapper
                 width: grid.cellWidth - 10
                 height: grid.cellHeight -10
+                color: Universal.background
                 border.color: "#0d000000"
                 border.width: 1
                 radius: 5
@@ -67,7 +75,7 @@ Item{
                                 ColorOverlay {
                                     anchors.fill: guideImage
                                     source: guideImage
-                                    color: "#377DF3"
+                                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
                                 }
                                 MouseArea {
                                     anchors.fill: parent
@@ -90,7 +98,7 @@ Item{
                                 ColorOverlay {
                                     anchors.fill: saveImage
                                     source: saveImage
-                                    color: "#377DF3"
+                                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
                                 }
                                 MouseArea {
                                     anchors.fill: parent
@@ -145,6 +153,8 @@ Item{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: "7"
                                     font.pointSize: 10
+                                    color: "#666666"
+                                    font.bold: true
                                 }
                             }
                         }
@@ -162,6 +172,7 @@ Item{
                             font.pointSize: 12
                             font.weight: Font.DemiBold
                             clip:true
+                            color: Universal.foreground
                         }
                     }
                     Rectangle{
@@ -176,17 +187,12 @@ Item{
                             elide:Text.ElideRight
                             text: "RECENT TEST RESULTS"
                             font.pointSize: 10
-                            color: "Gray"
+                            color: Universal.foreground
+                            opacity: 0.8
                         }
                     }
                 }
             }
-        }
-        highlight:Rectangle{
-            color: "transparent"
-            border.color: "#377DF3"
-            border.width: 1
-            radius:5
         }
     }
 

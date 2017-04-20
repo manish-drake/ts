@@ -1,12 +1,13 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.1
-
+import QtQuick.Controls.Universal 2.1
+import QtGraphicalEffects 1.0
 
 Rectangle{
     id:itemOption
     height: 50
     width: parent.width
-    color: "#00000000"
+    color: "transparent"
     property alias source: image.source
     property alias text: switchDelegate.text
 
@@ -27,6 +28,11 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
             }
+            ColorOverlay{
+                anchors.fill: image
+                source: image
+                color: Universal.foreground
+            }
         }
         contentItem: Text {
             rightPadding: parent.spacing
@@ -38,6 +44,7 @@ Rectangle{
             verticalAlignment: Text.AlignVCenter
             anchors.left:parent.indicator.right
             anchors.leftMargin: 10
+            color: Universal.foreground
         }
     }
 }

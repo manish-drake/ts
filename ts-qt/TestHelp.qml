@@ -1,6 +1,8 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
+import QtGraphicalEffects 1.0
 
 Item {
     Rectangle{
@@ -11,7 +13,7 @@ Item {
                 id:testHeaderRect
                 height: 60
                 width: parent.width
-                color:"transparent"
+                color: Universal.background
                 Image {
                     id: viewImage
                     anchors.verticalCenter: parent.verticalCenter
@@ -20,6 +22,12 @@ Item {
                     anchors.bottomMargin: 20
                     source: "qrc:/img/img/Help Filled-25.png"
                 }
+                ColorOverlay{
+                    anchors.fill: viewImage
+                    source: viewImage
+                    color: Universal.foreground
+                }
+
                 Column{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -29,6 +37,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
+                        color: Universal.foreground
                     }
                     Text {
                         text: "HELP"
@@ -36,26 +45,44 @@ Item {
                         anchors.topMargin: 40
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter
-
+                        color: Universal.foreground
                     }
                 }
             }
 
-
-            contentItem:
+            contentItem: Rectangle {
+                color: Universal.background
+                Flickable {
+                    width: parent.width;
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    contentWidth: parent.width;
+                    contentHeight: content.height + content.y + 10
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
                     Column{
+                        id: content
+                        y: 10
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.margins: 20
                         spacing: 20
-                        anchors.horizontalCenter: parent.horizontalCenter
                         Image {
+                            id: planeImage
                             anchors.horizontalCenter: parent.horizontalCenter
                             source: "qrc:/img/img/aeroplane.png"
+                            ColorOverlay{
+                                anchors.fill: planeImage
+                                source: planeImage
+                                color: Universal.foreground
+                            }
                         }
-
                         Text{
                             font.pixelSize: 14
                             anchors.horizontalCenter: parent.horizontalCenter
                             font.wordSpacing: 5
                             horizontalAlignment: Text.AlignHCenter
+                            color: Universal.foreground
                             text:"<p> Lorem ipsum dolor sit amet, consectetur<br>
                               adipiscing elit. Fusce vel felis justo. Nam<br>
                               consectetur auctor lorem non<br>
@@ -66,11 +93,13 @@ Item {
                               gravida non.<p/>"
                         }
                     }
+                }
+            }
 
             footer:Rectangle{
                 height: 40
                 width: parent.width
-                color:"transparent"
+                color: Universal.background
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.right: parent.right
@@ -78,6 +107,7 @@ Item {
                     text: "CLOSE"
                     font.pointSize: 12
                     font.weight: Font.DemiBold
+                    color: Universal.foreground
                     MouseArea {
                         anchors.fill: parent
                         onClicked: helpPopup.close()

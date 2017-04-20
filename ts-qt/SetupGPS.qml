@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
@@ -9,6 +10,7 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -36,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -44,9 +47,15 @@ Item {
                     anchors.right: parent.right
                     color:"transparent"
                     Image {
+                        id: closeImage
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                    }
+                    ColorOverlay{
+                        anchors.fill: closeImage
+                        source: closeImage
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -78,6 +87,7 @@ Item {
                         text: qsTr("GPS SOURCE:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -85,6 +95,7 @@ Item {
                         Layout.column:1
                         text: qsTr("Internal")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Switch { //we can use delegate switch as well for binging
@@ -102,6 +113,7 @@ Item {
                         Layout.fillWidth: true
                         text: qsTr("External")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -110,6 +122,7 @@ Item {
                         text: qsTr("GPS FORMAT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -117,6 +130,7 @@ Item {
                         Layout.column: 1
                         text: qsTr("D°M'S")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Switch { //we can use delegate switch as well for binging
@@ -133,6 +147,7 @@ Item {
                         Layout.column: 3
                         text: qsTr("D.D°")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -140,6 +155,7 @@ Item {
                         text: qsTr("ALT FORMAT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -148,6 +164,7 @@ Item {
                         id:altFormatText
                         text: qsTr("Feet")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Switch { //we can use delegate switch as well for binging
@@ -164,6 +181,7 @@ Item {
                         Layout.column: 3
                         text: qsTr("Meters")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -171,6 +189,7 @@ Item {
                         text: qsTr("CURRENT LAT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -180,6 +199,7 @@ Item {
                         id: text8
                         text: gpsFormatSwitch.checked ? "51.50392°" : "51°30'14.11 N"
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -187,6 +207,7 @@ Item {
                         text: qsTr("CURRENT LON:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -196,6 +217,7 @@ Item {
                         text: gpsFormatSwitch.checked ? "10.12763°" : "10°7'39.45 W"
                         font.capitalization: Font.AllUppercase
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -203,6 +225,7 @@ Item {
                         text: qsTr("CURRENT TIME:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Timer{
                         interval: 1000
@@ -218,6 +241,7 @@ Item {
                         Layout.column: 1
                         Layout.columnSpan: 3
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -225,6 +249,7 @@ Item {
                         text: qsTr("CURRENT DATE:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Timer{
@@ -241,6 +266,7 @@ Item {
                         Layout.column: 1
                         Layout.columnSpan: 3
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -249,7 +275,7 @@ Item {
                         text: qsTr("CURRENT ALT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
-
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -259,6 +285,7 @@ Item {
                         Layout.bottomMargin: 30
                         text: altFormatSwitch.checked ? "%1 m".arg(144*0.3048) : "%1 Ft.".arg(144)
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -266,6 +293,7 @@ Item {
                         text: qsTr("MANUAL LAT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     TextField {
@@ -292,6 +320,7 @@ Item {
                         Layout.maximumWidth: 100
                         clip: true
                         elide: Text.ElideRight
+                        color: Universal.foreground
                     }
 
                     SwitchDelegate{
@@ -305,6 +334,7 @@ Item {
                         checked: false
                         indicator:Rectangle{
                             anchors.fill: parent
+                            color: Universal.background
                             Text{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: parent.checked ? "DONE" : "EDIT"
@@ -319,6 +349,7 @@ Item {
                         text: qsTr("MANUAL LON:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     TextField {
@@ -345,6 +376,7 @@ Item {
                         Layout.maximumWidth: 100
                         clip: true
                         elide: Text.ElideRight
+                        color: Universal.foreground
                     }
 
                     SwitchDelegate{
@@ -358,6 +390,7 @@ Item {
                         checked: false
                         indicator:Rectangle{
                             anchors.fill: parent
+                            color: Universal.background
                             Text{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: parent.checked ? "DONE" : "EDIT"

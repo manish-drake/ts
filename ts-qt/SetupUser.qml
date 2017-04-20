@@ -1,5 +1,6 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
@@ -17,6 +18,7 @@ Item{
             font.pixelSize: 14
             font.weight: Font.DemiBold
             clip:true
+            color: Universal.foreground
         }
         Rectangle{
             id: rectangle
@@ -25,9 +27,15 @@ Item{
             anchors.right: parent.right
             color:"transparent"
             Image {
+                id: closeImage
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 source: "qrc:/img/img/Delete-25.png"
+            }
+            ColorOverlay{
+                anchors.fill: closeImage
+                source: closeImage
+                color: Universal.foreground
             }
             MouseArea {
                 anchors.fill: parent
@@ -58,7 +66,7 @@ Item{
             focus: true
             highlight:Rectangle{
                 color: "transparent"
-                border.color: "#377DF3"
+                border.color: Universal.accent
                 border.width: 1
                 radius:5
             }
@@ -68,6 +76,7 @@ Item{
                     id: wrapper
                     width: userGridView.cellWidth - 10
                     height: userGridView.cellHeight -10
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -97,6 +106,7 @@ Item{
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     Row {
                         anchors.bottom: parent.bottom
@@ -106,12 +116,13 @@ Item{
                         Text {
                             font.pointSize: 10
                             text: qsTr("LANGUAGE: ")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr(language)
+                            color: Universal.foreground
                         }
-
                     }
                 }
             }
@@ -158,7 +169,7 @@ Item{
         height: 40
         width: 40
         radius: width*0.5
-        color: "#377DF3"
+        color: Universal.accent
         layer.enabled: true
         layer.effect: DropShadow {
             transparentBorder: true

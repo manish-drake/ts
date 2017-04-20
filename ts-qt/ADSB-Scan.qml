@@ -1,13 +1,12 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
-import QtQuick 2.7
-
-
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 
 Rectangle{
     anchors.fill: parent
+    color: "transparent"
     border.color: "#0d000000"
     border.width: 1
     radius:5
@@ -24,15 +23,15 @@ Rectangle{
         color: "#0d000000"
         spread: 0
     }
+
     Page {
         id: item1
         anchors.fill: parent
-
         header: Rectangle{
             id:testHeaderRect
             height: 40
             width: parent.width
-            color:"transparent"
+            color: Universal.background
             Rectangle{
                 id: rectangle1
                 anchors.margins: 10
@@ -48,6 +47,11 @@ Rectangle{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Radar-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: viewImage
+                    source: viewImage
+                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -65,17 +69,21 @@ Rectangle{
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
-
+                    color: Universal.foreground
                 }
                 PageIndicator {
                     id: pageIndicator
                     anchors.horizontalCenter: parent.horizontalCenter
                     count: 7
                     currentIndex: summaryModel.currentPage
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.foreground
+                        visible: Universal.theme == Universal.Dark
+                    }
                 }
             }
-
-
 
             Rectangle{
                 id: rectangle
@@ -87,9 +95,15 @@ Rectangle{
                 anchors.right: parent.right
                 color:"transparent"
                 Image {
+                    id: closeImage
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage
+                    source: closeImage
+                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -102,22 +116,20 @@ Rectangle{
 
         contentItem: Rectangle{
             id:scanResults
-            anchors.top: Header.bottom
-            anchors.bottom: Footer.top
-            color: "transparent"
+            color: Universal.background
             ListView{
                 id: aircraftListView
                 currentIndex: -1
                 anchors.fill:parent
-                model:zmq.scanResults
-                //model: aircraftModel
+                //model:zmq.scanResults
+                model: aircraftModel
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
                 clip: true
                 highlight:Rectangle{
                     color:"transparent"
-                    border.color: "#377DF3"
+                    border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
                     border.width: 1
                     radius:5
                 }
@@ -177,12 +189,13 @@ Rectangle{
             id:testFooterRect
             height: 50
             width: parent.width
+            color: Universal.background
             Text{
                 text:"< PREVIOUS"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 anchors.leftMargin: 10
-                color: "#387EF5"
+                color: Universal.foreground
                 font.pointSize: 10
                 MouseArea {
                     anchors.fill: parent
@@ -271,7 +284,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 10
-                color: "#387EF5"
+                color: Universal.foreground
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{

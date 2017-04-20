@@ -1,14 +1,16 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Universal 2.1
 
 Item {
     Rectangle{
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -36,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -44,9 +47,15 @@ Item {
                     anchors.right: parent.right
                     color:"transparent"
                     Image {
+                        id: closeImage
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                    }
+                    ColorOverlay{
+                        anchors.fill: closeImage
+                        source: closeImage
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -80,12 +89,14 @@ Item {
                         text: qsTr("CPU:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 0
                         Layout.column: 1
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -94,12 +105,14 @@ Item {
                         text: qsTr("CALIBRATION:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 0
                         Layout.column: 3
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -108,12 +121,14 @@ Item {
                         text: qsTr("DSP:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 1
                         Layout.column: 1
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -122,12 +137,14 @@ Item {
                         text: qsTr("RTC:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 1
                         Layout.column: 3
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -136,12 +153,14 @@ Item {
                         text: qsTr("FPGA:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 1
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -150,12 +169,14 @@ Item {
                         text: qsTr("POWER:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 3
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
 
@@ -165,12 +186,14 @@ Item {
                         text: qsTr("MEMORY:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 3
                         Layout.column: 1
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -185,6 +208,7 @@ Item {
                         Layout.column: 3
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -193,12 +217,14 @@ Item {
                         text: qsTr("RF PATH:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 4
                         Layout.column: 1
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -207,12 +233,14 @@ Item {
                         text: qsTr("ETC:")
                         font.pixelSize: 12
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 4
                         Layout.column: 3
                         text: qsTr("PASS")
                         font.pixelSize: 12
+                        color: Universal.foreground
                     }
 
                 }

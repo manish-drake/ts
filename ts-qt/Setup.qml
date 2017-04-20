@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Universal 2.1
 
 Item {
     anchors.fill: parent
@@ -24,6 +25,7 @@ Item {
                     anchors.fill: parent
                     anchors.margins: 5
                     clip: true
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -44,6 +46,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -53,10 +56,12 @@ Item {
                         Text {
                             font.pointSize: 10
                             text: qsTr("Current User: Operator")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Language: English")
+                            color: Universal.foreground
                         }
 
                     }
@@ -75,6 +80,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -95,6 +101,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -104,10 +111,12 @@ Item {
                         Text {
                             font.pointSize: 10
                             text: qsTr("Current Theme: Indoor")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Brightness: 5/10")
+                            color: Universal.foreground
                         }
 
                     }
@@ -126,6 +135,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -146,6 +156,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -155,14 +166,17 @@ Item {
                         Text {
                             font.pointSize: 10
                             text: qsTr("Current Source: Internal")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Current Lat: 40° 43' 50.1960'' N")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Current Lon: 73° 56' 6.8712'' W")
+                            color: Universal.foreground
                         }
 
                     }
@@ -181,6 +195,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -201,6 +216,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -210,14 +226,17 @@ Item {
                         Text {
                             font.pointSize: 10
                             text: qsTr("WiFi Enabled: Yes")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Allow local access: No")
+                            color: Universal.foreground
                         }
                         Text {
                             font.pointSize: 10
                             text: qsTr("Allow remote access: No")
+                            color: Universal.foreground
                         }
 
                     }
@@ -236,6 +255,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -256,6 +276,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -272,6 +293,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -292,6 +314,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -308,6 +331,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
+                    color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 5
@@ -327,6 +351,7 @@ Item {
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         clip:true
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent

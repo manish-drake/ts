@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
@@ -9,6 +10,7 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -36,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -44,9 +47,15 @@ Item {
                     anchors.right: parent.right
                     color:"transparent"
                     Image {
+                        id: closeImage
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                    }
+                    ColorOverlay{
+                        anchors.fill: closeImage
+                        source: closeImage
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -78,12 +87,14 @@ Item {
                         text: qsTr("SERIAL NUMBER:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
                         Layout.column: 1
                         text: qsTr("14986A")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -91,6 +102,7 @@ Item {
                         text: qsTr("SOFTWARE RELEASE:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -99,6 +111,7 @@ Item {
                         text: qsTr("7885")
                         renderType: Text.NativeRendering
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -106,12 +119,14 @@ Item {
                         text: qsTr("CAUBRATION DUE:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 2
                         Layout.column: 1
                         text: qsTr("06/15/2018")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -120,6 +135,7 @@ Item {
                         text: qsTr("WARRANTY EXPIRATION:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 3
@@ -127,6 +143,7 @@ Item {
                         text: qsTr("03/22/2020")
                         Layout.bottomMargin: 30
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -135,6 +152,7 @@ Item {
                         font.underline: true
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 4
@@ -143,6 +161,7 @@ Item {
                         font.underline: true
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 4
@@ -151,24 +170,28 @@ Item {
                         font.underline: true
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 5
                         text: qsTr("TRANSPONDER:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 5
                         Layout.column: 1
                         text: qsTr("AlR9876345")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 5
                         Layout.column: 2
                         text: qsTr("2/15/2017")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -176,30 +199,35 @@ Item {
                         text: qsTr("NAV:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 6
                         Layout.column: 1
                         text: qsTr("8vC9876348")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 6
                         Layout.column: 2
                         text: qsTr("3/14/2017")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 7
                         text: qsTr("SECURE COMM:")
                         font.pixelSize: 14
                         font.bold:Font.Medium
+                        color: Universal.foreground
                     }
                     Text {
                         Layout.row: 7
                         Layout.column: 1
                         text: qsTr("A1TFD76349")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -207,6 +235,7 @@ Item {
                         Layout.column: 2
                         text: qsTr("4/18/2018")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
                 }
             }

@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQml 2.2
+import QtQuick.Controls.Universal 2.1
+import QtGraphicalEffects 1.0
 
 Rectangle {
     id: rectangle4
     height: 50
-    color: "#EEEEEE"
+    color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
 
     Rectangle{
         id: rect1
@@ -19,6 +21,7 @@ Rectangle {
             font.pointSize: 10
             text: "Operator"
             elide: Text.ElideRight
+            color: Universal.foreground
         }
     }
 
@@ -36,6 +39,7 @@ Rectangle {
             font.pointSize: 10
             text: "TestSet#5"
             elide: Text.ElideRight
+            color: Universal.foreground
         }
     }
 
@@ -56,12 +60,18 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 source: "qrc:/img/img/Network Cable-25.png"
             }
+            ColorOverlay{
+                anchors.fill: directImage
+                source: directImage
+                color: Universal.foreground
+            }
 
             Text{
                 text:"Direct"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 Layout.row: 1
                 elide: Text.ElideRight
+                color: Universal.foreground
             }
 
             Image {
@@ -69,7 +79,12 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 fillMode: Image.Stretch
                 Layout.column: 1
-                source: "qrc:/img/img/battery.png"
+                source: "qrc:/img/img/Full Battery-25.png"
+            }
+            ColorOverlay{
+                anchors.fill: imageBattery
+                source: imageBattery
+                color: Universal.foreground
             }
 
             Text{
@@ -78,6 +93,7 @@ Rectangle {
                 Layout.column: 1
                 Layout.row: 1
                 elide: Text.ElideRight
+                color: Universal.foreground
             }
 
             Image {
@@ -86,6 +102,11 @@ Rectangle {
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 source: "qrc:/img/img/wifi-signal-waves.png"
             }
+            ColorOverlay{
+                anchors.fill: wifiImage
+                source: wifiImage
+                color: Universal.foreground
+            }
 
             Text{
                 Layout.column: 2
@@ -93,6 +114,7 @@ Rectangle {
                 text:"Wifi"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 elide: Text.ElideRight
+                color: Universal.foreground
             }
 
             Timer{
@@ -110,6 +132,7 @@ Rectangle {
                 font.pixelSize: 12
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 elide: Text.ElideRight
+                color: Universal.foreground
             }
 
             Timer{
@@ -126,6 +149,7 @@ Rectangle {
                 Layout.row: 1
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 elide: Text.ElideRight
+                color: Universal.foreground
             }
         }
     }

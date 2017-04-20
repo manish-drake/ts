@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
@@ -9,6 +10,7 @@ Item {
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -34,6 +36,7 @@ Item {
                 font.pointSize: 13
                 font.weight: Font.DemiBold
                 clip:true
+                color: Universal.foreground
             }
             Rectangle{
                 id: rectangle
@@ -42,9 +45,15 @@ Item {
                 anchors.right: parent.right
                 color:"transparent"
                 Image {
+                    id: closeImage
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage
+                    source: closeImage
+                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -77,12 +86,14 @@ Item {
                     text: qsTr("ENABlE Wi-Fi:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 Text{
                     Layout.column:1
                     text: qsTr("No")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Switch { //we can use delegate switch as well for binging
@@ -98,6 +109,7 @@ Item {
                     Layout.fillWidth: true
                     text: qsTr("Yes")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -105,6 +117,7 @@ Item {
                     text: qsTr("ENABLE REMOTE:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 Text{
@@ -112,6 +125,7 @@ Item {
                     Layout.column:1
                     text: qsTr("No")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Switch { //we can use delegate switch as well for binging
@@ -128,6 +142,7 @@ Item {
                     Layout.column:3
                     text: qsTr("Yes")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -135,6 +150,7 @@ Item {
                     text: qsTr("Wi-Fi DIRECT:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 Text{
@@ -142,6 +158,7 @@ Item {
                     Layout.column:1
                     text: qsTr("No")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Switch { //we can use delegate switch as well for binging
@@ -158,6 +175,7 @@ Item {
                     Layout.column:3
                     text: qsTr("Yes")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -165,6 +183,7 @@ Item {
                     text: qsTr("DHCP:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 Text{
@@ -172,6 +191,7 @@ Item {
                     Layout.column:1
                     text: qsTr("No")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Switch { //we can use delegate switch as well for binging
@@ -188,6 +208,7 @@ Item {
                     Layout.column:3
                     text: qsTr("Yes")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -196,6 +217,7 @@ Item {
                     text: qsTr("IP ADDRESS:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -205,6 +227,7 @@ Item {
                     Layout.bottomMargin: 30
                     text: qsTr("192.168 10.196")
                     font.pixelSize: 14
+                    color: Universal.foreground
                 }
 
                 Text {
@@ -212,6 +235,7 @@ Item {
                     text: qsTr("MANUAL IP ADDRESS:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 TextField {
@@ -240,6 +264,7 @@ Item {
                     Layout.maximumWidth: 100
                     clip: true
                     elide: Text.ElideRight
+                    color: Universal.foreground
                 }
 
                 SwitchDelegate{
@@ -253,6 +278,7 @@ Item {
                     checked: false
                     indicator: Rectangle{
                         anchors.fill: parent
+                        color: Universal.background
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
                             text: editIPAddSwitch.checked ? "DONE" : "EDIT"
@@ -267,6 +293,7 @@ Item {
                     text: qsTr("DEVICE NAME:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    color: Universal.foreground
                 }
 
                 TextField {
@@ -293,6 +320,7 @@ Item {
                     Layout.maximumWidth: 100
                     clip: true
                     elide: Text.ElideRight
+                    color: Universal.foreground
                 }
 
                 SwitchDelegate{
@@ -306,6 +334,7 @@ Item {
                     checked: false
                     indicator:Rectangle{
                         anchors.fill: parent
+                        color: Universal.background
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
                             text: editDNameSwitch.checked ? "DONE" : "EDIT"

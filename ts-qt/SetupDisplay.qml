@@ -1,14 +1,16 @@
 import QtQuick 2.7
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Universal 2.1
 
 Item {
     Rectangle{
         anchors.fill: parent
         anchors.margins: 10
         clip: true
+        color: Universal.background
         border.color: "#0d000000"
         border.width: 1
         radius: 5
@@ -36,6 +38,7 @@ Item {
                     font.pointSize: 13
                     font.weight: Font.DemiBold
                     clip:true
+                    color: Universal.foreground
                 }
                 Rectangle{
                     id: rectangle
@@ -44,9 +47,15 @@ Item {
                     anchors.right: parent.right
                     color:"transparent"
                     Image {
+                        id: closeImage
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Delete-25.png"
+                    }
+                    ColorOverlay{
+                        anchors.fill: closeImage
+                        source: closeImage
+                        color: Universal.foreground
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -81,30 +90,37 @@ Item {
                         text: qsTr("THEME:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text{
-                        id:switchText
                         Layout.row: 0
                         Layout.column: 1
-                        Layout.minimumWidth: 60
-                        text:switch1.checked ? qsTr("Outdoor"):qsTr("Indoor")
+                        text: qsTr("Indoor")
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Row{
                         Layout.row: 0
                         Layout.column: 2
                         Layout.fillHeight: true
-                        Layout.fillWidth: true
-
                         Switch { //we can use delegate switch as well for binging
                             id: switch1
-                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.verticalCenter: parent.verticalCenter                            
                             onCheckedChanged: {
-                                console.log(switch1.checked)
+                                console.log(switch1.checked)                                
                             }
                         }
+                    }
+
+                    Text{
+                        Layout.row: 0
+                        Layout.column: 3
+                        Layout.fillWidth: true
+                        text: qsTr("Outdoor")
+                        font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Text {
@@ -114,6 +130,7 @@ Item {
                         text: qsTr("BRIGHTNESS:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        color: Universal.foreground
                     }
 
                     Text{
@@ -121,11 +138,13 @@ Item {
                         Layout.column: 1
                         text: slider.value
                         font.pixelSize: 14
+                        color: Universal.foreground
                     }
 
                     Row{
                         Layout.row: 1
                         Layout.column: 2
+                        Layout.columnSpan: 2
                         Layout.fillHeight: true
                         Layout.fillWidth: true
 
@@ -134,7 +153,8 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             text: slider.minimumValue
                             font.pixelSize: 14
-                            color:"gray"
+                            color: Universal.foreground
+                            opacity: 0.8
                             rightPadding: 10
                         }
 
@@ -158,7 +178,8 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             text: slider.maximumValue
                             font.pixelSize: 14
-                            color:"gray"
+                            color: Universal.foreground
+                            opacity: 0.8
                             leftPadding: 10
                         }
                     }
