@@ -614,10 +614,10 @@ int DataBuilder::build()
     TestParam tpAirVeh7Add("address", sumAirVeh7.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh7Add);
 
-    TestParam tpAirVeh7FId("qualifier", sumAirVeh7.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh7FId("qualifier", sumAirVeh7.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh7FId);
 
-    TestParam tpAirVeh7RfLvl("rfLvl", sumAirVeh7.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh7RfLvl("rfLvl", sumAirVeh7.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh7RfLvl);
 
     TestParam tpAirVeh7Bds("payloads-Rcvd", sumAirVeh7.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
@@ -629,16 +629,16 @@ int DataBuilder::build()
     Summary sumAvInfo3("Aircraft/Vehicle info:", adsbOutUat.id(), 0, 2, 2);
     sumModel.addSummary(sumAvInfo3);
 
-    TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", 0, 0, 0, 0, 100);
+    TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpAvInfo3fid);
 
-    TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "__ (__________)", "", 0, 1, 0, 0, 100);
+    TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "__ (__________)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpAvInfo3csid);
 
-    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______) ", "", 1, 0, 0, 0, 100);
+    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______) ", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAvInfo3ect);
 
-    TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "_____", "", 1, 1, 0, 0, 100);
+    TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "_____", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAvInfo3acode);
 
     TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "_ (________)", "", 2, 0, 1, 2, 100);
@@ -647,10 +647,10 @@ int DataBuilder::build()
     Summary sumCCodes("Capability Codes:", adsbOutUat.id(), 0, 3, 2);
     sumModel.addSummary(sumCCodes);
 
-    TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", 0, 0, 0, 0, 100);
+    TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpCCodesuin);
 
-    TestParam tpCCodestOp("tcas-Op", sumCCodes.id(), "TCAS Op", "_ (_)", "", 0, 1, 0, 0, 100);
+    TestParam tpCCodestOp("tcas-Op", sumCCodes.id(), "TCAS Op", "_ (_)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpCCodestOp);
 
     TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "_ (_)", "", 1, 0, 1, 2, 100);
@@ -659,10 +659,10 @@ int DataBuilder::build()
     Summary sumOModes("Operational Modes:", adsbOutUat.id(), 0, 4, 2);
     sumModel.addSummary(sumOModes);
 
-    TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", 0, 0, 0, 0, 100);
+    TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpOModesAtcS);
 
-    TestParam tpOModesidt("ident", sumOModes.id(), "IDENT", "_ (_)", "", 0, 1, 0, 0, 100);
+    TestParam tpOModesidt("ident", sumOModes.id(), "IDENT", "_ (_)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpOModesidt);
 
     TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA",  "_ (_)", "", 1, 0, 1, 2, 100);
@@ -671,34 +671,34 @@ int DataBuilder::build()
     Summary sumOtherFld("Other Fields:", adsbOutUat.id(), 0, 5, 2);
     sumModel.addSummary(sumOtherFld);
 
-    TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", 0, 0, 0, 0, 100);
+    TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldnacp);
 
-    TestParam tpOtherFldtmso("transmit-MSO", sumOtherFld.id(), "Transmit MSO", "___", "", 0, 1, 0, 0, 100);
+    TestParam tpOtherFldtmso("transmit-MSO", sumOtherFld.id(), "Transmit MSO", "___", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldtmso);
 
-    TestParam tpOtherFldnacv("nacv", sumOtherFld.id(), "NACv", "__ (< __m/s)", "", 1, 0, 0, 0, 100);
+    TestParam tpOtherFldnacv("nacv", sumOtherFld.id(), "NACv", "__ (< __m/s)", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldnacv);
 
-    TestParam tpOtherFldsil("sil", sumOtherFld.id(), "SIL", "_ (< ___)", "", 1, 1, 0, 0, 100);
+    TestParam tpOtherFldsil("sil", sumOtherFld.id(), "SIL", "_ (< ___)", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldsil);
 
-    TestParam tpOtherFldsda("sda", sumOtherFld.id(), "SDA", "__", "", 2, 0, 0, 0, 100);
+    TestParam tpOtherFldsda("sda", sumOtherFld.id(), "SDA", "__", "", 2, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldsda);
 
-    TestParam tpOtherFldgva("gva", sumOtherFld.id(), "GVA", "__ (< __m)", "", 2, 1, 0, 0, 100);
+    TestParam tpOtherFldgva("gva", sumOtherFld.id(), "GVA", "__ (< __m)", "", 2, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldgva);
 
-    TestParam tpOtherFldmops("mops", sumOtherFld.id(), "MOPS", "__ (__-____)", "", 3, 0, 0, 0, 100);
+    TestParam tpOtherFldmops("mops", sumOtherFld.id(), "MOPS", "__ (__-____)", "", 3, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldmops);
 
-    TestParam tpOtherFldssup("sil-Sup", sumOtherFld.id(), "SIL Sup", "__ (_________)", "", 3, 1, 0, 0, 100);
+    TestParam tpOtherFldssup("sil-Sup", sumOtherFld.id(), "SIL Sup", "__ (_________)", "", 3, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldssup);
 
-    TestParam tpOtherFldsant("sgl-Ant", sumOtherFld.id(), "Sgl Ant", "__ (________)", "", 4, 0, 0, 0, 100);
+    TestParam tpOtherFldsant("sgl-Ant", sumOtherFld.id(), "Sgl Ant", "__ (________)", "", 4, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldsant);
 
-    TestParam tpOtherFldnbaro("nicbaro", sumOtherFld.id(), "NICbaro", "__ (_________)", "", 4, 1, 0, 0, 100);
+    TestParam tpOtherFldnbaro("nicbaro", sumOtherFld.id(), "NICbaro", "__ (_________)", "", 4, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFldnbaro);
 
     TestParam tpOtherFldnsup("nicsup", sumOtherFld.id(), "NICsup", "__", "", 5, 0, 1, 2, 100);
@@ -714,10 +714,10 @@ int DataBuilder::build()
     TestParam tpAirVeh8Add("address", sumAirVeh8.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh8Add);
 
-    TestParam tpAirVeh8FId("qualifier", sumAirVeh8.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh8FId("qualifier", sumAirVeh8.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh8FId);
 
-    TestParam tpAirVeh8RfLvl("rfLvl", sumAirVeh8.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh8RfLvl("rfLvl", sumAirVeh8.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh8RfLvl);
 
     TestParam tpAirVeh8Bds("payloads-Rcvd", sumAirVeh8.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
@@ -738,28 +738,28 @@ int DataBuilder::build()
     TestParam tpPosVel1long("longitude", sumPosVel1.id(), "Longitude", "__⁰ __ __.___", "W", 2, 0, 1, 2, 100);
     tpModel.addTestParam(tpPosVel1long);
 
-    TestParam tpPosVel1alt("altitude", sumPosVel1.id(), "Altitude", "___,_____", "ft", 3, 0, 0, 0, 100);
+    TestParam tpPosVel1alt("altitude", sumPosVel1.id(), "Altitude", "___,_____", "ft", 3, 0, 1, 1, 100);
     tpModel.addTestParam(tpPosVel1alt);
 
-    TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "__ (______)", "", 3, 1, 0, 0, 100);
+    TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "__ (______)", "", 3, 1, 1, 1, 100);
     tpModel.addTestParam(tpPosVel1typ);
 
     TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "___ kts N ___ kts W", "", 4, 0, 1, 2, 100);
     tpModel.addTestParam(tpPosVel1hv);
 
-    TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "__,____", "", 5, 0, 0, 0, 100);
+    TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "__,____", "", 5, 0, 1, 1, 100);
     tpModel.addTestParam(tpPosVel1trh);
 
-    TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", 5, 1, 0, 0, 100);
+    TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", 5, 1, 1, 1, 100);
     tpModel.addTestParam(tpPosVel1src);
 
     Summary sumOtherFld1("Other Fields:", adsbOutUat.id(), 1, 3, 2);
     sumModel.addSummary(sumOtherFld1);
 
-    TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", 0, 0, 0, 0, 100);
+    TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFld1Nic);
 
-    TestParam tpOtherFld1Utc("utc", sumOtherFld1.id(), "UTC", "__ (________)", "", 0, 1, 0, 0, 100);
+    TestParam tpOtherFld1Utc("utc", sumOtherFld1.id(), "UTC", "__ (________)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFld1Utc);
 
     TestParam tpOtherFld1Uf("uplink-Feedback", sumOtherFld1.id(), "Uplink Feedback", "__ (____=__)", "", 1, 0, 1, 2, 100);
@@ -781,10 +781,10 @@ int DataBuilder::build()
     TestParam tpAirVeh9Add("address", sumAirVeh9.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh9Add);
 
-    TestParam tpAirVeh9FId("qualifier", sumAirVeh9.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh9FId("qualifier", sumAirVeh9.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh9FId);
 
-    TestParam tpAirVeh9RfLvl("rfLvl", sumAirVeh9.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh9RfLvl("rfLvl", sumAirVeh9.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh9RfLvl);
 
     TestParam tpAirVeh9Bds("payloads-Rcvd", sumAirVeh9.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
@@ -805,19 +805,19 @@ int DataBuilder::build()
     TestParam tpPosVel2long("longitude", sumPosVel2.id(), "Longitude", "____⁰ __ __.___", "W", 2, 0, 1, 2, 100);
     tpModel.addTestParam(tpPosVel2long);
 
-    TestParam tpPosVel2alt("altitude", sumPosVel2.id(), "Altitude", "_,____", "ft", 3, 0, 0, 0, 100);
+    TestParam tpPosVel2alt("altitude", sumPosVel2.id(), "Altitude", "_,____", "ft", 3, 0, 1, 1, 100);
     tpModel.addTestParam(tpPosVel2alt);
 
-    TestParam tpPosVel2typ("type", sumPosVel2.id(), "Type", "_ (__________)", "", 3, 1, 0, 0, 100);
+    TestParam tpPosVel2typ("type", sumPosVel2.id(), "Type", "_ (__________)", "", 3, 1, 1, 1, 100);
     tpModel.addTestParam(tpPosVel2typ);
 
     TestParam tpPosVel2gsp("groundspeed", sumPosVel2.id(), "Groundspeed", "___", "kts", 4, 0, 1, 2, 100);
     tpModel.addTestParam(tpPosVel2gsp);
 
-    TestParam tpPosVel2trh("track/Heading", sumPosVel2.id(), "Track/Heading", "___.__", "deg", 5, 0, 0, 0, 100);
+    TestParam tpPosVel2trh("track/Heading", sumPosVel2.id(), "Track/Heading", "___.__", "deg", 5, 0, 1, 1, 100);
     tpModel.addTestParam(tpPosVel2trh);
 
-    TestParam tpPosVel2th("t/h", sumPosVel2.id(), "T/H", "__(______)", "", 5, 1, 0, 0, 100);
+    TestParam tpPosVel2th("t/h", sumPosVel2.id(), "T/H", "__(______)", "", 5, 1, 1, 1, 100);
     tpModel.addTestParam(tpPosVel2th);
 
     TestParam tpPosVel2avlw("a/v-L/W", sumPosVel2.id(), "A/V L/W", "__ (__m/__._m)", "", 6, 0, 1, 2, 100);
@@ -829,10 +829,10 @@ int DataBuilder::build()
     Summary sumOtherFld2("Other Fields:", adsbOutUat.id(), 2, 3, 2);
     sumModel.addSummary(sumOtherFld2);
 
-    TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", 0, 0, 0, 0, 100);
+    TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpOtherFld2Nic);
 
-    TestParam tpOtherFld2Utc("utc", sumOtherFld2.id(), "UTC", "__ (________)", "", 0, 1, 0, 0, 100);
+    TestParam tpOtherFld2Utc("utc", sumOtherFld2.id(), "UTC", "__ (________)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpOtherFld2Utc);
 
     TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "__ (_____=___)", "", 1, 0, 1, 2, 100);
@@ -841,10 +841,10 @@ int DataBuilder::build()
     Summary sumAuxSv2("Aux.State Vector Element (AUX SV):", adsbOutUat.id(), 2, 4, 2);
     sumModel.addSummary(sumAuxSv2);
 
-    TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", 0, 0, 0, 0, 100);
+    TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpAuxSv2secAlt);
 
-    TestParam tpAuxSv2typ("type", sumAuxSv2.id(), "Type", "__ (_____)", "", 0, 1, 0, 0, 100);
+    TestParam tpAuxSv2typ("type", sumAuxSv2.id(), "Type", "__ (_____)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpAuxSv2typ);
 
     //------------------------------P4-------------------------------
@@ -855,10 +855,10 @@ int DataBuilder::build()
     TestParam tpAirVeh10Add("address", sumAirVe10.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh10Add);
 
-    TestParam tpAirVeh10FId("qualifier", sumAirVe10.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh10FId("qualifier", sumAirVe10.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh10FId);
 
-    TestParam tpAirVeh10RfLvl("rfLvl", sumAirVe10.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh10RfLvl("rfLvl", sumAirVe10.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh10RfLvl);
 
     TestParam tpAirVeh10Bds("payloads-Rcvd", sumAirVe10.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
@@ -867,10 +867,10 @@ int DataBuilder::build()
     Summary sumTS("Target state Element (TS)", adsbOutUat.id(), 3, 1, 1);
     sumModel.addSummary(sumTS);
 
-    TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", 0, 0, 0, 0, 100);
+    TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", 0, 0, 1, 1, 100);
     tpModel.addTestParam(tpTSSAlt);
 
-    TestParam tpTSTyp("type", sumTS.id(), "Type", "_ (________)", "", 0, 1, 0, 0, 100);
+    TestParam tpTSTyp("type", sumTS.id(), "Type", "_ (________)", "", 0, 1, 1, 1, 100);
     tpModel.addTestParam(tpTSTyp);
 
     TestParam tpTSBStt("baro-Setting", sumTS.id(), "Baro Setting", "____", "mb", 1, 0, 1, 2, 100);
@@ -879,7 +879,7 @@ int DataBuilder::build()
     TestParam tpTSSelH("sel.-Heading", sumTS.id(), "Sel. Heading", "____", "deg", 2, 0, 0, 0, 100);
     tpModel.addTestParam(tpTSSelH);
 
-    TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", 2, 1, 0, 0, 100);
+    TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", 2, 1, 1, 1, 100);
     tpModel.addTestParam(tpTSSts);
 
     Summary sumApM2("AutoPilot Modes:", adsbOutUat.id(), 3, 2, 2);
@@ -911,10 +911,10 @@ int DataBuilder::build()
     TestParam tpAirVeh11Add("address", sumAirVe11.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh11Add);
 
-    TestParam tpAirVeh11FId("qualifier", sumAirVe11.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh11FId("qualifier", sumAirVe11.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh11FId);
 
-    TestParam tpAirVeh11RfLvl("rfLvl", sumAirVe11.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh11RfLvl("rfLvl", sumAirVe11.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh11RfLvl);
 
     TestParam tpAirVeh11Bds("payloads-Rcvd", sumAirVe11.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
@@ -934,10 +934,10 @@ int DataBuilder::build()
     TestParam tpAirVeh12Add("address", sumAirVe12.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, 100);
     tpModel.addTestParam(tpAirVeh12Add);
 
-    TestParam tpAirVeh12FId("qualifier", sumAirVe12.id(), "Qualifier", "______", "", 1, 0, 0, 0, 100);
+    TestParam tpAirVeh12FId("qualifier", sumAirVe12.id(), "Qualifier", "______", "", 1, 0, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh12FId);
 
-    TestParam tpAirVeh12RfLvl("rfLvl", sumAirVe12.id(), "RF Level",  "______", "", 1, 1, 0, 0, 100);
+    TestParam tpAirVeh12RfLvl("rfLvl", sumAirVe12.id(), "RF Level",  "______", "", 1, 1, 1, 1, 100);
     tpModel.addTestParam(tpAirVeh12RfLvl);
 
     TestParam tpAirVeh12Bds("payloads-Rcvd", sumAirVe12.id(), "Payloads Rcvd", "_,_,_,_", "", 2, 0, 1, 2, 100);
