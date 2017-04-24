@@ -10,6 +10,8 @@ Rectangle{
     width: parent.width
     implicitHeight: columnLayout.implicitHeight
     color: Universal.background
+    border.color: "white"
+    border.width: 1
     Column{
         id: columnLayout
         width: parent.width

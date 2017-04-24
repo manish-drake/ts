@@ -109,7 +109,11 @@ Item {
                             id: switch1
                             anchors.verticalCenter: parent.verticalCenter                            
                             onCheckedChanged: {
-                                console.log(switch1.checked)                                
+                                console.log(switch1.checked)
+                                if(Universal.theme == Universal.Light) {
+                                    _theme = Universal.Dark
+                                }
+                                else {_theme = Universal.Light}
                             }
                         }
                     }
