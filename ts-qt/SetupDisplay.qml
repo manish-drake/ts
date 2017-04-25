@@ -107,10 +107,11 @@ Item {
                         Layout.fillHeight: true
                         Switch { //we can use delegate switch as well for binging
                             id: switch1
-                            anchors.verticalCenter: parent.verticalCenter                            
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: _theme == Universal.Dark
                             onCheckedChanged: {
                                 console.log(switch1.checked)
-                                if(Universal.theme == Universal.Light) {
+                                if(switch1.checked) {
                                     _theme = Universal.Dark
                                 }
                                 else {_theme = Universal.Light}
