@@ -32,7 +32,6 @@
         <file>SetupAddUser.qml</file>
     </qresource>
     <qresource prefix="/img">
-        <file>img/dualpanel.png</file>
         <file>img/Menu-25.png</file>
         <file>img/Circled Chevron Down-30.png</file>
         <file>img/Delete-25.png</file>
@@ -63,5 +62,6 @@
         <file>img/Full Battery-25.png</file>
         <file>img/play-button.png</file>
         <file>img/stop-button.png</file>
+        <file>img/Nintendo DS-25.png</file>
     </qresource>
 </RCC>
