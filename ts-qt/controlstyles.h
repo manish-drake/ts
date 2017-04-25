@@ -8,59 +8,53 @@ class ControlStyles
 {
 public:
     static ControlStyles instance();
-    QHash<const char*, QVariant> getStyleForType(const int &styleId, const QString &typeName) const;
+    QHash<const char*, QVariant> getStyleForType(const QString &styleId, const QString &typeName) const;
 protected:
     ControlStyles();
 private:
-    QHash<int, QHash<QString, QHash<const char*, QVariant>>> m_repository;
-    QHash<QString, QHash<const char*, QVariant>> AddStyle0();
-    QHash<const char*, QVariant> AddStyleText0();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl100();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE100();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl200();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE200();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl300();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE300();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl400();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE400();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl500();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE500();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl600();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE600();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl700();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE700();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl800();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE800();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl900();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE900();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1000();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1000();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1100();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1100();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1200();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1200();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1300();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1300();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1400();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1400();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1500();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1500();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1600();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1600();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1700();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1700();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1800();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1800();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl1900();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE1900();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl2000();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE2000();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl2100();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE2100();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl2200();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE2200();
-    QHash<QString, QHash<const char*, QVariant>> AddStyleCompositeControl2300();
-    QHash<const char*, QVariant> AddStyleCompositeControl_QMLTYPE2300();
+    QHash<QString, QHash<QString, QHash<const char*, QVariant>>> m_repository;
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l10();
+    QHash<const char*, QVariant> QQuickText_l10();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l20();
+    QHash<const char*, QVariant> QQuickText_l20();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l30();
+    QHash<const char*, QVariant> QQuickText_l30();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l40();
+    QHash<const char*, QVariant> QQuickText_l40();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l50();
+    QHash<const char*, QVariant> QQuickText_l50();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l60();
+    QHash<const char*, QVariant> QQuickText_l60();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_l70();
+    QHash<const char*, QVariant> QQuickText_l70();
+
+
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v10();
+    QHash<const char*, QVariant> QQuickText_v10();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v20();
+    QHash<const char*, QVariant> QQuickText_v20();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v30();
+    QHash<const char*, QVariant> QQuickText_v30();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v40();
+    QHash<const char*, QVariant> QQuickText_v40();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v50();
+    QHash<const char*, QVariant> QQuickText_v50();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v60();
+    QHash<const char*, QVariant> QQuickText_v60();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v70();
+    QHash<const char*, QVariant> QQuickText_v70();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v80();
+    QHash<const char*, QVariant> QQuickText_v80();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v90();
+    QHash<const char*, QVariant> QQuickText_v90();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v100();
+    QHash<const char*, QVariant> QQuickText_v100();
+
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_u10();
+    QHash<const char*, QVariant> QQuickText_u10();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_u20();
+    QHash<const char*, QVariant> QQuickText_u20();
+
 };
 
 QString &validateTypeName(QString &);

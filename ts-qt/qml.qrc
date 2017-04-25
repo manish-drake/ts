@@ -30,7 +30,6 @@
         <file>TestHelp.qml</file>
         <file>TestGuide.qml</file>
         <file>SetupAddUser.qml</file>
-        <file>CompositeControl.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/dualpanel.png</file>

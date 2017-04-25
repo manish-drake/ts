@@ -60,5 +60,6 @@ private:
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Summary>>> m_summaries;
     int m_currentPage;
+    std::vector<QString> getMicroStylesFromStyleText(const QString &styleText) const;
 };
 #endif // SUMMARYMODEL_H

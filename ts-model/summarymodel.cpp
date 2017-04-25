@@ -13,8 +13,9 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
     for(auto &summ: *m_summaries){
         if(summ->id() == summaryId){
             for(std::unique_ptr<TestParam> &tp: *(summ->testParams())){
+                auto styleVec = getMicroStylesFromStyleText(tp->style());
+
                 qtp.append(new QTestParams(
-//                               QString("%1: %2 %3").arg(tp->key()).arg(tp->val()).arg(tp->unit()),
                                tp->key(),
                                tp->val(),
                                tp->unit(),
@@ -22,14 +23,23 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
                                tp->col(),
                                tp->rowSpan(),
                                tp->colSpan(),
-                               tp->style()
-                               ));
+                               styleVec[0],
+                               styleVec[1],
+                               styleVec[2]
+                        ));
             }
         }
     }
     return qtp;
 }
-
+std::vector<QString> SummaryModel::getMicroStylesFromStyleText(const QString &styleText) const{
+    std::vector<QString> vec;
+    auto styleList = styleText.split(".");
+    for(auto s: styleList){
+        vec.push_back(s);
+    }
+    return vec;
+}
 SummaryModel::SummaryModel(QObject *parent)
     :ModelBase (parent),
       m_db(DataManager::instance()),

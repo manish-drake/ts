@@ -35,7 +35,7 @@ void SummaryDao::init() const
                     "testID INTEGER,"
                     "pageIdx INTEGER,"
                     "ordr INTEGER,"
-                    "style INTEGER)");
+                    "style TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -126,7 +126,7 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                         query.value("col").toInt(),
                         query.value("rowSpan").toInt(),
                         query.value("colSpan").toInt(),
-                        query.value("tStyle").toInt()
+                        query.value("tStyle").toString()
                     });
 
         testParam->setId(query.value("tID").toInt());

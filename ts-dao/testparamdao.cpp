@@ -36,7 +36,7 @@ void TestParamDao::init() const
                     "col INTEGER,"
                     "rowSpan INTEGER,"
                     "colSpan INTEGER,"
-                    "style INTEGER)");
+                    "style TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -98,7 +98,7 @@ unique_ptr<vector<unique_ptr<TestParam>>> TestParamDao::testParams() const
                                   query.value("col").toInt(),
                                   query.value("rowSpan").toInt(),
                                   query.value("colSpan").toInt(),
-                                  query.value("style").toInt()));
+                                  query.value("style").toString()));
         testParam->setId(query.value("ID").toInt());
         list->push_back(move(testParam));
     }

@@ -102,7 +102,7 @@ bool TestParamModel::setData(const QModelIndex &index, const QVariant &value, in
             testParam.setColSpan(value.toInt());
             break;
         case Roles::StyleRole:
-            testParam.setStyle(value.toInt());
+            testParam.setStyle(value.toString());
             break;
         default:
             break;
