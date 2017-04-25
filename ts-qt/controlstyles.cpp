@@ -141,7 +141,7 @@ QHash<const char *, QVariant> ControlStyles::QQuickText_l40(){
     font.setPointSize(10);
     font.setWeight(font.DemiBold);
     style.insert("font", QVariant::fromValue(font));
-    style.insert("width", QVariant::fromValue(110));
+    style.insert("width", QVariant::fromValue(135));
     return style;
 }
 
@@ -184,7 +184,7 @@ Add styles for id = l60, for QQuickText
     QHash<const char *, QVariant> ControlStyles::QQuickText_l60(){
         QHash<const char *, QVariant> style;
 
-        style.insert("width", QVariant::fromValue(150));
+        style.insert("width", QVariant::fromValue(120));
 
         return style;
     }
@@ -233,6 +233,7 @@ Add styles for id = v10, for QQuickRectangle
     QHash<const char *, QVariant> ControlStyles::QQuickText_v10(){
         QHash<const char *, QVariant> style;
         style.insert("width", QVariant::fromValue(60));
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
         return style;
     }
 
@@ -258,6 +259,7 @@ Add styles for id = v20, for QQuickText
         font.setWeight(font.DemiBold);
         style.insert("font", QVariant::fromValue(font));
         style.insert("width", QVariant::fromValue(60));
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
         return style;
     }
 
@@ -278,10 +280,7 @@ Add styles for id = v30, for QQuickText
 
     QHash<const char *, QVariant> ControlStyles::QQuickText_v30(){
         QHash<const char *, QVariant> style;
-
         style.insert("width", QVariant::fromValue(85));
-
-
         return style;
     }
 
@@ -325,6 +324,7 @@ Add styles for id = v50, for QQuickRectangle
     QHash<const char *, QVariant> ControlStyles::QQuickText_v50(){
         QHash<const char *, QVariant> style;
         style.insert("width", QVariant::fromValue(80));
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
         return style;
     }
 
@@ -369,8 +369,7 @@ Add styles for id = v70, for QQuickText
         QHash<const char *, QVariant> style;
 
         style.insert("width", QVariant::fromValue(100));
-            style.insert("horizontalAlignment", QVariant::fromValue(3));
-
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
         return style;
     }
 
@@ -392,7 +391,7 @@ Add styles for id = v80, for QQuickText
     QHash<const char *, QVariant> ControlStyles::QQuickText_v80(){
         QHash<const char *, QVariant> style;
 
-        style.insert("width", QVariant::fromValue(135));
+        style.insert("width", QVariant::fromValue(100));
 
 
         return style;
@@ -418,7 +417,7 @@ Add styles for id = v100, for QQuickText
 
         style.insert("width", QVariant::fromValue(190));
 
-
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
         return style;
     }
     //--------------------------------------------------------------------------------
@@ -436,7 +435,6 @@ Add styles for id = u10
     /*
 Add styles for id = u10, for QQuickText
 */
-
     QHash<const char *, QVariant> ControlStyles::QQuickText_u10(){
         QHash<const char *, QVariant> style;
         style.insert("width", QVariant::fromValue(10));
@@ -461,7 +459,7 @@ Add styles for id = u20, for QQuickText
         QHash<const char *, QVariant> style;
 
         QFont font;
-        font.setPointSize(12);
+        font.setPointSize(10);
         font.setWeight(font.DemiBold);
         style.insert("font", QVariant::fromValue(font));
         style.insert("width", QVariant::fromValue(10));
@@ -482,6 +480,10 @@ Add styles for id = l10, for QQuickText
     //    style.insert("font", QVariant::fromValue(font));
     //    return style;
     //}
+
+
+
+
 
 
 

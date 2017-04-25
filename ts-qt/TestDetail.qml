@@ -119,6 +119,7 @@ Rectangle{
                                 color: Universal.foreground
                             }
                             GridLayout {
+
                                 Repeater {
                                     model: summaryModel.getTestParamsForsummary(id)
                                     delegate: Rectangle{
@@ -128,11 +129,13 @@ Rectangle{
                                         Layout.fillWidth: true
                                         Layout.minimumWidth: content.width /2
                                         //Layout.preferredWidth : 200
-                                        Layout.rightMargin: 5
+                                        Layout.rightMargin: 9
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
+
                                         Row{
+                                            spacing: 4
                                             anchors.fill: parent
                                             Text{
                                                 text:model.modelData.key
