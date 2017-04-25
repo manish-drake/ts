@@ -137,16 +137,19 @@ Rectangle{
                                                 text:model.modelData.key
                                                 font.pixelSize: 12
                                                 Controls.style:model.modelData.keyStyle
+                                                color: Universal.foreground
                                             }
                                             Text{
                                                 text:model.modelData.value
                                                 font.pixelSize: 12
                                                 Controls.style:model.modelData.valueStyle
+                                                color: Universal.foreground
                                             }
                                             Text{
                                                 text:model.modelData.unit
                                                 font.pixelSize: 12
                                                 Controls.style:model.modelData.unitStyle
+                                                color: Universal.foreground
                                             }
                                         }
                                     }

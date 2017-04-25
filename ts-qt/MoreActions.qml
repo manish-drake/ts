@@ -37,7 +37,7 @@ Rectangle{
         }
         CustomSwitchDelegate{
             text: "DUAL PANEL"
-            source: "qrc:/img/img/dualpanel.png"
+            source: "qrc:/img/img/Nintendo DS-25.png"
         }
         CustomSwitchDelegate{
             text: "FILTER"
