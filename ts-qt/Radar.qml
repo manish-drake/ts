@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.1
+import QtQuick.Controls.Universal 2.1
 import QtQuick 2.7
 
 Rectangle{
     anchors.fill: parent
+    color: "transparent"
     border.color: "#0d000000"
     border.width: 1
     radius:5
@@ -30,7 +32,7 @@ Rectangle{
             id:testHeaderRect
             height: 40
             width: parent.width
-            color:"transparent"
+            color: Universal.background
             Rectangle{
                 id: rectangle1
                 anchors.margins: 10
@@ -45,6 +47,11 @@ Rectangle{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Area Chart-25.png"
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.foreground
+                    }
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -62,6 +69,7 @@ Rectangle{
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
+                    color: Universal.foreground
 
                 }
                 PageIndicator {
@@ -69,6 +77,12 @@ Rectangle{
                     anchors.horizontalCenter: parent.horizontalCenter
                     count: 7
                     currentIndex: summaryModel.currentPage
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.foreground
+                        visible: Universal.theme == Universal.Dark
+                    }
                 }
             }
 
@@ -87,6 +101,11 @@ Rectangle{
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.foreground
+                    }
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -96,7 +115,7 @@ Rectangle{
         }
 
         contentItem: Rectangle{
-            color: "transparent"
+            color: Universal.background
             Flickable {
                 width: parent.width;
                 anchors.top: parent.top
@@ -123,12 +142,13 @@ Rectangle{
             id:testFooterRect
             height: 50
             width: parent.width
+            color: Universal.background
             Text{
                 text:"< PREVIOUS"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 anchors.leftMargin: 10
-                color: "#387EF5"
+                color: Universal.foreground
                 font.pointSize: 10
                 MouseArea {
                     anchors.fill: parent
@@ -140,8 +160,8 @@ Rectangle{
                 id: toggleButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                height: 38
-                width: 38
+                height: 40
+                width: 40
                 property alias imageSource: buttonImage.source
                 signal selected()
                 signal pushed()
@@ -159,6 +179,11 @@ Rectangle{
                     id: buttonImage
                     smooth: true
                     anchors.fill: parent
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                    }
                 }
                 MouseArea {
                     id: mouseArea
@@ -178,7 +203,7 @@ Rectangle{
                         PropertyChanges {
                             target: toggleButton
                             scale: 0.95
-                            imageSource: "qrc:/img/img/stop.png"
+                            imageSource: "qrc:/img/img/stop-button.png"
                         }
                     },
                     State {
@@ -186,7 +211,7 @@ Rectangle{
                         PropertyChanges {
                             target: toggleButton
                             scale: 1/0.95
-                            imageSource: "qrc:/img/img/play.png"
+                            imageSource: "qrc:/img/img/play-button.png"
                         }
                     }
                 ]
@@ -211,7 +236,7 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 10
-                color: "#387EF5"
+                color: Universal.foreground
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{

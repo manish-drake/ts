@@ -181,8 +181,8 @@ Rectangle{
                 id: toggleButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                height: 38
-                width: 38
+                height: 40
+                width: 40
                 property alias imageSource: buttonImage.source
                 signal selected()
                 signal pushed()
@@ -200,6 +200,11 @@ Rectangle{
                     id: buttonImage
                     smooth: true
                     anchors.fill: parent
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                    }
                 }
                 MouseArea {
                     id: mouseArea
@@ -220,7 +225,7 @@ Rectangle{
                         PropertyChanges {
                             target: toggleButton
                             scale: 0.95
-                            imageSource: "qrc:/img/img/stop.png"
+                            imageSource: "qrc:/img/img/stop-button.png"
                         }
                     },
                     State {
@@ -228,7 +233,7 @@ Rectangle{
                         PropertyChanges {
                             target: toggleButton
                             scale: 1/0.95
-                            imageSource: "qrc:/img/img/play.png"
+                            imageSource: "qrc:/img/img/play-button.png"
                         }
                     }
                 ]

@@ -27,11 +27,11 @@ Rectangle{
                 opacity:  switchDelegate.checked ? 0.4 : 1.0
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
-            }
-            ColorOverlay{
-                anchors.fill: image
-                source: image
-                color: Universal.foreground
+                ColorOverlay{
+                    anchors.fill: parent
+                    source: parent
+                    color: Universal.foreground
+                }
             }
         }
         contentItem: Text {

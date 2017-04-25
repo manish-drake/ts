@@ -306,7 +306,7 @@ Item {
                                 id: arrowImage8
                                 width:15
                                 height: 15
-                                anchors.right: parent.rightr
+                                anchors.right: parent.right
                                 source: "qrc:/img/img/Expand Arrow-20.png"
                                 ColorOverlay{
                                     anchors.fill: parent
