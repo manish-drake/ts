@@ -1,16 +1,18 @@
 #include "qtestparams.h"
 
 
-QTestParams::QTestParams(QString key, QString value, QString unit, int row, int col, int rowSpan, int colSpan, int style, QObject *parent):
+QTestParams::QTestParams(const QString &key, const QString &value, const QString &unit, int row, int col, int rowSpan, int colSpan, const QString &keyStyle, const QString &valueStyle, const QString &unitStyle, QObject *parent):
     QObject(parent),
     m_key{key},
     m_value{value},
     m_unit{unit},
+    m_keyStyle{keyStyle},
+    m_valueStyle{valueStyle},
+    m_unitStyle{unitStyle},
     m_row{row},
     m_col{col},
     m_rowSpan{rowSpan},
-    m_colSpan{colSpan},
-    m_style{style}
+    m_colSpan{colSpan}
 {
 
 }
@@ -50,9 +52,19 @@ int QTestParams::colSpan() const
     return this->m_colSpan;
 }
 
-int QTestParams::style() const
+QString QTestParams::keyStyle() const
 {
-    return this->m_style;
+    return m_keyStyle;
+}
+
+QString QTestParams::valueStyle() const
+{
+    return m_valueStyle;
+}
+
+QString QTestParams::unitStyle() const
+{
+    return m_unitStyle;
 }
 
 QTestParams::~QTestParams()

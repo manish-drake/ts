@@ -38,19 +38,21 @@ public:
     int colSpan() const;
     void setColSpan(const int col);
 
-    int style() const;
-    void setStyle(const int style);
+    QString style() const;
+    void setStyle(const QString &style);
+
+
 
     TestParam(const QString &name,
               const int summaryId,
-              const QString key,
+              const QString &key,
               const QString &val,
               const QString &unit,
               const int row,
               const int col,
               const int rowSpan = 1,
               const int colSpan = 1,
-              const int style = 0);
+              const QString &style="");
 private:
     int m_id;
     QString m_name;
@@ -62,7 +64,7 @@ private:
     int m_col;
     int m_rowSpan;
     int m_colSpan;
-    int m_style;
+    QString m_style;
 };
 
 #endif // TESTPARAM_H

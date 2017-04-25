@@ -10,7 +10,7 @@ Item {
 //    }
 
     Text{
-        Controls.style: 0
+        color:"#C3C3C3"
         anchors.centerIn: parent
         text: qsTr("Start placeholder")
     }

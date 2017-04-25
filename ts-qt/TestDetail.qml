@@ -126,15 +126,28 @@ Rectangle{
                                         Layout.row: model.modelData.row
                                         Layout.column: model.modelData.col
                                         Layout.fillWidth: true
-                                        Layout.preferredWidth : 170
+                                        Layout.minimumWidth: content.width /2
+                                        //Layout.preferredWidth : 200
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
-                                        CompositeControl{
-                                            Controls.style:model.modelData.style
-                                            key:model.modelData.key
-                                            value:model.modelData.value
-                                            unit:model.modelData.unit
+                                        Row{
+                                            anchors.fill: parent
+                                            Text{
+                                                text:model.modelData.key
+                                                font.pixelSize: 12
+                                                Controls.style:model.modelData.keyStyle
+                                            }
+                                            Text{
+                                                text:model.modelData.value
+                                                font.pixelSize: 12
+                                                Controls.style:model.modelData.valueStyle
+                                            }
+                                            Text{
+                                                text:model.modelData.unit
+                                                font.pixelSize: 12
+                                                Controls.style:model.modelData.unitStyle
+                                            }
                                         }
                                     }
                                 }

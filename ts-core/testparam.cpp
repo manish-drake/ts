@@ -2,14 +2,14 @@
 
 TestParam::TestParam(const QString &name,
                      const int summaryId,
-                     const QString key,
+                     const QString &key,
                      const QString &val,
                      const QString &unit,
                      const int row,
                      const int col,
                      const int rowSpan,
                      const int colSpan,
-                     const int style):
+                     const QString &style):
     m_id{0},
     m_name{name},
     m_summaryId{summaryId},
@@ -125,12 +125,12 @@ void TestParam::setColSpan(const int colSpan)
     this->m_colSpan = colSpan;
 }
 
-int TestParam::style() const
+QString TestParam::style() const
 {
     return this->m_style;
 }
 
-void TestParam::setStyle(const int style)
+void TestParam::setStyle(const QString &style)
 {
     this->m_style = style;
 }

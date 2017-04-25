@@ -15,8 +15,10 @@ public:
     Q_PROPERTY(int col READ col CONSTANT)
     Q_PROPERTY(int rowSpan READ rowSpan CONSTANT)
     Q_PROPERTY(int colSpan READ colSpan CONSTANT)
-     Q_PROPERTY(int style READ style CONSTANT)
-    explicit QTestParams(QString key = "", QString value = "", QString unit = "", int row = 0, int col = 0, int rowSpan = 1, int colSpan = 1, int style = 0, QObject *parent = 0);
+    Q_PROPERTY(QString keyStyle READ keyStyle CONSTANT)
+    Q_PROPERTY(QString valueStyle READ valueStyle CONSTANT)
+    Q_PROPERTY(QString unitStyle READ unitStyle CONSTANT)
+    explicit QTestParams(const QString &key, const QString &value, const QString &unit, int row, int col, int rowSpan, int colSpan,const QString &keyStyle, const QString &valueStyle, const QString &unitStyle, QObject *parent = 0);
 
     QString key() const;
     QString value()const;
@@ -25,14 +27,15 @@ public:
     int col() const;
     int rowSpan() const;
     int colSpan() const;
-    int style() const;
+    QString keyStyle() const;
+    QString valueStyle() const;
+    QString unitStyle() const;
     ~QTestParams();
 signals:
-    void dataChanged(const QString &key, QString &value, QString &unit);
 public slots:
 private:
-    QString m_key, m_value, m_unit;
-    int m_row, m_col, m_rowSpan, m_colSpan, m_style;
+    QString m_key, m_value, m_unit, m_keyStyle, m_valueStyle, m_unitStyle;
+    int m_row, m_col, m_rowSpan, m_colSpan;
 };
 
 #endif // QTESTPARAMS_H

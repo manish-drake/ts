@@ -7,7 +7,7 @@ ControlStyles ControlStyles::instance()
     return singleton;
 }
 
-QHash<const char *, QVariant> ControlStyles::getStyleForType(const int &styleId, const QString &typeName) const
+QHash<const char *, QVariant> ControlStyles::getStyleForType(const QString &styleId, const QString &typeName) const
 {
     if(m_repository.contains(styleId)){
         auto styles = m_repository[styleId];
@@ -30,679 +30,467 @@ QString &validateTypeName(QString &typeName)
 }
 ControlStyles::ControlStyles()
 {
-    m_repository.insert(0, AddStyle0());
-    m_repository.insert(100, AddStyleCompositeControl100());
-    m_repository.insert(200, AddStyleCompositeControl200());
-    m_repository.insert(300, AddStyleCompositeControl300());
-    m_repository.insert(400, AddStyleCompositeControl400());
-    m_repository.insert(500, AddStyleCompositeControl500());
-    m_repository.insert(600, AddStyleCompositeControl600());
-    m_repository.insert(700, AddStyleCompositeControl700());
-    m_repository.insert(800, AddStyleCompositeControl800());
-    m_repository.insert(900, AddStyleCompositeControl900());
-    m_repository.insert(1000, AddStyleCompositeControl1000());
-    m_repository.insert(1100, AddStyleCompositeControl1100());
-    m_repository.insert(1200, AddStyleCompositeControl1200());
-    m_repository.insert(1300, AddStyleCompositeControl1300());
-    m_repository.insert(1400, AddStyleCompositeControl1400());
-    m_repository.insert(1500, AddStyleCompositeControl1500());
-    m_repository.insert(1600, AddStyleCompositeControl1600());
-    m_repository.insert(1700, AddStyleCompositeControl1700());
-    m_repository.insert(1800, AddStyleCompositeControl1800());
-    m_repository.insert(1900, AddStyleCompositeControl1900());
-    m_repository.insert(2000, AddStyleCompositeControl2000());
-    m_repository.insert(2100, AddStyleCompositeControl2100());
-    m_repository.insert(2200, AddStyleCompositeControl2200());
-    m_repository.insert(2300, AddStyleCompositeControl2300());
+    m_repository.insert("l10", AddStyle_l10());
+    m_repository.insert("l20", AddStyle_l20());
+    m_repository.insert("l30", AddStyle_l30());
+    m_repository.insert("l40", AddStyle_l40());
+    m_repository.insert("l50", AddStyle_l50());
+    m_repository.insert("l60", AddStyle_l60());
+    m_repository.insert("l70", AddStyle_l70());
 
+    m_repository.insert("v10", AddStyle_v10());
+    m_repository.insert("v20", AddStyle_v20());
+    m_repository.insert("v30", AddStyle_v30());
+    m_repository.insert("v40", AddStyle_v40());
+    m_repository.insert("v50", AddStyle_v50());
+    m_repository.insert("v60", AddStyle_v60());
+    m_repository.insert("v70", AddStyle_v70());
+    m_repository.insert("v80", AddStyle_v80());
+    m_repository.insert("v90", AddStyle_v90());
+
+    m_repository.insert("u10", AddStyle_u10());
+    m_repository.insert("u20", AddStyle_u20());
 }
 
 /*
-#0 Add styles
-Add styles for id = 0
+#10 Add styles
+Add styles for id = l10
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle0()
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l10()
 {
     QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("QQuickText", AddStyleText0());
+    styles.insert("QQuickText", QQuickText_l10());
     return  styles;
 }
 
 /*
-Add styles for id = 0, for QQuickText
+Add styles for id = l10, for QQuickText
 */
 
-QHash<const char *, QVariant> ControlStyles::AddStyleText0(){
+QHash<const char *, QVariant> ControlStyles::QQuickText_l10(){
     QHash<const char *, QVariant> style;
+
+    style.insert("width", QVariant::fromValue(60));
+
+    return style;
+}
+
+/*
+#20 Add styles
+Add styles for id = l20
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l20()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", QQuickText_l20());
+    return  styles;
+}
+
+/*
+Add styles for id = l20, for QQuickText
+*/
+
+QHash<const char *, QVariant> ControlStyles::QQuickText_l20(){
+    QHash<const char *, QVariant> style;
+
+    style.insert("width", QVariant::fromValue(70));
+
+    return style;
+}
+
+/*
+#30 Add styles
+Add styles for id = l30
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l30()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", QQuickText_l30());
+    return  styles;
+}
+
+/*
+Add styles for id = l30, for QQuickRectangle
+*/
+
+QHash<const char *, QVariant> ControlStyles::QQuickText_l30(){
+    QHash<const char *, QVariant> style;
+
+    style.insert("width", QVariant::fromValue(90));
+    return style;
+}
+
+
+
+/*
+40 Add styles
+Add styles for id = l40
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l40()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", QQuickText_l40());
+    return  styles;
+}
+
+/*
+Add styles for id = l40, for QQuickText
+*/
+QHash<const char *, QVariant> ControlStyles::QQuickText_l40(){
+    QHash<const char *, QVariant> style;
+
     QFont font;
     font.setPointSize(10);
+    font.setWeight(font.DemiBold);
     style.insert("font", QVariant::fromValue(font));
-    style.insert("color", QVariant::fromValue(QString("#B0B0B0")));
+    style.insert("width", QVariant::fromValue(110));
     return style;
 }
+
 /*
-#100 Add styles
-Add styles for id = 100
+50 Add styles
+Add styles for id = l50
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl100()
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l50()
 {
     QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE100());
+    styles.insert("QQuickText", QQuickText_l50());
     return  styles;
 }
+
 /*
-Add styles for id = 100, for CompositeControl_QMLTYPE
+Add styles for id = l50, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE100(){
+QHash<const char *, QVariant> ControlStyles::QQuickText_l50(){
     QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(60));
-    style.insert("valueWidth", QVariant::fromValue(60));
-    style.insert("unitWidth", QVariant::fromValue(35));
+        style.insert("width", QVariant::fromValue(105));
+        return style;
+    }
 
-    return style;
-}
-
-/*
-#200 Add styles
-Add styles for id = 200
+    /*
+60 Add styles
+Add styles for id = l60
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl200()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE200());
-    return  styles;
-}
-/*
-Add styles for id = 200, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l60()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_l60());
+        return  styles;
+    }
+
+    /*
+Add styles for id = l60, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE200(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(70));
-    style.insert("valueWidth", QVariant::fromValue(85));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_l60(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(150));
 
-/*
-#300 Add styles
-Add styles for id = 300
+        return style;
+    }
+
+    /*
+l70 Add styles
+Add styles for id = l70
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl300()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE300());
-    return  styles;
-}
-/*
-Add styles for id = 300, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l70()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_l70());
+        return  styles;
+    }
+
+    /*
+Add styles for id = l70, for QQuickRectangle
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE300(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(70));
-    style.insert("valueWidth", QVariant::fromValue(60));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_l70(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width ", QVariant::fromValue(210));
 
-/*
-#400 Add styles
-Add styles for id = 400
+        return style;
+    }
+
+
+    //-----------------------------------------------------------------------------------
+
+
+    /*
+v10 Add styles
+Add styles for id = v10
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl400()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE400());
-    return  styles;
-}
-/*
-Add styles for id = 400, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v10()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v10());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v10, for QQuickRectangle
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE400(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(70));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v10(){
+        QHash<const char *, QVariant> style;
+        style.insert("width", QVariant::fromValue(60));
+        return style;
+    }
 
-    return style;
-}
-
-/*
-#500 Add styles
-Add styles for id = 500
+    /*
+v20 Add styles
+Add styles for id = v20
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl500()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE100());
-    return  styles;
-}
-/*
-Add styles for id = 500, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v20()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v20());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v20, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE500(){
-    QHash<const char *, QVariant> style;
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v20(){
+        QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(70));
-    style.insert("valueWidth", QVariant::fromValue(100));
-    style.insert("unitWidth", QVariant::fromValue(35));
+        QFont font;
+        font.setPointSize(12);
+        font.setWeight(font.DemiBold);
+        style.insert("font", QVariant::fromValue(font));
+        style.insert("width", QVariant::fromValue(60));
+        return style;
+    }
 
-    return style;
-}
-
-/*
-#600 Add styles
-Add styles for id = 600
+    /*
+v30 Add styles
+Add styles for id = v30
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl600()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE600());
-    return  styles;
-}
-/*
-Add styles for id = 600, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v30()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v30());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v30, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE600(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(110));
-    style.insert("valueWidth", QVariant::fromValue(85));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v30(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(85));
 
-/*
-#700 Add styles
-Add styles for id =700
+
+        return style;
+    }
+
+    /*
+v50 Add styles
+Add styles for id = v40
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl700()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE700());
-    return  styles;
-}
-/*
-Add styles for id = 700, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v40()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v40());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v40, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE700(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(110));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v40(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(90));
 
-/*
-#800 Add styles
-Add styles for id = 800
+
+        return style;
+    }
+
+    /*
+v50 Add styles
+Add styles for id = v50
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl800()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE800());
-    return  styles;
-}
-/*
-Add styles for id = 800, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v50()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v50());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v50, for QQuickRectangle
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE800(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(110));
-    style.insert("valueWidth", QVariant::fromValue(128));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v50(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(100));
 
-/*
-#900 Add styles
-Add styles for id = 900
+
+        return style;
+    }
+
+    /*
+v60 Add styles
+Add styles for id = v60
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl900()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE900());
-    return  styles;
-}
-/*
-Add styles for id = 900, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v60()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v60());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v60, for QQuickRectangle
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE900(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(110));
-    style.insert("valueWidth", QVariant::fromValue(60));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v60(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(128));
+        return style;
+    }
 
-/*
-#1000 Add styles
-Add styles for id = 1000
+    /*
+v70 Add styles
+Add styles for id = v70
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1000()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1000());
-    return  styles;
-}
-/*
-Add styles for id = 1000, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v70()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v70());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v70, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1000(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(true);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(133));
-    style.insert("valueWidth", QVariant::fromValue(133));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v70(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(90));
+        //    style.insert("horizontalAlignment", QVariant::fromValue("Text.AlignRight"));
 
-/*
-#1100 Add styles
-Add styles for id = 1100
+
+        return style;
+    }
+
+    /*
+v80 Add styles
+Add styles for id = v80
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1100()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1100());
-    return  styles;
-}
-/*
-Add styles for id = 1100, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v80()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v80());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v80, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1100(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(true);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(133));
-    style.insert("valueWidth", QVariant::fromValue(60));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v80(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(135));
 
-/*
-#1200 Add styles
-Add styles for id = 1200
+
+        return style;
+    }
+
+    /*
+v90 Add styles
+Add styles for id = v90
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1200()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1200());
-    return  styles;
-}
-/*
-Add styles for id = 1200, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v90()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v90());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v100, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1200(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v90(){
+        QHash<const char *, QVariant> style;
 
-    return style;
-}
+        style.insert("width", QVariant::fromValue(210));
 
-/*
-#1300 Add styles
-Add styles for id = 1300
+
+        return style;
+    }
+    //--------------------------------------------------------------------------------
+    /*
+u10 Add styles
+Add styles for id = u10
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1300()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1300());
-    return  styles;
-}
-/*
-Add styles for id = 1300, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_u10()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_u10());
+        return  styles;
+    }
+
+    /*
+Add styles for id = u10, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1300(){
-    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(128));
-    style.insert("unitWidth", QVariant::fromValue(35));
+    QHash<const char *, QVariant> ControlStyles::QQuickText_u10(){
+        QHash<const char *, QVariant> style;
 
+        style.insert("width", QVariant::fromValue(10));
 
-    return style;
-}
+        return style;
+    }
 
-/*
-#1400 Add styles
-Add styles for id = 1400
+    /*
+u20 Add styles
+Add styles for id = u20
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1400()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1400());
-    return  styles;
-}
-/*
-Add styles for id = 1400, for CompositeControl_QMLTYPE
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_u20()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_u10());
+        return  styles;
+    }
+
+    /*
+Add styles for id = u20, for QQuickText
 */
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1400(){
-    QHash<const char *, QVariant> style;
+    QHash<const char *, QVariant> ControlStyles::QQuickText_u20(){
+        QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(85));
-    style.insert("unitWidth", QVariant::fromValue(35));
+        QFont font;
+        font.DemiBold;
+        style.insert("font", QVariant::fromValue(font));
+        return style;
+    }
 
-    return style;
-}
 
-/*
-#1500 Add styles
-Add styles for id = 1500
+
+
+    /*
+Add styles for id = l10, for QQuickText
 */
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1500()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1500());
-    return  styles;
-}
-/*
-Add styles for id = 1500, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1500(){
-    QHash<const char *, QVariant> style;
+    //QHash<const char *, QVariant> ControlStyles::QQuickText_l10(){
+    //    QHash<const char *, QVariant> style;
 
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(90));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#1600 Add styles
-Add styles for id = 1600
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1600()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1600());
-    return  styles;
-}
-/*
-Add styles for id = 1600, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1600(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(410));
-    style.insert("valueWidth", QVariant::fromValue(85));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#1700 Add styles
-Add styles for id = 1700
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1700()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1700());
-    return  styles;
-}
-/*
-Add styles for id = 1700, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1700(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-
-/*
-#1800 Add styles
-Add styles for id = 1800
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1800()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1800());
-    return  styles;
-}
-/*
-Add styles for id = 1800, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1800(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(100));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-
-/*
-#1900 Add styles
-Add styles for id = 1900
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl1900()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE1900());
-    return  styles;
-}
-/*
-Add styles for id = 1900, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE1900(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(140));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#2000 Add styles
-Add styles for id = 2000
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl2000()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE2000());
-    return  styles;
-}
-/*
-Add styles for id = 2000, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE2000(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(150));
-    style.insert("valueWidth", QVariant::fromValue(135));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#2100 Add styles
-Add styles for id = 2100
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl2100()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE2100());
-    return  styles;
-}
-/*
-Add styles for id = 2100, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE2100(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(150));
-    style.insert("valueWidth", QVariant::fromValue(128));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#2200 Add styles
-Add styles for id = 2200
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl2200()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE2200());
-    return  styles;
-}
-/*
-Add styles for id = 2200, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE2200(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(150));
-    style.insert("valueWidth", QVariant::fromValue(85));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
-
-/*
-#2300 Add styles
-Add styles for id = 2300
-*/
-QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyleCompositeControl2300()
-{
-    QHash<QString, QHash<const char *, QVariant> > styles;
-    styles.insert("CompositeControl_QMLTYPE", AddStyleCompositeControl_QMLTYPE2300());
-    return  styles;
-}
-/*
-Add styles for id = 2300, for CompositeControl_QMLTYPE
-*/
-QHash<const char *, QVariant> ControlStyles::AddStyleCompositeControl_QMLTYPE2300(){
-    QHash<const char *, QVariant> style;
-
-    QFont font;
-    font.setPointSize(10);
-    font.setBold(false);
-    style.insert("keyFont", QVariant::fromValue(font));
-    style.insert("keyWidth", QVariant::fromValue(210));
-    style.insert("valueWidth", QVariant::fromValue(210));
-    style.insert("unitWidth", QVariant::fromValue(35));
-
-    return style;
-}
+    //    QFont font;
+    //    font.setPointSize(12);
+    //    style.insert("font", QVariant::fromValue(font));
+    //    return style;
+    //}
 
 
 

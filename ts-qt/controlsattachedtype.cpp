@@ -2,18 +2,17 @@
 #include "controlstyles.h"
 
 ControlsAttachedType::ControlsAttachedType(QObject *parent) :
-    QObject(parent),
-    m_style{0}
+    QObject(parent)
 {
 
 }
 
-int ControlsAttachedType::style()
+QString ControlsAttachedType::style()
 {
     return this->m_style;
 }
 
-void ControlsAttachedType::setStyle(const int &style)
+void ControlsAttachedType::setStyle(const QString &style)
 {
     QString typeName = this->parent()->metaObject()->className();
     typeName = validateTypeName(typeName);
