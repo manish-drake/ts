@@ -128,6 +128,7 @@ Rectangle{
                                         Layout.fillWidth: true
                                         Layout.minimumWidth: content.width /2
                                         //Layout.preferredWidth : 200
+                                        Layout.rightMargin: 5
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15

@@ -203,7 +203,7 @@ int DataBuilder::build()
     TestParam tpAvInfoMsAdd("mode-S-Addr", sumAvInfo1.id(), "Mode S Addr", "______", "", 0, 1, 1 , 1, "l30.v70.u10");
     tpModel.addTestParam(tpAvInfoMsAdd);
 
-    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______) ", "", 1, 0, 1 , 1, "l50.v70.u10");
+    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______)", "", 1, 0, 1 , 1, "l50.v70.u10");
     tpModel.addTestParam(tpAvInfoEc);
 
     TestParam tpAvInfoAcode("3/A-Code", sumAvInfo1.id(), "3/A Code", "_____", "", 1, 1, 1 , 1, "l30.v70.u10");
@@ -349,7 +349,7 @@ int DataBuilder::build()
     TestParam tpAVInfoAID("aircraft-ID", sumAVInfo2.id(), "Aircraft ID", "______", "", 0, 0, 1, 2, "l50.v40.u10");
     tpModel.addTestParam(tpAVInfoAID);
 
-    TestParam tpAVInfoEC("emitter-Cat", sumAVInfo2.id(), "Emitter Cat", "_ (_____) ", "", 1, 0, 1, 2, "l50.v40.u10");
+    TestParam tpAVInfoEC("emitter-Cat", sumAVInfo2.id(), "Emitter Cat", "_ (_____)", "", 1, 0, 1, 2, "l50.v40.u10");
     tpModel.addTestParam(tpAVInfoEC);
 
     //------------------------------P4-------------------------------
@@ -423,7 +423,7 @@ int DataBuilder::build()
     TestParam tpAVeh4RfLvl("rfLvl", sumAirVeh4.id(), "RF Level",  "______", "", 1, 1, 1, 1, "l50.v30.u10");
     tpModel.addTestParam(tpAVeh4RfLvl);
 
-    TestParam tpAirVeh4Bds("bds-Rcvd", sumAirVeh4.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, "l50.v30.u10");
+    TestParam tpAirVeh4Bds("bds-Rcvd", sumAirVeh4.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, "l50.v90.u10");
     tpModel.addTestParam(tpAirVeh4Bds);
 
     Summary sumOprSts("BDS 6,5: Operational Status", adsbOut1090.id(), 4, 1, 1);
@@ -513,10 +513,10 @@ int DataBuilder::build()
     TestParam tpAirVeh5Add("address", sumAirVeh5.id(), "ADDRESS", "______ (_) / ________ (_)", "", 0, 0, 1, 2, "l50.v90.u10");
     tpModel.addTestParam(tpAirVeh5Add);
 
-    TestParam tpAirVeh5FId("flight-Id", sumAirVeh5.id(), "Flight ID", "______", "", 1, 0, 1, 1, "l50.v90.u10");
+    TestParam tpAirVeh5FId("flight-Id", sumAirVeh5.id(), "Flight ID", "______", "", 1, 0, 1, 1, "l50.v30.u10");
     tpModel.addTestParam(tpAirVeh5FId);
 
-    TestParam tpAirVeh5RfLvl("rfLvl", sumAirVeh5.id(), "RF Level",  "______", "", 1, 1, 1, 1, "l10.v90.u10");
+    TestParam tpAirVeh5RfLvl("rfLvl", sumAirVeh5.id(), "RF Level",  "______", "", 1, 1, 1, 1, "l10.v30.u10");
     tpModel.addTestParam(tpAirVeh5RfLvl);
 
     TestParam tpAirVeh5Bds("bds-Rcvd", sumAirVeh5.id(), "BDS Rcvd (DF17)", "_,_ _,_ _,_ _,_ _,_", "", 2, 0, 1, 2, "l50.v90.u10");
@@ -525,19 +525,19 @@ int DataBuilder::build()
     Summary sumTse("Target State Element (TS):", adsbOut1090.id(), 5, 1, 1);
     sumModel.addSummary(sumTse);
 
-    TestParam tpTsSAlt("sel.-Altitude", sumTse.id(), "Sel. Altitude", "__ (<.__ nm)", "", 0, 0, 1, 1, "l50.v90.u10");
+    TestParam tpTsSAlt("sel.-Altitude", sumTse.id(), "Sel. Altitude", "__ (<.__ nm)", "", 0, 0, 1, 1, "l50.v80.u10");
     tpModel.addTestParam(tpTsSAlt);
 
-    TestParam tpTseNs("nic-supA", sumTse.id(), "NIC-supA", "__", "", 0, 1, 1, 1, "l10.v90.u10");
+    TestParam tpTseNs("nic-supA", sumTse.id(), "NIC-supA", "__", "", 0, 1, 1, 1, "l10.v80.u10");
     tpModel.addTestParam(tpTseNs);
 
-    TestParam tpTseBs("baro-Setting", sumTse.id(), "Baro Setting", "____", "mb", 1, 0, 1, 2, "l50.v90.u10");
+    TestParam tpTseBs("baro-Setting", sumTse.id(), "Baro Setting", "____", "mb", 1, 0, 1, 2, "l50.v80.u10");
     tpModel.addTestParam(tpTseBs);
 
-    TestParam tpTseSh("sel.-Heading", sumTse.id(), "Sel. Heading", "____", "deg", 2, 0, 1, 1, "l50.v90.u10");
+    TestParam tpTseSh("sel.-Heading", sumTse.id(), "Sel. Heading", "____", "deg", 2, 0, 1, 1, "l50.v80.u10");
     tpModel.addTestParam(tpTseSh);
 
-    TestParam tpTse("status", sumTse.id(), "Status", "__ (_____)", "", 2, 1, 1, 1, "l10.v90.u10");
+    TestParam tpTse("status", sumTse.id(), "Status", "__ (_____)", "", 2, 1, 1, 1, "l10.v80.u10");
     tpModel.addTestParam(tpTse);
 
     Summary sumApM1("Autopilot Modes:", adsbOut1090.id(), 5, 2, 2);
@@ -633,7 +633,7 @@ int DataBuilder::build()
     TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "__ (__________)", "", 0, 1, 1, 1, "l30.v80.u10");
     tpModel.addTestParam(tpAvInfo3csid);
 
-    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______) ", "", 1, 0, 1, 1, "l30.v80.u10");
+    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______)", "", 1, 0, 1, 1, "l30.v80.u10");
     tpModel.addTestParam(tpAvInfo3ect);
 
     TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "_____", "", 1, 1, 1, 1, "l30.v80.u10");
