@@ -321,10 +321,7 @@ Add styles for id = v50, for QQuickRectangle
 
     QHash<const char *, QVariant> ControlStyles::QQuickText_v50(){
         QHash<const char *, QVariant> style;
-
         style.insert("width", QVariant::fromValue(80));
-
-
         return style;
     }
 
@@ -370,7 +367,6 @@ Add styles for id = v70, for QQuickText
 
         style.insert("width", QVariant::fromValue(100));
         //    style.insert("horizontalAlignment", QVariant::fromValue("Text.AlignRight"));
-
 
         return style;
     }
