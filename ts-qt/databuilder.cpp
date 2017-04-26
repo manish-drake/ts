@@ -742,7 +742,7 @@ int DataBuilder::build()
     TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "__ (______)", "", 3, 1, 1, 1, "l10.v70.u10");
     tpModel.addTestParam(tpPosVel1typ);
 
-    TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "___ kts N ___ kts W", "", 4, 0, 1, 2, "l50.v70.u10");
+    TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "___ kts N ___", "kts W", 4, 0, 1, 2, "l50.v70.u10");
     tpModel.addTestParam(tpPosVel1hv);
 
     TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "__,____", "", 5, 0, 1, 1, "l50.v70.u10");

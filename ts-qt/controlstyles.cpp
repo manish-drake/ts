@@ -162,7 +162,7 @@ Add styles for id = l50, for QQuickText
 QHash<const char *, QVariant> ControlStyles::QQuickText_l50(){
     QHash<const char *, QVariant> style;
 
-        style.insert("width", QVariant::fromValue(105));
+        style.insert("width", QVariant::fromValue(95));
         return style;
     }
 
@@ -207,7 +207,7 @@ Add styles for id = l70, for QQuickRectangle
     QHash<const char *, QVariant> ControlStyles::QQuickText_l70(){
         QHash<const char *, QVariant> style;
 
-        style.insert("width", QVariant::fromValue(155));
+        style.insert("width", QVariant::fromValue(140));
         return style;
     }
 
