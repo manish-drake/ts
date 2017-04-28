@@ -130,6 +130,7 @@ Rectangle{
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 10
+
                     Image {
                         anchors.horizontalCenter: parent.horizontalCenter
                         source: "qrc:/img/img/radar.png"

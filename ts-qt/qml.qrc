@@ -30,6 +30,8 @@
         <file>TestHelp.qml</file>
         <file>TestGuide.qml</file>
         <file>SetupAddUser.qml</file>
+        <file>Antenna.qml</file>
+        <file>AntennaAviation.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -63,5 +65,6 @@
         <file>img/play-button.png</file>
         <file>img/stop-button.png</file>
         <file>img/Nintendo DS-25.png</file>
+        <file>img/graph-back.png</file>
     </qresource>
 </RCC>

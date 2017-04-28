@@ -135,6 +135,13 @@ int DataBuilder::build()
     View vwSetupAddUser("Setup-Add-User");
     viewDao->addView(vwSetupAddUser);
 
+    View vwAntenna("Antenna");
+    viewDao->addView(vwAntenna);
+
+    View vwAntennaAviation("AntennaAviation");
+    viewDao->addView(vwAntennaAviation);
+
+
     SectionModel secModel{};
 
     Section secStart("Start");
@@ -1223,6 +1230,12 @@ int DataBuilder::build()
     Navigation sConnToSetup (vwSetupConn.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sConnToSetup);
 
+    Navigation AviationToAntenna (vwAntennaAviation.id(), "back", 0, vwAntenna.id());
+    navigationDaoPtr->addNavigation(AviationToAntenna);
+
+    Navigation AntennaToAviation(vwAntenna.id(), "AntennaAviation", 0, vwAntennaAviation.id());
+    navigationDaoPtr->addNavigation(AntennaToAviation);
+
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
 
@@ -1252,6 +1265,9 @@ int DataBuilder::build()
 
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
     navigationDaoPtr->addNavigation(setupToConn);
+
+    Navigation menuToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
+    navigationDaoPtr->addNavigation(menuToAntenna);
 
     return 1;
 }

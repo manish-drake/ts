@@ -8,7 +8,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     case 5:
         return "ADSB-Scan.qml";
     case 14 ... 19:
-    case 6 ... 12:        
+    case 6 ... 12:
         return "TestDetail.qml";
     case 29 ... 30:
         return "Radar.qml";
@@ -34,6 +34,10 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "SetupConnection.qml";
     case 27:
         return "SetupManualBit.qml";
+    case 34:
+        return "Antenna.qml";
+    case 35:
+        return "AntennaAviation.qml";
     case 1:
     default:
         return "Global.qml";
