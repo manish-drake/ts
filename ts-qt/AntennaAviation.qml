@@ -125,32 +125,45 @@ Rectangle{
                     GridLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        Rectangle{
+
+                        SwitchDelegate{
+                            id: rlScaleSwitch
                             Layout.columnSpan: 2
-                            height: 30
-                            width: 45
-                            color: "lightgray"
-                            Text{
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: "Return<br>Loss"
-                                horizontalAlignment: Text.AlignHCenter
+                            spacing: 0
+                            implicitHeight: 30
+                            implicitWidth: 45
+                            indicator:Rectangle{
+                                anchors.fill: parent
+                                color: "lightgray"
+                                Text{
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "Return<br>Loss"
+                                    horizontalAlignment: Text.AlignHCenter
+                                }
                             }
                         }
-                        Rectangle{
+
+                        SwitchDelegate{
+                            id: vswrScaleSwitch
                             Layout.column: 1
-                            Layout.columnSpan: 2
                             Layout.alignment: Qt.AlignRight
-                            height: 30
-                            width: 45
-                            color: "lightgray"
-                            Text{
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                text: "VSWR"
-                                horizontalAlignment: Text.AlignHCenter
+                            Layout.columnSpan: 2
+                            spacing: 0
+                            implicitHeight: 30
+                            implicitWidth: 45
+                            indicator:Rectangle{
+                                anchors.fill: parent
+                                color: "lightgray"
+                                Text{
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.horizontalCenter: parent.horizontalCenter
+                                    text: "VSWR"
+                                    horizontalAlignment: Text.AlignHCenter
+                                }
                             }
                         }
+
                         Image{
                             Layout.row: 1
                             Layout.column: 1
@@ -167,7 +180,7 @@ Rectangle{
                             Layout.column: 0
                             Layout.fillHeight: true
                             width: 20
-                            model: rLValsModel
+                            model: rlScaleSwitch.checked || vswrScaleSwitch.checked ? rLVals2Model : rLValsModel
                             delegate: Component{
                                 Rectangle{
                                     width: parent.width
@@ -187,7 +200,16 @@ Rectangle{
                                 ListElement{ val: "-25" }
                                 ListElement{ val: "-30" }
                             }
-
+                            ListModel{
+                                id: rLVals2Model
+                                ListElement{ val: "-6dB" }
+                                ListElement{ val: "-8" }
+                                ListElement{ val: "-10" }
+                                ListElement{ val: "-12" }
+                                ListElement{ val: "-14" }
+                                ListElement{ val: "-16" }
+                                ListElement{ val: "-18" }
+                            }
                         }
 
                         ListView{
@@ -196,7 +218,7 @@ Rectangle{
                             Layout.column: 2
                             Layout.fillHeight: true
                             width: 20
-                            model: vswrValsModel
+                            model: vswrScaleSwitch.checked || rlScaleSwitch.checked ? vswrVals2Model : vswrValsModel
                             delegate: Component{
                                 Rectangle{
                                     width: parent.width
@@ -215,6 +237,16 @@ Rectangle{
                                 ListElement{ val: "1.2" }
                                 ListElement{ val: "1.1" }
                                 ListElement{ val: "1.0" }
+                            }
+                            ListModel{
+                                id: vswrVals2Model
+                                ListElement{ val: "" }
+                                ListElement{ val: "2.4" }
+                                ListElement{ val: "1.9" }
+                                ListElement{ val: "1.6" }
+                                ListElement{ val: "1.4" }
+                                ListElement{ val: "1.3" }
+                                ListElement{ val: "1.2" }
                             }
                         }
 
