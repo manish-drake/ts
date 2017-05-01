@@ -150,14 +150,14 @@ int DataBuilder::build()
     View vwAntAviationCalShort("Aviation-CAL-Short");
     viewDao->addView(vwAntAviationCalShort);
 
-    View vwAntAviationCalShort("Aviation-CAL-Open");
-    viewDao->addView(vwAntAviationCalShort);
+    View vwAntAviationCalOpen("Aviation-CAL-Open");
+    viewDao->addView(vwAntAviationCalOpen);
 
-    View vwAntAviationCalShort("Aviation-CAL-Load");
-    viewDao->addView(vwAntAviationCalShort);
+    View vwAntAviationCalLoad("Aviation-CAL-Load");
+    viewDao->addView(vwAntAviationCalLoad);
 
-    View vwAntAviationCalShort("Aviation-CAL-Thru");
-    viewDao->addView(vwAntAviationCalShort);
+    View vwAntAviationCalThru("Aviation-CAL-Thru");
+    viewDao->addView(vwAntAviationCalThru);
 
 
     SectionModel secModel{};
@@ -1247,12 +1247,6 @@ int DataBuilder::build()
 
     Navigation sConnToSetup (vwSetupConn.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sConnToSetup);
-
-    Navigation AviationToAntenna (vwAntennaAviation.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(AviationToAntenna);
-
-    Navigation AntennaToAviation(vwAntenna.id(), "AntennaAviation", 0, vwAntennaAviation.id());
-    navigationDaoPtr->addNavigation(AntennaToAviation);
 
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
