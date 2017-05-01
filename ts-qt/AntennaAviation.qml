@@ -673,7 +673,7 @@ Item{
                                 visible: userMarkersModel.count>0
                                 text: "DELETE"
                                 onClicked: {
-                                    userMarkersModel.remove(userMarkersModel.count-1,1)
+                                    userMarkersModel.remove(userMarkersModel.count,1)
                                 }
                             }
                         }
