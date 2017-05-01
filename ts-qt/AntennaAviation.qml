@@ -401,7 +401,7 @@ Item{
                             rowSpacing: 20
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 0 || modeComboBox.currentIndex == 1
-                                color: Universal.background
+                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                 Layout.fillWidth: true
                                 height: 40
 
@@ -451,7 +451,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 2
-                                color: Universal.background
+                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -518,7 +518,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
-                               color: Universal.background
+                               color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -558,7 +558,7 @@ Item{
                             }
 
                             Rectangle {
-                                color: Universal.background
+                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -611,7 +611,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex != 3
-                                color: Universal.background
+                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -653,7 +653,6 @@ Item{
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
                                 Layout.fillWidth: true
-                                color: Universal.background
                                 Button{
                                     implicitWidth: parent.width
                                     text: "MEASURE"
@@ -663,7 +662,6 @@ Item{
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
                                 Layout.fillWidth: true
-                                color: Universal.background
                                 Button{
                                     implicitWidth: parent.width
                                     text: "DONE"
