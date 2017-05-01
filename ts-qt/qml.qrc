@@ -31,7 +31,10 @@
         <file>TestGuide.qml</file>
         <file>SetupAddUser.qml</file>
         <file>Antenna.qml</file>
-        <file>AntennaAviation.qml</file>
+        <file>AviationVSWR-CL.qml</file>
+        <file>ChartControl.qml</file>
+        <file>AviationDTF.qml</file>
+        <file>AviationCal.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
