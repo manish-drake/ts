@@ -10,6 +10,7 @@ import com.ti.controls 1.0
 
 
 Item{
+    property var selectedMarker: defaultMarkerSlider
     Rectangle{
         anchors.fill: parent
         color: "transparent"
@@ -327,6 +328,12 @@ Item{
                                             width: 1.5
                                             height: graphImage.height
                                         }
+                                        MouseArea{
+                                            anchors.fill: parent
+                                            Layout.fillHeight: true
+                                            Layout.fillWidth: true
+                                            onClicked: {console.log("default marker selected") }
+                                        }
                                     }
                                 }
                             }
@@ -366,6 +373,10 @@ Item{
                                                 color: "yellow"
                                                 width: 1.5
                                                 height: graphImage.height
+                                            }
+                                            MouseArea{
+                                                anchors.fill: parent
+                                                onClicked: selectedMarker = userMarkerSlider
                                             }
                                         }
                                     }
@@ -611,14 +622,14 @@ Item{
                                         height: parent.height
                                         implicitWidth: 35
                                         text: "<<"
-                                        onClicked: --defaultMarkerSlider.value
+                                        onClicked: --selectedMarker.value
                                     }
                                     Button{
                                         Layout.column: 3
                                         height: parent.height
                                         implicitWidth: 35
                                         text: ">>"
-                                        onClicked: defaultMarkerSlider.value++
+                                        onClicked: selectedMarker.value++
                                     }
 
                                     Rectangle{
@@ -652,8 +663,9 @@ Item{
                             visible: modeComboBox.currentIndex != 3
                             Button{
                                 text: "ADD"
+                                enabled: userMarkersModel.count < 3
                                 onClicked: {
-                                    userMarkersModel.insert(0,{"num": userMarkersModel.count+2})
+                                    userMarkersModel.append({"num": userMarkersModel.count+2})
                                 }
                             }
                             Rectangle{color: "transparent"; height:10; width: 10}
@@ -661,7 +673,7 @@ Item{
                                 visible: userMarkersModel.count>0
                                 text: "DELETE"
                                 onClicked: {
-                                    userMarkersModel.remove(0,1)
+                                    userMarkersModel.remove(userMarkersModel.count-1,1)
                                 }
                             }
                         }
