@@ -138,8 +138,26 @@ int DataBuilder::build()
     View vwAntenna("Antenna");
     viewDao->addView(vwAntenna);
 
-    View vwAntennaAviation("AntennaAviation");
-    viewDao->addView(vwAntennaAviation);
+    View vwAntAviationVswr("Aviation-VSWR");
+    viewDao->addView(vwAntAviationVswr);
+
+    View vwAntAviationCableLoss("Aviation-Cable-Loss");
+    viewDao->addView(vwAntAviationCableLoss);
+
+    View vwAntAviationDtf("Aviation-DTF");
+    viewDao->addView(vwAntAviationDtf);
+
+    View vwAntAviationCalShort("Aviation-CAL-Short");
+    viewDao->addView(vwAntAviationCalShort);
+
+    View vwAntAviationCalShort("Aviation-CAL-Open");
+    viewDao->addView(vwAntAviationCalShort);
+
+    View vwAntAviationCalShort("Aviation-CAL-Load");
+    viewDao->addView(vwAntAviationCalShort);
+
+    View vwAntAviationCalShort("Aviation-CAL-Thru");
+    viewDao->addView(vwAntAviationCalShort);
 
 
     SectionModel secModel{};
