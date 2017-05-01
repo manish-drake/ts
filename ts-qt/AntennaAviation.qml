@@ -186,8 +186,10 @@ Item{
                                     Rectangle{
                                         width: parent.width
                                         height: (rLValsList.height - 9)/(rLValsModel.count - 1)
+                                        color: Universal.background
                                         Text{
                                             text: val
+                                            color: Universal.foreground
                                         }
                                     }
                                 }
@@ -224,8 +226,10 @@ Item{
                                     Rectangle{
                                         width: parent.width
                                         height: (vswrValsList.height - 9)/(vswrValsModel.count - 1)
+                                        color: Universal.background
                                         Text{
                                             text: val
+                                            color: Universal.foreground
                                         }
                                     }
                                 }
@@ -284,14 +288,17 @@ Item{
                                 Layout.rightMargin: 20
                                 Text{
                                     id: freqStart
+                                    color: Universal.foreground
                                 }
                                 Text{
                                     id: freqMiddle
                                     anchors.horizontalCenter: parent.horizontalCenter
+                                    color: Universal.foreground
                                 }
                                 Text{
                                     id: freqStop
                                     anchors.right: parent.right
+                                    color: Universal.foreground
                                 }
                             }
 
@@ -394,10 +401,10 @@ Item{
                             rowSpacing: 20
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 0 || modeComboBox.currentIndex == 1
-                                color: "#fafafa"
-                                border.color: "#f6f6f6"
+                                color: Universal.background
                                 Layout.fillWidth: true
                                 height: 40
+
                                 GridLayout{
                                     anchors.fill: parent
                                     Text {
@@ -405,6 +412,7 @@ Item{
                                         leftPadding: 10
                                         font.pointSize: 10
                                         text: qsTr("BAND:")
+                                        color: Universal.foreground
                                     }
                                     Rectangle{
                                         Layout.column: 1
@@ -443,8 +451,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 2
-                                color: "#fafafa"
-                                border.color: "#f6f6f6"
+                                color: Universal.background
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -454,6 +461,7 @@ Item{
                                         leftPadding: 10
                                         font.pointSize: 10
                                         text: qsTr("COAX:")
+                                        color: Universal.foreground
                                     }
                                     Rectangle{
                                         Layout.column: 1
@@ -480,6 +488,7 @@ Item{
                                         anchors.verticalCenter: parent.verticalCenter
                                         leftPadding: 10
                                         text: "VEL "
+                                        color: Universal.foreground
                                     }
                                     Text {
                                         id: velocityText
@@ -487,6 +496,7 @@ Item{
                                         Layout.column: 4
                                         anchors.verticalCenter: parent.verticalCenter
                                         font.pointSize: 10
+                                        color: Universal.foreground
                                     }
                                     TextField {
                                         id: velocityField
@@ -508,8 +518,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
-                                color: "#fafafa"
-                                border.color: "#f6f6f6"
+                               color: Universal.background
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -519,6 +528,7 @@ Item{
                                         leftPadding: 10
                                         font.pointSize: 10
                                         text: qsTr("TYPE:")
+                                        color: Universal.foreground
                                     }
                                     Rectangle{
                                         Layout.column: 1
@@ -548,8 +558,7 @@ Item{
                             }
 
                             Rectangle {
-                                color: "#fafafa"
-                                border.color: "#f6f6f6"
+                                color: Universal.background
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -559,6 +568,7 @@ Item{
                                         leftPadding: 10
                                         font.pointSize: 10
                                         text: qsTr("MODE:")
+                                        color: Universal.foreground
                                     }
                                     Rectangle{
                                         Layout.column: 1
@@ -601,8 +611,7 @@ Item{
                             }
                             Rectangle {
                                 visible: modeComboBox.currentIndex != 3
-                                color: "#fafafa"
-                                border.color: "#f6f6f6"
+                                color: Universal.background
                                 Layout.fillWidth: true
                                 height: 40
                                 GridLayout{
@@ -612,6 +621,7 @@ Item{
                                         leftPadding: 10
                                         font.pointSize: 10
                                         text: qsTr("MARKER")
+                                        color: Universal.foreground
                                     }
                                     Rectangle{
                                         Layout.column: 1
@@ -643,6 +653,7 @@ Item{
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
                                 Layout.fillWidth: true
+                                color: Universal.background
                                 Button{
                                     implicitWidth: parent.width
                                     text: "MEASURE"
@@ -652,6 +663,7 @@ Item{
                             Rectangle {
                                 visible: modeComboBox.currentIndex == 3
                                 Layout.fillWidth: true
+                                color: Universal.background
                                 Button{
                                     implicitWidth: parent.width
                                     text: "DONE"
