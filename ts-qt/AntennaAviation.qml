@@ -611,14 +611,14 @@ Item{
                                         height: parent.height
                                         implicitWidth: 35
                                         text: "<<"
-                                        onClicked: --markerSlider.value
+                                        onClicked: --defaultMarkerSlider.value
                                     }
                                     Button{
                                         Layout.column: 3
                                         height: parent.height
                                         implicitWidth: 35
                                         text: ">>"
-                                        onClicked: markerSlider.value++
+                                        onClicked: defaultMarkerSlider.value++
                                     }
 
                                     Rectangle{
