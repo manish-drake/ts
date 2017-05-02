@@ -1,20 +1,12 @@
 import QtQuick 2.7
-import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
+import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import com.ti.controls 1.0
 
 
 
 Item{
-    property var selectedMarker: defaultMarkerSlider
-    property int freqStartVal
-    property int freqMiddleVal
-    property int freqEndVal
-    property double defaultMarkerVal: 0.0
     Rectangle{
         anchors.fill: parent
         color: "transparent"
@@ -37,74 +29,8 @@ Item{
         Page {
             id: item1
             anchors.fill: parent
-            header: Rectangle{
-                id:testHeaderRect
-                height: 40
-                width: parent.width
-                color: Universal.background
-                Rectangle{
-                    id: rectangle1
-                    anchors.margins: 10
-                    Layout.fillHeight: true
-                    height:25
-                    width: 25
-                    anchors.left: parent.left
-                    anchors.leftMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    color:"transparent"
-                }
-
-                Column{
-                    topPadding: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Text {
-                        id: testTitle
-                        text: "DISTANCE TO FAULT"
-                        font.pointSize: 12
-                        font.weight: Font.DemiBold
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        color: Universal.foreground
-                    }
-                    //                PageIndicator {
-                    //                    id: pageIndicator
-                    //                    anchors.horizontalCenter: parent.horizontalCenter
-                    //                    count: pageIdx
-                    //                    currentIndex: summaryModel.currentPage
-                    //                    ColorOverlay{
-                    //                        anchors.fill: parent
-                    //                        source: parent
-                    //                        color: Universal.foreground
-                    //                        visible: Universal.theme == Universal.Dark
-                    //                    }
-                    //                }
-                }
-
-                Rectangle{
-                    id: rectangle
-                    height:25
-                    width: 25
-                    Layout.fillHeight: true
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.margins: 10
-                    anchors.right: parent.right
-                    color:"transparent"
-                    Image {
-                        id: closeImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/Delete-25.png"
-                    }
-                    ColorOverlay{
-                        anchors.fill: closeImage
-                        source: closeImage
-                        color: Universal.foreground
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-                    }
-                }
+            header: AviHeaderContent{
+                detailTitle: "CALIBRATION"
             }
 
             contentItem: Rectangle {
@@ -114,7 +40,7 @@ Item{
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     contentWidth: parent.width;
-                    contentHeight: content.height + content.y + 10
+                    contentHeight: content.height + content.y + 60
                     clip: true
                     boundsBehavior: Flickable.StopAtBounds
                     Column{
@@ -125,10 +51,81 @@ Item{
                         anchors.margins: 10
                         spacing: 30
 
-                        ChartControl{}
+                        Rectangle{
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            height: chartCtrl.height
+                            ChartControl{
+                                id: chartCtrl
+                                areControlsAvailble : false
+                            }
+                            GridView{
+                                id: grid
+                                anchors.centerIn: parent
+                                anchors.verticalCenterOffset: 20
+                                height: parent.height * 0.65
+                                width: parent.width * 0.8
+                                cellWidth: grid.width/2; cellHeight: grid.height/2
+                                focus: true
+                                highlight:Rectangle{
+                                    color: "transparent"
+                                    border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                                    border.width: 1
+                                    radius:5
+                                }
+                                model: ListModel{
+                                    ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
+                                    ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
+                                    ListElement{header: "LOAD"; status: "UNCAL"; datetime:"--/--/--"}
+                                    ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
+                                }
+                                delegate:Component{
+                                    Rectangle {
+                                        id: wrapper
+                                        width: grid.cellWidth - 10
+                                        height: grid.cellHeight -10
+                                        color: Universal.accent
+                                        border.color: "#0d000000"
+                                        border.width: 1
+                                        radius: 5
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            horizontalOffset: 1.1
+                                            verticalOffset: 1.1
+                                            radius: 4.0
+                                            color: "#0d000000"
+                                            spread: 0
+                                        }
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: grid.currentIndex = index
+                                            onDoubleClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name})
+                                        }
+                                        Column{
+                                            anchors.centerIn: parent
+                                            Text{
+                                                text: header
+                                                color: "white"
+                                                font.pointSize: 12
+                                            }
+                                            Text{
+                                                text: status
+                                                color: "white"
+                                                font.pointSize: 12
+                                            }
+                                            Text {
+                                                text: datetime
+                                                color: "white"
+                                                font.pointSize: 12
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
 
                         GridLayout {
-                            id: grid
                             anchors.left: parent.left
                             anchors.right: parent.right
                             columns: 2
@@ -154,7 +151,7 @@ Item{
                                     ComboBox {
                                         id: typeComboBox
                                         Layout.column: 2
-                                        implicitWidth: 80
+                                        implicitWidth: 120
                                         model: ListModel {
                                             id: typeList
                                             ListElement { text: "SHORT";}
@@ -166,16 +163,15 @@ Item{
 
                                         }
                                     }
-                                    Rectangle{
-                                        Layout.column: 3
-                                        Layout.fillWidth: true
-                                    }
                                 }
                             }
 
-                            AviationModeControl{}
+                            AviModeCtrl{
+                                currentModeIndex: 3
+                            }
 
                             Rectangle {
+                                Layout.row: 1
                                 Layout.fillWidth: true
                                 Button{
                                     implicitWidth: parent.width
@@ -184,6 +180,8 @@ Item{
                             }
 
                             Rectangle {
+                                Layout.row: 1
+                                Layout.column: 1
                                 Layout.fillWidth: true
                                 Button{
                                     implicitWidth: parent.width
@@ -195,87 +193,7 @@ Item{
                 }
             }
 
-            footer: Rectangle{
-                id:testFooterRect
-                height: 50
-                width: parent.width
-                color: Universal.background
-
-                Rectangle {
-                    id: toggleButton
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    height: 40
-                    width: 40
-                    property alias imageSource: buttonImage.source
-                    signal selected()
-                    signal pushed()
-                    color: "transparent"
-                    state: "off"
-                    onStateChanged: {
-                        if (state == "on") {
-                            selected()
-                        }
-                        else{
-                            pushed()
-                        }
-                    }
-                    Image {
-                        id: buttonImage
-                        smooth: true
-                        anchors.fill: parent
-                        ColorOverlay{
-                            anchors.fill: parent
-                            source: parent
-                            color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                        }
-                    }
-                    MouseArea {
-                        id: mouseArea
-                        anchors.fill: parent
-                        onPressed: {
-
-                            if (parent.state == "off") {
-                                parent.state = "on"
-                            }
-                            else{
-                                parent.state = "off"
-                            }
-                        }
-                    }
-                    states: [
-                        State {
-                            name: "on"
-                            PropertyChanges {
-                                target: toggleButton
-                                scale: 0.95
-                                imageSource: "qrc:/img/img/stop-button.png"
-                            }
-                        },
-                        State {
-                            name: "off"
-                            PropertyChanges {
-                                target: toggleButton
-                                scale: 1/0.95
-                                imageSource: "qrc:/img/img/play-button.png"
-                            }
-                        }
-                    ]
-                    transitions: [
-                        Transition {
-                            from: "off"
-                            to: "on"
-                            reversible: true
-                            PropertyAnimation {
-                                target: toggleButton
-                                properties: "scale"
-                                duration: 100
-                            }
-                        }
-                    ]
-                }
-
-            }
+            footer: AviFooterContent{}
         }
     }
 }

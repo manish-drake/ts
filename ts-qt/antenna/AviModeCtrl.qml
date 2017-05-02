@@ -5,9 +5,11 @@ import QtQuick.Layouts 1.1
 
 
 Rectangle {
-    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
-    Layout.fillWidth: true
+    Layout.column: 1
     height: 40
+    Layout.fillWidth: true
+    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+    property int currentModeIndex
     GridLayout{
         anchors.fill: parent
         Text {
@@ -24,7 +26,8 @@ Rectangle {
         ComboBox {
             id: modeComboBox
             Layout.column: 2
-            implicitWidth: 80
+            implicitWidth: 120
+            currentIndex: currentModeIndex
             model: ListModel {
                 ListElement { text: "VSWR"; }
                 ListElement { text: "LOSS"; }
@@ -35,9 +38,11 @@ Rectangle {
                 switch(currentIndex){
                 case 0:
                     navigationModel.currentView = navigationModel.getTargetView("AntAviationVswrCl");
+                    AviHeaderContent.detailTitle = "VSWR";
                     break;
                 case 1:
                     navigationModel.currentView = navigationModel.getTargetView("AntAviationVswrCl");
+                    AviHeaderContent.detailTitle = "CABLE LOSS";
                     break;
                 case 2:
                     navigationModel.currentView = navigationModel.getTargetView("AntAviationDTF");
@@ -48,10 +53,7 @@ Rectangle {
                 }
             }
         }
-        Rectangle{
-            Layout.column: 3
-            Layout.fillWidth: true
-        }
     }
 }
+
 
