@@ -32,18 +32,23 @@ Rectangle {
                 ListElement { text: "CAL"; }
             }
             onCurrentIndexChanged:{
+                 console.log("------------------"+currentIndex)
                 switch(currentIndex){
                 case 0:
-                    navigationModel.currentView = navigationModel.getTargetView("AntAviationVswrCl");
+                    console.log("=======0=========="+navigationModel.currentView )
+                    navigationModel.currentView = navigationModel.getTargetView("Ant-Aviation-VSWR")
                     break;
                 case 1:
-                    navigationModel.currentView = navigationModel.getTargetView("AntAviationVswrCl");
+                    console.log("======1==========="+navigationModel.currentView )
+                    navigationModel.currentView = navigationModel.getTargetView("Ant-Aviation-Cl")
                     break;
                 case 2:
-                    navigationModel.currentView = navigationModel.getTargetView("AntAviationDTF");
+                    console.log("======2==========="+navigationModel.currentView )
+                    navigationModel.currentView = navigationModel.getTargetView("Ant-Aviation-DTF")
                     break;
                 case 3:
-                    navigationModel.currentView = navigationModel.getTargetView("AntAviationCAL");
+                    console.log("======3==========="+navigationModel.currentView )
+                    navigationModel.currentView = navigationModel.getTargetView("Ant-Aviation-CAL-Short")
                     break;
                 }
             }

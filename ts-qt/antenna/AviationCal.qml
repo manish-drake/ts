@@ -60,7 +60,7 @@ Item{
                     anchors.horizontalCenter: parent.horizontalCenter
                     Text {
                         id: testTitle
-                        text: "DISTANCE TO FAULT"
+                        text: "CALIBRATION"
                         font.pointSize: 12
                         font.weight: Font.DemiBold
                         anchors.horizontalCenter: parent.horizontalCenter

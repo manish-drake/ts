@@ -138,19 +138,19 @@ int DataBuilder::build()
     View vwAntenna("Antenna");
     viewDao->addView(vwAntenna);
 
-    View vwAntAviationVswr("AntAviation-VSWR");
+    View vwAntAviationVswr("Ant-Aviation-VSWR");
     viewDao->addView(vwAntAviationVswr);
 
-    View vwAntAviationCl("AntAviation-Cl");
+    View vwAntAviationCl("Ant-Aviation-Cl");
     viewDao->addView(vwAntAviationCl);
 
-    View vwAntAviationDtf("AntAviation-DTF");
+    View vwAntAviationDtf("Ant-Aviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-    View vwAntAviationCalShort("AntAviation-CAL-Short");
+    View vwAntAviationCalShort("Ant-Aviation-CAL-Short");
     viewDao->addView(vwAntAviationCalShort);
 
-    View vwAntAviationCalOpen("AntAviation-CAL-Open");
+    View vwAntAviationCalOpen("Ant-Aviation-CAL-Open");
     viewDao->addView(vwAntAviationCalOpen);
 
     View vwAntAviationCalLoad("AntAviation-CAL-Load");
