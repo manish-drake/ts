@@ -138,25 +138,22 @@ int DataBuilder::build()
     View vwAntenna("Antenna");
     viewDao->addView(vwAntenna);
 
-    View vwAntAviationVswr("Aviation-VSWR");
-    viewDao->addView(vwAntAviationVswr);
+    View vwAntAviationVswrCl("AntAviation-VSWR-CL");
+    viewDao->addView(vwAntAviationVswrCl);
 
-    View vwAntAviationCableLoss("Aviation-Cable-Loss");
-    viewDao->addView(vwAntAviationCableLoss);
-
-    View vwAntAviationDtf("Aviation-DTF");
+    View vwAntAviationDtf("AntAviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-    View vwAntAviationCalShort("Aviation-CAL-Short");
+    View vwAntAviationCalShort("AntAviation-CAL-Short");
     viewDao->addView(vwAntAviationCalShort);
 
-    View vwAntAviationCalOpen("Aviation-CAL-Open");
+    View vwAntAviationCalOpen("AntAviation-CAL-Open");
     viewDao->addView(vwAntAviationCalOpen);
 
-    View vwAntAviationCalLoad("Aviation-CAL-Load");
+    View vwAntAviationCalLoad("AntAviation-CAL-Load");
     viewDao->addView(vwAntAviationCalLoad);
 
-    View vwAntAviationCalThru("Aviation-CAL-Thru");
+    View vwAntAviationCalThru("AntAviation-CAL-Thru");
     viewDao->addView(vwAntAviationCalThru);
 
 
@@ -1280,6 +1277,28 @@ int DataBuilder::build()
 
     Navigation menuToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
     navigationDaoPtr->addNavigation(menuToAntenna);
+
+    Navigation antennaToAviationVswrCl(vwAntenna.id(), "AntAviationVswrCl",0, vwAntAviationVswrCl.id());
+    navigationDaoPtr->addNavigation(antennaToAviationVswrCl);
+
+    Navigation aviationDtfToAviationVswrCl(vwAntAviationDtf.id(), "AntAviationVswrCl",0, vwAntAviationVswrCl.id());
+    navigationDaoPtr->addNavigation(aviationDtfToAviationVswrCl);
+
+    Navigation aviationCalToAviationVswrCl(vwAntAviationCalShort.id(), "AntAviationVswrCl",0, vwAntAviationVswrCl.id());
+    navigationDaoPtr->addNavigation(aviationCalToAviationVswrCl);
+
+    Navigation aviationVswrClToAviationDTF(vwAntAviationVswrCl.id(), "AntAviationDTF",0, vwAntAviationDtf.id());
+    navigationDaoPtr->addNavigation(aviationVswrClToAviationDTF);
+
+    Navigation aviationCalToAviationDTF(vwAntAviationCalShort.id(), "AntAviationDTF",0, vwAntAviationDtf.id());
+    navigationDaoPtr->addNavigation(aviationCalToAviationDTF);
+
+    Navigation aviationVswrClToAviationCal(vwAntAviationVswrCl.id(), "AntAviationCAL",0, vwAntAviationCalShort.id());
+    navigationDaoPtr->addNavigation(aviationVswrClToAviationCal);
+
+    Navigation aviationDtfToAviationCal(vwAntAviationDtf.id(), "AntAviationCAL",0, vwAntAviationCalShort.id());
+    navigationDaoPtr->addNavigation(aviationDtfToAviationCal);
+
 
     return 1;
 }

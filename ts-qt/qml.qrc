@@ -35,6 +35,7 @@
         <file>ChartControl.qml</file>
         <file>AviationDTF.qml</file>
         <file>AviationCal.qml</file>
+        <file>AviationModeControl.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
