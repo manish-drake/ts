@@ -161,7 +161,6 @@ Item{
                                             ListElement { text: "OPEN";}
                                             ListElement { text: "LOAD";}
                                             ListElement { text: "THRU";}
-                                            ListElement { text: "PREV CAL";}
                                         }
                                         onCurrentIndexChanged:{
 
