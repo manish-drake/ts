@@ -9,17 +9,6 @@
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
         <file>antenna/Antenna.qml</file>
-        <file>controls.cpp</file>
-        <file>controls.h</file>
-        <file>controlsattachedtype.cpp</file>
-        <file>controlsattachedtype.h</file>
-        <file>controlstyles.cpp</file>
-        <file>controlstyles.h</file>
-        <file>databuilder.cpp</file>
-        <file>databuilder.h</file>
-        <file>main.cpp</file>
-        <file>resourcenamecoupling.cpp</file>
-        <file>resourcenamecoupling.h</file>
         <file>antenna/AviationVSWR-CL.qml</file>
         <file>antenna/AviationCal.qml</file>
         <file>antenna/AviationDTF.qml</file>
