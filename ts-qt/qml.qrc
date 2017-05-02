@@ -2,14 +2,11 @@
     <qresource prefix="/">
         <file>Main.qml</file>
         <file>ConfigPanel.qml</file>
-        <file>Card.qml</file>
-        <file>Cards.qml</file>
         <file>Global.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>MoreActions.qml</file>
         <file>CustomSwitchDelegate.qml</file>
-        <file>Radar.qml</file>
         <file>SideMenu.qml</file>
         <file>antenna/Antenna.qml</file>
         <file>controls.cpp</file>
@@ -47,6 +44,7 @@
         <file>ads-b/TestGuide.qml</file>
         <file>TestHelp.qml</file>
         <file>TestSetup.qml</file>
+        <file>ads-b/Radar.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
