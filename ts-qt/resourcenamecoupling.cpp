@@ -40,7 +40,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "AviationVSWR-CL.qml";
     case 36:
         return "AviationDTF.qml";
-    case 37:
+    case 37 ... 40:
         return "AviationCal.qml";
     case 1:
     default:
