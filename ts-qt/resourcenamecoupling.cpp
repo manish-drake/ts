@@ -3,45 +3,45 @@
 QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     switch (viewId) {
     case 3:
-        return "ADS-B.qml";
+        return "ads-b/ADS-B.qml";
     case 13:
     case 5:
-        return "ADSB-Scan.qml";
+        return "ads-b/ADSB-Scan.qml";
     case 14 ... 19:
     case 6 ... 12:
-        return "TestDetail.qml";
+        return "ads-b/TestDetail.qml";
     case 29 ... 30:
-        return "Radar.qml";
+        return "ads-b/Radar.qml";
     case 31 ... 32:
-        return "Graph.qml";
+        return "ads-b/Graph.qml";
     case 4:
-        return "Setup.qml";
+        return "setup/Setup.qml";
     case 20:
-        return "SetupUser.qml";
+        return "setup/SetupUser.qml";
     case 21:
-        return "SetupUserDetail.qml";
+        return "setup/SetupUserDetail.qml";
     case 33:
-        return "SetupAddUser.qml";
+        return "setup/SetupAddUser.qml";
     case 22:
-        return "SetupDisplay.qml";
+        return "setup/SetupDisplay.qml";
     case 23:
-        return "SetupGPS.qml";
+        return "setup/SetupGPS.qml";
     case 24:
-        return "SetupNetwork.qml";
+        return "setup/SetupNetwork.qml";
     case 25:
-        return "SetupSystemInfo.qml";
+        return "setup/SetupSystemInfo.qml";
     case 26:
-        return "SetupConnection.qml";
+        return "setup/SetupConnection.qml";
     case 27:
-        return "SetupManualBit.qml";
+        return "setup/SetupManualBit.qml";
     case 34:
-        return "Antenna.qml";
+        return "antenna/Antenna.qml";
     case 35:
-        return "AviationVSWR-CL.qml";
+        return "antenna/AviationVSWR-CL.qml";
     case 36:
-        return "AviationDTF.qml";
+        return "antenna/AviationDTF.qml";
     case 37 ... 40:
-        return "AviationCal.qml";
+        return "antenna/AviationCal.qml";
     case 1:
     default:
         return "Global.qml";

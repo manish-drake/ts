@@ -4,38 +4,49 @@
         <file>ConfigPanel.qml</file>
         <file>Card.qml</file>
         <file>Cards.qml</file>
-        <file>Aircraft.qml</file>
-        <file>Aircrafts.qml</file>
         <file>Global.qml</file>
-        <file>ADS-B.qml</file>
-        <file>SetupDisplay.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
-        <file>ADSB-Scan.qml</file>
-        <file>TestDetail.qml</file>
-        <file>Setup.qml</file>
-        <file>SetupUser.qml</file>
         <file>MoreActions.qml</file>
-        <file>SetupConnection.qml</file>
-        <file>SetupGPS.qml</file>
-        <file>SetupNetwork.qml</file>
-        <file>SetupSystemInfo.qml</file>
         <file>CustomSwitchDelegate.qml</file>
-        <file>SetupManualBit.qml</file>
-        <file>SetupUserDetail.qml</file>
         <file>Radar.qml</file>
-        <file>Graph.qml</file>
         <file>SideMenu.qml</file>
-        <file>TestSetup.qml</file>
+        <file>antenna/Antenna.qml</file>
+        <file>controls.cpp</file>
+        <file>controls.h</file>
+        <file>controlsattachedtype.cpp</file>
+        <file>controlsattachedtype.h</file>
+        <file>controlstyles.cpp</file>
+        <file>controlstyles.h</file>
+        <file>databuilder.cpp</file>
+        <file>databuilder.h</file>
+        <file>main.cpp</file>
+        <file>resourcenamecoupling.cpp</file>
+        <file>resourcenamecoupling.h</file>
+        <file>antenna/AviationVSWR-CL.qml</file>
+        <file>antenna/AviationCal.qml</file>
+        <file>antenna/AviationDTF.qml</file>
+        <file>antenna/AviationModeControl.qml</file>
+        <file>antenna/ChartControl.qml</file>
+        <file>setup/Setup.qml</file>
+        <file>setup/SetupAddUser.qml</file>
+        <file>setup/SetupConnection.qml</file>
+        <file>setup/SetupDisplay.qml</file>
+        <file>setup/SetupGPS.qml</file>
+        <file>setup/SetupManualBit.qml</file>
+        <file>setup/SetupNetwork.qml</file>
+        <file>setup/SetupSystemInfo.qml</file>
+        <file>setup/SetupUser.qml</file>
+        <file>setup/SetupUserDetail.qml</file>
+        <file>ads-b/ADS-B.qml</file>
+        <file>ads-b/ADSB-Scan.qml</file>
+        <file>ads-b/Aircraft.qml</file>
+        <file>ads-b/Aircrafts.qml</file>
+        <file>ads-b/Graph.qml</file>
+        <file>ads-b/TestDetail.qml</file>
+        <file>ads-b/TestGuide.qml</file>
         <file>TestHelp.qml</file>
-        <file>TestGuide.qml</file>
-        <file>SetupAddUser.qml</file>
-        <file>Antenna.qml</file>
-        <file>AviationVSWR-CL.qml</file>
-        <file>ChartControl.qml</file>
-        <file>AviationDTF.qml</file>
-        <file>AviationCal.qml</file>
-        <file>AviationModeControl.qml</file>
+        <file>TestSetup.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
