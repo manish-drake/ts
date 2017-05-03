@@ -7,12 +7,17 @@ import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
 GridLayout{
+    property bool isDTFMode: false
+    property bool areControlsAvailble: true
     anchors.left: parent.left
     anchors.right: parent.right
     rowSpacing: 0
+    columnSpacing: 0
     SwitchDelegate{
         id: rlScaleSwitch
+        enabled: areControlsAvailble
         Layout.columnSpan: 2
+        Layout.bottomMargin: 10
         spacing: 0
         implicitHeight: 30
         implicitWidth: 45
@@ -31,9 +36,11 @@ GridLayout{
 
     SwitchDelegate{
         id: vswrScaleSwitch
+        enabled: areControlsAvailble
         Layout.column: 1
         Layout.alignment: Qt.AlignRight
         Layout.columnSpan: 2
+        Layout.bottomMargin: 10
         spacing: 0
         implicitHeight: 30
         implicitWidth: 45
@@ -65,7 +72,7 @@ GridLayout{
         Layout.row: 2
         Layout.column: 0
         Layout.fillHeight: true
-        width: 20
+        width: 25
         model: rlScaleSwitch.checked ? rLVals2Model : rLValsModel
         delegate: Component{
             Rectangle{
@@ -73,6 +80,7 @@ GridLayout{
                 height: (rLValsList.height - 9)/(rLValsModel.count - 1)
                 color: Universal.background
                 Text{
+                    anchors.horizontalCenter: parent.horizontalCenter
                     text: val
                     color: Universal.foreground
                 }
@@ -105,7 +113,7 @@ GridLayout{
         Layout.row: 2
         Layout.column: 2
         Layout.fillHeight: true
-        width: 20
+        width: 25
         model: rlScaleSwitch.checked ? vswrVals2Model : vswrValsModel
         delegate: Component{
             Rectangle{
@@ -113,6 +121,7 @@ GridLayout{
                 height: (vswrValsList.height - 9)/(vswrValsModel.count - 1)
                 color: Universal.background
                 Text{
+                    anchors.horizontalCenter: parent.horizontalCenter
                     text: val
                     color: Universal.foreground
                 }
@@ -166,6 +175,7 @@ GridLayout{
 
     Rectangle{
         id: freqValsList
+        visible: !isDTFMode
         Layout.row: 4
         Layout.columnSpan: 3
         Layout.fillWidth: true
@@ -190,11 +200,72 @@ GridLayout{
         }
     }
 
+    Rectangle{
+        visible: isDTFMode
+        Layout.row: 4
+        Layout.column: 1
+        Layout.fillWidth: true
+        Layout.leftMargin: 10
+        Layout.rightMargin: 10
+        ListView{
+            id: lengthScale
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            orientation: ListView.Horizontal
+            model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
+            delegate: Component{
+                Rectangle{
+                    width: (lengthScale.width - 12)/(3)
+                    color: "transparent"
+                    Text{
+                        text: val
+                        color: Universal.foreground
+                    }
+                }
+            }
+            ListModel{
+                id: meterScaleList
+                ListElement{ val: "0" }
+                ListElement{ val: "5" }
+                ListElement{ val: "10" }
+                ListElement{ val: "15" }
+            }
+            ListModel{
+                id: feetScaleList
+                ListElement{ val: "0" }
+                ListElement{ val: "16" }
+                ListElement{ val: "33" }
+                ListElement{ val: "49" }
+            }
+        }
+    }
+
+    SwitchDelegate{
+        id: lengthUnitSwitch
+        visible: isDTFMode
+        Layout.row: 4
+        Layout.column: 2
+        spacing: 0
+        implicitHeight: 25
+        implicitWidth: 30
+        indicator:Rectangle{
+            anchors.fill: parent
+            color: parent.checked ? "#bbbbbb" : "#cccccc"
+            Text{
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "M"
+                horizontalAlignment: Text.AlignHCenter
+            }
+        }
+    }
+
     Slider{
         id: defaultMarkerSlider
+        visible: areControlsAvailble
         Layout.row: 1
         Layout.column: 1
-        Layout.topMargin: 10
         Layout.fillWidth: true
         implicitHeight: 20
         value: defaultMarkerVal
@@ -234,12 +305,12 @@ GridLayout{
         }
     }
     Repeater{
+        visible: areControlsAvailble
         model: userMarkersModel
         Slider{
             id: userMarkerSlider
             Layout.row: 1
             Layout.column: 1
-            Layout.topMargin: 10
             Layout.fillWidth: true
             implicitHeight: 20
             minimumValue: defaultMarkerSlider.minimumValue
