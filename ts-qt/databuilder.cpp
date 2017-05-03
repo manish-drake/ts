@@ -138,25 +138,25 @@ int DataBuilder::build()
     View vwAntenna("Antenna");
     viewDao->addView(vwAntenna);
 
-    View vwAntAviationVswr("Ant-Aviation-VSWR");
+    View vwAntAviationVswr("Antenna-Aviation-VSWR");
     viewDao->addView(vwAntAviationVswr);
 
-    View vwAntAviationCl("Ant-Aviation-Cl");
+    View vwAntAviationCl("Antenna-Aviation-Cl");
     viewDao->addView(vwAntAviationCl);
 
-    View vwAntAviationDtf("Ant-Aviation-DTF");
+    View vwAntAviationDtf("Antenna-Aviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-    View vwAntAviationCalShort("Ant-Aviation-CAL-Short");
+    View vwAntAviationCalShort("Antenna-Aviation-CAL-Short");
     viewDao->addView(vwAntAviationCalShort);
 
-    View vwAntAviationCalOpen("Ant-Aviation-CAL-Open");
+    View vwAntAviationCalOpen("Antenna-Aviation-CAL-Open");
     viewDao->addView(vwAntAviationCalOpen);
 
-    View vwAntAviationCalLoad("AntAviation-CAL-Load");
+    View vwAntAviationCalLoad("Antenna-Aviation-CAL-Load");
     viewDao->addView(vwAntAviationCalLoad);
 
-    View vwAntAviationCalThru("AntAviation-CAL-Thru");
+    View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
     viewDao->addView(vwAntAviationCalThru);
 
 
@@ -1281,106 +1281,106 @@ int DataBuilder::build()
     Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
     navigationDaoPtr->addNavigation(secToAntenna);
 
-    Navigation antennaToAviationVswr(vwAntenna.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation antennaToAviationVswr(vwAntenna.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(antennaToAviationVswr);
 
-    Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationVswrToCl);
 
-    Navigation AviationVswrToDtf(vwAntAviationVswr.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationVswrToDtf(vwAntAviationVswr.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationVswrToDtf);
 
-    Navigation AviationVswrToCalShort(vwAntAviationVswr.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationVswrToCalShort(vwAntAviationVswr.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationVswrToCalShort);
 
-    Navigation AviationClToVswr(vwAntAviationCl.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationClToVswr(vwAntAviationCl.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationClToVswr);
 
-    Navigation AviationClToDtf(vwAntAviationCl.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationClToDtf(vwAntAviationCl.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationClToDtf);
 
-    Navigation AviationClToCalShort(vwAntAviationCl.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationClToCalShort(vwAntAviationCl.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationClToCalShort);
 
-    Navigation AviationDtfToVswr(vwAntAviationDtf.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationDtfToVswr(vwAntAviationDtf.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationDtfToVswr);
 
-    Navigation AviationDtfToCl(vwAntAviationDtf.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationDtfToCl(vwAntAviationDtf.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationDtfToCl);
 
-    Navigation AviationDtfToCalShort(vwAntAviationDtf.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationDtfToCalShort(vwAntAviationDtf.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationDtfToCalShort);
 
-    Navigation AviationCalShortToVswr(vwAntAviationCalShort.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationCalShortToVswr(vwAntAviationCalShort.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalShortToVswr);
 
-    Navigation AviationCalShortToCl(vwAntAviationCalShort.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationCalShortToCl(vwAntAviationCalShort.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationCalShortToCl);
 
-    Navigation AviationCalShortToDtf(vwAntAviationCalShort.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationCalShortToDtf(vwAntAviationCalShort.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationCalShortToDtf);
 
-    Navigation AviationCalShortToOpen(vwAntAviationCalShort.id(), "Ant-Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
+    Navigation AviationCalShortToOpen(vwAntAviationCalShort.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
     navigationDaoPtr->addNavigation(AviationCalShortToOpen);
 
-    Navigation AviationCalShortToLoad(vwAntAviationCalShort.id(), "Ant-Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
+    Navigation AviationCalShortToLoad(vwAntAviationCalShort.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
     navigationDaoPtr->addNavigation(AviationCalShortToLoad);
 
-    Navigation AviationCalShortToThru(vwAntAviationCalShort.id(), "Ant-Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
+    Navigation AviationCalShortToThru(vwAntAviationCalShort.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalShortToThru);
 
-    Navigation AviationCalOpenToVswr(vwAntAviationCalOpen.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationCalOpenToVswr(vwAntAviationCalOpen.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToVswr);
 
-    Navigation AviationCalOpenToCl(vwAntAviationCalOpen.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationCalOpenToCl(vwAntAviationCalOpen.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToCl);
 
-    Navigation AviationCalOpenToDtf(vwAntAviationCalOpen.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationCalOpenToDtf(vwAntAviationCalOpen.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToDtf);
 
-    Navigation AviationCalOpenToShort(vwAntAviationCalOpen.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationCalOpenToShort(vwAntAviationCalOpen.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToShort);
 
-    Navigation AviationCalOpenToLoad(vwAntAviationCalOpen.id(), "Ant-Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
+    Navigation AviationCalOpenToLoad(vwAntAviationCalOpen.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToLoad);
 
-    Navigation AviationCalOpenToThru(vwAntAviationCalOpen.id(), "Ant-Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
+    Navigation AviationCalOpenToThru(vwAntAviationCalOpen.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToThru);
 
-    Navigation AviationCalLoadToVswr(vwAntAviationCalLoad.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationCalLoadToVswr(vwAntAviationCalLoad.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToVswr);
 
-    Navigation AviationCalLoadToCl(vwAntAviationCalLoad.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationCalLoadToCl(vwAntAviationCalLoad.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToCl);
 
-    Navigation AviationCalLoadToDtf(vwAntAviationCalLoad.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationCalLoadToDtf(vwAntAviationCalLoad.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToDtf);
 
-    Navigation AviationCalLoadToShort(vwAntAviationCalLoad.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationCalLoadToShort(vwAntAviationCalLoad.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToShort);
 
-    Navigation AviationCalLoadToOpen(vwAntAviationCalLoad.id(), "Ant-Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
+    Navigation AviationCalLoadToOpen(vwAntAviationCalLoad.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToOpen);
 
-    Navigation AviationCalLoadToThru(vwAntAviationCalLoad.id(), "Ant-Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
+    Navigation AviationCalLoadToThru(vwAntAviationCalLoad.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToThru);
 
-    Navigation AviationCalThruToVswr(vwAntAviationCalThru.id(), "Ant-Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation AviationCalThruToVswr(vwAntAviationCalThru.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalThruToVswr);
 
-    Navigation AviationCalThruToCl(vwAntAviationCalThru.id(), "Ant-Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation AviationCalThruToCl(vwAntAviationCalThru.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationCalThruToCl);
 
-    Navigation AviationCalThruToDtf(vwAntAviationCalThru.id(), "Ant-Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation AviationCalThruToDtf(vwAntAviationCalThru.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationCalThruToDtf);
 
-    Navigation AviationCalThruToShort(vwAntAviationCalThru.id(), "Ant-Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    Navigation AviationCalThruToShort(vwAntAviationCalThru.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationCalThruToShort);
 
-    Navigation AviationCalThruToOpen(vwAntAviationCalThru.id(), "Ant-Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
+    Navigation AviationCalThruToOpen(vwAntAviationCalThru.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
     navigationDaoPtr->addNavigation(AviationCalThruToOpen);
 
-    Navigation AviationCalThruToLoad(vwAntAviationCalThru.id(), "Ant-Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
+    Navigation AviationCalThruToLoad(vwAntAviationCalThru.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
     navigationDaoPtr->addNavigation(AviationCalThruToLoad);
 
     Navigation aviationVswrToAnt(vwAntAviationVswr.id(), "back", 0, vwAntenna.id());
