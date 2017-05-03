@@ -3,7 +3,8 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 Item{
     Rectangle{
@@ -69,68 +70,61 @@ Item{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
                                 Rectangle {
-                                    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
-                                    height: 40
-                                    GridLayout{
-                                        anchors.fill: parent
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            leftPadding: 10
-                                            font.pointSize: 10
-                                            text: qsTr("COAX:")
-                                            color: Universal.foreground
-                                        }
-                                        Rectangle{
-                                            Layout.column: 1
-                                            Layout.fillWidth: true
-                                        }
-                                        ComboBox {
-                                            id: coaxComboBox
-                                            Layout.column: 2
-                                            implicitWidth: 70
-                                            model: ListModel {
-                                                id: coaxList
-                                                ListElement { text: "PE Solid"}
-                                                ListElement { text: "PE Foam"}
-                                                ListElement { text: "Teflon"}
-                                                ListElement { text: "Teflon Foam"}
-                                                ListElement { text: "User"}
+                                    height: 50
+                                    ComboBox {
+                                        id: coaxComboBox
+                                        implicitWidth: parent.width
+                                        implicitHeight: parent.height
+                                        style: ComboBoxStyle{
+                                            background: Rectangle{
+                                                height: coaxComboBox.height
+                                                width: coaxComboBox.width
+                                                color: coaxComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
+                                                Image {
+                                                    source: "qrc:/img/img/Expand Arrow-25.png"
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    anchors.right: parent.right
+                                                    anchors.rightMargin: 10
+                                                }
+                                            }
+                                            label:Item {
+                                                anchors.fill: parent
+                                                Text {
+                                                    id: txt
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    anchors.left: parent.left
+                                                    anchors.leftMargin: 5
+                                                    font.pointSize: 10
+                                                    color: "#333333"
+                                                    text: "COAX: " + control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
+                                                }
+                                                TextField {
+                                                    id: velocityField
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    anchors.left: txt.right
+                                                    visible: coaxComboBox.currentIndex == 4
+                                                    implicitWidth: 50
+                                                    font.pointSize: 10
+                                                    placeholderText: "0.01-1.00"
+                                                    validator: RegExpValidator{
+                                                        regExp:  /((0(\.[1-9]{2})?)|(1(\.0)?))/
+                                                    }
+                                                }
                                             }
                                         }
-                                        Text {
-                                            Layout.column: 3
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            text: "VEL "
-                                            color: Universal.foreground
-                                        }
-                                        ComboBox {
-                                            id: coaxVelComboBox
-                                            Layout.column: 4
-                                            implicitWidth: 50
-                                            visible: coaxComboBox.currentIndex != 4
-                                            model: ListModel {
-                                                ListElement { text: "66%"}
-                                                ListElement { text: "85%"}
-                                                ListElement { text: "70%"}
-                                                ListElement { text: "80%"}
-                                            }
-                                        }
-                                        TextField {
-                                            id: velocityField
-                                            visible: coaxComboBox.currentIndex == 4
-                                            Layout.column: 4
-                                            implicitWidth: 50
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            font.pointSize: 10
-                                            placeholderText: "0.01-1.00"
-                                            validator: RegExpValidator{
-                                                regExp:  /((0(\.[1-9]{2})?)|(1(\.0)?))/
-                                            }
+                                        model: ListModel {
+                                            id: coaxList
+                                            ListElement { text: "PE Solid"; vel: "66%"}
+                                            ListElement { text: "PE Foam"; vel: "85%"}
+                                            ListElement { text: "Teflon"; vel: "70%"}
+                                            ListElement { text: "Teflon Foam"; vel: "80%"}
+                                            ListElement { text: "User"; vel: ""}
                                         }
                                     }
+
                                 }
                             }
 

@@ -11,8 +11,8 @@ Rectangle{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        height: 40
-        color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+        height: 50
+        color: "#E0E0E0"
         GridLayout{
             anchors.fill: parent
             columnSpacing: 0
@@ -24,6 +24,7 @@ Rectangle{
                 color: Universal.foreground
             }
             Rectangle{
+                color: "transparent"
                 Layout.column: 1
                 Layout.fillWidth: true
             }

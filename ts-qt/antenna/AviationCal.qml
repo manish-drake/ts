@@ -3,8 +3,8 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-
-
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 Item{
     Rectangle{
@@ -135,24 +135,35 @@ Item{
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
-                                    height: 40
-                                    GridLayout{
-                                        anchors.fill: parent
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            leftPadding: 10
-                                            font.pointSize: 10
-                                            text: qsTr("TYPE:")
-                                            color: Universal.foreground
-                                        }
-                                        Rectangle{
-                                            Layout.column: 1
-                                            Layout.fillWidth: true
-                                        }
+                                    height: 50
                                         ComboBox {
                                             id: typeComboBox
-                                            Layout.column: 2
-                                            implicitWidth: 120
+                                            implicitWidth: parent.width
+                                            implicitHeight: parent.height
+                                            style: ComboBoxStyle{
+                                                background: Rectangle{
+                                                    height: typeComboBox.height
+                                                    width: typeComboBox.width
+                                                    color: typeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
+                                                    Image {
+                                                        source: "qrc:/img/img/Expand Arrow-25.png"
+                                                        anchors.verticalCenter: parent.verticalCenter
+                                                        anchors.right: parent.right
+                                                        anchors.rightMargin: 10
+                                                    }
+                                                }
+                                                label:Item {
+                                                    anchors.fill: parent
+                                                    Text {
+                                                        anchors.verticalCenter: parent.verticalCenter
+                                                        anchors.left: parent.left
+                                                        anchors.leftMargin: 5
+                                                        font.pointSize: 10
+                                                        color: "#333333"
+                                                        text: "MODE: " + control.currentText
+                                                    }
+                                                }
+                                            }
                                             model: ListModel {
                                                 id: typeList
                                                 ListElement { text: "SHORT";}
@@ -176,8 +187,7 @@ Item{
                                                     break;
                                                 }
                                             }
-                                        }
-                                    }
+                                        }                                    
                                 }
                             }
 

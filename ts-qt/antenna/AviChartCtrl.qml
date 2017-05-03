@@ -307,6 +307,13 @@ GridLayout{
                     height: graphImage.height
                 }
                 Text{
+                    visible: !isDTFMode
+                    anchors.right: parent.left
+                    anchors.rightMargin: 5
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: defaultMarkerSlider.value
+                }
+                Text{
                     visible: isDTFMode
                     anchors.right: parent.left
                     anchors.rightMargin: 5
