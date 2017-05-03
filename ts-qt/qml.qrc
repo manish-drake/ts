@@ -12,7 +12,6 @@
         <file>antenna/AviationVSWR-CL.qml</file>
         <file>antenna/AviationCal.qml</file>
         <file>antenna/AviationDTF.qml</file>
-        <file>antenna/ChartControl.qml</file>
         <file>setup/Setup.qml</file>
         <file>setup/SetupAddUser.qml</file>
         <file>setup/SetupConnection.qml</file>
@@ -37,6 +36,7 @@
         <file>antenna/AviModeCtrl.qml</file>
         <file>antenna/AviFooterContent.qml</file>
         <file>antenna/AviHeaderContent.qml</file>
+        <file>antenna/AviChartCtrl.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

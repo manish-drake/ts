@@ -4,13 +4,7 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 
-
 Item{
-    property var selectedMarker: defaultMarkerSlider
-    property int freqStartVal
-    property int freqMiddleVal
-    property int freqEndVal
-    property double defaultMarkerVal: 0.0
     Rectangle{
         anchors.fill: parent
         color: "transparent"
@@ -55,60 +49,69 @@ Item{
                         anchors.margins: 10
                         spacing: 30
 
-                        ChartControl{}
+                        AviChartCtrl{
+                            id: chartCtrl
+                        }
 
                         GridLayout {
-                            id: grid
                             anchors.left: parent.left
                             anchors.right: parent.right
                             columns: 2
                             columnSpacing: 15
                             rowSpacing: 20
-                            Rectangle {
-                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+                            height: 200
+                            Rectangle{
                                 Layout.fillWidth: true
-                                height: 40
+                                Layout.fillHeight: true
+                                Rectangle {
+                                    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    height: 40
 
-                                GridLayout{
-                                    anchors.fill: parent
-                                    Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        leftPadding: 10
-                                        font.pointSize: 10
-                                        text: qsTr("BAND:")
-                                        color: Universal.foreground
-                                    }
-                                    Rectangle{
-                                        Layout.column: 1
-                                        Layout.fillWidth: true
-                                    }
-                                    ComboBox {
-                                        id: bandComboBox
-                                        Layout.column: 2
-                                        implicitWidth: 120
-                                        model: ListModel {
-                                            id: bandList
-                                            ListElement { text: "ILS"; start: 50; stop: 350; middle: 150; defaultmarker: 150 }
-                                            ListElement { text: "MB"; start: 50; stop: 100; middle: 75; defaultmarker: 75 }
-                                            ListElement { text: "VHF NAV COM"; start: 100; stop: 150; middle: 125; defaultmarker: 125 }
-                                            ListElement { text: "GS"; start: 310; stop: 360; middle: 335; defaultmarker: 360 }
-                                            ListElement { text: "UHF COM"; start: 200; stop: 450; middle: 325; defaultmarker: 450 }
-                                            ListElement { text: "DME/TACAN"; start: 900; stop: 1300; middle: 1100; defaultmarker: 1100 }
-                                            ListElement { text: "XPNDR/UAT"; start: 1000; stop: 1120; middle: 1060; defaultmarker: 1060 }
-                                            ListElement { text: "GPS/GNSS"; start: 1500; stop: 1650; middle: 1575; defaultmarker: 1575 }
-                                            ListElement { text: "FULL"; start: 50; stop: 2000; middle: 1025; defaultmarker: 1025 }
+                                    GridLayout{
+                                        anchors.fill: parent
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            leftPadding: 10
+                                            font.pointSize: 10
+                                            text: qsTr("BAND:")
+                                            color: Universal.foreground
                                         }
-                                        onCurrentIndexChanged:{
-                                            //freqStart.text = bandList.get(currentIndex).start
-                                            //freqStop.text = bandList.get(currentIndex).stop + "MHz"
-                                            //freqMiddle.text = bandList.get(currentIndex).middle
-                                            //defaultMarkerSlider.minimumValue = bandList.get(currentIndex).start
-                                            //defaultMarkerSlider.maximumValue = bandList.get(currentIndex).stop
-                                            //defaultMarkerSlider.value = bandList.get(currentIndex).defaultmarker
-                                            freqStartVal = bandList.get(currentIndex).start
-                                            freqMiddleVal = bandList.get(currentIndex).middle
-                                            freqEndVal = bandList.get(currentIndex).stop
-                                            defaultMarkerVal = bandList.get(currentIndex).defaultmarker
+                                        Rectangle{
+                                            Layout.column: 1
+                                            Layout.fillWidth: true
+                                        }
+                                        ComboBox {
+                                            id: bandComboBox
+                                            Layout.column: 2
+                                            implicitWidth: 120
+                                            textRole: "text"
+                                            model: ListModel {
+                                                id: bandList
+                                                ListElement { text: "ILS"; start: 50; stop: 350; middle: 150; defaultmarker: 150 }
+                                                ListElement { text: "MB"; start: 50; stop: 100; middle: 75; defaultmarker: 75 }
+                                                ListElement { text: "VHF NAV COM"; start: 100; stop: 150; middle: 125; defaultmarker: 125 }
+                                                ListElement { text: "GS"; start: 310; stop: 360; middle: 335; defaultmarker: 360 }
+                                                ListElement { text: "UHF COM"; start: 200; stop: 450; middle: 325; defaultmarker: 450 }
+                                                ListElement { text: "DME/TACAN"; start: 900; stop: 1300; middle: 1100; defaultmarker: 1100 }
+                                                ListElement { text: "XPNDR/UAT"; start: 1000; stop: 1120; middle: 1060; defaultmarker: 1060 }
+                                                ListElement { text: "GPS/GNSS"; start: 1500; stop: 1650; middle: 1575; defaultmarker: 1575 }
+                                                ListElement { text: "FULL"; start: 50; stop: 2000; middle: 1025; defaultmarker: 1025 }
+                                            }
+                                            onCurrentIndexChanged:{
+                                                //freqStart.text = bandList.get(currentIndex).start
+                                                //freqStop.text = bandList.get(currentIndex).stop + "MHz"
+                                                //freqMiddle.text = bandList.get(currentIndex).middle
+                                                //defaultMarkerSlider.minimumValue = bandList.get(currentIndex).start
+                                                //defaultMarkerSlider.maximumValue = bandList.get(currentIndex).stop
+                                                //defaultMarkerSlider.value = bandList.get(currentIndex).defaultmarker
+                                                chartCtrl.freqStartVal = bandList.get(currentIndex).start
+                                                chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
+                                                chartCtrl.freqEndVal = bandList.get(currentIndex).stop
+                                                chartCtrl.defaultMarkerVal = bandList.get(currentIndex).defaultmarker
+                                            }
                                         }
                                     }
                                 }
