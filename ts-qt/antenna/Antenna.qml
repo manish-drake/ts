@@ -12,7 +12,7 @@ Item {
         anchors.topMargin: 10
         anchors.leftMargin: 10
         cellWidth: grid.width/2; cellHeight: 200
-        model: antennaItemsModel
+        model: testModel
         delegate: testCardDelegate
         focus: true
         highlight:Rectangle{
@@ -21,12 +21,12 @@ Item {
             border.width: 1
             radius:5
         }
-        ListModel{
-            id: antennaItemsModel
-            ListElement{
-                name: "AVIATION"
-            }
-        }
+//        ListModel{
+//            id: antennaItemsModel
+//            ListElement{
+//                name: "AVIATION"
+//            }
+//        }
         Component{
             id: testCardDelegate
             Rectangle {

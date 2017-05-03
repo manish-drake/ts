@@ -1020,6 +1020,8 @@ int DataBuilder::build()
     Test uatIn("UAT ADS-B IN", secADSB.id());
     testModel.addTest(uatIn);
 
+    Test antennaAviation("Aviation", secAntenna.id());
+    testModel.addTest(antennaAviation);
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
