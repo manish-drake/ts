@@ -160,7 +160,20 @@ Item{
                                             ListElement { text: "THRU";}
                                         }
                                         onCurrentIndexChanged:{
-
+                                            switch(currentIndex){
+                                            case 0:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                                break;
+                                            case 1:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                                break;
+                                            case 2:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                                break;
+                                            case 3:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                                break;
+                                            }
                                         }
                                     }
                                 }

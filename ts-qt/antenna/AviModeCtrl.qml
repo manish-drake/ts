@@ -39,12 +39,12 @@ Rectangle {
                 case 0:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
                     currentModeIndex: 0;
-                    vswrClTitle.detailTitle = "VSWR";
+                    vswrClHeader.detailTitle = "VSWR";
                     break;
                 case 1:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
                     currentModeIndex: 1
-                    vswrClTitle.detailTitle = "CABLE LOSS";
+                    vswrClHeader.detailTitle = "CABLE LOSS";
                     break;
                 case 2:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")

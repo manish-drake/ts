@@ -34,7 +34,7 @@ Item{
             id: item1
             anchors.fill: parent
             header: AviHeaderContent{
-                id: vswrClTitle
+                id: vswrClHeader
             }
 
             contentItem: Rectangle {
