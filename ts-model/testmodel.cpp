@@ -118,6 +118,9 @@ void TestModel::qualifyByView(const int view)
     case 3:
         temp_Tests = m_db.testDao()->tests(4);
         break;
+    case 34:
+        temp_Tests = m_db.testDao()->tests(7);
+        break;
     default:
         temp_Tests = m_db.testDao()->tests(0);
         break;
