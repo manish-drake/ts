@@ -101,15 +101,11 @@ Item{
                                                 ListElement { text: "FULL"; start: 50; stop: 2000; middle: 1025; defaultmarker: 1025 }
                                             }
                                             onCurrentIndexChanged:{
-                                                //freqStart.text = bandList.get(currentIndex).start
-                                                //freqStop.text = bandList.get(currentIndex).stop + "MHz"
-                                                //freqMiddle.text = bandList.get(currentIndex).middle
-                                                //defaultMarkerSlider.minimumValue = bandList.get(currentIndex).start
-                                                //defaultMarkerSlider.maximumValue = bandList.get(currentIndex).stop
-                                                //defaultMarkerSlider.value = bandList.get(currentIndex).defaultmarker
                                                 chartCtrl.freqStartVal = bandList.get(currentIndex).start
                                                 chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
                                                 chartCtrl.freqEndVal = bandList.get(currentIndex).stop
+                                                chartCtrl.markerMinVal = bandList.get(currentIndex).start
+                                                chartCtrl.markerMaxVal = bandList.get(currentIndex).stop
                                                 chartCtrl.defaultMarkerVal = bandList.get(currentIndex).defaultmarker
                                             }
                                         }
@@ -118,6 +114,7 @@ Item{
                             }
                             AviModeCtrl{}
                             AviMarkerActionsCtrl{}
+                            ListModel{ id: userMarkersModel }
                         }
                     }
                 }

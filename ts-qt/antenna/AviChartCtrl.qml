@@ -10,8 +10,12 @@ GridLayout{
     property int freqStartVal
     property int freqMiddleVal
     property int freqEndVal
+    property double markerMinVal
+    property double markerMaxVal
     property double defaultMarkerVal
-    property bool isDTFMode: false
+    property double markerStepSize: 1
+    property bool isDTFMode
+    property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
     anchors.left: parent.left
     anchors.right: parent.right
@@ -258,6 +262,10 @@ GridLayout{
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
+            onCheckedChanged: {
+                markerMaxVal = checked ? 49 : 15;
+                defaultMarkerVal = checked ? (defaultMarkerVal * 3.28084) : (defaultMarkerVal * 0.3048)
+            }
         }
     }
 
@@ -268,9 +276,10 @@ GridLayout{
         Layout.column: 1
         Layout.fillWidth: true
         implicitHeight: 20
-        minimumValue: freqStartVal
-        maximumValue: freqEndVal
+        minimumValue: markerMinVal
+        maximumValue: markerMaxVal
         value: defaultMarkerVal
+        stepSize: markerStepSize
         style: SliderStyle {
             groove: Rectangle {
                 Layout.fillWidth: parent
@@ -297,10 +306,15 @@ GridLayout{
                     width: 1.5
                     height: graphImage.height
                 }
+                Text{
+                    visible: isDTFMode
+                    anchors.right: parent.left
+                    anchors.rightMargin: 5
+                    anchors.verticalCenter: parent.verticalCenter
+                    text: lengthUnitSwitch.checked ? defaultMarkerSlider.value + " Ft" : defaultMarkerSlider.value + " m"
+                }
                 MouseArea{
                     anchors.fill: parent
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     onClicked: {console.log("default marker selected") }
                 }
             }
@@ -315,8 +329,9 @@ GridLayout{
             Layout.column: 1
             Layout.fillWidth: true
             implicitHeight: 20
-            minimumValue: defaultMarkerSlider.minimumValue
-            maximumValue: defaultMarkerSlider.maximumValue
+            minimumValue: markerMinVal
+            maximumValue: markerMaxVal
+            stepSize: markerStepSize
             style: SliderStyle {
                 groove: Rectangle {
                     Layout.fillWidth: parent
@@ -351,6 +366,5 @@ GridLayout{
             }
         }
     }
-    ListModel{ id: userMarkersModel }
 }
 

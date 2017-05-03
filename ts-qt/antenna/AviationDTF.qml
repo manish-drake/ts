@@ -51,7 +51,11 @@ Item{
                         spacing: 30
 
                         AviChartCtrl{
+                            id: chartCtrl
                             isDTFMode: true
+                            markerMinVal: 0
+                            markerMaxVal: 15
+                            markerStepSize: 0.1
                         }
 
                         GridLayout {
@@ -135,6 +139,7 @@ Item{
                             }
 
                             AviMarkerActionsCtrl{}
+                            ListModel{ id: userMarkersModel }
                         }
                     }
                 }

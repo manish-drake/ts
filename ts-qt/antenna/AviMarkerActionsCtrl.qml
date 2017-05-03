@@ -48,14 +48,14 @@ Rectangle{
                 height: parent.height
                 implicitWidth: 35
                 text: "<<"
-                onClicked: --chartCtrl.defaultMarkerVal
+                onClicked: chartCtrl.defaultMarkerVal = chartCtrl.defaultMarkerVal - chartCtrl.markerStepSize
             }
             Button{
                 Layout.column: 5
                 height: parent.height
                 implicitWidth: 35
                 text: ">>"
-                onClicked: chartCtrl.defaultMarkerVal++
+                onClicked: chartCtrl.defaultMarkerVal = chartCtrl.defaultMarkerVal + chartCtrl.markerStepSize
             }
         }
     }
