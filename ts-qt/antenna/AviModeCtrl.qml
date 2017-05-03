@@ -38,10 +38,13 @@ Rectangle {
                 switch(currentIndex){
                 case 0:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                    currentModeIndex: 0;
+                    vswrClTitle.detailTitle = "VSWR";
                     break;
                 case 1:
-                    console.log("--------------------------------------------------")
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
+                    currentModeIndex: 1
+                    vswrClTitle.detailTitle = "CABLE LOSS";
                     break;
                 case 2:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")

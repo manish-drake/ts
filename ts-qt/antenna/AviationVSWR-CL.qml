@@ -33,7 +33,9 @@ Item{
         Page {
             id: item1
             anchors.fill: parent
-            header: AviHeaderContent{}
+            header: AviHeaderContent{
+                id: vswrClTitle
+            }
 
             contentItem: Rectangle {
                 color: Universal.background
