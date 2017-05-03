@@ -55,24 +55,18 @@ Item{
                             anchors.left: parent.left
                             anchors.right: parent.right
                             height: chartCtrl.height
-                            ChartControl{
+                            AviChartCtrl{
                                 id: chartCtrl
                                 areControlsAvailble : false
                             }
                             GridView{
                                 id: grid
                                 anchors.centerIn: parent
-                                anchors.verticalCenterOffset: 20
-                                height: parent.height * 0.65
-                                width: parent.width * 0.8
+                                anchors.verticalCenterOffset: 15
+                                height: parent.height * 0.8
+                                width: parent.width * 0.82
                                 cellWidth: grid.width/2; cellHeight: grid.height/2
                                 focus: true
-                                highlight:Rectangle{
-                                    color: "transparent"
-                                    border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                                    border.width: 1
-                                    radius:5
-                                }
                                 model: ListModel{
                                     ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
                                     ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
@@ -80,44 +74,45 @@ Item{
                                     ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
                                 }
                                 delegate:Component{
-                                    Rectangle {
-                                        id: wrapper
-                                        width: grid.cellWidth - 10
-                                        height: grid.cellHeight -10
-                                        color: Universal.accent
-                                        border.color: "#0d000000"
-                                        border.width: 1
-                                        radius: 5
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            horizontalOffset: 1.1
-                                            verticalOffset: 1.1
-                                            radius: 4.0
-                                            color: "#0d000000"
-                                            spread: 0
-                                        }
-                                        MouseArea {
+                                    Rectangle{
+                                        width: grid.cellWidth
+                                        height: grid.cellHeight
+                                        color: "transparent"
+                                        Rectangle{
+                                            id: wrapper
                                             anchors.fill: parent
-                                            onClicked: grid.currentIndex = index
-                                            onDoubleClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name})
-                                        }
-                                        Column{
-                                            anchors.centerIn: parent
-                                            Text{
-                                                text: header
-                                                color: "white"
-                                                font.pointSize: 12
+                                            anchors.margins: 10
+                                            color: index == typeComboBox.currentIndex ?  Universal.accent : Qt.darker(Universal.accent,1.2)
+                                            border.color: "#0dffffff"
+                                            border.width: 1
+                                            radius: 5
+                                            layer.enabled: true
+                                            layer.effect: DropShadow {
+                                                transparentBorder: true
+                                                horizontalOffset: 1.1
+                                                verticalOffset: 1.1
+                                                radius: 4.0
+                                                color: "#0dffffff"
+                                                spread: 0
                                             }
-                                            Text{
-                                                text: status
-                                                color: "white"
-                                                font.pointSize: 12
-                                            }
-                                            Text {
-                                                text: datetime
-                                                color: "white"
-                                                font.pointSize: 12
+                                            Column{
+                                                anchors.centerIn: parent
+                                                Text{
+                                                    text: header
+                                                    color: "white"
+                                                    font.weight: Font.Bold
+                                                    font.pointSize: 11
+                                                }
+                                                Text{
+                                                    text: status
+                                                    color: "white"
+                                                    font.pointSize: 11
+                                                }
+                                                Text {
+                                                    text: datetime
+                                                    color: "white"
+                                                    font.pointSize: 11
+                                                }
                                             }
                                         }
                                     }
@@ -131,48 +126,55 @@ Item{
                             columns: 2
                             columnSpacing: 15
                             rowSpacing: 20
-                            Rectangle {
-                                color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+                            height: 200
+                            Rectangle{
                                 Layout.fillWidth: true
-                                height: 40
-                                GridLayout{
-                                    anchors.fill: parent
-                                    Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        leftPadding: 10
-                                        font.pointSize: 10
-                                        text: qsTr("TYPE:")
-                                        color: Universal.foreground
-                                    }
-                                    Rectangle{
-                                        Layout.column: 1
-                                        Layout.fillWidth: true
-                                    }
-                                    ComboBox {
-                                        id: typeComboBox
-                                        Layout.column: 2
-                                        implicitWidth: 120
-                                        model: ListModel {
-                                            id: typeList
-                                            ListElement { text: "SHORT";}
-                                            ListElement { text: "OPEN";}
-                                            ListElement { text: "LOAD";}
-                                            ListElement { text: "THRU";}
+                                Layout.fillHeight: true
+                                Rectangle {
+                                    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    height: 40
+                                    GridLayout{
+                                        anchors.fill: parent
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            leftPadding: 10
+                                            font.pointSize: 10
+                                            text: qsTr("TYPE:")
+                                            color: Universal.foreground
                                         }
-                                        onCurrentIndexChanged:{
-                                            switch(currentIndex){
-                                            case 0:
-                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-                                                break;
-                                            case 1:
-                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
-                                                break;
-                                            case 2:
-                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
-                                                break;
-                                            case 3:
-                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
-                                                break;
+                                        Rectangle{
+                                            Layout.column: 1
+                                            Layout.fillWidth: true
+                                        }
+                                        ComboBox {
+                                            id: typeComboBox
+                                            Layout.column: 2
+                                            implicitWidth: 120
+                                            model: ListModel {
+                                                id: typeList
+                                                ListElement { text: "SHORT";}
+                                                ListElement { text: "OPEN";}
+                                                ListElement { text: "LOAD";}
+                                                ListElement { text: "THRU";}
+                                            }
+                                            onCurrentIndexChanged:{
+                                                switch(currentIndex){
+                                                case 0:
+                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                                    break;
+                                                case 1:
+                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                                    break;
+                                                case 2:
+                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                                    break;
+                                                case 3:
+                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                                    break;
+                                                }
                                             }
                                         }
                                     }
@@ -183,19 +185,21 @@ Item{
                                 currentModeIndex: 3
                             }
 
-                            Rectangle {
+                            Rectangle{
                                 Layout.row: 1
                                 Layout.fillWidth: true
+                                Layout.fillHeight: true
                                 Button{
                                     implicitWidth: parent.width
                                     text: "MEASURE"
                                 }
                             }
 
-                            Rectangle {
+                            Rectangle{
                                 Layout.row: 1
                                 Layout.column: 1
                                 Layout.fillWidth: true
+                                Layout.fillHeight: true
                                 Button{
                                     implicitWidth: parent.width
                                     text: "DONE"

@@ -7,6 +7,10 @@ import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
 GridLayout{
+    property int freqStartVal
+    property int freqMiddleVal
+    property int freqEndVal
+    property double defaultMarkerVal
     property bool isDTFMode: false
     property bool areControlsAvailble: true
     anchors.left: parent.left
@@ -204,19 +208,18 @@ GridLayout{
         visible: isDTFMode
         Layout.row: 4
         Layout.column: 1
+        Layout.columnSpan: 2
         Layout.fillWidth: true
-        Layout.leftMargin: 10
-        Layout.rightMargin: 10
         ListView{
             id: lengthScale
             anchors.left: parent.left
-            anchors.right: parent.right
+            anchors.right: lengthUnitSwitch.left
             anchors.top: parent.top
             orientation: ListView.Horizontal
             model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
             delegate: Component{
                 Rectangle{
-                    width: (lengthScale.width - 12)/(3)
+                    width: (lengthScale.width - 15)/3
                     color: "transparent"
                     Text{
                         text: val
@@ -239,24 +242,21 @@ GridLayout{
                 ListElement{ val: "49" }
             }
         }
-    }
-
-    SwitchDelegate{
-        id: lengthUnitSwitch
-        visible: isDTFMode
-        Layout.row: 4
-        Layout.column: 2
-        spacing: 0
-        implicitHeight: 25
-        implicitWidth: 30
-        indicator:Rectangle{
-            anchors.fill: parent
-            color: parent.checked ? "#bbbbbb" : "#cccccc"
-            Text{
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "M"
-                horizontalAlignment: Text.AlignHCenter
+        SwitchDelegate{
+            id: lengthUnitSwitch
+            anchors.right: parent.right
+            spacing: 0
+            implicitHeight: 20
+            implicitWidth: 25
+            indicator:Rectangle{
+                anchors.fill: parent
+                color: parent.checked ? "#bbbbbb" : "#cccccc"
+                Text{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: "M"
+                    horizontalAlignment: Text.AlignHCenter
+                }
             }
         }
     }
@@ -268,6 +268,8 @@ GridLayout{
         Layout.column: 1
         Layout.fillWidth: true
         implicitHeight: 20
+        minimumValue: freqStartVal
+        maximumValue: freqEndVal
         value: defaultMarkerVal
         style: SliderStyle {
             groove: Rectangle {
