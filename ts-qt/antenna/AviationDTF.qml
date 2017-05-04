@@ -136,19 +136,19 @@ Item{
                             }
 
                             AviMarkerActionsCtrl{}
-                            ListModel{ id: userMarkersModel }
+                            ListModel{
+                                id: markersModel
+                                ListElement{num: 1; _val: 0}
+
+                            }
                         }
 
                         Column{
-                            Text{
-                                font.pointSize: 10
-                                text: "M1  " + chartCtrl.defaultMarkerVal.toFixed(1)+" m"
-                            }
                             Repeater{
-                                model: userMarkersModel
+                                model: markersModel
                                 Text{
                                     font.pointSize: 10
-                                    text: "M" + num + "  " + val.toFixed(1) +" m"
+                                    text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(1) +" Ft" : "M" + num + "  " + _val.toFixed(1) +" m"
                                 }
                             }
                         }

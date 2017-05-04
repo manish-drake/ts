@@ -119,26 +119,26 @@ Item{
                                             chartCtrl.freqEndVal = bandList.get(currentIndex).stop
                                             chartCtrl.markerMinVal = bandList.get(currentIndex).start
                                             chartCtrl.markerMaxVal = bandList.get(currentIndex).stop
-                                            chartCtrl.defaultMarkerVal = bandList.get(currentIndex).defaultmarker
+                                            markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
                                         }
                                     }
                                 }
                             }
                             AviModeCtrl{}
                             AviMarkerActionsCtrl{}
-                            ListModel{ id: userMarkersModel }
+                            ListModel{
+                                id: markersModel
+                                ListElement{num: 1; _val: 0}
+
+                            }
                         }
 
                         Column{
-                            Text{
-                                font.pointSize: 10
-                                text: "M1  " + chartCtrl.defaultMarkerVal
-                            }
                             Repeater{
-                                model: userMarkersModel
+                                model: markersModel
                                 Text{
                                     font.pointSize: 10
-                                    text: "M" + num + "  " + val
+                                    text: "M" + num + "  " + _val
                                 }
                             }
                         }

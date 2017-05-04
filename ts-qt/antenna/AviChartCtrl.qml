@@ -12,8 +12,8 @@ GridLayout{
     property int freqEndVal
     property double markerMinVal
     property double markerMaxVal
-    property double defaultMarkerVal
     property double markerStepSize: 1
+    property int selectedMarkerIndex: 0
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
@@ -263,8 +263,9 @@ GridLayout{
                 }
             }
             onCheckedChanged: {
+                isDTFUnitSwitched = checked
                 markerMaxVal = checked ? 49 : 15;
-                defaultMarkerVal = checked ? (defaultMarkerVal * 3.28084) : (defaultMarkerVal * 0.3048)
+                markersModel.get(selectedMarkerIndex)._val = checked ? (markersModel.get(selectedMarkerIndex)._val * 3.28084) : (markersModel.get(selectedMarkerIndex)._val / 3.28084)
             }
         }
     }
@@ -275,71 +276,11 @@ GridLayout{
         color: "transparent"
     }
 
-    Slider{
-        id: defaultMarkerSlider
-        visible: areControlsAvailble
-        Layout.row: 1
-        Layout.column: 1
-        Layout.fillWidth: true
-        implicitHeight: 20
-        minimumValue: markerMinVal
-        maximumValue: markerMaxVal
-        value: defaultMarkerVal
-        stepSize: markerStepSize
-        style: SliderStyle {
-            groove: Rectangle {
-                Layout.fillWidth: parent
-                color: "transparent"
-            }
-            handle:
-                Rectangle {
-                anchors.centerIn: parent
-                color: control.pressed ? "#dddddd" : "#eeeeee"
-                border.color: "#aaaaaa"
-                border.width: 1
-                implicitWidth: 22
-                implicitHeight: 20
-                radius: 2
-                Text{
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "M1"
-                }
-                Rectangle{
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: parent.bottom
-                    color: "orange"
-                    width: 1.5
-                    height: graphImage.height
-                }
-
-                Text{
-                    visible: !isDTFMode
-                    anchors.right: parent.left
-                    anchors.rightMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: defaultMarkerSlider.value;
-                }
-                Text{
-                    visible: isDTFMode
-                    anchors.right: parent.left
-                    anchors.rightMargin: 5
-                    anchors.verticalCenter: parent.verticalCenter
-                    text: lengthUnitSwitch.checked ? (defaultMarkerSlider.value).toFixed(1) + " Ft" : (defaultMarkerSlider.value).toFixed(1) + " m"
-                }
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {console.log("default marker selected") }
-                }
-            }
-        }
-        onValueChanged: defaultMarkerVal = value
-    }
     Repeater{
         visible: areControlsAvailble
-        model: userMarkersModel
+        model: markersModel
         Slider{
-            id: userMarkerSlider
+            id: markerSlider
             Layout.row: 1
             Layout.column: 1
             Layout.fillWidth: true
@@ -347,6 +288,7 @@ GridLayout{
             minimumValue: markerMinVal
             maximumValue: markerMaxVal
             stepSize: markerStepSize
+            value: _val
             style: SliderStyle {
                 groove: Rectangle {
                     Layout.fillWidth: parent
@@ -369,7 +311,7 @@ GridLayout{
                     Rectangle{
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: parent.bottom
-                        color: "yellow"
+                        color: "orange"
                         width: 1.5
                         height: graphImage.height
                     }
@@ -378,14 +320,14 @@ GridLayout{
                         anchors.right: parent.left
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
-                        text: userMarkerSlider.value;
+                        text: markerSlider.value;
                     }
                     Text{
                         visible: isDTFMode
                         anchors.right: parent.left
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
-                        text: lengthUnitSwitch.checked ? (userMarkerSlider.value).toFixed(1) + " Ft" : (userMarkerSlider.value).toFixed(1) + " m"
+                        text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(1) + " Ft" : (markerSlider.value).toFixed(1) + " m"
                     }
                     MouseArea{
                         anchors.fill: parent
@@ -393,7 +335,7 @@ GridLayout{
                     }
                 }
             }
-            onValueChanged: val = value;
+            onValueChanged: _val = value;
         }
     }
 }

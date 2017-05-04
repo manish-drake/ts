@@ -53,7 +53,7 @@ Rectangle{
                 implicitWidth: 50
                 color: decValMArea.pressed ? "#D0D0D0" : "transparent"
                 opacity: enabled ? 1.0 : 0.4
-                enabled: chartCtrl.defaultMarkerVal > chartCtrl.markerMinVal
+//                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
                 Text{
                     anchors.centerIn: parent
                     font.pointSize: 10
@@ -62,7 +62,10 @@ Rectangle{
                 MouseArea{
                     id: decValMArea
                     anchors.fill: parent
-                    onClicked: chartCtrl.defaultMarkerVal = chartCtrl.defaultMarkerVal - chartCtrl.markerStepSize
+                    onClicked: {
+                            markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val - chartCtrl.markerStepSize
+
+                    }
                 }
             }
             Rectangle{
@@ -70,7 +73,7 @@ Rectangle{
                 implicitWidth: 50
                 color: incValMArea.pressed ? "#D0D0D0" : "transparent"
                 opacity: enabled ? 1.0 : 0.4
-                enabled: chartCtrl.defaultMarkerVal < chartCtrl.markerMaxVal
+//                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
                 Text{
                     anchors.centerIn: parent
                     font.pointSize: 10
@@ -79,7 +82,9 @@ Rectangle{
                 MouseArea{
                     id: incValMArea
                     anchors.fill: parent
-                    onClicked: chartCtrl.defaultMarkerVal = chartCtrl.defaultMarkerVal + chartCtrl.markerStepSize
+                    onClicked: {
+                            markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val + chartCtrl.markerStepSize
+                    }
                 }
             }
         }
@@ -129,7 +134,7 @@ Rectangle{
                 implicitWidth: 50
                 color: addMArea.pressed ? "#D0D0D0" : "transparent"
                 opacity: enabled ? 1.0 : 0.4
-                enabled: userMarkersModel.count < 3
+                enabled: markersModel.count < 4
                 Text{
                     anchors.centerIn: parent
                     font.pointSize: 12
@@ -138,7 +143,10 @@ Rectangle{
                 MouseArea{
                     id: addMArea
                     anchors.fill: parent
-                    onClicked: userMarkersModel.append({"num": userMarkersModel.count+2, "val": 0})
+                    onClicked: {
+                        markersModel.append({"num": markersModel.count+1, "_val": 0})
+                        chartCtrl.selectedMarkerIndex= ++chartCtrl.selectedMarkerIndex
+                    }
                 }
             }
             Rectangle{
@@ -146,7 +154,7 @@ Rectangle{
                 implicitWidth: 50
                 color: remMArea.pressed ? "#D0D0D0" : "transparent"
                 opacity: enabled ? 1.0 : 0.4
-                enabled: userMarkersModel.count > 0
+                enabled: markersModel.count > 1
                 Text{
                     anchors.centerIn: parent
                     font.pointSize: 11
@@ -155,7 +163,10 @@ Rectangle{
                 MouseArea{
                     id: remMArea
                     anchors.fill: parent
-                    onClicked: userMarkersModel.remove(userMarkersModel.count-1,1)
+                    onClicked: {
+                        markersModel.remove(markersModel.count-1,1)
+                        chartCtrl.selectedMarkerIndex= --chartCtrl.selectedMarkerIndex
+                    }
                 }
             }
         }
