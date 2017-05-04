@@ -296,7 +296,6 @@ GridLayout{
                 }
                 handle:
                     Rectangle {
-                    anchors.centerIn: parent
                     color: control.pressed ? "#dddddd" : "#eeeeee"
                     border.color: "#aaaaaa"
                     border.width: 1
@@ -331,7 +330,6 @@ GridLayout{
                     }
                     MouseArea{
                         anchors.fill: parent
-                        onClicked: selectedMarker = userMarkerSlider
                     }
                 }
             }

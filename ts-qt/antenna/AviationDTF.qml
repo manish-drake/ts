@@ -147,6 +147,7 @@ Item{
                             Repeater{
                                 model: markersModel
                                 Text{
+                                    color: Universal.foreground
                                     font.pointSize: 10
                                     text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(1) +" Ft" : "M" + num + "  " + _val.toFixed(1) +" m"
                                 }

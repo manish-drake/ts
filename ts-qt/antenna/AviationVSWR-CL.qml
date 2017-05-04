@@ -137,6 +137,7 @@ Item{
                             Repeater{
                                 model: markersModel
                                 Text{
+                                    color: Universal.foreground
                                     font.pointSize: 10
                                     text: "M" + num + "  " + _val
                                 }

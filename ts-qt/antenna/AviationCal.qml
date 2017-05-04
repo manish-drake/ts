@@ -115,6 +115,10 @@ Item{
                                                     font.pointSize: 11
                                                 }
                                             }
+                                            MouseArea{
+                                                anchors.fill: parent
+                                                onClicked: typeComboBox.currentIndex = index
+                                            }
                                         }
                                     }
                                 }
