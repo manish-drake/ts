@@ -312,19 +312,20 @@ GridLayout{
                     width: 1.5
                     height: graphImage.height
                 }
+
                 Text{
                     visible: !isDTFMode
                     anchors.right: parent.left
                     anchors.rightMargin: 5
                     anchors.verticalCenter: parent.verticalCenter
-                    text: defaultMarkerSlider.value
+                    text: defaultMarkerSlider.value;
                 }
                 Text{
                     visible: isDTFMode
                     anchors.right: parent.left
                     anchors.rightMargin: 5
                     anchors.verticalCenter: parent.verticalCenter
-                    text: lengthUnitSwitch.checked ? defaultMarkerSlider.value + " Ft" : defaultMarkerSlider.value + " m"
+                    text: lengthUnitSwitch.checked ? (defaultMarkerSlider.value).toFixed(2) + " Ft" : (defaultMarkerSlider.value).toFixed(2) + " m"
                 }
                 MouseArea{
                     anchors.fill: parent
@@ -370,6 +371,20 @@ GridLayout{
                         color: "yellow"
                         width: 1.5
                         height: graphImage.height
+                    }
+                    Text{
+                        visible: !isDTFMode
+                        anchors.right: parent.left
+                        anchors.rightMargin: 5
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: userMarkerSlider.value;
+                    }
+                    Text{
+                        visible: isDTFMode
+                        anchors.right: parent.left
+                        anchors.rightMargin: 5
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: lengthUnitSwitch.checked ? (userMarkerSlider.value).toFixed(2) + " Ft" : (userMarkerSlider.value).toFixed(2) + " m"
                     }
                     MouseArea{
                         anchors.fill: parent
