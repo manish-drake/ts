@@ -65,15 +65,17 @@ Item{
                             columns: 2
                             columnSpacing: 15
                             rowSpacing: 20
-                            height: 200
+                            height: 140
                             Rectangle{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                color: "transparent"
                                 Rectangle {
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
+                                    color: "transparent"
                                     ComboBox {
                                         id: coaxComboBox
                                         implicitWidth: parent.width
@@ -134,6 +136,18 @@ Item{
 
                             AviMarkerActionsCtrl{}
                             ListModel{ id: userMarkersModel }
+                        }
+
+                        Column{
+                            Text{
+                                text: "M1  " + chartCtrl.defaultMarkerVal+"m"
+                            }
+                            Repeater{
+                                model: userMarkersModel
+                                Text{
+                                    text: "M" + num + "  " + val+"m"
+                                }
+                            }
                         }
                     }
                 }

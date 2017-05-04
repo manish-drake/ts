@@ -55,6 +55,7 @@ Item{
                             anchors.left: parent.left
                             anchors.right: parent.right
                             height: chartCtrl.height
+                            color: "transparent"
                             AviChartCtrl{
                                 id: chartCtrl
                                 areControlsAvailble : false
@@ -62,8 +63,8 @@ Item{
                             GridView{
                                 id: grid
                                 anchors.centerIn: parent
-                                anchors.verticalCenterOffset: 15
-                                height: parent.height * 0.8
+                                anchors.verticalCenterOffset: 25
+                                height: parent.height * 0.72
                                 width: parent.width * 0.82
                                 cellWidth: grid.width/2; cellHeight: grid.height/2
                                 focus: true
@@ -126,16 +127,17 @@ Item{
                             columns: 2
                             columnSpacing: 15
                             rowSpacing: 20
-                            height: 200
+                            height: 140
                             Rectangle{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                color: "transparent"
                                 Rectangle {
-                                    color: Universal.theme == Universal.Dark ? "#333333" : "#f5f5f5"
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
+                                    color: "transparent"
                                         ComboBox {
                                             id: typeComboBox
                                             implicitWidth: parent.width
@@ -197,11 +199,25 @@ Item{
 
                             Rectangle{
                                 Layout.row: 1
+                                Layout.column: 0
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Button{
-                                    implicitWidth: parent.width
-                                    text: "MEASURE"
+                                color: "transparent"
+                                Rectangle{
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.bottom: parent.bottom
+                                    height: 50
+                                    color: "#E0E0E0"
+                                    Text{
+                                        anchors.centerIn: parent
+                                        font.pointSize: 10
+                                        text: "MEASURE"
+                                    }
+                                    MouseArea{
+                                        anchors.fill: parent
+                                        onClicked: console.log("MEASURE button tapped");
+                                    }
                                 }
                             }
 
@@ -210,9 +226,22 @@ Item{
                                 Layout.column: 1
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                Button{
-                                    implicitWidth: parent.width
-                                    text: "DONE"
+                                color: "transparent"
+                                Rectangle{
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    anchors.bottom: parent.bottom
+                                    height: 50
+                                    color: "#E0E0E0"
+                                    Text{
+                                        anchors.centerIn: parent
+                                        font.pointSize: 10
+                                        text: "DONE"
+                                    }
+                                    MouseArea{
+                                        anchors.fill: parent
+                                        onClicked: console.log("DONE button tapped");
+                                    }
                                 }
                             }
                         }

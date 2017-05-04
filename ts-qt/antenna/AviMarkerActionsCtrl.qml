@@ -7,10 +7,11 @@ Rectangle{
     Layout.row: 1
     Layout.fillWidth: true
     Layout.fillHeight: true
+    color: "transparent"
     Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.bottom: parent.bottom
         height: 50
         color: "#E0E0E0"
         GridLayout{
@@ -21,7 +22,6 @@ Rectangle{
                 leftPadding: 10
                 font.pointSize: 10
                 text: qsTr("MARKER")
-                color: Universal.foreground
             }
             Rectangle{
                 color: "transparent"
@@ -34,7 +34,7 @@ Rectangle{
                 implicitWidth: 35
                 text: "+"
                 enabled: userMarkersModel.count < 3
-                onClicked: userMarkersModel.append({"num": userMarkersModel.count+2})
+                onClicked: userMarkersModel.append({"num": userMarkersModel.count+2, "val": 0})
             }
             Button{
                 Layout.column: 3

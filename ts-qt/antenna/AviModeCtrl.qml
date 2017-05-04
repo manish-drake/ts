@@ -9,12 +9,14 @@ Rectangle{
     Layout.column: 1
     Layout.fillWidth: true
     Layout.fillHeight: true
+    color: "transparent"
     property int currentModeIndex
     Rectangle {        
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         height: 50
+        color: "transparent"
         ComboBox {
             id: modeComboBox
             implicitWidth: parent.width

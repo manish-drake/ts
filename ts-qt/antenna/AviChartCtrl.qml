@@ -183,7 +183,7 @@ GridLayout{
 
     Rectangle{
         id: freqValsList
-        visible: !isDTFMode
+        visible: freqEndVal != 0
         Layout.row: 4
         Layout.columnSpan: 3
         Layout.fillWidth: true
@@ -267,6 +267,12 @@ GridLayout{
                 defaultMarkerVal = checked ? (defaultMarkerVal * 3.28084) : (defaultMarkerVal * 0.3048)
             }
         }
+    }
+    Rectangle{
+        Layout.row: 1
+        Layout.column: 1
+        height: 20
+        color: "transparent"
     }
 
     Slider{
@@ -371,6 +377,7 @@ GridLayout{
                     }
                 }
             }
+            onValueChanged: val = value;
         }
     }
 }

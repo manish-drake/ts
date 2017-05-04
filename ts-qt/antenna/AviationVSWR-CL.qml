@@ -61,15 +61,17 @@ Item{
                             columns: 2
                             columnSpacing: 15
                             rowSpacing: 20
-                            height: 200
+                            height: 140
                             Rectangle{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
+                                color: "transparent"
                                 Rectangle {
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
+                                    color: "transparent"
                                     ComboBox {
                                         id: bandComboBox
                                         implicitWidth: parent.width
@@ -125,6 +127,18 @@ Item{
                             AviModeCtrl{}
                             AviMarkerActionsCtrl{}
                             ListModel{ id: userMarkersModel }
+                        }
+
+                        Column{
+                            Text{
+                                text: "M1  " + chartCtrl.defaultMarkerVal
+                            }
+                            Repeater{
+                                model: userMarkersModel
+                                Text{
+                                    text: "M" + num + "  " + val
+                                }
+                            }
                         }
                     }
                 }
