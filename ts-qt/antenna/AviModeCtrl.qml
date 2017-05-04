@@ -40,7 +40,7 @@ Rectangle{
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                         anchors.leftMargin: 5
-                        font.pointSize: 10
+                        font.pointSize: 11
                         color: "#333333"
                         text: "MODE: " + control.currentText
                     }

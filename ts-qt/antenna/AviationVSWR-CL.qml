@@ -95,7 +95,7 @@ Item{
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.left: parent.left
                                                     anchors.leftMargin: 5
-                                                    font.pointSize: 10
+                                                    font.pointSize: 11
                                                     color: "#333333"
                                                     text: "BAND: " + control.currentText
                                                 }
@@ -131,20 +131,21 @@ Item{
 
                         Column{
                             Text{
+                                font.pointSize: 10
                                 text: "M1  " + chartCtrl.defaultMarkerVal
                             }
                             Repeater{
                                 model: userMarkersModel
                                 Text{
+                                    font.pointSize: 10
                                     text: "M" + num + "  " + val
                                 }
                             }
                         }
                     }
                 }
+                AviFooterContent{}
             }
-
-            footer: AviFooterContent{}
         }
     }
 }

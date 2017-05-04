@@ -138,58 +138,58 @@ Item{
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
                                     color: "transparent"
-                                        ComboBox {
-                                            id: typeComboBox
-                                            implicitWidth: parent.width
-                                            implicitHeight: parent.height
-                                            style: ComboBoxStyle{
-                                                background: Rectangle{
-                                                    height: typeComboBox.height
-                                                    width: typeComboBox.width
-                                                    color: typeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
-                                                    Image {
-                                                        source: "qrc:/img/img/Expand Arrow-25.png"
-                                                        anchors.verticalCenter: parent.verticalCenter
-                                                        anchors.right: parent.right
-                                                        anchors.rightMargin: 10
-                                                    }
-                                                }
-                                                label:Item {
-                                                    anchors.fill: parent
-                                                    Text {
-                                                        anchors.verticalCenter: parent.verticalCenter
-                                                        anchors.left: parent.left
-                                                        anchors.leftMargin: 5
-                                                        font.pointSize: 10
-                                                        color: "#333333"
-                                                        text: "MODE: " + control.currentText
-                                                    }
+                                    ComboBox {
+                                        id: typeComboBox
+                                        implicitWidth: parent.width
+                                        implicitHeight: parent.height
+                                        style: ComboBoxStyle{
+                                            background: Rectangle{
+                                                height: typeComboBox.height
+                                                width: typeComboBox.width
+                                                color: typeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
+                                                Image {
+                                                    source: "qrc:/img/img/Expand Arrow-25.png"
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    anchors.right: parent.right
+                                                    anchors.rightMargin: 10
                                                 }
                                             }
-                                            model: ListModel {
-                                                id: typeList
-                                                ListElement { text: "SHORT";}
-                                                ListElement { text: "OPEN";}
-                                                ListElement { text: "LOAD";}
-                                                ListElement { text: "THRU";}
-                                            }
-                                            onCurrentIndexChanged:{
-                                                switch(currentIndex){
-                                                case 0:
-                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-                                                    break;
-                                                case 1:
-                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
-                                                    break;
-                                                case 2:
-                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
-                                                    break;
-                                                case 3:
-                                                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
-                                                    break;
+                                            label:Item {
+                                                anchors.fill: parent
+                                                Text {
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    anchors.left: parent.left
+                                                    anchors.leftMargin: 5
+                                                    font.pointSize: 11
+                                                    color: "#333333"
+                                                    text: "TYPE: " + control.currentText
                                                 }
                                             }
-                                        }                                    
+                                        }
+                                        model: ListModel {
+                                            id: typeList
+                                            ListElement { text: "SHORT";}
+                                            ListElement { text: "OPEN";}
+                                            ListElement { text: "LOAD";}
+                                            ListElement { text: "THRU";}
+                                        }
+                                        onCurrentIndexChanged:{
+                                            switch(currentIndex){
+                                            case 0:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                                break;
+                                            case 1:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                                break;
+                                            case 2:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                                break;
+                                            case 3:
+                                                navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                                break;
+                                            }
+                                        }
+                                    }
                                 }
                             }
 
@@ -211,7 +211,7 @@ Item{
                                     color: "#E0E0E0"
                                     Text{
                                         anchors.centerIn: parent
-                                        font.pointSize: 10
+                                        font.pointSize: 11
                                         text: "MEASURE"
                                     }
                                     MouseArea{
@@ -235,7 +235,7 @@ Item{
                                     color: "#E0E0E0"
                                     Text{
                                         anchors.centerIn: parent
-                                        font.pointSize: 10
+                                        font.pointSize: 11
                                         text: "DONE"
                                     }
                                     MouseArea{
@@ -247,9 +247,8 @@ Item{
                         }
                     }
                 }
+                AviFooterContent{}
             }
-
-            footer: AviFooterContent{}
         }
     }
 }

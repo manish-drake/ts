@@ -4,9 +4,10 @@ import QtQuick.Controls.Universal 2.1
 
 Rectangle{
     id:testFooterRect
+    anchors.bottom: parent.bottom
     height: 50
     width: parent.width
-    color: Universal.background
+    color: "transparent"
 
     Rectangle {
         id: toggleButton

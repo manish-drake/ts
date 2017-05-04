@@ -99,12 +99,13 @@ Item{
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.left: parent.left
                                                     anchors.leftMargin: 5
-                                                    font.pointSize: 10
+                                                    font.pointSize: 11
                                                     color: "#333333"
                                                     text: "COAX: " + control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                                                 }
                                                 TextField {
                                                     id: velocityField
+                                                    z: 100
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.left: txt.right
                                                     visible: coaxComboBox.currentIndex == 4
@@ -140,20 +141,21 @@ Item{
 
                         Column{
                             Text{
-                                text: "M1  " + chartCtrl.defaultMarkerVal+"m"
+                                font.pointSize: 10
+                                text: "M1  " + chartCtrl.defaultMarkerVal.toFixed(1)+" m"
                             }
                             Repeater{
                                 model: userMarkersModel
                                 Text{
-                                    text: "M" + num + "  " + val+"m"
+                                    font.pointSize: 10
+                                    text: "M" + num + "  " + val.toFixed(1) +" m"
                                 }
                             }
                         }
                     }
                 }
+                AviFooterContent{}
             }
-
-            footer: AviFooterContent{}
         }
     }
 }

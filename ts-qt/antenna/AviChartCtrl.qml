@@ -325,7 +325,7 @@ GridLayout{
                     anchors.right: parent.left
                     anchors.rightMargin: 5
                     anchors.verticalCenter: parent.verticalCenter
-                    text: lengthUnitSwitch.checked ? (defaultMarkerSlider.value).toFixed(2) + " Ft" : (defaultMarkerSlider.value).toFixed(2) + " m"
+                    text: lengthUnitSwitch.checked ? (defaultMarkerSlider.value).toFixed(1) + " Ft" : (defaultMarkerSlider.value).toFixed(1) + " m"
                 }
                 MouseArea{
                     anchors.fill: parent
@@ -333,6 +333,7 @@ GridLayout{
                 }
             }
         }
+        onValueChanged: defaultMarkerVal = value
     }
     Repeater{
         visible: areControlsAvailble
@@ -384,7 +385,7 @@ GridLayout{
                         anchors.right: parent.left
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
-                        text: lengthUnitSwitch.checked ? (userMarkerSlider.value).toFixed(2) + " Ft" : (userMarkerSlider.value).toFixed(2) + " m"
+                        text: lengthUnitSwitch.checked ? (userMarkerSlider.value).toFixed(1) + " Ft" : (userMarkerSlider.value).toFixed(1) + " m"
                     }
                     MouseArea{
                         anchors.fill: parent
