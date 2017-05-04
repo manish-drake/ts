@@ -44,7 +44,7 @@ Item{
                 MouseArea {
                     anchors.fill: parent
                     onClicked: grid.currentIndex = index
-                    onDoubleClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name})
+                    onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name});
                 }
                 GridLayout{
                     anchors.fill: parent
