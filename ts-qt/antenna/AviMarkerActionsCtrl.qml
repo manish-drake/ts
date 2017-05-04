@@ -15,17 +15,15 @@ Rectangle{
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         height: 50
-        color: modeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
-
+        color: markerComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
         ComboBox {
-            id: modeComboBox
+            id: markerComboBox
             implicitWidth: 70
             implicitHeight: parent.height
-            currentIndex: currentModeIndex
             style: ComboBoxStyle{
                 background: Rectangle{
-                    height: modeComboBox.height
-                    width: modeComboBox.width
+                    height: markerComboBox.height
+                    width: markerComboBox.width
                     color: "transparent"
                 }
                 label:Item {
@@ -47,7 +45,7 @@ Rectangle{
             }
         }
         Row{
-            visible: modeComboBox.currentIndex == 0
+            visible: markerComboBox.currentIndex == 0
             height: parent.height
             anchors.right: parent.right
             Rectangle{
@@ -86,7 +84,7 @@ Rectangle{
             }
         }
         Row{
-            visible: modeComboBox.currentIndex == 1
+            visible: markerComboBox.currentIndex == 1
             height: parent.height
             anchors.right: parent.right
             Rectangle{
@@ -123,7 +121,7 @@ Rectangle{
             }
         }
         Row{
-            visible: modeComboBox.currentIndex == 2
+            visible: markerComboBox.currentIndex == 2
             height: parent.height
             anchors.right: parent.right
             Rectangle{
