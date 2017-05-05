@@ -274,7 +274,7 @@ GridLayout{
         Layout.column: 1
         height: 20
         color: "transparent"
-    }
+    }    
 
     Repeater{
         visible: areControlsAvailble

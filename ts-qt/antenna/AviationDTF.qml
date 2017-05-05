@@ -30,7 +30,6 @@ Item{
             id: item1
             anchors.fill: parent
             header: AviHeaderContent{
-                id: aviHeader
                 detailTitle: "DISTANCE TO FAULT"
             }
 

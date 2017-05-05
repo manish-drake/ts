@@ -30,7 +30,6 @@ Item{
             id: item1
             anchors.fill: parent
             header: AviHeaderContent{
-                id: aviHeader
                 detailTitle: "CALIBRATION"
             }
 
@@ -58,7 +57,7 @@ Item{
                             height: chartCtrl.height
                             color: "transparent"
                             AviChartCtrl{
-                                id: chartCtrl
+                                id: chartCtrl                                
                                 areControlsAvailble : false
                             }
                             GridView{
@@ -249,6 +248,7 @@ Item{
                                     }
                                 }
                             }
+                            ListModel{id: markersModel}
                         }
                     }
                 }

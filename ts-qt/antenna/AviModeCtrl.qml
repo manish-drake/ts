@@ -55,28 +55,22 @@ Rectangle{
             onCurrentIndexChanged:{
                 switch(currentIndex){
                 case 0:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-0:::"+currentIndex)
+                    console.log(currentModeIndex+": "+currentIndex)
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
                     break;
                 case 1:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-1:::"+currentIndex)                    
+                    console.log(currentModeIndex+": "+currentIndex)
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                    aviHeader.detailTitle = "VSWR";
-                    currentModeIndex: 1
                     break;
                 case 2:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-2:::"+currentIndex);                    
+                    console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                    aviHeader.detailTitle = "CABLE LOSS";
-                    currentModeIndex: 2
                     break;
                 case 3:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-3:::"+currentIndex);
+                    console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
                     break;
-
                 }
-
             }
         }
     }
