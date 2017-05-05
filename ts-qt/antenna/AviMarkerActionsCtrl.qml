@@ -19,7 +19,7 @@ Rectangle{
         color: markerComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
         ComboBox {
             id: markerComboBox
-            implicitWidth: 70
+            implicitWidth: 75
             implicitHeight: parent.height
             style: ComboBoxStyle{
                 background: Rectangle{
@@ -34,7 +34,6 @@ Rectangle{
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.leftMargin: 5
-                        anchors.rightMargin: 20
                         elide: Text.ElideRight
                         font.pointSize: 11
                         color: "#333333"
