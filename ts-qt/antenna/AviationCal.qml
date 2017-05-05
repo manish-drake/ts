@@ -198,7 +198,7 @@ Item{
                             }
 
                             AviModeCtrl{
-                                currentModeIndex: 3
+                                currentModeIndex: 0
                             }
 
                             Rectangle{
