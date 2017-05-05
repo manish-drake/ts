@@ -11,7 +11,7 @@ Rectangle{
     Layout.fillHeight: true
     color: "transparent"
     property int currentModeIndex
-    Rectangle {        
+    Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
@@ -47,30 +47,36 @@ Rectangle{
                 }
             }
             model: ListModel {
+                ListElement { text: "CAL"; }
                 ListElement { text: "VSWR"; }
                 ListElement { text: "LOSS"; }
                 ListElement { text: "DTF"; }
-                ListElement { text: "CAL"; }
             }
             onCurrentIndexChanged:{
                 switch(currentIndex){
                 case 0:
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                    currentModeIndex: 0;
-                    aviHeader.detailTitle = "VSWR";
-                    break;
-                case 1:
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                    currentModeIndex: 1
-                    aviHeader.detailTitle = "CABLE LOSS";
-                    break;
-                case 2:
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
-                    break;
-                case 3:
+                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-0:::"+currentIndex)
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
                     break;
+                case 1:
+                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-1:::"+currentIndex)                    
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                    aviHeader.detailTitle = "VSWR";
+                    currentModeIndex: 1
+                    break;
+                case 2:
+                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-2:::"+currentIndex);                    
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
+                    aviHeader.detailTitle = "CABLE LOSS";
+                    currentModeIndex: 2
+                    break;
+                case 3:
+                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-3:::"+currentIndex);
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
+                    break;
+
                 }
+
             }
         }
     }

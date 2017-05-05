@@ -50,7 +50,7 @@ Item {
                     anchors.fill: parent
                     onClicked: grid.currentIndex = index
                     onDoubleClicked:
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
                 }
                 GridLayout{
                     anchors.fill: parent

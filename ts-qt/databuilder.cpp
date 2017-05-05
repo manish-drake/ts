@@ -1283,8 +1283,8 @@ int DataBuilder::build()
     Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
     navigationDaoPtr->addNavigation(secToAntenna);
 
-    Navigation antennaToAviationVswr(vwAntenna.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(antennaToAviationVswr);
+    Navigation antennaToAviationCalShort(vwAntenna.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
+    navigationDaoPtr->addNavigation(antennaToAviationCalShort);
 
     Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationVswrToCl);

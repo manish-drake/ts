@@ -133,7 +133,7 @@ Item{
                             }
 
                             AviModeCtrl{
-                                currentModeIndex: 2
+                                currentModeIndex: 3
                             }
 
                             AviMarkerActionsCtrl{}
