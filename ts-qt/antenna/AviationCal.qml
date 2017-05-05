@@ -57,15 +57,15 @@ Item{
                             height: chartCtrl.height
                             color: "transparent"
                             AviChartCtrl{
-                                id: chartCtrl                                
+                                id: chartCtrl
                                 areControlsAvailble : false
                             }
                             GridView{
                                 id: grid
                                 anchors.centerIn: parent
                                 anchors.verticalCenterOffset: 25
-                                height: parent.height * 0.72
-                                width: parent.width * 0.82
+                                height: 240
+                                width: 380
                                 cellWidth: grid.width/2; cellHeight: grid.height/2
                                 focus: true
                                 model: ListModel{
@@ -163,7 +163,10 @@ Item{
                                                 Text {
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.left: parent.left
+                                                    anchors.right: parent.right
                                                     anchors.leftMargin: 5
+                                                    anchors.rightMargin: 20
+                                                    elide: Text.ElideRight
                                                     font.pointSize: 11
                                                     color: "#333333"
                                                     text: "TYPE: " + control.currentText

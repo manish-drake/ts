@@ -5,6 +5,7 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
+import Graphs 1.0
 
 GridLayout{
     property int freqStartVal
@@ -17,8 +18,7 @@ GridLayout{
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
-    anchors.left: parent.left
-    anchors.right: parent.right
+    anchors.horizontalCenter: parent.horizontalCenter
     rowSpacing: 0
     columnSpacing: 0
     SwitchDelegate{
@@ -46,7 +46,7 @@ GridLayout{
     SwitchDelegate{
         id: vswrScaleSwitch
         enabled: areControlsAvailble
-        opacity: areControlsAvailble ? 1.0 : 0.6
+        opacity: enabled ? 1.0 : 0.6
         Layout.column: 1
         Layout.alignment: Qt.AlignRight
         Layout.columnSpan: 2
@@ -71,10 +71,23 @@ GridLayout{
         id: graphImage
         Layout.row: 2
         Layout.column: 1
-        Layout.fillHeight: true
-        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignCenter
+        width: 400;
+        height: 256
         source: "qrc:/img/img/graph-back.png"
         fillMode: Image.Stretch
+    }
+
+    LineGraph{
+        visible: areControlsAvailble
+        color: "green"
+        Layout.row: 2
+        Layout.column: 1
+        Layout.alignment: Qt.AlignCenter
+        width: 400;
+        height: 256
+        points: dummy.points
+        size: 400
     }
 
     ListView{
@@ -276,7 +289,7 @@ GridLayout{
         Layout.column: 1
         height: 20
         color: "transparent"
-    }    
+    }
 
     Repeater{
         visible: areControlsAvailble
@@ -339,4 +352,5 @@ GridLayout{
         }
     }
 }
+
 

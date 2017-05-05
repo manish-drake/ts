@@ -36,7 +36,10 @@ Rectangle{
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
+                        anchors.right: parent.right
                         anchors.leftMargin: 5
+                        anchors.rightMargin: 20
+                        elide: Text.ElideRight
                         font.pointSize: 11
                         color: "#333333"
                         text: "BAND: " + control.currentText
