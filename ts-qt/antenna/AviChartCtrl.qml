@@ -24,6 +24,7 @@ GridLayout{
     SwitchDelegate{
         id: rlScaleSwitch
         enabled: areControlsAvailble
+        opacity: areControlsAvailble ? 1.0 : 0.6
         Layout.columnSpan: 2
         Layout.bottomMargin: 10
         spacing: 0
@@ -45,6 +46,7 @@ GridLayout{
     SwitchDelegate{
         id: vswrScaleSwitch
         enabled: areControlsAvailble
+        opacity: areControlsAvailble ? 1.0 : 0.6
         Layout.column: 1
         Layout.alignment: Qt.AlignRight
         Layout.columnSpan: 2
