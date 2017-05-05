@@ -30,6 +30,7 @@ Item{
             id: item1
             anchors.fill: parent
             header: AviHeaderContent{
+                id: aviHeader
                 detailTitle: "CALIBRATION"
             }
 
@@ -152,7 +153,7 @@ Item{
                                                 width: typeComboBox.width
                                                 color: typeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
                                                 Image {
-                                                    source: "qrc:/img/img/Expand Arrow-25.png"
+                                                    source: "qrc:/img/img/Expand Arrow-20.png"
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.right: parent.right
                                                     anchors.rightMargin: 10

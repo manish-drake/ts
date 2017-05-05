@@ -28,7 +28,7 @@ Rectangle{
                     width: modeComboBox.width
                     color: modeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
                     Image {
-                        source: "qrc:/img/img/Expand Arrow-25.png"
+                        source: "qrc:/img/img/Expand Arrow-20.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         anchors.rightMargin: 10
@@ -57,12 +57,12 @@ Rectangle{
                 case 0:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
                     currentModeIndex: 0;
-                    vswrClHeader.detailTitle = "VSWR";
+                    aviHeader.detailTitle = "VSWR";
                     break;
                 case 1:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
                     currentModeIndex: 1
-                    vswrClHeader.detailTitle = "CABLE LOSS";
+                    aviHeader.detailTitle = "CABLE LOSS";
                     break;
                 case 2:
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")

@@ -30,7 +30,7 @@ Item{
             id: item1
             anchors.fill: parent
             header: AviHeaderContent{
-                id: vswrClHeader
+                id: aviHeader
             }
 
             contentItem: Rectangle {
@@ -83,7 +83,7 @@ Item{
                                                 width: bandComboBox.width
                                                 color: bandComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
                                                 Image {
-                                                    source: "qrc:/img/img/Expand Arrow-25.png"
+                                                    source: "qrc:/img/img/Expand Arrow-20.png"
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.right: parent.right
                                                     anchors.rightMargin: 10
@@ -142,6 +142,10 @@ Item{
                                     text: "M" + num + "  " + _val
                                 }
                             }
+                        }
+                        Path {
+                            startX: 0; startY: 100
+                            PathLine { x: 200; y: 100 }
                         }
                     }
                 }
