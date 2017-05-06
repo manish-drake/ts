@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     resourcenamecoupling.cpp \
     controls.cpp \
     controlsattachedtype.cpp \
-    controlstyles.cpp
+    controlstyles.cpp \
+    dummygraphdata.cpp
 
 RESOURCES += qml.qrc
 
@@ -61,7 +62,8 @@ HEADERS += \
     resourcenamecoupling.h \
     controls.h \
     controlsattachedtype.h \
-    controlstyles.h
+    controlstyles.h \
+    dummygraphdata.h
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client

@@ -14,6 +14,8 @@
 #include "controls.h"
 #include "client.h"
 #include "zmq.hpp"
+#include "dummygraphdata.h"
+
 
 
 const int DATA_CREATION_MODE = 0;
@@ -34,6 +36,9 @@ int main(int argc, char *argv[])
 
         Client client("tcp://192.168.1.104:6000");
         context->setContextProperty("zmq", &client);
+
+        dummygraphdata dummy;
+        context->setContextProperty("dummy", &dummy);
 
         SectionModel sectionModel;
         context->setContextProperty("sectionModel", &sectionModel);

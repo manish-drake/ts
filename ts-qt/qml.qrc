@@ -9,7 +9,6 @@
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
         <file>antenna/Antenna.qml</file>
-        <file>antenna/AviationVSWR-CL.qml</file>
         <file>antenna/AviationCal.qml</file>
         <file>antenna/AviationDTF.qml</file>
         <file>setup/Setup.qml</file>
@@ -37,6 +36,9 @@
         <file>antenna/AviFooterContent.qml</file>
         <file>antenna/AviHeaderContent.qml</file>
         <file>antenna/AviChartCtrl.qml</file>
+        <file>antenna/AviationCableLoss.qml</file>
+        <file>antenna/AviBandCtrl.qml</file>
+        <file>antenna/AviationVSWR.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -71,6 +73,5 @@
         <file>img/stop-button.png</file>
         <file>img/Nintendo DS-25.png</file>
         <file>img/graph-back.png</file>
-        <file>img/Expand Arrow-25.png</file>
     </qresource>
 </RCC>

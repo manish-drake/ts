@@ -28,7 +28,7 @@ Rectangle{
                     width: modeComboBox.width
                     color: modeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
                     Image {
-                        source: "qrc:/img/img/Expand Arrow-25.png"
+                        source: "qrc:/img/img/Expand Arrow-20.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         anchors.rightMargin: 10
@@ -39,10 +39,13 @@ Rectangle{
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
+                        anchors.right: parent.right
                         anchors.leftMargin: 5
+                        anchors.rightMargin: 20
+                        elide: Text.ElideRight
                         font.pointSize: 11
                         color: "#333333"
-                        text: "MODE: " + control.currentText
+                        text: "MODE: " + control.currentText                        
                     }
                 }
             }
@@ -55,31 +58,22 @@ Rectangle{
             onCurrentIndexChanged:{
                 switch(currentIndex){
                 case 0:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-0:::"+currentIndex)
+                    console.log(currentModeIndex+": "+currentIndex)
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
                     break;
                 case 1:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-1:::"+currentIndex)
-                    currentModeIndex: 1
+                    console.log(currentModeIndex+": "+currentIndex)
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                    vswrClHeader.detailTitle = "VSWR";
-                    console.log(vswrClHeader.detailTitle);
-
                     break;
                 case 2:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-2:::"+currentIndex);
-                    currentModeIndex: 2
+                    console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                    vswrClHeader.detailTitle = "CABLE LOSS";
-                    console.log(vswrClHeader.detailTitle);
                     break;
                 case 3:
-                    console.log(currentModeIndex+"-=-=--=-=-=-=-=---=-=-3:::"+currentIndex);
+                    console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
                     break;
-
                 }
-
             }
         }
     }

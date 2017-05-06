@@ -4,6 +4,7 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtGraphicalEffects 1.0
 
 Rectangle{
     Layout.row: 1
@@ -18,7 +19,7 @@ Rectangle{
         color: markerComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
         ComboBox {
             id: markerComboBox
-            implicitWidth: 70
+            implicitWidth: 75
             implicitHeight: parent.height
             style: ComboBoxStyle{
                 background: Rectangle{
@@ -31,7 +32,9 @@ Rectangle{
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
+                        anchors.right: parent.right
                         anchors.leftMargin: 5
+                        elide: Text.ElideRight
                         font.pointSize: 11
                         color: "#333333"
                         text: "MARKER"
@@ -56,7 +59,7 @@ Rectangle{
 //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
                 Text{
                     anchors.centerIn: parent
-                    font.pointSize: 10
+                    font.pointSize: 12
                     text: "<<<"
                 }
                 MouseArea{
@@ -76,7 +79,7 @@ Rectangle{
 //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
                 Text{
                     anchors.centerIn: parent
-                    font.pointSize: 10
+                    font.pointSize: 12
                     text: ">>>"
                 }
                 MouseArea{
@@ -99,7 +102,7 @@ Rectangle{
                 opacity: enabled ? 1.0 : 0.4
                 Text{
                     anchors.centerIn: parent
-                    font.pointSize: 10
+                    font.pointSize: 12
                     text: "+V"
                 }
                 MouseArea{
@@ -115,7 +118,7 @@ Rectangle{
                 opacity: enabled ? 1.0 : 0.4
                 Text{
                     anchors.centerIn: parent
-                    font.pointSize: 10
+                    font.pointSize: 12
                     text: "+P"
                 }
                 MouseArea{
@@ -137,7 +140,7 @@ Rectangle{
                 enabled: markersModel.count < 4
                 Text{
                     anchors.centerIn: parent
-                    font.pointSize: 12
+                    font.pointSize: 18
                     text: "+"
                 }
                 MouseArea{
@@ -155,10 +158,14 @@ Rectangle{
                 color: remMArea.pressed ? "#D0D0D0" : "transparent"
                 opacity: enabled ? 1.0 : 0.4
                 enabled: markersModel.count > 1
-                Text{
+                Image{
                     anchors.centerIn: parent
-                    font.pointSize: 11
-                    text: "X"
+                    source: "qrc:/img/img/Delete-25.png"
+                    ColorOverlay{
+                        anchors.fill: parent
+                        source: parent
+                        color: "black"
+                    }
                 }
                 MouseArea{
                     id: remMArea

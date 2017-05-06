@@ -9,8 +9,8 @@ Rectangle{
     height: 40
     width: parent.width
     color: Universal.background
+
     Rectangle{
-        id: rectangle1
         anchors.margins: 10
         Layout.fillHeight: true
         height:25
@@ -19,6 +19,20 @@ Rectangle{
         anchors.leftMargin: 5
         anchors.verticalCenter: parent.verticalCenter
         color:"transparent"
+        Image {
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            source: "qrc:/img/img/Download-22.png"
+            ColorOverlay{
+                anchors.fill: parent
+                source: parent
+                color: Universal.foreground
+            }
+        }
+        MouseArea {
+            anchors.fill: parent
+
+        }
     }
 
     Column{

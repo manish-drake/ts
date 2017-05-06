@@ -86,7 +86,7 @@ Item{
                                                 width: coaxComboBox.width
                                                 color: coaxComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
                                                 Image {
-                                                    source: "qrc:/img/img/Expand Arrow-25.png"
+                                                    source: "qrc:/img/img/Expand Arrow-20.png"
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.right: parent.right
                                                     anchors.rightMargin: 10
@@ -98,7 +98,10 @@ Item{
                                                     id: txt
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     anchors.left: parent.left
+                                                    anchors.right: parent.right
                                                     anchors.leftMargin: 5
+                                                    anchors.rightMargin: 20
+                                                    elide: Text.ElideRight
                                                     font.pointSize: 11
                                                     color: "#333333"
                                                     text: "COAX: " + control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
