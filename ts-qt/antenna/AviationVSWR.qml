@@ -73,7 +73,6 @@ Item{
 
                             }
                         }
-
                         Column{
                             Repeater{
                                 model: markersModel
@@ -83,7 +82,7 @@ Item{
                                     text: "M" + num + "  " + _val
                                 }
                             }
-                        }
+                        }                        
                     }
                 }
                 AviFooterContent{}

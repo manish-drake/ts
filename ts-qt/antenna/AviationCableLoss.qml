@@ -73,7 +73,6 @@ Item{
 
                             }
                         }
-
                         Column{
                             Repeater{
                                 model: markersModel
@@ -83,10 +82,6 @@ Item{
                                     text: "M" + num + "  " + _val
                                 }
                             }
-                        }
-                        Path {
-                            startX: 0; startY: 100
-                            PathLine { x: 200; y: 100 }
                         }
                     }
                 }
