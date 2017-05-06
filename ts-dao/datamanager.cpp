@@ -56,6 +56,42 @@ std::shared_ptr<const NavigationDao> DataManager::navigationDao() const
     return  navigationDaoPtr;
 }
 
+std::shared_ptr<const SnapshotDao> DataManager::snapshotDao() const
+{
+    auto daoPtr = this->daoRegistry["snapshot"];
+    auto snapshotDaoPtr = std::dynamic_pointer_cast<SnapshotDao>(daoPtr);
+    return  snapshotDaoPtr;
+}
+
+std::shared_ptr<const AviationMarkersDao> DataManager::aviationMarkersDao() const
+{
+    auto daoPtr = this->daoRegistry["aviation_Markers"];
+    auto aviationMarkersDaoPtr = std::dynamic_pointer_cast<AviationMarkersDao>(daoPtr);
+    return  aviationMarkersDaoPtr;
+}
+
+std::shared_ptr<const AviationVswrDao> DataManager::aviationVswrDao() const
+{
+    auto daoPtr = this->daoRegistry["aviation_Vswr"];
+    auto aviationVswrDaoPtr = std::dynamic_pointer_cast<AviationVswrDao>(daoPtr);
+    return  aviationVswrDaoPtr;
+}
+
+
+std::shared_ptr<const AviationClDao> DataManager::aviationClDao() const
+{
+    auto daoPtr = this->daoRegistry["aviation_Cable_loss"];
+    auto aviationClDaoPtr = std::dynamic_pointer_cast<AviationClDao>(daoPtr);
+    return  aviationClDaoPtr;
+}
+
+std::shared_ptr<const AviationDtfDao> DataManager::aviationDtfDao() const
+{
+    auto daoPtr = this->daoRegistry["aviation_Dtf"];
+    auto aviationDtfDaoPtr = std::dynamic_pointer_cast<AviationDtfDao>(daoPtr);
+    return  aviationDtfDaoPtr;
+}
+
 DataManager::~DataManager()
 {
     m_database->close();
@@ -91,6 +127,16 @@ void DataManager::createRegistry()
                        std::shared_ptr<Dao>(new ViewDao(*m_database)));
     daoRegistry.insert("navigation",
                        std::shared_ptr<Dao>(new NavigationDao(*m_database)));
+    daoRegistry.insert("snapshot",
+                       std::shared_ptr<Dao>(new SnapshotDao(*m_database)));
+    daoRegistry.insert("aviation_Markers",
+                       std::shared_ptr<Dao>(new AviationMarkersDao(*m_database)));
+    daoRegistry.insert("aviation_Vswr",
+                       std::shared_ptr<Dao>(new AviationVswrDao(*m_database)));
+    daoRegistry.insert("aviation_Cable_loss",
+                       std::shared_ptr<Dao>(new AviationClDao(*m_database)));
+    daoRegistry.insert("aviation_Dtf",
+                       std::shared_ptr<Dao>(new AviationDtfDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)

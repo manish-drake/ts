@@ -27,7 +27,12 @@ SOURCES += section.cpp \
     summary.cpp \
     testparam.cpp \
     view.cpp \
-    navigation.cpp
+    navigation.cpp \
+    aviationmarkers.cpp \
+    aviationvswr.cpp \
+    aviationcl.cpp \
+    aviationdtf.cpp \
+    snapshot.cpp
 
 HEADERS += section.h\
         ts-core_global.h \
@@ -35,7 +40,12 @@ HEADERS += section.h\
     summary.h \
     testparam.h \
     view.h \
-    navigation.h
+    navigation.h \
+    aviationmarkers.h \
+    aviationcl.h \
+    aviationdtf.h \
+    aviationvswr.h \
+    snapshot.h
 
 unix {
     target.path = /usr/lib

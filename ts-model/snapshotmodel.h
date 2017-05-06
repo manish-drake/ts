@@ -1,0 +1,4 @@
+#ifndef SNAPSHOTMODEL_H
+#define SNAPSHOTMODEL_H
+
+#endif // SNAPSHOTMODEL_H

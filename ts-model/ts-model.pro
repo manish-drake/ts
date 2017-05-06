@@ -29,7 +29,12 @@ SOURCES += \
     testparammodel.cpp \
     navigationmodel.cpp \
     modelbase.cpp \
-    qtestparams.cpp
+    qtestparams.cpp \
+    snapshotmodel.cpp \
+    aviationclmodel.cpp \
+    aviationdtfmodel.cpp \
+    aviationmarkersmodel.cpp \
+    aviationvswrmodel.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -39,7 +44,12 @@ HEADERS +=\
     testparammodel.h \
     navigationmodel.h \
     modelbase.h \
-    qtestparams.h
+    qtestparams.h \
+    snapshotmodel.h \
+    aviationclmodel.h \
+    aviationdtfmodel.h \
+    aviationmarkersmodel.h \
+    aviationvswrmodel.h
 
 unix {
     target.path = /usr/lib

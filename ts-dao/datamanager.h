@@ -11,6 +11,13 @@
 #include "testparamdao.h"
 #include "viewdao.h"
 #include "navigationdao.h"
+
+#include "snapshotdao.h"
+#include "aviationmarkersdao.h"
+#include "aviationvswrdao.h"
+#include "aviationcldao.h"
+#include "aviationdtfdao.h"
+
 #include "dao.h"
 
 class QSqlDatabase;
@@ -30,6 +37,12 @@ public:
     std::shared_ptr<const TestParamDao> testParamDao() const;
     std::shared_ptr<const ViewDao> viewDao() const;
     std::shared_ptr<const NavigationDao> navigationDao() const;
+
+    std::shared_ptr<const SnapshotDao> snapshotDao() const;
+    std::shared_ptr<const AviationMarkersDao> aviationMarkersDao() const;
+    std::shared_ptr<const AviationVswrDao> aviationVswrDao() const;
+    std::shared_ptr<const AviationClDao> aviationClDao() const;
+    std::shared_ptr<const AviationDtfDao> aviationDtfDao() const;
     ~DataManager();
 
 protected:
