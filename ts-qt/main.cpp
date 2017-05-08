@@ -18,7 +18,7 @@
 
 
 
-const int DATA_CREATION_MODE = 0;
+const int DATA_CREATION_MODE = 1;
 
 
 int main(int argc, char *argv[])
