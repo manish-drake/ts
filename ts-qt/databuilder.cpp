@@ -1286,6 +1286,15 @@ int DataBuilder::build()
     Navigation antennaToAviationCalShort(vwAntenna.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(antennaToAviationCalShort);
 
+    Navigation antennaToAviationVSWR(vwAntenna.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
+    navigationDaoPtr->addNavigation(antennaToAviationVSWR);
+
+    Navigation antennaToAviationCL(vwAntenna.id(), "Aviation-Cl",0, vwAntAviationCl.id());
+    navigationDaoPtr->addNavigation(antennaToAviationCL);
+
+    Navigation antennaToAviationDTF(vwAntenna.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
+    navigationDaoPtr->addNavigation(antennaToAviationDTF);
+
     Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationVswrToCl);
 

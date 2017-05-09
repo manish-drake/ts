@@ -71,10 +71,12 @@ Rectangle{
                 case 2:
                     console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl");
+                    Storage.set("aviationmode","Aviation-Cl");
                     break;
                 case 3:
                     console.log(currentModeIndex+": "+currentIndex);
                     navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf");
+                    Storage.set("aviationmode","Aviation-Dtf");
                     break;
                 }
             }

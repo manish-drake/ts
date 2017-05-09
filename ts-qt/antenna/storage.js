@@ -22,7 +22,6 @@ function set(setting, value) {
 }
 
 function get(setting, default_value) {
-    console.log("...................Response1: ");
     var db = getDatabase();
     var res="";
     try {

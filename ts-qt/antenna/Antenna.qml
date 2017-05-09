@@ -22,12 +22,12 @@ Item {
             border.width: 1
             radius:5
         }
-//        ListModel{
-//            id: antennaItemsModel
-//            ListElement{
-//                name: "AVIATION"
-//            }
-//        }
+        //        ListModel{
+        //            id: antennaItemsModel
+        //            ListElement{
+        //                name: "AVIATION"
+        //            }
+        //        }
         Component{
             id: testCardDelegate
             Rectangle {
@@ -51,8 +51,8 @@ Item {
                     anchors.fill: parent
                     onClicked: grid.currentIndex = index
                     onDoubleClicked:
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
-//                        navigationModel.currentView = navigationModel.getTargetView(Storage.get("aviationmode","Aviation-Cal-Short") );
+                        //navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
+                        navigationModel.currentView = navigationModel.getTargetView(Storage.get("aviationmode","Aviation-Cal-Short"));
                 }
                 GridLayout{
                     anchors.fill: parent
