@@ -40,6 +40,7 @@
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
         <file>antenna/storage.js</file>
+        <file>antenna/SnapshotData.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
