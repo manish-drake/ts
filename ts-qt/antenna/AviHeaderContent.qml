@@ -31,7 +31,6 @@ Rectangle{
             }
             MouseArea {
                 anchors.fill: parent
-
             }
         }
         Rectangle{
@@ -51,7 +50,7 @@ Rectangle{
             }
             MouseArea {
                 anchors.fill: parent
-
+                onClicked:navigationModel.currentView = navigationModel.getTargetView("Snapshot-Data");
             }
         }
     }
