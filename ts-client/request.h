@@ -7,11 +7,12 @@
 class Request
 {
     virtual std::string message() const;
+
 public:
     void send(zmq::socket_t &sock);
     zmq::message_t zmqMessage() const;
 protected:
-    Request();
+    Request();   
 };
 
 #endif // REQUEST_H
