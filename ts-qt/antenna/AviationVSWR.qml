@@ -82,10 +82,33 @@ Item{
                                     text: "M" + num + "  " + _val
                                 }
                             }
-                        }                        
+                        }
                     }
                 }
                 AviFooterContent{}
+            }
+        }
+    }
+
+    Rectangle{
+        id: savedDataDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.fill: parent
+            anchors.margins: 20
+            Popup {
+                id: savedDataPopup
+                width: parent.width
+                height: parent.height
+                modal: true
+                focus: true
+                closePolicy: Popup.CloseOnEscape
+                padding: 0
+                onClosed: {savedDataDialog.visible = false }
+                onOpened: {savedDataDialog.visible = true }
+                contentItem: DataPopupContent{}
             }
         }
     }

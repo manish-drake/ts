@@ -11,6 +11,7 @@ Rectangle{
     color: Universal.background
 
     RowLayout{
+        visible: chartCtrl.areControlsAvailble
         height: parent.height
         anchors.left: parent.left
         anchors.leftMargin: 5
@@ -50,7 +51,7 @@ Rectangle{
             }
             MouseArea {
                 anchors.fill: parent
-                onClicked:navigationModel.currentView = navigationModel.getTargetView("Snapshot-Data");
+                onClicked: savedDataPopup.open();
             }
         }
     }
