@@ -39,6 +39,7 @@
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
+        <file>antenna/storage.js</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -73,5 +74,6 @@
         <file>img/stop-button.png</file>
         <file>img/Nintendo DS-25.png</file>
         <file>img/graph-back.png</file>
+        <file>img/Past-22.png</file>
     </qresource>
 </RCC>

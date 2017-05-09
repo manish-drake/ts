@@ -10,28 +10,49 @@ Rectangle{
     width: parent.width
     color: Universal.background
 
-    Rectangle{
-        anchors.margins: 10
-        Layout.fillHeight: true
-        height:25
-        width: 25
+    RowLayout{
+        height: parent.height
         anchors.left: parent.left
         anchors.leftMargin: 5
-        anchors.verticalCenter: parent.verticalCenter
-        color:"transparent"
-        Image {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            source: "qrc:/img/img/Download-22.png"
-            ColorOverlay{
+        Rectangle{
+            height:25
+            width: 35
+            Layout.alignment: Qt.AlignVCenter
+            color:"transparent"
+            Image {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                source: "qrc:/img/img/Download-22.png"
+                ColorOverlay{
+                    anchors.fill: parent
+                    source: parent
+                    color: Universal.foreground
+                }
+            }
+            MouseArea {
                 anchors.fill: parent
-                source: parent
-                color: Universal.foreground
+
             }
         }
-        MouseArea {
-            anchors.fill: parent
+        Rectangle{
+            height:25
+            width: 35
+            Layout.alignment: Qt.AlignVCenter
+            color:"transparent"
+            Image {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.verticalCenter: parent.verticalCenter
+                source: "qrc:/img/img/Past-22.png"
+                ColorOverlay{
+                    anchors.fill: parent
+                    source: parent
+                    color: Universal.foreground
+                }
+            }
+            MouseArea {
+                anchors.fill: parent
 
+            }
         }
     }
 
