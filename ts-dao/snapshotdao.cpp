@@ -1,6 +1,6 @@
 #include "snapshot.h"
 
-#include <QSqlDatabase>
+#include <QSqldatabase>
 #include <QSqlQuery>
 #include <QVariant>
 #include <QDebug>
@@ -11,7 +11,7 @@
 using namespace std;
 
 SnapshotDao::SnapshotDao(QSqlDatabase &database):
-    Dao(database)
+    Dao{database}
 {
 
 }
@@ -28,9 +28,9 @@ void SnapshotDao::init() const
         const QString strQuery(
                     "CREATE TABLE snapshots "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "Dt_Snapshot DATETIME,"
-                    "User TEXT,"
-                    "Data TEXT)");
+                    "dtSnapshot DATETIME,"
+                    "[user] TEXT,"
+                    "[data] TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -41,12 +41,12 @@ void SnapshotDao::addSnapshot(Snapshot &snapshot) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO snapshots "
-                "(Dt_Snapshot, User, Data) "
-                "VALUES (:DtSnapshot, :User, :Data)");
+                "(dtSnapshot, [user], [data]) "
+                "VALUES (:dtSnapshot, :[user], :[data])");
     query.prepare(strQuery);
-    query.bindValue(":Dt_Snapshot", snapshot.dtSnapshot());
-    query.bindValue(":User", snapshot.user());
-    query.bindValue(":Data", snapshot.data());
+    query.bindValue(":dtSnapshot", snapshot.dtSnapshot());
+    query.bindValue(":[user]", snapshot.user());
+    query.bindValue(":[data]", snapshot.data());
     query.exec();
     snapshot.setId(query.lastInsertId().toInt());
 
@@ -86,9 +86,9 @@ unique_ptr<vector<unique_ptr<Snapshot>>> SnapshotDao:: snapshots() const
 
     while (query.next()) {
         unique_ptr<Snapshot> snapshot(
-                    new Snapshot(query.value("Dt_Snapshot").toDateTime(),
-                                 query.value("User").toString(),
-                                 query.value("Data").toString()));
+                    new Snapshot(query.value("dtSnapshot").toDateTime(),
+                                 query.value("[user]").toString(),
+                                 query.value("[data]").toString()));
         snapshot->setId(query.value("ID").toInt());
 
         list->push_back(move(snapshot));

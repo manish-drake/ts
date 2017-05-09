@@ -28,10 +28,10 @@ void AviationVswrDao::init() const
         const QString strQuery(
                     "CREATE TABLE aviation_Vswr "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "Snapshot_Id INTEGER,"
+                    "snapshotId INTEGER,"
                     "Range TEXT,"
-                    "Band_Range TEXT,"
-                    "Band_Name TEXT)");
+                    "bandRange TEXT,"
+                    "bandName TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -42,13 +42,13 @@ void AviationVswrDao::addAviationVswr(AviationVswr &aviationVswr) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO  aviation_Vswr"
-                "(Snapshot_Id, Range, Band_Range, Band_Name) "
-                "VALUES (:Snapshot_Id, :Range, :Band_Range, Band_Name)");
+                "(snapshotId, Range, bandRange, bandName) "
+                "VALUES (:snapshotId, :Range, :bandRange, bandName)");
     query.prepare(strQuery);
-    query.bindValue(":Snapshot_Id", aviationVswr.snapshotId());
+    query.bindValue(":snapshotId", aviationVswr.snapshotId());
     query.bindValue(":Range", aviationVswr.range());
-    query.bindValue(":Band_Range", aviationVswr.bandRange());
-    query.bindValue(":Band_Name", aviationVswr.bandName());
+    query.bindValue(":bandRange", aviationVswr.bandRange());
+    query.bindValue(":bandName", aviationVswr.bandName());
     query.exec();
     aviationVswr.setId(query.lastInsertId().toInt());
 
@@ -70,7 +70,7 @@ unique_ptr<vector<unique_ptr<AviationVswr>>> AviationVswrDao:: aviationVswr(cons
     const QString strQuery = QString(
                 "SELECT * "
                 "FROM aviation_Vswr "
-                "WHERE aviation_Vswr.Snapshot_Id = %1"
+                "WHERE aviation_Vswr.snapshotId = %1"
             ).arg(snapshotId);
 
     query.exec(strQuery);
@@ -80,10 +80,10 @@ unique_ptr<vector<unique_ptr<AviationVswr>>> AviationVswrDao:: aviationVswr(cons
 
     while (query.next()) {
         unique_ptr<AviationVswr> aviationVswr(
-                    new AviationVswr(query.value("Snapshot_Id").toInt(),
+                    new AviationVswr(query.value("snapshotId").toInt(),
                                  query.value("Range").toString(),
-                                 query.value("Band_Range").toString(),
-                                 query.value("Band_Name").toString()));
+                                 query.value("bandRange").toString(),
+                                 query.value("bandName").toString()));
         aviationVswr->setId(query.value("ID").toInt());
 
         list->push_back(move(aviationVswr));

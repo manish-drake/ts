@@ -2,6 +2,11 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QUrl>
+#include <aviationclmodel.h>
+#include <aviationdtfmodel.h>
+#include <aviationmarkersmodel.h>
+#include <aviationvswrmodel.h>
+#include <snapshotmodel.h>
 
 
 #include "databuilder.h"
@@ -54,6 +59,21 @@ int main(int argc, char *argv[])
 
         NavigationModel navigationModel;
         context->setContextProperty("navigationModel", &navigationModel);
+
+        SnapshotModel snapshotModel;
+        context->setContextProperty("snapshotModel", &snapshotModel);
+
+        AviationMarkersModel aviationmarkersModel;
+        context->setContextProperty("aviationmarkersModel", &aviationmarkersModel);
+
+        AviationVswrModel aviationVswrModel;
+        context->setContextProperty("aviationVswrModel", &aviationVswrModel);
+
+        AviationClModel aviationClModel;
+        context->setContextProperty("aviationClModel", &aviationClModel);
+
+        AviationDtfModel aviationDtfModel;
+        context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 

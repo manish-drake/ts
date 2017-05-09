@@ -18,7 +18,7 @@ public:
 
     AviationClDao(QSqlDatabase &database);
 
-    std::unique_ptr<std::vector<std::unique_ptr<AviationCl> > > aviationCl(const int snapshotId) const;
+    std::unique_ptr<std::vector<std::unique_ptr<AviationCl> > > aviationCls(const int snapshotId) const;
 
      ~AviationClDao();
 };

@@ -23,14 +23,14 @@ void AviationMarkersDao::init() const
         return;
     }
 
-    if(!m_database.tables().contains("aviation_Markers")) {
+    if(!m_database.tables().contains("aviationMarkers")) {
         QSqlQuery query(m_database);
         const QString strQuery(
-                    "CREATE TABLE aviation_Markers "
+                    "CREATE TABLE aviationMarkers "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "Snapshot_Id INTEGER,"
-                    "Position TEXT,"
-                    "Name TEXT)");
+                    "snapshotId INTEGER,"
+                    "position TEXT,"
+                    "name TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -40,13 +40,13 @@ void AviationMarkersDao::addAviationMarkers(AviationMarkers &aviationMarkers) co
 {
     QSqlQuery query(m_database);
     const QString strQuery(
-                "INSERT INTO aviation_Markers "
-                "(Snapshot_Id, Position, Name) "
-                "VALUES (:Snapshot_Id, :Position, :Name)");
+                "INSERT INTO aviationMarkers "
+                "(snapshotId, position, name) "
+                "VALUES (:snapshotId, :position, :name)");
     query.prepare(strQuery);
-    query.bindValue(":Snapshot_Id", aviationMarkers.snapshotId());
-    query.bindValue(":Position", aviationMarkers.position());
-    query.bindValue(":Name", aviationMarkers.name());
+    query.bindValue(":snapshotId", aviationMarkers.snapshotId());
+    query.bindValue(":position", aviationMarkers.position());
+    query.bindValue(":name", aviationMarkers.name());
     query.exec();
     aviationMarkers.setId(query.lastInsertId().toInt());
 
@@ -56,7 +56,7 @@ void AviationMarkersDao::addAviationMarkers(AviationMarkers &aviationMarkers) co
 void AviationMarkersDao::removeAviationMarkers(int id) const
 {
     QSqlQuery query(m_database);
-    query.prepare("DELETE FROM aviation_Markers WHERE id = (:id)");
+    query.prepare("DELETE FROM aviationMarkers WHERE id = (:id)");
     query.bindValue(":id", id);
     query.exec();
     DataManager::debugQuery(query);
@@ -67,8 +67,8 @@ unique_ptr<vector<unique_ptr<AviationMarkers>>> AviationMarkersDao:: aviationMar
     QSqlQuery query(m_database);
     const QString strQuery = QString(
                 "SELECT * "
-                "FROM aviation_Markers "
-                "WHERE aviation_Markers.Snapshot_Id = %1"
+                "FROM aviationMarkers "
+                "WHERE aviationMarkers.snapshotId = %1"
             ).arg(snapshotId);
 
     query.exec(strQuery);
@@ -78,9 +78,9 @@ unique_ptr<vector<unique_ptr<AviationMarkers>>> AviationMarkersDao:: aviationMar
 
     while (query.next()) {
         unique_ptr<AviationMarkers> aviationMarkers(
-                    new AviationMarkers(query.value("Snapshot_Id").toInt(),
-                                        query.value("Position").toDouble(),
-                                        query.value("Name").toString()));
+                    new AviationMarkers(query.value("snapshotId").toInt(),
+                                        query.value("position").toDouble(),
+                                        query.value("name").toString()));
         aviationMarkers->setId(query.value("ID").toInt());
 
         list->push_back(move(aviationMarkers));
