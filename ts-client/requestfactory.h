@@ -11,6 +11,8 @@ public:
     std::unique_ptr<Request> createBeginScan() const;
     std::unique_ptr<Request> createScan() const;
     std::unique_ptr<Request> createEndScan() const;
+
+    //VSWR
     std::unique_ptr<Request> createBeginScanVsrwIls() const;
     std::unique_ptr<Request> createBeginScanVsrwMb() const;
     std::unique_ptr<Request> createBeginScanVsrwVhfNavCom() const;
@@ -36,6 +38,7 @@ public:
     std::unique_ptr<Request> createEndScanVsrwXpndr() const;
     std::unique_ptr<Request> createEndScanVsrwFull() const;
 
+    //LOSS
     std::unique_ptr<Request> createBeginScanLossIls() const;
     std::unique_ptr<Request> createBeginScanLossMb() const;
     std::unique_ptr<Request> createBeginScanLossVhfNavCom() const;
@@ -61,7 +64,7 @@ public:
     std::unique_ptr<Request> createEndScanLossXpndr() const;
     std::unique_ptr<Request> createEndScanLossFull() const;
 
-//DTF
+    //DTF
     std::unique_ptr<Request> createBeginScanDtfReSolid() const;
     std::unique_ptr<Request> createBeginScanDtfPeFoam() const;
     std::unique_ptr<Request> createBeginScanDtfTeflon() const;
@@ -78,7 +81,7 @@ public:
     std::unique_ptr<Request> createEndScanDtfTeflonfoam() const;
     std::unique_ptr<Request> createEndScanDtfUser() const;
 
-//CAL
+    //CAL
     std::unique_ptr<Request> createBeginScanCalShort() const;
     std::unique_ptr<Request> createBeginScanCalOpen() const;
     std::unique_ptr<Request> createBeginScanCalLoad() const;
@@ -94,7 +97,6 @@ public:
     std::unique_ptr<Request> createEndScanCalLoad() const;
     std::unique_ptr<Request> createEndScanCalThru() const;
     std::unique_ptr<Request> createEndScanCalPrevCal() const;
-
 
 private:
     RequestFactory();
