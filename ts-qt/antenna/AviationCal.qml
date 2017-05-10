@@ -68,12 +68,13 @@ Item{
                                 width: 380
                                 cellWidth: grid.width/2; cellHeight: grid.height/2
                                 focus: true
-                                model: ListModel{
-                                    ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
-                                    ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
-                                    ListElement{header: "LOAD"; status: "UNCAL"; datetime:"--/--/--"}
-                                    ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
-                                }
+                                boundsBehavior: Flickable.StopAtBounds
+                                    model: ListModel{
+                                        ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
+                                        ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
+                                        ListElement{header: "LOAD"; status: "UNCAL"; datetime:"--/--/--"}
+                                        ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
+                                    }
                                 delegate:Component{
                                     Rectangle{
                                         width: grid.cellWidth

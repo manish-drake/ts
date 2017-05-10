@@ -4,7 +4,6 @@ import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
-import "storage.js" as Storage
 
 Rectangle{
     Layout.column: 1
@@ -59,24 +58,20 @@ Rectangle{
             onCurrentIndexChanged:{
                 switch(currentIndex){
                 case 0:
-                    console.log(currentModeIndex+": "+currentIndex);
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
-                    Storage.set("aviationmode","Aviation-Cal-Short");
+                    console.log(currentModeIndex+": "+currentIndex)
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
                     break;
                 case 1:
-                    console.log(currentModeIndex+": "+currentIndex);
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");;
-                    Storage.set("aviationmode","Aviation-Vswr");
+                    console.log(currentModeIndex+": "+currentIndex)
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
                     break;
                 case 2:
-                    console.log(currentModeIndex+": "+currentIndex);
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl");
-                    Storage.set("aviationmode","Aviation-Cl");
+                    console.log(currentModeIndex+": "+currentIndex)
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
                     break;
                 case 3:
-                    console.log(currentModeIndex+": "+currentIndex);
-                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf");
-                    Storage.set("aviationmode","Aviation-Dtf");
+                    console.log(currentModeIndex+": "+currentIndex)
+                    navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
                     break;
                 }
             }
