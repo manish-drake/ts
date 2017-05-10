@@ -21,7 +21,7 @@ public:
     void setData(const QString data);
 
     Snapshot(const QDateTime dtSnapshot, const QString user, const QString data);
-
+    Snapshot() = default;
     ~Snapshot();
 
 private:

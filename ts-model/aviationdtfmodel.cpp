@@ -2,8 +2,7 @@
 #include "aviationdtfdao.h"
 using namespace std;
 
-
-  AviationDtfModel::AviationDtfModel(QObject *parent):
+AviationDtfModel::AviationDtfModel(QObject *parent):
       ModelBase(parent),
       m_db(DataManager::instance()),
       m_aviationDtfs(m_db.aviationDtfDao()->aviationDtf(0))

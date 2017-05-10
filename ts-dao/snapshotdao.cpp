@@ -29,8 +29,8 @@ void SnapshotDao::init() const
                     "CREATE TABLE snapshots "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                     "dtSnapshot DATETIME,"
-                    "[user] TEXT,"
-                    "[data] TEXT)");
+                    "user TEXT,"
+                    "data TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -41,12 +41,12 @@ void SnapshotDao::addSnapshot(Snapshot &snapshot) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO snapshots "
-                "(dtSnapshot, [user], [data]) "
-                "VALUES (:dtSnapshot, :[user], :[data])");
+                "(dtSnapshot, user, data) "
+                "VALUES (:dtSnapshot, :user, :data)");
     query.prepare(strQuery);
     query.bindValue(":dtSnapshot", snapshot.dtSnapshot());
-    query.bindValue(":[user]", snapshot.user());
-    query.bindValue(":[data]", snapshot.data());
+    query.bindValue(":user", snapshot.user());
+    query.bindValue(":data", snapshot.data());
     query.exec();
     snapshot.setId(query.lastInsertId().toInt());
 

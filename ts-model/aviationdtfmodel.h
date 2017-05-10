@@ -25,7 +25,6 @@ public:
         VelocityRole,
         CableTypeRole
     };
-
     AviationDtfModel(QObject *parent = 0);
 
     QModelIndex addAviationDtf(AviationDtf &aviationDtf);

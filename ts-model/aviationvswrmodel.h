@@ -25,8 +25,6 @@ public:
         BandNameRole
     };
 
-    Q_INVOKABLE addSnapshot();
-
     AviationVswrModel(QObject *parent = 0);
 
     QModelIndex addAviationVswr(AviationVswr &aviationVswr);

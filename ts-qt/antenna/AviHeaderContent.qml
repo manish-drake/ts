@@ -33,7 +33,8 @@ Rectangle{
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    aviationVswrModel.addSnapshot()
+                    var datetime = new Date();
+                    snapshotModel.addAviationVswr(datetime,"Operator","01010101","200","M1","0,-30","50,350","ILS");
                 }
             }
         }

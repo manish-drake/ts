@@ -23,7 +23,7 @@ public:
     void setBandName(const QString bandName);
 
     AviationVswr(const int snapshotId, const QString range, const QString bandRange,const QString bandName);
-
+    AviationVswr() = default;
     ~AviationVswr();
 
 private:

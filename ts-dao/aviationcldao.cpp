@@ -43,7 +43,7 @@ void AviationClDao::addAviationCl(AviationCl &aviationCl) const
     const QString strQuery(
                 "INSERT INTO  aviationCableLoss"
                 "(snapshotId, range, bandRange, bandName) "
-                "VALUES (:snapshotId, :range, :bandRange, bandName)");
+                "VALUES (:snapshotId, :range, :bandRange, :bandName)");
     query.prepare(strQuery);
     query.bindValue(":snapshotId", aviationCl.snapshotId());
     query.bindValue(":range", aviationCl.range());

@@ -1,14 +1,11 @@
 #include "aviationvswrmodel.h"
 #include "aviationvswrdao.h"
+#include "snapshot.h"
+#include "snapshotmodel.h"
+#include "aviationmarkers.h"
+#include "aviationmarkersmodel.h"
+
 using namespace std;
-
-AviationVswrModel::addSnapshot()
-{
-//    AviationVswr vswr;
-//    Snapshot snapshot;
-
-//    addAviationVswr(vswr);
-}
 
 AviationVswrModel::AviationVswrModel(QObject *parent):
     ModelBase(parent),
@@ -18,7 +15,7 @@ AviationVswrModel::AviationVswrModel(QObject *parent):
 }
 
 QModelIndex AviationVswrModel::addAviationVswr(AviationVswr &aviationVswr)
-{
+{ 
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationVswrDao = this->m_db.aviationVswrDao();
@@ -74,13 +71,13 @@ bool AviationVswrModel::setData(const QModelIndex &index, const QVariant &value,
             aviationVswr.setSnapshotId(value.toInt());
             break;
         case Roles::RangeRole:
-          aviationVswr.setRange(value.toString());
+            aviationVswr.setRange(value.toString());
             break;
         case Roles::BandRangeRole:
-           aviationVswr.setBandRange(value.toString());
+            aviationVswr.setBandRange(value.toString());
             break;
         case Roles::BandNameRole:
-           aviationVswr.setBandName(value.toString());
+            aviationVswr.setBandName(value.toString());
             break;
         default:
             break;

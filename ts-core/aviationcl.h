@@ -23,7 +23,7 @@ public:
     void setBandName(const QString bandName);
 
     AviationCl(const int snapshotId, const QString range, const QString bandRange,const QString bandName);
-
+    AviationCl() = default;
     ~AviationCl();
 
 private:

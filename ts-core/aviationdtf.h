@@ -23,7 +23,7 @@ public:
     void setCableType(const QString cableType);
 
     AviationDtf(const int snapshotId, const QString range, const QString velocity,const QString cableType);
-
+    AviationDtf() = default;
     ~AviationDtf();
 
 private:
