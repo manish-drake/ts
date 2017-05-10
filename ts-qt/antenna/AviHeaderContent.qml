@@ -34,7 +34,21 @@ Rectangle{
                 anchors.fill: parent
                 onClicked: {
                     var datetime = new Date();
-                    snapshotModel.addAviationVswr(datetime,"Operator","01010101","200","M1","0,-30","50,350","ILS");
+                    switch(detailTitle){
+                    case "VSWR":
+                        snapshotModel.addAviationVswr(datetime,"Operator","01010101","200","M1","0,-30","50,350","ILS");
+                        break;
+                    case "CABLE LOSS":
+                        snapshotModel.addAviationCl(datetime,"Operator","01010101","220","M1","0,-30","50,350","ILS");
+                        break;
+                    case "DISTANCE TO FAULT":
+                        snapshotModel.addAviationDtf(datetime,"Operator","01010101","10","M1","0,-30","0,15","66%","SOLID PE");
+                        break;
+                    default:
+
+                    }
+
+
                 }
             }
         }
