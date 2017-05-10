@@ -159,10 +159,6 @@ int DataBuilder::build()
     View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
     viewDao->addView(vwAntAviationCalThru);
 
-    View vwSnapshotData("Snapshot-Data");
-    viewDao->addView(vwSnapshotData);
-
-
     SectionModel secModel{};
 
     Section secStart("Start");
@@ -1307,8 +1303,7 @@ int DataBuilder::build()
     Navigation AviationVswrToCalShort(vwAntAviationVswr.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationVswrToCalShort);
 
-    Navigation AviationVswrToSnapshotData(vwAntAviationVswr.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationVswrToSnapshotData);
+
 
     Navigation AviationClToVswr(vwAntAviationCl.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationClToVswr);
@@ -1319,8 +1314,6 @@ int DataBuilder::build()
     Navigation AviationClToCalShort(vwAntAviationCl.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(AviationClToCalShort);
 
-    Navigation AviationClToSnapshotData(vwAntAviationCl.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationClToSnapshotData);
 
     Navigation AviationDtfToVswr(vwAntAviationDtf.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationDtfToVswr);
@@ -1329,10 +1322,7 @@ int DataBuilder::build()
     navigationDaoPtr->addNavigation(AviationDtfToCl);
 
     Navigation AviationDtfToCalShort(vwAntAviationDtf.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationDtfToCalShort);
-
-    Navigation AviationDtfToSnapshotData(vwAntAviationDtf.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationDtfToSnapshotData);
+    navigationDaoPtr->addNavigation(AviationDtfToCalShort);   
 
     Navigation AviationCalShortToVswr(vwAntAviationCalShort.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalShortToVswr);
@@ -1352,9 +1342,6 @@ int DataBuilder::build()
     Navigation AviationCalShortToThru(vwAntAviationCalShort.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalShortToThru);
 
-    Navigation AviationCalShortToSnapshotData(vwAntAviationCalShort.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToSnapshotData);
-
     Navigation AviationCalOpenToVswr(vwAntAviationCalOpen.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToVswr);
 
@@ -1372,9 +1359,6 @@ int DataBuilder::build()
 
     Navigation AviationCalOpenToThru(vwAntAviationCalOpen.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalOpenToThru);
-
-    Navigation AviationCalOpenToSnapshotData(vwAntAviationCalOpen.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToSnapshotData);
 
     Navigation AviationCalLoadToVswr(vwAntAviationCalLoad.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToVswr);
@@ -1394,9 +1378,6 @@ int DataBuilder::build()
     Navigation AviationCalLoadToThru(vwAntAviationCalLoad.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
     navigationDaoPtr->addNavigation(AviationCalLoadToThru);
 
-    Navigation AviationCalLoadToSnapshotData(vwAntAviationCalLoad.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToSnapshotData);
-
     Navigation AviationCalThruToVswr(vwAntAviationCalThru.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationCalThruToVswr);
 
@@ -1414,12 +1395,6 @@ int DataBuilder::build()
 
     Navigation AviationCalThruToLoad(vwAntAviationCalThru.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
     navigationDaoPtr->addNavigation(AviationCalThruToLoad);
-
-    Navigation AviationCalThruToSnapshotData(vwAntAviationCalThru.id(), "Snapshot-Data",0, vwSnapshotData.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToSnapshotData);
-
-    Navigation aviationSnapshotDataToAnt(vwSnapshotData.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationSnapshotDataToAnt);
 
     Navigation aviationVswrToAnt(vwAntAviationVswr.id(), "back", 0, vwAntenna.id());
     navigationDaoPtr->addNavigation(aviationVswrToAnt);
