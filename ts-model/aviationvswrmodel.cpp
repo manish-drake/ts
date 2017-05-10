@@ -2,6 +2,14 @@
 #include "aviationvswrdao.h"
 using namespace std;
 
+AviationVswrModel::addSnapshot()
+{
+//    AviationVswr vswr;
+//    Snapshot snapshot;
+
+//    addAviationVswr(vswr);
+}
+
 AviationVswrModel::AviationVswrModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
@@ -22,6 +30,7 @@ QModelIndex AviationVswrModel::addAviationVswr(AviationVswr &aviationVswr)
     this->m_aviationVswr->push_back(unique_ptr<AviationVswr>(&aviationVswr));
     return index(row, 0);
 }
+
 
 int AviationVswrModel::rowCount(const QModelIndex &parent) const
 {

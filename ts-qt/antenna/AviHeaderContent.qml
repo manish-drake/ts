@@ -32,6 +32,9 @@ Rectangle{
             }
             MouseArea {
                 anchors.fill: parent
+                onClicked: {
+                    aviationVswrModel.addSnapshot()
+                }
             }
         }
         Rectangle{
