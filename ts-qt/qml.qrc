@@ -39,7 +39,6 @@
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
-        <file>antenna/storage.js</file>
         <file>antenna/DataPopupContent.qml</file>
     </qresource>
     <qresource prefix="/img">
