@@ -23,10 +23,10 @@ void AviationVswrDao::init() const
         return;
     }
 
-    if(!m_database.tables().contains("aviation_Vswr")) {
+    if(!m_database.tables().contains("aviationVswr")) {
         QSqlQuery query(m_database);
         const QString strQuery(
-                    "CREATE TABLE aviation_Vswr "
+                    "CREATE TABLE aviationVswr "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                     "snapshotId INTEGER,"
                     "Range TEXT,"
@@ -41,7 +41,7 @@ void AviationVswrDao::addAviationVswr(AviationVswr &aviationVswr) const
 {
     QSqlQuery query(m_database);
     const QString strQuery(
-                "INSERT INTO  aviation_Vswr"
+                "INSERT INTO  aviationVswr"
                 "(snapshotId, Range, bandRange, bandName) "
                 "VALUES (:snapshotId, :Range, :bandRange, bandName)");
     query.prepare(strQuery);
@@ -58,7 +58,7 @@ void AviationVswrDao::addAviationVswr(AviationVswr &aviationVswr) const
 void AviationVswrDao::removeAviationVswr(int id) const
 {
     QSqlQuery query(m_database);
-    query.prepare("DELETE FROM aviation_Vswr WHERE id = (:id)");
+    query.prepare("DELETE FROM aviationVswr WHERE id = (:id)");
     query.bindValue(":id", id);
     query.exec();
     DataManager::debugQuery(query);
@@ -69,8 +69,8 @@ unique_ptr<vector<unique_ptr<AviationVswr>>> AviationVswrDao:: aviationVswr(cons
     QSqlQuery query(m_database);
     const QString strQuery = QString(
                 "SELECT * "
-                "FROM aviation_Vswr "
-                "WHERE aviation_Vswr.snapshotId = %1"
+                "FROM aviationVswr "
+                "WHERE aviationVswr.snapshotId = %1"
             ).arg(snapshotId);
 
     query.exec(strQuery);

@@ -23,7 +23,7 @@ void AviationClDao::init() const
         return;
     }
 
-    if(!m_database.tables().contains("aviation_Cable_loss")) {
+    if(!m_database.tables().contains("aviationCableLoss")) {
         QSqlQuery query(m_database);
         const QString strQuery(
                     "CREATE TABLE aviationCableLoss "
