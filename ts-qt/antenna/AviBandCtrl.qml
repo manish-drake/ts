@@ -8,6 +8,7 @@ Rectangle{
     Layout.fillWidth: true
     Layout.fillHeight: true
     color: "transparent"
+    property string bandName
     Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
@@ -59,6 +60,7 @@ Rectangle{
                 ListElement { text: "FULL"; start: 50; stop: 2000; middle: 1025; defaultmarker: 1025 }
             }
             onCurrentIndexChanged:{
+                bandName = bandList.get(currentIndex).text
                 chartCtrl.freqStartVal = bandList.get(currentIndex).start
                 chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
                 chartCtrl.freqEndVal = bandList.get(currentIndex).stop

@@ -65,7 +65,9 @@ Item {
                         border.width: 1
                         radius:5
                     }
-                    model:ListModel{
+                    model: dataListModel
+                    ListModel{
+                        id: dataListModel
                         ListElement {
                             datetime: "5/5/2017 11:43:78"
                             user: "Operator"

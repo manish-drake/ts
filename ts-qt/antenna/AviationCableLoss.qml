@@ -62,7 +62,9 @@ Item{
                             columnSpacing: 15
                             rowSpacing: 20
                             height: 140
-                            AviBandCtrl{}
+                            AviBandCtrl{
+                                id: bandCtrl
+                            }
                             AviModeCtrl{
                                 currentModeIndex: 2
                             }

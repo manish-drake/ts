@@ -87,8 +87,8 @@ unique_ptr<vector<unique_ptr<Snapshot>>> SnapshotDao:: snapshots() const
     while (query.next()) {
         unique_ptr<Snapshot> snapshot(
                     new Snapshot(query.value("dtSnapshot").toDateTime(),
-                                 query.value("[user]").toString(),
-                                 query.value("[data]").toString()));
+                                 query.value("user").toString(),
+                                 query.value("data").toString()));
         snapshot->setId(query.value("ID").toInt());
 
         list->push_back(move(snapshot));

@@ -18,6 +18,7 @@ GridLayout{
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
+    property bool isScaleChecked
     anchors.horizontalCenter: parent.horizontalCenter
     rowSpacing: 0
     columnSpacing: 0
@@ -40,6 +41,9 @@ GridLayout{
                 text: "Return<br>Loss"
                 horizontalAlignment: Text.AlignHCenter
             }
+        }
+        onCheckedChanged: {
+            isScaleChecked = checked
         }
     }
 
