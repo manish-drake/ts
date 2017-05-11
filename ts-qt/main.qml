@@ -73,7 +73,9 @@ ApplicationWindow {
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                         onClosed: { parent.width = 0; configPanelDialog.visible = false }
                         onOpened: { parent.width = 270; configPanelDialog.visible = true }
-                        contentItem: ConfigPanel{}
+                        contentItem: ConfigPanel{
+                            id: configPanel
+                        }
                     }
                 }
             }
@@ -102,12 +104,11 @@ ApplicationWindow {
                     }
                 }
             }
-
-
         }
 
-
-        footer: Footer{}
+        footer: Footer{
+            currentOperator: configPanel.currentOperator
+        }
     }
 
     Rectangle{

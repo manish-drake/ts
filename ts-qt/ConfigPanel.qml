@@ -6,6 +6,7 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
 Item {
+    property string currentOperator
     Rectangle{
         implicitWidth: grid.implicitWidth
         implicitHeight: grid.implicitHeight
@@ -43,15 +44,20 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     ComboBox{
+                        id: operatorCombobox
                         width: 100
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
-                        currentIndex: 1
+                        currentIndex: 0
                         model: ListModel{
                             id:cbOperatorItems
-                            ListElement{text:"Operator1"}
-                            ListElement{text:"Operator2"}
-                            ListElement{text:"Operator3"}
+                            ListElement{text:"Operator"}
+                            ListElement{text:"Ken Filardo"}
+                            ListElement{text:"Dave Klamet"}
+                            ListElement{text:"Steve O'Hara"}
+                        }
+                        onCurrentIndexChanged: {
+                            currentOperator = cbOperatorItems.get(operatorCombobox.currentIndex).text
                         }
                     }
                 }
