@@ -106,6 +106,7 @@ GridLayout{
             Rectangle{
                 width: parent.width
                 height: (rLValsList.height - 9)/(rLValsModel.count - 1)
+                color: "transparent"
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val

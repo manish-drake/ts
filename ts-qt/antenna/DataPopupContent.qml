@@ -65,7 +65,7 @@ Item {
                         border.width: 1
                         radius:5
                     }
-                    model: dataListModel
+                    model: snapshotModel
                     ListModel{
                         id: dataListModel
                         ListElement {
@@ -102,7 +102,7 @@ Item {
                                     id: text1
                                     x: 8
                                     y: 9
-                                    text: qsTr(datetime)
+                                    text: Qt.formatDateTime(dtSnapshot,"MMM d yyyy hh:mm:ss")
                                     fontSizeMode: Text.Fit
                                     font.pixelSize: 14
                                     font.weight: Font.DemiBold
@@ -124,8 +124,6 @@ Item {
                                     x: 90
                                     y: 29
                                     text: user
-                                    fontSizeMode: Text.HorizontalFit
-                                    font.capitalization: Font.AllUppercase
                                     font.pixelSize: 14
                                     color: Universal.foreground
                                 }
@@ -157,7 +155,7 @@ Item {
                     opacity: enabled ? 1.0 : 0.4
                     MouseArea {
                         anchors.fill: parent
-
+                        onClicked: savedDataPopup.close()
                     }
                 }
             }

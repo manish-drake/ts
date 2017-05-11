@@ -171,8 +171,8 @@ QHash<int, QByteArray> SnapshotModel::roleNames() const
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::DtSnapshotRole, "dtSnapshot");
-    hash.insert(Roles::UserRole, "[user]");
-    hash.insert(Roles::DataRole, "[data]");
+    hash.insert(Roles::UserRole, "user");
+    hash.insert(Roles::DataRole, "data");
     return hash;
 }
 
