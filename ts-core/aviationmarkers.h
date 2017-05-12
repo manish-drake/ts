@@ -24,8 +24,8 @@ public:
     ~AviationMarkers();
 
 private:
-    int m_id;
-    int m_snapshotId;
+    int m_id = 0;
+    int m_snapshotId = 0;
     double m_position;
     QString m_name;
 };

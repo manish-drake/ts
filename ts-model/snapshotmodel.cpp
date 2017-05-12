@@ -35,18 +35,18 @@ void SnapshotModel::addAviationVswr(const QDateTime dtSnapshot, const QString us
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers aviMarkers;
-    aviMarkers.setPostion(position);
-    aviMarkers.setName(name);
+    AviationMarkers *aviMarkers = new AviationMarkers;
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(aviMarkers);
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
 
-    AviationVswr vswr;
-    vswr.setRange(range);
-    vswr.setBandRange(bandRange);
-    vswr.setBandName(bandName);
+    AviationVswr *vswr = new AviationVswr;
+    vswr->setRange(range);
+    vswr->setBandRange(bandRange);
+    vswr->setBandName(bandName);
     AviationVswrModel aviVswrModel;
-    aviVswrModel.addAviationVswr(vswr);
+    aviVswrModel.addAviationVswr(*vswr);
 }
 
 void SnapshotModel::addAviationCl(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString bandRange, const QString bandName)
@@ -57,18 +57,18 @@ void SnapshotModel::addAviationCl(const QDateTime dtSnapshot, const QString user
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers aviMarkers;
-    aviMarkers.setPostion(position);
-    aviMarkers.setName(name);
+    AviationMarkers *aviMarkers = new AviationMarkers;
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(aviMarkers);
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
 
-    AviationCl cableType;
-    cableType.setRange(range);
-    cableType.setBandRange(bandRange);
-    cableType.setBandName(bandName);
+    AviationCl *cableType = new AviationCl;
+    cableType->setRange(range);
+    cableType->setBandRange(bandRange);
+    cableType->setBandName(bandName);
     AviationClModel aviClModel;
-    aviClModel.addAviationCl(cableType);
+    aviClModel.addAviationCl(*cableType);
 }
 
 void SnapshotModel::addAviationDtf(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString velocity, const QString cableType)
@@ -79,18 +79,19 @@ void SnapshotModel::addAviationDtf(const QDateTime dtSnapshot, const QString use
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers aviMarkers;
-    aviMarkers.setPostion(position);
-    aviMarkers.setName(name);
+    AviationMarkers *aviMarkers = new AviationMarkers();
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(aviMarkers);
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
 
-    AviationDtf dtf;
-    dtf.setRange(range);
-    dtf.setVelocity(velocity);
-    dtf.setCableType(cableType);
+    AviationDtf *dtf = new AviationDtf();
+    dtf->setRange(range);
+    dtf->setVelocity(velocity);
+    dtf->setCableType(cableType);
     AviationDtfModel aviDtfModel;
-    aviDtfModel.addAviationDtf(dtf);
+    aviDtfModel.addAviationDtf(*dtf);
+
 }
 
 int SnapshotModel::rowCount(const QModelIndex &parent) const

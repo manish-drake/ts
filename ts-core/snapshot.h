@@ -25,7 +25,7 @@ public:
     ~Snapshot();
 
 private:
-    int m_id;
+    int m_id = 0;
     QDateTime m_dtSnapshot;
     QString m_user;
     QString m_data;

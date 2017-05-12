@@ -27,8 +27,8 @@ public:
     ~AviationDtf();
 
 private:
-    int m_id;
-    int m_snapshotId;
+    int m_id = 0;
+    int m_snapshotId = 0;
     QString m_range;
     QString m_velocity;
     QString m_cableType;
