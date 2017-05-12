@@ -14,9 +14,9 @@ QModelIndex AviationDtfModel::addAviationDtf(AviationDtf &aviationDtf)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationDtfDao = this->m_db.aviationDtfDao();
-    //    const aviationDtf *aviationDtfPtr = &aviationDtf;
+//        const aviationDtf *aviationDtfPtr = &aviationDtf;
 
-    //    unique_ptr<aviationDtf> newaviationDtf(aviationDtfPtr);
+//        unique_ptr<aviationDtf> newaviationDtf(aviationDtfPtr);
     aviationDtfDao->addAviationDtf(aviationDtf);
     endInsertRows();
     this->m_aviationDtfs->push_back(unique_ptr<AviationDtf>(&aviationDtf));

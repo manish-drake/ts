@@ -19,9 +19,9 @@ QModelIndex AviationVswrModel::addAviationVswr(AviationVswr &aviationVswr)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationVswrDao = this->m_db.aviationVswrDao();
-    //    const aviationVswr *aviationVswrPtr = &aviationVswr;
+//        const aviationVswr *aviationVswrPtr = &aviationVswr;
 
-    //    unique_ptr<aviationVswr> newaviationVswr(aviationVswrPtr);
+//        unique_ptr<aviationVswr> newaviationVswr(aviationVswrPtr);
     aviationVswrDao->addAviationVswr(aviationVswr);
     endInsertRows();
     this->m_aviationVswr->push_back(unique_ptr<AviationVswr>(&aviationVswr));

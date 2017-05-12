@@ -14,9 +14,9 @@ QModelIndex AviationClModel::addAviationCl(AviationCl &aviationCl)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationClDao = this->m_db.aviationClDao();
-    //    const aviationCl *aviationClPtr = &aviationCl;
+//        const aviationCl *aviationClPtr = &aviationCl;
 
-    //    unique_ptr<aviationCl> newaviationCl(aviationClPtr);
+//        unique_ptr<aviationCl> newaviationCl(aviationClPtr);
     aviationClDao->addAviationCl(aviationCl);
     endInsertRows();
     this->m_aviationCls->push_back(unique_ptr<AviationCl>(&aviationCl));
