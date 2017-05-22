@@ -12,20 +12,20 @@ public:
     void setId(const int id);
 
     QDateTime dtSnapshot() const;
-    void setDtSnapshot(const QDateTime dtSnapshot);
+    void setDtSnapshot(const QDateTime &dtSnapshot);
 
     QString user() const;
-    void setUser(const QString user);
+    void setUser(const QString &user);
 
     QString data() const;
-    void setData(const QString data);
+    void setData(const QString &data);
 
-    Snapshot(const QDateTime dtSnapshot, const QString user, const QString data);
-
+    Snapshot(const QDateTime &dtSnapshot, const QString &user, const QString &data);
+    Snapshot() = default;
     ~Snapshot();
 
 private:
-    int m_id;
+    int m_id = 0;
     QDateTime m_dtSnapshot;
     QString m_user;
     QString m_data;

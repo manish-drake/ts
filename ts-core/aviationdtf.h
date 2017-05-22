@@ -14,21 +14,21 @@ public:
     void setSnapshotId(const int snapshotId);
 
     QString range() const;
-    void setRange(const QString range);
+    void setRange(const QString &range);
 
     QString velocity() const;
-    void setVelocity(const QString velocity);
+    void setVelocity(const QString &velocity);
 
     QString cableType() const;
-    void setCableType(const QString cableType);
+    void setCableType(const QString &cableType);
 
-    AviationDtf(const int snapshotId, const QString range, const QString velocity,const QString cableType);
-
+    AviationDtf(const int snapshotId, const QString &range, const QString &velocity,const QString &cableType);
+    AviationDtf() = default;
     ~AviationDtf();
 
 private:
-    int m_id;
-    int m_snapshotId;
+    int m_id = 0;
+    int m_snapshotId = 0;
     QString m_range;
     QString m_velocity;
     QString m_cableType;

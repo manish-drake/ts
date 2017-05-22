@@ -25,7 +25,7 @@ QString AviationDtf::range() const
     return this->m_range;
 }
 
-void AviationDtf::setRange(const QString range)
+void AviationDtf::setRange(const QString &range)
 {
     this->m_range = range;
 }
@@ -35,7 +35,7 @@ QString AviationDtf::velocity() const
     return this->m_velocity;
 }
 
-void AviationDtf::setVelocity(const QString velocity)
+void AviationDtf::setVelocity(const QString &velocity)
 {
     this->m_velocity = velocity;
 }
@@ -45,12 +45,12 @@ QString AviationDtf::cableType() const
     return this->m_cableType;
 }
 
-void AviationDtf::setCableType(const QString cableType)
+void AviationDtf::setCableType(const QString &cableType)
 {
     this->m_cableType = cableType;
 }
 
-AviationDtf::AviationDtf(const int snapshotId, const QString range, const QString velocity, const QString cableType):
+AviationDtf::AviationDtf(const int snapshotId, const QString &range, const QString &velocity, const QString &cableType):
     m_id {0},
     m_snapshotId{snapshotId},
     m_range{range},

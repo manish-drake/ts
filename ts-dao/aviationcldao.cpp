@@ -64,7 +64,7 @@ void AviationClDao::removeAviationCl(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<AviationCl>>> AviationClDao:: aviationCls(const int snapshotId) const
+AviationClDao::up_vec_up_avcl AviationClDao::aviationCls(const int snapshotId) const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(

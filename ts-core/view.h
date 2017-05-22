@@ -16,9 +16,10 @@ public:
     void setName(const QString &name);
 
     View(const QString &name);
+    View() = default;
     ~View();
 private:
-    int m_id;
+    int m_id = 0;
     QString m_name;
 };
 

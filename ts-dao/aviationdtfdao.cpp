@@ -64,7 +64,7 @@ void AviationDtfDao::removeAviationDtf(int id) const
     DataManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<AviationDtf>>> AviationDtfDao:: aviationDtf(const int snapshotId) const
+AviationDtfDao::up_vec_up_avdtf AviationDtfDao::aviationDtf(const int snapshotId) const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(

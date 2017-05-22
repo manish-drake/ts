@@ -53,17 +53,18 @@ public:
               const int rowSpan = 1,
               const int colSpan = 1,
               const QString &style="");
+    TestParam() = default;
 private:
-    int m_id;
+    int m_id = 0;
     QString m_name;
-    int m_summaryId;
+    int m_summaryId = 0;
     QString m_key;
     QString m_val;
     QString m_unit;
-    int m_row;
-    int m_col;
-    int m_rowSpan;
-    int m_colSpan;
+    int m_row = 0;
+    int m_col = 0;
+    int m_rowSpan = 1;
+    int m_colSpan = 1;
     QString m_style;
 };
 
