@@ -14,9 +14,9 @@ QModelIndex AviationMarkersModel::addAviationMarkers(AviationMarkers &aviationMa
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationMarkersDao = this->m_db.aviationMarkersDao();
-    //    const aviationMarkers *aviationMarkersPtr = &aviationMarkers;
+//        const aviationMarkers *aviationMarkersPtr = &aviationMarkers;
 
-    //    unique_ptr<aviationMarkers> newaviationMarkers(aviationMarkersPtr);
+//        unique_ptr<aviationMarkers> newaviationMarkers(aviationMarkersPtr);
     aviationMarkersDao->addAviationMarkers(aviationMarkers);
     endInsertRows();
     this->m_aviationMarkers->push_back(unique_ptr<AviationMarkers>(&aviationMarkers));

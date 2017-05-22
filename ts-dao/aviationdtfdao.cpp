@@ -43,7 +43,7 @@ void AviationDtfDao::addAviationDtf(AviationDtf &aviationDtf) const
     const QString strQuery(
                 "INSERT INTO  aviationDtf"
                 "(snapshotId, range, velocity, cableType) "
-                "VALUES (:snapshotId,:range, :velocity, :cableType)");
+                "VALUES (:snapshotId, :range, :velocity, :cableType)");
     query.prepare(strQuery);
     query.bindValue(":snapshotId", aviationDtf.snapshotId());
     query.bindValue(":range", aviationDtf.range());

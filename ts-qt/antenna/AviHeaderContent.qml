@@ -32,6 +32,38 @@ Rectangle{
             }
             MouseArea {
                 anchors.fill: parent
+                onClicked: {
+                    var datetime = new Date();
+                    var user = configPanel.currentOperator;
+                    var markerPosition = markersModel.get(0)._val;
+                    var markerName = "M" + markersModel.get(0).num;
+                    var range = chartCtrl.isScaleChecked ? "-6,-18" : "0,-30";
+                    var bandRange = chartCtrl.freqStartVal+","+chartCtrl.freqEndVal;
+                    var data = "";
+                    for (var i = 0; i < dummy.points.length; i++){
+                        if(i == 0){
+                            data = dummy.points[i]
+                        }
+                        else{
+                            data = data +","+dummy.points[i]
+                        }
+                    }
+                    switch(detailTitle){
+                    case "VSWR":
+                        var bandName = bandCtrl.bandName
+                        snapshotModel.addAviationVswr(datetime, user,data,markerPosition,markerName,range,bandRange,bandName);
+                        break;
+                    case "CABLE LOSS":
+                        var bandName2 = bandCtrl.bandName
+                        snapshotModel.addAviationCl(datetime,user,data,markerPosition,markerName,range,bandRange,bandName2);
+                        break;
+                    case "DISTANCE TO FAULT":
+                        var velocity = coaxList.get(coaxComboBox.currentIndex).vel
+                        var cableType = coaxList.get(coaxComboBox.currentIndex).text
+                        snapshotModel.addAviationDtf(datetime,user,data,markerPosition,markerName,range,velocity,cableType);
+                        break;
+                    }
+                }
             }
         }
         Rectangle{

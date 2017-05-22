@@ -8,7 +8,7 @@ Rectangle {
     id: rectangle4
     height: 50
     color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
-
+    property string currentOperator
     Rectangle{
         id: rect1
         color: "transparent"
@@ -19,7 +19,7 @@ Rectangle {
             id: operatorName
             anchors.verticalCenter: parent.verticalCenter
             font.pointSize: 10
-            text: "Operator"
+            text: currentOperator
             elide: Text.ElideRight
             color: Universal.foreground
         }

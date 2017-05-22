@@ -18,6 +18,7 @@ GridLayout{
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
+    property bool isScaleChecked
     anchors.horizontalCenter: parent.horizontalCenter
     rowSpacing: 0
     columnSpacing: 0
@@ -40,6 +41,9 @@ GridLayout{
                 text: "Return<br>Loss"
                 horizontalAlignment: Text.AlignHCenter
             }
+        }
+        onCheckedChanged: {
+            isScaleChecked = checked
         }
     }
 
@@ -96,12 +100,13 @@ GridLayout{
         Layout.column: 0
         Layout.fillHeight: true
         width: 25
+        enabled: false
         model: rlScaleSwitch.checked ? rLVals2Model : rLValsModel
         delegate: Component{
             Rectangle{
                 width: parent.width
                 height: (rLValsList.height - 9)/(rLValsModel.count - 1)
-                color: Universal.background
+                color: "transparent"
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val
@@ -137,12 +142,13 @@ GridLayout{
         Layout.column: 2
         Layout.fillHeight: true
         width: 25
+        enabled: false
         model: rlScaleSwitch.checked ? vswrVals2Model : vswrValsModel
         delegate: Component{
             Rectangle{
                 width: parent.width
                 height: (vswrValsList.height - 9)/(vswrValsModel.count - 1)
-                color: Universal.background
+                color: "transparent"
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val

@@ -62,7 +62,9 @@ Item{
                             columnSpacing: 15
                             rowSpacing: 20
                             height: 140
-                            AviBandCtrl{}
+                            AviBandCtrl{
+                                id: bandCtrl
+                            }
                             AviModeCtrl{
                                 currentModeIndex: 2
                             }
@@ -93,7 +95,7 @@ Item{
     Rectangle{
         id: savedDataDialog
         anchors.fill: parent
-        color: "#33000000"
+        color: Universal.theme == Universal.Light ? "#80000000" : "#80ffffff"
         visible: false
         Item{
             anchors.fill: parent

@@ -26,6 +26,18 @@ public:
 
     QModelIndex addSnapshot(Snapshot &snapshot);
 
+   Q_INVOKABLE void addAviationVswr(const QDateTime dtSnapshot, const QString user, const  QString data,
+                         const double position, const QString name,
+                         const QString range, const QString bandRange, const QString bandName);
+
+   Q_INVOKABLE void addAviationCl(const QDateTime dtSnapshot, const QString user, const  QString data,
+                       const double position, const QString name,
+                       const QString range, const QString bandRange, const QString bandName);
+
+   Q_INVOKABLE void addAviationDtf(const QDateTime dtSnapshot, const QString user, const  QString data,
+                       const double position, const QString name,
+                       const QString range, const QString velocity, const QString cableType);
+
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;

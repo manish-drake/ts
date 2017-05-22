@@ -166,7 +166,7 @@ Item{
     Rectangle{
         id: savedDataDialog
         anchors.fill: parent
-        color: "#33000000"
+        color: Universal.theme == Universal.Light ? "#80000000" : "#80ffffff"
         visible: false
         Item{
             anchors.fill: parent

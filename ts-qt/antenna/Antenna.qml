@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
-import "storage.js" as Storage
 
 Item {
     anchors.fill: parent
@@ -51,8 +50,7 @@ Item {
                     anchors.fill: parent
                     onClicked: grid.currentIndex = index
                     onDoubleClicked:
-                        //navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
-                        navigationModel.currentView = navigationModel.getTargetView(Storage.get("aviationmode","Aviation-Cal-Short"));
+                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
                 }
                 GridLayout{
                     anchors.fill: parent

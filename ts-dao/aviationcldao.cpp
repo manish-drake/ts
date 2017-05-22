@@ -23,7 +23,7 @@ void AviationClDao::init() const
         return;
     }
 
-    if(!m_database.tables().contains("aviation_Cable_loss")) {
+    if(!m_database.tables().contains("aviationCableLoss")) {
         QSqlQuery query(m_database);
         const QString strQuery(
                     "CREATE TABLE aviationCableLoss "
@@ -43,7 +43,7 @@ void AviationClDao::addAviationCl(AviationCl &aviationCl) const
     const QString strQuery(
                 "INSERT INTO  aviationCableLoss"
                 "(snapshotId, range, bandRange, bandName) "
-                "VALUES (:snapshotId, :range, :bandRange, bandName)");
+                "VALUES (:snapshotId, :range, :bandRange, :bandName)");
     query.prepare(strQuery);
     query.bindValue(":snapshotId", aviationCl.snapshotId());
     query.bindValue(":range", aviationCl.range());

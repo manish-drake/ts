@@ -2,8 +2,7 @@
 #include "aviationdtfdao.h"
 using namespace std;
 
-
-  AviationDtfModel::AviationDtfModel(QObject *parent):
+AviationDtfModel::AviationDtfModel(QObject *parent):
       ModelBase(parent),
       m_db(DataManager::instance()),
       m_aviationDtfs(m_db.aviationDtfDao()->aviationDtf(0))
@@ -15,9 +14,9 @@ QModelIndex AviationDtfModel::addAviationDtf(AviationDtf &aviationDtf)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationDtfDao = this->m_db.aviationDtfDao();
-    //    const aviationDtf *aviationDtfPtr = &aviationDtf;
+//        const aviationDtf *aviationDtfPtr = &aviationDtf;
 
-    //    unique_ptr<aviationDtf> newaviationDtf(aviationDtfPtr);
+//        unique_ptr<aviationDtf> newaviationDtf(aviationDtfPtr);
     aviationDtfDao->addAviationDtf(aviationDtf);
     endInsertRows();
     this->m_aviationDtfs->push_back(unique_ptr<AviationDtf>(&aviationDtf));

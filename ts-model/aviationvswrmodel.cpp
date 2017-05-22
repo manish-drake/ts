@@ -1,5 +1,10 @@
 #include "aviationvswrmodel.h"
 #include "aviationvswrdao.h"
+#include "snapshot.h"
+#include "snapshotmodel.h"
+#include "aviationmarkers.h"
+#include "aviationmarkersmodel.h"
+
 using namespace std;
 
 AviationVswrModel::AviationVswrModel(QObject *parent):
@@ -10,18 +15,19 @@ AviationVswrModel::AviationVswrModel(QObject *parent):
 }
 
 QModelIndex AviationVswrModel::addAviationVswr(AviationVswr &aviationVswr)
-{
+{ 
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationVswrDao = this->m_db.aviationVswrDao();
-    //    const aviationVswr *aviationVswrPtr = &aviationVswr;
+//        const aviationVswr *aviationVswrPtr = &aviationVswr;
 
-    //    unique_ptr<aviationVswr> newaviationVswr(aviationVswrPtr);
+//        unique_ptr<aviationVswr> newaviationVswr(aviationVswrPtr);
     aviationVswrDao->addAviationVswr(aviationVswr);
     endInsertRows();
     this->m_aviationVswr->push_back(unique_ptr<AviationVswr>(&aviationVswr));
     return index(row, 0);
 }
+
 
 int AviationVswrModel::rowCount(const QModelIndex &parent) const
 {
@@ -65,13 +71,13 @@ bool AviationVswrModel::setData(const QModelIndex &index, const QVariant &value,
             aviationVswr.setSnapshotId(value.toInt());
             break;
         case Roles::RangeRole:
-          aviationVswr.setRange(value.toString());
+            aviationVswr.setRange(value.toString());
             break;
         case Roles::BandRangeRole:
-           aviationVswr.setBandRange(value.toString());
+            aviationVswr.setBandRange(value.toString());
             break;
         case Roles::BandNameRole:
-           aviationVswr.setBandName(value.toString());
+            aviationVswr.setBandName(value.toString());
             break;
         default:
             break;

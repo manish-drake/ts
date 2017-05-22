@@ -1,5 +1,9 @@
 #include "snapshotmodel.h"
 #include "snapshotdao.h"
+#include "aviationmarkersmodel.h"
+#include "aviationvswrmodel.h"
+#include "aviationclmodel.h"
+#include "aviationdtfmodel.h"
 using namespace std;
 
 SnapshotModel::SnapshotModel(QObject *parent):
@@ -21,6 +25,73 @@ QModelIndex SnapshotModel::addSnapshot(Snapshot &snapshot)
     endInsertRows();
     this->m_snapshots->push_back(unique_ptr<Snapshot>(&snapshot));
     return index(row, 0);
+}
+
+void SnapshotModel::addAviationVswr(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString bandRange, const QString bandName)
+{
+    Snapshot snapshot;
+    snapshot.setDtSnapshot(dtSnapshot);
+    snapshot.setUser(user);
+    snapshot.setData(data);
+    addSnapshot(snapshot);
+
+    AviationMarkers *aviMarkers = new AviationMarkers;
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
+    AviationMarkersModel aviMarkersModel;
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
+
+    AviationVswr *vswr = new AviationVswr;
+    vswr->setRange(range);
+    vswr->setBandRange(bandRange);
+    vswr->setBandName(bandName);
+    AviationVswrModel aviVswrModel;
+    aviVswrModel.addAviationVswr(*vswr);
+}
+
+void SnapshotModel::addAviationCl(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString bandRange, const QString bandName)
+{
+    Snapshot snapshot;
+    snapshot.setDtSnapshot(dtSnapshot);
+    snapshot.setUser(user);
+    snapshot.setData(data);
+    addSnapshot(snapshot);
+
+    AviationMarkers *aviMarkers = new AviationMarkers;
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
+    AviationMarkersModel aviMarkersModel;
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
+
+    AviationCl *cableType = new AviationCl;
+    cableType->setRange(range);
+    cableType->setBandRange(bandRange);
+    cableType->setBandName(bandName);
+    AviationClModel aviClModel;
+    aviClModel.addAviationCl(*cableType);
+}
+
+void SnapshotModel::addAviationDtf(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString velocity, const QString cableType)
+{
+    Snapshot snapshot;
+    snapshot.setDtSnapshot(dtSnapshot);
+    snapshot.setUser(user);
+    snapshot.setData(data);
+    addSnapshot(snapshot);
+
+    AviationMarkers *aviMarkers = new AviationMarkers();
+    aviMarkers->setPostion(position);
+    aviMarkers->setName(name);
+    AviationMarkersModel aviMarkersModel;
+    aviMarkersModel.addAviationMarkers(*aviMarkers);
+
+    AviationDtf *dtf = new AviationDtf();
+    dtf->setRange(range);
+    dtf->setVelocity(velocity);
+    dtf->setCableType(cableType);
+    AviationDtfModel aviDtfModel;
+    aviDtfModel.addAviationDtf(*dtf);
+
 }
 
 int SnapshotModel::rowCount(const QModelIndex &parent) const
@@ -101,8 +172,8 @@ QHash<int, QByteArray> SnapshotModel::roleNames() const
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::DtSnapshotRole, "dtSnapshot");
-    hash.insert(Roles::UserRole, "[user]");
-    hash.insert(Roles::DataRole, "[data]");
+    hash.insert(Roles::UserRole, "user");
+    hash.insert(Roles::DataRole, "data");
     return hash;
 }
 
