@@ -145,10 +145,8 @@ Item {
                 color: Universal.background
                 Text{
                     enabled: dataListView.currentIndex != -1
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.rightMargin: 20
-                    text: "Show"
+                    anchors.centerIn: parent
+                    text: "VIEW"
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     color: Universal.foreground

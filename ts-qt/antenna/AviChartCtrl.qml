@@ -29,12 +29,12 @@ GridLayout{
         Layout.columnSpan: 2
         Layout.bottomMargin: 10
         spacing: 0
-        implicitHeight: 30
-        implicitWidth: 45
+        implicitHeight: 32
+        implicitWidth: 50
         checked: vswrScaleSwitch.checked
         indicator:Rectangle{
             anchors.fill: parent
-            color: parent.checked ? "#bbbbbb" : "#cccccc"
+            color: parent.checked ? "#cccccc" : "#dddddd"
             Text{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -56,12 +56,12 @@ GridLayout{
         Layout.columnSpan: 2
         Layout.bottomMargin: 10
         spacing: 0
-        implicitHeight: 30
-        implicitWidth: 45
+        implicitHeight: 32
+        implicitWidth: 50
         checked: rlScaleSwitch.checked
         indicator:Rectangle{
             anchors.fill: parent
-            color: parent.checked ? "#bbbbbb" : "#cccccc"
+            color: parent.checked ? "#cccccc" : "#dddddd"
             Text{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -76,7 +76,7 @@ GridLayout{
         Layout.row: 2
         Layout.column: 1
         Layout.alignment: Qt.AlignCenter
-        width: 400;
+        width: 400
         height: 256
         source: "qrc:/img/img/graph-back.png"
         fillMode: Image.Stretch
@@ -271,15 +271,15 @@ GridLayout{
             id: lengthUnitSwitch
             anchors.right: parent.right
             spacing: 0
-            implicitHeight: 20
+            implicitHeight: 22
             implicitWidth: 25
             indicator:Rectangle{
                 anchors.fill: parent
-                color: parent.checked ? "#bbbbbb" : "#cccccc"
+                color: "#eeeeee"
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text: "M"
+                    text: lengthUnitSwitch.checked ? "Ft" : "M"
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -293,7 +293,7 @@ GridLayout{
     Rectangle{
         Layout.row: 1
         Layout.column: 1
-        height: 20
+        height: 25
         color: "transparent"
     }
 
@@ -305,7 +305,9 @@ GridLayout{
             Layout.row: 1
             Layout.column: 1
             Layout.fillWidth: true
-            implicitHeight: 20
+            Layout.leftMargin: -12.5
+            Layout.rightMargin: -12.5
+            implicitHeight: 25
             minimumValue: markerMinVal
             maximumValue: markerMaxVal
             stepSize: markerStepSize
@@ -320,8 +322,8 @@ GridLayout{
                     color: control.pressed ? "#dddddd" : "#eeeeee"
                     border.color: "#aaaaaa"
                     border.width: 1
-                    implicitWidth: 22
-                    implicitHeight: 20
+                    implicitWidth: 27
+                    implicitHeight: 25
                     radius: 2
                     Text{
                         anchors.verticalCenter: parent.verticalCenter
@@ -332,7 +334,7 @@ GridLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: parent.bottom
                         color: "orange"
-                        width: 1.5
+                        width: 1
                         height: graphImage.height
                     }
                     Text{
