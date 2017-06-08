@@ -151,7 +151,17 @@ Item{
                                             background: Rectangle{
                                                 height: typeComboBox.height
                                                 width: typeComboBox.width
-                                                color: typeComboBox.pressed ? "#D0D0D0" : "#E0E0E0"
+                                                color: typeComboBox.pressed ? "#e7e7e7" : "#ededed"
+                                                radius: 3
+                                                layer.enabled: true
+                                                layer.effect: DropShadow {
+                                                    transparentBorder: true
+                                                    horizontalOffset: 1.1
+                                                    verticalOffset: 1.1
+                                                    radius: 4.0
+                                                    color: "#4d000000"
+                                                    spread: 0
+                                                }
                                                 Image {
                                                     source: "qrc:/img/img/Expand Arrow-20.png"
                                                     anchors.verticalCenter: parent.verticalCenter
@@ -216,7 +226,16 @@ Item{
                                     anchors.right: parent.right
                                     anchors.bottom: parent.bottom
                                     height: 50
-                                    color: "#E0E0E0"
+                                    color: "#ededed"
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 1.1
+                                        verticalOffset: 1.1
+                                        radius: 4.0
+                                        color: "#4d000000"
+                                        spread: 0
+                                    }
                                     Text{
                                         anchors.centerIn: parent
                                         font.pointSize: 11
@@ -240,7 +259,16 @@ Item{
                                     anchors.right: parent.right
                                     anchors.bottom: parent.bottom
                                     height: 50
-                                    color: "#E0E0E0"
+                                    color: "#ededed"
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 1.1
+                                        verticalOffset: 1.1
+                                        radius: 4.0
+                                        color: "#4d000000"
+                                        spread: 0
+                                    }
                                     Text{
                                         anchors.centerIn: parent
                                         font.pointSize: 11

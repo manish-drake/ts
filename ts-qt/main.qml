@@ -164,6 +164,91 @@ ApplicationWindow {
             }
         }
     }
+
+    Rectangle{
+        id: connectionReqDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.centerIn: parent
+            height: 150
+            width: 350
+            Popup {
+                id: connectionReqPopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: {connectionReqDialog.visible = false }
+                onOpened: {connectionReqDialog.visible = true }
+                contentItem: ConnectionReqest{}
+            }
+        }
+    }
+
+    Rectangle{
+        id: pinConfirmDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.centerIn: parent
+            height: 150
+            width: 250
+            Popup {
+                id: pinConfirmPopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: {pinConfirmDialog.visible = false }
+                onOpened: {pinConfirmDialog.visible = true }
+                contentItem: PINConfirmation{}
+            }
+        }
+    }
+
+    Timer{
+        id:  pinaccepttimer
+        interval: 3000
+        onTriggered:{
+            pinConfirmPopup.close()
+            connectionAckPopup.open()
+        }
+    }
+
+    Rectangle{
+        id: connectionAckDialog
+        anchors.fill: parent
+        color: "#33000000"
+        visible: false
+        Item{
+            anchors.centerIn: parent
+            height: 150
+            width: 320
+            Popup {
+                id: connectionAckPopup
+                height: parent.height
+                width: parent.width
+                padding: 0
+                modal: true
+                focus: true
+                clip: true
+                closePolicy: Popup.CloseOnEscape
+                onClosed: {connectionAckDialog.visible = false }
+                onOpened: {connectionAckDialog.visible = true }
+                contentItem: ConnectionAck{}
+            }
+        }
+    }
+
 }
 
 

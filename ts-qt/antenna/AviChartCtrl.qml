@@ -34,7 +34,17 @@ GridLayout{
         checked: vswrScaleSwitch.checked
         indicator:Rectangle{
             anchors.fill: parent
-            color: parent.checked ? "#cccccc" : "#dddddd"
+            radius: 3
+            color: parent.checked ? "#dddddd" : "#ededed"
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "#4d000000"
+                spread: 0
+            }
             Text{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -61,7 +71,17 @@ GridLayout{
         checked: rlScaleSwitch.checked
         indicator:Rectangle{
             anchors.fill: parent
-            color: parent.checked ? "#cccccc" : "#dddddd"
+            radius: 3
+            color: parent.checked ? "#dddddd" : "#ededed"
+            layer.enabled: true
+            layer.effect: DropShadow {
+                transparentBorder: true
+                horizontalOffset: 1.1
+                verticalOffset: 1.1
+                radius: 4.0
+                color: "#4d000000"
+                spread: 0
+            }
             Text{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -275,7 +295,16 @@ GridLayout{
             implicitWidth: 25
             indicator:Rectangle{
                 anchors.fill: parent
-                color: "#eeeeee"
+                color: "#ededed"
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    transparentBorder: true
+                    horizontalOffset: 1.1
+                    verticalOffset: 1.1
+                    radius: 4.0
+                    color: "#4d000000"
+                    spread: 0
+                }
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -285,7 +314,7 @@ GridLayout{
             }
             onCheckedChanged: {
                 isDTFUnitSwitched = checked
-                markerMaxVal = checked ? 49 : 15;
+                markerMaxVal = checked ? 49.21 : 15;
                 markersModel.get(selectedMarkerIndex)._val = checked ? (markersModel.get(selectedMarkerIndex)._val * 3.28084) : (markersModel.get(selectedMarkerIndex)._val / 3.28084)
             }
         }
@@ -319,12 +348,12 @@ GridLayout{
                 }
                 handle:
                     Rectangle {
-                    color: control.pressed ? "#dddddd" : "#eeeeee"
-                    border.color: "#aaaaaa"
+                    color: control.pressed ? "#e7e7e7" : "#ededed"
+                    border.color: "#dddddd"
                     border.width: 1
                     implicitWidth: 27
                     implicitHeight: 25
-                    radius: 2
+                    radius: 3
                     Text{
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -349,7 +378,7 @@ GridLayout{
                         anchors.right: parent.left
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
-                        text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(1) + " Ft" : (markerSlider.value).toFixed(1) + " m"
+                        text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
                     }
                     MouseArea{
                         anchors.fill: parent

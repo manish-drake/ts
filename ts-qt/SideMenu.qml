@@ -23,6 +23,19 @@ Item {
                         font.pointSize: 12
                         color: Universal.foreground
                     }
+                    Image{
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: 10
+                        source: "qrc:/img/img/Forward-16.png"
+                    }
+                    Rectangle{
+                        anchors.bottom: parent.bottom
+                        width: parent.width
+                        height: 1
+                        color: Universal.foreground
+                        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -36,14 +49,15 @@ Item {
             }
             highlight: Rectangle {
                 color: Universal.foreground
-                opacity: 0.1
+                opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
             }
         }
         Rectangle{
             anchors.right: parent.right
             height: parent.height
             width: 1
-            color: "#bbbbbb"
+            color: Universal.foreground
+            opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
         }
     }
 }

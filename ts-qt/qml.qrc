@@ -40,6 +40,9 @@
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
         <file>antenna/DataPopupContent.qml</file>
+        <file>ConnectionReqest.qml</file>
+        <file>PINConfirmation.qml</file>
+        <file>ConnectionAck.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -75,5 +78,7 @@
         <file>img/Nintendo DS-25.png</file>
         <file>img/graph-back.png</file>
         <file>img/Past-22.png</file>
+        <file>img/Delete2-25.png</file>
+        <file>img/Forward-16.png</file>
     </qresource>
 </RCC>

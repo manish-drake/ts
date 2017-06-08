@@ -69,6 +69,11 @@ Rectangle{
             bottomPadding: 10
             leftPadding: 10
             rightPadding: 10
+            color: Universal.foreground
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {moreActionsPopover.close();connectionReqPopup.open()}
+            }
         }
     }
 }

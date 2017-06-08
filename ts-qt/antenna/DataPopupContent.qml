@@ -15,17 +15,39 @@ Item {
                 height: 50
                 width: parent.width
                 color: Universal.background
+                Rectangle{
+                    height:25
+                    width: 25
+                    Layout.fillHeight: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.margins: 10
+                    anchors.left: parent.left
+                    color:"transparent"
+                    visible: dataListView.currentIndex != -1
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/Delete2-25.png"
+                        ColorOverlay{
+                            anchors.fill: parent
+                            source: parent
+                            color: Universal.foreground
+                        }
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {}
+                    }
+                }
                 Text {
                     id: title
                     text: "Saved Data"
                     font.pointSize: 12
                     font.weight: Font.DemiBold
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.centerIn: parent
                     color: Universal.foreground
                 }
                 Rectangle{
-                    id: rectangle
                     height:25
                     width: 25
                     Layout.fillHeight: true

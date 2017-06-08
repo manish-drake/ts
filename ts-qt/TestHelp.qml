@@ -48,6 +48,31 @@ Item {
                         color: Universal.foreground
                     }
                 }
+                Rectangle{
+                    id: rectangle
+                    height:25
+                    width: 25
+                    Layout.fillHeight: true
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.margins: 10
+                    anchors.right: parent.right
+                    color:"transparent"
+                    Image {
+                        id: closeImage
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/Delete-25.png"
+                    }
+                    ColorOverlay{
+                        anchors.fill: closeImage
+                        source: closeImage
+                        color: Universal.foreground
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: helpPopup.close()
+                    }
+                }
             }
 
             contentItem: Rectangle {
@@ -92,25 +117,6 @@ Item {
                               aliquet sapien ante, in volutpat orci<br>
                               gravida non.<p/>"
                         }
-                    }
-                }
-            }
-
-            footer:Rectangle{
-                height: 40
-                width: parent.width
-                color: Universal.background
-                Text{
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.rightMargin: 20
-                    text: "CLOSE"
-                    font.pointSize: 12
-                    font.weight: Font.DemiBold
-                    color: Universal.foreground
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: helpPopup.close()
                     }
                 }
             }
