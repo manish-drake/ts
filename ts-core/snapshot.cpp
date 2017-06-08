@@ -1,4 +1,5 @@
 #include "snapshot.h"
+#include <QDebug>
 
 int Snapshot::id() const
 {
@@ -38,6 +39,17 @@ QString Snapshot::data() const
 void Snapshot::setData(const QString &data)
 {
     this->m_data = data;
+}
+
+QList<int> Snapshot::getDataList()
+{
+    QList<int> intList;
+    auto stringList = m_data.split(",");
+    qDebug() << m_data;
+    qDebug() << stringList.length();
+    std::transform(stringList.begin(), stringList.end(), std::back_inserter(intList),
+                   [](QString s){return s.toInt();});
+    return intList;
 }
 
 Snapshot::Snapshot(const QDateTime &dtSnapshot, const QString &user, const QString &data):

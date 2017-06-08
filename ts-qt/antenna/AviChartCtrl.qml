@@ -19,6 +19,7 @@ GridLayout{
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
     property bool isScaleChecked
+    property var refData
     anchors.horizontalCenter: parent.horizontalCenter
     rowSpacing: 0
     columnSpacing: 0
@@ -84,6 +85,7 @@ GridLayout{
 
     LineGraph{
         visible: areControlsAvailble
+        refColor: "yellow"
         color: "green"
         Layout.row: 2
         Layout.column: 1
@@ -91,6 +93,7 @@ GridLayout{
         width: 400;
         height: 256
         points: dummy.points
+        refPoints: refData
         size: 400
     }
 

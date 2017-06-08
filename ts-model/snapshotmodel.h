@@ -25,6 +25,8 @@ public:
     SnapshotModel(QObject *parent = 0);
 
     QModelIndex addSnapshot(Snapshot &snapshot);
+    Q_PROPERTY(QList<int> refData READ refData WRITE setRefData NOTIFY refDataChanged)
+    Q_PROPERTY(int idx READ idx WRITE setIdx NOTIFY idxChanged)
 
    Q_INVOKABLE void addAviationVswr(const QDateTime dtSnapshot, const QString user, const  QString data,
                          const double position, const QString name,
@@ -38,6 +40,13 @@ public:
                        const double position, const QString name,
                        const QString range, const QString velocity, const QString cableType);
 
+
+    QList<int> refData();
+    Q_INVOKABLE void setRefData(const QList<int> &data);
+
+    int idx();
+    void setIdx(int idx);
+
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
@@ -46,14 +55,20 @@ public:
 
 
     ~SnapshotModel();
+public slots:
+
 signals:
+    void refDataChanged();
+    void idxChanged();
 private:
     void qualifyByView(const int view) override;
 
     bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;
 private:
+    int m_idx = 2;
     DataManager &m_db;
+    QList<int> m_refData;
     std::unique_ptr<std::vector<std::unique_ptr<Snapshot>>> m_snapshots;
   };
 

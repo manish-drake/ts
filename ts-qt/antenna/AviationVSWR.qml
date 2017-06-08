@@ -53,6 +53,7 @@ Item{
 
                         AviChartCtrl{
                             id: chartCtrl
+                            refData: snapshotModel.refData
                         }
 
                         GridLayout {

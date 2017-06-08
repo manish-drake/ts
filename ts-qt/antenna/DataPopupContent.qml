@@ -54,10 +54,10 @@ Item {
                 color: Universal.background
                 ListView{
                     id: dataListView
-                    currentIndex: -1
                     anchors.fill: parent
                     spacing: 10
-                    anchors.margins: 10
+
+                    anchors.margins: 10                    
                     clip: true
                     highlight:Rectangle{
                         color:"transparent"
@@ -137,6 +137,11 @@ Item {
                         }
                     }
                 }
+                Binding{
+                    target: snapshotModel
+                    property: "idx"
+                    value: dataListView.currentIndex
+                }
             }
 
             footer:Rectangle{
@@ -155,7 +160,9 @@ Item {
                     opacity: enabled ? 1.0 : 0.4
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: savedDataPopup.close()
+                        onClicked:{
+                            savedDataPopup.close();
+                        }
                     }
                 }
             }

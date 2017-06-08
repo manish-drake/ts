@@ -20,6 +20,8 @@ public:
     QString data() const;
     void setData(const QString &data);
 
+    QList<int> getDataList();
+
     Snapshot(const QDateTime &dtSnapshot, const QString &user, const QString &data);
     Snapshot() = default;
     ~Snapshot();

@@ -23,6 +23,22 @@ QModelIndex AviationDtfModel::addAviationDtf(AviationDtf &aviationDtf)
     return index(row, 0);
 }
 
+void AviationDtfModel::addAviationDtf(const QString &range, const QString &velocity, const QString &cableType, const int snapshotID){
+
+    int row = this->rowCount();
+    std::unique_ptr<AviationDtf> up_avDtf(new AviationDtf());
+    up_avDtf->setRange(range);
+    up_avDtf->setVelocity(velocity);
+    up_avDtf->setCableType(cableType);
+    up_avDtf->setSnapshotId(snapshotID);
+
+    auto aviationDtfDao = this->m_db.aviationDtfDao();
+    beginInsertRows(QModelIndex(), row, row);
+    aviationDtfDao->addAviationDtf(*up_avDtf);
+    endInsertRows();
+    this->m_aviationDtfs->push_back(std::move(up_avDtf));
+}
+
 int AviationDtfModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -119,7 +135,7 @@ AviationDtfModel::~AviationDtfModel()
 
 void AviationDtfModel::qualifyByView(const int view)
 {
-
+    Q_UNUSED(view)
 }
 
 bool AviationDtfModel::isIndexValid(const QModelIndex &index) const

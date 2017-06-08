@@ -26,7 +26,7 @@ public:
 
     AviationMarkersModel(QObject *parent = 0);
 
-    QModelIndex addAviationMarkers(AviationMarkers &aviationMarkers);
+    QModelIndex addAviationMarkers(const double position, const QString &name, const int snapshotID);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

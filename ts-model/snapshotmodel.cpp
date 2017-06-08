@@ -18,12 +18,9 @@ QModelIndex SnapshotModel::addSnapshot(Snapshot &snapshot)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto snapshotDao = this->m_db.snapshotDao();
-    //    const snapshot *snapshotPtr = &snapshot;
-
-    //    unique_ptr<snapshot> newsnapshot(snapshotPtr);
     snapshotDao->addSnapshot(snapshot);
+    this->m_snapshots->push_back(std::unique_ptr<Snapshot>(new Snapshot(snapshot)));
     endInsertRows();
-    this->m_snapshots->push_back(unique_ptr<Snapshot>(&snapshot));
     return index(row, 0);
 }
 
@@ -35,18 +32,11 @@ void SnapshotModel::addAviationVswr(const QDateTime dtSnapshot, const QString us
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers *aviMarkers = new AviationMarkers;
-    aviMarkers->setPostion(position);
-    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(*aviMarkers);
+    aviMarkersModel.addAviationMarkers(position, name, snapshot.id());
 
-    AviationVswr *vswr = new AviationVswr;
-    vswr->setRange(range);
-    vswr->setBandRange(bandRange);
-    vswr->setBandName(bandName);
     AviationVswrModel aviVswrModel;
-    aviVswrModel.addAviationVswr(*vswr);
+    aviVswrModel.addAviationVswr(range, bandRange, bandName, snapshot.id());
 }
 
 void SnapshotModel::addAviationCl(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString bandRange, const QString bandName)
@@ -57,18 +47,11 @@ void SnapshotModel::addAviationCl(const QDateTime dtSnapshot, const QString user
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers *aviMarkers = new AviationMarkers;
-    aviMarkers->setPostion(position);
-    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(*aviMarkers);
+    aviMarkersModel.addAviationMarkers(position, name, snapshot.id());
 
-    AviationCl *cableType = new AviationCl;
-    cableType->setRange(range);
-    cableType->setBandRange(bandRange);
-    cableType->setBandName(bandName);
     AviationClModel aviClModel;
-    aviClModel.addAviationCl(*cableType);
+    aviClModel.addAviationCl(range, bandRange, bandName, snapshot.id());
 }
 
 void SnapshotModel::addAviationDtf(const QDateTime dtSnapshot, const QString user, const QString data, const double position, const QString name, const QString range, const QString velocity, const QString cableType)
@@ -79,19 +62,45 @@ void SnapshotModel::addAviationDtf(const QDateTime dtSnapshot, const QString use
     snapshot.setData(data);
     addSnapshot(snapshot);
 
-    AviationMarkers *aviMarkers = new AviationMarkers();
-    aviMarkers->setPostion(position);
-    aviMarkers->setName(name);
     AviationMarkersModel aviMarkersModel;
-    aviMarkersModel.addAviationMarkers(*aviMarkers);
+    aviMarkersModel.addAviationMarkers(position, name, snapshot.id());
 
-    AviationDtf *dtf = new AviationDtf();
-    dtf->setRange(range);
-    dtf->setVelocity(velocity);
-    dtf->setCableType(cableType);
     AviationDtfModel aviDtfModel;
-    aviDtfModel.addAviationDtf(*dtf);
+    aviDtfModel.addAviationDtf(range, velocity, cableType, snapshot.id());
+}
 
+QList<int> SnapshotModel::refData()
+{
+    return m_refData;
+}
+
+void SnapshotModel::setRefData(const QList<int> &data)
+{
+    if(data != m_refData){
+        m_refData = data;
+        emit refDataChanged();
+    }
+}
+
+int SnapshotModel::idx()
+{
+    return m_idx;
+}
+
+void SnapshotModel::setIdx(int idx)
+{
+    if(m_idx != idx){
+        m_idx = idx;
+        if(idx<0){
+            setRefData(QList<int>());
+        }
+        else{
+            auto data = m_snapshots->at(idx)->getDataList();
+            setRefData(data);
+        }
+
+        emit idxChanged();
+    }
 }
 
 int SnapshotModel::rowCount(const QModelIndex &parent) const
@@ -184,7 +193,7 @@ SnapshotModel::~SnapshotModel()
 
 void SnapshotModel::qualifyByView(const int view)
 {
-
+    Q_UNUSED(view)
 }
 
 bool SnapshotModel::isIndexValid(const QModelIndex &index) const
