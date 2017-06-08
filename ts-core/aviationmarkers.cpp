@@ -35,12 +35,12 @@ QString AviationMarkers::name() const
     return this->m_name;
 }
 
-void AviationMarkers::setName(const QString name)
+void AviationMarkers::setName(const QString &name)
 {
     this->m_name = name;
 }
 
-AviationMarkers::AviationMarkers(const int snapshotId, const double position, const QString name):
+AviationMarkers::AviationMarkers(const int snapshotId, const double position, const QString &name):
     m_id {0},
     m_snapshotId{snapshotId},
     m_position{position},

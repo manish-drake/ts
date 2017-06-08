@@ -22,7 +22,17 @@ QModelIndex AviationClModel::addAviationCl(AviationCl &aviationCl)
     this->m_aviationCls->push_back(unique_ptr<AviationCl>(&aviationCl));
     return index(row, 0);
 }
+void AviationClModel::addAviationCl(const QString &range, const QString &bandRange, const QString &bandName, const int snapshotID)
+{
+    std::unique_ptr<AviationCl> up_Cl(new AviationCl);
+    up_Cl->setRange(range);
+    up_Cl->setBandRange(bandRange);
+    up_Cl->setBandName(bandName);
+    up_Cl->setSnapshotId(snapshotID);
 
+    auto aviationClDao = this->m_db.aviationClDao();
+    aviationClDao->addAviationCl(*up_Cl);
+}
 int AviationClModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -119,7 +129,7 @@ AviationClModel::~AviationClModel()
 
 void AviationClModel::qualifyByView(const int view)
 {
-
+    Q_UNUSED(view)
 }
 
 bool AviationClModel::isIndexValid(const QModelIndex &index) const

@@ -12,7 +12,7 @@ ApplicationWindow {
     id: appWindow
     visible: true
     width: 480
-    height: 800
+    height: 700
     title: qsTr("TS")
     property string headerTitle: "Start"
     property var _theme: Universal.Light

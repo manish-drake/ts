@@ -28,6 +28,7 @@ public:
     AviationDtfModel(QObject *parent = 0);
 
     QModelIndex addAviationDtf(AviationDtf &aviationDtf);
+    void addAviationDtf(const QString &range, const QString &velocity, const QString &cableType, const int snapshotID);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

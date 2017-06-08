@@ -28,6 +28,7 @@ public:
     AviationClModel(QObject *parent = 0);
 
     QModelIndex addAviationCl(AviationCl &aviationCl);
+    void addAviationCl(const QString &range, const QString &bandRange, const QString &bandName, const int snapshotID);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

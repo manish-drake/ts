@@ -77,12 +77,12 @@ void Summary::setStyle(const int style)
     this->m_style = style;
 }
 
-const std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &Summary::testParams() const
+const up_vec_up_tp &Summary::testParams() const
 {
     return this->m_testParams;
 }
 
-void Summary::setTestParams(std::unique_ptr<std::vector<std::unique_ptr<TestParam> > > &testParams)
+void Summary::setTestParams(up_vec_up_tp &testParams)
 {
     this->m_testParams = std::move(testParams);
 }

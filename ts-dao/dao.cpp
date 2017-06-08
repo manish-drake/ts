@@ -11,4 +11,9 @@ Dao::Dao(QSqlDatabase &database)
 
 }
 
+Dao::~Dao()
+{
+
+}
+
 

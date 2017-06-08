@@ -23,15 +23,15 @@ public:
     void setToViewId(const int id);
 
     Navigation(const int viewId, const QString &link, const int linkId, const int targetViewId);
-
+    Navigation() = default;
     ~Navigation();
 
 private:
-    int m_id;
-    int m_viewId;
+    int m_id = 0;
+    int m_viewId = 0;
     QString m_link;
-    int m_linkId;
-    int m_targetViewId;
+    int m_linkId = 0;
+    int m_targetViewId = 0;
 };
 
 #endif // NAVIGATION_H

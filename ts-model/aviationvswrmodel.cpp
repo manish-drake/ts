@@ -28,6 +28,17 @@ QModelIndex AviationVswrModel::addAviationVswr(AviationVswr &aviationVswr)
     return index(row, 0);
 }
 
+void AviationVswrModel::addAviationVswr(const QString &range, const QString &bandRange, const QString &bandName, const int snapshotID)
+{
+    std::unique_ptr<AviationVswr> up_vswr(new AviationVswr);
+    up_vswr->setRange(range);
+    up_vswr->setBandRange(bandRange);
+    up_vswr->setBandName(bandName);
+    up_vswr->setSnapshotId(snapshotID);
+
+    auto aviationVswrDao = this->m_db.aviationVswrDao();
+    aviationVswrDao->addAviationVswr(*up_vswr);
+}
 
 int AviationVswrModel::rowCount(const QModelIndex &parent) const
 {
@@ -125,7 +136,7 @@ AviationVswrModel::~AviationVswrModel()
 
 void AviationVswrModel::qualifyByView(const int view)
 {
-
+    Q_UNUSED(view)
 }
 
 bool AviationVswrModel::isIndexValid(const QModelIndex &index) const

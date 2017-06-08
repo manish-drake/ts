@@ -17,9 +17,9 @@ public:
     void setPostion(const double position);
 
     QString name() const;
-    void setName(const QString name);
+    void setName(const QString &name);
 
-    AviationMarkers(const int snapshotId, const double position, const QString name);
+    AviationMarkers(const int snapshotId, const double position, const QString &name);
     AviationMarkers() = default;
     ~AviationMarkers();
 

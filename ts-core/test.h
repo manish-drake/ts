@@ -18,10 +18,11 @@ public:
     void setSectionId(int id);
 
     Test(const QString &name, const int sectionId);
+    Test() = default;
 private:
-    int m_id;
+    int m_id = 0;
     QString m_name;
-    int m_sectionId;
+    int m_sectionId = 0;
 };
 
 #endif // TEST_H

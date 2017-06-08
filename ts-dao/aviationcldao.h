@@ -12,13 +12,13 @@ class TSDAOSHARED_EXPORT AviationClDao : public Dao
 {
 public:
     void init() const;
-
+    using up_vec_up_avcl = std::unique_ptr<std::vector<std::unique_ptr<AviationCl> > >;
     void addAviationCl(AviationCl &aviationCl) const;
     void removeAviationCl(int id) const;
 
     AviationClDao(QSqlDatabase &database);
 
-    std::unique_ptr<std::vector<std::unique_ptr<AviationCl> > > aviationCls(const int snapshotId) const;
+    up_vec_up_avcl aviationCls(const int snapshotId) const;
 
      ~AviationClDao();
 };

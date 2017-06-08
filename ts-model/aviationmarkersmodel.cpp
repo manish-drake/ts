@@ -9,20 +9,21 @@ AviationMarkersModel::AviationMarkersModel(QObject *parent):
 {
 }
 
-QModelIndex AviationMarkersModel::addAviationMarkers(AviationMarkers &aviationMarkers)
+QModelIndex AviationMarkersModel::addAviationMarkers(const double position, const QString &name, const int snapshotID)
 {
+    std::unique_ptr<AviationMarkers> un_pt_avMarkers(new AviationMarkers());
+    un_pt_avMarkers->setPostion(position);
+    un_pt_avMarkers->setName(name);
+    un_pt_avMarkers->setSnapshotId(snapshotID);
+
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto aviationMarkersDao = this->m_db.aviationMarkersDao();
-//        const aviationMarkers *aviationMarkersPtr = &aviationMarkers;
-
-//        unique_ptr<aviationMarkers> newaviationMarkers(aviationMarkersPtr);
-    aviationMarkersDao->addAviationMarkers(aviationMarkers);
+    aviationMarkersDao->addAviationMarkers(*un_pt_avMarkers);
     endInsertRows();
-    this->m_aviationMarkers->push_back(unique_ptr<AviationMarkers>(&aviationMarkers));
+    this->m_aviationMarkers->push_back(std::move(un_pt_avMarkers));
     return index(row, 0);
 }
-
 int AviationMarkersModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -113,7 +114,7 @@ AviationMarkersModel::~AviationMarkersModel()
 
 void AviationMarkersModel::qualifyByView(const int view)
 {
-
+    Q_UNUSED(view)
 }
 
 bool AviationMarkersModel::isIndexValid(const QModelIndex &index) const

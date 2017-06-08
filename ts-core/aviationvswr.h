@@ -14,15 +14,15 @@ public:
     void setSnapshotId(const int snapshotId);
 
     QString range() const;
-    void setRange(const QString range);
+    void setRange(const QString &range);
 
     QString bandRange() const;
-    void setBandRange(const QString bandRange);
+    void setBandRange(const QString &bandRange);
 
     QString bandName() const;
-    void setBandName(const QString bandName);
+    void setBandName(const QString &bandName);
 
-    AviationVswr(const int snapshotId, const QString range, const QString bandRange,const QString bandName);
+    AviationVswr(const int snapshotId, const QString &range, const QString &bandRange,const QString &bandName);
     AviationVswr() = default;
     ~AviationVswr();
 

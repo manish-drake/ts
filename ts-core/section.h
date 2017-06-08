@@ -15,9 +15,10 @@ public:
     void setName(const QString &name);
 
     explicit Section(const QString &name = "");
+    Section() = default;
     ~Section();
 private:
-    int m_id;
+    int m_id = 0;
     QString m_name;
 };
 
