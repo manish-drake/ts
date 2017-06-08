@@ -13,7 +13,7 @@ Rectangle{
     color: "transparent"
     border.color: "#0d000000"
     border.width: 1
-    radius:5
+    radius:3
     anchors.leftMargin: 10
     anchors.rightMargin: 10
     anchors.topMargin: 10
@@ -24,7 +24,7 @@ Rectangle{
         horizontalOffset: 1.1
         verticalOffset: 1.1
         radius: 4.0
-        color: "#0d000000"
+        color: "#26000000"
         spread: 0
     }
     Page {

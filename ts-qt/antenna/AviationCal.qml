@@ -23,7 +23,7 @@ Item{
             horizontalOffset: 1.1
             verticalOffset: 1.1
             radius: 4.0
-            color: "#0d000000"
+            color: "#26000000"
             spread: 0
         }
         Page {
@@ -87,7 +87,7 @@ Item{
                                             color: index == typeComboBox.currentIndex ?  Universal.accent : Qt.darker(Universal.accent,1.2)
                                             border.color: "#0dffffff"
                                             border.width: 1
-                                            radius: 5
+                                            radius: 3
                                             layer.enabled: true
                                             layer.effect: DropShadow {
                                                 transparentBorder: true

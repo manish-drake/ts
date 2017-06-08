@@ -102,28 +102,27 @@ Item {
                     delegate:Component{
                         Item{
                             width: parent.width
-                            height: 60
+                            height: 50
                             Rectangle {
                                 id: rectangle
                                 anchors.fill: parent
                                 color: Universal.theme == Universal.Dark ? "#333333" : "#fcfcfc"
                                 border.color: "#0d000000"
                                 border.width: 1
-                                radius: 5
+                                radius: 3
                                 layer.enabled: true
                                 layer.effect: DropShadow {
                                     transparentBorder: true
                                     horizontalOffset: 1.1
                                     verticalOffset: 1.1
                                     radius: 4.0
-                                    color: "#0d000000"
+                                    color: "#33000000"
                                     spread: 0
                                 }
-
                                 Text {
-                                    id: text1
-                                    x: 8
-                                    y: 9
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: 10
                                     text: Qt.formatDateTime(dtSnapshot,"MMM d yyyy hh:mm:ss")
                                     fontSizeMode: Text.Fit
                                     font.pixelSize: 14
@@ -132,20 +131,11 @@ Item {
                                 }
 
                                 Text {
-                                    id: text3
-                                    x: 8
-                                    y: 29
-                                    text: qsTr("USER:")
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    anchors.right: parent.right
+                                    anchors.rightMargin: 10
+                                    text: qsTr("USER: " + user)
                                     fontSizeMode: Text.HorizontalFit
-                                    font.pixelSize: 14
-                                    color: Universal.foreground
-                                }
-
-                                Text {
-                                    id: text4
-                                    x: 90
-                                    y: 29
-                                    text: user
                                     font.pixelSize: 14
                                     color: Universal.foreground
                                 }

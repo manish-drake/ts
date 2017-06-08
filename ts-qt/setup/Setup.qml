@@ -28,14 +28,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -83,14 +83,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -138,14 +138,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -198,14 +198,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -258,14 +258,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -296,14 +296,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {
@@ -334,14 +334,14 @@ Item {
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
                         radius: 4.0
-                        color: "#0d000000"
+                        color: "#26000000"
                         spread: 0
                     }
                     Text {

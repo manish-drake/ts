@@ -68,7 +68,7 @@ Item{
                 color: "transparent"
                 border.color: Universal.accent
                 border.width: 1
-                radius:5
+                radius:3
             }
             Component{
                 id: userCardDelegate
@@ -79,13 +79,13 @@ Item{
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
-                    radius: 5
+                    radius: 3
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
                         horizontalOffset: 1.1
                         verticalOffset: 1.1
-                        radius: 4.0
+                        radius: 3
                         color: "#0d000000"
                         spread: 0
                     }
