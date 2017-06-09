@@ -84,8 +84,8 @@ Item{
                                             id: wrapper
                                             anchors.fill: parent
                                             anchors.margins: 10
-                                            color: index == typeComboBox.currentIndex ?  Universal.accent : Qt.darker(Universal.accent,1.2)
-                                            border.color: "#0dffffff"
+                                            color: index == typeComboBox.currentIndex ? Qt.darker(Universal.accent,1.1) : Universal.accent
+                                            border.color: index == typeComboBox.currentIndex ? "#aaaaaa" : "#00ffffff"
                                             border.width: 1
                                             radius: 3
                                             layer.enabled: true

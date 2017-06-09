@@ -19,7 +19,7 @@ Item {
             color: "transparent"
             border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
             border.width: 1
-            radius:5
+            radius:3
         }
         //        ListModel{
         //            id: antennaItemsModel

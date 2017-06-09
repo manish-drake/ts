@@ -16,6 +16,15 @@ Rectangle{
     anchors.rightMargin: 10
     anchors.topMargin: 10
     anchors.bottomMargin: 10
+    layer.enabled: true
+    layer.effect: DropShadow {
+        transparentBorder: true
+        horizontalOffset: 1.1
+        verticalOffset: 1.1
+        radius: 4
+        color: "#26000000"
+        spread: 0
+    }
     Page {
         id: item1
         anchors.fill: parent
@@ -236,15 +245,5 @@ Rectangle{
                 }
             }
         }
-    }
-
-    layer.enabled: true
-    layer.effect: DropShadow {
-        transparentBorder: true
-        horizontalOffset: 1.1
-        verticalOffset: 1.1
-        radius: 4.0
-        color: "#0d000000"
-        spread: 0
     }
 }

@@ -13,6 +13,7 @@ Item {
         contentHeight: grid.height + 10
         Grid{
             id: grid
+            anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.margins: 5

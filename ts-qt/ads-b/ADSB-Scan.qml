@@ -20,7 +20,7 @@ Rectangle{
         horizontalOffset: 1.1
         verticalOffset: 1.1
         radius: 4.0
-        color: "#0d000000"
+        color: "#26000000"
         spread: 0
     }
 
@@ -74,7 +74,7 @@ Rectangle{
                 PageIndicator {
                     id: pageIndicator
                     anchors.horizontalCenter: parent.horizontalCenter
-                    count: pageIdx
+                    count: 7
                     currentIndex: summaryModel.currentPage
                     ColorOverlay{
                         anchors.fill: parent

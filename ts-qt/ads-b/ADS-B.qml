@@ -37,7 +37,7 @@ Item{
                     transparentBorder: true
                     horizontalOffset: 1.1
                     verticalOffset: 1.1
-                    radius: 3
+                    radius: 4
                     color: "#26000000"
                     spread: 0
                 }
