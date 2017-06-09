@@ -3,17 +3,17 @@
 QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     switch (viewId) {
     case 3:
-        return "ads-b/ADS-B.qml";
+        return "tests/TestGroup.qml";
     case 13:
     case 5:
-        return "ads-b/ADSB-Scan.qml";
+        return "tests/AircraftScan.qml";
     case 14 ... 19:
     case 6 ... 12:
-        return "ads-b/TestDetail.qml";
+        return "tests/TestDetail.qml";
     case 29 ... 30:
-        return "ads-b/Radar.qml";
+        return "tests/Radar.qml";
     case 31 ... 32:
-        return "ads-b/Graph.qml";
+        return "tests/Graph.qml";
     case 4:
         return "setup/Setup.qml";
     case 20:

@@ -138,7 +138,7 @@ Rectangle{
                     Item{
                         width: parent.width
                         height: 100
-                        Aircraft{
+                        AircraftDelegate{
                             anchors.fill:parent
                             anchors.margins: 1
                         }
