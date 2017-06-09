@@ -11,7 +11,7 @@ Item {
         anchors.fill: parent
         anchors.topMargin: 10
         anchors.leftMargin: 10
-        cellWidth: grid.width/2; cellHeight: 200
+        cellWidth: width/2; cellHeight: 200
         model: testModel
         delegate: testCardDelegate
         focus: true
@@ -21,12 +21,6 @@ Item {
             border.width: 1
             radius:3
         }
-        //        ListModel{
-        //            id: antennaItemsModel
-        //            ListElement{
-        //                name: "AVIATION"
-        //            }
-        //        }
         Component{
             id: testCardDelegate
             Rectangle {
@@ -58,27 +52,22 @@ Item {
                     rowSpacing: 0
                     columnSpacing: 0
                     clip: true
-                    Rectangle{
+                    Item{
                         Layout.row:0
                         Layout.fillWidth: true
                         height: 25
-                        color: "transparent"
-
                         GridLayout{
                             anchors.fill: parent
                             rowSpacing: 0
                             columnSpacing: 0
-                            Rectangle {
+                            Item {
                                 Layout.column: 2
                                 Layout.fillWidth: true
-                                color: "transparent"
                             }
-
-                            Rectangle {
+                            Item {
                                 Layout.column: 3
                                 Layout.fillHeight: true
                                 width: 35
-                                color: "transparent"
                                 Image {
                                     id: favImage
                                     anchors.centerIn: parent
@@ -117,11 +106,10 @@ Item {
                             }
                         }
                     }
-                    Rectangle{
+                    Item{
                         Layout.row: 1
                         Layout.fillHeight: true
                         Layout.fillWidth: true
-                        color:"transparent"
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -133,11 +121,10 @@ Item {
                             color: Universal.foreground
                         }
                     }
-                    Rectangle{
+                    Item{
                         Layout.row: 2
                         height: 50
                         Layout.fillWidth: true
-                        color:"transparent"
 
                         Text {
                             anchors.left:parent.left
