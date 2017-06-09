@@ -42,19 +42,6 @@
         <file>tests/TestDetail.qml</file>
         <file>tests/TestGroup.qml</file>
         <file>tests/TestGuide.qml</file>
-        <file>controls.cpp</file>
-        <file>controls.h</file>
-        <file>controlsattachedtype.cpp</file>
-        <file>controlsattachedtype.h</file>
-        <file>controlstyles.cpp</file>
-        <file>controlstyles.h</file>
-        <file>databuilder.cpp</file>
-        <file>databuilder.h</file>
-        <file>dummygraphdata.cpp</file>
-        <file>dummygraphdata.h</file>
-        <file>main.cpp</file>
-        <file>resourcenamecoupling.cpp</file>
-        <file>resourcenamecoupling.h</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
