@@ -11,7 +11,8 @@ Item {
         header: Rectangle{
             id:testHeaderRect
             height: 60
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             color: Universal.background
             Image {
                 id: viewImage
@@ -75,7 +76,8 @@ Item {
         contentItem:Rectangle{
             color: Universal.background
             Flickable {
-                width: parent.width;
+                anchors.left: parent.left
+                anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 contentWidth: parent.width;

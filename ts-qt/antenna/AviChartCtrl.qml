@@ -126,8 +126,9 @@ GridLayout{
         enabled: false
         model: rlScaleSwitch.checked ? rLVals2Model : rLValsModel
         delegate: Component{
-             Item{
-                width: parent.width
+            Item{
+                anchors.left:parent.left
+                anchors.right:parent.right
                 height: (rLValsList.height - 9)/(rLValsModel.count - 1)
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -167,8 +168,9 @@ GridLayout{
         enabled: false
         model: rlScaleSwitch.checked ? vswrVals2Model : vswrValsModel
         delegate: Component{
-             Item{
-                width: parent.width
+            Item{
+                anchors.left:parent.left
+                anchors.right:parent.right
                 height: (vswrValsList.height - 9)/(vswrValsModel.count - 1)
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -210,8 +212,7 @@ GridLayout{
         orientation: ListView.Horizontal
         model: impFreqModel
         delegate: Component{
-             Item{
-                height: parent.width
+            Item{
                 width: (impFreqList.width - 30)/(impFreqModel.count - 1)
                 Text{
                     text: val
@@ -223,7 +224,7 @@ GridLayout{
         }
     }
 
-     Item{
+    Item{
         id: freqValsList
         visible: freqEndVal != 0
         Layout.row: 4
@@ -250,7 +251,7 @@ GridLayout{
         }
     }
 
-     Item{
+    Item{
         visible: isDTFMode
         Layout.row: 4
         Layout.column: 1
@@ -264,9 +265,9 @@ GridLayout{
             orientation: ListView.Horizontal
             model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
             delegate: Component{
-                 Item{
+                Item{
                     width: (lengthScale.width - 15)/3
-                   Text{
+                    Text{
                         text: val
                         color: Universal.foreground
                     }
@@ -319,7 +320,7 @@ GridLayout{
             }
         }
     }
- Item{
+    Item{
         Layout.row: 1
         Layout.column: 1
         height: 25

@@ -6,7 +6,8 @@ import QtQuick.Controls.Universal 2.1
     id:testFooterRect
     anchors.bottom: parent.bottom
     height: 50
-    width: parent.width
+    anchors.left:parent.left
+    anchors.right:parent.right
 
   Item{
         id: toggleButton

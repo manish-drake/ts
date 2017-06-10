@@ -7,14 +7,16 @@ import QtQuick.Layouts 1.1
 
 
 Rectangle{
-    width: parent.width
+    anchors.left: parent.left
+    anchors.right: parent.right
     implicitHeight: columnLayout.implicitHeight
     color: Universal.background
     border.color: "white"
     border.width: 1
     Column{
         id: columnLayout
-        width: parent.width
+        anchors.left: parent.left
+        anchors.right: parent.right
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/Settings-25.png"

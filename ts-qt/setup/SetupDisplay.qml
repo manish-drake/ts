@@ -42,7 +42,8 @@ Item {
                  Item{
                     id: rectangle
                     width: 40
-                    height: parent.height
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     Image {
                         id: closeImage
@@ -65,7 +66,8 @@ Item {
             }
 
             Flickable {
-                width: parent.width;
+                anchors.left: parent.left
+                anchors.right: parent.right
                 anchors.top: header.bottom
                 anchors.bottom: parent.bottom
                 contentWidth: parent.width;

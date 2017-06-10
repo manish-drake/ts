@@ -10,7 +10,8 @@ Item {
         header: Rectangle{
             id:testHeaderRect
             height: 50
-            width: parent.width
+            anchors.left:parent.left
+            anchors.right:parent.right
             color: Universal.background
             Item{
                 height:25
@@ -96,7 +97,8 @@ Item {
                 }
                 delegate:Component{
                     Item{
-                        width: parent.width
+                        anchors.left:parent.left
+                        anchors.right:parent.right
                         height: 50
                         Rectangle {
                             id: rectangle
@@ -153,7 +155,8 @@ Item {
 
         footer:Rectangle{
             height: 40
-            width: parent.width
+            anchors.left:parent.left
+            anchors.right:parent.right
             color: Universal.background
             Text{
                 enabled: dataListView.currentIndex != -1

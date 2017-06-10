@@ -14,7 +14,8 @@ Item {
             delegate:  Component {
                 Item{
                     height: 50
-                    width: parent.width
+                    anchors.left: parent.left
+                    anchors.right: parent.right
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         padding:10
@@ -31,7 +32,8 @@ Item {
                     }
                     Rectangle{
                         anchors.bottom: parent.bottom
-                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         height: 1
                         color: Universal.foreground
                         opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
@@ -54,7 +56,8 @@ Item {
         }
         Rectangle{
             anchors.right: parent.right
-            height: parent.height
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             width: 1
             color: Universal.foreground
             opacity: Universal.theme == Universal.Light ? 0.05 : 0.15

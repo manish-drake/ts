@@ -23,12 +23,12 @@ Item {
             color: "#26000000"
             spread: 0
         }
-        Column{
+        GridLayout{
             anchors.fill: parent
              Item{
                 id: header
-                anchors.left: parent.left
-                anchors.right: parent.right
+                Layout.row: 0
+                Layout.fillWidth: true
                 height:40
                 Text {
                     anchors.centerIn: parent
@@ -42,7 +42,8 @@ Item {
                  Item{
                     id: rectangle
                     width: 40
-                    height: parent.height
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     Image {
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -64,9 +65,9 @@ Item {
             }
 
             Flickable {
-                width: parent.width;
-                anchors.top: header.bottom
-                anchors.bottom: parent.bottom
+                Layout.row: 1
+                Layout.fillHeight: true
+                Layout.fillWidth: true
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
                 clip: true

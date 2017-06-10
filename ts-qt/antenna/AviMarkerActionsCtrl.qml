@@ -30,7 +30,8 @@ import QtGraphicalEffects 1.0
         RowLayout{
             anchors.fill: parent
              Item{
-                height: parent.height
+                 anchors.top:parent.top
+                 anchors.bottom:parent.bottom
                 Layout.fillWidth: true
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
@@ -59,10 +60,12 @@ import QtGraphicalEffects 1.0
             }
             Row{
                 visible: selectedIndex == 0
-                height: parent.height
+                anchors.top:parent.top
+                anchors.bottom:parent.bottom
                 anchors.right: parent.right
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: decValMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4
@@ -82,7 +85,8 @@ import QtGraphicalEffects 1.0
                     }
                 }
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: incValMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4
@@ -103,10 +107,12 @@ import QtGraphicalEffects 1.0
             }
             Row{
                 visible: selectedIndex == 1
-                height: parent.height
+                anchors.top:parent.top
+                anchors.bottom:parent.bottom
                 anchors.right: parent.right
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: valleyMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4
@@ -122,7 +128,8 @@ import QtGraphicalEffects 1.0
                     }
                 }
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: peakValMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4
@@ -140,10 +147,12 @@ import QtGraphicalEffects 1.0
             }
             Row{
                 visible: selectedIndex == 2
-                height: parent.height
+                anchors.top:parent.top
+                anchors.bottom:parent.bottom
                 anchors.right: parent.right
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: addMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4
@@ -163,7 +172,8 @@ import QtGraphicalEffects 1.0
                     }
                 }
                 Rectangle{
-                    height: parent.height
+                    anchors.top:parent.top
+                    anchors.bottom:parent.bottom
                     implicitWidth: 50
                     color: remMArea.pressed ? "#D0D0D0" : "transparent"
                     opacity: enabled ? 1.0 : 0.4

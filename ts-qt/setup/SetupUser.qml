@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item{
-     Item{
+    Item{
         id: header
         anchors.left: parent.left
         anchors.right: parent.right
@@ -19,10 +19,11 @@ Item{
             clip:true
             color: Universal.foreground
         }
-         Item{
+        Item{
             id: rectangle
             width: 40
-            height: parent.height
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
             Image {
                 id: closeImage
@@ -44,7 +45,7 @@ Item{
         }
     }
 
-     Item{
+    Item{
         anchors.top: header.bottom
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -89,10 +90,9 @@ Item{
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-                            navigationModel.setCurrentView(navigationModel.getTargetView("UserDetail"), {
-                                                               "user": usersModel.get(index),
-
-                                                           })
+                            navigationModel.setCurrentView(
+                                        navigationModel.getTargetView("UserDetail"),
+                                        {"user": usersModel.get(index)})
                         }
                     }
 
@@ -196,40 +196,40 @@ Item{
         }
     }
 
-//    Rectangle{
-//        anchors.bottom: parent.bottom
-//        anchors.bottomMargin: 10
-//        anchors.right: parent.right
-//        anchors.rightMargin: 80
-//        height: 40
-//        width: 40
-//        radius: width*0.5
-//        color: "red"
-//        layer.enabled: true
-//        layer.effect: DropShadow {
-//            transparentBorder: true
-//            horizontalOffset: 1.1
-//            verticalOffset: 1.1
-//            radius: 4.0
-//            color: "#80000000"
-//            spread: 0
-//        }
-//        Text{
-//            anchors.top: parent.top
-//            anchors.left: parent.left
-//            anchors.topMargin: 1
-//            anchors.leftMargin: 10
-//            text:""
-//            font.pixelSize: 28
-//            font.weight: Font.bold
-//            color:"white"
-//        }
-//        MouseArea{
-//            anchors.fill: parent
-//            onClicked: {usersModel.remove(0,1)}
+    //    Rectangle{
+    //        anchors.bottom: parent.bottom
+    //        anchors.bottomMargin: 10
+    //        anchors.right: parent.right
+    //        anchors.rightMargin: 80
+    //        height: 40
+    //        width: 40
+    //        radius: width*0.5
+    //        color: "red"
+    //        layer.enabled: true
+    //        layer.effect: DropShadow {
+    //            transparentBorder: true
+    //            horizontalOffset: 1.1
+    //            verticalOffset: 1.1
+    //            radius: 4.0
+    //            color: "#80000000"
+    //            spread: 0
+    //        }
+    //        Text{
+    //            anchors.top: parent.top
+    //            anchors.left: parent.left
+    //            anchors.topMargin: 1
+    //            anchors.leftMargin: 10
+    //            text:""
+    //            font.pixelSize: 28
+    //            font.weight: Font.bold
+    //            color:"white"
+    //        }
+    //        MouseArea{
+    //            anchors.fill: parent
+    //            onClicked: {usersModel.remove(0,1)}
 
-//        }
-//    }
+    //        }
+    //    }
 
 }
 

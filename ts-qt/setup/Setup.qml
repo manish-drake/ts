@@ -7,8 +7,10 @@ import QtQuick.Controls.Universal 2.1
 Item {
     anchors.fill: parent
     Flickable {
-        width: parent.width;
-        height: parent.height
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         contentWidth: parent.width;
         contentHeight: grid.height + 10
         Grid{

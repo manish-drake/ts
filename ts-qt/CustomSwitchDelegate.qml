@@ -6,12 +6,14 @@ import QtGraphicalEffects 1.0
 Item{
     id:itemOption
     height: 50
-    width: parent.width
+    anchors.left: parent.left
+    anchors.right: parent.right
     property alias source: image.source
     property alias text: switchDelegate.text
     SwitchDelegate {
         id:switchDelegate
-        width: parent.width
+        anchors.left: parent.left
+        anchors.right: parent.right
         checked: false
         font.pixelSize: 14
         indicator:

@@ -30,7 +30,8 @@ Rectangle{
         header: Rectangle{
             id:testHeaderRect
             height: 40
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             color: Universal.background
             Item{
                 id: rectangle1
@@ -134,7 +135,8 @@ Rectangle{
                 Component{
                     id:aircraftDetail
                     Item{
-                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         height: 100
                         AircraftDelegate{
                             anchors.fill:parent
@@ -186,7 +188,8 @@ Rectangle{
         footer: Rectangle{
             id:testFooterRect
             height: 50
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             color: Universal.background
             Text{
                 text:"< PREVIOUS"

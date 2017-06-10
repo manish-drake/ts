@@ -7,7 +7,8 @@ Rectangle{
     id:testHeaderRect
     property string detailTitle: "VSWR"
     height: 40
-    width: parent.width
+    anchors.left:parent.left
+    anchors.right:parent.right
     color: Universal.background
 
     RowLayout{

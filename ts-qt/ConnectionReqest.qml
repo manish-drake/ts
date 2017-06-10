@@ -9,7 +9,8 @@ Item {
         anchors.fill: parent
         header: Rectangle{
             height: 60
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             color: Universal.background
             Text{
                 anchors.centerIn: parent
@@ -33,7 +34,8 @@ Item {
 
         footer:Rectangle{
             height: 40
-            width: parent.width
+            anchors.left: parent.left
+            anchors.right: parent.right
             color: Universal.background
             GridLayout{
                 anchors.fill: parent
