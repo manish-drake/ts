@@ -126,6 +126,7 @@ Rectangle{
                 spacing: 10
                 anchors.margins: 10
                 clip: true
+                highlightMoveDuration: 0
                 highlight:Rectangle{
                     color:"transparent"
                     border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent

@@ -62,12 +62,6 @@ Item{
             delegate: userCardDelegate
             currentIndex: -1
             focus: true
-            highlight:Rectangle{
-                color: "transparent"
-                border.color: Universal.accent
-                border.width: 1
-                radius:3
-            }
             Component{
                 id: userCardDelegate
                 Rectangle {

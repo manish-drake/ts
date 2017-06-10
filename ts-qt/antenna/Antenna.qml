@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtGraphicalEffects 1.0
@@ -15,6 +15,7 @@ Item {
         model: testModel
         delegate: testCardDelegate
         focus: true
+        highlightMoveDuration: 0
         highlight:Rectangle{
             color: "transparent"
             border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
