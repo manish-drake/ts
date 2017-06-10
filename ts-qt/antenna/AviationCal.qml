@@ -51,11 +51,10 @@ Item{
                         anchors.margins: 10
                         spacing: 30
 
-                        Rectangle{
+                        Item{
                             anchors.left: parent.left
                             anchors.right: parent.right
                             height: chartCtrl.height
-                            color: "transparent"
                             AviChartCtrl{
                                 id: chartCtrl
                                 areControlsAvailble : false
@@ -76,10 +75,9 @@ Item{
                                         ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
                                     }
                                 delegate:Component{
-                                    Rectangle{
+                                     Item{
                                         width: grid.cellWidth
                                         height: grid.cellHeight
-                                        color: "transparent"
                                         Rectangle{
                                             id: wrapper
                                             anchors.fill: parent
@@ -133,16 +131,14 @@ Item{
                             columnSpacing: 15
                             rowSpacing: 20
                             height: 140
-                            Rectangle{
+                            Item{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                color: "transparent"
-                                Rectangle {
+                                 Item{
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
-                                    color: "transparent"
                                     ComboBox {
                                         id: typeComboBox
                                         implicitWidth: parent.width
@@ -215,12 +211,11 @@ Item{
                                 currentModeIndex: 0
                             }
 
-                            Rectangle{
+                            Item{
                                 Layout.row: 1
                                 Layout.column: 0
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                color: "transparent"
                                 Rectangle{
                                     anchors.left: parent.left
                                     anchors.right: parent.right
@@ -248,12 +243,11 @@ Item{
                                 }
                             }
 
-                            Rectangle{
+                             Item{
                                 Layout.row: 1
                                 Layout.column: 1
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                color: "transparent"
                                 Rectangle{
                                     anchors.left: parent.left
                                     anchors.right: parent.right

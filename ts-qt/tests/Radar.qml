@@ -33,7 +33,7 @@ Rectangle{
             height: 40
             width: parent.width
             color: Universal.background
-            Rectangle{
+             Item{
                 id: rectangle1
                 anchors.margins: 10
                 Layout.fillHeight: true
@@ -42,7 +42,6 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.leftMargin: 5
                 anchors.verticalCenter: parent.verticalCenter
-                color:"transparent"
                 Image {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
@@ -88,7 +87,7 @@ Rectangle{
 
 
 
-            Rectangle{
+             Item{
                 id: rectangle
                 height:25
                 width: 25
@@ -96,7 +95,6 @@ Rectangle{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.margins: 10
                 anchors.right: parent.right
-                color:"transparent"
                 Image {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
@@ -157,7 +155,7 @@ Rectangle{
                 }
 
             }
-            Rectangle {
+            Item{
                 id: toggleButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -166,7 +164,6 @@ Rectangle{
                 property alias imageSource: buttonImage.source
                 signal selected()
                 signal pushed()
-                color: "transparent"
                 state: "off"
                 onStateChanged: {
                     if (state == "on") {

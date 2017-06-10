@@ -5,9 +5,6 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle{
-        anchors.fill: parent
-        color: "transparent"
         Page{
             anchors.fill: parent
             header: Rectangle{
@@ -55,4 +52,4 @@ Item {
             }
         }
     }
-}
+

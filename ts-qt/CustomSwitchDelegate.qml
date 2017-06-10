@@ -3,22 +3,19 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
-Rectangle{
+Item{
     id:itemOption
     height: 50
     width: parent.width
-    color: "transparent"
     property alias source: image.source
     property alias text: switchDelegate.text
-
     SwitchDelegate {
         id:switchDelegate
         width: parent.width
         checked: false
         font.pixelSize: 14
         indicator:
-            Rectangle{
-            color: "transparent"
+            Item{
             width: 50
             anchors.top: parent.top
             anchors.bottom: parent.bottom

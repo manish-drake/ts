@@ -5,9 +5,9 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle{
-        anchors.fill: parent
-        color: "transparent"
+//    Rectangle{
+//        anchors.fill: parent
+//        color: "transparent"
         Page{
             anchors.fill: parent
             header: Rectangle{
@@ -15,13 +15,12 @@ Item {
                 height: 50
                 width: parent.width
                 color: Universal.background
-                Rectangle{
+                 Item{
                     id: rectangle1
                     height: parent.height
                     width: children.width
                     anchors.left: parent.left
                     anchors.leftMargin: 25
-                    color:"transparent"
                     Image {
                         id: viewImage
                         anchors.centerIn: parent
@@ -74,11 +73,10 @@ Item {
                             GridLayout{
                                 anchors.fill: parent
                                 anchors.margins: 10
-                                Rectangle{
+                                 Item{
                                     Layout.row: 0
                                     Layout.fillHeight: true
                                     Layout.fillWidth: true
-                                    color: "transparent"
                                     GridLayout{
                                         anchors.fill: parent
                                         GridLayout{
@@ -175,11 +173,10 @@ Item {
                                         }
                                     }
                                 }
-                                Rectangle{
+                                 Item{
                                     Layout.row: 1
                                     Layout.fillHeight: true
                                     Layout.fillWidth: true
-                                    color: "transparent"
                                     GridLayout{
                                         anchors.fill: parent
                                         GridLayout{
@@ -285,5 +282,5 @@ Port A for over the air Testing.</p><br><p>Attach the GPS antenna to acquire LAT
             }
         }
     }
-}
+
 

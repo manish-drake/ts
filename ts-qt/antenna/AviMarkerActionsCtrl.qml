@@ -6,11 +6,10 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
-Rectangle{
+ Item{
     Layout.row: 1
     Layout.fillWidth: true
     Layout.fillHeight: true
-    color: "transparent"
     property int selectedIndex: 0
     Rectangle {
         anchors.left: parent.left
@@ -30,10 +29,9 @@ Rectangle{
         }
         RowLayout{
             anchors.fill: parent
-            Rectangle{
+             Item{
                 height: parent.height
                 Layout.fillWidth: true
-                color: "transparent"
                 Text {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.left: parent.left

@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-    Rectangle{
-        anchors.fill: parent
         Page{
             anchors.fill: parent
             header: Rectangle{
@@ -48,7 +46,7 @@ Item {
                         color: Universal.foreground
                     }
                 }
-                Rectangle{
+                 Item{
                     id: rectangle
                     height:25
                     width: 25
@@ -56,7 +54,6 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.margins: 10
                     anchors.right: parent.right
-                    color:"transparent"
                     Image {
                         id: closeImage
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -122,5 +119,5 @@ Item {
             }
         }
     }
-}
+
 

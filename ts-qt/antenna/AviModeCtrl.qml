@@ -6,18 +6,16 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
-Rectangle{
+ Item{
     Layout.column: 1
     Layout.fillWidth: true
     Layout.fillHeight: true
-    color: "transparent"
     property int currentModeIndex
-    Rectangle {
+     Item{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         height: 50
-        color: "transparent"
         ComboBox {
             id: modeComboBox
             implicitWidth: parent.width

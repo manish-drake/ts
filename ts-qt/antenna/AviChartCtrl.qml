@@ -126,10 +126,9 @@ GridLayout{
         enabled: false
         model: rlScaleSwitch.checked ? rLVals2Model : rLValsModel
         delegate: Component{
-            Rectangle{
+             Item{
                 width: parent.width
                 height: (rLValsList.height - 9)/(rLValsModel.count - 1)
-                color: "transparent"
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val
@@ -168,10 +167,9 @@ GridLayout{
         enabled: false
         model: rlScaleSwitch.checked ? vswrVals2Model : vswrValsModel
         delegate: Component{
-            Rectangle{
+             Item{
                 width: parent.width
                 height: (vswrValsList.height - 9)/(vswrValsModel.count - 1)
-                color: "transparent"
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val
@@ -212,7 +210,7 @@ GridLayout{
         orientation: ListView.Horizontal
         model: impFreqModel
         delegate: Component{
-            Rectangle{
+             Item{
                 height: parent.width
                 width: (impFreqList.width - 30)/(impFreqModel.count - 1)
                 Text{
@@ -225,7 +223,7 @@ GridLayout{
         }
     }
 
-    Rectangle{
+     Item{
         id: freqValsList
         visible: freqEndVal != 0
         Layout.row: 4
@@ -252,7 +250,7 @@ GridLayout{
         }
     }
 
-    Rectangle{
+     Item{
         visible: isDTFMode
         Layout.row: 4
         Layout.column: 1
@@ -266,10 +264,9 @@ GridLayout{
             orientation: ListView.Horizontal
             model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
             delegate: Component{
-                Rectangle{
+                 Item{
                     width: (lengthScale.width - 15)/3
-                    color: "transparent"
-                    Text{
+                   Text{
                         text: val
                         color: Universal.foreground
                     }
@@ -322,11 +319,10 @@ GridLayout{
             }
         }
     }
-    Rectangle{
+ Item{
         Layout.row: 1
         Layout.column: 1
         height: 25
-        color: "transparent"
     }
 
     Repeater{
@@ -345,9 +341,8 @@ GridLayout{
             stepSize: markerStepSize
             value: _val
             style: SliderStyle {
-                groove: Rectangle {
+                groove:  Item{
                     Layout.fillWidth: parent
-                    color: "transparent"
                 }
                 handle:
                     Rectangle {

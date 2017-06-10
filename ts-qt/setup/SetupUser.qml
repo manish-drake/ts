@@ -5,12 +5,11 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item{
-    Rectangle{
+     Item{
         id: header
         anchors.left: parent.left
         anchors.right: parent.right
         height:40
-        color:"transparent"
         Text {
             anchors.centerIn: parent
             text: qsTr("USERS")
@@ -20,12 +19,11 @@ Item{
             clip:true
             color: Universal.foreground
         }
-        Rectangle{
+         Item{
             id: rectangle
             width: 40
             height: parent.height
             anchors.right: parent.right
-            color:"transparent"
             Image {
                 id: closeImage
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -46,13 +44,12 @@ Item{
         }
     }
 
-    Rectangle{
+     Item{
         anchors.top: header.bottom
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         clip: true
-        color: "transparent"
         GridView{
             id: userGridView
             anchors.fill: parent

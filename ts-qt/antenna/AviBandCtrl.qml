@@ -5,17 +5,15 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
-Rectangle{
+ Item{
     Layout.fillWidth: true
     Layout.fillHeight: true
-    color: "transparent"
     property string bandName
-    Rectangle {
+     Item{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         height: 50
-        color: "transparent"
         ComboBox {
             id: bandComboBox
             implicitWidth: parent.width

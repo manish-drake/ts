@@ -9,9 +9,8 @@ Rectangle {
     height: 50
     color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
     property string currentOperator
-    Rectangle{
+     Item{
         id: rect1
-        color: "transparent"
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
@@ -25,12 +24,11 @@ Rectangle {
         }
     }
 
-    Rectangle{
+     Item{
         id: rect2
         anchors.fill: parent
         anchors.leftMargin: operatorName.width + 20
         anchors.rightMargin: grid.width + 20
-        color: "transparent"
         clip: true
         Text {
             id: tsName
@@ -43,7 +41,7 @@ Rectangle {
         }
     }
 
-    Rectangle {
+    Item{
         id: rectangle
         anchors.right: parent.right
         anchors.top: parent.top

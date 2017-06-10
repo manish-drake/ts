@@ -50,12 +50,10 @@ Item{
                         anchors.right: parent.right
                         anchors.margins: 10
                         spacing: 30
-
                         AviChartCtrl{
                             id: chartCtrl
                             refData: snapshotModel.refData
                         }
-
                         GridLayout {
                             anchors.left: parent.left
                             anchors.right: parent.right

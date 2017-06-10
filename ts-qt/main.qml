@@ -37,10 +37,9 @@ ApplicationWindow {
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
-                Rectangle {
+                 Item{
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    color: "transparent"
                     Popup {
                         id: sideMenuPopup
                         width: parent.width
@@ -61,9 +60,8 @@ ApplicationWindow {
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
-                Rectangle {
+                 Item{
                     anchors.horizontalCenter: parent.horizontalCenter
-                    color: "transparent"
                     Popup {
                         id: configPanelPopup
                         padding: 0
@@ -85,9 +83,8 @@ ApplicationWindow {
                 anchors.fill: parent
                 color: "#0d000000"
                 visible: false
-                Rectangle{
+                 Item{
                     anchors.right: parent.right
-                    color: "transparent"
                     Popup {
                         id: moreActionsPopover
                         width: parent.width

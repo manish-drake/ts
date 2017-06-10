@@ -18,10 +18,9 @@ Item {
             anchors.right: parent.right
             anchors.margins: 5
             columns: 2
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -72,10 +71,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -127,10 +125,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -187,10 +184,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -247,10 +243,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -285,10 +280,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -323,10 +317,9 @@ Item {
                     }
                 }
             }
-            Rectangle{
+             Item{
                 width: grid.width/2
                 height: 200
-                color:"transparent"
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5

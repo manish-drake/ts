@@ -66,16 +66,14 @@ Item{
                             columnSpacing: 15
                             rowSpacing: 20
                             height: 140
-                            Rectangle{
+                            Item{
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
-                                color: "transparent"
-                                Rectangle {
+                                 Item{
                                     anchors.left: parent.left
                                     anchors.right: parent.right
                                     anchors.verticalCenter: parent.verticalCenter
                                     height: 50
-                                    color: "transparent"
                                     ComboBox {
                                         id: coaxComboBox
                                         implicitWidth: parent.width

@@ -23,12 +23,11 @@ Item {
             color: "#26000000"
             spread: 0
         }
-        Rectangle{
+         Item{
             id: header
             anchors.left: parent.left
             anchors.right: parent.right
             height:40
-            color:"transparent"
             Text {
                 anchors.centerIn: parent
                 text: qsTr("NETWORK")
@@ -38,12 +37,11 @@ Item {
                 clip:true
                 color: Universal.foreground
             }
-            Rectangle{
+             Item{
                 id: rectangle
                 width: 40
                 height: parent.height
                 anchors.right: parent.right
-                color:"transparent"
                 Image {
                     id: closeImage
                     anchors.horizontalCenter: parent.horizontalCenter

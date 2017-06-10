@@ -13,13 +13,11 @@ Rectangle {
         visible: Universal.theme == Universal.Dark
     }
 
-    Rectangle {
+    Item{
         id: toggleMenu
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
-        color: "transparent"
-
         Image {
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
@@ -48,13 +46,12 @@ Rectangle {
         elide: Text.ElideRight
     }
 
-    Rectangle {
+     Item{
         id: toggleConfigPanel
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
-        color: "transparent"
         Image {
             id: imageCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -70,12 +67,11 @@ Rectangle {
             onReleased: parent.opacity = 1
         }
     }
-    Rectangle {
+     Item{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
-        color: "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter

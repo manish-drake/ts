@@ -2,14 +2,13 @@ import QtQuick 2.7
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
-Rectangle{
+ Item{
     id:testFooterRect
     anchors.bottom: parent.bottom
     height: 50
     width: parent.width
-    color: "transparent"
 
-    Rectangle {
+  Item{
         id: toggleButton
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
@@ -18,7 +17,6 @@ Rectangle{
         property alias imageSource: buttonImage.source
         signal selected()
         signal pushed()
-        color: "transparent"
         state: "off"
         onStateChanged: {
             if (state == "on") {

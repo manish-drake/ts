@@ -15,11 +15,10 @@ Rectangle{
         height: parent.height
         anchors.left: parent.left
         anchors.leftMargin: 5
-        Rectangle{
+        Item{
             height:25
             width: 35
             Layout.alignment: Qt.AlignVCenter
-            color:"transparent"
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -66,11 +65,10 @@ Rectangle{
                 }
             }
         }
-        Rectangle{
+         Item{
             height:25
             width: 35
             Layout.alignment: Qt.AlignVCenter
-            color:"transparent"
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -102,7 +100,7 @@ Rectangle{
         }
     }
 
-    Rectangle{
+    Item{
         id: rectangle
         height:25
         width: 25
@@ -110,7 +108,6 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         anchors.margins: 10
         anchors.right: parent.right
-        color:"transparent"
         Image {
             id: closeImage
             anchors.horizontalCenter: parent.horizontalCenter
