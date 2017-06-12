@@ -93,7 +93,6 @@ ApplicationWindow {
                         rightMargin: 5
                         modal: true
                         focus: true
-                        clip: true
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                         onClosed: {parent.width = 0; moreActionsDialog.visible = false }
                         onOpened: {parent.width = 160; moreActionsDialog.visible = true }
@@ -126,7 +125,6 @@ ApplicationWindow {
                 padding: 0
                 modal: true
                 focus: true
-                clip: true
                 closePolicy: Popup.CloseOnEscape
                 onClosed: {testSetupDialog.visible = false }
                 onOpened: {testSetupDialog.visible = true }
@@ -153,7 +151,6 @@ ApplicationWindow {
                 padding: 0
                 modal: true
                 focus: true
-                clip: true
                 closePolicy: Popup.CloseOnEscape
                 onClosed: {helpDialog.visible = false }
                 onOpened: {helpDialog.visible = true }
@@ -178,7 +175,6 @@ ApplicationWindow {
                 padding: 0
                 modal: true
                 focus: true
-                clip: true
                 closePolicy: Popup.CloseOnEscape
                 onClosed: {connectionReqDialog.visible = false }
                 onOpened: {connectionReqDialog.visible = true }
@@ -203,7 +199,6 @@ ApplicationWindow {
                 padding: 0
                 modal: true
                 focus: true
-                clip: true
                 closePolicy: Popup.CloseOnEscape
                 onClosed: {pinConfirmDialog.visible = false }
                 onOpened: {pinConfirmDialog.visible = true }
@@ -237,7 +232,6 @@ ApplicationWindow {
                 padding: 0
                 modal: true
                 focus: true
-                clip: true
                 closePolicy: Popup.CloseOnEscape
                 onClosed: {connectionAckDialog.visible = false }
                 onOpened: {connectionAckDialog.visible = true }

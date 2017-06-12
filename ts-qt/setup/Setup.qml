@@ -26,7 +26,6 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    clip: true
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1
@@ -47,7 +46,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     Column {
@@ -101,7 +99,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     Column {
@@ -155,7 +152,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     Column {
@@ -214,7 +210,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     Column {
@@ -273,7 +268,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     MouseArea {
@@ -310,7 +304,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     MouseArea {
@@ -346,7 +339,6 @@ Item {
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     MouseArea {

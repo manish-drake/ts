@@ -16,7 +16,6 @@ Item{
             elide:Text.ElideRight
             font.pixelSize: 14
             font.weight: Font.DemiBold
-            clip:true
             color: Universal.foreground
         }
         Item{
@@ -50,7 +49,6 @@ Item{
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        clip: true
         GridView{
             id: userGridView
             anchors.fill: parent
@@ -96,7 +94,6 @@ Item{
                         elide:Text.ElideRight
                         font.pointSize: 12
                         font.weight: Font.DemiBold
-                        clip:true
                         color: Universal.foreground
                     }
                     Row {

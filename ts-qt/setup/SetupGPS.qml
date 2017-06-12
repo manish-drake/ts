@@ -9,7 +9,6 @@ Item {
     Rectangle{
         anchors.fill: parent
         anchors.margins: 10
-        clip: true
         color: Universal.background
         border.color: "#0d000000"
         border.width: 1
@@ -36,7 +35,6 @@ Item {
                     elide:Text.ElideRight
                     font.pointSize: 13
                     font.weight: Font.DemiBold
-                    clip:true
                     color: Universal.foreground
                 }
                  Item{
@@ -71,7 +69,6 @@ Item {
                 Layout.fillWidth: true
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
-                clip: true
                 boundsBehavior: Flickable.StopAtBounds
                 GridLayout {
                     id: grid
@@ -306,7 +303,6 @@ Item {
                         validator: DoubleValidator{}
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
-                        clip: true
                         onEditingFinished: manualLatSwitch.checked = false
                     }
                     Text {
@@ -317,7 +313,6 @@ Item {
                         text: "%1 ° N".arg(manualLatField.text)
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
-                        clip: true
                         elide: Text.ElideRight
                         color: Universal.foreground
                     }
@@ -362,7 +357,6 @@ Item {
                         validator: DoubleValidator{}
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
-                        clip: true
                         onEditingFinished: manualLonSwitch.checked = false
                     }
                     Text {
@@ -373,7 +367,6 @@ Item {
                         text: "%1 ° W".arg(manualLonField.text)
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
-                        clip: true
                         elide: Text.ElideRight
                         color: Universal.foreground
                     }

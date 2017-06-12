@@ -96,7 +96,6 @@ Rectangle{
                 anchors.bottom: parent.bottom
                 contentWidth: parent.width;
                 contentHeight: content.height + content.y + 10
-                clip: true
                 boundsBehavior: Flickable.StopAtBounds
                 Column{
                     id: content

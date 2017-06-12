@@ -29,7 +29,6 @@ Rectangle {
         anchors.fill: parent
         anchors.leftMargin: operatorName.width + 20
         anchors.rightMargin: grid.width + 20
-        clip: true
         Text {
             id: tsName
             anchors.verticalCenter: parent.verticalCenter

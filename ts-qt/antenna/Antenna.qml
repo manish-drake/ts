@@ -52,7 +52,6 @@ Item {
                     anchors.margins: 10
                     rowSpacing: 0
                     columnSpacing: 0
-                    clip: true
                     Item{
                         Layout.row:0
                         Layout.fillWidth: true
@@ -118,7 +117,6 @@ Item {
                             text: name
                             font.pointSize: 12
                             font.weight: Font.DemiBold
-                            clip:true
                             color: Universal.foreground
                         }
                     }

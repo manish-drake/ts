@@ -125,7 +125,6 @@ Rectangle{
                 delegate:aircraftDetail
                 spacing: 10
                 anchors.margins: 10
-                clip: true
                 highlightMoveDuration: 0
                 highlight:Rectangle{
                     color:"transparent"
