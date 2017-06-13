@@ -43,7 +43,6 @@ ApplicationWindow {
             Popup {
                 id: sideMenuPopup
                 width: 200
-                implicitWidth: 200
                 height: parent.height
                 modal: true
                 closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
