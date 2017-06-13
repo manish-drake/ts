@@ -83,8 +83,7 @@ Item {
                     anchors.right: parent.right
                     Image{
                         id:sunImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.centerIn: parent
                         source: "qrc:/img/img/Sun Filled-25.png"
                     }
                     ColorOverlay {
@@ -264,8 +263,7 @@ Item {
                     anchors.right: parent.right
                     Image{
                         id: markerImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.centerIn: parent
                         source: "qrc:/img/img/Marker-25.png"
                     }
                     ColorOverlay {
@@ -332,8 +330,7 @@ Item {
                     anchors.right: parent.right
                     Image{
                         id: uutImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.centerIn: parent
                         source: "qrc:/img/img/Circled Up-25.png"
                     }
                     ColorOverlay {
@@ -373,8 +370,7 @@ Item {
                     anchors.right: parent.right
                     Image{
                         id: connImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.centerIn: parent
                         source: "qrc:/img/img/filter-results-button.png"
                     }
                     ColorOverlay {

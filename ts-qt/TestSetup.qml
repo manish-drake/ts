@@ -20,12 +20,12 @@ Item {
                 anchors.left: parent.left
                 anchors.leftMargin: 10
                 anchors.bottomMargin: 20
-                source: "qrc:/img/img/Settings-25.png"
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                }
+                source: "qrc:/img/img/Settings-25.png"                
+            }
+            ColorOverlay{
+                anchors.fill: viewImage
+                source: viewImage
+                color: Universal.foreground
             }
             Column{
                 anchors.verticalCenter: parent.verticalCenter
@@ -102,12 +102,12 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                            source: "qrc:/img/img/Expand Arrow-20.png"                            
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage1
+                            source: arrowImage1
+                            color: Universal.foreground
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -148,7 +148,6 @@ Item {
                             anchors.rightMargin: 50
                             Row{
                                 anchors.fill: parent
-
                                 Text{
                                     text:slider.value
                                     font.pixelSize: 14
@@ -179,11 +178,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage2
+                            source: arrowImage2
+                            color: Universal.foreground
                         }
                     }
                     Item{
@@ -202,11 +201,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage3
+                            source: arrowImage3
+                            color: Universal.foreground
                         }
                     }
 
@@ -226,11 +225,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage4
+                            source: arrowImage4
+                            color: Universal.foreground
                         }
                     }
                     Item{
@@ -249,11 +248,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage5
+                            source: arrowImage5
+                            color: Universal.foreground
                         }
                     } Item{
                         height: 20
@@ -271,11 +270,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage6
+                            source: arrowImage6
+                            color: Universal.foreground
                         }
                     }
 
@@ -295,11 +294,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage7
+                            source: arrowImage7
+                            color: Universal.foreground
                         }
                     }
                     Item{
@@ -318,11 +317,11 @@ Item {
                             height: 15
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-20.png"
-                            ColorOverlay{
-                                anchors.fill: parent
-                                source: parent
-                                color: Universal.foreground
-                            }
+                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage8
+                            source: arrowImage8
+                            color: Universal.foreground
                         }
                     }
                 }
