@@ -4,9 +4,12 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
-Item {
+Rectangle {
+    border.color: "gray"
+    border.width: 1
     Page{
         anchors.fill: parent
+        anchors.margins: 1
         header: Rectangle{
             id:testHeaderRect
             height: 50

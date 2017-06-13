@@ -195,29 +195,19 @@ Item{
         }
     }
 
-    Rectangle{
-        id: guideDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.fill: parent
-            anchors.topMargin: 70
-            anchors.bottomMargin: 70
-            anchors.leftMargin: 30
-            anchors.rightMargin: 30
-            Popup {
-                id: guidePopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: { guideDialog.visible = false }
-                onOpened: { guideDialog.visible = true }
-                contentItem: TestGuide{}
-            }
+    Popup {
+        id: guidePopup
+        height: parent.height
+        width: parent.width
+        topPadding: 60
+        bottomPadding: 60
+        leftPadding: 20
+        rightPadding: 20
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: "#99000000"
         }
+        contentItem: TestGuide{}
     }
 }

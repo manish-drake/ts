@@ -4,9 +4,12 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 
-Item {
+Rectangle {
+    border.color: "gray"
+    border.width: 1
     Page{
         anchors.fill: parent
+        anchors.margins: 1
         header: Rectangle{
             id:testHeaderRect
             height: 50
@@ -80,7 +83,7 @@ Item {
                     color:"transparent"
                     border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
                     border.width: 1
-                    radius:5
+                    radius:3
                 }
                 model: snapshotModel
                 ListModel{

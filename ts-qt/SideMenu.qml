@@ -9,7 +9,7 @@ Item {
             id: listViewLeftMenu
             anchors.fill: parent
             model: sectionModel
-            focus: true
+            clip: true
             delegate:  Component {
                 Item{
                     height: 50

@@ -91,26 +91,17 @@ Item{
         }
     }
 
-    Rectangle{
-        id: savedDataDialog
-        anchors.fill: parent
-        color: Universal.theme == Universal.Light ? "#80000000" : "#80ffffff"
-        visible: false
-        Item{
-            anchors.fill: parent
-            anchors.margins: 20
-            Popup {
-                id: savedDataPopup
-                width: parent.width
-                height: parent.height
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                padding: 0
-                onClosed: {savedDataDialog.visible = false }
-                onOpened: {savedDataDialog.visible = true }
-                contentItem: DataPopupContent{}
-            }
+    Popup {
+        id: savedDataPopup
+        width: parent.width
+        height: parent.height
+        padding: 40
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: "#99000000"
         }
+        contentItem: DataPopupContent{}
     }
+
 }

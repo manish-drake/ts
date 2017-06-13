@@ -5,53 +5,55 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-        Page{
+    Page{
+        anchors.centerIn: parent
+        height: 150
+        width: 320
+        header: Rectangle{
+            height: 60
+            anchors.left: parent.left
+            anchors.right: parent.right
+            color: Universal.background
+            Text{
+                anchors.centerIn: parent
+                text:"Device Paired"
+                font.pixelSize: 18
+                font.weight: Font.bold
+                color: Universal.foreground
+            }
+        }
+        contentItem:
+            Rectangle{
             anchors.fill: parent
-            header: Rectangle{
-                height: 60
-                anchors.left: parent.left
-                anchors.right: parent.right
-                color: Universal.background
-                Text{
-                    anchors.centerIn: parent
-                    text:"Device Paired"
-                    font.pixelSize: 18
-                    font.weight: Font.bold
-                    color: Universal.foreground
-                }
+            color: Universal.background
+            Text{
+                anchors.centerIn: parent
+                text: "Remote device connected"
+                font.pixelSize: 16
+                color: "gray"
             }
-            contentItem:
-                Rectangle{
-                anchors.fill: parent
-                color: Universal.background
-                Text{
-                    anchors.centerIn: parent
-                    text: "Remote device connected"
-                    font.pixelSize: 16
-                    color: "gray"
-                }
-            }
+        }
 
-            footer:Rectangle{
-                height: 40
-                anchors.left: parent.left
+        footer:Rectangle{
+            height: 40
+            anchors.left: parent.left
+            anchors.right: parent.right
+            color: Universal.background
+            Text{
+                anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
-                color: Universal.background
-                Text{
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.rightMargin: 15
-                    text: "OK"
-                    font.pixelSize: 14
-                    color: "gray"
-                    MouseArea{
-                        anchors.fill: parent
-                        onClicked: {
-                            connectionAckPopup.close()
-                        }
+                anchors.rightMargin: 15
+                text: "OK"
+                font.pixelSize: 14
+                color: "gray"
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        connectionAckPopup.close()
                     }
                 }
             }
         }
     }
+}
 

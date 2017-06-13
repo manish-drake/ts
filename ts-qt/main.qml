@@ -17,6 +17,7 @@ ApplicationWindow {
     property string headerTitle: "Start"
     property var _theme: Universal.Light
     Universal.theme: _theme
+    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     Page {
         anchors.fill: parent
 
@@ -33,71 +34,55 @@ ApplicationWindow {
             }
 
             Rectangle{
-                id: sideMenuDialog
+                id: contentOpaqueBack
                 anchors.fill: parent
-                color: "#0d000000"
+                color: opaqueBackground
                 visible: false
-                 Item{
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    Popup {
-                        id: sideMenuPopup
-                        width: parent.width
-                        height: parent.height
-                        modal: true
-                        focus: true
-                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        padding: 0
-                        onClosed: { parent.width = 0; sideMenuDialog.visible = false }
-                        onOpened: { parent.width = 180; sideMenuDialog.visible = true }
-                        contentItem: SideMenu{}
+            }
+
+            Popup {
+                id: sideMenuPopup
+                width: 200
+                implicitWidth: 200
+                height: parent.height
+                modal: true
+                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                padding: 0
+                onClosed: contentOpaqueBack.visible = false
+                onOpened: contentOpaqueBack.visible = true
+                contentItem: SideMenu{}
+            }
+
+            Item{
+                width: 270
+                anchors.horizontalCenter: parent.horizontalCenter
+                Popup {
+                    id: configPanelPopup
+                    padding: 0
+                    topMargin: 55
+                    width: 270
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                    onClosed: contentOpaqueBack.visible = false
+                    onOpened: contentOpaqueBack.visible = true
+                    contentItem: ConfigPanel{
+                        id: configPanel
                     }
                 }
             }
-
-            Rectangle{
-                id: configPanelDialog
-                anchors.fill: parent
-                color: "#0d000000"
-                visible: false
-                 Item{
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Popup {
-                        id: configPanelPopup
-                        padding: 0
-                        topMargin: 55
-                        modal: true
-                        focus: true
-                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        onClosed: { parent.width = 0; configPanelDialog.visible = false }
-                        onOpened: { parent.width = 270; configPanelDialog.visible = true }
-                        contentItem: ConfigPanel{
-                            id: configPanel
-                        }
-                    }
-                }
-            }
-
-            Rectangle{
-                id: moreActionsDialog
-                anchors.fill: parent
-                color: "#0d000000"
-                visible: false
-                 Item{
-                    anchors.right: parent.right
-                    Popup {
-                        id: moreActionsPopover
-                        width: parent.width
-                        padding: 0
-                        topMargin: 55
-                        rightMargin: 5
-                        modal: true
-                        focus: true
-                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        onClosed: {parent.width = 0; moreActionsDialog.visible = false }
-                        onOpened: {parent.width = 160; moreActionsDialog.visible = true }
-                        contentItem: MoreActions{}
-                    }
+            Item{
+                anchors.right: parent.right
+                Popup {
+                    id: moreActionsPopover
+                    width: 160
+                    padding: 0
+                    topMargin: 55
+                    rightMargin: 5
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                    onClosed: contentOpaqueBack.visible = false
+                    onOpened: contentOpaqueBack.visible = true
+                    contentItem: MoreActions{}
                 }
             }
         }
@@ -107,104 +92,60 @@ ApplicationWindow {
         }
     }
 
-    Rectangle{
-        id: testSetupDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.fill: parent
-            anchors.topMargin: 70
-            anchors.bottomMargin: 70
-            anchors.leftMargin: 30
-            anchors.rightMargin: 30
-            Popup {
-                id: testSetupPopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: {testSetupDialog.visible = false }
-                onOpened: {testSetupDialog.visible = true }
-                contentItem: TestSetup{}
-            }
+    Popup {
+        id: testSetupPopup
+        height: parent.height
+        width: parent.width
+        topPadding: 60
+        bottomPadding: 60
+        leftPadding: 30
+        rightPadding: 30
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
         }
+        contentItem: TestSetup{}
     }
 
-    Rectangle{
-        id: helpDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.fill: parent
-            anchors.topMargin: 70
-            anchors.bottomMargin: 70
-            anchors.leftMargin: 30
-            anchors.rightMargin: 30
-            Popup {
-                id: helpPopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: {helpDialog.visible = false }
-                onOpened: {helpDialog.visible = true }
-                contentItem: TestHelp{}
-            }
+    Popup {
+        id: helpPopup
+        height: parent.height
+        width: parent.width
+        topPadding: 60
+        bottomPadding: 60
+        leftPadding: 30
+        rightPadding: 30
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
         }
+        contentItem: TestHelp{}
     }
 
-    Rectangle{
-        id: connectionReqDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.centerIn: parent
-            height: 150
-            width: 350
-            Popup {
-                id: connectionReqPopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: {connectionReqDialog.visible = false }
-                onOpened: {connectionReqDialog.visible = true }
-                contentItem: ConnectionReqest{}
-            }
+    Popup {
+        id: connectionReqPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
         }
+        contentItem: ConnectionReqest{}
     }
 
-    Rectangle{
-        id: pinConfirmDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.centerIn: parent
-            height: 150
-            width: 250
-            Popup {
-                id: pinConfirmPopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: {pinConfirmDialog.visible = false }
-                onOpened: {pinConfirmDialog.visible = true }
-                contentItem: PINConfirmation{}
-            }
+    Popup {
+        id: pinConfirmPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
         }
+        contentItem: PINConfirmation{}
     }
 
     Timer{
@@ -216,28 +157,16 @@ ApplicationWindow {
         }
     }
 
-    Rectangle{
-        id: connectionAckDialog
-        anchors.fill: parent
-        color: "#33000000"
-        visible: false
-        Item{
-            anchors.centerIn: parent
-            height: 150
-            width: 320
-            Popup {
-                id: connectionAckPopup
-                height: parent.height
-                width: parent.width
-                padding: 0
-                modal: true
-                focus: true
-                closePolicy: Popup.CloseOnEscape
-                onClosed: {connectionAckDialog.visible = false }
-                onOpened: {connectionAckDialog.visible = true }
-                contentItem: ConnectionAck{}
-            }
+    Popup {
+        id: connectionAckPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
         }
+        contentItem: ConnectionAck{}
     }
 
 }

@@ -5,9 +5,10 @@ import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
 
 Item {
-    anchors.fill: parent
     Page{
-        anchors.fill: parent
+        anchors.centerIn: parent
+        height: 150
+        width: 250
         header: Rectangle{
             height: 60
             anchors.left: parent.left
@@ -62,4 +63,5 @@ Item {
         }
     }
 }
+
 

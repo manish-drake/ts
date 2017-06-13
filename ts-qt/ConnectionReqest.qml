@@ -6,7 +6,9 @@ import QtGraphicalEffects 1.0
 
 Item {
     Page{
-        anchors.fill: parent
+        anchors.centerIn: parent
+        height: 150
+        width: 350
         header: Rectangle{
             height: 60
             anchors.left: parent.left
