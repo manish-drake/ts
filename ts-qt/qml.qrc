@@ -50,7 +50,6 @@
         <file>img/Sun Filled-25.png</file>
         <file>img/wifi-signal-waves.png</file>
         <file>img/filter-results-button.png</file>
-        <file>img/Network Cable-25.png</file>
         <file>img/Minus-30.png</file>
         <file>img/Help Filled-25.png</file>
         <file>img/Settings-25.png</file>
@@ -79,5 +78,6 @@
         <file>img/Past-22.png</file>
         <file>img/Delete2-25.png</file>
         <file>img/Forward-16.png</file>
+        <file>img/Network Cable-22.png</file>
     </qresource>
 </RCC>

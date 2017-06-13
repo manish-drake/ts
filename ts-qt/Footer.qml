@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: rectangle4
-    height: 50
+    height: 48
     color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
     property string currentOperator
 
@@ -36,19 +36,25 @@ Rectangle {
     }
     GridLayout{
         id:grid
+        height: 38
+        anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
         anchors.rightMargin: 10
-        anchors.verticalCenter: parent.verticalCenter
         rowSpacing: 2
         columnSpacing: 12
-        Image {
+        Item{
             Layout.row: 0
             Layout.column: 0
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            source: "qrc:/img/img/Network Cable-25.png"
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Image {
+                id: img1
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Network Cable-22.png"
+            }
             ColorOverlay{
-                anchors.fill: parent
-                source: parent
+                anchors.fill: img1
+                source: img1
                 color: Universal.foreground
             }
         }
@@ -61,15 +67,19 @@ Rectangle {
             color: Universal.foreground
         }
 
-        Image {
+        Item{
             Layout.row: 0
             Layout.column: 1
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            fillMode: Image.Stretch
-            source: "qrc:/img/img/Full Battery-25.png"
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Image {
+                id: img2
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Full Battery-25.png"
+            }
             ColorOverlay{
-                anchors.fill: parent
-                source: parent
+                anchors.fill: img2
+                source: img2
                 color: Universal.foreground
             }
         }
@@ -82,14 +92,19 @@ Rectangle {
             color: Universal.foreground
         }
 
-        Image {
+        Item{
             Layout.row: 0
             Layout.column: 2
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            source: "qrc:/img/img/wifi-signal-waves.png"
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Image {
+                id: img3
+                anchors.centerIn: parent
+                source: "qrc:/img/img/wifi-signal-waves.png"
+            }
             ColorOverlay{
-                anchors.fill: parent
-                source: parent
+                anchors.fill: img3
+                source: img3
                 color: Universal.foreground
             }
         }
@@ -103,9 +118,9 @@ Rectangle {
         }
 
         Text{
+            id:timeText
             Layout.row: 0
             Layout.column: 3
-            id:timeText
             font.pixelSize: 12
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             elide: Text.ElideRight
@@ -113,9 +128,9 @@ Rectangle {
         }
 
         Text{
+            id: dateText
             Layout.row: 1
             Layout.column: 3
-            id: dateText
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             elide: Text.ElideRight
             color: Universal.foreground

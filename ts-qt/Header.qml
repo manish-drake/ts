@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: content
-    height: 50
+    height: 48
     color: Universal.accent
     ColorOverlay{
         anchors.fill: content
