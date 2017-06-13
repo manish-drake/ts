@@ -31,8 +31,7 @@ Rectangle {
         anchors.rightMargin: grid.width + 20
         Text {
             id: tsName
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             font.pointSize: 10
             text: "TestSet#5"
             elide: Text.ElideRight
