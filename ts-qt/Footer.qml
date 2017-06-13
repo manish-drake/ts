@@ -42,101 +42,95 @@ Rectangle {
         rowSpacing: 2
         columnSpacing: 12
         Image {
-            id: directImage
+            Layout.row: 0
+            Layout.column: 0
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             source: "qrc:/img/img/Network Cable-25.png"
+            ColorOverlay{
+                anchors.fill: parent
+                source: parent
+                color: Universal.foreground
+            }
         }
-        ColorOverlay{
-            anchors.fill: directImage
-            source: directImage
-            color: Universal.foreground
-        }
-
         Text{
+            Layout.row: 1
+            Layout.column: 0
             text:"Direct"
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.row: 1
             elide: Text.ElideRight
             color: Universal.foreground
         }
 
         Image {
-            id:imageBattery
+            Layout.row: 0
+            Layout.column: 1
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             fillMode: Image.Stretch
-            Layout.column: 1
             source: "qrc:/img/img/Full Battery-25.png"
+            ColorOverlay{
+                anchors.fill: parent
+                source: parent
+                color: Universal.foreground
+            }
         }
-        ColorOverlay{
-            anchors.fill: imageBattery
-            source: imageBattery
-            color: Universal.foreground
-        }
-
         Text{
+            Layout.row: 1
+            Layout.column: 1
             text:"Battery"
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.column: 1
-            Layout.row: 1
             elide: Text.ElideRight
             color: Universal.foreground
         }
 
         Image {
+            Layout.row: 0
             Layout.column: 2
-            id: wifiImage
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             source: "qrc:/img/img/wifi-signal-waves.png"
+            ColorOverlay{
+                anchors.fill: parent
+                source: parent
+                color: Universal.foreground
+            }
         }
-        ColorOverlay{
-            anchors.fill: wifiImage
-            source: wifiImage
-            color: Universal.foreground
-        }
-
         Text{
-            Layout.column: 2
             Layout.row: 1
+            Layout.column: 2
             text:"Wifi"
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
 
-        Timer{
-            interval: 1000
-            running: true
-            repeat: true
-            triggeredOnStart: true
-            onTriggered: timeText.text = Qt.formatDateTime(new Date(),"hh:mm")
-        }
-
         Text{
-            id:timeText
-            Layout.column: 3
             Layout.row: 0
+            Layout.column: 3
+            id:timeText
             font.pixelSize: 12
             Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
 
+        Text{
+            Layout.row: 1
+            Layout.column: 3
+            id: dateText
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            elide: Text.ElideRight
+            color: Universal.foreground
+        }
+
         Timer{
             interval: 1000
             running: true
             repeat: true
             triggeredOnStart: true
-            onTriggered: dateText.text = Qt.formatDateTime(new Date(),"M/d/yy")
+            onTriggered: {
+                timeText.text = Qt.formatDateTime(new Date(),"hh:mm");
+                dateText.text = Qt.formatDateTime(new Date(),"M/d/yy")
+            }
         }
 
-        Text{
-            id: dateText
-            Layout.column: 3
-            Layout.row: 1
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
-        }
     }
-
 }
