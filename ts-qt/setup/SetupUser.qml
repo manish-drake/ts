@@ -14,7 +14,7 @@ Item{
             anchors.centerIn: parent
             text: qsTr("USERS")
             elide:Text.ElideRight
-            font.pixelSize: 14
+            font.pixelSize: 16
             font.weight: Font.DemiBold
             color: Universal.foreground
         }
@@ -54,11 +54,11 @@ Item{
             anchors.fill: parent
             anchors.topMargin: 10
             anchors.leftMargin: 10
-            anchors.bottomMargin: 50
             cellWidth: userGridView.width/2; cellHeight: 200
             model: usersModel
             delegate: userCardDelegate
             currentIndex: -1
+            clip: true
             focus: true
             Component{
                 id: userCardDelegate

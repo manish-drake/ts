@@ -36,13 +36,11 @@ Item{
             contentItem: Rectangle {
                 color: Universal.background
                 Flickable {
-                    anchors.left:parent.left
-                    anchors.right:parent.right
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
+                    anchors.fill: parent
                     contentWidth: parent.width;
                     contentHeight: content.height + content.y + 10
                     boundsBehavior: Flickable.StopAtBounds
+                    clip: true
                     Column{
                         id: content
                         y: 10

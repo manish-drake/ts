@@ -28,14 +28,12 @@ Rectangle{
         spread: 0
     }
     Page {
-        id: item1
         anchors.fill: parent
         header: Rectangle{
-            id:testHeaderRect
-            height: 40
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.background
+            height: 40
             Column{
                 topPadding: 10
                 anchors.verticalCenter: parent.verticalCenter
@@ -90,10 +88,7 @@ Rectangle{
         contentItem: Rectangle {
             color: Universal.background
             Flickable {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
+                anchors.fill: parent
                 contentWidth: parent.width;
                 contentHeight: content.height + content.y + 10
                 boundsBehavior: Flickable.StopAtBounds

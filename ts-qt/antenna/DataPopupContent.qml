@@ -77,6 +77,7 @@ Rectangle {
                 id: dataListView
                 anchors.fill: parent
                 spacing: 10
+                clip: true
                 anchors.margins: 10
                 highlightMoveDuration: 0
                 highlight:Rectangle{

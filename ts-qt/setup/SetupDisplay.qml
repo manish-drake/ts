@@ -5,72 +5,79 @@ import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
-Item {
-    Rectangle{
+Rectangle{
+    anchors.fill: parent
+    anchors.margins: 10
+    color: Universal.background
+    border.color: "#0d000000"
+    border.width: 1
+    radius: 3
+    layer.enabled: true
+    layer.effect: DropShadow {
+        transparentBorder: true
+        horizontalOffset: 1.1
+        verticalOffset: 1.1
+        radius: 4.0
+        color: "#26000000"
+        spread: 0
+    }
+
+    Page {
+        id: item1
         anchors.fill: parent
-        anchors.margins: 10
-        color: Universal.background
-        border.color: "#0d000000"
-        border.width: 1
-        radius: 3
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 1.1
-            verticalOffset: 1.1
-            radius: 4.0
-            color: "#26000000"
-            spread: 0
-        }
-        Column{
-            anchors.fill: parent
-             Item{
-                id: header
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height:40
+        header: Rectangle{
+            height: 40
+            anchors.left:parent.left
+            anchors.right:parent.right
+            color: Universal.background
+
+            Column{
+                topPadding: 10
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
                 Text {
-                    anchors.centerIn: parent
+                    id: testTitle
                     text: qsTr("DISPLAY")
-                    elide:Text.ElideRight
-                    font.pointSize: 13
+                    font.pointSize: 12
                     font.weight: Font.DemiBold
+                    anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
-                }
-                 Item{
-                    id: rectangle
-                    width: 40
-                    anchors.top: parent.top
-                    anchors.bottom: parent.bottom
-                    anchors.right: parent.right
-                    Image {
-                        id: closeImage
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/Delete-25.png"
-                    }
-                    ColorOverlay{
-                        anchors.fill: closeImage
-                        source: closeImage
-                        color: Universal.foreground
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-                        }
-                    }
                 }
             }
 
-            Flickable {
-                anchors.left: parent.left
+            Item{
+                height:25
+                width: 25
+                Layout.fillHeight: true
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.margins: 10
                 anchors.right: parent.right
-                anchors.top: header.bottom
-                anchors.bottom: parent.bottom
+                Image {
+                    id: closeImage
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "qrc:/img/img/Delete-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage
+                    source: closeImage
+                    color: Universal.foreground
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+                }
+            }
+        }
+
+        contentItem: Rectangle {
+            color: Universal.background
+            Flickable {
+                anchors.fill: parent
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
                 boundsBehavior: Flickable.StopAtBounds
+                clip: true
                 GridLayout {
                     id: grid
                     y: 30
@@ -143,7 +150,7 @@ Item {
                         color: Universal.foreground
                     }
 
-                    Row{
+                    Item{
                         Layout.row: 1
                         Layout.column: 2
                         Layout.columnSpan: 2
@@ -190,3 +197,4 @@ Item {
         }
     }
 }
+

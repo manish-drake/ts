@@ -71,6 +71,7 @@ ApplicationWindow {
             }
             Item{
                 anchors.right: parent.right
+                Layout.maximumHeight: parent.height
                 Popup {
                     id: moreActionsPopover
                     width: 160

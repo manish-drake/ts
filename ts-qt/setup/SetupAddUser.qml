@@ -22,10 +22,11 @@ Item {
             color: "#26000000"
             spread: 0
         }
-        Column{
+        GridLayout{
             anchors.fill: parent
              Item{
                 id: header
+                Layout.row: 0
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height:40
@@ -63,13 +64,11 @@ Item {
             }
 
             Flickable {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.top: header.bottom
-                anchors.bottom: parent.bottom
+                anchors.fill: parent
                 contentWidth: parent.width;
                 contentHeight: grid.height + grid.y + 10
                 boundsBehavior: Flickable.StopAtBounds
+                clip: true
                 GridLayout {
                     id: grid
                     y: 30

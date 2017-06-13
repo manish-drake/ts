@@ -9,7 +9,6 @@ import QtQuick.Layouts 1.1
 Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
-    implicitHeight: columnLayout.implicitHeight
     color: Universal.background
     border.color: "white"
     border.width: 1
