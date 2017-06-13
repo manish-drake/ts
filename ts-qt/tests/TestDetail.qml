@@ -50,13 +50,13 @@ Rectangle{
                     id: pageIndicator
                     anchors.horizontalCenter: parent.horizontalCenter
                     count: 7
-                    currentIndex: summaryModel.currentPage
-                    ColorOverlay{
-                        anchors.fill: parent
-                        source: parent
-                        color: Universal.foreground
-                        visible: Universal.theme == Universal.Dark
-                    }
+                    currentIndex: summaryModel.currentPage                    
+                }
+                ColorOverlay{
+                    anchors.fill: pageIndicator
+                    source: pageIndicator
+                    color: Universal.foreground
+                    visible: Universal.theme == Universal.Dark
                 }
             }
 
@@ -202,12 +202,12 @@ Rectangle{
                 Image {
                     id: buttonImage
                     smooth: true
-                    anchors.fill: parent
-                    ColorOverlay{
-                        anchors.fill: parent
-                        source: parent
-                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                    }
+                    anchors.fill: parent                    
+                }
+                ColorOverlay{
+                    anchors.fill: buttonImage
+                    source: buttonImage
+                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
                 }
                 MouseArea {
                     id: mouseArea

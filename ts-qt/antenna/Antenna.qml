@@ -86,19 +86,21 @@ Item {
                                 Layout.column: 4
                                 Layout.fillHeight: true
                                 columnSpacing: 5
-                                Image {
-                                    id: album
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    source: "qrc:/img/img/album.png"
-                                }
-                                ColorOverlay {
-                                    anchors.fill: album
-                                    source: album
-                                    color: "#666666"
+                                Item{
+                                    height: album.height
+                                    width: album.width
+                                    Image {
+                                        id: album
+                                        source: "qrc:/img/img/album.png"
+                                    }
+                                    ColorOverlay {
+                                        anchors.fill: album
+                                        source: album
+                                        color: "#666666"
+                                    }
                                 }
                                 Text {
                                     Layout.column: 1
-                                    anchors.verticalCenter: parent.verticalCenter
                                     text: "1"
                                     font.pointSize: 10
                                     color: "#666666"

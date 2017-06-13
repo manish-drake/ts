@@ -38,7 +38,7 @@ Rectangle {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Text {
                     id: title
-                    text: "%1 GUIDE".arg(grid.currentItem.name)
+                    text: "%1 GUIDE".arg(guideTestName)
                     font.pointSize: 12
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter

@@ -7,6 +7,7 @@ import QtQuick.Controls.Universal 2.1
 
 Item{
     anchors.fill: parent
+    property string guideTestName
     GridView{
         id: grid
         anchors.fill: parent
@@ -84,7 +85,10 @@ Item{
                                     }
                                     MouseArea {
                                         anchors.fill: parent
-                                        onClicked: guidePopup.open()
+                                        onClicked: {
+                                            guideTestName = name
+                                            guidePopup.open()
+                                        }
                                         onPressed: parent.opacity = 0.5
                                         onReleased: parent.opacity = 1
                                     }
@@ -140,19 +144,21 @@ Item{
                                     Layout.column: 4
                                     Layout.fillHeight: true
                                     columnSpacing: 5
-                                    Image {
-                                        id: album
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        source: "qrc:/img/img/album.png"
-                                    }
-                                    ColorOverlay {
-                                        anchors.fill: album
-                                        source: album
-                                        color: "#666666"
+                                    Item{
+                                        width: album.width
+                                        height: album.height
+                                        Image {
+                                            id: album
+                                            source: "qrc:/img/img/album.png"
+                                        }
+                                        ColorOverlay {
+                                            anchors.fill: album
+                                            source: album
+                                            color: "#666666"
+                                        }
                                     }
                                     Text {
                                         Layout.column: 1
-                                        anchors.verticalCenter: parent.verticalCenter
                                         text: "7"
                                         font.pointSize: 10
                                         color: "#666666"
