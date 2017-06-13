@@ -18,7 +18,6 @@ Item {
                 anchors.centerIn: parent
                 text:"Device Paired"
                 font.pixelSize: 18
-                font.weight: Font.bold
                 color: Universal.foreground
             }
         }

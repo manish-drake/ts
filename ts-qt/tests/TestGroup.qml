@@ -59,6 +59,7 @@ Item{
                         anchors.margins: 10
                         rowSpacing: 0
                         columnSpacing: 0
+                        clip: true
                         Item{
                             Layout.row:0
                             Layout.fillWidth: true
