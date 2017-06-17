@@ -106,6 +106,9 @@ Rectangle{
                         Layout.column: 2
                         onCheckedChanged: {
                             console.log(wifiSwitch.checked)
+                            if(!checked){
+                                connectionLostPopup.open();
+                            }
                         }
                     }
 

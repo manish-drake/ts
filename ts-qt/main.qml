@@ -169,6 +169,18 @@ ApplicationWindow {
         contentItem: ConnectionAck{}
     }
 
+    Popup {
+        id: connectionLostPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
+        }
+        contentItem: ConnectionLost{}
+    }
+
 }
 
 
