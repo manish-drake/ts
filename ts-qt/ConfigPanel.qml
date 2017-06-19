@@ -19,7 +19,7 @@ Item {
             columns: 2
             Layout.margins:  0
             function prefWidth(item){
-                return 136 * item.Layout.columnSpan
+                return 150 * item.Layout.columnSpan
             }
             function prefHeight(item){
                 return 90 * item.Layout.rowSpan
