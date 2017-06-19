@@ -87,17 +87,6 @@ Rectangle {
                     radius:3
                 }
                 model: snapshotModel
-                ListModel{
-                    id: dataListModel
-                    ListElement {
-                        datetime: "5/5/2017 11:43:78"
-                        user: "Operator"
-                    }
-                    ListElement {
-                        datetime: "5/5/2017 12:11:09"
-                        user: "Operator"
-                    }
-                }
                 delegate:Component{
                     Item{
                         anchors.left:parent.left
