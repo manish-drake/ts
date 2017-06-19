@@ -43,6 +43,7 @@
         <file>tests/TestGroup.qml</file>
         <file>tests/TestGuide.qml</file>
         <file>ConnectionLost.qml</file>
+        <file>AppLogs.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

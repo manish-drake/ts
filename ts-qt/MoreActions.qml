@@ -83,12 +83,12 @@ Rectangle{
                     }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "Send Logs"
+                        text: "App Logs"
                     }
                 }
                 MouseArea{
                     anchors.fill: parent
-                    onClicked: console.log("send Logs")
+                    onClicked: navigationModel.currentView = navigationModel.getTargetView("App-Logs")
                 }
             }
             Text{

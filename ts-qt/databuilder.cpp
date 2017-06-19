@@ -159,6 +159,9 @@ int DataBuilder::build()
     View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
     viewDao->addView(vwAntAviationCalThru);
 
+    View vwAppLogs("Global-App-Logs");
+    viewDao->addView(vwAppLogs);
+
     SectionModel secModel{};
 
     Section secStart("Start");
@@ -1416,6 +1419,12 @@ int DataBuilder::build()
 
     Navigation aviationCalThruToAnt(vwAntAviationCalThru.id(), "back", 0, vwAntenna.id());
     navigationDaoPtr->addNavigation(aviationCalThruToAnt);
+
+    Navigation globalToAppLogs(vwGlobal.id(), "App-Logs",0, vwAppLogs.id());
+    navigationDaoPtr->addNavigation(globalToAppLogs);
+
+    Navigation appLogsToStart(vwAppLogs.id(), "back", 0, vwStart.id());
+    navigationDaoPtr->addNavigation(appLogsToStart);
 
     return 1;
 }
