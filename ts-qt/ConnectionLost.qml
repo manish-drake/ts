@@ -16,7 +16,7 @@ Item {
             color: Universal.background
             Text{
                 anchors.centerIn: parent
-                text:"Disconnected.."
+                text:"Disconnected"
                 font.pixelSize: 18
                 color: Universal.foreground
             }

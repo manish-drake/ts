@@ -9,6 +9,7 @@ Rectangle {
     height: 48
     color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
     property string currentOperator
+    property bool isController: true
 
     Text {
         id: operatorName
@@ -21,19 +22,35 @@ Rectangle {
         color: Universal.foreground
     }
 
-    Text {
-        id: tsName
-        anchors.verticalCenter: parent.verticalCenter
+    Item{
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.left: operatorName.right
         anchors.leftMargin: 10
         anchors.right: grid.left
         anchors.rightMargin: 10
-        font.pointSize: 10
-        text: "TestSet#5"
-        elide: Text.ElideRight
-        color: Universal.foreground
-        horizontalAlignment: Text.AlignHCenter
+        clip: true
+        Row{
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            spacing: 10
+            Image{
+                id: symbolImg
+                anchors.verticalCenter: parent.verticalCenter
+                source: isController ? "qrc:/img/img/Controller-25.png" : "qrc:/img/img/Eye-25.png"
+            }
+            Text {
+                id: tsName
+                anchors.verticalCenter: parent.verticalCenter
+                font.pointSize: 10
+                text: "TestSet14"
+                elide: Text.ElideRight
+                color: Universal.foreground
+            }
+        }
     }
+
     GridLayout{
         id:grid
         height: 38
@@ -62,7 +79,7 @@ Rectangle {
             Layout.row: 1
             Layout.column: 0
             text:"Direct"
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
@@ -87,7 +104,7 @@ Rectangle {
             Layout.row: 1
             Layout.column: 1
             text:"Battery"
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
@@ -112,7 +129,7 @@ Rectangle {
             Layout.row: 1
             Layout.column: 2
             text:"Wifi"
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
@@ -122,7 +139,7 @@ Rectangle {
             Layout.row: 0
             Layout.column: 3
             font.pixelSize: 12
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
@@ -131,7 +148,7 @@ Rectangle {
             id: dateText
             Layout.row: 1
             Layout.column: 3
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignCenter
             elide: Text.ElideRight
             color: Universal.foreground
         }
