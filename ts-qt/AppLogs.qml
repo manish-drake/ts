@@ -23,13 +23,34 @@ Rectangle{
     }
 
     Page {
-        id: item1
         anchors.fill: parent
         header: Rectangle{
             height: 40
             anchors.left:parent.left
             anchors.right:parent.right
             color: Universal.background
+
+            Item{
+                width: 50
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                Image {
+                    id: image1
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Upload to the Cloud-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: image1
+                    source: image1
+                    color: Universal.foreground
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:{}
+                }
+            }
+
             Text {
                 id: testTitle
                 anchors.centerIn: parent
@@ -40,7 +61,7 @@ Rectangle{
             }
 
             Item{
-                width: 40
+                width: 50
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
@@ -69,8 +90,57 @@ Rectangle{
                 contentHeight: grid.height + grid.y + 10
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
-
+                Column {
+                    id: grid
+                    y: 15
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 12
+                    spacing: 10
+                    RowLayout{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        Text {
+                            Layout.fillWidth: true
+                            text: qsTr("MESSAGE")
+                            font.pixelSize: 12
+                            font.bold: Font.Medium
+                            color: Universal.foreground
+                        }
+                        Text {
+                            Layout.column: 1
+                            text: qsTr("TYPE")
+                            font.pixelSize: 12
+                            font.bold: Font.Medium
+                            color: Universal.foreground
+                        }
+                    }
+                    Repeater{
+                        model: 1
+                        RowLayout{
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            spacing: 10
+                            Text {
+                                Layout.fillWidth: true
+                                text: qsTr("App Log Message..")
+                                font.pixelSize: 12
+                                color: Universal.foreground
+                                wrapMode: Text.Wrap
+                                clip: true
+                            }
+                            Text {
+                                Layout.column: 1
+                                Layout.alignment: Qt.AlignTop
+                                text: qsTr("Debug")
+                                font.pixelSize: 12
+                                color: Universal.foreground
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 }
+

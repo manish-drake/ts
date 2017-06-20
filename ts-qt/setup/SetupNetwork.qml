@@ -77,7 +77,7 @@ Rectangle{
                     GridLayout {
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        anchors.margins: 20
+                        anchors.margins: 15
                         rowSpacing: 22
                         columnSpacing: 10
 
@@ -360,7 +360,7 @@ Rectangle{
                     Column{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        anchors.margins: 20
+                        anchors.margins: 15
                         topPadding: 20
                         visible: remoteSwitch.checked
                         RowLayout{

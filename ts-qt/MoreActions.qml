@@ -88,7 +88,10 @@ Rectangle{
                 }
                 MouseArea{
                     anchors.fill: parent
-                    onClicked: navigationModel.currentView = navigationModel.getTargetView("App-Logs")
+                    onClicked:{
+                        moreActionsPopover.close()
+                        navigationModel.currentView = navigationModel.getTargetView("App-Logs")
+                    }
                 }
             }
             Text{

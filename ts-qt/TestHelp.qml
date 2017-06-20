@@ -13,18 +13,23 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.background
-            Image {
-                id: viewImage
-                anchors.verticalCenter: parent.verticalCenter
+            Item{
+                id: rectangle1
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.left: parent.left
-                anchors.leftMargin: 10
-                anchors.bottomMargin: 20
-                source: "qrc:/img/img/Help Filled-25.png"
-            }
-            ColorOverlay{
-                anchors.fill: viewImage
-                source: viewImage
-                color: Universal.foreground
+                anchors.leftMargin: 25
+                opacity: 0.4
+                Image {
+                    id: viewImage
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Help Filled-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: viewImage
+                    source: viewImage
+                    color: Universal.foreground
+                }
             }
 
             Column{
@@ -86,7 +91,7 @@ Item {
                     y: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 20
+                    anchors.margins: 15
                     rowSpacing: 20
                     Image {
                         id: planeImage

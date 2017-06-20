@@ -75,7 +75,7 @@ Rectangle{
                     y: 30
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 20
+                    anchors.margins: 15
                     rowSpacing: 22
                     columnSpacing: 30
 
