@@ -32,7 +32,8 @@ SOURCES += section.cpp \
     aviationvswr.cpp \
     aviationcl.cpp \
     aviationdtf.cpp \
-    snapshot.cpp
+    snapshot.cpp \
+    logging.cpp
 
 HEADERS += section.h\
         ts-core_global.h \
@@ -45,7 +46,8 @@ HEADERS += section.h\
     aviationcl.h \
     aviationdtf.h \
     aviationvswr.h \
-    snapshot.h
+    snapshot.h \
+    logging.h
 
 unix {
     target.path = /usr/lib
