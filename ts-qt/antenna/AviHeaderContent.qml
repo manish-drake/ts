@@ -66,7 +66,7 @@ Rectangle{
                 }
             }
         }
-         Item{
+        Item{
             height:25
             width: 35
             Layout.alignment: Qt.AlignVCenter
@@ -86,19 +86,13 @@ Rectangle{
             }
         }
     }
-
-    Column{
-        topPadding: 10
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        Text {
-            id: testTitle
-            text: detailTitle
-            font.pointSize: 12
-            font.weight: Font.DemiBold
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: Universal.foreground
-        }
+    Text {
+        id: testTitle
+        anchors.centerIn: parent
+        text: detailTitle
+        font.pointSize: 12
+        font.weight: Font.DemiBold
+        color: Universal.foreground
     }
 
     Item{

@@ -10,7 +10,7 @@ Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
     color: Universal.background
-    border.color: "white"
+    border.color: "lightgray"
     border.width: 1
     Column{
         id: columnLayout
@@ -64,16 +64,48 @@ Rectangle{
             text: "GUIDE"
             source: "qrc:/img/img/Info-24.png"
         }
-        Text{
-            text: "Version 0.0.01"
+        RowLayout{
+            anchors.left: parent.left
             anchors.right: parent.right
-            bottomPadding: 10
-            leftPadding: 10
-            rightPadding: 10
-            color: Universal.foreground
-            MouseArea{
-                anchors.fill: parent
-                onClicked: {moreActionsPopover.close();connectionReqPopup.open()}
+            anchors.margins: 10
+            height: 30
+            Item{
+                Layout.fillWidth: true
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                Row{
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    spacing: 5
+                    Image{
+                        anchors.verticalCenter: parent.verticalCenter
+                        source: "qrc:/img/img/Attach-18.png"
+                    }
+                    Text {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: "App Logs"
+                    }
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked:{
+                        moreActionsPopover.close()
+                        navigationModel.currentView = navigationModel.getTargetView("App-Logs")
+                    }
+                }
+            }
+            Text{
+                Layout.column: 1
+                text: "Version 0.0.01"
+                color: Universal.foreground
+                opacity: 0.7
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        moreActionsPopover.close();
+                        connectionReqPopup.open()
+                    }
+                }
             }
         }
     }

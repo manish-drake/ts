@@ -22,6 +22,7 @@ Rectangle {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.leftMargin: 25
+                opacity: 0.4
                 Image {
                     id: viewImage
                     anchors.centerIn: parent
@@ -60,7 +61,7 @@ Rectangle {
                     y: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 20
+                    anchors.margins: 15
                     spacing: 20
                     Rectangle{
                         anchors.left: parent.left

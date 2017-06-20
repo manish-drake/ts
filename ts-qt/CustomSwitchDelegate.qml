@@ -21,9 +21,9 @@ Item{
             width: 50
             anchors.top: parent.top
             anchors.bottom: parent.bottom
+            opacity:  switchDelegate.checked ? 0.25 : 1.0
             Image {
                 id: image
-                opacity:  switchDelegate.checked ? 0.4 : 1.0
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
             }

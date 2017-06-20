@@ -42,6 +42,8 @@
         <file>tests/TestDetail.qml</file>
         <file>tests/TestGroup.qml</file>
         <file>tests/TestGuide.qml</file>
+        <file>ConnectionLost.qml</file>
+        <file>AppLogs.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -79,5 +81,8 @@
         <file>img/Delete2-25.png</file>
         <file>img/Forward-16.png</file>
         <file>img/Network Cable-22.png</file>
+        <file>img/Controller-25.png</file>
+        <file>img/Eye-25.png</file>
+        <file>img/Attach-18.png</file>
     </qresource>
 </RCC>

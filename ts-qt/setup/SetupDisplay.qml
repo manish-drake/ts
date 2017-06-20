@@ -30,32 +30,23 @@ Rectangle{
             anchors.left:parent.left
             anchors.right:parent.right
             color: Universal.background
-
-            Column{
-                topPadding: 10
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                Text {
-                    id: testTitle
-                    text: qsTr("DISPLAY")
-                    font.pointSize: 12
-                    font.weight: Font.DemiBold
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    color: Universal.foreground
-                }
+            Text {
+                id: testTitle
+                anchors.centerIn: parent
+                text: qsTr("DISPLAY")
+                font.pointSize: 12
+                font.weight: Font.DemiBold
+                color: Universal.foreground
             }
 
             Item{
-                height:25
-                width: 25
-                Layout.fillHeight: true
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.margins: 10
+                width: 40
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.right: parent.right
                 Image {
                     id: closeImage
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.centerIn: parent
                     source: "qrc:/img/img/Delete-25.png"
                 }
                 ColorOverlay{
@@ -83,8 +74,8 @@ Rectangle{
                     y: 30
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 20
-                    rowSpacing: 25
+                    anchors.margins: 15
+                    rowSpacing: 22
                     columnSpacing: 20
 
                     Text {

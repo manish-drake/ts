@@ -53,13 +53,13 @@ ApplicationWindow {
             }
 
             Item{
-                width: 270
+                width: 300
                 anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
                     id: configPanelPopup
                     padding: 0
                     topMargin: 55
-                    width: 270
+                    width: 300
                     modal: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
                     onClosed: contentOpaqueBack.visible = false
@@ -74,7 +74,7 @@ ApplicationWindow {
                 Layout.maximumHeight: parent.height
                 Popup {
                     id: moreActionsPopover
-                    width: 160
+                    width: 200
                     padding: 0
                     topMargin: 55
                     rightMargin: 5
@@ -167,6 +167,18 @@ ApplicationWindow {
             color: opaqueBackground
         }
         contentItem: ConnectionAck{}
+    }
+
+    Popup {
+        id: connectionLostPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: opaqueBackground
+        }
+        contentItem: ConnectionLost{}
     }
 
 }
