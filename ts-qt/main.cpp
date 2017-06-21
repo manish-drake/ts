@@ -7,6 +7,8 @@
 #include <aviationmarkersmodel.h>
 #include <aviationvswrmodel.h>
 #include <snapshotmodel.h>
+#include <setupmodel.h>
+#include <controlnavigationmodel.h>
 
 
 #include "databuilder.h"
@@ -74,6 +76,12 @@ int main(int argc, char *argv[])
 
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
+
+        SetupModel setupModel;
+        context->setContextProperty("setupModel", &setupModel);
+
+        ControlNavigationModel controlNavigationModel;
+        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 

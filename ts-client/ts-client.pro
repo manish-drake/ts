@@ -28,7 +28,9 @@ SOURCES += client.cpp \
     requestfactory.cpp \
     response.cpp \
     scan.cpp \
-    session.cpp
+    session.cpp \
+    controlnavigation.cpp \
+    setup.cpp
 
 HEADERS += client.h\
         ts-client_global.h \
@@ -37,7 +39,9 @@ HEADERS += client.h\
     requestfactory.h \
     response.h \
     scan.h \
-    session.h
+    session.h \
+    controlnavigation.h \
+    setup.h
 
 unix {
     target.path = /usr/lib
