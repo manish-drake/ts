@@ -123,7 +123,7 @@ Rectangle{
                             spacing: 10
                             Text {
                                 Layout.fillWidth: true
-                                text: qsTr("App Log Message..")
+                                text: "App Log Message.."
                                 font.pixelSize: 12
                                 color: Universal.foreground
                                 wrapMode: Text.Wrap
@@ -132,7 +132,7 @@ Rectangle{
                             Text {
                                 Layout.column: 1
                                 Layout.alignment: Qt.AlignTop
-                                text: qsTr("Debug")
+                                text: "Debug"
                                 font.pixelSize: 12
                                 color: Universal.foreground
                             }
