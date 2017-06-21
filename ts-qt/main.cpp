@@ -77,11 +77,11 @@ int main(int argc, char *argv[])
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
-        SetupModel setupModel;
-        context->setContextProperty("setupModel", &setupModel);
+//        SetupModel setupModel;
+//        context->setContextProperty("setupModel", &setupModel);
 
-        ControlNavigationModel controlNavigationModel;
-        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
+//        ControlNavigationModel controlNavigationModel;
+//        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
