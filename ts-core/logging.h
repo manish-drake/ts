@@ -14,6 +14,9 @@ public:
     QDateTime dtLog() const;
     void setDtLog(const QDateTime &dtLog);
 
+    int msgType() const;
+    void setMsgType(const int &msgType);
+
     QString data() const;
     void setData(const QString &data);
 
@@ -28,13 +31,14 @@ public:
 
     QList<int> getDataList();
 
-    Logging(const QDateTime &dtLog, const QString &data, const QString &file, const int &line, const QString &function);
+    Logging(const QDateTime &dtLog, const int &msgType, const QString &data, const QString &file, const int &line, const QString &function);
     Logging() = default;
     ~Logging();
 
 private:
     int m_id = 0;
     QDateTime m_dtLog;
+    int m_msgType;
     QString m_data;
     QString m_file;
     int m_line;

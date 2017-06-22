@@ -8,9 +8,9 @@
 
 
 
-DataManager &DataManager::instance()
+DataManager &DataManager::instance(const QString &dbFile)
 {
-    static DataManager singelton;
+    static DataManager singelton(dbFile);
     return singelton;
 }
 
@@ -144,7 +144,7 @@ void DataManager::createRegistry()
                        std::shared_ptr<Dao>(new AviationClDao(*m_database)));
     daoRegistry.insert("aviation_Dtf",
                        std::shared_ptr<Dao>(new AviationDtfDao(*m_database)));
-    daoRegistry.insert("logging",std::shared_ptr<Dao>(new LoggingDao(*m_database)));
+    daoRegistry.insert("logs",std::shared_ptr<Dao>(new LoggingDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)

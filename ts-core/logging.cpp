@@ -22,6 +22,17 @@ void Logging::setDtLog(const QDateTime &dtLog)
     this->m_dtLog = dtLog;
 }
 
+int Logging::msgType() const
+{
+    return this->m_msgType;
+}
+
+void Logging::setMsgType(const int &msgType)
+{
+    this->m_msgType = msgType;
+}
+
+
 QString Logging::data() const
 {
     return this->m_data;
@@ -62,9 +73,10 @@ void Logging::setFunction(const QString &function)
     this->m_function = function;
 }
 
-Logging::Logging(const QDateTime &dtLog, const QString &data, const QString &file, const int &line, const QString &function):
+Logging::Logging(const QDateTime &dtLog, const int &msgType, const QString &data, const QString &file, const int &line, const QString &function):
     m_id {0},
     m_dtLog {dtLog},
+    m_msgType{msgType},
     m_data {data},
     m_file {file},
     m_line {line},

@@ -1,6 +1,5 @@
 #include "loggingdao.h"
 
-
 #include <QDebug>
 #include <QSqldatabase>
 #include <QSqlQuery>
@@ -24,6 +23,7 @@ void LoggingDao::init() const
                     "CREATE TABLE logs "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                     "dtLog DATETIME,"
+                    "msgType INTEGER,"
                     "data TEXT,"
                     "file TEXT,"
                     "line INTEGER,"
@@ -38,10 +38,11 @@ void LoggingDao::addLogging(Logging &logging) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO  logs"
-                "(dtLogs, data, file, line, function) "
-                "VALUES (:dtLogs, :data, :file, :line, :function)");
+                "(dtLog, msgType, data, file, line, function) "
+                "VALUES (:dtLog, :msgType, :data, :file, :line, :function)");
     query.prepare(strQuery);
     query.bindValue(":dtLog", logging.dtLog());
+    query.bindValue(":msgType", logging.msgType());
     query.bindValue(":data", logging.data());
     query.bindValue(":file", logging.file());
     query.bindValue(":line", logging.line());
@@ -83,6 +84,7 @@ unique_ptr<vector<unique_ptr<Logging>>> LoggingDao:: logs() const
     while (query.next()) {
         unique_ptr<Logging> logging(
                     new Logging(query.value("dtLog").toDateTime(),
+                                query.value("msgType").toInt(),
                                 query.value("data").toString(),
                                 query.value("file").toString(),
                                 query.value("line").toInt(),

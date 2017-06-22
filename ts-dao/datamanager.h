@@ -31,7 +31,7 @@ class TSDAOSHARED_EXPORT DataManager
 public:
     static void debugQuery(const QSqlQuery &query) ;
     static void deleteExitingDBFile();
-    static DataManager &instance();
+    static DataManager &instance(const QString &dbFile = DB_FILE);
     std::shared_ptr<const SectionDao> sectionDao() const;
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;
