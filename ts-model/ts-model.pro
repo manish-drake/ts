@@ -34,7 +34,9 @@ SOURCES += \
     aviationclmodel.cpp \
     aviationdtfmodel.cpp \
     aviationmarkersmodel.cpp \
-    aviationvswrmodel.cpp
+    aviationvswrmodel.cpp \
+    controlnavigationmodel.cpp \
+    setupmodel.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -49,7 +51,9 @@ HEADERS +=\
     aviationclmodel.h \
     aviationdtfmodel.h \
     aviationmarkersmodel.h \
-    aviationvswrmodel.h
+    aviationvswrmodel.h \
+    controlnavigationmodel.h \
+    setupmodel.h
 
 unix {
     target.path = /usr/lib
