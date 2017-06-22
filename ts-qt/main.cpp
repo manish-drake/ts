@@ -23,7 +23,7 @@
 #include "zmq.hpp"
 #include "dummygraphdata.h"
 
-
+#include "../ts-smtp/SmtpMime"
 
 const int DATA_CREATION_MODE = 0;
 
@@ -77,11 +77,11 @@ int main(int argc, char *argv[])
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
-//        SetupModel setupModel;
-//        context->setContextProperty("setupModel", &setupModel);
+        //        SetupModel setupModel;
+        //        context->setContextProperty("setupModel", &setupModel);
 
-//        ControlNavigationModel controlNavigationModel;
-//        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
+        //        ControlNavigationModel controlNavigationModel;
+        //        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
@@ -93,6 +93,49 @@ int main(int argc, char *argv[])
                          &testModel, SLOT(currentViewChanged(const int&)));
 
         engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
+
+
+
+//        // First we need to create an SmtpClient object
+//        // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
+
+//        SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+
+//        // We need to set the username (your email address) and the password
+//        // for smtp authentification.
+
+//        smtp.setUser("gurpreet.drake@gmail.com");
+//        smtp.setPassword("drake8283");
+
+//        // Now we create a MimeMessage object. This will be the email.
+
+//        MimeMessage message;
+
+//        message.setSender(new EmailAddress("gurpreet.drake@gmail.com", "Gurpreet"));
+//        message.addRecipient(new EmailAddress("gurpreet.drake@hotmail.com", "Gurp"));
+//        message.setSubject("SmtpClient for Qt - Demo");
+
+//        // Now add some text to the email.
+//        // First we create a MimeText object.
+
+//        MimeText text;
+
+//        text.setText("Hi,\nThis is a simple email message.\n");
+
+//        // Now add it to the mail
+
+//        message.addPart(&text);
+
+//        // Now we can send the mail
+
+//        smtp.connectToHost();
+//        smtp.login();
+//        smtp.sendMail(message);
+//        smtp.quit();
+
+
+
+
 
         return app.exec();
     }

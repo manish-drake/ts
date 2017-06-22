@@ -1,6 +1,7 @@
 TEMPLATE = app
 
 QT += qml quick
+QT += network
 
 CONFIG += c++11
 
@@ -72,6 +73,13 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
 
 INCLUDEPATH += $$PWD/../ts-client
 DEPENDPATH += $$PWD/../ts-client
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/debug/ -lts-smtp
+else:unix: LIBS += -L$$OUT_PWD/../ts-smtp/ -lts-smtp
+
+INCLUDEPATH += $$PWD/../ts-smtp
+DEPENDPATH += $$PWD/../ts-smtp
 
 unix|win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 

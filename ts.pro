@@ -5,4 +5,5 @@ SUBDIRS += \
     ts-dao \
     ts-model \
     ts-client \
-    ts-qt
+    ts-qt \
+    ts-smtp
