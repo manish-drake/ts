@@ -4,7 +4,7 @@ import com.ti.controls 1.0
 Item {
     anchors.centerIn: parent
     Text{
-        color:"#C3C3C3"
+        color: "White"
         anchors.centerIn: parent
         text: qsTr("Home placeholder")
     }

@@ -41,18 +41,6 @@ ApplicationWindow {
                 visible: false
             }
 
-            Popup {
-                id: sideMenuPopup
-                width: 200
-                height: parent.height
-                modal: true
-                closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                padding: 0
-                onClosed: contentOpaqueBack.visible = false
-                onOpened: contentOpaqueBack.visible = true
-                contentItem: SideMenu{}
-            }
-
             Item{
                 width: 300
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -89,8 +77,28 @@ ApplicationWindow {
         }
 
         footer: Footer{
+            id: footer
             currentOperator: configPanel.currentOperator
         }
+    }
+
+    Rectangle{
+        id: fullOpaqueBack
+        anchors.fill: parent
+        color: opaqueBackground
+        visible: false
+    }
+
+    Popup {
+        id: sideMenuPopup
+        width: 280
+        height: parent.height - footer.height
+        modal: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+        padding: 0
+        onClosed: fullOpaqueBack.visible = false
+        onOpened: fullOpaqueBack.visible = true
+        contentItem: SideMenu{}
     }
 
     Popup {
