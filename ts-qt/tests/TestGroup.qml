@@ -8,6 +8,7 @@ import QtQuick.Controls.Universal 2.1
 Item{
     anchors.fill: parent
     property string guideTestName
+
     ListView{
         id: grid
         anchors.fill: parent
@@ -26,6 +27,7 @@ Item{
                 radius:3
             }
         }
+
         Component{
             id: testCardDelegate
             Item{
@@ -60,14 +62,14 @@ Item{
                         clip: true
                         spacing: 10
                         RowLayout{
-                                Text {
-                                    Layout.fillWidth: true
-                                    elide:Text.ElideRight
-                                    text: name
-                                    font.pixelSize: 16
-                                    font.weight: Font.DemiBold
-                                    color: Universal.accent
-                                }
+                            Text {
+                                Layout.fillWidth: true
+                                elide:Text.ElideRight
+                                text: name
+                                font.pixelSize: 16
+                                font.weight: Font.DemiBold
+                                color: Universal.accent
+                            }
                             Item{
                                 Layout.column: 2
                                 width: 35
@@ -134,7 +136,7 @@ Item{
                             }
 
                             RowLayout {
-                                id: gridLayout1
+                                id: rowLayout1
                                 Layout.column: 4
                                 spacing: 5
                                 Item{
