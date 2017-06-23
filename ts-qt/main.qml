@@ -14,10 +14,11 @@ ApplicationWindow {
     width: 480
     height: 800
     title: qsTr("TS")
-    property string headerTitle: "Start"
+    property string headerTitle: "Home"
     property var _theme: Universal.Light
     Universal.theme: _theme
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
+    Universal.accent: "#01ADEE";
     Page {
         anchors.fill: parent
 
@@ -25,7 +26,7 @@ ApplicationWindow {
 
         contentItem: Rectangle {
             id:contentRect
-            color: Universal.theme == Universal.Dark ? "#444444" : "#f4f4f4"
+            color: Universal.theme == Universal.Dark ? "#444444" : "#D1D2D3"
             Loader {
                 id:contentLoader
                 anchors.fill: parent

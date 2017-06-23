@@ -6,6 +6,6 @@ Item {
     Text{
         color:"#C3C3C3"
         anchors.centerIn: parent
-        text: qsTr("Start placeholder")
+        text: qsTr("Home placeholder")
     }
 }

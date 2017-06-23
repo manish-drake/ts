@@ -39,8 +39,8 @@ int DataBuilder::build()
     View vwGlobal("Global");
     viewDao->addView(vwGlobal);
 
-    View vwStart("Start");
-    viewDao->addView(vwStart);
+    View vwHome("Home");
+    viewDao->addView(vwHome);
 
     View vwADSB("ADSB");
     viewDao->addView(vwADSB);
@@ -164,8 +164,8 @@ int DataBuilder::build()
 
     SectionModel secModel{};
 
-    Section secStart("Start");
-    secModel.addSection(secStart);
+    Section secHome("Home");
+    secModel.addSection(secHome);
 
     Section secTransponder("Transponder");
     secModel.addSection(secTransponder);
@@ -1423,8 +1423,8 @@ int DataBuilder::build()
     Navigation globalToAppLogs(vwGlobal.id(), "App-Logs",0, vwAppLogs.id());
     navigationDaoPtr->addNavigation(globalToAppLogs);
 
-    Navigation appLogsToStart(vwAppLogs.id(), "back", 0, vwStart.id());
-    navigationDaoPtr->addNavigation(appLogsToStart);
+    Navigation appLogsToHome(vwAppLogs.id(), "back", 0, vwHome.id());
+    navigationDaoPtr->addNavigation(appLogsToHome);
 
     return 1;
 }

@@ -6,8 +6,8 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: rectangle4
-    height: 48
-    color: Universal.theme == Universal.Dark ? "black" : "#EEEEEE"
+    height: 35
+    color: Universal.theme == Universal.Dark ? "black" : "#A7A9AC"
     property string currentOperator
     property bool isController: true
 
@@ -19,7 +19,7 @@ Rectangle {
         font.pointSize: 10
         text: currentOperator
         elide: Text.ElideRight
-        color: Universal.foreground
+        color: "#FFF"
     }
 
     Item{
@@ -39,6 +39,11 @@ Rectangle {
                 id: symbolImg
                 anchors.verticalCenter: parent.verticalCenter
                 source: isController ? "qrc:/img/img/Controller-25.png" : "qrc:/img/img/Eye-25.png"
+                ColorOverlay{
+                    anchors.fill: symbolImg
+                    source: symbolImg
+                    color: "#FFF"
+                }
             }
             Text {
                 id: tsName
@@ -46,7 +51,7 @@ Rectangle {
                 font.pointSize: 10
                 text: "TestSet14"
                 elide: Text.ElideRight
-                color: Universal.foreground
+                color: "#FFF"
             }
         }
     }
@@ -56,11 +61,9 @@ Rectangle {
         height: 38
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
-        anchors.rightMargin: 10
-        rowSpacing: 2
-        columnSpacing: 12
+        anchors.rightMargin: 20
+        columnSpacing: 50
         Item{
-            Layout.row: 0
             Layout.column: 0
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -72,20 +75,11 @@ Rectangle {
             ColorOverlay{
                 anchors.fill: img1
                 source: img1
-                color: Universal.foreground
+                color: "#FFF"
             }
-        }
-        Text{
-            Layout.row: 1
-            Layout.column: 0
-            text:"Direct"
-            Layout.alignment: Qt.AlignCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
         }
 
         Item{
-            Layout.row: 0
             Layout.column: 1
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -97,20 +91,11 @@ Rectangle {
             ColorOverlay{
                 anchors.fill: img2
                 source: img2
-                color: Universal.foreground
+                color: "#FFF"
             }
-        }
-        Text{
-            Layout.row: 1
-            Layout.column: 1
-            text:"Battery"
-            Layout.alignment: Qt.AlignCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
         }
 
         Item{
-            Layout.row: 0
             Layout.column: 2
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -122,45 +107,7 @@ Rectangle {
             ColorOverlay{
                 anchors.fill: img3
                 source: img3
-                color: Universal.foreground
-            }
-        }
-        Text{
-            Layout.row: 1
-            Layout.column: 2
-            text:"Wifi"
-            Layout.alignment: Qt.AlignCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
-        }
-
-        Text{
-            id:timeText
-            Layout.row: 0
-            Layout.column: 3
-            font.pixelSize: 12
-            Layout.alignment: Qt.AlignCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
-        }
-
-        Text{
-            id: dateText
-            Layout.row: 1
-            Layout.column: 3
-            Layout.alignment: Qt.AlignCenter
-            elide: Text.ElideRight
-            color: Universal.foreground
-        }
-
-        Timer{
-            interval: 1000
-            running: true
-            repeat: true
-            triggeredOnStart: true
-            onTriggered: {
-                timeText.text = Qt.formatDateTime(new Date(),"hh:mm");
-                dateText.text = Qt.formatDateTime(new Date(),"M/d/yy")
+                color: "#FFF"
             }
         }
 
