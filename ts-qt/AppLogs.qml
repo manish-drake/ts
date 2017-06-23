@@ -116,14 +116,15 @@ Rectangle{
                         }
                     }
                     Repeater{
-                        model: 1
+                        model: loggingModel
                         RowLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right
                             spacing: 10
                             Text {
                                 Layout.fillWidth: true
-                                text: "App Log Message.."
+//                                text: "App Log Message.."
+                                text: data
                                 font.pixelSize: 12
                                 color: Universal.foreground
                                 wrapMode: Text.Wrap
@@ -132,7 +133,8 @@ Rectangle{
                             Text {
                                 Layout.column: 1
                                 Layout.alignment: Qt.AlignTop
-                                text: "Debug"
+//                                text: "Debug"
+                                text: msgType
                                 font.pixelSize: 12
                                 color: Universal.foreground
                             }

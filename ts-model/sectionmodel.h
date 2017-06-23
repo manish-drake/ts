@@ -3,6 +3,7 @@
 
 #include <QAbstractListModel>
 #include <QHash>
+#include <QMessageLogger>
 
 #include <vector>
 #include <memory>

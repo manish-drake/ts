@@ -17,6 +17,7 @@
 #include "aviationvswrdao.h"
 #include "aviationcldao.h"
 #include "aviationdtfdao.h"
+#include "loggingdao.h"
 
 #include "dao.h"
 
@@ -30,7 +31,7 @@ class TSDAOSHARED_EXPORT DataManager
 public:
     static void debugQuery(const QSqlQuery &query) ;
     static void deleteExitingDBFile();
-    static DataManager &instance();
+    static DataManager &instance(const QString &dbFile = DB_FILE);
     std::shared_ptr<const SectionDao> sectionDao() const;
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;
@@ -43,6 +44,7 @@ public:
     std::shared_ptr<const AviationVswrDao> aviationVswrDao() const;
     std::shared_ptr<const AviationClDao> aviationClDao() const;
     std::shared_ptr<const AviationDtfDao> aviationDtfDao() const;
+    std::shared_ptr<const LoggingDao> loggingDao() const;
     ~DataManager();
 
 protected:

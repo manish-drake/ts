@@ -36,7 +36,8 @@ SOURCES += datamanager.cpp \
     aviationdtfdao.cpp \
     aviationmarkersdao.cpp \
     aviationvswrdao.cpp \
-    snapshotdao.cpp
+    snapshotdao.cpp \
+    loggingdao.cpp
 
 HEADERS += datamanager.h\
         ts-dao_global.h \
@@ -51,7 +52,8 @@ HEADERS += datamanager.h\
     aviationvswrdao.h \
     aviationdtfdao.h \
     aviationmarkersdao.h \
-    snapshotdao.h
+    snapshotdao.h \
+    loggingdao.h
 
 unix {
     target.path = /usr/lib
