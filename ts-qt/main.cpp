@@ -133,7 +133,7 @@ int main(int argc, char *argv[])
 //        // We need to set the username (your email address) and the password
 //        // for smtp authentification.
 
-//        smtp.setUser("gurpreet.drake@gmail.com");
+//        smtp.setUser("gurpreet.drake@gmail.com"/);
 //        smtp.setPassword("drake8283");
 
 //        // Now we create a MimeMessage object. This will be the email.

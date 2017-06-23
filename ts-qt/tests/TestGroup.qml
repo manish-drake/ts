@@ -12,7 +12,7 @@ Item{
     ListView{
         id: grid
         anchors.fill: parent
-        anchors.margins: 5
+        anchors.margins: 8
         model: testModel
         delegate: testCardDelegate
         focus: true
@@ -37,7 +37,7 @@ Item{
                 Rectangle {
                     id: wrapper
                     anchors.fill: parent
-                    anchors.margins: 5
+                    anchors.margins: 3
                     color: Universal.background
                     border.color: "#0d000000"
                     border.width: 1

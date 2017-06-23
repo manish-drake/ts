@@ -84,5 +84,6 @@
         <file>img/Attach-18.png</file>
         <file>img/Full Battery-25.png</file>
         <file>img/wifi-signal-waves.png</file>
+        <file>img/profile-circle.png</file>
     </qresource>
 </RCC>
