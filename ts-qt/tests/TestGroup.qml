@@ -8,12 +8,10 @@ import QtQuick.Controls.Universal 2.1
 Item{
     anchors.fill: parent
     property string guideTestName
-    GridView{
+    ListView{
         id: grid
         anchors.fill: parent
         anchors.margins: 5
-        cellHeight: 200
-        cellWidth: width/2;
         model: testModel
         delegate: testCardDelegate
         focus: true
@@ -23,7 +21,7 @@ Item{
                 anchors.fill: parent
                 anchors.margins: 5
                 color: "transparent"
-                border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                border.color: Universal.foreground
                 border.width: 1
                 radius:3
             }
@@ -31,8 +29,9 @@ Item{
         Component{
             id: testCardDelegate
             Item{
-                height: grid.cellHeight
-                width: grid.cellWidth
+                anchors.left:parent.left
+                anchors.right: parent.right
+                height:120
                 Rectangle {
                     id: wrapper
                     anchors.fill: parent
@@ -55,140 +54,122 @@ Item{
                         onClicked: grid.currentIndex = index
                         onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name});
                     }
-                    GridLayout{
+                    ColumnLayout{
                         anchors.fill: parent
                         anchors.margins: 10
-                        rowSpacing: 0
-                        columnSpacing: 0
                         clip: true
-                        Item{
-                            Layout.row:0
-                            Layout.fillWidth: true
-                            height: 25
-                            GridLayout{
-                                anchors.fill: parent
-                                rowSpacing: 0
-                                columnSpacing: 0
-                                Item{
-                                    Layout.column: 0
-                                    Layout.fillHeight: true
-                                    width: 35
-                                    Image {
-                                        id: guideImage
-                                        anchors.centerIn: parent
-                                        source: "qrc:/img/img/Info-24.png"
-                                    }
-                                    ColorOverlay {
-                                        anchors.fill: guideImage
-                                        source: guideImage
-                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            guideTestName = name
-                                            guidePopup.open()
-                                        }
-                                        onPressed: parent.opacity = 0.5
-                                        onReleased: parent.opacity = 1
-                                    }
-                                }
-
-                                Item{
-                                    Layout.column: 1
-                                    Layout.fillHeight: true
-                                    width: 35
-                                    Image {
-                                        id: saveImage
-                                        anchors.centerIn: parent
-                                        source: "qrc:/img/img/Download-22.png"
-                                    }
-                                    ColorOverlay {
-                                        anchors.fill: saveImage
-                                        source: saveImage
-                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            //  popupCenter.open()
-                                        }
-                                        onPressed: parent.opacity = 0.5
-                                        onReleased: parent.opacity = 1
-                                    }
-                                }
-
-                                Item{
-                                    Layout.column: 2
+                        spacing: 10
+                        RowLayout{
+                                Text {
                                     Layout.fillWidth: true
+                                    elide:Text.ElideRight
+                                    text: name
+                                    font.pixelSize: 16
+                                    font.weight: Font.DemiBold
+                                    color: Universal.accent
                                 }
+                            Item{
+                                Layout.column: 2
+                                width: 35
+                                height: 35
+                                Image {
+                                    id: guideImage
+                                    anchors.centerIn: parent
+                                    source: "qrc:/img/img/Info-24.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: guideImage
+                                    source: guideImage
+                                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        guideTestName = name
+                                        guidePopup.open()
+                                    }
+                                    onPressed: parent.opacity = 0.5
+                                    onReleased: parent.opacity = 1
+                                }
+                            }
 
+                            Item{
+                                Layout.column: 2
+                                width: 35
+                                height: 35
+                                Image {
+                                    id: saveImage
+                                    anchors.centerIn: parent
+                                    source: "qrc:/img/img/Download-22.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: saveImage
+                                    source: saveImage
+                                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        //  popupCenter.open()
+                                    }
+                                    onPressed: parent.opacity = 0.5
+                                    onReleased: parent.opacity = 1
+                                }
+                            }
+
+                            Item{
+                                Layout.column: 3
+                                width: 35
+                                height: 35
+                                Image {
+                                    id: favImage
+                                    anchors.centerIn: parent
+                                    source: "qrc:/img/img/Star Filled-20.png"
+                                }
+                                ColorOverlay {
+                                    anchors.fill: favImage
+                                    source: favImage
+                                    color: "#666666"
+                                }
+                            }
+
+                            RowLayout {
+                                id: gridLayout1
+                                Layout.column: 4
+                                spacing: 5
                                 Item{
-                                    Layout.column: 3
-                                    Layout.fillHeight: true
-                                    width: 35
+                                    width: album.width
+                                    height: album.height
                                     Image {
-                                        id: favImage
-                                        anchors.centerIn: parent
-                                        source: "qrc:/img/img/Star Filled-20.png"
+                                        id: album
+                                        source: "qrc:/img/img/album.png"
                                     }
                                     ColorOverlay {
-                                        anchors.fill: favImage
-                                        source: favImage
+                                        anchors.fill: album
+                                        source: album
                                         color: "#666666"
                                     }
                                 }
-
-                                GridLayout {
-                                    id: gridLayout1
-                                    Layout.column: 4
-                                    Layout.fillHeight: true
-                                    columnSpacing: 5
-                                    Item{
-                                        width: album.width
-                                        height: album.height
-                                        Image {
-                                            id: album
-                                            source: "qrc:/img/img/album.png"
-                                        }
-                                        ColorOverlay {
-                                            anchors.fill: album
-                                            source: album
-                                            color: "#666666"
-                                        }
-                                    }
-                                    Text {
-                                        Layout.column: 1
-                                        text: "7"
-                                        font.pointSize: 10
-                                        color: "#666666"
-                                        font.bold: true
-                                    }
+                                Text {
+                                    Layout.column: 1
+                                    text: "7"
+                                    font.pointSize: 10
+                                    color: "#666666"
+                                    font.bold: true
                                 }
                             }
                         }
-                        Item{
+                        Rectangle{
                             Layout.row: 1
-                            Layout.fillHeight: true
                             Layout.fillWidth: true
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
-                                anchors.horizontalCenter: parent.horizontalCenter
-                                elide:Text.ElideRight
-                                text: name
-                                font.pointSize: 12
-                                font.weight: Font.DemiBold
-                                color: Universal.foreground
-                            }
+                            height: 1
+                            color:Universal.foreground
+                            opacity:0.1
                         }
                         Item{
                             Layout.row: 2
-                            height: 50
-                            Layout.fillWidth: true
-
+                            Layout.fillHeight: true
                             Text {
-                                anchors.left:parent.left
-                                anchors.right:parent.right
                                 elide:Text.ElideRight
                                 text: "RECENT TEST RESULTS"
                                 font.pointSize: 10
@@ -196,6 +177,7 @@ Item{
                                 opacity: 0.8
                             }
                         }
+
                     }
                 }
             }

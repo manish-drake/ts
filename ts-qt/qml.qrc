@@ -50,7 +50,6 @@
         <file>img/Circled Chevron Down-30.png</file>
         <file>img/Delete-25.png</file>
         <file>img/Sun Filled-25.png</file>
-        <file>img/wifi-signal-waves.png</file>
         <file>img/filter-results-button.png</file>
         <file>img/Minus-30.png</file>
         <file>img/Help Filled-25.png</file>
@@ -72,7 +71,6 @@
         <file>img/aeroplane.png</file>
         <file>img/Expand Arrow-20.png</file>
         <file>img/Collapse Arrow-20.png</file>
-        <file>img/Full Battery-25.png</file>
         <file>img/play-button.png</file>
         <file>img/stop-button.png</file>
         <file>img/Nintendo DS-25.png</file>
@@ -84,5 +82,7 @@
         <file>img/Controller-25.png</file>
         <file>img/Eye-25.png</file>
         <file>img/Attach-18.png</file>
+        <file>img/Full Battery-25.png</file>
+        <file>img/wifi-signal-waves.png</file>
     </qresource>
 </RCC>

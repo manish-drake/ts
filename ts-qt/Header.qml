@@ -5,13 +5,7 @@ import QtGraphicalEffects 1.0
 Rectangle {
     id: content
     height: 48
-    color: Universal.accent
-    ColorOverlay{
-        anchors.fill: content
-        source: content
-        color: "#33000000"
-        visible: Universal.theme == Universal.Dark
-    }
+    color: Universal.background
 
     Item{
         id: toggleMenu
@@ -19,9 +13,15 @@ Rectangle {
         anchors.bottom: parent.bottom
         width: 50
         Image {
+            id:toggleMenuImg
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             source: "qrc:/img/img/Menu-25.png"
+        }
+        ColorOverlay{
+            anchors.fill: toggleMenuImg
+            source: toggleMenuImg
+            color: Universal.accent
         }
         MouseArea {
             anchors.fill: parent
@@ -40,33 +40,33 @@ Rectangle {
         anchors.left: toggleMenu.right
         anchors.right: toggleConfigPanel.left
         font.bold: Font.DemiBold
-        color: "#ffffff"
+        color: Universal.accent
         font.pointSize: 12
         anchors.leftMargin: 5
         elide: Text.ElideRight
     }
 
-     Item{
-        id: toggleConfigPanel
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: 50
-        Image {
-            id: imageCenter
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:/img/img/Circled Chevron Down-30.png"
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                configPanelPopup.open()
-            }
-            onPressed: parent.opacity = 0.5
-            onReleased: parent.opacity = 1
-        }
-    }
+//     Item{
+//        id: toggleConfigPanel
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.top: parent.top
+//        anchors.bottom: parent.bottom
+//        width: 50
+//        Image {
+//            id: imageCenter
+//            anchors.verticalCenter: parent.verticalCenter
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            source: "qrc:/img/img/Circled Chevron Down-30.png"
+//        }
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: {
+//                configPanelPopup.open()
+//            }
+//            onPressed: parent.opacity = 0.5
+//            onReleased: parent.opacity = 1
+//        }
+//    }
      Item{
         anchors.right: parent.right
         anchors.top: parent.top
@@ -77,19 +77,19 @@ Rectangle {
             anchors.verticalCenter:  parent.verticalCenter
             spacing: 3
             Rectangle{
-                color:"#ffffff"
+                color:Universal.accent
                 height: 5
                 width: 5
                 radius: 2
             }
             Rectangle{
-                color:"#ffffff"
+                color:Universal.accent
                 height: 5
                 width: 5
                 radius: 2
             }
             Rectangle{
-                color:"#ffffff"
+                color:Universal.accent
                 height: 5
                 width: 5
                 radius: 2
