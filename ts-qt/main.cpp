@@ -21,21 +21,25 @@
 #include "client.h"
 #include "zmq.hpp"
 #include "dummygraphdata.h"
+#include "loggingmodel.h"
 
 #include "datamanager.h"
 #include "logging.h"
 
 #include "../ts-smtp/SmtpMime"
 
-const int DATA_CREATION_MODE = 0;
+const int DATA_CREATION_MODE = 1;
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
     QDateTime current = QDateTime::currentDateTime();
-    //    auto loggingDao = DataManager::instance("c:/git/qt/ts/log.db").loggingDao();
-    //    auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
-    //    loggingDao->addLogging(log);
+//    if(type >= 1)
+//    {
+//        auto loggingDao = DataManager::instance("c:/git/qt/ts/log.db").loggingDao();
+//        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
+//        loggingDao->addLogging(log);
+//    }
 
     //    switch (type) {
     //    case QtDebugMsg:
@@ -62,9 +66,9 @@ int main(int argc, char *argv[])
         DataBuilder builder;
         return builder.build();
     } else {
-        qInstallMessageHandler(myMessageOutput);
-
         QGuiApplication app(argc, argv);
+
+        qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
         QQmlApplicationEngine engine;
@@ -106,6 +110,9 @@ int main(int argc, char *argv[])
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
+        LoggingModel loggingModel;
+        context->setContextProperty("loggingModel", &loggingModel);
+
         //        SetupModel setupModel;
         //        context->setContextProperty("setupModel", &setupModel);
 
@@ -123,44 +130,42 @@ int main(int argc, char *argv[])
 
         engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
 
+        //        // First we need to create an SmtpClient object
+        //        // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
 
+        //        SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
 
-//        // First we need to create an SmtpClient object
-//        // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
+        //        // We need to set the username (your email address) and the password
+        //        // for smtp authentification.
 
-//        SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+        //        smtp.setUser("gurpreet.drake@gmail.com");
+        //        smtp.setPassword("drake8283");
 
-//        // We need to set the username (your email address) and the password
-//        // for smtp authentification.
+        //        // Now we create a MimeMessage object. This will be the email.
 
-//        smtp.setUser("gurpreet.drake@gmail.com");
-//        smtp.setPassword("drake8283");
+        //        MimeMessage message;
 
-//        // Now we create a MimeMessage object. This will be the email.
+        //        message.setSender(new EmailAddress("gurpreet.drake@gmail.com", "Gurpreet"));
+        //        message.addRecipient(new EmailAddress("gurpreet.drake@hotmail.com", "Gurp"));
+        //        message.setSubject("SmtpClient for Qt - Demo");
 
-//        MimeMessage message;
+        //        // Now add some text to the email.
+        //        // First we create a MimeText object.
 
-//        message.setSender(new EmailAddress("gurpreet.drake@gmail.com", "Gurpreet"));
-//        message.addRecipient(new EmailAddress("gurpreet.drake@hotmail.com", "Gurp"));
-//        message.setSubject("SmtpClient for Qt - Demo");
+        //        MimeText text;
 
-//        // Now add some text to the email.
-//        // First we create a MimeText object.
+        //        text.setText("Hi,\nThis is a simple email message.\n");
 
-//        MimeText text;
+        //        // Now add it to the mail
 
-//        text.setText("Hi,\nThis is a simple email message.\n");
+        //        message.addPart(&text);
 
-//        // Now add it to the mail
+        //        // Now we can send the mail
 
-//        message.addPart(&text);
-
-//        // Now we can send the mail
-
-//        smtp.connectToHost();
-//        smtp.login();
-//        smtp.sendMail(message);
-//        smtp.quit();
+        //        smtp.connectToHost();
+        //        smtp.login();
+        //        smtp.sendMail(message);
+        //        smtp.quit();
 
         return app.exec();
     }
