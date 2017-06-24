@@ -163,7 +163,7 @@ Page {
 
     footer: Rectangle{
         id:testFooterRect
-        height: 50
+        height: 80
         anchors.left: parent.left
         anchors.right: parent.right
         color: Universal.background
@@ -180,33 +180,21 @@ Page {
             }
 
         }
-        Item{
+
+        Rectangle{
             id: toggleButton
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
-            height: 40
-            width: 40
+            height: 60
+            width: 60
+            radius: 30
+            color: Universal.accent
             property alias imageSource: buttonImage.source
-            signal selected()
-            signal pushed()
-            state: "off"
-            onStateChanged: {
-                if (state == "on") {
-                    selected()
-                }
-                else{
-                    pushed()
-                }
-            }
+            state: "play"
             Image {
                 id: buttonImage
+                anchors.centerIn: parent
                 smooth: true
-                anchors.fill: parent
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                }
             }
             MouseArea {
                 id: mouseArea
@@ -214,45 +202,37 @@ Page {
                 onPressed: {
                     zmq.toggleScan()
                     console.log(zmq.scanResults)
-                    if (parent.state == "off") {
-                        parent.state = "on"
+                    if (parent.state == "play") {
+                        parent.state = "pause"
+                    }
+                    else if(parent.state == "pause"){
+                        parent.state = "stop"
                     }
                     else{
-                        parent.state = "off"
+                        parent.state = "play"
                     }
                 }
             }
-            states: [
+            states: [                
                 State {
-                    name: "on"
+                    name: "play"
                     PropertyChanges {
                         target: toggleButton
-                        scale: 0.95
-                        imageSource: "qrc:/img/img/stop-button.png"
-                    }
-                    //                        PropertyChanges {
-                    //                            target: scanResults
-                    //                            visible:true
-                    //                        }
-                },
-                State {
-                    name: "off"
-                    PropertyChanges {
-                        target: toggleButton
-                        scale: 1/0.95
                         imageSource: "qrc:/img/img/play-button.png"
                     }
-                }
-            ]
-            transitions: [
-                Transition {
-                    from: "off"
-                    to: "on"
-                    reversible: true
-                    PropertyAnimation {
+                },
+                State {
+                    name: "stop"
+                    PropertyChanges {
                         target: toggleButton
-                        properties: "scale"
-                        duration: 100
+                        imageSource: "qrc:/img/img/stop-button.png"
+                    }
+                },
+                State {
+                    name: "pause"
+                    PropertyChanges {
+                        target: toggleButton
+                        imageSource: "qrc:/img/img/pause-button.png"
                     }
                 }
             ]
