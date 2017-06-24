@@ -46,7 +46,10 @@ Item{
                     }
                     ColumnLayout{
                         anchors.fill: parent
-                        anchors.margins: 10
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+                        anchors.topMargin: 5
+                        anchors.bottomMargin: 5
                         clip: true
                         spacing: 10
                         RowLayout{
