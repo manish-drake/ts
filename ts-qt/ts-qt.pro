@@ -96,3 +96,10 @@ DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
 
 #INCLUDEPATH += $$PWD/../../../../zeromq-android/include
 #DEPENDPATH += $$PWD/../../../../zeromq-android/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/debug/ -lts-smtp
+else:unix: LIBS += -L$$OUT_PWD/../ts-smtp/ -lts-smtp
+
+INCLUDEPATH += $$PWD/../ts-smtp
+DEPENDPATH += $$PWD/../ts-smtp

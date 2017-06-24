@@ -118,7 +118,7 @@ Item {
                             anchors.horizontalCenter: parent.horizontalCenter
                             elide:Text.ElideRight
                             text: name
-                            font.pixelSize: 16
+                            font.pointSize: 12
                             font.weight: Font.DemiBold
                             color: Universal.foreground
                         }
@@ -143,4 +143,3 @@ Item {
         }
     }
 }
-
