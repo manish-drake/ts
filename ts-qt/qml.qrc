@@ -85,5 +85,11 @@
         <file>img/Full Battery-25.png</file>
         <file>img/wifi-signal-waves.png</file>
         <file>img/profile-circle.png</file>
+        <file>img/pause-button.png</file>
+        <file>img/previous.png</file>
+        <file>img/next.png</file>
+    </qresource>
+    <qresource prefix="/database">
+        <file>ts.db</file>
     </qresource>
 </RCC>

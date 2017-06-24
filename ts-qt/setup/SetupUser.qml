@@ -92,7 +92,7 @@ Item{
                         anchors.centerIn: parent
                         text: qsTr(userName)
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -102,12 +102,12 @@ Item{
                         anchors.right: parent.right
                         anchors.margins: 10
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("LANGUAGE: ")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr(language)
                             color: Universal.foreground
                         }

@@ -52,7 +52,7 @@ import QtGraphicalEffects 1.0
                         anchors.leftMargin: 5
                         anchors.rightMargin: 20
                         elide: Text.ElideRight
-                        font.pointSize: 11
+                        font.pixelSize: 14
                         color: "#333333"
                         text: "MODE: " + control.currentText                        
                     }

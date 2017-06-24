@@ -38,14 +38,14 @@ Item {
                 Text {
                     id: title
                     text: "ADS-B Velocity Test"
-                    font.pointSize: 12
+                    font.pixelSize: 16
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
                 }
                 Text {
                     text: "SETUP"
-                    font.pointSize: 12
+                    font.pixelSize: 16
                     anchors.topMargin: 40
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter

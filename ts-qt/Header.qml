@@ -41,7 +41,7 @@ Rectangle {
         anchors.right: toggleConfigPanel.left
         font.bold: Font.DemiBold
         color: Universal.accent
-        font.pointSize: 12
+        font.pixelSize: 16
         anchors.leftMargin: 5
         elide: Text.ElideRight
     }

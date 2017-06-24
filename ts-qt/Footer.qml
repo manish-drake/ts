@@ -16,7 +16,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
-        font.pointSize: 10
+        font.pixelSize: 14
         text: currentOperator
         elide: Text.ElideRight
         color: "#FFF"
@@ -48,7 +48,7 @@ Rectangle {
             Text {
                 id: tsName
                 anchors.verticalCenter: parent.verticalCenter
-                font.pointSize: 10
+                font.pixelSize: 14
                 text: "TestSet14"
                 elide: Text.ElideRight
                 color: "#FFF"

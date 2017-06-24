@@ -25,13 +25,14 @@ class QSqlDatabase;
 class QSqlQuery;
 
 const QString DB_FILE = "c:/git/qt/ts/ts.db";
+const QString DATABASE_FILENAME = "ts.db";
 
 class TSDAOSHARED_EXPORT DataManager
 {
 public:
     static void debugQuery(const QSqlQuery &query) ;
     static void deleteExitingDBFile();
-    static DataManager &instance(const QString &dbFile = DB_FILE);
+    static DataManager &instance();
     std::shared_ptr<const SectionDao> sectionDao() const;
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;

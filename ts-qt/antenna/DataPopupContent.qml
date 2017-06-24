@@ -42,7 +42,7 @@ Rectangle {
             Text {
                 id: title
                 text: "Saved Data"
-                font.pointSize: 12
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 anchors.centerIn: parent
                 color: Universal.foreground
@@ -154,7 +154,7 @@ Rectangle {
                 enabled: dataListView.currentIndex != -1
                 anchors.centerIn: parent
                 text: "VIEW"
-                font.pointSize: 12
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
                 opacity: enabled ? 1.0 : 0.4
