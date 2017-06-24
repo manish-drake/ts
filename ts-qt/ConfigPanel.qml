@@ -35,7 +35,7 @@ Item {
                     text:"OPERATOR"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -73,7 +73,7 @@ Item {
                     text:"THEME"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -111,46 +111,6 @@ Item {
                 }
             }
 
-            //        Rectangle {
-            //            color: "transparent"
-            //            border.color: "#d3d3d3"
-            //            Layout.preferredWidth : grid.prefWidth(this)
-            //            Layout.preferredHeight : grid.prefHeight(this)
-            //            Text{
-            //                id: header4
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                text:"REMOTE CONNECT"
-            //                anchors.top: parent.top
-            //                anchors.topMargin: 10
-            //            }
-            //            Rectangle{
-            //                color: "#00000000"
-            //                anchors.top: header4.bottom
-            //                anchors.bottom: ctrl4.top
-            //                anchors.left: parent.left
-            //                anchors.right: parent.right
-            //                Image{
-            //                    anchors.horizontalCenter: parent.horizontalCenter
-            //                    anchors.verticalCenter: parent.verticalCenter
-            //                    source: "qrc:/img/img/wifi-signal-waves.png"
-            //                }
-            //            }
-            //            ComboBox{
-            //                id: ctrl4
-            //                width: 100
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                anchors.bottom: parent.bottom
-            //                anchors.bottomMargin: 10
-            //                currentIndex: 1
-            //                model: ListModel{
-            //                    id:cbTestSetItems
-            //                    ListElement{text:"TestSet#3"}
-            //                    ListElement{text:"TestSet#4"}
-            //                    ListElement{text:"TestSet#5"}
-            //                }
-            //            }
-            //        }
-
             Rectangle {
                 color: "transparent"
                 border.color: "#d3d3d3"
@@ -162,7 +122,7 @@ Item {
                     text:"DISPLAY BRIGHTNESS"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -219,7 +179,7 @@ Item {
                     text:"TEST SET ICAO ADDRE..."
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -253,7 +213,7 @@ Item {
                     text:"GPS SOURCE"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -292,7 +252,7 @@ Item {
                     text:"UUT DEVICE CLASS"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -320,7 +280,7 @@ Item {
                     text:"UUT ANTENNA"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -360,7 +320,7 @@ Item {
                     text:"TEST SET CONNECTION"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -407,7 +367,7 @@ Item {
                     text:"DISTANCE To UUT"
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"

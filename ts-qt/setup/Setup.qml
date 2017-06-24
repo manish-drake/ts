@@ -19,7 +19,7 @@ Item {
             columns: 2
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -37,13 +37,16 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         id: user
                         text: qsTr("USER")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -70,7 +73,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -90,13 +93,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
-                        id: display
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("DISPLAY")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -123,7 +128,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -143,13 +148,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
-                        id: gps
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("GPS")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -181,7 +188,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -201,13 +208,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
-                        id: network
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("NETWORK")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     Column {
                         anchors.bottom: parent.bottom
@@ -239,7 +248,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -259,13 +268,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
-                        id: sysInfo
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("SYSTEM INFO")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -275,7 +286,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -295,13 +306,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
-                        id: conn
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("CONNECTION")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -311,7 +324,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 200
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -331,12 +344,15 @@ Item {
                         spread: 0
                     }
                     Text {
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
+                        anchors.top: parent.top
+                        anchors.leftMargin: 15
+                        anchors.topMargin: 10
                         text: qsTr("RUN MANUAL BIT")
                         elide:Text.ElideRight
                         font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
+                        font.weight: Font.ExtraBold
+                        color: Universal.accent
                     }
                     MouseArea {
                         anchors.fill: parent

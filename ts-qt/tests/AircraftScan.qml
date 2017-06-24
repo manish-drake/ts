@@ -163,96 +163,113 @@ Page {
 
     footer: Rectangle{
         id:testFooterRect
-        height: 80
+        height: 60
         anchors.left: parent.left
         anchors.right: parent.right
         color: Universal.background
-        Text{
-            text:"< PREVIOUS"
-            anchors.verticalCenter: parent.verticalCenter
+        RowLayout{
             anchors.left: parent.left
-            anchors.leftMargin: 10
-            color: Universal.foreground
-            font.pixelSize: 14
-            MouseArea {
-                anchors.fill: parent
-                onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
-            }
-
-        }
-
-        Rectangle{
-            id: toggleButton
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            height: 60
-            width: 60
-            radius: 30
-            color: Universal.accent
-            property alias imageSource: buttonImage.source
-            state: "play"
-            Image {
-                id: buttonImage
-                anchors.centerIn: parent
-                smooth: true
-            }
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                onPressed: {
-                    zmq.toggleScan()
-                    console.log(zmq.scanResults)
-                    if (parent.state == "play") {
-                        parent.state = "pause"
-                    }
-                    else if(parent.state == "pause"){
-                        parent.state = "stop"
-                    }
-                    else{
-                        parent.state = "play"
-                    }
-                }
-            }
-            states: [                
-                State {
-                    name: "play"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/play-button.png"
-                    }
-                },
-                State {
-                    name: "stop"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/stop-button.png"
-                    }
-                },
-                State {
-                    name: "pause"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/pause-button.png"
-                    }
-                }
-            ]
-        }
-
-
-        Text {
-            text: qsTr("NEXT >")
-            font.pixelSize: 14
-            anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: 10
-            color: Universal.foreground
-            MouseArea {
-                anchors.fill: parent
-                onClicked:{
-                    navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
-                                                       "title": navigationModel.navigationParameter.title,
-                                                       "playState": toggleButton.state
-                                                   })
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
+            Rectangle{
+                Layout.alignment: Qt.AlignBottom
+                height: 50
+                width: 50
+                radius: 25
+                color: Universal.accent
+                Image {
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/previous.png"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
+                }
+            }
+
+            Rectangle{
+                Layout.column: 1
+                Layout.alignment: Qt.AlignBottom
+                Layout.leftMargin: 10
+                height: 50
+                width: 50
+                radius: 25
+                color: Universal.accent
+                Image {
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/next.png"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:{
+                        navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
+                                                           "title": navigationModel.navigationParameter.title,
+                                                           "playState": toggleButton.state
+                                                       })
+                    }
+                }
+            }
+
+            Item{
+                Layout.column: 2
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Rectangle{
+                    id: toggleButton
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    height: 60
+                    width: 60
+                    radius: 30
+                    color: Universal.accent
+                    property alias imageSource: buttonImage.source
+                    state: "play"
+                    Image {
+                        id: buttonImage
+                        anchors.centerIn: parent
+                        smooth: true
+                    }
+                    MouseArea {
+                        id: mouseArea
+                        anchors.fill: parent
+                        onPressed: {
+                            zmq.toggleScan()
+                            console.log(zmq.scanResults)
+                            if (parent.state == "play") {
+                                parent.state = "pause"
+                            }
+                            else if(parent.state == "pause"){
+                                parent.state = "stop"
+                            }
+                            else{
+                                parent.state = "play"
+                            }
+                        }
+                    }
+                    states: [
+                        State {
+                            name: "play"
+                            PropertyChanges {
+                                target: toggleButton
+                                imageSource: "qrc:/img/img/play-button.png"
+                            }
+                        },
+                        State {
+                            name: "stop"
+                            PropertyChanges {
+                                target: toggleButton
+                                imageSource: "qrc:/img/img/stop-button.png"
+                            }
+                        },
+                        State {
+                            name: "pause"
+                            PropertyChanges {
+                                target: toggleButton
+                                imageSource: "qrc:/img/img/pause-button.png"
+                            }
+                        }
+                    ]
                 }
             }
         }

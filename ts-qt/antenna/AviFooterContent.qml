@@ -10,8 +10,9 @@ Item{
     anchors.right:parent.right
     Rectangle{
         id: toggleButton
-        anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
+        anchors.rightMargin: 15
         height: 60
         width: 60
         radius: 30
