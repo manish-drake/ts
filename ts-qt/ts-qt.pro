@@ -44,6 +44,12 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-core/ -lts-core
 INCLUDEPATH += $$PWD/../ts-core
 DEPENDPATH += $$PWD/../ts-core
 
+contains (ANDROID_TARGET_ARCH,x86) {
+    ANDROID_EXTRA_LIBS = \
+        $$[QT_INSTALL_LIBS]/libQt5Sql.so \
+        -L$$PWD/../../../../ZeroMQ/android/lib/ -lzmq
+}
+
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-model/release/ -lts-model
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-model/debug/ -lts-model
 else:unix: LIBS += -L$$OUT_PWD/../ts-model/ -lts-model
@@ -61,10 +67,10 @@ DEPENDPATH += $$PWD/../ts-dao
 HEADERS += \
     databuilder.h \
     resourcenamecoupling.h \
-    controls.h \
     controlsattachedtype.h \
     controlstyles.h \
-    dummygraphdata.h
+    dummygraphdata.h \
+    controls.h
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client

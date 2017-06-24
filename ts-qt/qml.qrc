@@ -86,4 +86,7 @@
         <file>img/wifi-signal-waves.png</file>
         <file>img/profile-circle.png</file>
     </qresource>
+    <qresource prefix="/database">
+        <file>ts.db</file>
+    </qresource>
 </RCC>

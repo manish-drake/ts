@@ -55,7 +55,7 @@ Rectangle{
                 id: testTitle
                 anchors.centerIn: parent
                 text: qsTr("App Logs")
-                font.pointSize: 12
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
             }

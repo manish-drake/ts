@@ -34,7 +34,7 @@ Rectangle{
                 id: testTitle
                 anchors.centerIn: parent
                 text: qsTr("RUN MANUAL BIT")
-                font.pointSize: 12
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
             }

@@ -67,7 +67,7 @@ Rectangle{
                 Text {
                     id: title                    
                     text: navigationModel.navigationParameter.title
-                    font.pointSize: 12
+                    font.pixelSize: 16
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground

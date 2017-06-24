@@ -40,7 +40,7 @@ Rectangle {
                 Text {
                     id: title
                     text: "%1 GUIDE".arg(guideTestName)
-                    font.pointSize: 12
+                    font.pixelSize: 16
                     font.weight: Font.DemiBold
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
@@ -272,7 +272,7 @@ Port A for over the air Testing.</p><br><p>Attach the GPS antenna to acquire LAT
                 anchors.right: parent.right
                 anchors.rightMargin: 20
                 text: "CLOSE"
-                font.pointSize: 12
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
                 MouseArea {

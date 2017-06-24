@@ -4,14 +4,46 @@
 #include <QSqlError>
 #include <QDebug>
 #include <QDir>
+#include <QStandardPaths>
 
 
 
-
-DataManager &DataManager::instance(const QString &dbFile)
+DataManager &DataManager::instance()
 {
-    static DataManager singelton(dbFile);
+#if defined (Q_OS_ANDROID) || defined (Q_OS_IOS)
+    QFile assetDbFile(":/database/" + DATABASE_FILENAME);/*   :/database/ts.db   */
+    QString destinationDbFile = QStandardPaths::writableLocation(
+                QStandardPaths::AppLocalDataLocation)
+            .append("/" + DATABASE_FILENAME);
+    if(!QFile::exists(destinationDbFile)){
+        assetDbFile.copy(destinationDbFile);
+        QFile::setPermissions(destinationDbFile, QFile::WriteOwner | QFile::ReadOwner);
+    }
+    static DataManager singelton(destinationDbFile);
+#else
+    static DataManager singelton;
+#endif
     return singelton;
+}
+
+DataManager::DataManager(const QString &path):
+    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
+{
+    m_database->setDatabaseName(path);
+
+    bool openStatus = m_database->open();
+    qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
+
+    this->createRegistry();
+
+    for(auto key: daoRegistry.keys()){
+        auto dao = daoRegistry[key];
+        dao->init();
+    }
+}
+DataManager::~DataManager()
+{
+    m_database->close();
 }
 
 std::shared_ptr<const SectionDao> DataManager::sectionDao() const
@@ -99,26 +131,6 @@ std::shared_ptr<const LoggingDao> DataManager::loggingDao() const
     return  loggingDaoPtr;
 }
 
-DataManager::~DataManager()
-{
-    m_database->close();
-}
-
-DataManager::DataManager(const QString &path):
-    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
-{
-    m_database->setDatabaseName(path);
-
-    bool openStatus = m_database->open();
-    qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
-
-    this->createRegistry();
-
-    for(auto key: daoRegistry.keys()){
-        auto dao = daoRegistry[key];
-        dao->init();
-    }
-}
 
 void DataManager::createRegistry()
 {
@@ -162,6 +174,7 @@ void DataManager::deleteExitingDBFile()
     QDir dir;
     dir.remove(DB_FILE);
 }
+
 
 
 

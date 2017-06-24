@@ -16,7 +16,7 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
-        font.pointSize: 10
+        font.pixelSize: 14
         text: currentOperator
         elide: Text.ElideRight
         color: "#FFF"

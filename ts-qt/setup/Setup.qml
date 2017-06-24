@@ -41,7 +41,7 @@ Item {
                         id: user
                         text: qsTr("USER")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -94,7 +94,7 @@ Item {
                         id: display
                         text: qsTr("DISPLAY")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -147,7 +147,7 @@ Item {
                         id: gps
                         text: qsTr("GPS")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -205,7 +205,7 @@ Item {
                         id: network
                         text: qsTr("NETWORK")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -263,7 +263,7 @@ Item {
                         id: sysInfo
                         text: qsTr("SYSTEM INFO")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -299,7 +299,7 @@ Item {
                         id: conn
                         text: qsTr("CONNECTION")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
@@ -334,7 +334,7 @@ Item {
                         anchors.centerIn: parent
                         text: qsTr("RUN MANUAL BIT")
                         elide:Text.ElideRight
-                        font.pointSize: 12
+                        font.pixelSize: 16
                         font.weight: Font.DemiBold
                         color: Universal.foreground
                     }
