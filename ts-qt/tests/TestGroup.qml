@@ -4,7 +4,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
-
 Item{
     anchors.fill: parent
     property string guideTestName
@@ -20,11 +19,11 @@ Item{
         highlight:Item{
             Rectangle{
                 anchors.fill: parent
-                anchors.margins: 5
+                anchors.margins: 2
                 color: "transparent"
-                border.color: Universal.foreground
+                border.color: Universal.accent
                 border.width: 1
-                radius:3
+                radius:4
             }
         }
 
@@ -39,18 +38,7 @@ Item{
                     anchors.fill: parent
                     anchors.margins: 3
                     color: Universal.background
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4
-                        color: "#26000000"
-                        spread: 0
-                    }
+                    radius: 4
                     MouseArea {
                         anchors.fill: parent
                         onClicked: grid.currentIndex = index
@@ -67,7 +55,7 @@ Item{
                                 elide:Text.ElideRight
                                 text: name
                                 font.pixelSize: 16
-                                font.weight: Font.DemiBold
+                                font.weight: Font.ExtraBold
                                 color: Universal.accent
                             }
                             Item{
@@ -174,9 +162,10 @@ Item{
                             Text {
                                 elide:Text.ElideRight
                                 text: "RECENT TEST RESULTS"
-                                font.pixelSize: 14
+                                font.pixelSize: 12
+                                font.weight: Font.Bold
                                 color: Universal.foreground
-                                opacity: 0.8
+                                opacity: 0.4
                             }
                         }
 

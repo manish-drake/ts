@@ -233,6 +233,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 14
                                         text: "MEASURE"
+                                        color: "#333333"
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -265,6 +266,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 14
                                         text: "DONE"
+                                        color: "#333333"
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -274,9 +276,10 @@ Item{
                             }
                             ListModel{id: markersModel}
                         }
+
                     }
                 }
-                AviFooterContent{}
+                 AviFooterContent{}
             }
         }
     }
