@@ -105,7 +105,7 @@ Rectangle {
                                             Layout.row: 1
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Direct"
-                                            font.pointSize: 10
+                                            font.pixelSize: 14
                                             color: Universal.foreground
                                         }
                                     }
@@ -136,7 +136,7 @@ Rectangle {
                                             Layout.row: 1
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port A"
-                                            font.pointSize: 10
+                                            font.pixelSize: 14
                                             color: Universal.foreground
                                         }
                                     }
@@ -167,7 +167,7 @@ Rectangle {
                                             Layout.row: 1
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port B"
-                                            font.pointSize: 10
+                                            font.pixelSize: 14
                                             color: Universal.foreground
                                         }
                                     }
@@ -207,7 +207,7 @@ Rectangle {
                                             Layout.row: 1
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"GPS"
-                                            font.pointSize: 10
+                                            font.pixelSize: 14
                                             color: Universal.foreground
                                         }
                                     }
@@ -239,7 +239,7 @@ Rectangle {
                                             Layout.row: 1
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Wi-Fi"
-                                            font.pointSize: 10
+                                            font.pixelSize: 14
                                             color: Universal.foreground
                                         }
                                     }
@@ -251,7 +251,7 @@ Rectangle {
                     Text{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        font.pointSize: 10
+                        font.pixelSize: 14
                         wrapMode: Text.Wrap
                         color: Universal.foreground
                         text:"<p>When running a UAT Out test, usethe directional antenna with

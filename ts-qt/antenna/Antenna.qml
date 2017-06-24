@@ -102,7 +102,7 @@ Item {
                                 Text {
                                     Layout.column: 1
                                     text: "1"
-                                    font.pointSize: 10
+                                    font.pixelSize: 14
                                     color: "#666666"
                                     font.bold: true
                                 }
@@ -118,7 +118,7 @@ Item {
                             anchors.horizontalCenter: parent.horizontalCenter
                             elide:Text.ElideRight
                             text: name
-                            font.pointSize: 12
+                            font.pixelSize: 16
                             font.weight: Font.DemiBold
                             color: Universal.foreground
                         }
@@ -133,7 +133,7 @@ Item {
                             anchors.right:parent.right
                             elide:Text.ElideRight
                             text: "RECENT TEST RESULTS"
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             color: Universal.foreground
                             opacity: 0.8
                         }

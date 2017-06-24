@@ -39,7 +39,7 @@ import QtGraphicalEffects 1.0
                     anchors.right: parent.right
                     anchors.leftMargin: 10
                     elide: Text.ElideRight
-                    font.pointSize: 11
+                    font.pixelSize: 14
                     color: "#333333"
                     text: "MARKER"
                 }
@@ -159,7 +159,7 @@ import QtGraphicalEffects 1.0
                     enabled: markersModel.count < 4
                     Text{
                         anchors.centerIn: parent
-                        font.pointSize: 18
+                        font.pixelSize: 26
                         text: "+"
                     }
                     MouseArea{

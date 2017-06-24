@@ -51,12 +51,12 @@ Item {
                         anchors.right: parent.right
                         anchors.margins: 10
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Current User: Operator")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Language: English")
                             color: Universal.foreground
                         }
@@ -104,12 +104,12 @@ Item {
                         anchors.right: parent.right
                         anchors.margins: 10
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Current Theme: Indoor")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Brightness: 5/10")
                             color: Universal.foreground
                         }
@@ -157,17 +157,17 @@ Item {
                         anchors.right: parent.right
                         anchors.margins: 10
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Current Source: Internal")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Current Lat: 40° 43' 50.1960'' N")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Current Lon: 73° 56' 6.8712'' W")
                             color: Universal.foreground
                         }
@@ -215,17 +215,17 @@ Item {
                         anchors.right: parent.right
                         anchors.margins: 10
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("WiFi Enabled: Yes")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Allow local access: No")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pointSize: 10
+                            font.pixelSize: 14
                             text: qsTr("Allow remote access: No")
                             color: Universal.foreground
                         }

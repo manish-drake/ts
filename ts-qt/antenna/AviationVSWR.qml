@@ -77,7 +77,7 @@ Item{
                                 model: markersModel
                                 Text{
                                     color: Universal.foreground
-                                    font.pointSize: 10
+                                    font.pixelSize: 14
                                     text: "M" + num + "  " + _val
                                 }
                             }

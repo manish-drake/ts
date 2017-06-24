@@ -108,7 +108,7 @@ Item{
                                                     anchors.leftMargin: 5
                                                     anchors.rightMargin: 20
                                                     elide: Text.ElideRight
-                                                    font.pointSize: 11
+                                                    font.pixelSize: 14
                                                     color: "#333333"
                                                     text: "COAX: " + control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                                                 }
@@ -119,7 +119,7 @@ Item{
                                                     anchors.left: txt.right
                                                     visible: coaxComboBox.currentIndex == 4
                                                     implicitWidth: 50
-                                                    font.pointSize: 10
+                                                    font.pixelSize: 14
                                                     placeholderText: "0.01-1.00"
                                                     validator: RegExpValidator{
                                                         regExp:  /((0(\.[1-9]{2})?)|(1(\.0)?))/
@@ -157,7 +157,7 @@ Item{
                                 model: markersModel
                                 Text{
                                     color: Universal.foreground
-                                    font.pointSize: 10
+                                    font.pixelSize: 14
                                     text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
                                 }
                             }

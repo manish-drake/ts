@@ -198,7 +198,7 @@ Rectangle{
                 anchors.left: parent.left
                 anchors.leftMargin: 10
                 color: Universal.foreground
-                font.pointSize: 10
+                font.pixelSize: 14
                 MouseArea {
                     anchors.fill: parent
                     onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
@@ -286,7 +286,7 @@ Rectangle{
 
             Text {
                 text: qsTr("NEXT >")
-                font.pointSize: 10
+                font.pixelSize: 14
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 anchors.rightMargin: 10

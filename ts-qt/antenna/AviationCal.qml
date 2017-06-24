@@ -99,17 +99,17 @@ Item{
                                                     text: header
                                                     color: "white"
                                                     font.weight: Font.Bold
-                                                    font.pointSize: 11
+                                                    font.pixelSize: 14
                                                 }
                                                 Text{
                                                     text: status
                                                     color: "white"
-                                                    font.pointSize: 11
+                                                    font.pixelSize: 14
                                                 }
                                                 Text {
                                                     text: datetime
                                                     color: "white"
-                                                    font.pointSize: 11
+                                                    font.pixelSize: 14
                                                 }
                                             }
                                             MouseArea{
@@ -172,7 +172,7 @@ Item{
                                                     anchors.leftMargin: 5
                                                     anchors.rightMargin: 20
                                                     elide: Text.ElideRight
-                                                    font.pointSize: 11
+                                                    font.pixelSize: 14
                                                     color: "#333333"
                                                     text: "TYPE: " + control.currentText
                                                 }
@@ -231,7 +231,7 @@ Item{
                                     }
                                     Text{
                                         anchors.centerIn: parent
-                                        font.pointSize: 11
+                                        font.pixelSize: 14
                                         text: "MEASURE"
                                     }
                                     MouseArea{
@@ -263,7 +263,7 @@ Item{
                                     }
                                     Text{
                                         anchors.centerIn: parent
-                                        font.pointSize: 11
+                                        font.pixelSize: 14
                                         text: "DONE"
                                     }
                                     MouseArea{

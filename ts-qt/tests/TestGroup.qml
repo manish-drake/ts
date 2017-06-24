@@ -155,7 +155,7 @@ Item{
                                 Text {
                                     Layout.column: 1
                                     text: "7"
-                                    font.pointSize: 10
+                                    font.pixelSize: 14
                                     color: "#666666"
                                     font.bold: true
                                 }
@@ -174,7 +174,7 @@ Item{
                             Text {
                                 elide:Text.ElideRight
                                 text: "RECENT TEST RESULTS"
-                                font.pointSize: 10
+                                font.pixelSize: 14
                                 color: Universal.foreground
                                 opacity: 0.8
                             }

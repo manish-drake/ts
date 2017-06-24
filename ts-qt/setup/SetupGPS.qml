@@ -333,7 +333,7 @@ Rectangle{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: parent.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
-                                font.pointSize: 10
+                                font.pixelSize: 14
                             }
                         }
                     }
@@ -387,7 +387,7 @@ Rectangle{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: parent.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
-                                font.pointSize: 10
+                                font.pixelSize: 14
                             }
                         }
                     }
