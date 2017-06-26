@@ -19,10 +19,10 @@ Item {
             columns: 2
             Layout.margins:  0
             function prefWidth(item){
-                return 150 * item.Layout.columnSpan
+                return 160 * item.Layout.columnSpan
             }
             function prefHeight(item){
-                return 90 * item.Layout.rowSpan
+                return 100 * item.Layout.rowSpan
             }
             Rectangle {
                 color: "transparent"
@@ -179,7 +179,7 @@ Item {
                 Text{
                     id: header5
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text:"TEST SET ICAO ADDRE..."
+                    text:"TEST SET ICAO ADDRESS"
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
