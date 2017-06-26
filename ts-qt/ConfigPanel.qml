@@ -33,6 +33,7 @@ Item {
                     id: header1
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"OPERATOR"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -71,6 +72,7 @@ Item {
                     id: header2
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"THEME"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -120,6 +122,7 @@ Item {
                     id: header10
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISPLAY BRIGHTNESS"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -177,6 +180,7 @@ Item {
                     id: header5
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"TEST SET ICAO ADDRE..."
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -211,6 +215,7 @@ Item {
                     id: header11
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"GPS SOURCE"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -250,6 +255,7 @@ Item {
                     id: header6
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT DEVICE CLASS"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -278,6 +284,7 @@ Item {
                     id: header7
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT ANTENNA"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -318,6 +325,7 @@ Item {
                     id: header8
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"TEST SET CONNECTION"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
@@ -365,6 +373,7 @@ Item {
                     id: header9
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISTANCE To UUT"
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
                     color: Universal.accent
