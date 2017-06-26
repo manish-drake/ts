@@ -58,3 +58,23 @@ DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
 
 #INCLUDEPATH += $$PWD/../../../../zeromq-android/include
 #DEPENDPATH += $$PWD/../../../../zeromq-android/include
+
+#win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/release/ -lzmq
+#else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/debug/ -lzmq
+#else:unix: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+
+#INCLUDEPATH += $$PWD/../../../libzmq_dist/include
+#DEPENDPATH += $$PWD/../../../libzmq_dist/include
+
+#win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/release/libzmq.a
+#else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/debug/libzmq.a
+#else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/release/zmq.lib
+#else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/debug/zmq.lib
+#else:unix: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
+
+#macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+
+#INCLUDEPATH += $$PWD/../../../libzmq_dist/include
+#DEPENDPATH += $$PWD/../../../libzmq_dist/include
+
+#macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a

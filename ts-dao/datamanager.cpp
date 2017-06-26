@@ -13,7 +13,7 @@ DataManager &DataManager::instance()
 #if defined (Q_OS_ANDROID) || defined (Q_OS_IOS)
     QFile assetDbFile(":/database/" + DATABASE_FILENAME);/*   :/database/ts.db   */
     QString destinationDbFile = QStandardPaths::writableLocation(
-                QStandardPaths::AppLocalDataLocation)
+                QStandardPaths::DocumentsLocation)
             .append("/" + DATABASE_FILENAME);
     if(!QFile::exists(destinationDbFile)){
         assetDbFile.copy(destinationDbFile);

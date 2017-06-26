@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
-        Client client("tcp://192.168.1.104:6000");
+        Client client("tcp://192.168.145.133:6000");
         context->setContextProperty("zmq", &client);
 
         dummygraphdata dummy;
