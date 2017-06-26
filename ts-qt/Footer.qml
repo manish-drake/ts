@@ -18,6 +18,7 @@ Rectangle {
         anchors.leftMargin: 10
         font.pixelSize: 14
         text: currentOperator
+        font.weight: Font.DemiBold
         elide: Text.ElideRight
         color: "#FFF"
     }
@@ -39,16 +40,12 @@ Rectangle {
                 id: symbolImg
                 anchors.verticalCenter: parent.verticalCenter
                 source: isController ? "qrc:/img/img/Controller-25.png" : "qrc:/img/img/Eye-25.png"
-                ColorOverlay{
-                    anchors.fill: symbolImg
-                    source: symbolImg
-                    color: "#FFF"
-                }
             }
             Text {
                 id: tsName
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: 14
+                font.weight: Font.DemiBold
                 text: "TestSet14"
                 elide: Text.ElideRight
                 color: "#FFF"
@@ -61,8 +58,8 @@ Rectangle {
         height: 38
         anchors.verticalCenter: parent.verticalCenter
         anchors.right: parent.right
-        anchors.rightMargin: 20
-        columnSpacing: 50
+        anchors.rightMargin: 30
+        columnSpacing: 40
         Item{
             Layout.column: 0
             Layout.fillHeight: true
@@ -75,7 +72,7 @@ Rectangle {
             ColorOverlay{
                 anchors.fill: img1
                 source: img1
-                color: "#FFF"
+                color: "#ffffff"
             }
         }
 
@@ -88,11 +85,6 @@ Rectangle {
                 anchors.centerIn: parent
                 source: "qrc:/img/img/Full Battery-25.png"
             }
-            ColorOverlay{
-                anchors.fill: img2
-                source: img2
-                color: "#FFF"
-            }
         }
 
         Item{
@@ -103,11 +95,6 @@ Rectangle {
                 id: img3
                 anchors.centerIn: parent
                 source: "qrc:/img/img/wifi-signal-waves.png"
-            }
-            ColorOverlay{
-                anchors.fill: img3
-                source: img3
-                color: "#FFF"
             }
         }
 

@@ -42,13 +42,13 @@ ApplicationWindow {
             }
 
             Item{
-                width: 300
+                width: 320
                 anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
                     id: configPanelPopup
                     padding: 0
                     topMargin: 55
-                    width: 300
+                    width: 320
                     modal: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
                     onClosed: contentOpaqueBack.visible = false

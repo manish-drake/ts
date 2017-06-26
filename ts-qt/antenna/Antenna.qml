@@ -32,7 +32,7 @@ Item{
             Item{
                 anchors.left:parent.left
                 anchors.right: parent.right
-                height:120
+                height:100
                 Rectangle {
                     id: wrapper
                     anchors.fill: parent
@@ -77,15 +77,8 @@ Item{
                                 }
                             }
                         }
-                        Rectangle{
-                            Layout.row: 1
-                            Layout.fillWidth: true
-                            height: 1
-                            color:Universal.foreground
-                            opacity:0.1
-                        }
                         Item{
-                            Layout.row: 2
+                            Layout.row: 1
                             Layout.fillHeight: true
                             Text {
                                 elide:Text.ElideRight
@@ -96,7 +89,6 @@ Item{
                                 opacity: 0.4
                             }
                         }
-
                     }
                 }
             }
