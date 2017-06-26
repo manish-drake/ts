@@ -31,7 +31,6 @@ Item{
                     text: "operator@mail.com"
                     color: Universal.accent
                     font.pixelSize: 14
-                    font.weight: Font.ExtraLight
 
                 }
             }

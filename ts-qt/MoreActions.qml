@@ -92,6 +92,7 @@ Rectangle{
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         text: "App Logs"
+                        font.pixelSize: 12
                     }
                 }
                 MouseArea{
@@ -105,6 +106,7 @@ Rectangle{
             Text{
                 Layout.column: 1
                 text: "Version 0.0.01"
+                font.pixelSize: 12
                 color: Universal.foreground
                 opacity: 0.7
                 MouseArea{

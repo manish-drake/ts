@@ -33,6 +33,7 @@ Item {
                     id: header1
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"OPERATOR"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -72,6 +73,7 @@ Item {
                     id: header2
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"THEME"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -122,6 +124,7 @@ Item {
                     id: header10
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISPLAY BRIGHTNESS"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -180,6 +183,7 @@ Item {
                     id: header5
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"TEST SET ICAO ADDRESS"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -215,6 +219,7 @@ Item {
                     id: header11
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"GPS SOURCE"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -255,6 +260,7 @@ Item {
                     id: header6
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT DEVICE CLASS"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -284,6 +290,7 @@ Item {
                     id: header7
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT ANTENNA"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -325,6 +332,7 @@ Item {
                     id: header8
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"TEST SET CONNECTION"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
@@ -373,6 +381,7 @@ Item {
                     id: header9
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISTANCE To UUT"
+                    font.pixelSize: 12
                     font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10

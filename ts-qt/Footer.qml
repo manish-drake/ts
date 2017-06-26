@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: rectangle4
-    height: 35
+    height: 40
     color: Universal.theme == Universal.Dark ? "black" : "#A7A9AC"
     property string currentOperator
     property bool isController: true
@@ -16,10 +16,10 @@ Rectangle {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 10
-        font.pixelSize: 14
+        font.pixelSize: 15
         text: currentOperator
         font.weight: Font.DemiBold
-        elide: Text.ElideRight
+        elide:  Text.ElideRight
         color: "#FFF"
     }
 
@@ -44,7 +44,7 @@ Rectangle {
             Text {
                 id: tsName
                 anchors.verticalCenter: parent.verticalCenter
-                font.pixelSize: 14
+                font.pixelSize: 15
                 font.weight: Font.DemiBold
                 text: "TestSet14"
                 elide: Text.ElideRight
