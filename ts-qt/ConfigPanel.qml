@@ -99,6 +99,7 @@ Item {
                 Text{
                     id: label2
                     text: Universal.theme == Universal.Light ? "Indoor":"Outdoor"
+                    font.pixelSize: 14
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -137,9 +138,10 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Text{
-                        text: sld2.value
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
+                        text: sld2.value
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -156,20 +158,22 @@ Item {
                     stepSize: 1
                     value: 7
                 }
-                Text{
-                    text: sld2.minimumValue
+                Text{                    
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text: sld2.minimumValue
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{
-                    text: sld2.maximumValue
+                Text{                    
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text: sld2.maximumValue
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
@@ -244,10 +248,11 @@ Item {
                 }
                 Text{
                     id: label11
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"Internal"
+                    anchors.horizontalCenter: parent.horizontalCenter                    
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"Internal"
+                    font.pixelSize: 14
                     color: Universal.foreground
                 }
             }
@@ -272,10 +277,11 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    Text{
-                        text:"CLASS A"
+                    Text{                        
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
+                        text:"CLASS A"
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -315,10 +321,11 @@ Item {
                 }
                 Text{
                     id: label7
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"Top"
+                    anchors.horizontalCenter: parent.horizontalCenter                    
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"Top"
+                    font.pixelSize: 14
                     color: Universal.foreground
                 }
             }
@@ -393,10 +400,11 @@ Item {
                     anchors.bottom: sld.top
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    Text{
-                        text:"%1 Ft".arg(sld.value)
+                    Text{                        
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
+                        text:"%1 Ft".arg(sld.value)
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -413,57 +421,25 @@ Item {
                     stepSize: 1
                     value: 200
                 }
-                Text{
-                    text:"%1 Ft".arg(sld.minimumValue)
+                Text{                    
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"%1 Ft".arg(sld.minimumValue)
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{
-                    text:"%1 Ft".arg(sld.maximumValue)
+                Text{                    
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"%1 Ft".arg(sld.maximumValue)
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
-
-
-            //        Rectangle {
-            //            color: "transparent"
-            //            border.color: "#d3d3d3"
-            //            Layout.preferredWidth : grid.prefWidth(this)
-            //            Layout.preferredHeight : grid.prefHeight(this)
-            //            Text{
-            //                id: header3
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                text:"LANGUAGE"
-            //                anchors.top: parent.top
-            //                anchors.topMargin: 10
-            //            }
-            //            Rectangle{
-            //                color: "#00000000"
-            //                anchors.top: header3.bottom
-            //                anchors.bottom: parent.bottom
-            //                anchors.left: parent.left
-            //                anchors.right: parent.right
-            //                ComboBox{
-            //                    width: 100
-            //                    anchors.horizontalCenter: parent.horizontalCenter
-            //                    anchors.verticalCenter: parent.verticalCenter
-            //                    currentIndex: 1
-            //                    model: ListModel{
-            //                        id:cbLaguageItems
-            //                        ListElement{text:"English"}
-            //                        ListElement{text:"French"}
-            //                        ListElement{text:"Spanish"}
-            //                    }
-            //                }
-            //            }
-            //        }
         }
     }
 }

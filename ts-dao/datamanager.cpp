@@ -12,9 +12,11 @@ DataManager &DataManager::instance()
 {
 #if defined (Q_OS_ANDROID) || defined (Q_OS_IOS)
     QFile assetDbFile(":/database/" + DATABASE_FILENAME);/*   :/database/ts.db   */
-    QString destinationDbFile = QStandardPaths::writableLocation(
-                QStandardPaths::DocumentsLocation)
-            .append("/" + DATABASE_FILENAME);
+    #if defined (Q_OS_ANDROID)
+        QString destinationDbFile = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation).append("/" + DATABASE_FILENAME);
+    #elif defined (Q_OS_IOS)
+        QString destinationDbFile = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation).append("/" + DATABASE_FILENAME);
+    #endif
     if(!QFile::exists(destinationDbFile)){
         assetDbFile.copy(destinationDbFile);
         QFile::setPermissions(destinationDbFile, QFile::WriteOwner | QFile::ReadOwner);
