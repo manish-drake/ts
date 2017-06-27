@@ -1,5 +1,7 @@
 TEMPLATE = subdirs
 
+TARGET = "Test Set"
+
 SUBDIRS += \
     ts-core \
     ts-dao \
