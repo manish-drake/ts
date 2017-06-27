@@ -48,18 +48,19 @@ unix {
     INSTALLS += target
 }
 
-android{
-unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+!mac{
+   android{
+      unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
 
-INCLUDEPATH += $$PWD/../../../../zeromq-android/include
-DEPENDPATH += $$PWD/../../../../zeromq-android/include
-}
+      INCLUDEPATH += $$PWD/../../../../zeromq-android/include
+      DEPENDPATH += $$PWD/../../../../zeromq-android/include
+   }
+   !android{
+      unix|win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
-!android{
-unix|win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
-
-INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+      INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+      DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+   }
 }
 
 macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
