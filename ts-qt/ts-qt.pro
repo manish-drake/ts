@@ -90,23 +90,19 @@ DEPENDPATH += $$PWD/../ts-client
 #INCLUDEPATH += $$PWD/../ts-smtp
 #DEPENDPATH += $$PWD/../ts-smtp
 
+android {
+unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+
+INCLUDEPATH += $$PWD/../../../../zeromq-android/include
+DEPENDPATH += $$PWD/../../../../zeromq-android/include
+}
+
+!android{
 unix|win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
 INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
 DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-
-#unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
-
-#INCLUDEPATH += $$PWD/../../../../zeromq-android/include
-#DEPENDPATH += $$PWD/../../../../zeromq-android/include
-
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/debug/ -lts-smtp
-else:unix: LIBS += -L$$OUT_PWD/../ts-smtp/ -lts-smtp
-
-INCLUDEPATH += $$PWD/../ts-smtp
-DEPENDPATH += $$PWD/../ts-smtp
-
+}
 
 macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
 
@@ -114,6 +110,11 @@ INCLUDEPATH += $$PWD/../../../libzmq_dist/include
 DEPENDPATH += $$PWD/../../../libzmq_dist/include
 
 macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
+
+macx: LIBS += -L$$PWD/../../../../../usr/lib/libc++.dylib
+
+INCLUDEPATH += $$PWD/../../../../../usr
+DEPENDPATH += $$PWD/../../../../../usr
 
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/release/ -lzmq
 #else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/debug/ -lzmq
@@ -127,10 +128,3 @@ macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
 #else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/release/zmq.lib
 #else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/debug/zmq.lib
 #else:unix: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
-
-
-
-macx: LIBS += -L$$PWD/../../../../../usr/lib/libc++.dylib
-
-INCLUDEPATH += $$PWD/../../../../../usr
-DEPENDPATH += $$PWD/../../../../../usr
