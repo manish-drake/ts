@@ -19,10 +19,10 @@ Item {
             columns: 2
             Layout.margins:  0
             function prefWidth(item){
-                return 150 * item.Layout.columnSpan
+                return 160 * item.Layout.columnSpan
             }
             function prefHeight(item){
-                return 90 * item.Layout.rowSpan
+                return 100 * item.Layout.rowSpan
             }
             Rectangle {
                 color: "transparent"
@@ -33,9 +33,11 @@ Item {
                     id: header1
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"OPERATOR"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -71,9 +73,11 @@ Item {
                     id: header2
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"THEME"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -95,6 +99,7 @@ Item {
                 Text{
                     id: label2
                     text: Universal.theme == Universal.Light ? "Indoor":"Outdoor"
+                    font.pixelSize: 14
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -111,46 +116,6 @@ Item {
                 }
             }
 
-            //        Rectangle {
-            //            color: "transparent"
-            //            border.color: "#d3d3d3"
-            //            Layout.preferredWidth : grid.prefWidth(this)
-            //            Layout.preferredHeight : grid.prefHeight(this)
-            //            Text{
-            //                id: header4
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                text:"REMOTE CONNECT"
-            //                anchors.top: parent.top
-            //                anchors.topMargin: 10
-            //            }
-            //            Rectangle{
-            //                color: "#00000000"
-            //                anchors.top: header4.bottom
-            //                anchors.bottom: ctrl4.top
-            //                anchors.left: parent.left
-            //                anchors.right: parent.right
-            //                Image{
-            //                    anchors.horizontalCenter: parent.horizontalCenter
-            //                    anchors.verticalCenter: parent.verticalCenter
-            //                    source: "qrc:/img/img/wifi-signal-waves.png"
-            //                }
-            //            }
-            //            ComboBox{
-            //                id: ctrl4
-            //                width: 100
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                anchors.bottom: parent.bottom
-            //                anchors.bottomMargin: 10
-            //                currentIndex: 1
-            //                model: ListModel{
-            //                    id:cbTestSetItems
-            //                    ListElement{text:"TestSet#3"}
-            //                    ListElement{text:"TestSet#4"}
-            //                    ListElement{text:"TestSet#5"}
-            //                }
-            //            }
-            //        }
-
             Rectangle {
                 color: "transparent"
                 border.color: "#d3d3d3"
@@ -160,9 +125,11 @@ Item {
                     id: header10
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISPLAY BRIGHTNESS"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -171,9 +138,10 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Text{
-                        text: sld2.value
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
+                        text: sld2.value
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -190,20 +158,22 @@ Item {
                     stepSize: 1
                     value: 7
                 }
-                Text{
-                    text: sld2.minimumValue
+                Text{                    
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text: sld2.minimumValue
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{
-                    text: sld2.maximumValue
+                Text{                    
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text: sld2.maximumValue
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
@@ -216,10 +186,12 @@ Item {
                 Text{
                     id: header5
                     anchors.horizontalCenter: parent.horizontalCenter
-                    text:"TEST SET ICAO ADDRE..."
+                    text:"TEST SET ICAO ADDRESS"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -251,9 +223,11 @@ Item {
                     id: header11
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"GPS SOURCE"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -274,10 +248,11 @@ Item {
                 }
                 Text{
                     id: label11
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"Internal"
+                    anchors.horizontalCenter: parent.horizontalCenter                    
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"Internal"
+                    font.pixelSize: 14
                     color: Universal.foreground
                 }
             }
@@ -290,9 +265,11 @@ Item {
                     id: header6
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT DEVICE CLASS"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -300,10 +277,11 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    Text{
-                        text:"CLASS A"
+                    Text{                        
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
+                        text:"CLASS A"
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -318,9 +296,11 @@ Item {
                     id: header7
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"UUT ANTENNA"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -341,10 +321,11 @@ Item {
                 }
                 Text{
                     id: label7
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text:"Top"
+                    anchors.horizontalCenter: parent.horizontalCenter                    
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"Top"
+                    font.pixelSize: 14
                     color: Universal.foreground
                 }
             }
@@ -358,9 +339,11 @@ Item {
                     id: header8
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"TEST SET CONNECTION"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -405,9 +388,11 @@ Item {
                     id: header9
                     anchors.horizontalCenter: parent.horizontalCenter
                     text:"DISTANCE To UUT"
+                    font.pixelSize: 12
+                    font.weight: Font.DemiBold
                     anchors.top: parent.top
                     anchors.topMargin: 10
-                    color: Universal.foreground
+                    color: Universal.accent
                 }
                 Rectangle{
                     color: "#00000000"
@@ -415,10 +400,11 @@ Item {
                     anchors.bottom: sld.top
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    Text{
-                        text:"%1 Ft".arg(sld.value)
+                    Text{                        
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
+                        text:"%1 Ft".arg(sld.value)
+                        font.pixelSize: 14
                         color: Universal.foreground
                     }
                 }
@@ -435,57 +421,25 @@ Item {
                     stepSize: 1
                     value: 200
                 }
-                Text{
-                    text:"%1 Ft".arg(sld.minimumValue)
+                Text{                    
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"%1 Ft".arg(sld.minimumValue)
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{
-                    text:"%1 Ft".arg(sld.maximumValue)
+                Text{                    
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
+                    text:"%1 Ft".arg(sld.maximumValue)
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
-
-
-            //        Rectangle {
-            //            color: "transparent"
-            //            border.color: "#d3d3d3"
-            //            Layout.preferredWidth : grid.prefWidth(this)
-            //            Layout.preferredHeight : grid.prefHeight(this)
-            //            Text{
-            //                id: header3
-            //                anchors.horizontalCenter: parent.horizontalCenter
-            //                text:"LANGUAGE"
-            //                anchors.top: parent.top
-            //                anchors.topMargin: 10
-            //            }
-            //            Rectangle{
-            //                color: "#00000000"
-            //                anchors.top: header3.bottom
-            //                anchors.bottom: parent.bottom
-            //                anchors.left: parent.left
-            //                anchors.right: parent.right
-            //                ComboBox{
-            //                    width: 100
-            //                    anchors.horizontalCenter: parent.horizontalCenter
-            //                    anchors.verticalCenter: parent.verticalCenter
-            //                    currentIndex: 1
-            //                    model: ListModel{
-            //                        id:cbLaguageItems
-            //                        ListElement{text:"English"}
-            //                        ListElement{text:"French"}
-            //                        ListElement{text:"Spanish"}
-            //                    }
-            //                }
-            //            }
-            //        }
         }
     }
 }

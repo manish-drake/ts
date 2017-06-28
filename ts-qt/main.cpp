@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
         DataBuilder builder;
         return builder.build();
     } else {
+        QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
         QGuiApplication app(argc, argv);
 
         qInstallMessageHandler(myMessageOutput);
@@ -74,8 +75,9 @@ int main(int argc, char *argv[])
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
-//        Client client("tcp://192.168.1.104:6000");
-//        context->setContextProperty("zmq", &client);
+
+        Client client("tcp://192.168.145.133:6000");
+        context->setContextProperty("zmq", &client);
 
         dummygraphdata dummy;
         context->setContextProperty("dummy", &dummy);
