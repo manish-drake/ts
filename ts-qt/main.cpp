@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
         DataBuilder builder;
         return builder.build();
     } else {
+        QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
         QGuiApplication app(argc, argv);
 
         qInstallMessageHandler(myMessageOutput);

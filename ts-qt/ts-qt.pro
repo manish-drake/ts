@@ -50,7 +50,7 @@ DEPENDPATH += $$PWD/../ts-core
 contains (ANDROID_TARGET_ARCH,x86) {
     ANDROID_EXTRA_LIBS = \
         $$[QT_INSTALL_LIBS]/libQt5Sql.so \
-        -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+        -L$$PWD/../../../../zeromq-android/lib/ -lzmq
 }
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-model/release/ -lts-model
