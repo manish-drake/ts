@@ -28,18 +28,18 @@
 
 #include "../ts-smtp/SmtpMime"
 
-const int DATA_CREATION_MODE = 1;
+const int DATA_CREATION_MODE = 0;
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
     QDateTime current = QDateTime::currentDateTime();
-//    if(type >= 1)
-//    {
-//        auto loggingDao = DataManager::instance("c:/git/qt/ts/log.db").loggingDao();
-//        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
-//        loggingDao->addLogging(log);
-//    }
+    if(type >= 1)
+    {
+        auto loggingDao = DataManager::logger().loggingDao();
+        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
+        loggingDao->addLogging(log);
+    }
 
     //    switch (type) {
     //    case QtDebugMsg:
@@ -74,8 +74,8 @@ int main(int argc, char *argv[])
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
-        Client client("tcp://192.168.1.104:6000");
-        context->setContextProperty("zmq", &client);
+//        Client client("tcp://192.168.1.104:6000");
+//        context->setContextProperty("zmq", &client);
 
         dummygraphdata dummy;
         context->setContextProperty("dummy", &dummy);

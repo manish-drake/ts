@@ -91,5 +91,6 @@
     </qresource>
     <qresource prefix="/database">
         <file>ts.db</file>
+        <file>logs.db</file>
     </qresource>
 </RCC>

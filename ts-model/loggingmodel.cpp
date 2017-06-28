@@ -6,7 +6,7 @@ using namespace std;
 
 LoggingModel::LoggingModel(QObject *parent):
     ModelBase(parent),
-    m_db(DataManager::instance()),
+    m_db(DataManager::logger()),
     m_logs(m_db.loggingDao()->logs())
 {
 }
