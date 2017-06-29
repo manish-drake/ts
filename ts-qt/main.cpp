@@ -96,6 +96,10 @@ int main(int argc, char *argv[])
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
+        ControlNavigationModel controlNavigationModel;
+        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
+
+
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
