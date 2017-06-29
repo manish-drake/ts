@@ -36,28 +36,10 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     QDateTime current = QDateTime::currentDateTime();
     if(type >= 1)
     {
-        auto loggingDao = DataManager::logger().loggingDao();
-        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
-        loggingDao->addLogging(log);
+//        auto loggingDao = DataManager::logger().loggingDao();
+//        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
+//        loggingDao->addLogging(log);
     }
-
-    //    switch (type) {
-    //    case QtDebugMsg:
-    //        fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtInfoMsg:
-    //        fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtWarningMsg:
-    //        fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtCriticalMsg:
-    //        fprintf(stderr, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtFatalMsg:
-    //        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        abort();
-    //    }
 }
 
 int main(int argc, char *argv[])
@@ -75,6 +57,8 @@ int main(int argc, char *argv[])
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
+        LoggingModel loggingModel;
+        context->setContextProperty("loggingModel", &loggingModel);
 
         Client client("tcp://192.168.145.133:6000");
         context->setContextProperty("zmq", &client);
@@ -111,15 +95,6 @@ int main(int argc, char *argv[])
 
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
-
-        LoggingModel loggingModel;
-        context->setContextProperty("loggingModel", &loggingModel);
-
-        //        SetupModel setupModel;
-        //        context->setContextProperty("setupModel", &setupModel);
-
-        //        ControlNavigationModel controlNavigationModel;
-        //        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
