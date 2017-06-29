@@ -19,7 +19,7 @@ Item {
             columns: 2
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -73,7 +73,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -128,7 +128,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -188,7 +188,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -248,7 +248,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -286,7 +286,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -324,7 +324,7 @@ Item {
             }
              Item{
                 width: grid.width/2
-                height: 120
+                height: 140
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5

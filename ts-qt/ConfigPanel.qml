@@ -39,28 +39,22 @@ Item {
                     anchors.topMargin: 10
                     color: Universal.accent
                 }
-                Rectangle{
-                    color: "#00000000"
-                    anchors.top: header1.bottom
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    ComboBox{
-                        id: operatorCombobox
-                        width: 100
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        currentIndex: 0
-                        model: ListModel{
-                            id:cbOperatorItems
-                            ListElement{text:"Operator"}
-                            ListElement{text:"Ken Filardo"}
-                            ListElement{text:"Dave Klamet"}
-                            ListElement{text:"Steve O'Hara"}
-                        }
-                        onCurrentIndexChanged: {
-                            currentOperator = cbOperatorItems.get(operatorCombobox.currentIndex).text
-                        }
+                ComboBox{
+                    id: operatorCombobox
+                    width: 120
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 10
+                    currentIndex: 0
+                    model: ListModel{
+                        id:cbOperatorItems
+                        ListElement{text:"Operator"}
+                        ListElement{text:"Ken Filardo"}
+                        ListElement{text:"Dave Klamet"}
+                        ListElement{text:"Steve O'Hara"}
+                    }
+                    onCurrentIndexChanged: {
+                        currentOperator = cbOperatorItems.get(operatorCombobox.currentIndex).text
                     }
                 }
             }
@@ -131,26 +125,20 @@ Item {
                     anchors.topMargin: 10
                     color: Universal.accent
                 }
-                Rectangle{
-                    color: "#00000000"
+                Text{
                     anchors.top: header10.bottom
-                    anchors.bottom: sld2.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    Text{
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: sld2.value
-                        font.pixelSize: 14
-                        color: Universal.foreground
-                    }
+                    anchors.topMargin: 7
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text: sld2.value
+                    font.pixelSize: 14
+                    color: Universal.foreground
                 }
                 Slider {
                     id: sld2
-                    anchors.rightMargin: 15
-                    anchors.leftMargin: 15
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 25
+                    anchors.rightMargin: 10
+                    anchors.leftMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
                     minimumValue: 1
@@ -158,7 +146,7 @@ Item {
                     stepSize: 1
                     value: 7
                 }
-                Text{                    
+                Text{
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
@@ -167,7 +155,7 @@ Item {
                     font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{                    
+                Text{
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom
@@ -193,23 +181,17 @@ Item {
                     anchors.topMargin: 10
                     color: Universal.accent
                 }
-                Rectangle{
-                    color: "#00000000"
-                    anchors.top: header5.bottom
-                    anchors.bottom: parent.bottom
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    ComboBox{
-                        width: 100
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.verticalCenter: parent.verticalCenter
-                        currentIndex: 1
-                        model: ListModel{
-                            id:cbTestAddressItems
-                            ListElement{text:"AC82EC"}
-                            ListElement{text:"AC82DF"}
-                            ListElement{text:"AC82FG"}
-                        }
+                ComboBox{
+                    width: 120
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 10
+                    currentIndex: 1
+                    model: ListModel{
+                        id:cbTestAddressItems
+                        ListElement{text:"AC82EC"}
+                        ListElement{text:"AC82DF"}
+                        ListElement{text:"AC82FG"}
                     }
                 }
             }
@@ -248,7 +230,7 @@ Item {
                 }
                 Text{
                     id: label11
-                    anchors.horizontalCenter: parent.horizontalCenter                    
+                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
                     text:"Internal"
@@ -277,7 +259,7 @@ Item {
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    Text{                        
+                    Text{
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         text:"CLASS A"
@@ -321,7 +303,7 @@ Item {
                 }
                 Text{
                     id: label7
-                    anchors.horizontalCenter: parent.horizontalCenter                    
+                    anchors.horizontalCenter: parent.horizontalCenter
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 10
                     text:"Top"
@@ -345,10 +327,9 @@ Item {
                     anchors.topMargin: 10
                     color: Universal.accent
                 }
-                Rectangle{
-                    color: "#00000000"
+                Item{
                     anchors.top: header8.bottom
-                    anchors.bottom: ctrl8.top
+                    anchors.topMargin: 12
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Image{
@@ -363,11 +344,10 @@ Item {
                     }
                 }
                 ComboBox{
-                    id: ctrl8
-                    width: 100
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 10
+                    width: 120
                     anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 15
                     currentIndex: 1
                     model: ListModel{
                         id:cbTestSetConItems
@@ -394,26 +374,20 @@ Item {
                     anchors.topMargin: 10
                     color: Universal.accent
                 }
-                Rectangle{
-                    color: "#00000000"
+                Text{
                     anchors.top: header9.bottom
-                    anchors.bottom: sld.top
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    Text{                        
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text:"%1 Ft".arg(sld.value)
-                        font.pixelSize: 14
-                        color: Universal.foreground
-                    }
+                    anchors.topMargin: 7
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    text:"%1 Ft".arg(sld.value)
+                    font.pixelSize: 14
+                    color: Universal.foreground
                 }
                 Slider {
                     id: sld
-                    anchors.rightMargin: 15
-                    anchors.leftMargin: 15
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 25
+                    anchors.rightMargin: 10
+                    anchors.leftMargin: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.verticalCenterOffset: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
                     minimumValue: 10
@@ -421,7 +395,7 @@ Item {
                     stepSize: 1
                     value: 200
                 }
-                Text{                    
+                Text{
                     anchors.left: parent.left
                     anchors.leftMargin: 10
                     anchors.bottom: parent.bottom
@@ -430,7 +404,7 @@ Item {
                     font.pixelSize: 12
                     color: Universal.foreground
                 }
-                Text{                    
+                Text{
                     anchors.right: parent.right
                     anchors.rightMargin: 10
                     anchors.bottom: parent.bottom

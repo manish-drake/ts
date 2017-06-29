@@ -32,17 +32,23 @@ Page {
                 Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    height: chartCtrl.height
+                    height: 336
                     AviChartCtrl{
                         id: chartCtrl
                         areControlsAvailble : false
                     }
+                    ColumnLayout{
+                        anchors.fill: parent
+
                     GridView{
                         id: grid
-                        anchors.centerIn: parent
-                        anchors.verticalCenterOffset: 25
+                        Layout.fillWidth: true
+                        Layout.maximumWidth: 380
+                        Layout.alignment: Qt.AlignCenter
+                        Layout.topMargin: 55
+                        Layout.leftMargin: 35
+                        Layout.rightMargin: 35
                         height: 240
-                        width: 380
                         cellWidth: grid.width/2; cellHeight: grid.height/2
                         focus: true
                         boundsBehavior: Flickable.StopAtBounds
@@ -59,7 +65,7 @@ Page {
                                 Rectangle{
                                     id: wrapper
                                     anchors.fill: parent
-                                    anchors.margins: 10
+                                    anchors.margins: 8
                                     color: index == typeComboBox.currentIndex ? Qt.darker(Universal.accent,1.1) : Universal.accent
                                     border.color: index == typeComboBox.currentIndex ? "#aaaaaa" : "#00ffffff"
                                     border.width: 1
@@ -99,6 +105,7 @@ Page {
                                 }
                             }
                         }
+                    }
                     }
                 }
 

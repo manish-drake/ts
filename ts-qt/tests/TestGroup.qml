@@ -110,21 +110,21 @@ Item{
                                 }
                             }
 
-                            Item{
-                                Layout.column: 3
-                                width: 35
-                                height: 35
-                                Image {
-                                    id: favImage
-                                    anchors.centerIn: parent
-                                    source: "qrc:/img/img/Star Filled-20.png"
-                                }
-                                ColorOverlay {
-                                    anchors.fill: favImage
-                                    source: favImage
-                                    color: "#666666"
-                                }
-                            }
+//                            Item{
+//                                Layout.column: 3
+//                                width: 35
+//                                height: 35
+//                                Image {
+//                                    id: favImage
+//                                    anchors.centerIn: parent
+//                                    source: "qrc:/img/img/Star Filled-20.png"
+//                                }
+//                                ColorOverlay {
+//                                    anchors.fill: favImage
+//                                    source: favImage
+//                                    color: "#666666"
+//                                }
+//                            }
 
                             RowLayout {
                                 id: rowLayout1
