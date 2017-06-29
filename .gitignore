@@ -3,6 +3,7 @@
 
 ts.pro.user
 ts.db
+logs.db
 *.autosave
 *.h.*
 *.cpp.*
