@@ -50,6 +50,7 @@ GridLayout{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "Return<br>Loss"
+                font.pixelSize: 12
                 horizontalAlignment: Text.AlignHCenter
             }
         }
@@ -87,6 +88,7 @@ GridLayout{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "VSWR"
+                font.pixelSize: 12
                 horizontalAlignment: Text.AlignHCenter
             }
         }
@@ -133,6 +135,7 @@ GridLayout{
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
@@ -175,6 +178,7 @@ GridLayout{
                 Text{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: val
+                    font.pixelSize: 12
                     color: Universal.foreground
                 }
             }
@@ -236,18 +240,21 @@ GridLayout{
             id: freqStart
             color: Universal.foreground
             text: freqStartVal
+            font.pixelSize: 12
         }
         Text{
             id: freqMiddle
             anchors.horizontalCenter: parent.horizontalCenter
             color: Universal.foreground
             text: freqMiddleVal
+            font.pixelSize: 12
         }
         Text{
             id: freqStop
             anchors.right: parent.right
             color: Universal.foreground
             text: freqEndVal + " MHz"
+            font.pixelSize: 12
         }
     }
 
@@ -270,6 +277,7 @@ GridLayout{
                     Text{
                         text: val
                         color: Universal.foreground
+                        font.pixelSize: 12
                     }
                 }
             }
@@ -323,7 +331,7 @@ GridLayout{
     Item{
         Layout.row: 1
         Layout.column: 1
-        height: 25
+        height: 28
     }
 
     Repeater{
@@ -334,9 +342,9 @@ GridLayout{
             Layout.row: 1
             Layout.column: 1
             Layout.fillWidth: true
-            Layout.leftMargin: -12.5
-            Layout.rightMargin: -12.5
-            implicitHeight: 25
+            Layout.leftMargin: -14
+            Layout.rightMargin: -14
+            implicitHeight: 28
             minimumValue: markerMinVal
             maximumValue: markerMaxVal
             stepSize: markerStepSize
@@ -350,13 +358,14 @@ GridLayout{
                     color: control.pressed ? "#e7e7e7" : "#ededed"
                     border.color: "#dddddd"
                     border.width: 1
-                    implicitWidth: 27
-                    implicitHeight: 25
+                    implicitWidth: 30
+                    implicitHeight: 28
                     radius: 3
                     Text{
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: "M" + num
+                        font.pixelSize: 12
                     }
                     Rectangle{
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -371,6 +380,7 @@ GridLayout{
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
                         text: markerSlider.value;
+                        font.pixelSize: 12
                     }
                     Text{
                         visible: isDTFMode
@@ -378,6 +388,7 @@ GridLayout{
                         anchors.rightMargin: 5
                         anchors.verticalCenter: parent.verticalCenter
                         text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
+                        font.pixelSize: 12
                     }
                     MouseArea{
                         anchors.fill: parent
