@@ -28,7 +28,24 @@ DataManager &DataManager::instance()
     return singelton;
 }
 
-DataManager::DataManager(const QString &path):
+DataManager &DataManager::logger()
+{
+#if defined (Q_OS_ANDROID) || defined (Q_OS_IOS)
+    QFile assetDbFile(":/database/logs.db");/*   :/database/logs.db   */
+    QString destinationDbFile = QStandardPaths::writableLocation(
+                QStandardPaths::AppLocalDataLocation)
+            .append("/logs.db");
+    if(!QFile::exists(destinationDbFile)){
+        assetDbFile.copy(destinationDbFile);
+        QFile::setPermissions(destinationDbFile, QFile::WriteOwner | QFile::ReadOwner);
+    }
+    static DataManager _logger(destinationDbFile, true);
+#else
+    static DataManager _logger(LOG_DB_FILE,true);
+#endif
+    return _logger;
+}
+DataManager::DataManager(const QString &path, bool forLog):
     m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
 {
     m_database->setDatabaseName(path);
@@ -36,7 +53,12 @@ DataManager::DataManager(const QString &path):
     bool openStatus = m_database->open();
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
 
-    this->createRegistry();
+    if(forLog){
+        this->createLogRegistry();
+    }
+    else {
+        this->createRegistry();
+    }
 
     for(auto key: daoRegistry.keys()){
         auto dao = daoRegistry[key];
@@ -158,7 +180,11 @@ void DataManager::createRegistry()
                        std::shared_ptr<Dao>(new AviationClDao(*m_database)));
     daoRegistry.insert("aviation_Dtf",
                        std::shared_ptr<Dao>(new AviationDtfDao(*m_database)));
-    daoRegistry.insert("logs",std::shared_ptr<Dao>(new LoggingDao(*m_database)));
+}
+void DataManager::createLogRegistry()
+{
+    daoRegistry.insert("logs",
+                       std::shared_ptr<Dao>(new LoggingDao(*m_database)));
 }
 
 void DataManager::debugQuery(const QSqlQuery& query)
