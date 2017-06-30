@@ -32,6 +32,7 @@ const int DATA_CREATION_MODE = 0;
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
+    qDebug() << msg;
     QByteArray localMsg = msg.toLocal8Bit();
     QDateTime current = QDateTime::currentDateTime();
     if(type >= 1)
@@ -50,7 +51,7 @@ int main(int argc, char *argv[])
     } else {
         QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
         QGuiApplication app(argc, argv);
-
+        qDebug() << "whatever is written here";
         qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
