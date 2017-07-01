@@ -92,18 +92,20 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 15
-                    spacing: 20
+                    spacing: 0
                     Item{
-                        height: 20
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Power"
                             font.pixelSize: 14
                             color: Universal.foreground
                         }
                         Image {
                             id: arrowImage1
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -117,8 +119,8 @@ Item {
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
-                                powerSliderRect.visible = !powerSliderRect.visible
-                                if(powerSliderRect.visible){
+                                slidePanel1.visible = !slidePanel1.visible
+                                if(slidePanel1.visible){
                                     arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
                                     arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
@@ -126,52 +128,39 @@ Item {
                             }
                         }
                     }
-                    Item{
-                        id:powerSliderRect
+                    RowLayout{
+                        id:slidePanel1
                         visible:false
-                        height: 30
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Slider {
                             id: slider
-                            anchors.left: parent.left
-                            anchors.leftMargin: 20
-                            anchors.right: slidervaluerect.left
-                            anchors.rightMargin: 20
+                            Layout.column: 0
+                            Layout.fillWidth: true
+                            Layout.leftMargin: 10
+                            Layout.rightMargin: 10
+                            Layout.alignment: Qt.AlignVCenter
                             minimumValue: -70
                             maximumValue: 17
                             stepSize: 1
                             value:-39.9
                             updateValueWhileDragging: true
-                            onValueChanged: {
-                                console.log(slider.value)
-                            }
                         }
-                        Item{
-                            id:slidervaluerect
-                            anchors.right: parent.right
-                            anchors.rightMargin: 50
-                            Row{
-                                anchors.fill: parent
-                                Text{
-                                    text:slider.value
-                                    font.pixelSize: 14
-                                    color: Universal.foreground
-                                }
-                                Text{
-                                    text:"dB"
-                                    font.pixelSize: 14
-                                    color: Universal.foreground
-                                }
-                            }
+                        Text{
+                            Layout.column: 1
+                            Layout.alignment: Qt.AlignVCenter
+                            text:slider.value + "dB"
+                            font.pixelSize: 14
+                            color: Universal.foreground
                         }
                     }
 
                     Item{
-                        height: 20
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Distance"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -179,6 +168,7 @@ Item {
                         }
                         Image {
                             id: arrowImage2
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -189,12 +179,28 @@ Item {
                             source: arrowImage2
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel2.visible = !slidePanel2.visible
+                                if(slidePanel2.visible){
+                                    arrowImage2.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage2.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
                     }
                     Item{
-                        height: 20
+                        id:slidePanel2
+                    }
+
+                    Item{
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Flight-line"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -202,6 +208,7 @@ Item {
                         }
                         Image {
                             id: arrowImage3
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -212,13 +219,28 @@ Item {
                             source: arrowImage3
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel3.visible = !slidePanel3.visible
+                                if(slidePanel3.visible){
+                                    arrowImage3.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage3.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
+                    }
+                    Item{
+                        id:slidePanel3
                     }
 
                     Item{
-                        height: 20
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Delay"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -226,6 +248,7 @@ Item {
                         }
                         Image {
                             id: arrowImage4
+                            anchors.verticalCenter: parent.verticalCenter
                             width: 15
                             height: 15
                             anchors.right: parent.right
@@ -236,12 +259,28 @@ Item {
                             source: arrowImage4
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel4.visible = !slidePanel4.visible
+                                if(slidePanel4.visible){
+                                    arrowImage4.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage4.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
                     }
                     Item{
-                        height: 20
+                        id:slidePanel4
+                    }
+
+                    Item{
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Cable Loss"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -249,6 +288,7 @@ Item {
                         }
                         Image {
                             id: arrowImage5
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -259,11 +299,28 @@ Item {
                             source: arrowImage5
                             color: Universal.foreground
                         }
-                    } Item{
-                        height: 20
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel5.visible = !slidePanel5.visible
+                                if(slidePanel5.visible){
+                                    arrowImage5.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage5.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
+                    }
+                    Item{
+                        id:slidePanel5
+                    }
+
+                    Item{
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"PIN Time"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -271,6 +328,7 @@ Item {
                         }
                         Image {
                             id: arrowImage6
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -281,13 +339,28 @@ Item {
                             source: arrowImage6
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel6.visible = !slidePanel6.visible
+                                if(slidePanel6.visible){
+                                    arrowImage6.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage6.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
+                    }
+                    Item{
+                        id:slidePanel6
                     }
 
                     Item{
-                        height: 20
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Lat"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -295,6 +368,7 @@ Item {
                         }
                         Image {
                             id: arrowImage7
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -305,12 +379,28 @@ Item {
                             source: arrowImage7
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel7.visible = !slidePanel7.visible
+                                if(slidePanel7.visible){
+                                    arrowImage7.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage7.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
                     }
                     Item{
-                        height: 20
+                        id:slidePanel7
+                    }
+
+                    Item{
+                        height: 40
                         anchors.left: parent.left
                         anchors.right: parent.right
                         Text{
+                            anchors.verticalCenter: parent.verticalCenter
                             text:"Lon"
                             anchors.left: parent.left
                             font.pixelSize: 14
@@ -318,6 +408,7 @@ Item {
                         }
                         Image {
                             id: arrowImage8
+                            anchors.verticalCenter: parent.verticalCenter
                             width:15
                             height: 15
                             anchors.right: parent.right
@@ -328,6 +419,20 @@ Item {
                             source: arrowImage8
                             color: Universal.foreground
                         }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                slidePanel8.visible = !slidePanel8.visible
+                                if(slidePanel8.visible){
+                                    arrowImage8.source = "qrc:/img/img/Collapse Arrow-20.png"
+                                }else{
+                                    arrowImage8.source = "qrc:/img/img/Expand Arrow-20.png"
+                                }
+                            }
+                        }
+                    }
+                    Item{
+                        id:slidePanel8
                     }
                 }
             }
