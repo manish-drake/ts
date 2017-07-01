@@ -27,7 +27,11 @@ Item {
             color: Universal.background
             Text{
                 anchors.centerIn: parent
+<<<<<<< HEAD
+                text: controlNavigationModel.generatePIN()
+=======
                 text: pin
+>>>>>>> af64d7ce81a6eaf319a8cd3d775057b5b2af71f3
                 font.pixelSize: 28
                 color: "gray"
             }
