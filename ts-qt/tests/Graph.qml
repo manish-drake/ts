@@ -15,20 +15,20 @@ Page {
         color: Universal.background
         Item{
             id: rectangle1
-            height:25
-            width: 25
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.left: parent.left
-            anchors.leftMargin: 15
-            anchors.verticalCenter: parent.verticalCenter
+            width: 50
             Image {
+                id: image1
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/View Details-25.png"
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                }
+                source: "qrc:/img/img/View Details-25.png"                
+            }
+            ColorOverlay{
+                anchors.fill: image1
+                source: image1
+                color: Universal.foreground
             }
             MouseArea {
                 anchors.fill: parent
@@ -52,13 +52,13 @@ Page {
                 id: pageIndicator
                 anchors.horizontalCenter: parent.horizontalCenter
                 count: 7
-                currentIndex: summaryModel.currentPage
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                    visible: Universal.theme == Universal.Dark
-                }
+                currentIndex: summaryModel.currentPage                
+            }
+            ColorOverlay{
+                anchors.fill: pageIndicator
+                source: pageIndicator
+                color: Universal.foreground
+                visible: Universal.theme == Universal.Dark
             }
         }
 
@@ -66,20 +66,21 @@ Page {
 
         Item{
             id: rectangle
-            height:25
-            width: 25
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.margins: 10
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
+            anchors.rightMargin: 10
+            width: 50
             Image {
+                id: closeImage
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/Delete-25.png"
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                }
+                source: "qrc:/img/img/Delete-25.png"                
+            }
+            ColorOverlay{
+                anchors.fill: closeImage
+                source: closeImage
+                color: Universal.foreground
             }
             MouseArea {
                 anchors.fill: parent

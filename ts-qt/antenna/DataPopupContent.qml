@@ -17,22 +17,22 @@ Rectangle {
             anchors.right:parent.right
             color: Universal.background
             Item{
-                height:25
-                width: 25
-                Layout.fillHeight: true
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.margins: 10
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.left: parent.left
+                anchors.margins: 10
+                width: 50
                 visible: dataListView.currentIndex != -1
                 Image {
+                    id: closeImage
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete2-25.png"
-                    ColorOverlay{
-                        anchors.fill: parent
-                        source: parent
-                        color: Universal.foreground
-                    }
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage
+                    source: closeImage
+                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -55,14 +55,15 @@ Rectangle {
                 anchors.margins: 10
                 anchors.right: parent.right
                 Image {
+                    id: closeImage2
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Delete-25.png"
-                    ColorOverlay{
-                        anchors.fill: parent
-                        source: parent
-                        color: Universal.foreground
-                    }
+                    source: "qrc:/img/img/Delete-25.png"                    
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage2
+                    source: closeImage2
+                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent

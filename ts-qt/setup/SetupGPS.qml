@@ -24,10 +24,10 @@ Page {
         }
 
         Item{
-            width: 40
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.right: parent.right
+            width: 50
             Image {
                 id: closeImage
                 anchors.centerIn: parent

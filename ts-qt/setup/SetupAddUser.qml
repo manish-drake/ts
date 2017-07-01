@@ -23,11 +23,11 @@ Page {
             color: Universal.foreground
         }
 
-        Item{
-            width: 40
+        Item{            
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.right: parent.right
+            width: 50
             Image {
                 id: closeImage
                 anchors.centerIn: parent

@@ -54,12 +54,10 @@ Item {
             }
             Item{
                 id: rectangle
-                height:25
-                width: 25
-                Layout.fillHeight: true
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.margins: 10
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
                 anchors.right: parent.right
+                width: 50
                 Image {
                     id: closeImage
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -91,7 +89,7 @@ Item {
                     y: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 15
+                    anchors.margins: 25
                     spacing: 0
                     Item{
                         height: 40
