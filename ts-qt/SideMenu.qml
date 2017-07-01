@@ -67,7 +67,7 @@ Rectangle{
                                     navigationModel.currentView = navigationModel.getTargetView("_section", id)
                                     headerTitle = name
                                     listViewLeftMenu.currentIndex = index
-                                    sideMenuPopup.close()
+                                    sideMenuDrawer.close()
                                 }
                             }
                         }
@@ -76,12 +76,12 @@ Rectangle{
             }
         }
     }
-    Rectangle{
-        anchors.right: parent.right
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: 1
-        color: Universal.foreground
-        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
-    }
+//    Rectangle{
+//        anchors.right: parent.right
+//        anchors.top: parent.top
+//        anchors.bottom: parent.bottom
+//        width: 1
+//        color: Universal.foreground
+//        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
+//    }
 }

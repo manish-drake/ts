@@ -83,22 +83,10 @@ ApplicationWindow {
         }
     }
 
-    Rectangle{
-        id: fullOpaqueBack
-        anchors.fill: parent
-        color: opaqueBackground
-        visible: false
-    }
-
-    Popup {
-        id: sideMenuPopup
-        width: 280
+    Drawer {
+        id: sideMenuDrawer
+        width: 250
         height: parent.height - footer.height
-        modal: true
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-        padding: 0
-        onClosed: fullOpaqueBack.visible = false
-        onOpened: fullOpaqueBack.visible = true
         contentItem: SideMenu{}
     }
 
