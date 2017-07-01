@@ -3,7 +3,8 @@
 
 #include "ts-model_global.h"
 #include <QObject>
-#include <QTime>
+#include <cstdlib>
+#include <ctime>
 
 class TSMODELSHARED_EXPORT ControlNavigationModel: public QObject
 {

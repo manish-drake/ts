@@ -28,14 +28,6 @@ Item {
             Text{
                 anchors.centerIn: parent
                 text: controlNavigationModel.generatePIN()
-
-                    /*{
-                    var pin = "";
-                    var possible = "0123456789";
-                    for( var i=0; i < 4; i++ )
-                        pin += possible.charAt(Math.floor(Math.random() * possible.length));
-                    return pin;
-                }*/
                 font.pixelSize: 28
                 color: "gray"
             }
