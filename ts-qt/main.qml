@@ -17,8 +17,9 @@ ApplicationWindow {
     property string headerTitle: "Home"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     Universal.accent: "#01ADEE";
+    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
+    property string pin;
     Page {
         anchors.fill: parent
 

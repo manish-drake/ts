@@ -33,12 +33,14 @@ const int DATA_CREATION_MODE = 0;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
-    QDateTime current = QDateTime::currentDateTime();
+    fprintf(stderr,localMsg.constData());
+    fflush(stderr);
+    QDateTime dateTime = QDateTime::currentDateTime();
     if(type >= 1)
     {
-//        auto loggingDao = DataManager::logger().loggingDao();
-//        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
-//        loggingDao->addLogging(log);
+        auto loggingDao = DataManager::logger().loggingDao();
+        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
+        //        loggingDao->addLogging(log);
     }
 }
 
