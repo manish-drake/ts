@@ -1,6 +1,6 @@
 #include "controlnavigationmodel.h"
 
-ControlNavigationModel::ControlNavigationModel()
+ControlNavigationModel::ControlNavigationModel() : QObject()
 { }
 
 int ControlNavigationModel::generatePIN(const int Min, const int Max)
