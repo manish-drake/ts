@@ -2,6 +2,7 @@
 #define DATAMANAGER_H
 
 #include <QHash>
+#include <QThread>
 
 #include "ts-dao_global.h"
 #include "section.h"
@@ -18,6 +19,7 @@
 #include "aviationcldao.h"
 #include "aviationdtfdao.h"
 #include "loggingdao.h"
+#include "homedao.h"
 
 #include "dao.h"
 
@@ -49,6 +51,7 @@ public:
     std::shared_ptr<const AviationClDao> aviationClDao() const;
     std::shared_ptr<const AviationDtfDao> aviationDtfDao() const;
     std::shared_ptr<const LoggingDao> loggingDao() const;
+    std::shared_ptr<const HomeDao> homeDao() const;
     ~DataManager();
 
 protected:

@@ -38,8 +38,8 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     QDateTime dateTime = QDateTime::currentDateTime();
     if(type >= 1)
     {
-        auto loggingDao = DataManager::logger().loggingDao();
-        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
+//        auto loggingDao = DataManager::logger().loggingDao();
+//        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
         //        loggingDao->addLogging(log);
     }
 }

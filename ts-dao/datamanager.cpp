@@ -155,6 +155,13 @@ std::shared_ptr<const LoggingDao> DataManager::loggingDao() const
     return  loggingDaoPtr;
 }
 
+std::shared_ptr<const HomeDao> DataManager::homeDao() const
+{
+    auto daoPtr = this->daoRegistry["logs"];
+    auto homeDaoPtr = std::dynamic_pointer_cast<HomeDao>(daoPtr);
+    return  homeDaoPtr;
+}
+
 
 void DataManager::createRegistry()
 {
@@ -180,6 +187,8 @@ void DataManager::createRegistry()
                        std::shared_ptr<Dao>(new AviationClDao(*m_database)));
     daoRegistry.insert("aviation_Dtf",
                        std::shared_ptr<Dao>(new AviationDtfDao(*m_database)));
+    daoRegistry.insert("home",
+                       std::shared_ptr<Dao>(new HomeDao(*m_database)));
 }
 void DataManager::createLogRegistry()
 {

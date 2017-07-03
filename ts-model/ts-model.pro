@@ -37,7 +37,8 @@ SOURCES += \
     aviationvswrmodel.cpp \
     controlnavigationmodel.cpp \
     setupmodel.cpp \
-    loggingmodel.cpp
+    loggingmodel.cpp \
+    homemodel.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -55,7 +56,8 @@ HEADERS +=\
     aviationvswrmodel.h \
     controlnavigationmodel.h \
     setupmodel.h \
-    loggingmodel.h
+    loggingmodel.h \
+    homemodel.h
 
 unix {
     target.path = /usr/lib
