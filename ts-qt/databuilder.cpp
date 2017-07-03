@@ -626,9 +626,6 @@ int DataBuilder::build()
     Test in1090("1090 ADS-B IN", secADSB.id());
     testModel.addTest(in1090);
 
-    Test homein1090("1090 ADS-B IN", secHome.id());
-    testModel.addTest(homein1090);
-
     //------------------------------uatOut-------------------------------
 
     Test adsbOutUat("UAT ADS-B OUT", secADSB.id());
@@ -1025,9 +1022,6 @@ int DataBuilder::build()
     Test uatIn("UAT ADS-B IN", secADSB.id());
     testModel.addTest(uatIn);
 
-    Test homeuatIn("UAT ADS-B IN", secHome.id());
-    testModel.addTest(homeuatIn);
-
     Test antennaAviation("Aviation", secAntenna.id());
     testModel.addTest(antennaAviation);
 
@@ -1044,6 +1038,21 @@ int DataBuilder::build()
 
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
+
+    //For Home Tests---------------------------------
+
+    Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
+    testModel.addTest(homeAdsbOut1090);
+
+    Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(homeToadsbOut1090);
+
+    Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
+    testModel.addTest(homeadsbOutUat);
+
+    Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwADSBoutUATScan.id());
+    navigationDaoPtr->addNavigation(homeToadsbOutUat);
+    //-----------------------------------------------
 
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
