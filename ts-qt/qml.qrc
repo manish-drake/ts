@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>Main.qml</file>
         <file>ConfigPanel.qml</file>
-        <file>Global.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>MoreActions.qml</file>
@@ -44,6 +43,8 @@
         <file>tests/TestGuide.qml</file>
         <file>ConnectionLost.qml</file>
         <file>AppLogs.qml</file>
+        <file>home/Home.qml</file>
+        <file>home/TestGuide.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

@@ -48,7 +48,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "AppLogs.qml";
     case 1:
     default:
-        return "Global.qml";
+        return "home/Home.qml";
     }
 }
 
