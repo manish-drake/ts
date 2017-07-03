@@ -21,14 +21,15 @@ Rectangle{
             width: 35
             Layout.alignment: Qt.AlignVCenter
             Image {
+                id: image1
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/Download-22.png"
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                }
+                source: "qrc:/img/img/Download-22.png"                
+            }
+            ColorOverlay{
+                anchors.fill: image1
+                source: image1
+                color: Universal.foreground
             }
             MouseArea {
                 anchors.fill: parent
@@ -71,14 +72,15 @@ Rectangle{
             width: 35
             Layout.alignment: Qt.AlignVCenter
             Image {
+                id: image2
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 source: "qrc:/img/img/Past-22.png"
-                ColorOverlay{
-                    anchors.fill: parent
-                    source: parent
-                    color: Universal.foreground
-                }
+            }
+            ColorOverlay{
+                anchors.fill: image2
+                source: image2
+                color: Universal.foreground
             }
             MouseArea {
                 anchors.fill: parent
@@ -97,12 +99,10 @@ Rectangle{
 
     Item{
         id: rectangle
-        height:25
-        width: 25
-        Layout.fillHeight: true
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.margins: 10
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
         anchors.right: parent.right
+        width: 50
         Image {
             id: closeImage
             anchors.horizontalCenter: parent.horizontalCenter

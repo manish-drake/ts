@@ -13,41 +13,38 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         color: Universal.background
-        height: 40
-        Column{
-            topPadding: 10
-            anchors.verticalCenter: parent.verticalCenter
+        height: 45
+
+        Text {
+            id: title
+            anchors.top: parent.top
+            anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
-                id: title
-                text: navigationModel.navigationParameter.title
-                font.pixelSize: 16
-                font.weight: Font.DemiBold
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: Universal.foreground
-            }
-            PageIndicator {
-                id: pageIndicator
-                anchors.horizontalCenter: parent.horizontalCenter
-                count: 7
-                currentIndex: summaryModel.currentPage
-            }
-            ColorOverlay{
-                anchors.fill: pageIndicator
-                source: pageIndicator
-                color: Universal.foreground
-                visible: Universal.theme == Universal.Dark
-            }
+            text: navigationModel.navigationParameter.title
+            font.pixelSize: 16
+            font.weight: Font.DemiBold
+            color: Universal.foreground
+        }
+        PageIndicator {
+            id: pageIndicator
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            count: 7
+            currentIndex: summaryModel.currentPage
+        }
+        ColorOverlay{
+            anchors.fill: pageIndicator
+            source: pageIndicator
+            color: Universal.foreground
+            visible: Universal.theme == Universal.Dark
         }
 
         Item{
             id: rectangle
-            height:25
-            width: 25
-            Layout.fillHeight: true
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.margins: 10
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
             anchors.right: parent.right
+            width: 50
             Image {
                 id: closeImage
                 anchors.horizontalCenter: parent.horizontalCenter

@@ -26,7 +26,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                sideMenuPopup.open()
+                sideMenuDrawer.open()
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1

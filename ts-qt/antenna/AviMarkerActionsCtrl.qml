@@ -179,15 +179,16 @@ import QtGraphicalEffects 1.0
                     opacity: enabled ? 1.0 : 0.4
                     enabled: markersModel.count > 1
                     Image{
+                        id: image1
                         anchors.centerIn: parent
                         height: 22
                         width: 22
                         source: "qrc:/img/img/Delete-25.png"
-                        ColorOverlay{
-                            anchors.fill: parent
-                            source: parent
-                            color: "black"
-                        }
+                    }
+                    ColorOverlay{
+                        anchors.fill: image1
+                        source: image1
+                        color: "black"
                     }
                     MouseArea{
                         id: remMArea

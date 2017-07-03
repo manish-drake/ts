@@ -10,18 +10,19 @@ Item{
     anchors.right: parent.right
     property alias source: image.source
     property alias text: switchDelegate.text
+    property bool isChecked
     SwitchDelegate {
         id:switchDelegate
         anchors.left: parent.left
         anchors.right: parent.right
-        checked: false
+        checked: isChecked
         font.pixelSize: 14
         indicator:
             Item{
             width: 50
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            opacity:  switchDelegate.checked ? 0.25 : 1.0
+            opacity:  switchDelegate.checked ? 1.0 : 0.25
             Image {
                 id: image
                 anchors.verticalCenter: parent.verticalCenter
@@ -37,7 +38,7 @@ Item{
             rightPadding: parent.spacing
             text: parent.text
             font: parent.font
-            opacity: switchDelegate.checked ? 0.4 : 1.0
+            opacity: switchDelegate.checked ? 1.0 : 0.4
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter
