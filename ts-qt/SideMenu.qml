@@ -42,6 +42,7 @@ Rectangle{
                 anchors.margins: 7
                 model: sectionModel
                 clip: true
+                currentIndex: -1
                 delegate:  Component {
                     Item{
                         anchors.left: parent.left

@@ -626,6 +626,9 @@ int DataBuilder::build()
     Test in1090("1090 ADS-B IN", secADSB.id());
     testModel.addTest(in1090);
 
+    Test homein1090("1090 ADS-B IN", secHome.id());
+    testModel.addTest(homein1090);
+
     //------------------------------uatOut-------------------------------
 
     Test adsbOutUat("UAT ADS-B OUT", secADSB.id());
@@ -1022,13 +1025,25 @@ int DataBuilder::build()
     Test uatIn("UAT ADS-B IN", secADSB.id());
     testModel.addTest(uatIn);
 
+    Test homeuatIn("UAT ADS-B IN", secHome.id());
+    testModel.addTest(homeuatIn);
+
     Test antennaAviation("Aviation", secAntenna.id());
     testModel.addTest(antennaAviation);
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    Navigation adsbTo1090(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
-    navigationDaoPtr->addNavigation(adsbTo1090);
+    Navigation secToHome(vwGlobal.id(), "_section", secHome.id(), vwHome.id());
+    navigationDaoPtr->addNavigation(secToHome);
+
+    Navigation secToTestGroup(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
+    navigationDaoPtr->addNavigation(secToTestGroup);
+
+    Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
+    navigationDaoPtr->addNavigation(secToAntenna);
+
+    Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
+    navigationDaoPtr->addNavigation(secToSetup);
 
     Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(main1090ToScanPage);
@@ -1252,9 +1267,6 @@ int DataBuilder::build()
     Navigation sConnToSetup (vwSetupConn.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sConnToSetup);
 
-    Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
-    navigationDaoPtr->addNavigation(secToSetup);
-
     Navigation setupToUser(vwSetup.id(), "User", 0, vwSetupUser.id());
     navigationDaoPtr->addNavigation(setupToUser);
 
@@ -1281,9 +1293,6 @@ int DataBuilder::build()
 
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
     navigationDaoPtr->addNavigation(setupToConn);
-
-    Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
-    navigationDaoPtr->addNavigation(secToAntenna);
 
     Navigation antennaToAviationCalShort(vwAntenna.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
     navigationDaoPtr->addNavigation(antennaToAviationCalShort);

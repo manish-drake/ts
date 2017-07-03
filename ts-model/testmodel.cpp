@@ -115,6 +115,9 @@ void TestModel::qualifyByView(const int view)
     decltype (m_tests) temp_Tests;
 
     switch (view) {
+    case 2:
+        temp_Tests = m_db.testDao()->tests(1);
+        break;
     case 3:
         temp_Tests = m_db.testDao()->tests(4);
         break;
