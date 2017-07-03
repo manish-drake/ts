@@ -44,12 +44,13 @@ ApplicationWindow {
 
             Item{
                 width: 320
+                anchors.top: parent.top
+                anchors.topMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
-                    id: configPanelPopup
+                    id: configPanelPopup                                       
+                    width: parent.width
                     padding: 0
-                    topMargin: 55
-                    width: 320
                     modal: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
                     onClosed: contentOpaqueBack.visible = false
@@ -65,6 +66,7 @@ ApplicationWindow {
                 Popup {
                     id: moreActionsPopover
                     width: 220
+                    Layout.maximumHeight: contentRect.height - 50
                     padding: 0
                     topMargin: 55
                     rightMargin: 5
