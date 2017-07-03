@@ -9,7 +9,7 @@ Page {
     anchors.fill: parent
     header: Rectangle{
         id:testHeaderRect
-        height: 40
+        height: 45
         anchors.left: parent.left
         anchors.right: parent.right
         color: Universal.background
@@ -23,7 +23,7 @@ Page {
                 id: image1
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/View Details-25.png"                
+                source: "qrc:/img/img/View Details-25.png"
             }
             ColorOverlay{
                 anchors.fill: image1
@@ -36,46 +36,41 @@ Page {
             }
         }
 
-        Column{
-            topPadding: 10
-            anchors.verticalCenter: parent.verticalCenter
+        Text {
+            id: title
+            anchors.top: parent.top
+            anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
-                id: title
-                text: navigationModel.navigationParameter.title
-                font.pixelSize: 16
-                font.weight: Font.DemiBold
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: Universal.foreground
-            }
-            PageIndicator {
-                id: pageIndicator
-                anchors.horizontalCenter: parent.horizontalCenter
-                count: 7
-                currentIndex: summaryModel.currentPage                
-            }
-            ColorOverlay{
-                anchors.fill: pageIndicator
-                source: pageIndicator
-                color: Universal.foreground
-                visible: Universal.theme == Universal.Dark
-            }
+            text: navigationModel.navigationParameter.title
+            font.pixelSize: 16
+            font.weight: Font.DemiBold
+            color: Universal.foreground
         }
-
-
+        PageIndicator {
+            id: pageIndicator
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            count: 7
+            currentIndex: summaryModel.currentPage
+        }
+        ColorOverlay{
+            anchors.fill: pageIndicator
+            source: pageIndicator
+            color: Universal.foreground
+            visible: Universal.theme == Universal.Dark
+        }
 
         Item{
             id: rectangle
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.right: parent.right
-            anchors.rightMargin: 10
             width: 50
             Image {
                 id: closeImage
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/Delete-25.png"                
+                source: "qrc:/img/img/Delete-25.png"
             }
             ColorOverlay{
                 anchors.fill: closeImage
