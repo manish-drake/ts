@@ -39,7 +39,6 @@ Page {
                     }
                     ColumnLayout{
                         anchors.fill: parent
-
                         GridView{
                             id: grid
                             Layout.fillWidth: true
