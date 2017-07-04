@@ -131,7 +131,6 @@ Item{
 
                         }
                     }
-
                     Column{
                         Repeater{
                             model: markersModel
