@@ -15,13 +15,14 @@ Item{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-//        Text{
-//            text: "MODE"
-//            font.weight: Font.ExtraBold
-//        }
-
+        Text{
+            text: "MODE"
+            font.pixelSize: 13
+            font.weight: Font.DemiBold
+            opacity: 0.7
+        }
         Item{
-//            Layout.row: 1
+            Layout.row: 1
             Layout.fillWidth: true
             height: 50
             ComboBox {
@@ -49,13 +50,13 @@ Item{
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
                             anchors.right: parent.right
-                            anchors.leftMargin: 5
+                            anchors.leftMargin: 10
                             anchors.rightMargin: 20
                             elide: Text.ElideRight
                             font.pixelSize: 14
                             font.weight: Font.DemiBold
                             color: "white"
-                            text: "MODE: " + control.currentText
+                            text: control.currentText
                         }
                     }
                 }

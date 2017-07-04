@@ -39,7 +39,7 @@ Item{
                         columns: 2
                         columnSpacing: 15
                         rowSpacing: 20
-                        height: 140
+                        height: 160
                         AviBandCtrl{
                             id: bandCtrl
                         }

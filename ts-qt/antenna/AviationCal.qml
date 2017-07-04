@@ -40,72 +40,72 @@ Page {
                     ColumnLayout{
                         anchors.fill: parent
 
-                    GridView{
-                        id: grid
-                        Layout.fillWidth: true
-                        Layout.maximumWidth: 380
-                        Layout.alignment: Qt.AlignCenter
-                        Layout.topMargin: 55
-                        Layout.leftMargin: 35
-                        Layout.rightMargin: 35
-                        height: 240
-                        cellWidth: grid.width/2; cellHeight: grid.height/2
-                        focus: true
-                        boundsBehavior: Flickable.StopAtBounds
-                        model: ListModel{
-                            ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
-                            ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
-                            ListElement{header: "LOAD"; status: "UNCAL"; datetime:"--/--/--"}
-                            ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
-                        }
-                        delegate:Component{
-                            Item{
-                                width: grid.cellWidth
-                                height: grid.cellHeight
-                                Rectangle{
-                                    id: wrapper
-                                    anchors.fill: parent
-                                    anchors.margins: 8
-                                    color: index == typeComboBox.currentIndex ? Qt.darker(Universal.accent,1.1) : Universal.accent
-                                    border.color: index == typeComboBox.currentIndex ? "#aaaaaa" : "#00ffffff"
-                                    border.width: 1
-                                    radius: 3
-                                    layer.enabled: true
-                                    layer.effect: DropShadow {
-                                        transparentBorder: true
-                                        horizontalOffset: 1.1
-                                        verticalOffset: 1.1
-                                        radius: 4.0
-                                        color: "#0dffffff"
-                                        spread: 0
-                                    }
-                                    Column{
-                                        anchors.centerIn: parent
-                                        Text{
-                                            text: header
-                                            color: "white"
-                                            font.weight: Font.Bold
-                                            font.pixelSize: 14
-                                        }
-                                        Text{
-                                            text: status
-                                            color: "white"
-                                            font.pixelSize: 14
-                                        }
-                                        Text {
-                                            text: datetime
-                                            color: "white"
-                                            font.pixelSize: 14
-                                        }
-                                    }
-                                    MouseArea{
+                        GridView{
+                            id: grid
+                            Layout.fillWidth: true
+                            Layout.maximumWidth: 380
+                            Layout.alignment: Qt.AlignCenter
+                            Layout.topMargin: 55
+                            Layout.leftMargin: 35
+                            Layout.rightMargin: 35
+                            height: 240
+                            cellWidth: grid.width/2; cellHeight: grid.height/2
+                            focus: true
+                            boundsBehavior: Flickable.StopAtBounds
+                            model: ListModel{
+                                ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}
+                                ListElement{header: "OPEN"; status: "UNCAL"; datetime:"--/--/--"}
+                                ListElement{header: "LOAD"; status: "UNCAL"; datetime:"--/--/--"}
+                                ListElement{header: "THRU"; status: "UNCAL"; datetime:"--/--/--"}
+                            }
+                            delegate:Component{
+                                Item{
+                                    width: grid.cellWidth
+                                    height: grid.cellHeight
+                                    Rectangle{
+                                        id: wrapper
                                         anchors.fill: parent
-                                        onClicked: typeComboBox.currentIndex = index
+                                        anchors.margins: 8
+                                        color: index == typeComboBox.currentIndex ? Qt.darker(Universal.accent,1.1) : Universal.accent
+                                        border.color: index == typeComboBox.currentIndex ? "#aaaaaa" : "#00ffffff"
+                                        border.width: 1
+                                        radius: 3
+                                        layer.enabled: true
+                                        layer.effect: DropShadow {
+                                            transparentBorder: true
+                                            horizontalOffset: 1.1
+                                            verticalOffset: 1.1
+                                            radius: 4.0
+                                            color: "#0dffffff"
+                                            spread: 0
+                                        }
+                                        Column{
+                                            anchors.centerIn: parent
+                                            Text{
+                                                text: header
+                                                color: "white"
+                                                font.weight: Font.Bold
+                                                font.pixelSize: 14
+                                            }
+                                            Text{
+                                                text: status
+                                                color: "white"
+                                                font.pixelSize: 14
+                                            }
+                                            Text {
+                                                text: datetime
+                                                color: "white"
+                                                font.pixelSize: 14
+                                            }
+                                        }
+                                        MouseArea{
+                                            anchors.fill: parent
+                                            onClicked: typeComboBox.currentIndex = index
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
                     }
                 }
 
@@ -115,70 +115,80 @@ Page {
                     columns: 2
                     columnSpacing: 15
                     rowSpacing: 20
-                    height: 140
+                    height: 160
                     Item{
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        Item{
+                        ColumnLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            height: 50
-                            ComboBox {
-                                id: typeComboBox
-                                implicitWidth: parent.width
-                                implicitHeight: parent.height
-                                style: ComboBoxStyle{
-                                    background: Rectangle{
-                                        height: typeComboBox.height
-                                        width: typeComboBox.width
-                                        color: Universal.accent
-                                        opacity: typeComboBox.pressed ? 0.9 : 1.0
-                                        radius: 3
-                                        Image {
-                                            source: "qrc:/img/img/Expand Arrow-20.png"
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            anchors.right: parent.right
-                                            anchors.rightMargin: 10
+                            Text{
+                                text: "TYPE"
+                                font.pixelSize: 13
+                                font.weight: Font.DemiBold
+                                opacity: 0.7
+                            }
+                            Item{
+                                Layout.row: 1
+                                Layout.fillWidth: true
+                                height: 50
+                                ComboBox {
+                                    id: typeComboBox
+                                    implicitWidth: parent.width
+                                    implicitHeight: parent.height
+                                    style: ComboBoxStyle{
+                                        background: Rectangle{
+                                            height: typeComboBox.height
+                                            width: typeComboBox.width
+                                            color: Universal.accent
+                                            opacity: typeComboBox.pressed ? 0.9 : 1.0
+                                            radius: 3
+                                            Image {
+                                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                anchors.right: parent.right
+                                                anchors.rightMargin: 10
+                                            }
+                                        }
+                                        label:Item {
+                                            anchors.fill: parent
+                                            Text {
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                anchors.left: parent.left
+                                                anchors.right: parent.right
+                                                anchors.leftMargin: 10
+                                                anchors.rightMargin: 20
+                                                elide: Text.ElideRight
+                                                font.pixelSize: 14
+                                                font.weight: Font.DemiBold
+                                                color: "white"
+                                                text: control.currentText
+                                            }
                                         }
                                     }
-                                    label:Item {
-                                        anchors.fill: parent
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
-                                            anchors.leftMargin: 5
-                                            anchors.rightMargin: 20
-                                            elide: Text.ElideRight
-                                            font.pixelSize: 14
-                                            font.weight: Font.DemiBold
-                                            color: "white"
-                                            text: "TYPE: " + control.currentText
-                                        }
+                                    model: ListModel {
+                                        id: typeList
+                                        ListElement { text: "SHORT";}
+                                        ListElement { text: "OPEN";}
+                                        ListElement { text: "LOAD";}
+                                        ListElement { text: "THRU";}
                                     }
-                                }
-                                model: ListModel {
-                                    id: typeList
-                                    ListElement { text: "SHORT";}
-                                    ListElement { text: "OPEN";}
-                                    ListElement { text: "LOAD";}
-                                    ListElement { text: "THRU";}
-                                }
-                                onCurrentIndexChanged:{
-                                    switch(currentIndex){
-                                    case 0:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-                                        break;
-                                    case 1:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
-                                        break;
-                                    case 2:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
-                                        break;
-                                    case 3:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
-                                        break;
+                                    onCurrentIndexChanged:{
+                                        switch(currentIndex){
+                                        case 0:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                            break;
+                                        case 1:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                            break;
+                                        case 2:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                            break;
+                                        case 3:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                            break;
+                                        }
                                     }
                                 }
                             }
@@ -200,6 +210,7 @@ Page {
                             anchors.bottom: parent.bottom
                             height: 50
                             color: Universal.accent
+                            radius: 3
                             Text{
                                 anchors.centerIn: parent
                                 font.pixelSize: 14
@@ -225,6 +236,7 @@ Page {
                             anchors.bottom: parent.bottom
                             height: 50
                             color: Universal.accent
+                            radius: 3
                             Text{
                                 anchors.centerIn: parent
                                 font.pixelSize: 14
