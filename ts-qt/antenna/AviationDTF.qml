@@ -61,17 +61,8 @@ Item{
                                         background: Rectangle{
                                             height: coaxComboBox.height
                                             width: coaxComboBox.width
-                                            color: coaxComboBox.pressed ? "#e7e7e7" : "#ededed"
-                                            radius: 3
-                                            layer.enabled: true
-                                            layer.effect: DropShadow {
-                                                transparentBorder: true
-                                                horizontalOffset: 1.1
-                                                verticalOffset: 1.1
-                                                radius: 4.0
-                                                color: "#4d000000"
-                                                spread: 0
-                                            }
+                                            color: Universal.accent
+                                            opacity: coaxComboBox.pressed ? 0.9 : 1.0
                                             Image {
                                                 source: "qrc:/img/img/Expand Arrow-20.png"
                                                 anchors.verticalCenter: parent.verticalCenter
@@ -90,7 +81,8 @@ Item{
                                                 anchors.rightMargin: 20
                                                 elide: Text.ElideRight
                                                 font.pixelSize: 14
-                                                color: "#333333"
+                                                color: "white"
+                                                font.weight: Font.DemiBold
                                                 text: "COAX: " + control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                                             }
                                             TextField {

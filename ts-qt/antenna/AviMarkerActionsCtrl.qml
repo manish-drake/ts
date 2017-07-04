@@ -16,17 +16,8 @@ import QtGraphicalEffects 1.0
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         height: 50
-        color: "#ededed"
+        color: Universal.accent
         radius: 3
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 1.1
-            verticalOffset: 1.1
-            radius: 4.0
-            color: "#4d000000"
-            spread: 0
-        }
         RowLayout{
             anchors.fill: parent
              Item{
@@ -40,7 +31,8 @@ import QtGraphicalEffects 1.0
                     anchors.leftMargin: 10
                     elide: Text.ElideRight
                     font.pixelSize: 14
-                    color: "#333333"
+                    font.weight: Font.DemiBold
+                    color: "white"
                     text: "MARKER"
                 }
                 MouseArea{
@@ -74,6 +66,7 @@ import QtGraphicalEffects 1.0
                         anchors.centerIn: parent
                         font.pixelSize: 16
                         text: "<<<"
+                        color: "white"
                     }
                     MouseArea{
                         id: decValMArea
@@ -95,6 +88,7 @@ import QtGraphicalEffects 1.0
                         anchors.centerIn: parent
                         font.pixelSize: 16
                         text: ">>>"
+                        color: "white"
                     }
                     MouseArea{
                         id: incValMArea
@@ -120,6 +114,7 @@ import QtGraphicalEffects 1.0
                         anchors.centerIn: parent
                         font.pixelSize: 16
                         text: "+V"
+                        color: "white"
                     }
                     MouseArea{
                         id: valleyMArea
@@ -137,6 +132,7 @@ import QtGraphicalEffects 1.0
                         anchors.centerIn: parent
                         font.pixelSize: 16
                         text: "+P"
+                        color: "white"
                     }
                     MouseArea{
                         id: peakValMArea
@@ -161,6 +157,7 @@ import QtGraphicalEffects 1.0
                         anchors.centerIn: parent
                         font.pixelSize: 26
                         text: "+"
+                        color: "white"
                     }
                     MouseArea{
                         id: addMArea
@@ -188,7 +185,7 @@ import QtGraphicalEffects 1.0
                     ColorOverlay{
                         anchors.fill: image1
                         source: image1
-                        color: "black"
+                        color: "white"
                     }
                     MouseArea{
                         id: remMArea

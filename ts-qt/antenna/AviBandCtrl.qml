@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
+import QtQuick.Controls.Universal 2.1
 
  Item{
     Layout.fillWidth: true
@@ -23,17 +24,9 @@ import QtGraphicalEffects 1.0
                 background: Rectangle{
                     height: bandComboBox.height
                     width: bandComboBox.width
-                    color: bandComboBox.pressed ? "#e7e7e7" : "#ededed"
+                    color: Universal.accent
+                    opacity: bandComboBox.pressed ? 0.9 : 1.0
                     radius: 3
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#4d000000"
-                        spread: 0
-                    }
                     Image {
                         source: "qrc:/img/img/Expand Arrow-20.png"
                         anchors.verticalCenter: parent.verticalCenter
@@ -51,7 +44,8 @@ import QtGraphicalEffects 1.0
                         anchors.rightMargin: 20
                         elide: Text.ElideRight
                         font.pixelSize: 14
-                        color: "#333333"
+                        font.weight: Font.DemiBold
+                        color: "White"
                         text: "BAND: " + control.currentText
                     }
                 }

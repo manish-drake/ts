@@ -132,17 +132,9 @@ Page {
                                     background: Rectangle{
                                         height: typeComboBox.height
                                         width: typeComboBox.width
-                                        color: typeComboBox.pressed ? "#e7e7e7" : "#ededed"
+                                        color: Universal.accent
+                                        opacity: typeComboBox.pressed ? 0.9 : 1.0
                                         radius: 3
-                                        layer.enabled: true
-                                        layer.effect: DropShadow {
-                                            transparentBorder: true
-                                            horizontalOffset: 1.1
-                                            verticalOffset: 1.1
-                                            radius: 4.0
-                                            color: "#4d000000"
-                                            spread: 0
-                                        }
                                         Image {
                                             source: "qrc:/img/img/Expand Arrow-20.png"
                                             anchors.verticalCenter: parent.verticalCenter
@@ -160,7 +152,8 @@ Page {
                                             anchors.rightMargin: 20
                                             elide: Text.ElideRight
                                             font.pixelSize: 14
-                                            color: "#333333"
+                                            font.weight: Font.DemiBold
+                                            color: "white"
                                             text: "TYPE: " + control.currentText
                                         }
                                     }
@@ -206,21 +199,13 @@ Page {
                             anchors.right: parent.right
                             anchors.bottom: parent.bottom
                             height: 50
-                            color: "#ededed"
-                            layer.enabled: true
-                            layer.effect: DropShadow {
-                                transparentBorder: true
-                                horizontalOffset: 1.1
-                                verticalOffset: 1.1
-                                radius: 4.0
-                                color: "#4d000000"
-                                spread: 0
-                            }
+                            color: Universal.accent
                             Text{
                                 anchors.centerIn: parent
                                 font.pixelSize: 14
+                                font.weight: Font.DemiBold
                                 text: "MEASURE"
-                                color: "#333333"
+                                color: "white"
                             }
                             MouseArea{
                                 anchors.fill: parent
@@ -239,21 +224,13 @@ Page {
                             anchors.right: parent.right
                             anchors.bottom: parent.bottom
                             height: 50
-                            color: "#ededed"
-                            layer.enabled: true
-                            layer.effect: DropShadow {
-                                transparentBorder: true
-                                horizontalOffset: 1.1
-                                verticalOffset: 1.1
-                                radius: 4.0
-                                color: "#4d000000"
-                                spread: 0
-                            }
+                            color: Universal.accent
                             Text{
                                 anchors.centerIn: parent
                                 font.pixelSize: 14
+                                font.weight: Font.DemiBold
                                 text: "DONE"
-                                color: "#333333"
+                                color: "white"
                             }
                             MouseArea{
                                 anchors.fill: parent
