@@ -40,14 +40,13 @@ Item{
                         columns: 2
                         columnSpacing: 15
                         rowSpacing: 20
-                        height: 160
+                        AviMarkerActionsCtrl{}
                         AviBandCtrl{
                             id: bandCtrl
                         }
                         AviModeCtrl{
                             currentModeIndex: 2
-                        }
-                        AviMarkerActionsCtrl{}
+                        }                        
                         ListModel{
                             id: markersModel
                             ListElement{num: 1; _val: 0}

@@ -115,144 +115,135 @@ Page {
                     columns: 2
                     columnSpacing: 15
                     rowSpacing: 20
-                    height: 160
-                    Item{
+                    Rectangle {
+                        Layout.columnSpan: 2
                         Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        ColumnLayout{
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.verticalCenter: parent.verticalCenter
-                            Text{
-                                text: "TYPE"
-                                font.pixelSize: 13
-                                font.weight: Font.DemiBold
-                                opacity: 0.7
-                            }
-                            Item{
-                                Layout.row: 1
+                        height: 40
+                        color: Universal.accent
+                        radius: 3
+                        RowLayout{
+                            anchors.fill: parent
+                            Rectangle{
+                                Layout.fillHeight: true
                                 Layout.fillWidth: true
-                                height: 50
-                                ComboBox {
-                                    id: typeComboBox
-                                    implicitWidth: parent.width
-                                    implicitHeight: parent.height
-                                    style: ComboBoxStyle{
-                                        background: Rectangle{
-                                            height: typeComboBox.height
-                                            width: typeComboBox.width
-                                            color: Universal.accent
-                                            opacity: typeComboBox.pressed ? 0.9 : 1.0
-                                            radius: 3
-                                            Image {
-                                                source: "qrc:/img/img/Expand Arrow-20.png"
-                                                anchors.verticalCenter: parent.verticalCenter
-                                                anchors.right: parent.right
-                                                anchors.rightMargin: 10
-                                            }
-                                        }
-                                        label:Item {
-                                            anchors.fill: parent
-                                            Text {
-                                                anchors.verticalCenter: parent.verticalCenter
-                                                anchors.left: parent.left
-                                                anchors.right: parent.right
-                                                anchors.leftMargin: 10
-                                                anchors.rightMargin: 20
-                                                elide: Text.ElideRight
-                                                font.pixelSize: 14
-                                                font.weight: Font.DemiBold
-                                                color: "white"
-                                                text: control.currentText
-                                            }
+                                color: mouseArea.pressed ? "#1A000000" : "transparent"
+                                opacity: enabled ? 1.0 : 0.4
+                                Text{
+                                    anchors.centerIn: parent
+                                    font.pixelSize: 14
+                                    font.weight: Font.DemiBold
+                                    text: "MEASURE"
+                                    color: "white"
+                                }
+                                MouseArea{
+                                    id: mouseArea
+                                    anchors.fill: parent
+                                    onClicked: {}
+                                }
+                            }
+                            Rectangle{
+                                Layout.fillHeight: true
+                                width: 1
+                                color: Universal.background
+                            }
+                            Rectangle{
+                                Layout.fillHeight: true
+                                Layout.fillWidth: true
+                                color: mouseArea2.pressed ? "#1A000000" : "transparent"
+                                opacity: enabled ? 1.0 : 0.4
+                                Text{
+                                    anchors.centerIn: parent
+                                    font.pixelSize: 14
+                                    font.weight: Font.DemiBold
+                                    text: "DONE"
+                                    color: "white"
+                                }
+                                MouseArea{
+                                    id: mouseArea2
+                                    anchors.fill: parent
+                                    onClicked: {}
+                                }
+                            }
+                        }
+                    }
+                    ColumnLayout{
+                        Layout.row: 1
+                        Layout.fillWidth: true
+                        Text{
+                            text: "TYPE"
+                            font.pixelSize: 13
+                            font.weight: Font.DemiBold
+                            opacity: 0.7
+                        }
+                        Item{
+                            Layout.row: 1
+                            Layout.fillWidth: true
+                            height: 50
+                            ComboBox {
+                                id: typeComboBox
+                                implicitWidth: parent.width
+                                implicitHeight: parent.height
+                                style: ComboBoxStyle{
+                                    background: Rectangle{
+                                        height: typeComboBox.height
+                                        width: typeComboBox.width
+                                        color: Universal.accent
+                                        opacity: typeComboBox.pressed ? 0.9 : 1.0
+                                        radius: 3
+                                        Image {
+                                            source: "qrc:/img/img/Expand Arrow-20.png"
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            anchors.right: parent.right
+                                            anchors.rightMargin: 10
                                         }
                                     }
-                                    model: ListModel {
-                                        id: typeList
-                                        ListElement { text: "SHORT";}
-                                        ListElement { text: "OPEN";}
-                                        ListElement { text: "LOAD";}
-                                        ListElement { text: "THRU";}
-                                    }
-                                    onCurrentIndexChanged:{
-                                        switch(currentIndex){
-                                        case 0:
-                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-                                            break;
-                                        case 1:
-                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
-                                            break;
-                                        case 2:
-                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
-                                            break;
-                                        case 3:
-                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
-                                            break;
+                                    label:Item {
+                                        anchors.fill: parent
+                                        Text {
+                                            anchors.verticalCenter: parent.verticalCenter
+                                            anchors.left: parent.left
+                                            anchors.right: parent.right
+                                            anchors.leftMargin: 10
+                                            anchors.rightMargin: 20
+                                            elide: Text.ElideRight
+                                            font.pixelSize: 14
+                                            font.weight: Font.DemiBold
+                                            color: "white"
+                                            text: control.currentText
                                         }
+                                    }
+                                }
+                                model: ListModel {
+                                    id: typeList
+                                    ListElement { text: "SHORT";}
+                                    ListElement { text: "OPEN";}
+                                    ListElement { text: "LOAD";}
+                                    ListElement { text: "THRU";}
+                                }
+                                onCurrentIndexChanged:{
+                                    switch(currentIndex){
+                                    case 0:
+                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                        break;
+                                    case 1:
+                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                        break;
+                                    case 2:
+                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                        break;
+                                    case 3:
+                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                        break;
                                     }
                                 }
                             }
                         }
                     }
-
                     AviModeCtrl{
                         currentModeIndex: 0
                     }
-
-                    Item{
-                        Layout.row: 1
-                        Layout.column: 0
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Rectangle{
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.bottom: parent.bottom
-                            height: 50
-                            color: Universal.accent
-                            radius: 3
-                            Text{
-                                anchors.centerIn: parent
-                                font.pixelSize: 14
-                                font.weight: Font.DemiBold
-                                text: "MEASURE"
-                                color: "white"
-                            }
-                            MouseArea{
-                                anchors.fill: parent
-                                onClicked: console.log("MEASURE button tapped");
-                            }
-                        }
-                    }
-
-                    Item{
-                        Layout.row: 1
-                        Layout.column: 1
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
-                        Rectangle{
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.bottom: parent.bottom
-                            height: 50
-                            color: Universal.accent
-                            radius: 3
-                            Text{
-                                anchors.centerIn: parent
-                                font.pixelSize: 14
-                                font.weight: Font.DemiBold
-                                text: "DONE"
-                                color: "white"
-                            }
-                            MouseArea{
-                                anchors.fill: parent
-                                onClicked: console.log("DONE button tapped");
-                            }
-                        }
-                    }
                     ListModel{id: markersModel}
                 }
-
             }
         }
         AviFooterContent{}
