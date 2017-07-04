@@ -42,7 +42,7 @@ Page {
             anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
             text: navigationModel.navigationParameter.title
-            font.pixelSize: 16
+            font.pixelSize: 18
             font.weight: Font.DemiBold
             color: Universal.foreground
         }

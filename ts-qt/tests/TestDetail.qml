@@ -21,7 +21,7 @@ Page {
             anchors.topMargin: 5
             anchors.horizontalCenter: parent.horizontalCenter
             text: navigationModel.navigationParameter.title
-            font.pixelSize: 16
+            font.pixelSize: 18
             font.weight: Font.DemiBold
             color: Universal.foreground
         }
@@ -88,8 +88,9 @@ Page {
                             Layout.fillHeight: true
                             text: name
                             font.weight: Font.DemiBold
-                            font.pixelSize: 16
+                            font.pixelSize: 13
                             color: Universal.foreground
+                            font.capitalization: Font.AllUppercase
                         }
                         GridLayout {
 
@@ -115,6 +116,7 @@ Page {
                                             font.pixelSize: 12
                                             Controls.style:model.modelData.keyStyle
                                             color: Universal.foreground
+                                            opacity: 0.65
                                         }
                                         Text{
                                             text:model.modelData.value
