@@ -53,6 +53,8 @@ Item{
                         }
                     }
                     Column{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         Repeater{
                             model: markersModel
                             Text{

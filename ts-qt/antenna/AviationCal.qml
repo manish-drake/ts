@@ -165,74 +165,79 @@ Page {
                             }
                         }
                     }
-                    ColumnLayout{
+                    Item{
                         Layout.row: 1
+                        Layout.column: 0
                         Layout.fillWidth: true
-                        Text{
-                            text: "TYPE"
-                            font.pixelSize: 13
-                            font.weight: Font.DemiBold
-                            opacity: 0.7
-                        }
-                        Item{
-                            Layout.row: 1
-                            Layout.fillWidth: true
-                            height: 50
-                            ComboBox {
-                                id: typeComboBox
-                                implicitWidth: parent.width
-                                implicitHeight: parent.height
-                                style: ComboBoxStyle{
-                                    background: Rectangle{
-                                        height: typeComboBox.height
-                                        width: typeComboBox.width
-                                        color: Universal.accent
-                                        opacity: typeComboBox.pressed ? 0.9 : 1.0
-                                        radius: 3
-                                        Image {
-                                            source: "qrc:/img/img/Expand Arrow-20.png"
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            anchors.right: parent.right
-                                            anchors.rightMargin: 10
+                        ColumnLayout{
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            Text{
+                                text: "TYPE"
+                                font.pixelSize: 13
+                                font.weight: Font.DemiBold
+                                opacity: 0.7
+                            }
+                            Item{
+                                Layout.row: 1
+                                Layout.fillWidth: true
+                                height: 50
+                                ComboBox {
+                                    id: typeComboBox
+                                    implicitWidth: parent.width
+                                    implicitHeight: parent.height
+                                    style: ComboBoxStyle{
+                                        background: Rectangle{
+                                            height: typeComboBox.height
+                                            width: typeComboBox.width
+                                            color: Universal.accent
+                                            opacity: typeComboBox.pressed ? 0.9 : 1.0
+                                            radius: 3
+                                            Image {
+                                                source: "qrc:/img/img/Expand Arrow-20.png"
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                anchors.right: parent.right
+                                                anchors.rightMargin: 10
+                                            }
+                                        }
+                                        label:Item {
+                                            anchors.fill: parent
+                                            Text {
+                                                anchors.verticalCenter: parent.verticalCenter
+                                                anchors.left: parent.left
+                                                anchors.right: parent.right
+                                                anchors.leftMargin: 10
+                                                anchors.rightMargin: 20
+                                                elide: Text.ElideRight
+                                                font.pixelSize: 14
+                                                font.weight: Font.DemiBold
+                                                color: "white"
+                                                text: control.currentText
+                                            }
                                         }
                                     }
-                                    label:Item {
-                                        anchors.fill: parent
-                                        Text {
-                                            anchors.verticalCenter: parent.verticalCenter
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
-                                            anchors.leftMargin: 10
-                                            anchors.rightMargin: 20
-                                            elide: Text.ElideRight
-                                            font.pixelSize: 14
-                                            font.weight: Font.DemiBold
-                                            color: "white"
-                                            text: control.currentText
-                                        }
+                                    model: ListModel {
+                                        id: typeList
+                                        ListElement { text: "SHORT";}
+                                        ListElement { text: "OPEN";}
+                                        ListElement { text: "LOAD";}
+                                        ListElement { text: "THRU";}
                                     }
-                                }
-                                model: ListModel {
-                                    id: typeList
-                                    ListElement { text: "SHORT";}
-                                    ListElement { text: "OPEN";}
-                                    ListElement { text: "LOAD";}
-                                    ListElement { text: "THRU";}
-                                }
-                                onCurrentIndexChanged:{
-                                    switch(currentIndex){
-                                    case 0:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-                                        break;
-                                    case 1:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
-                                        break;
-                                    case 2:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
-                                        break;
-                                    case 3:
-                                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
-                                        break;
+                                    onCurrentIndexChanged:{
+                                        switch(currentIndex){
+                                        case 0:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+                                            break;
+                                        case 1:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Open")
+                                            break;
+                                        case 2:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Load")
+                                            break;
+                                        case 3:
+                                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Thru")
+                                            break;
+                                        }
                                     }
                                 }
                             }
