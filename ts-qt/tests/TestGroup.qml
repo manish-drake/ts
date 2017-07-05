@@ -8,10 +8,50 @@ Item{
     anchors.fill: parent
     property string guideTestName
 
+    RowLayout{
+        y:15
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.margins: 15
+        Rectangle{
+            y:10
+            width:65
+            height: 65
+            color:"white"
+            radius: 35
+            Image {
+                anchors.centerIn: parent
+                width: 55
+                height: 55
+                source: "qrc:/img/img/test-logo.png"
+            }
+        }
+        ColumnLayout{
+            Layout.column: 1
+            Layout.fillWidth: true
+            Layout.leftMargin: 10
+            Text {
+                Layout.fillWidth: true
+                text: headerTitle
+                font.pixelSize: 16
+                font.weight: Font.ExtraBold
+                color: "#57585B"
+            }
+            Text {
+                Layout.row: 1
+                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Ut dapibus, ante tristique blandit convallis."
+                font.pixelSize: 14
+                font.weight: Font.DemiBold
+                color: "#57585B"
+            }
+        }
+    }
     ListView{
         id: grid
         anchors.fill: parent
         anchors.margins: 8
+        anchors.topMargin: 100
         model: testModel
         delegate: testCardDelegate
         focus: true
@@ -110,21 +150,21 @@ Item{
                                 }
                             }
 
-//                            Item{
-//                                Layout.column: 3
-//                                width: 35
-//                                height: 35
-//                                Image {
-//                                    id: favImage
-//                                    anchors.centerIn: parent
-//                                    source: "qrc:/img/img/Star Filled-20.png"
-//                                }
-//                                ColorOverlay {
-//                                    anchors.fill: favImage
-//                                    source: favImage
-//                                    color: "#666666"
-//                                }
-//                            }
+                            //                            Item{
+                            //                                Layout.column: 3
+                            //                                width: 35
+                            //                                height: 35
+                            //                                Image {
+                            //                                    id: favImage
+                            //                                    anchors.centerIn: parent
+                            //                                    source: "qrc:/img/img/Star Filled-20.png"
+                            //                                }
+                            //                                ColorOverlay {
+                            //                                    anchors.fill: favImage
+                            //                                    source: favImage
+                            //                                    color: "#666666"
+                            //                                }
+                            //                            }
 
                             RowLayout {
                                 id: rowLayout1
