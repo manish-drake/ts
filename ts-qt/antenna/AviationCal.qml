@@ -49,7 +49,6 @@ Page {
                             Layout.rightMargin: 35
                             height: 240
                             cellWidth: grid.width/2; cellHeight: grid.height/2
-                            focus: true
                             boundsBehavior: Flickable.StopAtBounds
                             model: ListModel{
                                 ListElement{header: "SHORT"; status: "UNCAL"; datetime:"--/--/--"}

@@ -249,6 +249,7 @@ Page {
                         validator : RegExpValidator {
                             regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
                         }
+                        inputMethodHints: Qt.ImhPreferNumbers
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editIPAddSwitch.checked = false
@@ -282,6 +283,14 @@ Page {
                                 text: editIPAddSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                            }
+                        }
+                        onCheckedChanged: {
+                            if(checked){
+                                ipAddressField.forceActiveFocus()
+                            }
+                            else{
+                                ipAddressField.focus = false;
                             }
                         }
                     }
@@ -336,6 +345,14 @@ Page {
                                 text: editDNameSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                            }
+                        }
+                        onCheckedChanged: {
+                            if(checked){
+                                deviceNameField.forceActiveFocus()
+                            }
+                            else{
+                                deviceNameField.focus = false;
                             }
                         }
                     }

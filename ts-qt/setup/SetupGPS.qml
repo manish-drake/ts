@@ -287,6 +287,7 @@ Page {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLatSwitch.checked = false
+                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 8
@@ -319,6 +320,14 @@ Page {
                             font.pixelSize: 14
                         }
                     }
+                    onCheckedChanged: {
+                        if(checked){
+                            manualLatField.forceActiveFocus()
+                        }
+                        else{
+                            manualLatField.focus = false;
+                        }
+                    }
                 }
 
                 Text {
@@ -341,6 +350,7 @@ Page {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLonSwitch.checked = false
+                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 9
@@ -371,6 +381,14 @@ Page {
                             text: parent.checked ? "DONE" : "EDIT"
                             color: parent.enabled ? "#387EF5" : "gray"
                             font.pixelSize: 14
+                        }
+                    }
+                    onCheckedChanged: {
+                        if(checked){
+                            manualLonField.forceActiveFocus()
+                        }
+                        else{
+                            manualLonField.focus = false;
                         }
                     }
                 }

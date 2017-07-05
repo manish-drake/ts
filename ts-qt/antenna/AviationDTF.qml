@@ -96,19 +96,6 @@ Item{
                                                     font.weight: Font.DemiBold
                                                     text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                                                 }
-                                                TextField {
-                                                    id: velocityField
-                                                    z: 100
-                                                    anchors.verticalCenter: parent.verticalCenter
-                                                    anchors.left: txt.right
-                                                    visible: coaxComboBox.currentIndex == 4
-                                                    implicitWidth: 50
-                                                    font.pixelSize: 14
-                                                    placeholderText: "0.01-1.00"
-                                                    validator: RegExpValidator{
-                                                        regExp:  /((0(\.[1-9]{2})?)|(1(\.0)?))/
-                                                    }
-                                                }
                                             }
                                         }
                                         model: ListModel {

@@ -14,7 +14,6 @@ Item{
         anchors.margins: 8
         model: testModel
         delegate: testCardDelegate
-        focus: true
         highlightMoveDuration: 0
         highlight:Item{
             Rectangle{

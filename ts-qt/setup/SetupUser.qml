@@ -59,7 +59,6 @@ Item{
             delegate: userCardDelegate
             currentIndex: -1
             clip: true
-            focus: true
             Component{
                 id: userCardDelegate
                 Rectangle {

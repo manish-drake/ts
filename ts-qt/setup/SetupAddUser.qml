@@ -72,6 +72,7 @@ Page {
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter User ID"
+                    inputMethodHints: Qt.ImhNoAutoUppercase
                 }
 
                 Text {
@@ -117,6 +118,7 @@ Page {
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter Email ID"
+                    inputMethodHints: Qt.ImhEmailCharactersOnly
                 }
                 Text {
                     Layout.row: 4
