@@ -22,7 +22,7 @@ Rectangle {
             //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
             Text{
                 anchors.centerIn: parent
-                font.pixelSize: 18
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 text: "<<<"
                 color: "white"
@@ -49,7 +49,7 @@ Rectangle {
             //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
             Text{
                 anchors.centerIn: parent
-                font.pixelSize: 18
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 text: ">>>"
                 color: "white"
@@ -74,7 +74,7 @@ Rectangle {
             opacity: enabled ? 1.0 : 0.4
             Text{
                 anchors.centerIn: parent
-                font.pixelSize: 18
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 text: "+V"
                 color: "white"
@@ -97,7 +97,7 @@ Rectangle {
             opacity: enabled ? 1.0 : 0.4
             Text{
                 anchors.centerIn: parent
-                font.pixelSize: 18
+                font.pixelSize: 16
                 font.weight: Font.DemiBold
                 text: "+P"
                 color: "white"

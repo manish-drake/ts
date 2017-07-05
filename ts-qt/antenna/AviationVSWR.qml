@@ -45,7 +45,7 @@ Item{
                         }
                         AviModeCtrl{
                             currentModeIndex: 1
-                        }                        
+                        }
                         ListModel{
                             id: markersModel
                             ListElement{num: 1; _val: 0}
