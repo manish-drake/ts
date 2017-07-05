@@ -169,7 +169,9 @@ Page {
                         Layout.row: 1
                         Layout.column: 0
                         Layout.fillWidth: true
+                        height: content1.height
                         ColumnLayout{
+                            id: content1
                             anchors.left: parent.left
                             anchors.right: parent.right
                             Text{

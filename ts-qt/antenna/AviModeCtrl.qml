@@ -11,7 +11,9 @@ Item{
     Layout.column: 1
     Layout.fillWidth: true
     property int currentModeIndex
+    height: content1.height
     ColumnLayout{
+        id: content1
         anchors.left: parent.left
         anchors.right: parent.right
         Text{

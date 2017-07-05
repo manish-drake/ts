@@ -53,11 +53,13 @@ Item{
                         }
                     }
                     Column{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         Repeater{
                             model: markersModel
                             Text{
                                 color: Universal.foreground
-                                font.pixelSize: 14
+                                font.pixelSize: 12
                                 text: "M" + num + "  " + _val
                             }
                         }

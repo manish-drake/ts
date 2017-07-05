@@ -11,7 +11,9 @@ Item{
     Layout.column: 0
     Layout.fillWidth: true
     property string bandName
+    height: content1.height
     ColumnLayout{
+        id: content1
         anchors.left: parent.left
         anchors.right: parent.right
         Text{

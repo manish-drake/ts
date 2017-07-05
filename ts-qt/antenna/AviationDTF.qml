@@ -48,7 +48,9 @@ Item{
                             Layout.row: 1
                             Layout.column: 0
                             Layout.fillWidth: true
+                            height: content1.height
                             ColumnLayout{
+                                id: content1
                                 anchors.left: parent.left
                                 anchors.right: parent.right
                                 Text{
@@ -132,11 +134,13 @@ Item{
                         }
                     }
                     Column{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         Repeater{
                             model: markersModel
                             Text{
                                 color: Universal.foreground
-                                font.pixelSize: 14
+                                font.pixelSize: 12
                                 text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
                             }
                         }
