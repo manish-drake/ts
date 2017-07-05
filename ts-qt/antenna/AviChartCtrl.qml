@@ -37,7 +37,7 @@ RowLayout{
         SwitchDelegate{
             id: rlScaleSwitch
             enabled: areControlsAvailble
-            opacity: areControlsAvailble ? 1.0 : 0.6
+            opacity: areControlsAvailble ? 1 : 0
             Layout.columnSpan: 2
             Layout.bottomMargin: 10
             spacing: 0
@@ -73,7 +73,7 @@ RowLayout{
         SwitchDelegate{
             id: vswrScaleSwitch
             enabled: areControlsAvailble
-            opacity: enabled ? 1.0 : 0.6
+            opacity: enabled ? 1 : 0
             Layout.column: 1
             Layout.alignment: Qt.AlignRight
             Layout.columnSpan: 2

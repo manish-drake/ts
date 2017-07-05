@@ -40,14 +40,13 @@ Item{
                         columns: 2
                         columnSpacing: 15
                         rowSpacing: 20
-                        height: 140
+                        AviMarkerActionsCtrl{}
                         AviBandCtrl{
                             id: bandCtrl
                         }
                         AviModeCtrl{
                             currentModeIndex: 2
-                        }
-                        AviMarkerActionsCtrl{}
+                        }                        
                         ListModel{
                             id: markersModel
                             ListElement{num: 1; _val: 0}
@@ -55,11 +54,13 @@ Item{
                         }
                     }
                     Column{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         Repeater{
                             model: markersModel
                             Text{
                                 color: Universal.foreground
-                                font.pixelSize: 14
+                                font.pixelSize: 12
                                 text: "M" + num + "  " + _val
                             }
                         }
