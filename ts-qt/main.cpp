@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
-        Client client("tcp://192.168.145.133:6000");
+        Client client;
         context->setContextProperty("zmq", &client);
 
         dummygraphdata dummy;
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
                          &testModel, SLOT(currentViewChanged(const int&)));
 
-        engine.load(QUrl(QStringLiteral("qrc:/Main.qml")));
+        engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         //        // First we need to create an SmtpClient object
         //        // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)

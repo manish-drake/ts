@@ -30,6 +30,12 @@ void Scan::stop()
     m_session.dispose();
 }
 
+void Scan::changeEndpoint(const QString &newEndpoint)
+{
+    m_session.changeEndpoint(newEndpoint);
+}
+
+
 bool Scan::isScanning() const
 {   
     return m_isScanning;

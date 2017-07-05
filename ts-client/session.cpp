@@ -27,3 +27,8 @@ void Session::dispose()
 {
     m_socket.disconnect(m_endpoint);
 }
+
+void Session::changeEndpoint(const QString &newEndpoint)
+{
+    m_endpoint = newEndpoint.toStdString();
+}

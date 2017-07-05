@@ -1,6 +1,5 @@
 #include "snapshot.h"
 
-#include <QSqldatabase>
 #include <QSqlQuery>
 #include <QVariant>
 #include <QDebug>

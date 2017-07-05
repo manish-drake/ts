@@ -13,11 +13,12 @@
 
 using namespace zmq;
 
-Client::Client(const std::string &endpoint, QObject *parent) :
+Client::Client(QObject *parent) :
     QObject(parent),
     m_up_scanResults{new JsonArrayModel()},
     m_ctx{1},
-    m_scan{m_ctx, endpoint}
+    m_endpoint{"tcp://127.0.0.1:6000"},
+    m_scan{m_ctx, m_endpoint.toStdString()}
 {
 }
 
@@ -34,6 +35,20 @@ bool Client::toggleScan(){
         m_scan.start();
         return true;
     }
+}
+
+void Client::setEndpoint(const QString &endpoint)
+{
+    if(m_endpoint != endpoint){
+        m_endpoint = endpoint;
+        m_scan.changeEndpoint("tcp://" + endpoint + ":6000");
+        emit endpointChanged();
+    }
+}
+
+QString Client::endpoint()
+{
+    return m_endpoint;
 }
 
 JsonArrayModel *Client::scanResults() const

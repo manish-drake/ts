@@ -17,6 +17,7 @@ public:
     void onMessageReceivedHandler(std::function<void (const QJsonArray&)> callback);
     void start();
     void stop();
+    void changeEndpoint(const QString &newEndpoint);
 private:
     const int POLLING_INTERVAL = 1000;
     Session m_session;
