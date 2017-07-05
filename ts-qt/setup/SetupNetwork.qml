@@ -23,10 +23,10 @@ Page {
         }
 
         Item{
-            width: 40
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             anchors.right: parent.right
+            width: 50
             Image {
                 id: closeImage
                 anchors.centerIn: parent
@@ -245,13 +245,18 @@ Page {
                         Layout.columnSpan: 2
                         visible: editIPAddSwitch.checked
                         placeholderText: "IP Address"
-                        text: zmq.endpoint
+                        text: zmq.server
                         validator : RegExpValidator {
                             regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
                         }
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editIPAddSwitch.checked = false
+                        Binding{
+                            target: zmq
+                            property: "server"
+                            value: ipAddressField.text
+                        }
                     }
                     Text {
                         Layout.row: 6

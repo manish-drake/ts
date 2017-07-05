@@ -41,7 +41,7 @@ bool Scan::isScanning() const
     return m_isScanning;
 }
 
-Scan::Scan(zmq::context_t &ctx , const std::string &endpoint):
+Scan::Scan(zmq::context_t &ctx , const QString &endpoint):
     m_session{ctx, endpoint},
     m_isScanning{false}
 {

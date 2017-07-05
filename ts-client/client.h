@@ -14,16 +14,16 @@ class TSCLIENTSHARED_EXPORT Client: public QObject
 public:
     explicit Client(QObject *parent = 0);
     Q_PROPERTY(JsonArrayModel* scanResults READ scanResults NOTIFY scanResultsChanged)
-    Q_PROPERTY(QString endpoint READ endpoint WRITE setEndpoint NOTIFY endpointChanged)
+    Q_PROPERTY(QString server READ server WRITE setServer NOTIFY serverChanged)
 
     Q_INVOKABLE bool toggleScan();
 
-    QString endpoint();
-    void setEndpoint(const QString &endpoint);
+    QString server();
+    void setServer(const QString &server);
 
 signals:
     void scanResultsChanged(const JsonArrayModel *model);
-    void endpointChanged();
+    void serverChanged();
 
 public slots:
 private:
@@ -32,7 +32,7 @@ private:
 private:
     std::unique_ptr<JsonArrayModel> m_up_scanResults;
     zmq::context_t m_ctx;
-    QString m_endpoint;
+    QString m_server;
     Scan m_scan;
 };
 

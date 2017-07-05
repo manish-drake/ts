@@ -55,7 +55,7 @@ Item {
                         }
                     }
                 }
-                 Item{
+                Item{
                     Layout.column: 1
                     Layout.fillWidth: true
                     Layout.fillHeight: true
@@ -68,6 +68,8 @@ Item {
                             anchors.fill: parent
                             onClicked: {
                                 connectionReqPopup.close();
+                                pin = controlNavigationModel.generatePIN();
+                                console.log("New pin generated: " + pin)
                                 pinConfirmPopup.open();
                                 pinaccepttimer.running = true
                             }

@@ -3,39 +3,38 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
-Item{
-    Page{
+Rectangle{
+    color: "#D1D3D4"
+    ColumnLayout{
         anchors.fill: parent
-        header: Rectangle{
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: 180
-            color: "#D1D3D4"
-            ColumnLayout{
-                anchors.fill: parent
-                anchors.margins: 15
-                spacing: 0
-                Image {
-                    id:profileImage
-                    source: "qrc:/img/img/profile-circle.png"
-                }
-                Text{
-                    Layout.row: 1
-                    text: "Operator"
-                    color: Universal.accent
-                    font.pixelSize: 14
-                    font.weight: Font.DemiBold
-                }
-                Text{
-                    Layout.row: 2
-                    text: "operator@mail.com"
-                    color: Universal.accent
-                    font.pixelSize: 14
+        Image {
+            id:profileImage
+            Layout.topMargin: 12
+            Layout.leftMargin: 12
+            source: "qrc:/img/img/profile-circle.png"
+        }
+        ColumnLayout{
+            Layout.row: 1
+            Layout.fillWidth: true
+            Layout.leftMargin: 12
+            spacing: 0
+            Text{
+                text: "Operator"
+                color: Universal.accent
+                font.pixelSize: 14
+                font.weight: Font.DemiBold
+            }
+            Text{
+                text: "operator@mail.com"
+                color: Universal.accent
+                font.pixelSize: 14
 
-                }
             }
         }
-        contentItem: Rectangle{
+        Rectangle{
+            Layout.row: 2
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             color: Universal.background
             ListView {
                 id: listViewLeftMenu
@@ -43,6 +42,7 @@ Item{
                 anchors.margins: 7
                 model: sectionModel
                 clip: true
+                currentIndex: -1
                 delegate:  Component {
                     Item{
                         anchors.left: parent.left
@@ -68,21 +68,21 @@ Item{
                                     navigationModel.currentView = navigationModel.getTargetView("_section", id)
                                     headerTitle = name
                                     listViewLeftMenu.currentIndex = index
-                                    sideMenuPopup.close()
+                                    sideMenuDrawer.close()
                                 }
                             }
                         }
                     }
                 }
             }
-            Rectangle{
-                anchors.right: parent.right
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                width: 1
-                color: Universal.foreground
-                opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
-            }
         }
     }
+//    Rectangle{
+//        anchors.right: parent.right
+//        anchors.top: parent.top
+//        anchors.bottom: parent.bottom
+//        width: 1
+//        color: Universal.foreground
+//        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
+//    }
 }

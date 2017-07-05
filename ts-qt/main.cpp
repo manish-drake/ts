@@ -33,31 +33,15 @@ const int DATA_CREATION_MODE = 0;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
-    QDateTime current = QDateTime::currentDateTime();
-//    if(type >= 1)
-//    {
-//        auto loggingDao = DataManager::instance("c:/git/qt/ts/log.db").loggingDao();
-//        auto log = Logging(current, type, localMsg.constData(),context.file, context.line, context.function);
-//        loggingDao->addLogging(log);
-//    }
-
-    //    switch (type) {
-    //    case QtDebugMsg:
-    //        fprintf(stderr, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtInfoMsg:
-    //        fprintf(stderr, "Info: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtWarningMsg:
-    //        fprintf(stderr, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtCriticalMsg:
-    //        fprintf(stderr, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        break;
-    //    case QtFatalMsg:
-    //        fprintf(stderr, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), context.file, context.line, context.function);
-    //        abort();
-    //    }
+    fprintf(stderr,localMsg.constData());
+    fflush(stderr);
+    QDateTime dateTime = QDateTime::currentDateTime();
+    if(type >= 1)
+    {
+//        auto loggingDao = DataManager::logger().loggingDao();
+//        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
+        //        loggingDao->addLogging(log);
+    }
 }
 
 int main(int argc, char *argv[])
@@ -66,6 +50,7 @@ int main(int argc, char *argv[])
         DataBuilder builder;
         return builder.build();
     } else {
+        QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
         QGuiApplication app(argc, argv);
 
         qInstallMessageHandler(myMessageOutput);
@@ -73,6 +58,9 @@ int main(int argc, char *argv[])
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
+
+        LoggingModel loggingModel;
+        context->setContextProperty("loggingModel", &loggingModel);
 
         Client client;
         context->setContextProperty("zmq", &client);
@@ -110,14 +98,9 @@ int main(int argc, char *argv[])
         AviationDtfModel aviationDtfModel;
         context->setContextProperty("aviationDtfModel", &aviationDtfModel);
 
-        LoggingModel loggingModel;
-        context->setContextProperty("loggingModel", &loggingModel);
+        ControlNavigationModel controlNavigationModel;
+        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
-        //        SetupModel setupModel;
-        //        context->setContextProperty("setupModel", &setupModel);
-
-        //        ControlNavigationModel controlNavigationModel;
-        //        context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
@@ -129,43 +112,6 @@ int main(int argc, char *argv[])
                          &testModel, SLOT(currentViewChanged(const int&)));
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-
-        //        // First we need to create an SmtpClient object
-        //        // We will use the Gmail's smtp server (smtp.gmail.com, port 465, ssl)
-
-        //        SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
-
-        //        // We need to set the username (your email address) and the password
-        //        // for smtp authentification.
-
-        //        smtp.setUser("gurpreet.drake@gmail.com");
-        //        smtp.setPassword("drake8283");
-
-        //        // Now we create a MimeMessage object. This will be the email.
-
-        //        MimeMessage message;
-
-        //        message.setSender(new EmailAddress("gurpreet.drake@gmail.com", "Gurpreet"));
-        //        message.addRecipient(new EmailAddress("gurpreet.drake@hotmail.com", "Gurp"));
-        //        message.setSubject("SmtpClient for Qt - Demo");
-
-        //        // Now add some text to the email.
-        //        // First we create a MimeText object.
-
-        //        MimeText text;
-
-        //        text.setText("Hi,\nThis is a simple email message.\n");
-
-        //        // Now add it to the mail
-
-        //        message.addPart(&text);
-
-        //        // Now we can send the mail
-
-        //        smtp.connectToHost();
-        //        smtp.login();
-        //        smtp.sendMail(message);
-        //        smtp.quit();
 
         return app.exec();
     }

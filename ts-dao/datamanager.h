@@ -2,6 +2,7 @@
 #define DATAMANAGER_H
 
 #include <QHash>
+#include <QThread>
 
 #include "ts-dao_global.h"
 #include "section.h"
@@ -31,6 +32,7 @@ class QSqlQuery;
 #endif
 
 const QString DATABASE_FILENAME = "ts.db";
+const QString LOG_DB_FILE = "c:/git/qt/ts/logs.db";
 
 class TSDAOSHARED_EXPORT DataManager
 {
@@ -38,6 +40,8 @@ public:
     static void debugQuery(const QSqlQuery &query) ;
     static void deleteExitingDBFile();
     static DataManager &instance();
+    static DataManager &logger();
+
     std::shared_ptr<const SectionDao> sectionDao() const;
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;
@@ -54,12 +58,13 @@ public:
     ~DataManager();
 
 protected:
-    DataManager(const QString &path = DB_FILE);
+    DataManager(const QString &path = DB_FILE, bool forLog = false);
     DataManager &operator = (const DataManager &rhs);
 private:
     std::unique_ptr<QSqlDatabase> m_database;
     QHash<QString, std::shared_ptr<Dao>> daoRegistry;
     void createRegistry();
+    void createLogRegistry();
 };
 
 

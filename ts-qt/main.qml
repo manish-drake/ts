@@ -17,8 +17,9 @@ ApplicationWindow {
     property string headerTitle: "Home"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     Universal.accent: "#01ADEE";
+    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
+    property string pin;
     Page {
         anchors.fill: parent
 
@@ -43,12 +44,13 @@ ApplicationWindow {
 
             Item{
                 width: 320
+                anchors.top: parent.top
+                anchors.topMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
                 Popup {
-                    id: configPanelPopup
+                    id: configPanelPopup                                       
+                    width: parent.width
                     padding: 0
-                    topMargin: 55
-                    width: 320
                     modal: true
                     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
                     onClosed: contentOpaqueBack.visible = false
@@ -64,6 +66,7 @@ ApplicationWindow {
                 Popup {
                     id: moreActionsPopover
                     width: 220
+                    Layout.maximumHeight: contentRect.height - 50
                     padding: 0
                     topMargin: 55
                     rightMargin: 5
@@ -82,22 +85,10 @@ ApplicationWindow {
         }
     }
 
-    Rectangle{
-        id: fullOpaqueBack
-        anchors.fill: parent
-        color: opaqueBackground
-        visible: false
-    }
-
-    Popup {
-        id: sideMenuPopup
-        width: 280
+    Drawer {
+        id: sideMenuDrawer
+        width: 250
         height: parent.height - footer.height
-        modal: true
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-        padding: 0
-        onClosed: fullOpaqueBack.visible = false
-        onOpened: fullOpaqueBack.visible = true
         contentItem: SideMenu{}
     }
 

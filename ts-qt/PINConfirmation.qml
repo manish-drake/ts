@@ -27,13 +27,7 @@ Item {
             color: Universal.background
             Text{
                 anchors.centerIn: parent
-                text: {
-                    var pin = "";
-                    var possible = "0123456789";
-                    for( var i=0; i < 4; i++ )
-                        pin += possible.charAt(Math.floor(Math.random() * possible.length));
-                    return pin;
-                }
+                text: pin
                 font.pixelSize: 28
                 color: "gray"
             }
