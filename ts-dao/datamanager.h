@@ -25,7 +25,12 @@
 class QSqlDatabase;
 class QSqlQuery;
 
-const QString DB_FILE = "c:/git/qt/ts/ts.db";
+#ifdef Q_OS_LINUX
+    const QString DB_FILE = "../../ts/ts.db";
+#elif
+    const QString DB_FILE = "c:/git/qt/ts/ts.db";
+#endif
+
 const QString DATABASE_FILENAME = "ts.db";
 const QString LOG_DB_FILE = "c:/git/qt/ts/logs.db";
 

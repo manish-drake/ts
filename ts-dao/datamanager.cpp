@@ -48,6 +48,13 @@ DataManager &DataManager::logger()
 DataManager::DataManager(const QString &path, bool forLog):
     m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
 {
+//    QDir dir("/home/manish/git/ts");
+//    QString s;
+
+//    s = dir.relativeFilePath("images/file.jpg");     // s is "images/file.jpg"
+//    s = dir.relativeFilePath("/home/mary/file.txt"); // s is "../mary/file.txt"
+
+
     m_database->setDatabaseName(path);
 
     bool openStatus = m_database->open();

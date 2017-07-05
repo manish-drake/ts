@@ -30,12 +30,18 @@ void Scan::stop()
     m_session.dispose();
 }
 
+void Scan::changeEndpoint(const QString &newEndpoint)
+{
+    m_session.changeEndpoint(newEndpoint);
+}
+
+
 bool Scan::isScanning() const
 {   
     return m_isScanning;
 }
 
-Scan::Scan(zmq::context_t &ctx , const std::string &endpoint):
+Scan::Scan(zmq::context_t &ctx , const QString &endpoint):
     m_session{ctx, endpoint},
     m_isScanning{false}
 {

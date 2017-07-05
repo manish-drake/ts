@@ -1,7 +1,6 @@
 #include "loggingdao.h"
 
 #include <QDebug>
-#include <QSqldatabase>
 #include <QSqlQuery>
 #include <QVariant>
 

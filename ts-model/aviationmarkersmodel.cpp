@@ -1,5 +1,5 @@
-#include "aviationMarkersmodel.h"
-#include "aviationMarkersdao.h"
+#include "aviationmarkersmodel.h"
+#include "aviationmarkersdao.h"
 using namespace std;
 
 AviationMarkersModel::AviationMarkersModel(QObject *parent):

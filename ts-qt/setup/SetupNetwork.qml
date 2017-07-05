@@ -245,7 +245,7 @@ Page {
                         Layout.columnSpan: 2
                         visible: editIPAddSwitch.checked
                         placeholderText: "IP Address"
-                        text: qsTr("192.168.10.19")
+                        text: zmq.server
                         validator : RegExpValidator {
                             regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
                         }
@@ -253,6 +253,11 @@ Page {
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editIPAddSwitch.checked = false
+                        Binding{
+                            target: zmq
+                            property: "server"
+                            value: ipAddressField.text
+                        }
                     }
                     Text {
                         Layout.row: 6

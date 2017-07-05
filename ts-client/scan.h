@@ -13,10 +13,11 @@ class Scan
 {
 public:
     bool isScanning() const;
-    Scan(zmq::context_t &ctx, const std::string &endpoint);
+    Scan(zmq::context_t &ctx, const QString &endpoint);
     void onMessageReceivedHandler(std::function<void (const QJsonArray&)> callback);
     void start();
     void stop();
+    void changeEndpoint(const QString &newEndpoint);
 private:
     const int POLLING_INTERVAL = 1000;
     Session m_session;
