@@ -89,7 +89,8 @@ Item{
                         MouseArea {
                             anchors.fill: parent
                             onClicked: grid.currentIndex = index
-                            onDoubleClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
+                            onDoubleClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                                /*navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");*/
                         }
                         ColumnLayout{
                             anchors.fill: parent
