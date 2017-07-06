@@ -44,7 +44,7 @@ Item{
                             id: bandCtrl
                         }
                         AviModeCtrl{
-                            currentModeIndex: 1
+                            currentModeIndex: 0
                         }
                         ListModel{
                             id: markersModel
@@ -66,7 +66,9 @@ Item{
                     }
                 }
             }
-            AviFooterContent{}
+            AviFooterContent{
+                isCal: true
+            }
         }
     }
 
@@ -82,4 +84,21 @@ Item{
         }
         contentItem: DataPopupContent{}
     }
+
+    Popup {
+        id: calPopup
+        width: parent.width
+        height: parent.height
+        leftPadding: 40
+        rightPadding: 40
+        topPadding: 100
+        bottomPadding: 100
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: "#99000000"
+        }
+        contentItem: AviationCal{ mode: "VSWR/CL" }
+    }
+
 }

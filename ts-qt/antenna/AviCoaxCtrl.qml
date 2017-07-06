@@ -8,16 +8,15 @@ import QtGraphicalEffects 1.0
 
 Item{
     Layout.row: 1
-    Layout.column: 1
+    Layout.column: 0
     Layout.fillWidth: true
-    property int currentModeIndex
     height: content1.height
     ColumnLayout{
         id: content1
         anchors.left: parent.left
         anchors.right: parent.right
         Text{
-            text: "MODE"
+            text: "COAX"
             font.pixelSize: 13
             font.weight: Font.DemiBold
             opacity: 0.7
@@ -27,16 +26,15 @@ Item{
             Layout.fillWidth: true
             height: 50
             ComboBox {
-                id: modeComboBox
+                id: coaxComboBox
                 implicitWidth: parent.width
                 implicitHeight: parent.height
-                currentIndex: currentModeIndex
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: modeComboBox.height
-                        width: modeComboBox.width
+                        height: coaxComboBox.height
+                        width: coaxComboBox.width
                         color: Universal.accent
-                        opacity: modeComboBox.pressed ? 0.9 : 1.0
+                        opacity: coaxComboBox.pressed ? 0.9 : 1.0
                         radius: 3
                         Image {
                             source: "qrc:/img/img/Expand Arrow-20.png"
@@ -48,6 +46,7 @@ Item{
                     label:Item {
                         anchors.fill: parent
                         Text {
+                            id: txt
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
                             anchors.right: parent.right
@@ -55,41 +54,25 @@ Item{
                             anchors.rightMargin: 20
                             elide: Text.ElideRight
                             font.pixelSize: 14
-                            font.weight: Font.DemiBold
                             color: "white"
-                            text: control.currentText
+                            font.weight: Font.DemiBold
+                            text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                         }
                     }
                 }
                 model: ListModel {
-//                    ListElement { text: "CAL"; }
-                    ListElement { text: "VSWR"; }
-                    ListElement { text: "LOSS"; }
-                    ListElement { text: "DTF"; }
-                }
-                onCurrentIndexChanged:{
-                    switch(currentIndex){
-//                    case 0:
-//                        console.log(currentModeIndex+": "+currentIndex)
-//                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
-//                        break;
-                    case 0:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                        break;
-                    case 1:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                        break;
-                    case 2:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
-                        break;
-                    }
+                    id: coaxList
+                    ListElement { text: "PE Solid"; vel: "66%"}
+                    ListElement { text: "PE Foam"; vel: "85%"}
+                    ListElement { text: "Teflon"; vel: "70%"}
+                    ListElement { text: "Teflon Foam"; vel: "80%"}
+                    ListElement { text: "User"; vel: ""}
                 }
             }
+
         }
     }
 }
+
 
 

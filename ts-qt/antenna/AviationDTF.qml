@@ -44,75 +44,9 @@ Item{
                         columnSpacing: 15
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
-                        Item{
-                            Layout.row: 1
-                            Layout.column: 0
-                            Layout.fillWidth: true
-                            height: content1.height
-                            ColumnLayout{
-                                id: content1
-                                anchors.left: parent.left
-                                anchors.right: parent.right
-                                Text{
-                                    text: "COAX"
-                                    font.pixelSize: 13
-                                    font.weight: Font.DemiBold
-                                    opacity: 0.7
-                                }
-                                Item{
-                                    Layout.row: 1
-                                    Layout.fillWidth: true
-                                    height: 50
-                                    ComboBox {
-                                        id: coaxComboBox
-                                        implicitWidth: parent.width
-                                        implicitHeight: parent.height
-                                        style: ComboBoxStyle{
-                                            background: Rectangle{
-                                                height: coaxComboBox.height
-                                                width: coaxComboBox.width
-                                                color: Universal.accent
-                                                opacity: coaxComboBox.pressed ? 0.9 : 1.0
-                                                radius: 3
-                                                Image {
-                                                    source: "qrc:/img/img/Expand Arrow-20.png"
-                                                    anchors.verticalCenter: parent.verticalCenter
-                                                    anchors.right: parent.right
-                                                    anchors.rightMargin: 10
-                                                }
-                                            }
-                                            label:Item {
-                                                anchors.fill: parent
-                                                Text {
-                                                    id: txt
-                                                    anchors.verticalCenter: parent.verticalCenter
-                                                    anchors.left: parent.left
-                                                    anchors.right: parent.right
-                                                    anchors.leftMargin: 10
-                                                    anchors.rightMargin: 20
-                                                    elide: Text.ElideRight
-                                                    font.pixelSize: 14
-                                                    color: "white"
-                                                    font.weight: Font.DemiBold
-                                                    text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
-                                                }
-                                            }
-                                        }
-                                        model: ListModel {
-                                            id: coaxList
-                                            ListElement { text: "PE Solid"; vel: "66%"}
-                                            ListElement { text: "PE Foam"; vel: "85%"}
-                                            ListElement { text: "Teflon"; vel: "70%"}
-                                            ListElement { text: "Teflon Foam"; vel: "80%"}
-                                            ListElement { text: "User"; vel: ""}
-                                        }
-                                    }
-
-                                }
-                            }
-                        }
+                        AviCoaxCtrl{}
                         AviModeCtrl{
-                            currentModeIndex: 3
+                            currentModeIndex: 2
                         }
                         ListModel{
                             id: markersModel
@@ -134,7 +68,9 @@ Item{
                     }
                 }
             }
-            AviFooterContent{}
+            AviFooterContent{
+                isCal: true
+            }
         }
     }
 
@@ -149,5 +85,20 @@ Item{
             color: "#99000000"
         }
         contentItem: DataPopupContent{}
+    }
+    Popup {
+        id: calPopup
+        width: parent.width
+        height: parent.height
+        leftPadding: 40
+        rightPadding: 40
+        topPadding: 100
+        bottomPadding: 100
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: "#99000000"
+        }
+        contentItem: AviationCal{mode: "COAX"}
     }
 }
