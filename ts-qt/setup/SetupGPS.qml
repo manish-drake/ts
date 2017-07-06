@@ -48,6 +48,7 @@ Page {
     contentItem: Rectangle {
         color: Universal.background
         Flickable {
+            id: flickable
             anchors.fill: parent
             contentWidth: parent.width;
             contentHeight: grid.height + grid.y + 10
@@ -288,6 +289,9 @@ Page {
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLatSwitch.checked = false
                     inputMethodHints: Qt.ImhPreferNumbers
+                    onFocusChanged: {
+                        if(focus) flickable.contentY = manualLatField.x
+                    }
                 }
                 Text {
                     Layout.row: 8
@@ -315,8 +319,8 @@ Page {
                         color: Universal.background
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
-                            text: parent.checked ? "DONE" : "EDIT"
-                            color: parent.enabled ? "#387EF5" : "gray"
+                            text: manualLatSwitch.checked ? "DONE" : "EDIT"
+                            color: manualLatSwitch.enabled ? "#387EF5" : "gray"
                             font.pixelSize: 14
                         }
                     }
@@ -351,6 +355,9 @@ Page {
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLonSwitch.checked = false
                     inputMethodHints: Qt.ImhPreferNumbers
+                    onFocusChanged: {
+                        if(focus) flickable.contentY = manualLonField.x
+                    }
                 }
                 Text {
                     Layout.row: 9
@@ -378,8 +385,8 @@ Page {
                         color: Universal.background
                         Text{
                             anchors.verticalCenter: parent.verticalCenter
-                            text: parent.checked ? "DONE" : "EDIT"
-                            color: parent.enabled ? "#387EF5" : "gray"
+                            text: manualLonSwitch.checked ? "DONE" : "EDIT"
+                            color: manualLonSwitch.enabled ? "#387EF5" : "gray"
                             font.pixelSize: 14
                         }
                     }
@@ -393,7 +400,6 @@ Page {
                     }
                 }
             }
-
         }
     }
 }

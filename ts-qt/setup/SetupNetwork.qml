@@ -47,6 +47,7 @@ Page {
     contentItem: Rectangle {
         color: Universal.background
         Flickable {
+            id: flickable
             anchors.fill: parent
             contentWidth: parent.width;
             contentHeight: content.height + content.y + 10
@@ -253,6 +254,9 @@ Page {
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editIPAddSwitch.checked = false
+                        onFocusChanged: {
+                            if(focus) flickable.contentY = ipAddressField.x
+                        }
                         Binding{
                             target: zmq
                             property: "server"
@@ -320,6 +324,9 @@ Page {
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editDNameSwitch.checked = false
+                        onFocusChanged: {
+                            if(focus ) flickable.contentY = deviceNameField.x
+                        }
                     }
                     Text {
                         Layout.row: 7

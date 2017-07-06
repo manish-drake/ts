@@ -14,7 +14,7 @@ ApplicationWindow {
     width: 480
     height: 800
     title: qsTr("TS")
-    property string headerTitle: "Home"
+    property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#01ADEE";
