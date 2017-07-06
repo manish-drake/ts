@@ -48,6 +48,7 @@ Page {
     contentItem: Rectangle {
         color: Universal.background
         Flickable {
+            id: flickable
             anchors.fill: parent
             contentWidth: parent.width;
             contentHeight: grid.height + grid.y + 10
@@ -69,10 +70,14 @@ Page {
                     color: Universal.foreground
                 }
                 TextField {
+                    id: usedId
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter User ID"
                     inputMethodHints: Qt.ImhNoAutoUppercase
+                    onFocusChanged: {
+                        if(focus) flickable.contentY = usedId.x
+                    }
                 }
 
                 Text {
@@ -83,10 +88,14 @@ Page {
                     color: Universal.foreground
                 }
                 TextField {
+                    id: name
                     Layout.row: 1
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter Name"
+                    onFocusChanged: {
+                        if(focus) flickable.contentY = name.x
+                    }
                 }
 
                 Text {
@@ -114,11 +123,15 @@ Page {
                 }
 
                 TextField {
+                    id: emailId
                     Layout.row: 3
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter Email ID"
                     inputMethodHints: Qt.ImhEmailCharactersOnly
+                    onFocusChanged: {
+                        if(focus) flickable.contentY = emailId.x
+                    }
                 }
                 Text {
                     Layout.row: 4
