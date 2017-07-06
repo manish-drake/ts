@@ -42,6 +42,7 @@ Rectangle {
         font.bold: Font.DemiBold
         color: Universal.accent
         font.pixelSize: 16
+        font.family: robotoFont.name
         anchors.leftMargin: 5
         elide: Text.ElideRight
     }
