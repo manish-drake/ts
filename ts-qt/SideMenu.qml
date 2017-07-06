@@ -60,7 +60,7 @@ Rectangle{
                                 text: name
                                 font.pixelSize: 16
                                 font.weight: Font.DemiBold
-                                font.family: robotoFont.name
+                                font.family: robotoRegFont.name
                                 color: Universal.background
                             }
                             MouseArea {

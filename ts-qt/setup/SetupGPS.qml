@@ -288,10 +288,7 @@ Page {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLatSwitch.checked = false
-                    inputMethodHints: Qt.ImhPreferNumbers
-                    onFocusChanged: {
-                        if(focus) flickable.contentY = manualLatField.x
-                    }
+//                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 8
@@ -354,10 +351,7 @@ Page {
                     font.pixelSize: 14
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLonSwitch.checked = false
-                    inputMethodHints: Qt.ImhPreferNumbers
-                    onFocusChanged: {
-                        if(focus) flickable.contentY = manualLonField.x
-                    }
+//                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 9

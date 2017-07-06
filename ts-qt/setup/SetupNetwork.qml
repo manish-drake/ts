@@ -250,13 +250,10 @@ Page {
                         validator : RegExpValidator {
                             regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
                         }
-                        inputMethodHints: Qt.ImhPreferNumbers
+//                        inputMethodHints: Qt.ImhPreferNumbers
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editIPAddSwitch.checked = false
-                        onFocusChanged: {
-                            if(focus) flickable.contentY = ipAddressField.x
-                        }
                         Binding{
                             target: zmq
                             property: "server"
@@ -324,9 +321,6 @@ Page {
                         font.pixelSize: 14
                         Layout.maximumWidth: 100
                         onEditingFinished: editDNameSwitch.checked = false
-                        onFocusChanged: {
-                            if(focus ) flickable.contentY = deviceNameField.x
-                        }
                     }
                     Text {
                         Layout.row: 7

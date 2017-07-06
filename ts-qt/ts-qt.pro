@@ -38,6 +38,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
+else: android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-core/release/ -lts-core
@@ -89,14 +90,13 @@ DEPENDPATH += $$PWD/../ts-client
 
 #INCLUDEPATH += $$PWD/../ts-smtp
 #DEPENDPATH += $$PWD/../ts-smtp
-
 unix {
-    unix:!macx: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
+    unix:!macx:!android: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
 
     INCLUDEPATH += $$PWD/../../../../../usr/local/include
     DEPENDPATH += $$PWD/../../../../../usr/local/include
 
-    unix:!macx: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    unix:!macx:!android: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
 }
 android{
     unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
@@ -113,10 +113,12 @@ macx{
     macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
 }
 win32{
-    win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+    !android{
+        win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
-    INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-    DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+    }
 }
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp

@@ -75,9 +75,6 @@ Page {
                     font.pixelSize: 12
                     placeholderText: "Enter User ID"
                     inputMethodHints: Qt.ImhNoAutoUppercase
-                    onFocusChanged: {
-                        if(focus) flickable.contentY = usedId.x
-                    }
                 }
 
                 Text {
@@ -93,9 +90,6 @@ Page {
                     Layout.column: 1
                     font.pixelSize: 12
                     placeholderText: "Enter Name"
-                    onFocusChanged: {
-                        if(focus) flickable.contentY = name.x
-                    }
                 }
 
                 Text {
@@ -129,9 +123,6 @@ Page {
                     font.pixelSize: 12
                     placeholderText: "Enter Email ID"
                     inputMethodHints: Qt.ImhEmailCharactersOnly
-                    onFocusChanged: {
-                        if(focus) flickable.contentY = emailId.x
-                    }
                 }
                 Text {
                     Layout.row: 4
