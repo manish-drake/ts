@@ -65,26 +65,27 @@ Page {
                 columnSpacing: 20
 
                 Text {
-                    text: qsTr("GPS SOURCE:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("GPS SOURCE")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Text {
                     Layout.row: 0
                     Layout.column:1
-                    text: qsTr("Internal")
+                    text: gpsSourceSwitch.checked ? "External" : "Internal"
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Switch { //we can use delegate switch as well for binging
                     id: gpsSourceSwitch
                     Layout.row: 0
                     Layout.column: 2
+                    Layout.columnSpan: 2
                     onCheckedChanged: {
                         console.log(gpsSourceSwitch.checked)
                     }
@@ -103,26 +104,27 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 0
-                    text: qsTr("GPS FORMAT:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("GPS FORMAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Text {
                     Layout.row: 1
                     Layout.column: 1
-                    text: qsTr("D°M'S")
+                    text: gpsFormatSwitch.checked ? "D.D°" : "D°M'S"
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Switch { //we can use delegate switch as well for binging
                     id: gpsFormatSwitch
                     Layout.row: 1
                     Layout.column: 2
+                    Layout.columnSpan: 2
                     onCheckedChanged: {
                         console.log(gpsFormatSwitch.checked)
                     }
@@ -139,27 +141,28 @@ Page {
 
                 Text {
                     Layout.row: 2
-                    text: qsTr("ALT FORMAT:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("ALT FORMAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Text {
                     Layout.row: 2
                     Layout.column: 1
                     id:altFormatText
-                    text: qsTr("Feet")
+                    text: altFormatSwitch.checked ? "Meters" : "Feet"
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Switch { //we can use delegate switch as well for binging
                     id: altFormatSwitch
                     Layout.row: 2
                     Layout.column: 2
+                    Layout.columnSpan: 2
                     onCheckedChanged: {
                         console.log(altFormatSwitch.checked)
                     }
@@ -176,13 +179,14 @@ Page {
 
                 Text {
                     Layout.row: 3
-                    text: qsTr("CURRENT LAT:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CURRENT LAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Text {
                     Layout.row: 3
                     Layout.column: 1
@@ -196,13 +200,14 @@ Page {
 
                 Text {
                     Layout.row: 4
-                    text: qsTr("CURRENT LON:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CURRENT LON")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Text {
                     Layout.row: 4
                     Layout.column: 1
@@ -216,7 +221,9 @@ Page {
 
                 Text {
                     Layout.row: 5
-                    text: qsTr("CURRENT TIME:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CURRENT TIME")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -229,7 +236,6 @@ Page {
                     triggeredOnStart: true
                     onTriggered: timeText.text = Qt.formatDateTime(new Date(),"hh:mm:ss")
                 }
-
                 Text {
                     id: timeText
                     Layout.row: 5
@@ -242,13 +248,14 @@ Page {
 
                 Text {
                     Layout.row: 6
-                    text: qsTr("CURRENT DATE:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CURRENT DATE")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 Timer{
                     interval: 1000
                     running: true
@@ -256,7 +263,6 @@ Page {
                     triggeredOnStart: true
                     onTriggered: dateText.text = Qt.formatDateTime(new Date(),"MM/dd/yyyy")
                 }
-
                 Text {
                     id: dateText
                     Layout.row: 6
@@ -270,7 +276,9 @@ Page {
                 Text {
                     Layout.row: 7
                     Layout.bottomMargin: 30
-                    text: qsTr("CURRENT ALT:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CURRENT ALT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -290,13 +298,14 @@ Page {
 
                 Text {
                     Layout.row: 8
-                    text: qsTr("MANUAL LAT:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("MANUAL LAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 TextField {
                     id: manualLatField
                     Layout.row: 8
@@ -310,7 +319,7 @@ Page {
                     font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLatSwitch.checked = false
-//                    inputMethodHints: Qt.ImhPreferNumbers
+                    //                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 8
@@ -324,7 +333,6 @@ Page {
                     elide: Text.ElideRight
                     color: Universal.foreground
                 }
-
                 SwitchDelegate{
                     id: manualLatSwitch
                     enabled: manualLatField.acceptableInput
@@ -357,13 +365,14 @@ Page {
 
                 Text {
                     Layout.row: 9
-                    text: qsTr("MANUAL LON:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("MANUAL LON")
                     font.pixelSize: 14
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
                 }
-
                 TextField {
                     id: manualLonField
                     Layout.row: 9
@@ -377,7 +386,7 @@ Page {
                     font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLonSwitch.checked = false
-//                    inputMethodHints: Qt.ImhPreferNumbers
+                    //                    inputMethodHints: Qt.ImhPreferNumbers
                 }
                 Text {
                     Layout.row: 9

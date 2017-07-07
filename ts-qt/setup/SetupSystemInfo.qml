@@ -63,7 +63,9 @@ Page {
                 columnSpacing: 15
 
                 Text {
-                    text: qsTr("SERIAL NUMBER:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("SERIAL NUMBER")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -80,7 +82,9 @@ Page {
 
                 Text {
                     Layout.row: 1
-                    text: qsTr("SOFTWARE RELEASE:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("SOFTWARE RELEASE")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -99,7 +103,9 @@ Page {
 
                 Text {
                     Layout.row: 2
-                    text: qsTr("CAUBRATION DUE:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("CAUBRATION DUE")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -117,7 +123,9 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.bottomMargin: 30
-                    text: qsTr("WARRANTY EXPIRATION:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("WARRANTY EXPIRATION")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -135,6 +143,8 @@ Page {
 
                 Text {
                     Layout.row: 4
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
                     text: qsTr("INSTAllED FEATURES")
                     font.underline: true
                     font.pixelSize: 14
@@ -164,7 +174,9 @@ Page {
                 }
                 Text {
                     Layout.row: 5
-                    text: qsTr("TRANSPONDER:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("TRANSPONDER")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -189,7 +201,9 @@ Page {
 
                 Text {
                     Layout.row: 6
-                    text: qsTr("NAV:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("NAV")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name
@@ -213,7 +227,9 @@ Page {
                 }
                 Text {
                     Layout.row: 7
-                    text: qsTr("SECURE COMM:")
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: qsTr("SECURE COMM")
                     font.pixelSize: 14
                     font.bold:Font.Medium
                     font.family: robotoRegular.name

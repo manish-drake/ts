@@ -17,9 +17,9 @@ Item {
             anchors.right: parent.right
             anchors.margins: 5
             columns: 2
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -27,6 +27,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -39,8 +40,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         id: user
                         text: qsTr("USER")
                         elide:Text.ElideRight
@@ -49,24 +49,46 @@ Item {
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
-                    Column {
+                    GridLayout {
                         anchors.bottom: parent.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        anchors.margins: 10
+                        anchors.margins: 8
+                        columnSpacing: 5
                         Text {
-                            font.pixelSize: 14
                             font.family: robotoRegular.name
-                            text: qsTr("Current User: Operator")
+                            font.pixelSize: 12
+                            text: qsTr("CURRENT USER:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("Operator")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
+                            Layout.row: 1
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Language: English")
+                            text: qsTr("LANGUAGE:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 1
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("English")
                             color: Universal.foreground
                         }
-
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -74,9 +96,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -86,6 +108,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -98,8 +121,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("DISPLAY")
                         elide:Text.ElideRight
                         font.pixelSize: 16
@@ -107,24 +129,46 @@ Item {
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
-                    Column {
+                    GridLayout {
                         anchors.bottom: parent.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
-                            font.pixelSize: 14
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Current Theme: Indoor")
+                            text: qsTr("CURRENT THEME:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: _theme == Universal.Dark ? "Outdoor" : "Indoor"
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
+                            Layout.row: 1
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Brightness: 5/10")
+                            text: qsTr("BRIGHTNESS:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 1
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("8")
                             color: Universal.foreground
                         }
-
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -132,9 +176,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -144,6 +188,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -156,8 +201,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("GPS")
                         elide:Text.ElideRight
                         font.pixelSize: 16
@@ -165,26 +209,62 @@ Item {
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
-                    Column {
+                    GridLayout {
                         anchors.bottom: parent.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
-                            font.pixelSize: 14
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Current Source: Internal")
+                            text: qsTr("CURRENT SOURCE:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            font.family: robotoRegular.name
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            text: qsTr("Internal")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
-                            text: qsTr("Current Lat: 40° 43' 50.1960'' N")
+                            Layout.row: 1
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("CURRENT LAT:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 1
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("40° 43' 50.1960'' N")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
+                            Layout.row: 2
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Current Lon: 73° 56' 6.8712'' W")
+                            text: qsTr("CURRENT LON:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 2
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("73° 56' 6.8712'' W")
                             color: Universal.foreground
                         }
 
@@ -195,9 +275,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -207,6 +287,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -219,8 +300,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("NETWORK")
                         elide:Text.ElideRight
                         font.pixelSize: 16
@@ -228,27 +308,62 @@ Item {
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
-                    Column {
+                    GridLayout {
                         anchors.bottom: parent.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
-                            font.pixelSize: 14
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("WiFi Enabled: Yes")
+                            text: qsTr("WIFI:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("On")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
+                            Layout.row: 1
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Allow local access: No")
+                            text: qsTr("REMOTE CONNECTION:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 1
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("On")
                             color: Universal.foreground
                         }
                         Text {
-                            font.pixelSize: 14
+                            Layout.row: 2
+                            font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Allow remote access: No")
+                            text: qsTr("WIFI DIRECT:")
+                            color: Universal.foreground
+                            opacity: 0.7
+                        }
+                        Text {
+                            Layout.row: 2
+                            Layout.column: 1
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            text: qsTr("Off")
                             color: Universal.foreground
                         }
 
@@ -259,9 +374,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -271,6 +386,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -283,8 +399,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("SYSTEM INFO")
                         elide:Text.ElideRight
                         font.pixelSize: 16
@@ -298,9 +413,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -310,6 +425,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -322,8 +438,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("CONNECTION")
                         elide:Text.ElideRight
                         font.pixelSize: 16
@@ -337,9 +452,9 @@ Item {
                     }
                 }
             }
-             Item{
+            Item{
                 width: grid.width/2
-                height: 140
+                height: 120
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
@@ -349,6 +464,7 @@ Item {
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
+                    clip: true
                     layer.enabled: true
                     layer.effect: DropShadow {
                         transparentBorder: true
@@ -361,8 +477,7 @@ Item {
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
-                        anchors.leftMargin: 15
-                        anchors.topMargin: 10
+                        anchors.margins: 10
                         text: qsTr("RUN MANUAL BIT")
                         elide:Text.ElideRight
                         font.pixelSize: 16

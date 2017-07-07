@@ -60,12 +60,12 @@ Page {
                 anchors.right: parent.right
                 anchors.margins: 15
                 rowSpacing: 22
-                columnSpacing: 30
+                columnSpacing: 15
 
                 Text {
                     Layout.row: 0
                     Layout.column: 0
-                    text: qsTr("CPU:")
+                    text: qsTr("CPU")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -83,7 +83,7 @@ Page {
                 Text {
                     Layout.row: 0
                     Layout.column: 2
-                    text: qsTr("CALIBRATION:")
+                    text: qsTr("CALIBRATION")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -101,7 +101,7 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 0
-                    text: qsTr("DSP:")
+                    text: qsTr("DSP")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -119,7 +119,7 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 2
-                    text: qsTr("RTC:")
+                    text: qsTr("RTC")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -137,7 +137,7 @@ Page {
                 Text {
                     Layout.row: 2
                     Layout.column: 0
-                    text: qsTr("FPGA:")
+                    text: qsTr("FPGA")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -155,7 +155,7 @@ Page {
                 Text {
                     Layout.row: 2
                     Layout.column: 2
-                    text: qsTr("POWER:")
+                    text: qsTr("POWER")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -174,7 +174,7 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 0
-                    text: qsTr("MEMORY:")
+                    text: qsTr("MEMORY")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -192,7 +192,7 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 2
-                    text: qsTr("ETC:")
+                    text: qsTr("ETC")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -209,7 +209,7 @@ Page {
                 Text {
                     Layout.row: 4
                     Layout.column: 0
-                    text: qsTr("RF PATH:")
+                    text: qsTr("RF PATH")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
@@ -227,7 +227,7 @@ Page {
                 Text {
                     Layout.row: 4
                     Layout.column: 2
-                    text: qsTr("ETC:")
+                    text: qsTr("ETC")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
