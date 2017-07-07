@@ -52,10 +52,11 @@ Item {
                         anchors.bottom: parent.bottom
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        anchors.margins: 10
+                        anchors.margins: 8
+                        columnSpacing: 5
                         Text {
                             font.pixelSize: 12
-                            text: qsTr("CURRENT USER: ")
+                            text: qsTr("CURRENT USER:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -70,7 +71,7 @@ Item {
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
-                            text: qsTr("LANGUAGE: ")
+                            text: qsTr("LANGUAGE:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -127,9 +128,10 @@ Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
                             font.pixelSize: 12
-                            text: qsTr("CURRENT THEME: ")
+                            text: qsTr("CURRENT THEME:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -144,7 +146,7 @@ Item {
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
-                            text: qsTr("BRIGHTNESS: ")
+                            text: qsTr("BRIGHTNESS:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -202,9 +204,10 @@ Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
                             font.pixelSize: 12
-                            text: qsTr("CURRENT SOURCE: ")
+                            text: qsTr("CURRENT SOURCE:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -219,7 +222,7 @@ Item {
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
-                            text: qsTr("CURRENT LAT: ")
+                            text: qsTr("CURRENT LAT:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -235,7 +238,7 @@ Item {
                         Text {
                             Layout.row: 2
                             font.pixelSize: 12
-                            text: qsTr("CURRENT LON: ")
+                            text: qsTr("CURRENT LON:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -293,9 +296,10 @@ Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.margins: 10
+                        columnSpacing: 5
                         Text {
                             font.pixelSize: 12
-                            text: qsTr("WIFI: ")
+                            text: qsTr("WIFI:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -310,7 +314,7 @@ Item {
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
-                            text: qsTr("REMOTE CONNECTION: ")
+                            text: qsTr("REMOTE CONNECTION:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -326,7 +330,7 @@ Item {
                         Text {
                             Layout.row: 2
                             font.pixelSize: 12
-                            text: qsTr("WIFI DIRECT: ")
+                            text: qsTr("WIFI DIRECT:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
