@@ -19,7 +19,7 @@ Rectangle {
             Layout.fillWidth: true
             color: decValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
+            enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
@@ -33,7 +33,6 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val - chartCtrl.markerStepSize
-
                 }
             }
         }
@@ -47,7 +46,7 @@ Rectangle {
             Layout.fillWidth: true
             color: incValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
+            enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16

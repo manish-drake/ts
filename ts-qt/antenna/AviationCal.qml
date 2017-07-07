@@ -21,7 +21,7 @@ Item{
                 id: testTitle
                 anchors.centerIn: parent
                 text: "CALIBRATE"
-                font.pixelSize: 12
+                font.pixelSize: 14
                 font.weight: Font.DemiBold
                 font.family: robotoRegular.name
                 color: Universal.foreground
@@ -49,8 +49,6 @@ Item{
                 }
             }
         }
-
-
         contentItem: Rectangle {
             color: Universal.background
             ColumnLayout{
@@ -58,7 +56,10 @@ Item{
                 anchors.margins: 20
                 spacing: 5
                 Item{}
-                AviBandCtrl{visible: mode == "VSWR/CL"}
+                AviBandCtrl{
+                    visible: mode == "VSWR/CL"
+                    isEnabled: false
+                }
                 AviCoaxCtrl{visible: mode == "COAX"}
                 Rectangle{
                     id:calLastStatus

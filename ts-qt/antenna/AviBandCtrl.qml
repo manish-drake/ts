@@ -11,6 +11,7 @@ Item{
     Layout.column: 0
     Layout.fillWidth: true
     property string bandName
+    property bool isEnabled: true
     height: content1.height
     ColumnLayout{
         id: content1
@@ -31,6 +32,7 @@ Item{
                 id: bandComboBox
                 implicitWidth: parent.width
                 implicitHeight: parent.height
+                currentIndex: 0
                 textRole: "text"
                 style: ComboBoxStyle{
                     background: Rectangle{
@@ -46,15 +48,12 @@ Item{
                             anchors.rightMargin: 10
                         }
                     }
-                    label:Item {
-                        anchors.fill: parent
+                    label:RowLayout {
+                        anchors.fill: parent                        
                         Text {
-                            anchors.verticalCenter: parent.verticalCenter
                             anchors.left: parent.left
-                            anchors.right: parent.right
                             anchors.leftMargin: 10
-                            anchors.rightMargin: 20
-                            elide: Text.ElideRight
+                            anchors.verticalCenter: parent.verticalCenter
                             font.pixelSize: 14
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
@@ -77,12 +76,14 @@ Item{
                 }
                 onCurrentIndexChanged:{
                     bandName = bandList.get(currentIndex).text
-                    chartCtrl.freqStartVal = bandList.get(currentIndex).start
-                    chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
-                    chartCtrl.freqEndVal = bandList.get(currentIndex).stop
-                    chartCtrl.markerMinVal = bandList.get(currentIndex).start
-                    chartCtrl.markerMaxVal = bandList.get(currentIndex).stop
-                    markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
+                    if(isEnabled){
+                        chartCtrl.freqStartVal = bandList.get(currentIndex).start
+                        chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
+                        chartCtrl.freqEndVal = bandList.get(currentIndex).stop
+                        chartCtrl.markerMinVal = bandList.get(currentIndex).start
+                        chartCtrl.markerMaxVal = bandList.get(currentIndex).stop
+                        markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
+                    }
                 }
             }
         }
