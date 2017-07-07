@@ -241,7 +241,7 @@ RowLayout{
 
         Item{
             id: freqValsList
-            visible: freqEndVal != 0
+            visible: !isDTFMode
             Layout.row: 4
             Layout.columnSpan: 3
             Layout.fillWidth: true
