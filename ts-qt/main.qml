@@ -21,7 +21,7 @@ ApplicationWindow {
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
     FontLoader { id: robotoRegFont; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
-    FontLoader { id: robotoCondRegFont; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
+    FontLoader { id: robotoCondRegFont; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
 //    Item {
 //        id: appContainer
 //        anchors.left: parent.left
