@@ -62,6 +62,7 @@ RowLayout{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Return<br>Loss"
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -100,6 +101,7 @@ RowLayout{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "VSWR"
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -147,6 +149,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: val
                         font.pixelSize: 12
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                 }
@@ -190,6 +193,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: val
                         font.pixelSize: 12
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                 }
@@ -231,6 +235,7 @@ RowLayout{
                     width: (impFreqList.width - 30)/(impFreqModel.count - 1)
                     Text{
                         text: val
+                        font.family: robotoRegular.name
                     }
                 }
             }
@@ -252,6 +257,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqStartVal
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
             Text{
                 id: freqMiddle
@@ -259,6 +265,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqMiddleVal
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
             Text{
                 id: freqStop
@@ -266,6 +273,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqEndVal + " MHz"
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
         }
 
@@ -289,6 +297,7 @@ RowLayout{
                             text: val
                             color: Universal.foreground
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                         }
                     }
                 }
@@ -330,6 +339,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: lengthUnitSwitch.checked ? "Ft" : "M"
                         horizontalAlignment: Text.AlignHCenter
+                        font.family: robotoRegular.name
                     }
                 }
                 onCheckedChanged: {
@@ -377,6 +387,7 @@ RowLayout{
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: "M" + num
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                         }
                         Rectangle{
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -392,6 +403,7 @@ RowLayout{
                             anchors.verticalCenter: parent.verticalCenter
                             text: markerSlider.value;
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                         }
                         Text{
                             visible: isDTFMode
@@ -400,6 +412,7 @@ RowLayout{
                             anchors.verticalCenter: parent.verticalCenter
                             text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                         }
                         MouseArea{
                             anchors.fill: parent

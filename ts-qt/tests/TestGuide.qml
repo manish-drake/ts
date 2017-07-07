@@ -42,6 +42,7 @@ Rectangle {
                     text: "%1 GUIDE".arg(guideTestName)
                     font.pixelSize: 16
                     font.weight: Font.DemiBold
+                    font.family: robotoRegular.name
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
                 }
@@ -106,6 +107,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Direct"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -137,6 +139,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port A"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -168,6 +171,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port B"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -208,6 +212,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"GPS"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -240,6 +245,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Wi-Fi"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }

@@ -46,6 +46,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     GridLayout {
@@ -55,6 +56,7 @@ Item {
                         anchors.margins: 8
                         columnSpacing: 5
                         Text {
+                            font.family: robotoRegular.name
                             font.pixelSize: 12
                             text: qsTr("CURRENT USER:")
                             color: Universal.foreground
@@ -65,12 +67,14 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("Operator")
                             color: Universal.foreground
                         }
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("LANGUAGE:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -81,6 +85,7 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("English")
                             color: Universal.foreground
                         }
@@ -121,6 +126,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     GridLayout {
@@ -131,6 +137,7 @@ Item {
                         columnSpacing: 5
                         Text {
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("CURRENT THEME:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -140,12 +147,14 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: _theme == Universal.Dark ? "Outdoor" : "Indoor"
                             color: Universal.foreground
                         }
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("BRIGHTNESS:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -156,10 +165,10 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("8")
                             color: Universal.foreground
                         }
-
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -197,6 +206,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     GridLayout {
@@ -207,11 +217,13 @@ Item {
                         columnSpacing: 5
                         Text {
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("CURRENT SOURCE:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
                         Text {
+                            font.family: robotoRegular.name
                             Layout.column: 1
                             Layout.fillWidth: true
                             elide: Text.ElideRight
@@ -222,6 +234,7 @@ Item {
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("CURRENT LAT:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -232,12 +245,14 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("40° 43' 50.1960'' N")
                             color: Universal.foreground
                         }
                         Text {
                             Layout.row: 2
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("CURRENT LON:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -248,6 +263,7 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("73° 56' 6.8712'' W")
                             color: Universal.foreground
                         }
@@ -289,6 +305,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     GridLayout {
@@ -299,6 +316,7 @@ Item {
                         columnSpacing: 5
                         Text {
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("WIFI:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -308,12 +326,14 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("On")
                             color: Universal.foreground
                         }
                         Text {
                             Layout.row: 1
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("REMOTE CONNECTION:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -324,12 +344,14 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("On")
                             color: Universal.foreground
                         }
                         Text {
                             Layout.row: 2
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("WIFI DIRECT:")
                             color: Universal.foreground
                             opacity: 0.7
@@ -340,6 +362,7 @@ Item {
                             Layout.fillWidth: true
                             elide: Text.ElideRight
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                             text: qsTr("Off")
                             color: Universal.foreground
                         }
@@ -381,6 +404,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {
@@ -419,6 +443,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {
@@ -457,6 +482,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {

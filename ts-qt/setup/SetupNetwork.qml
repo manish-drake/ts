@@ -19,6 +19,7 @@ Page {
             text: qsTr("NETWORK")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -71,12 +72,14 @@ Page {
                         text: qsTr("Wi-Fi")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Text{
                         Layout.column:1
                         text: wifiSwitch.checked ? "On" : "Off"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Switch { //we can use delegate switch as well for binging
@@ -93,7 +96,14 @@ Page {
                             }
                         }
                     }
-
+                    Text{
+                        Layout.column:3
+                        Layout.fillWidth: true
+                        text: qsTr("Yes")
+                        font.pixelSize: 14
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                    }
                     Text {
                         Layout.row: 1
                         Layout.fillWidth: true
@@ -101,6 +111,7 @@ Page {
                         text: qsTr("REMOTE CONNECTION")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Text{
@@ -108,6 +119,7 @@ Page {
                         Layout.column:1
                         text: remoteSwitch.checked ? "On" : "Off"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Switch { //we can use delegate switch as well for binging
@@ -126,6 +138,14 @@ Page {
                         }
                     }
 
+                    Text{
+                        Layout.row: 1
+                        Layout.column:3
+                        text: qsTr("Yes")
+                        font.pixelSize: 14
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                    }
                     Text {
                         Layout.row: 2
                         Layout.fillWidth: true
@@ -133,6 +153,7 @@ Page {
                         text: qsTr("Wi-Fi DIRECT")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Text{
@@ -140,6 +161,7 @@ Page {
                         Layout.column:1
                         text: wifiDirectSwitch.checked ? "On" : "Off"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Switch { //we can use delegate switch as well for binging
@@ -157,6 +179,15 @@ Page {
                         }
                     }
 
+                    Text{
+                        Layout.row: 2
+                        Layout.column:3
+                        text: qsTr("Yes")
+                        font.pixelSize: 14
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                    }
+
                     Text {
                         Layout.row: 3
                         Layout.fillWidth: true
@@ -164,6 +195,7 @@ Page {
                         text: qsTr("DHCP")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Text{
@@ -171,6 +203,7 @@ Page {
                         Layout.column:1
                         text: dhcpSwitch.checked ? "On" : "Off"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Switch { //we can use delegate switch as well for binging
@@ -185,6 +218,15 @@ Page {
                         }
                     }
 
+                    Text{
+                        Layout.row: 3
+                        Layout.column:3
+                        text: qsTr("Yes")
+                        font.pixelSize: 14
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                    }
+
                     Text {
                         Layout.row: 4
                         Layout.fillWidth: true
@@ -192,6 +234,7 @@ Page {
                         text: qsTr("IP ADDRESS")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -201,6 +244,7 @@ Page {
                         Layout.columnSpan: 4
                         text: qsTr("192.168 10.196")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -216,6 +260,7 @@ Page {
                         text: qsTr("MANUAL IP ADDRESS")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     TextField {
@@ -246,6 +291,7 @@ Page {
                         visible: !editIPAddSwitch.checked
                         text: ipAddressField.text
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         Layout.maximumWidth: 100
                         elide: Text.ElideRight
                         color: Universal.foreground
@@ -268,6 +314,7 @@ Page {
                                 text: editIPAddSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                                font.family: robotoRegular.name
                             }
                         }
                         onCheckedChanged: {
@@ -287,6 +334,7 @@ Page {
                         text: qsTr("DEVICE NAME")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     TextField {
@@ -309,6 +357,7 @@ Page {
                         visible: !editDNameSwitch.checked
                         text: deviceNameField.text
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         Layout.maximumWidth: 100
                         elide: Text.ElideRight
                         color: Universal.foreground
@@ -331,6 +380,7 @@ Page {
                                 text: editDNameSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                                font.family: robotoRegular.name
                             }
                         }
                         onCheckedChanged: {
@@ -360,6 +410,7 @@ Page {
                             text: qsTr("CONNECTED DEVICES")
                             font.pixelSize: 14
                             font.bold: Font.Medium
+                            font.family: robotoRegular.name
                             color: Universal.foreground
                         }
                         Item{
@@ -413,6 +464,7 @@ Page {
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: name
                                     font.pixelSize: 14
+                                    font.family: robotoRegular.name
                                     color: Universal.foreground
                                 }
                                 ColorOverlay{

@@ -18,6 +18,7 @@ Item {
                 anchors.centerIn: parent
                 text:"Device Paired"
                 font.pixelSize: 18
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
         }
@@ -29,6 +30,7 @@ Item {
                 anchors.centerIn: parent
                 text: "Remote device connected"
                 font.pixelSize: 16
+                font.family: robotoRegular.name
                 color: "gray"
             }
         }
@@ -44,6 +46,7 @@ Item {
                 anchors.rightMargin: 15
                 text: "OK"
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: "gray"
                 MouseArea{
                     anchors.fill: parent

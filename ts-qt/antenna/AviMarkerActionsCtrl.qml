@@ -24,6 +24,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "<<<"
                 color: "white"
             }
@@ -50,6 +51,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: ">>>"
                 color: "white"
             }
@@ -75,6 +77,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+V"
                 color: "white"
             }
@@ -98,6 +101,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+P"
                 color: "white"
             }
@@ -122,6 +126,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 22
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+"
                 color: "white"
             }

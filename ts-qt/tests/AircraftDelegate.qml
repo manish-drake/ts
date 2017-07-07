@@ -34,6 +34,7 @@ Item {
                 fontSizeMode: Text.Fit
                 font.pixelSize: 14
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
 

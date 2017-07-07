@@ -19,6 +19,7 @@ Page {
             text: qsTr("USER DETAIL")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -64,12 +65,14 @@ Page {
                     text: qsTr("USER ID")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
                     Layout.column: 1
                     text: qsTr(navigationModel.navigationParameter.user.userID)
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -79,6 +82,7 @@ Page {
                     text: qsTr("NAME")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -86,6 +90,7 @@ Page {
                     Layout.column: 1
                     text: qsTr(navigationModel.navigationParameter.user.userName)
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -95,6 +100,7 @@ Page {
                     text: qsTr("LANGUAGE")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -102,6 +108,7 @@ Page {
                     Layout.column: 1
                     text: qsTr(navigationModel.navigationParameter.user.language)
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -111,6 +118,7 @@ Page {
                     text: qsTr("EMAIL")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -119,6 +127,7 @@ Page {
                     Layout.column: 1
                     text: qsTr(navigationModel.navigationParameter.user.emailID)
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -127,6 +136,7 @@ Page {
                     text: qsTr("EMAIL SAVED TESTS")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 

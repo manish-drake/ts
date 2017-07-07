@@ -19,6 +19,7 @@ Item{
             text: "COAX"
             font.pixelSize: 13
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             opacity: 0.7
         }
         Item{
@@ -56,6 +57,7 @@ Item{
                             font.pixelSize: 14
                             color: "white"
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
                         }
                     }

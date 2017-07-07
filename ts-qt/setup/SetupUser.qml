@@ -16,6 +16,7 @@ Item{
             elide:Text.ElideRight
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
         Item{
@@ -98,6 +99,7 @@ Item{
                             elide:Text.ElideRight
                             font.pixelSize: 14
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             color: Universal.accent
                         }
                         Row {
@@ -182,6 +184,7 @@ Item{
             text:"+"
             font.pixelSize: 28
             font.weight: Font.bold
+            font.family: robotoRegular.name
             color:"white"
         }
         MouseArea{
@@ -220,6 +223,7 @@ Item{
     //            text:""
     //            font.pixelSize: 28
     //            font.weight: Font.bold
+    //            font.family: robotoRegular.name
     //            color:"white"
     //        }
     //        MouseArea{

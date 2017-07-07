@@ -62,6 +62,7 @@ Item{
                             Text{
                                 color: Universal.foreground
                                 font.pixelSize: 12
+                                font.family: robotoRegular.name
                                 text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
                             }
                         }

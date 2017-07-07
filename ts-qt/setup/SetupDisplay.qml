@@ -19,6 +19,7 @@ Page {
             text: qsTr("DISPLAY")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -70,12 +71,14 @@ Page {
                         text: qsTr("THEME")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Text{
                         Layout.column: 1
                         text: switch1.checked ? "Outdoor" : "Indoor"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Switch { //we can use delegate switch as well for binging
@@ -102,6 +105,7 @@ Page {
                         Layout.column: 0
                         text: qsTr("BRIGHTNESS")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         font.bold: Font.Medium
                         color: Universal.foreground
                     }
@@ -109,6 +113,7 @@ Page {
                         Layout.column: 1
                         text: slider.value
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Item{

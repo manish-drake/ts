@@ -20,6 +20,7 @@ Item{
             text: "MODE"
             font.pixelSize: 13
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             opacity: 0.7
         }
         Item{
@@ -56,6 +57,7 @@ Item{
                             elide: Text.ElideRight
                             font.pixelSize: 14
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             color: "white"
                             text: control.currentText
                         }

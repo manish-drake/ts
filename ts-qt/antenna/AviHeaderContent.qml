@@ -94,6 +94,7 @@ Rectangle{
         text: detailTitle
         font.pixelSize: 16
         font.weight: Font.DemiBold
+        font.family: robotoRegular.name
         color: Universal.foreground
     }
 

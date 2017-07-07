@@ -19,6 +19,7 @@ Page {
             text: qsTr("GPS")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             anchors.horizontalCenter: parent.horizontalCenter
             color: Universal.foreground
         }
@@ -69,6 +70,7 @@ Page {
                     text: qsTr("GPS SOURCE")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -76,6 +78,7 @@ Page {
                     Layout.column:1
                     text: gpsSourceSwitch.checked ? "External" : "Internal"
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Switch { //we can use delegate switch as well for binging
@@ -89,6 +92,16 @@ Page {
                 }
 
                 Text {
+                    Layout.row: 0
+                    Layout.column:3
+                    Layout.fillWidth: true
+                    text: qsTr("External")
+                    font.pixelSize: 14
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                }
+
+                Text {
                     Layout.row: 1
                     Layout.column: 0
                     Layout.fillWidth: true
@@ -96,6 +109,7 @@ Page {
                     text: qsTr("GPS FORMAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -103,6 +117,7 @@ Page {
                     Layout.column: 1
                     text: gpsFormatSwitch.checked ? "D.D°" : "D°M'S"
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Switch { //we can use delegate switch as well for binging
@@ -116,12 +131,22 @@ Page {
                 }
 
                 Text {
+                    Layout.row: 1
+                    Layout.column: 3
+                    text: qsTr("D.D°")
+                    font.pixelSize: 14
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                }
+
+                Text {
                     Layout.row: 2
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("ALT FORMAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -130,6 +155,7 @@ Page {
                     id:altFormatText
                     text: altFormatSwitch.checked ? "Meters" : "Feet"
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Switch { //we can use delegate switch as well for binging
@@ -143,12 +169,22 @@ Page {
                 }
 
                 Text {
+                    Layout.row: 2
+                    Layout.column: 3
+                    text: qsTr("Meters")
+                    font.pixelSize: 14
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                }
+
+                Text {
                     Layout.row: 3
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("CURRENT LAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -158,6 +194,7 @@ Page {
                     id: text8
                     text: gpsFormatSwitch.checked ? "51.50392°" : "51°30'14.11 N"
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -168,6 +205,7 @@ Page {
                     text: qsTr("CURRENT LON")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -177,6 +215,7 @@ Page {
                     text: gpsFormatSwitch.checked ? "10.12763°" : "10°7'39.45 W"
                     font.capitalization: Font.AllUppercase
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -187,6 +226,7 @@ Page {
                     text: qsTr("CURRENT TIME")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Timer{
@@ -202,6 +242,7 @@ Page {
                     Layout.column: 1
                     Layout.columnSpan: 3
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -212,6 +253,7 @@ Page {
                     text: qsTr("CURRENT DATE")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Timer{
@@ -227,6 +269,7 @@ Page {
                     Layout.column: 1
                     Layout.columnSpan: 3
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -238,6 +281,7 @@ Page {
                     text: qsTr("CURRENT ALT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -248,6 +292,7 @@ Page {
                     Layout.bottomMargin: 30
                     text: altFormatSwitch.checked ? "%1 m".arg(144*0.3048) : "%1 Ft.".arg(144)
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -258,6 +303,7 @@ Page {
                     text: qsTr("MANUAL LAT")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
@@ -270,6 +316,7 @@ Page {
                     text: qsTr("40.7484")
                     validator: DoubleValidator{}
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLatSwitch.checked = false
                     //                    inputMethodHints: Qt.ImhPreferNumbers
@@ -281,6 +328,7 @@ Page {
                     visible: !manualLatSwitch.checked
                     text: "%1 ° N".arg(manualLatField.text)
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     elide: Text.ElideRight
                     color: Universal.foreground
@@ -302,6 +350,7 @@ Page {
                             text: manualLatSwitch.checked ? "DONE" : "EDIT"
                             color: manualLatSwitch.enabled ? "#387EF5" : "gray"
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                         }
                     }
                     onCheckedChanged: {
@@ -321,6 +370,7 @@ Page {
                     text: qsTr("MANUAL LON")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
@@ -333,6 +383,7 @@ Page {
                     text: qsTr("73.9857")
                     validator: DoubleValidator{}
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     onEditingFinished: manualLonSwitch.checked = false
                     //                    inputMethodHints: Qt.ImhPreferNumbers
@@ -344,6 +395,7 @@ Page {
                     visible: !manualLonSwitch.checked
                     text: "%1 ° W".arg(manualLonField.text)
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     Layout.maximumWidth: 100
                     elide: Text.ElideRight
                     color: Universal.foreground
@@ -366,6 +418,7 @@ Page {
                             text: manualLonSwitch.checked ? "DONE" : "EDIT"
                             color: manualLonSwitch.enabled ? "#387EF5" : "gray"
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                         }
                     }
                     onCheckedChanged: {

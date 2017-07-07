@@ -35,6 +35,7 @@ Item{
                     text: headerTitle
                     font.pixelSize: 16
                     font.weight: Font.ExtraBold
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                     opacity: 0.6
                 }
@@ -45,6 +46,7 @@ Item{
                     wrapMode: Text.WordWrap
                     font.pixelSize: 14
                     font.weight: Font.DemiBold
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                     opacity: 0.6
                 }
@@ -106,6 +108,7 @@ Item{
                                     text: name
                                     font.pixelSize: 16
                                     font.weight: Font.ExtraBold
+                                    font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
                                 Item{
@@ -194,6 +197,7 @@ Item{
                                         Layout.column: 1
                                         text: "7"
                                         font.pixelSize: 14
+                                        font.family: robotoRegular.name
                                         color: "#666666"
                                         font.bold: true
                                     }
@@ -207,6 +211,7 @@ Item{
                                     text: "RECENT TEST RESULTS"
                                     font.pixelSize: 12
                                     font.weight: Font.Bold
+                                    font.family: robotoRegular.name
                                     color: Universal.foreground
                                     opacity: 0.4
                                 }

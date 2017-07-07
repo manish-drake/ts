@@ -19,6 +19,7 @@ Page {
             text: qsTr("ADD USER")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             anchors.horizontalCenter: parent.horizontalCenter
             color: Universal.foreground
         }
@@ -67,12 +68,14 @@ Page {
                     text: qsTr("USER ID:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
                     id: usedId
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter User ID"
                     inputMethodHints: Qt.ImhNoAutoUppercase
                 }
@@ -82,6 +85,7 @@ Page {
                     text: qsTr("NAME:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
@@ -89,6 +93,7 @@ Page {
                     Layout.row: 1
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter Name"
                 }
 
@@ -97,6 +102,7 @@ Page {
                     text: qsTr("LANGUAGE:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 ComboBox{
@@ -113,6 +119,7 @@ Page {
                     text: qsTr("EMAIL:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -121,6 +128,7 @@ Page {
                     Layout.row: 3
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter Email ID"
                     inputMethodHints: Qt.ImhEmailCharactersOnly
                 }
@@ -129,6 +137,7 @@ Page {
                     text: qsTr("EMAIL SAVED TESTS:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
