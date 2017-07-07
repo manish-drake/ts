@@ -58,10 +58,10 @@ Page {
                 anchors.right: parent.right
                 anchors.margins: 15
                 rowSpacing: 22
-                columnSpacing: 30
 
                 Text {
-                    text: qsTr("USER ID:")
+                    elide: Text.ElideRight
+                    text: qsTr("USER ID")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -75,7 +75,8 @@ Page {
 
                 Text {
                     Layout.row: 1
-                    text: qsTr("NAME:")
+                    elide: Text.ElideRight
+                    text: qsTr("NAME")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -90,7 +91,8 @@ Page {
 
                 Text {
                     Layout.row: 2
-                    text: qsTr("LANGUAGE:")
+                    elide: Text.ElideRight
+                    text: qsTr("LANGUAGE")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -105,7 +107,8 @@ Page {
 
                 Text {
                     Layout.row: 3
-                    text: qsTr("EMAIL:")
+                    elide: Text.ElideRight
+                    text: qsTr("EMAIL")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -120,7 +123,8 @@ Page {
                 }
                 Text {
                     Layout.row: 4
-                    text: qsTr("EMAIL SAVED TESTS:")
+                    elide: Text.ElideRight
+                    text: qsTr("EMAIL SAVED TESTS")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground

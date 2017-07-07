@@ -49,66 +49,74 @@ Item{
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        GridView{
+        ListView{
             id: userGridView
             anchors.fill: parent
-            anchors.topMargin: 10
-            anchors.leftMargin: 10
-            cellWidth: userGridView.width/2; cellHeight: 200
+            anchors.margins: 8
             model: usersModel
             delegate: userCardDelegate
             currentIndex: -1
             clip: true
             Component{
                 id: userCardDelegate
-                Rectangle {
-                    id: wrapper
-                    width: userGridView.cellWidth - 10
-                    height: userGridView.cellHeight -10
-                    color: Universal.background
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 3
-                        color: "#0d000000"
-                        spread: 0
-                    }
-                    MouseArea {
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle {
+                        id: wrapper
                         anchors.fill: parent
-                        onClicked: {
-                            navigationModel.setCurrentView(
-                                        navigationModel.getTargetView("UserDetail"),
-                                        {"user": usersModel.get(index)})
+                        anchors.margins: 2
+                        color: Universal.background
+                        border.color: "#0d000000"
+                        border.width: 1
+                        radius: 3
+                        layer.enabled: true
+                        layer.effect: DropShadow {
+                            transparentBorder: true
+                            horizontalOffset: 1.1
+                            verticalOffset: 1.1
+                            radius: 3
+                            color: "#0d000000"
+                            spread: 0
                         }
-                    }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                navigationModel.setCurrentView(
+                                            navigationModel.getTargetView("UserDetail"),
+                                            {"user": usersModel.get(index)})
+                            }
+                        }
 
-                    Text {
-                        anchors.centerIn: parent
-                        text: qsTr(userName)
-                        elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.DemiBold
-                        color: Universal.foreground
-                    }
-                    Row {
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: 10
                         Text {
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr(userName)
+                            elide:Text.ElideRight
                             font.pixelSize: 14
-                            text: qsTr("LANGUAGE: ")
-                            color: Universal.foreground
+                            font.weight: Font.DemiBold
+                            color: Universal.accent
                         }
-                        Text {
-                            font.pixelSize: 14
-                            text: qsTr(language)
-                            color: Universal.foreground
+                        Row {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.margins: 10
+                            Text {
+                                font.pixelSize: 12
+                                text: qsTr("LANGUAGE: ")
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
+                            Text {
+                                font.pixelSize: 12
+                                text: qsTr(language)
+                                color: Universal.foreground
+                                elide: Text.ElideRight
+                            }
                         }
                     }
                 }

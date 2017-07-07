@@ -62,7 +62,7 @@ Page {
                 columnSpacing: 30
 
                 Text {
-                    text: qsTr("DEFAULT POWER:")
+                    text: qsTr("DEFAULT POWER")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -76,7 +76,7 @@ Page {
 
                 Text {
                     Layout.row: 1
-                    text: qsTr("DEFALT DISTANCE:")
+                    text: qsTr("DEFALT DISTANCE")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -91,7 +91,7 @@ Page {
 
                 Text {
                     Layout.row: 2
-                    text: qsTr("DEFAULT CABLE LOSS:")
+                    text: qsTr("DEFAULT CABLE LOSS")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
@@ -106,7 +106,7 @@ Page {
 
                 Text {
                     Layout.row: 3
-                    text: qsTr("UUT ANTENNA GAIN:")
+                    text: qsTr("UUT ANTENNA GAIN")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     color: Universal.foreground
