@@ -19,6 +19,7 @@ Page {
             text: qsTr("NETWORK")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -69,6 +70,7 @@ Page {
                         text: qsTr("ENABlE Wi-Fi:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -76,6 +78,7 @@ Page {
                         Layout.column:1
                         text: qsTr("No")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -97,6 +100,7 @@ Page {
                         Layout.fillWidth: true
                         text: qsTr("Yes")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -105,6 +109,7 @@ Page {
                         text: qsTr("ENABLE REMOTE:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -113,6 +118,7 @@ Page {
                         Layout.column:1
                         text: qsTr("No")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -135,6 +141,7 @@ Page {
                         Layout.column:3
                         text: qsTr("Yes")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -143,6 +150,7 @@ Page {
                         text: qsTr("Wi-Fi DIRECT:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -151,6 +159,7 @@ Page {
                         Layout.column:1
                         text: qsTr("No")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -172,6 +181,7 @@ Page {
                         Layout.column:3
                         text: qsTr("Yes")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -180,6 +190,7 @@ Page {
                         text: qsTr("DHCP:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -188,6 +199,7 @@ Page {
                         Layout.column:1
                         text: qsTr("No")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -206,6 +218,7 @@ Page {
                         Layout.column:3
                         text: qsTr("Yes")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -214,6 +227,7 @@ Page {
                         text: qsTr("IP ADDRESS:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -223,6 +237,7 @@ Page {
                         Layout.columnSpan: 2
                         text: qsTr("192.168 10.196")
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -236,6 +251,7 @@ Page {
                         text: qsTr("MANUAL IP ADDRESS:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -267,6 +283,7 @@ Page {
                         visible: !editIPAddSwitch.checked
                         text: ipAddressField.text
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         Layout.maximumWidth: 100
                         elide: Text.ElideRight
                         color: Universal.foreground
@@ -289,6 +306,7 @@ Page {
                                 text: editIPAddSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                                font.family: robotoRegular.name
                             }
                         }
                         onCheckedChanged: {
@@ -306,6 +324,7 @@ Page {
                         text: qsTr("DEVICE NAME:")
                         font.pixelSize: 14
                         font.bold: Font.Medium
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
 
@@ -329,6 +348,7 @@ Page {
                         visible: !editDNameSwitch.checked
                         text: deviceNameField.text
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         Layout.maximumWidth: 100
                         elide: Text.ElideRight
                         color: Universal.foreground
@@ -351,6 +371,7 @@ Page {
                                 text: editDNameSwitch.checked ? "DONE" : "EDIT"
                                 color: parent.enabled ? "#387EF5" : "gray"
                                 font.pixelSize: 14
+                                font.family: robotoRegular.name
                             }
                         }
                         onCheckedChanged: {
@@ -378,6 +399,7 @@ Page {
                             text: qsTr("Connected Devices:")
                             font.pixelSize: 14
                             font.bold: Font.Medium
+                            font.family: robotoRegular.name
                             color: Universal.foreground
                         }
                         Item{
@@ -429,6 +451,7 @@ Page {
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: name
                                     font.pixelSize: 14
+                                    font.family: robotoRegular.name
                                     color: Universal.foreground
                                 }
                                 Item{

@@ -32,6 +32,7 @@ Rectangle{
                 text:"OPERATOR"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -66,6 +67,7 @@ Rectangle{
                 text:"THEME"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -91,6 +93,7 @@ Rectangle{
                 id: label2
                 text: Universal.theme == Universal.Light ? "Indoor":"Outdoor"
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -116,6 +119,7 @@ Rectangle{
                 id: header10
                 anchors.horizontalCenter: parent.horizontalCenter
                 text:"DISPLAY BRIGHTNESS"
+                font.family: robotoRegular.name
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
                 anchors.top: parent.top
@@ -128,6 +132,7 @@ Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: sld2.value
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             Slider {
@@ -150,6 +155,7 @@ Rectangle{
                 anchors.bottomMargin: 10
                 text: sld2.minimumValue
                 font.pixelSize: 12
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             Text{
@@ -158,6 +164,7 @@ Rectangle{
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 10
                 text: sld2.maximumValue
+                font.family: robotoRegular.name
                 font.pixelSize: 12
                 color: Universal.foreground
             }
@@ -174,6 +181,7 @@ Rectangle{
                 text:"TEST SET ICAO ADDRESS"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -204,6 +212,7 @@ Rectangle{
                 text:"GPS SOURCE"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -232,6 +241,7 @@ Rectangle{
                 anchors.bottomMargin: 10
                 text:"Internal"
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
         }
@@ -246,6 +256,7 @@ Rectangle{
                 text:"UUT DEVICE CLASS"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -261,6 +272,7 @@ Rectangle{
                     anchors.verticalCenter: parent.verticalCenter
                     text:"CLASS A"
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
             }
@@ -277,6 +289,7 @@ Rectangle{
                 text:"UUT ANTENNA"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -305,6 +318,7 @@ Rectangle{
                 anchors.bottomMargin: 10
                 text:"Top"
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
         }
@@ -320,6 +334,7 @@ Rectangle{
                 text:"TEST SET CONNECTION"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -367,6 +382,7 @@ Rectangle{
                 text:"DISTANCE To UUT"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.top: parent.top
                 anchors.topMargin: 10
                 color: Universal.accent
@@ -377,6 +393,7 @@ Rectangle{
                 anchors.horizontalCenter: parent.horizontalCenter
                 text:"%1 Ft".arg(sld.value)
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             Slider {
@@ -399,6 +416,7 @@ Rectangle{
                 anchors.bottomMargin: 10
                 text:"%1 Ft".arg(sld.minimumValue)
                 font.pixelSize: 12
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             Text{
@@ -408,6 +426,7 @@ Rectangle{
                 anchors.bottomMargin: 10
                 text:"%1 Ft".arg(sld.maximumValue)
                 font.pixelSize: 12
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
         }

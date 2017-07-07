@@ -19,6 +19,7 @@ Page {
             text: qsTr("RUN MANUAL BIT")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -67,6 +68,7 @@ Page {
                     text: qsTr("CPU:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -74,6 +76,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -83,6 +86,7 @@ Page {
                     text: qsTr("CALIBRATION:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -90,6 +94,7 @@ Page {
                     Layout.column: 3
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -99,6 +104,7 @@ Page {
                     text: qsTr("DSP:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -106,6 +112,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -115,6 +122,7 @@ Page {
                     text: qsTr("RTC:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -122,6 +130,7 @@ Page {
                     Layout.column: 3
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -131,6 +140,7 @@ Page {
                     text: qsTr("FPGA:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -138,6 +148,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -147,6 +158,7 @@ Page {
                     text: qsTr("POWER:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -154,6 +166,7 @@ Page {
                     Layout.column: 3
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -164,6 +177,7 @@ Page {
                     text: qsTr("MEMORY:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -171,6 +185,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -180,12 +195,14 @@ Page {
                     text: qsTr("ETC:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                 }
                 Text {
                     Layout.row: 3
                     Layout.column: 3
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -195,6 +212,7 @@ Page {
                     text: qsTr("RF PATH:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -202,6 +220,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -211,6 +230,7 @@ Page {
                     text: qsTr("ETC:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -218,6 +238,7 @@ Page {
                     Layout.column: 3
                     text: qsTr("PASS")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
             }

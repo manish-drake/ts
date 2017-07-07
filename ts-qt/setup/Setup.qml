@@ -46,6 +46,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     Column {
@@ -55,11 +56,13 @@ Item {
                         anchors.margins: 10
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Current User: Operator")
                             color: Universal.foreground
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Language: English")
                             color: Universal.foreground
                         }
@@ -101,6 +104,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     Column {
@@ -110,11 +114,13 @@ Item {
                         anchors.margins: 10
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Current Theme: Indoor")
                             color: Universal.foreground
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Brightness: 5/10")
                             color: Universal.foreground
                         }
@@ -156,6 +162,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     Column {
@@ -165,6 +172,7 @@ Item {
                         anchors.margins: 10
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Current Source: Internal")
                             color: Universal.foreground
                         }
@@ -175,6 +183,7 @@ Item {
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Current Lon: 73° 56' 6.8712'' W")
                             color: Universal.foreground
                         }
@@ -216,6 +225,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     Column {
@@ -225,16 +235,19 @@ Item {
                         anchors.margins: 10
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("WiFi Enabled: Yes")
                             color: Universal.foreground
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Allow local access: No")
                             color: Universal.foreground
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("Allow remote access: No")
                             color: Universal.foreground
                         }
@@ -276,6 +289,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {
@@ -314,6 +328,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {
@@ -352,6 +367,7 @@ Item {
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.ExtraBold
+                        font.family: robotoRegular.name
                         color: Universal.accent
                     }
                     MouseArea {

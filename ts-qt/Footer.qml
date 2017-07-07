@@ -19,6 +19,7 @@ Rectangle {
         font.pixelSize: 15
         text: currentOperator
         font.weight: Font.DemiBold
+        font.family: robotoRegular.name
         elide:  Text.ElideRight
         color: "#FFF"
     }
@@ -46,6 +47,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 font.pixelSize: 15
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "TestSet14"
                 elide: Text.ElideRight
                 color: "#FFF"

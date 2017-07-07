@@ -44,6 +44,7 @@ Rectangle {
                 text: "Saved Data"
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 anchors.centerIn: parent
                 color: Universal.foreground
             }
@@ -117,6 +118,7 @@ Rectangle {
                                 fontSizeMode: Text.Fit
                                 font.pixelSize: 14
                                 font.weight: Font.DemiBold
+                                font.family: robotoRegular.name
                                 color: Universal.foreground
                             }
 
@@ -127,6 +129,7 @@ Rectangle {
                                 text: qsTr("USER: " + user)
                                 fontSizeMode: Text.HorizontalFit
                                 font.pixelSize: 14
+                                font.family: robotoRegular.name
                                 color: Universal.foreground
                             }
                             MouseArea {
@@ -157,6 +160,7 @@ Rectangle {
                 text: "VIEW"
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 color: Universal.foreground
                 opacity: enabled ? 1.0 : 0.4
                 MouseArea {

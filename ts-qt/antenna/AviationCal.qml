@@ -23,6 +23,7 @@ Item{
                 text: "CALIBRATE"
                 font.pixelSize: 12
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             Item{
@@ -75,6 +76,7 @@ Item{
                         anchors.verticalCenter: calLastStatus.verticalCenter
                         font.pixelSize: 12
                         font.weight: Font.DemiBold
+                        font.family: robotoRegular.name
                         color: "white"
                     }
                     Text{
@@ -85,6 +87,7 @@ Item{
                         anchors.verticalCenter: calLastStatus.verticalCenter
                         font.pixelSize: 12
                         font.weight: Font.DemiBold
+                        font.family: robotoRegular.name
                         color: "white"
                     }
                 }
@@ -103,6 +106,7 @@ Item{
                             horizontalAlignment: Text.AlignHCenter
                             font.pixelSize: 12
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -133,6 +137,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 12
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "MEASURE"
                                         color: "white"
                                     }
@@ -153,6 +158,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 11
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "RE-MEASURE"
                                         color: "white"
                                     }
@@ -174,6 +180,7 @@ Item{
                             horizontalAlignment: Text.AlignHCenter
                             font.pixelSize: 12
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -204,6 +211,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 12
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "MEASURE"
                                         color: "white"
                                     }
@@ -224,6 +232,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 11
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "RE-MEASURE"
                                         color: "white"
                                     }
@@ -245,6 +254,7 @@ Item{
                             horizontalAlignment: Text.AlignHCenter
                             font.pixelSize: 12
                             font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -275,6 +285,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 12
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "MEASURE"
                                         color: "white"
                                     }
@@ -295,6 +306,7 @@ Item{
                                         anchors.centerIn: parent
                                         font.pixelSize: 11
                                         font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
                                         text: "RE-MEASURE"
                                         color: "white"
                                     }
@@ -331,6 +343,7 @@ Item{
                         anchors.centerIn: parent
                         font.pixelSize: 12
                         font.weight: Font.DemiBold
+                        font.family: robotoRegular.name
                         text: "DONE"
                         color: "white"
                     }
@@ -352,6 +365,7 @@ Item{
                         anchors.centerIn: parent
                         font.pixelSize: 12
                         font.weight: Font.DemiBold
+                        font.family: robotoRegular.name
                         text: "CALCULATE PARAMETERS"
                         color: "white"
                     }

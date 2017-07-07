@@ -60,6 +60,7 @@ Item{
                             Text{
                                 color: Universal.foreground
                                 font.pixelSize: 12
+                                font.family: robotoRegular.name
                                 text: "M" + num + "  " + _val
                             }
                         }

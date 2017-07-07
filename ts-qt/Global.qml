@@ -7,5 +7,6 @@ Item {
         color:"#fff"
         anchors.centerIn: parent
         text: qsTr("No Content")
+        font.family: robotoRegular.name
     }
 }

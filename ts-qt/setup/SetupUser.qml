@@ -16,6 +16,7 @@ Item{
             elide:Text.ElideRight
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
         Item{
@@ -93,6 +94,7 @@ Item{
                         elide:Text.ElideRight
                         font.pixelSize: 16
                         font.weight: Font.DemiBold
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                     Row {
@@ -102,11 +104,13 @@ Item{
                         anchors.margins: 10
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr("LANGUAGE: ")
                             color: Universal.foreground
                         }
                         Text {
                             font.pixelSize: 14
+                            font.family: robotoRegular.name
                             text: qsTr(language)
                             color: Universal.foreground
                         }
@@ -174,6 +178,7 @@ Item{
             text:"+"
             font.pixelSize: 28
             font.weight: Font.bold
+            font.family: robotoRegular.name
             color:"white"
         }
         MouseArea{
@@ -212,6 +217,7 @@ Item{
     //            text:""
     //            font.pixelSize: 28
     //            font.weight: Font.bold
+    //            font.family: robotoRegular.name
     //            color:"white"
     //        }
     //        MouseArea{

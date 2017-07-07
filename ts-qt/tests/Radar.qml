@@ -44,6 +44,7 @@ Page {
             text: navigationModel.navigationParameter.title
             font.pixelSize: 18
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
 
         }

@@ -58,6 +58,7 @@ Rectangle{
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
+                font.family: robotoRegular.name
             }
 
             Item{
@@ -106,6 +107,7 @@ Rectangle{
                             font.pixelSize: 12
                             font.bold: Font.Medium
                             color: Universal.foreground
+                            font.family: robotoRegular.name
                         }
                         Text {
                             Layout.column: 1
@@ -113,6 +115,7 @@ Rectangle{
                             font.pixelSize: 12
                             font.bold: Font.Medium
                             color: Universal.foreground
+                            font.family: robotoRegular.name
                         }
                     }
                     Repeater{
@@ -128,6 +131,7 @@ Rectangle{
                                 color: Universal.foreground
                                 wrapMode: Text.Wrap
                                 clip: true
+                                font.family: robotoRegular.name
                             }
                             Text {
                                 Layout.column: 1
@@ -135,6 +139,7 @@ Rectangle{
                                 text: msgType
                                 font.pixelSize: 12
                                 color: Universal.foreground
+                                font.family: robotoRegular.name
                             }
                         }
                     }

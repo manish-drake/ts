@@ -19,6 +19,7 @@ Page {
             text: qsTr("SYSTEM INFO")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -65,6 +66,7 @@ Page {
                     text: qsTr("SERIAL NUMBER:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -72,6 +74,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("14986A")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -80,6 +83,7 @@ Page {
                     text: qsTr("SOFTWARE RELEASE:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -89,6 +93,7 @@ Page {
                     text: qsTr("7885")
                     renderType: Text.NativeRendering
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -97,6 +102,7 @@ Page {
                     text: qsTr("CAUBRATION DUE:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -104,6 +110,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("06/15/2018")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -113,6 +120,7 @@ Page {
                     text: qsTr("WARRANTY EXPIRATION:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -121,6 +129,7 @@ Page {
                     text: qsTr("03/22/2020")
                     Layout.bottomMargin: 30
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -130,6 +139,7 @@ Page {
                     font.underline: true
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -139,6 +149,7 @@ Page {
                     font.underline: true
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -148,6 +159,7 @@ Page {
                     font.underline: true
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -155,6 +167,7 @@ Page {
                     text: qsTr("TRANSPONDER:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -162,6 +175,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("AlR9876345")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -169,6 +183,7 @@ Page {
                     Layout.column: 2
                     text: qsTr("2/15/2017")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -177,6 +192,7 @@ Page {
                     text: qsTr("NAV:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -184,6 +200,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("8vC9876348")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -191,6 +208,7 @@ Page {
                     Layout.column: 2
                     text: qsTr("3/14/2017")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -198,6 +216,7 @@ Page {
                     text: qsTr("SECURE COMM:")
                     font.pixelSize: 14
                     font.bold:Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -205,6 +224,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("A1TFD76349")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -213,6 +233,7 @@ Page {
                     Layout.column: 2
                     text: qsTr("4/18/2018")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
             }

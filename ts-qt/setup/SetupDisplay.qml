@@ -19,6 +19,7 @@ Page {
             text: qsTr("DISPLAY")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -68,6 +69,7 @@ Page {
                     text: qsTr("THEME:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -76,6 +78,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("Indoor")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -103,6 +106,7 @@ Page {
                     Layout.fillWidth: true
                     text: qsTr("Outdoor")
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -113,6 +117,7 @@ Page {
                     text: qsTr("BRIGHTNESS:")
                     font.pixelSize: 14
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -121,6 +126,7 @@ Page {
                     Layout.column: 1
                     text: slider.value
                     font.pixelSize: 14
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -136,6 +142,7 @@ Page {
                         anchors.verticalCenter: parent.verticalCenter
                         text: slider.minimumValue
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                         opacity: 0.8
                         rightPadding: 10
@@ -161,6 +168,7 @@ Page {
                         anchors.verticalCenter: parent.verticalCenter
                         text: slider.maximumValue
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                         opacity: 0.8
                         leftPadding: 10

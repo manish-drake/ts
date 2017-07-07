@@ -98,7 +98,8 @@ Rectangle{
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         text: "App Logs"
-                        font.pixelSize: 12
+                        font.pixelSize: 12                        
+                        font.family: robotoRegular.name
                     }
                 }
                 MouseArea{
@@ -114,7 +115,8 @@ Rectangle{
                 text: "Version 0.0.01"
                 font.pixelSize: 12
                 color: Universal.foreground
-                opacity: 0.7
+                opacity: 0.7                
+                font.family: robotoRegular.name
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {

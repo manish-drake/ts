@@ -40,6 +40,7 @@ Item {
                     text: "ADS-B Velocity Test"
                     font.pixelSize: 16
                     font.weight: Font.DemiBold
+                    font.family: robotoRegular.name
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
                 }
@@ -48,6 +49,7 @@ Item {
                     font.pixelSize: 16
                     anchors.topMargin: 40
                     font.weight: Font.DemiBold
+                    font.family: robotoRegular.name
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
                 }
@@ -106,6 +108,7 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         font.pixelSize: 14
                         font.wordSpacing: 5
+                        font.family: robotoRegular.name
                         horizontalAlignment: Text.AlignHCenter
                         color: Universal.foreground
                         text:"<p> Lorem ipsum dolor sit amet, consectetur<br>
