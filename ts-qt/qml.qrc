@@ -26,7 +26,6 @@
         <file>antenna/AviModeCtrl.qml</file>
         <file>antenna/AviFooterContent.qml</file>
         <file>antenna/AviHeaderContent.qml</file>
-        <file>antenna/AviChartCtrl.qml</file>
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
@@ -45,6 +44,7 @@
         <file>AppLogs.qml</file>
         <file>Global.qml</file>
         <file>antenna/AviCoaxCtrl.qml</file>
+        <file>antenna/AviGraphCtrl.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

@@ -30,8 +30,8 @@ Item{
                     anchors.margins: 15
                     spacing: 30
 
-                    AviChartCtrl{
-                        id: chartCtrl
+                    AviGraphCtrl{
+                        id: graphCtrl
                         isDTFMode: true
                         markerMinVal: 0
                         markerMaxVal: 15
@@ -66,12 +66,12 @@ Item{
                                         color: Universal.foreground
                                         font.pixelSize: 12
                                         font.family: robotoRegular.name
-                                        text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
-                                        font.bold: chartCtrl.selectedMarkerIndex == index
-                                        opacity: chartCtrl.selectedMarkerIndex == index ? 1 : 0.8
+                                        text: graphCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
+                                        font.bold: graphCtrl.selectedMarkerIndex == index
+                                        opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
                                         MouseArea{
                                             anchors.fill: parent
-                                            onClicked: chartCtrl.selectedMarkerIndex = index
+                                            onClicked: graphCtrl.selectedMarkerIndex = index
                                         }
                                     }
                                 }

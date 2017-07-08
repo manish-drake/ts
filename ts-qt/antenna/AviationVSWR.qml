@@ -29,8 +29,8 @@ Item{
                     anchors.right: parent.right
                     anchors.margins: 15
                     spacing: 30
-                    AviChartCtrl{
-                        id: chartCtrl
+                    AviGraphCtrl{
+                        id: graphCtrl
                         refData: snapshotModel.refData
                     }
                     GridLayout {
@@ -65,11 +65,11 @@ Item{
                                         font.pixelSize: 12
                                         font.family: robotoRegular.name
                                         text: "M" + num + "  " + _val
-                                        font.bold: chartCtrl.selectedMarkerIndex == index
-                                        opacity: chartCtrl.selectedMarkerIndex == index ? 1 : 0.8
+                                        font.bold: graphCtrl.selectedMarkerIndex == index
+                                        opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
                                         MouseArea{
                                             anchors.fill: parent
-                                            onClicked: chartCtrl.selectedMarkerIndex = index
+                                            onClicked: graphCtrl.selectedMarkerIndex = index
                                         }
                                     }
                                 }

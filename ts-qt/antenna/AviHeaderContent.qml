@@ -12,7 +12,7 @@ Rectangle{
     color: Universal.background
 
     RowLayout{
-        visible: chartCtrl.areControlsAvailble
+        visible: graphCtrl.areControlsAvailble
         height: parent.height
         anchors.left: parent.left
         anchors.leftMargin: 5
@@ -38,8 +38,8 @@ Rectangle{
                     var user = configPanel.currentOperator;
                     var markerPosition = markersModel.get(0)._val;
                     var markerName = "M" + markersModel.get(0).num;
-                    var range = chartCtrl.isScaleChecked ? "-6,-18" : "0,-30";
-                    var bandRange = chartCtrl.freqStartVal+","+chartCtrl.freqEndVal;
+                    var range = graphCtrl.isScaleChecked ? "-6,-18" : "0,-30";
+                    var bandRange = graphCtrl.freqStartVal+","+graphCtrl.freqEndVal;
                     var data = "";
                     for (var i = 0; i < dummy.points.length; i++){
                         if(i == 0){

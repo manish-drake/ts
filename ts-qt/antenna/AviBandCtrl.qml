@@ -86,11 +86,11 @@ Item{
                 onCurrentIndexChanged:{
                     bandName = bandList.get(currentIndex).text
                     if(isEnabled){
-                        chartCtrl.freqStartVal = bandList.get(currentIndex).start
-                        chartCtrl.freqMiddleVal = bandList.get(currentIndex).middle
-                        chartCtrl.freqEndVal = bandList.get(currentIndex).stop
-                        chartCtrl.markerMinVal = bandList.get(currentIndex).start
-                        chartCtrl.markerMaxVal = bandList.get(currentIndex).stop
+                        graphCtrl.freqStartVal = bandList.get(currentIndex).start
+                        graphCtrl.freqMiddleVal = bandList.get(currentIndex).middle
+                        graphCtrl.freqEndVal = bandList.get(currentIndex).stop
+                        graphCtrl.markerMinVal = bandList.get(currentIndex).start
+                        graphCtrl.markerMaxVal = bandList.get(currentIndex).stop
                         markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
                     }
                 }
