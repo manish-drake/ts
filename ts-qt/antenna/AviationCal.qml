@@ -6,11 +6,18 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
-Item{
+Rectangle{
+    border.color: "White"
+    border.width: 1
     property string mode
+    property bool isOpenMeasured
+    property bool isLoadMeasured
+    property bool isThruMeasured
+    property bool areParametersCalculated
     Page {
         id: item1
         anchors.fill: parent
+        anchors.margins: 1
         header: Rectangle{
             id:testHeaderRect
             height: 40
@@ -65,39 +72,64 @@ Item{
                     id:calLastStatus
                     Layout.row: 2
                     Layout.fillWidth: true
-                    height: 25
+                    Layout.alignment: Qt.AlignTop
+                    height: 27
                     radius: 3
                     color:"#A7A9AC"
-
-                    Text{
-                        visible: mode == "VSWR/CL"
-                        Layout.fillWidth: true
-                        text: "ILS last calibrated 07/01/2017 3:15pm"
-                        anchors.horizontalCenter: calLastStatus.horizontalCenter
-                        anchors.verticalCenter: calLastStatus.verticalCenter
-                        font.pixelSize: 12
-                        font.weight: Font.DemiBold
-                        font.family: robotoRegular.name
-                        color: "white"
-                    }
-                    Text{
-                        visible: mode == "COAX"
-                        Layout.fillWidth: true
-                        text: "PE Solid last calibrated 07/01/2017 3:15pm"
-                        anchors.horizontalCenter: calLastStatus.horizontalCenter
-                        anchors.verticalCenter: calLastStatus.verticalCenter
-                        font.pixelSize: 12
-                        font.weight: Font.DemiBold
-                        font.family: robotoRegular.name
-                        color: "white"
+                    RowLayout{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        clip: true
+                        Text{
+                            Layout.leftMargin: 15
+                            elide: Text.ElideRight
+                            visible: mode == "VSWR/CL"
+                            text: "ILS last calibrated"
+                            font.pixelSize: 12
+                            font.family: robotoCondensedRegular.name
+                            color: "white"
+                        }
+                        Text{
+                            Layout.leftMargin: 10
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            visible: mode == "VSWR/CL"
+                            text: "07/01/2017 3:15pm"
+                            font.pixelSize: 12
+                            font.weight: Font.ExtraBold
+                            font.family: robotoRegular.name
+                            color: "white"
+                        }
+                        Text{
+                            Layout.leftMargin: 15
+                            elide: Text.ElideRight
+                            visible: mode == "COAX"
+                            text: "PE Solid last calibrated"
+                            font.pixelSize: 12
+                            font.family: robotoCondensedRegular.name
+                            color: "white"
+                        }
+                        Text{
+                            Layout.leftMargin: 10
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            visible: mode == "COAX"
+                            text: "07/01/2017 3:15pm"
+                            font.pixelSize: 12
+                            font.weight: Font.ExtraBold
+                            font.family: robotoRegular.name
+                            color: "white"
+                        }
                     }
                 }
-
                 RowLayout{
                     Layout.row: 3
                     Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignCenter
+                    Layout.fillHeight: true
+                    Layout.alignment: Qt.AlignVCenter
                     Layout.topMargin: 15
+                    Layout.maximumHeight: 240
                     ColumnLayout{
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -105,7 +137,7 @@ Item{
                             Layout.fillWidth: true
                             text: "OPEN"
                             horizontalAlignment: Text.AlignHCenter
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
                             color: Universal.foreground
@@ -118,58 +150,60 @@ Item{
                             radius: 3
                             ColumnLayout{
                                 anchors.fill: parent
-                                Item{
+                                Image {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    Image {
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        source: "qrc:/img/img/Open.png"
-                                    }
+                                    Layout.margins: 15
+                                    source: "qrc:/img/img/Open.png"
+                                    fillMode: Image.PreserveAspectFit
                                 }
                                 Rectangle{
-                                    visible: false
                                     Layout.fillWidth: true
                                     height: 35
                                     color: Universal.accent
                                     opacity: mouseArea2.pressed ? 0.8 : 1.0
                                     radius: 3
-                                    Text{
+                                    Row{
                                         anchors.centerIn: parent
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "MEASURE"
-                                        color: "white"
+                                        spacing: 5
+                                        Image{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            source: isOpenMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                        }
+                                        Text{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            elide: Text.ElideRight
+                                            font.pixelSize: 12
+                                            font.weight: Font.DemiBold
+                                            font.family: robotoRegular.name
+                                            text: isOpenMeasured ? "RE-MEASURE" : "MEASURE"
+                                            color: "white"
+                                        }
                                     }
                                     MouseArea{
                                         id: mouseArea2
                                         anchors.fill: parent
-                                        onClicked: {}
-                                    }
-                                }
-                                Rectangle{
-                                    visible: true
-                                    Layout.fillWidth: true
-                                    height: 35
-                                    color: Universal.accent
-                                    opacity: mouseArea3.pressed ? 0.8 : 1.0
-                                    radius: 3
-                                    Text{
-                                        anchors.centerIn: parent
-                                        font.pixelSize: 11
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "RE-MEASURE"
-                                        color: "white"
-                                    }
-                                    MouseArea{
-                                        id: mouseArea3
-                                        anchors.fill: parent
-                                        onClicked: {}
+                                        onClicked: isOpenMeasured = true
                                     }
                                 }
                             }
+                        }
+                        Image{
+                            Layout.alignment: Qt.AlignHCenter
+                            visible: isOpenMeasured
+                            source: "qrc:/img/img/checked.png"
+                            opacity: 0.4
+                        }
+                        Text{
+                            Layout.fillWidth: true
+                            visible: !isOpenMeasured
+                            text: "REQUIRED"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.pixelSize: 12
+                            font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.7
                         }
                     }
                     ColumnLayout{
@@ -179,7 +213,7 @@ Item{
                             Layout.fillWidth: true
                             text: "LOAD"
                             horizontalAlignment: Text.AlignHCenter
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
                             color: Universal.foreground
@@ -192,58 +226,60 @@ Item{
                             radius: 3
                             ColumnLayout{
                                 anchors.fill: parent
-                                Item{
+                                Image {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    Image {
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        source: "qrc:/img/img/Load.png"
-                                    }
+                                    Layout.margins: 15
+                                    source: "qrc:/img/img/Load.png"
+                                    fillMode: Image.PreserveAspectFit
                                 }
-                                Rectangle{
-                                    visible: false
+                                Rectangle{                                    
                                     Layout.fillWidth: true
                                     height: 35
                                     color: Universal.accent
                                     opacity: mouseArea9.pressed ? 0.8 : 1.0
                                     radius: 3
-                                    Text{
+                                    Row{
                                         anchors.centerIn: parent
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "MEASURE"
-                                        color: "white"
+                                        spacing: 5
+                                        Image{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            source: isLoadMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                        }
+                                        Text{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            elide: Text.ElideRight
+                                            font.pixelSize: 12
+                                            font.weight: Font.DemiBold
+                                            font.family: robotoRegular.name
+                                            text: isLoadMeasured ? "RE-MEASURE" : "MEASURE"
+                                            color: "white"
+                                        }
                                     }
                                     MouseArea{
-                                        id: mouseAre9
+                                        id: mouseArea9
                                         anchors.fill: parent
-                                        onClicked: {}
-                                    }
-                                }
-                                Rectangle{
-                                    visible: true
-                                    Layout.fillWidth: true
-                                    height: 35
-                                    color: Universal.accent
-                                    opacity: mouseArea5.pressed ? 0.8 : 1.0
-                                    radius: 3
-                                    Text{
-                                        anchors.centerIn: parent
-                                        font.pixelSize: 11
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "RE-MEASURE"
-                                        color: "white"
-                                    }
-                                    MouseArea{
-                                        id: mouseArea5
-                                        anchors.fill: parent
-                                        onClicked: {}
+                                        onClicked: isLoadMeasured = true
                                     }
                                 }
                             }
+                        }
+                        Image{
+                            Layout.alignment: Qt.AlignHCenter
+                            visible: isLoadMeasured
+                            source: "qrc:/img/img/checked.png"
+                            opacity: 0.4
+                        }
+                        Text{
+                            Layout.fillWidth: true
+                            visible: !isLoadMeasured
+                            text: "REQUIRED"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.pixelSize: 12
+                            font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.7
                         }
                     }
                     ColumnLayout{
@@ -253,7 +289,7 @@ Item{
                             Layout.fillWidth: true
                             text: "THRU"
                             horizontalAlignment: Text.AlignHCenter
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
                             color: Universal.foreground
@@ -266,58 +302,60 @@ Item{
                             radius: 3
                             ColumnLayout{
                                 anchors.fill: parent
-                                Item{
+                                Image {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    Image {
-                                        anchors.horizontalCenter: parent.horizontalCenter
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        source: "qrc:/img/img/Thru.png"
-                                    }
+                                    Layout.margins: 15
+                                    source: "qrc:/img/img/Thru.png"
+                                    fillMode: Image.PreserveAspectFit
                                 }
                                 Rectangle{
-                                    visible: true
                                     Layout.fillWidth: true
                                     height: 35
                                     color: Universal.accent
                                     opacity: mouseArea6.pressed ? 0.8 : 1.0
                                     radius: 3
-                                    Text{
+                                    Row{
                                         anchors.centerIn: parent
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "MEASURE"
-                                        color: "white"
+                                        spacing: 5
+                                        Image{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            source: isThruMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                        }
+                                        Text{
+                                            Layout.alignment: Qt.AlignVCenter
+                                            elide: Text.ElideRight
+                                            font.pixelSize: 12
+                                            font.weight: Font.DemiBold
+                                            font.family: robotoRegular.name
+                                            text: isThruMeasured ? "RE-MEASURE" : "MEASURE"
+                                            color: "white"
+                                        }
                                     }
                                     MouseArea{
                                         id: mouseArea6
                                         anchors.fill: parent
-                                        onClicked: {}
-                                    }
-                                }
-                                Rectangle{
-                                    visible: false
-                                    Layout.fillWidth: true
-                                    height: 35
-                                    color: Universal.accent
-                                    opacity: mouseArea7.pressed ? 0.8 : 1.0
-                                    radius: 3
-                                    Text{
-                                        anchors.centerIn: parent
-                                        font.pixelSize: 11
-                                        font.weight: Font.DemiBold
-                                        font.family: robotoRegular.name
-                                        text: "RE-MEASURE"
-                                        color: "white"
-                                    }
-                                    MouseArea{
-                                        id: mouseArea7
-                                        anchors.fill: parent
-                                        onClicked: {}
+                                        onClicked: isThruMeasured = true
                                     }
                                 }
                             }
+                        }
+                        Image{
+                            Layout.alignment: Qt.AlignHCenter
+                            visible: isThruMeasured
+                            source: "qrc:/img/img/checked.png"
+                            opacity: 0.4
+                        }
+                        Text{
+                            Layout.fillWidth: true
+                            visible: !isThruMeasured
+                            text: "OPTIONAL"
+                            horizontalAlignment: Text.AlignHCenter
+                            font.pixelSize: 12
+                            font.weight: Font.DemiBold
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.4
                         }
                     }
                 }
@@ -351,7 +389,7 @@ Item{
                     MouseArea{
                         id: mouseArea4
                         anchors.fill: parent
-                        onClicked: {}
+                        onClicked: calPopup.close()
                     }
                 }
                 Rectangle{
@@ -359,21 +397,27 @@ Item{
                     Layout.columnSpan: 2
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    color: Universal.accent
+                    enabled: isOpenMeasured && isLoadMeasured
+                    color: enabled ? Universal.accent : "lightgray"
                     opacity: mouseArea.pressed ? 0.8 : 1.0
                     radius: 3
                     Text{
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.margins: 5
+                        horizontalAlignment: Text.AlignHCenter
+                        elide: Text.ElideRight
                         font.pixelSize: 12
                         font.weight: Font.DemiBold
                         font.family: robotoRegular.name
-                        text: "CALCULATE PARAMETERS"
+                        text: areParametersCalculated ? "RE-CALCULATE PARAMETERS" : "CALCULATE PARAMETERS"
                         color: "white"
                     }
                     MouseArea{
                         id: mouseArea
                         anchors.fill: parent
-                        onClicked: {}
+                        onClicked: areParametersCalculated = true
                     }
                 }
             }

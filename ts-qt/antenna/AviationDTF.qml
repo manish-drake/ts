@@ -47,12 +47,12 @@ Item{
                         AviCoaxCtrl{}
                         AviModeCtrl{
                             currentModeIndex: 2
-                        }
-                        ListModel{
-                            id: markersModel
-                            ListElement{num: 1; _val: 0}
+                        }                        
+                    }
+                    ListModel{
+                        id: markersModel
+                        ListElement{num: 1; _val: 0}
 
-                        }
                     }
                     Column{
                         anchors.left: parent.left
@@ -93,8 +93,8 @@ Item{
         height: parent.height
         leftPadding: 40
         rightPadding: 40
-        topPadding: 100
-        bottomPadding: 100
+        topPadding: 60
+        bottomPadding: 60
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
