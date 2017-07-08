@@ -79,9 +79,10 @@ Page {
 
                 Text {
                     Layout.row: 1
-                    text: qsTr("DEFALT DISTANCE")
+                    text: qsTr("DEFAULT DISTANCE")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {

@@ -145,7 +145,7 @@ Page {
                     Layout.row: 4
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: qsTr("INSTAllED FEATURES")
+                    text: qsTr("INSTALLED FEATURES")
                     font.underline: true
                     font.pixelSize: 14
                     font.bold:Font.Medium

@@ -65,7 +65,6 @@ Page {
                     anchors.margins: 15
                     rowSpacing: 22
                     columnSpacing: 10
-
                     Text {
                         Layout.fillWidth: true
                         elide: Text.ElideRight
@@ -96,14 +95,7 @@ Page {
                             }
                         }
                     }
-                    Text{
-                        Layout.column:3
-                        Layout.fillWidth: true
-                        text: qsTr("Yes")
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
+
                     Text {
                         Layout.row: 1
                         Layout.fillWidth: true
@@ -138,14 +130,6 @@ Page {
                         }
                     }
 
-                    Text{
-                        Layout.row: 1
-                        Layout.column:3
-                        text: qsTr("Yes")
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
                     Text {
                         Layout.row: 2
                         Layout.fillWidth: true
@@ -179,15 +163,6 @@ Page {
                         }
                     }
 
-                    Text{
-                        Layout.row: 2
-                        Layout.column:3
-                        text: qsTr("Yes")
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
-
                     Text {
                         Layout.row: 3
                         Layout.fillWidth: true
@@ -218,15 +193,6 @@ Page {
                         }
                     }
 
-                    Text{
-                        Layout.row: 3
-                        Layout.column:3
-                        text: qsTr("Yes")
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
-
                     Text {
                         Layout.row: 4
                         Layout.fillWidth: true
@@ -241,7 +207,7 @@ Page {
                     Text {
                         Layout.row: 4
                         Layout.column: 1
-                        Layout.columnSpan: 4
+                        Layout.columnSpan: 3
                         text: qsTr("192.168 10.196")
                         font.pixelSize: 14
                         font.family: robotoRegular.name
@@ -253,142 +219,146 @@ Page {
                         height: 5
                     }
 
-                    Text {
+                    RowLayout{
                         Layout.row: 6
+                        Layout.columnSpan: 4
                         Layout.fillWidth: true
-                        elide: Text.ElideRight
-                        text: qsTr("MANUAL IP ADDRESS")
-                        font.pixelSize: 14
-                        font.bold: Font.Medium
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
-                    TextField {
-                        id: ipAddressField
-                        Layout.row: 6
-                        Layout.column: 1
-                        Layout.columnSpan: 2
-                        visible: editIPAddSwitch.checked
-                        placeholderText: "IP Address"
-                        text: zmq.server
-                        validator : RegExpValidator {
-                            regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                        spacing: 20
+                        Text {
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            text: qsTr("MANUAL IP ADDRESS")
+                            font.pixelSize: 14
+                            font.bold: Font.Medium
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
                         }
-                        //                        inputMethodHints: Qt.ImhPreferNumbers
-                        font.pixelSize: 14
-                        Layout.maximumWidth: 100
-                        onEditingFinished: editIPAddSwitch.checked = false
-                        Binding{
-                            target: zmq
-                            property: "server"
-                            value: ipAddressField.text
-                        }
-                    }
-                    Text {
-                        Layout.row: 6
-                        Layout.column: 1
-                        Layout.columnSpan: 2
-                        visible: !editIPAddSwitch.checked
-                        text: ipAddressField.text
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        Layout.maximumWidth: 100
-                        elide: Text.ElideRight
-                        color: Universal.foreground
-                    }
-                    SwitchDelegate{
-                        id: editIPAddSwitch
-                        enabled: ipAddressField.acceptableInput
-                        Layout.row:6
-                        Layout.column:3
-                        Layout.columnSpan: 2
-                        spacing: 0
-                        implicitHeight: 25
-                        implicitWidth: 50
-                        checked: false
-                        indicator: Rectangle{
-                            anchors.fill: parent
-                            color: Universal.background
-                            Text{
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: editIPAddSwitch.checked ? "DONE" : "EDIT"
-                                color: parent.enabled ? "#387EF5" : "gray"
-                                font.pixelSize: 14
-                                font.family: robotoRegular.name
+                        TextField {
+                            id: ipAddressField
+                            Layout.column: 1
+                            Layout.columnSpan: 2
+                            visible: editIPAddSwitch.checked
+                            placeholderText: "IP Address"
+                            text: zmq.server
+                            validator : RegExpValidator {
+                                regExp : /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+                            }
+                            //                        inputMethodHints: Qt.ImhPreferNumbers
+                            font.pixelSize: 14
+                            Layout.maximumWidth: 100
+                            onEditingFinished: editIPAddSwitch.checked = false
+                            Binding{
+                                target: zmq
+                                property: "server"
+                                value: ipAddressField.text
                             }
                         }
-                        onCheckedChanged: {
-                            if(checked){
-                                ipAddressField.forceActiveFocus()
+                        Text {
+                            Layout.column: 1
+                            Layout.columnSpan: 2
+                            visible: !editIPAddSwitch.checked
+                            text: ipAddressField.text
+                            font.pixelSize: 14
+                            font.family: robotoRegular.name
+                            Layout.maximumWidth: 100
+                            elide: Text.ElideRight
+                            color: Universal.foreground
+                        }
+                        SwitchDelegate{
+                            id: editIPAddSwitch
+                            enabled: ipAddressField.acceptableInput
+                            Layout.column:3
+                            Layout.columnSpan: 2
+                            spacing: 0
+                            implicitHeight: 25
+                            implicitWidth: 50
+                            checked: false
+                            indicator: Rectangle{
+                                anchors.fill: parent
+                                color: Universal.background
+                                Text{
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: editIPAddSwitch.checked ? "DONE" : "EDIT"
+                                    color: parent.enabled ? "#387EF5" : "gray"
+                                    font.pixelSize: 14
+                                    font.family: robotoRegular.name
+                                }
                             }
-                            else{
-                                ipAddressField.focus = false;
+                            onCheckedChanged: {
+                                if(checked){
+                                    ipAddressField.forceActiveFocus()
+                                }
+                                else{
+                                    ipAddressField.focus = false;
+                                }
                             }
                         }
                     }
 
-                    Text {
+                    RowLayout{
                         Layout.row: 7
+                        Layout.columnSpan: 4
                         Layout.fillWidth: true
-                        elide: Text.ElideRight
-                        text: qsTr("DEVICE NAME")
-                        font.pixelSize: 14
-                        font.bold: Font.Medium
-                        font.family: robotoRegular.name
-                        color: Universal.foreground
-                    }
-                    TextField {
-                        id: deviceNameField
-                        Layout.row: 7
-                        Layout.column: 1
-                        Layout.columnSpan: 2
-                        visible: editDNameSwitch.checked
-                        placeholderText: "Device Name"
-                        text: qsTr("TestSet14")
-                        validator: RegExpValidator{regExp: /([^\s]+)/ }
-                        font.pixelSize: 14
-                        Layout.maximumWidth: 100
-                        onEditingFinished: editDNameSwitch.checked = false
-                    }
-                    Text {
-                        Layout.row: 7
-                        Layout.column: 1
-                        Layout.columnSpan: 2
-                        visible: !editDNameSwitch.checked
-                        text: deviceNameField.text
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        Layout.maximumWidth: 100
-                        elide: Text.ElideRight
-                        color: Universal.foreground
-                    }
-                    SwitchDelegate{
-                        id: editDNameSwitch
-                        enabled: deviceNameField.acceptableInput
-                        Layout.row:7
-                        Layout.column:3
-                        Layout.columnSpan: 2
-                        spacing: 0
-                        implicitHeight: 25
-                        implicitWidth: 50
-                        checked: false
-                        indicator:Rectangle{
-                            anchors.fill: parent
-                            color: Universal.background
-                            Text{
-                                anchors.verticalCenter: parent.verticalCenter
-                                text: editDNameSwitch.checked ? "DONE" : "EDIT"
-                                color: parent.enabled ? "#387EF5" : "gray"
-                                font.pixelSize: 14
-                                font.family: robotoRegular.name
-                            }
+                        spacing: 20
+                        Text {
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            text: qsTr("DEVICE NAME")
+                            font.pixelSize: 14
+                            font.bold: Font.Medium
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
                         }
-                        onCheckedChanged: {
-                            if(checked){
-                                deviceNameField.forceActiveFocus()
+                        TextField {
+                            id: deviceNameField
+                            Layout.column: 1
+                            Layout.columnSpan: 2
+                            visible: editDNameSwitch.checked
+                            placeholderText: "Device Name"
+                            text: qsTr("TestSet14")
+                            validator: RegExpValidator{regExp: /([^\s]+)/ }
+                            font.pixelSize: 14
+                            Layout.maximumWidth: 100
+                            onEditingFinished: editDNameSwitch.checked = false
+                        }
+                        Text {
+                            Layout.column: 1
+                            Layout.columnSpan: 2
+                            visible: !editDNameSwitch.checked
+                            text: deviceNameField.text
+                            font.pixelSize: 14
+                            font.family: robotoRegular.name
+                            Layout.maximumWidth: 100
+                            elide: Text.ElideRight
+                            color: Universal.foreground
+                        }
+                        SwitchDelegate{
+                            id: editDNameSwitch
+                            enabled: deviceNameField.acceptableInput
+                            Layout.column:3
+                            Layout.columnSpan: 2
+                            spacing: 0
+                            implicitHeight: 25
+                            implicitWidth: 50
+                            checked: false
+                            indicator:Rectangle{
+                                anchors.fill: parent
+                                color: Universal.background
+                                Text{
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    text: editDNameSwitch.checked ? "DONE" : "EDIT"
+                                    color: parent.enabled ? "#387EF5" : "gray"
+                                    font.pixelSize: 14
+                                    font.family: robotoRegular.name
+                                }
                             }
-                            else{
-                                deviceNameField.focus = false;
+                            onCheckedChanged: {
+                                if(checked){
+                                    deviceNameField.forceActiveFocus()
+                                }
+                                else{
+                                    deviceNameField.focus = false;
+                                }
                             }
                         }
                     }

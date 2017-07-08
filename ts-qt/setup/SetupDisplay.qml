@@ -84,6 +84,7 @@ Page {
                     Switch { //we can use delegate switch as well for binging
                         id: switch1
                         Layout.column: 2
+                        Layout.alignment: Qt.AlignRight
                         anchors.verticalCenter: parent.verticalCenter
                         checked: _theme == Universal.Dark
                         onCheckedChanged: {

@@ -404,6 +404,8 @@ RowLayout{
                             text: markerSlider.value;
                             font.pixelSize: 12
                             font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.8
                         }
                         Text{
                             visible: isDTFMode
@@ -413,6 +415,8 @@ RowLayout{
                             text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
                             font.pixelSize: 12
                             font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.8
                         }
                         MouseArea{
                             anchors.fill: parent
