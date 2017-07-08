@@ -2,9 +2,11 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
+import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: "#D1D3D4"
+    color: Universal.theme == Universal.Dark ? "#414048" : "#D1D3D4"
+    Universal.accent: "#01ADEE"
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -13,29 +15,40 @@ Rectangle{
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
         }
-        ColumnLayout{
+        Rectangle{
             Layout.row: 1
             Layout.fillWidth: true
-            Layout.leftMargin: 12
-            spacing: 0
-            Text{
-                text: "Operator"
-                color: Universal.accent
-                font.pixelSize: 14
-                font.weight: Font.DemiBold
-            }
-            Text{
-                text: "operator@mail.com"
-                color: Universal.accent
-                font.pixelSize: 14
-
+            height: 60
+            color: "#33000000"
+            ColumnLayout{
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.margins: 12
+                spacing: 0
+                Text{
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: "Operator"
+                    color: "white"
+                    font.pixelSize: 14
+                    font.bold: true
+                    font.family: robotoRegular.name
+                }
+                Text{
+                    Layout.fillWidth: true
+                    elide: Text.ElideRight
+                    text: "operator@mail.com"
+                    color: "white"
+                    font.pixelSize: 14
+                    font.family: robotoRegular.name
+                }
             }
         }
-        Rectangle{
+        Item{
             Layout.row: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: Universal.background
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
@@ -50,9 +63,19 @@ Rectangle{
                         height: 55
                         Rectangle{
                             anchors.fill: parent
-                            anchors.margins: 2
-                            color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.accent
+                            anchors.margins: 3
+                            color: index == listViewLeftMenu.currentIndex ? Universal.accent : Universal.background
                             radius: 3
+                            layer.enabled: true
+                            layer.effect: DropShadow {
+                                transparentBorder: true
+                                horizontalOffset: 1.0
+                                verticalOffset: 1.1
+                                radius: 4.0
+                                color: "#33000000"
+                                spread: 0
+                                opacity: 0.1
+                            }
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.left
@@ -61,7 +84,7 @@ Rectangle{
                                 font.pixelSize: 16
                                 font.weight: Font.DemiBold
                                 font.family: robotoRegular.name
-                                color: Universal.background
+                                color: index == listViewLeftMenu.currentIndex ? "White" : Universal.accent
                             }
                             MouseArea {
                                 anchors.fill: parent
@@ -78,12 +101,12 @@ Rectangle{
             }
         }
     }
-//    Rectangle{
-//        anchors.right: parent.right
-//        anchors.top: parent.top
-//        anchors.bottom: parent.bottom
-//        width: 1
-//        color: Universal.foreground
-//        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
-//    }
+    //    Rectangle{
+    //        anchors.right: parent.right
+    //        anchors.top: parent.top
+    //        anchors.bottom: parent.bottom
+    //        width: 1
+    //        color: Universal.foreground
+    //        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
+    //    }
 }
