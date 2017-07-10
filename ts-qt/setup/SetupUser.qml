@@ -38,7 +38,7 @@ Item{
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back");
                 }
             }
         }

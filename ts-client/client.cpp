@@ -17,8 +17,9 @@ Client::Client(QObject *parent) :
     QObject(parent),
     m_up_scanResults{new JsonArrayModel()},
     m_ctx{1},
-    m_server{"127.0.0.1"},
-    m_scan{m_ctx, "tcp://" + m_server + ":6000"}
+    m_server{"172.19.248.143"},
+    m_scan{m_ctx, "tcp://" + m_server + ":6000"},
+    m_setup{m_ctx, "tcp://" + m_server + ":6000"}
 {
 }
 
@@ -37,11 +38,17 @@ bool Client::toggleScan(){
     }
 }
 
+bool Client::queryUsers()
+{
+    m_setup.listUsers();
+}
+
 void Client::setServer(const QString &server)
 {
     if(m_server != server){
         m_server = server;
         m_scan.changeEndpoint("tcp://" + server + ":6000");
+        m_setup.changeEndpoint("tcp://" + server + ":6000");
         emit serverChanged();
     }
 }

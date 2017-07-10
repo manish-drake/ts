@@ -591,6 +591,18 @@ class EndScanCalPrevCal : public Request
     std::string message() const override { return ""; }
 };
 
+
+//SETUP
+class SetupListUsers: public Request
+{
+public:
+    SetupListUsers(){}
+private:
+    std::string message() const override {
+        return "{\"request\":{\"version\":2,\"message\":16392,\"params\":{}} }";
+    }
+};
+
 RequestFactory RequestFactory::instance()
 {
     static RequestFactory singleton;
@@ -696,6 +708,13 @@ std::unique_ptr<Request> RequestFactory::createEndScanCalOpen() const { return s
 std::unique_ptr<Request> RequestFactory::createEndScanCalLoad() const { return std::unique_ptr<Request>(new EndScanCalLoad()); }
 std::unique_ptr<Request> RequestFactory::createEndScanCalThru() const { return std::unique_ptr<Request>(new EndScanCalThru()); }
 std::unique_ptr<Request> RequestFactory::createEndScanCalPrevCal() const { return std::unique_ptr<Request>(new EndScanCalPrevCal()); }
+
+
+//SETUP
+std::unique_ptr<Request> RequestFactory::createSetupListUsers() const
+{
+    return std::unique_ptr<Request>(new SetupListUsers());
+}
 
 RequestFactory::RequestFactory()
 {

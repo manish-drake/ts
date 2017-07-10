@@ -7,6 +7,12 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 
+Scan::Scan(zmq::context_t &ctx , const QString &endpoint):
+    m_session{ctx, endpoint},
+    m_isScanning{false}
+{
+
+}
 
 void Scan::start()
 {
@@ -41,12 +47,6 @@ bool Scan::isScanning() const
     return m_isScanning;
 }
 
-Scan::Scan(zmq::context_t &ctx , const QString &endpoint):
-    m_session{ctx, endpoint},
-    m_isScanning{false}
-{
-
-}
 
 void Scan::onMessageReceivedHandler(std::function<void (const QJsonArray&)> callback)
 {
