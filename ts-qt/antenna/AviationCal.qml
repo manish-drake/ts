@@ -7,7 +7,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
 Rectangle{
-    border.color: "White"
+    border.color: "gray"
     border.width: 1
     property string mode
     property bool isOpenMeasured
@@ -23,7 +23,7 @@ Rectangle{
             height: 40
             anchors.left:parent.left
             anchors.right:parent.right
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Text {
                 id: testTitle
                 anchors.centerIn: parent
@@ -57,7 +57,7 @@ Rectangle{
             }
         }
         contentItem: Rectangle {
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             ColumnLayout{
                 anchors.fill: parent
                 anchors.margins: 20
@@ -363,7 +363,7 @@ Rectangle{
         }
         footer: Rectangle {
             height: 80
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             RowLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right

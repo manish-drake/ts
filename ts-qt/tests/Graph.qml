@@ -12,7 +12,7 @@ Page {
         height: 45
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Item{
             id: rectangle1
             anchors.top: parent.top
@@ -86,7 +86,7 @@ Page {
     }
 
     contentItem: Rectangle{
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width;
@@ -112,7 +112,7 @@ Page {
         height: 60
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         RowLayout{
             anchors.left: parent.left
             anchors.right: parent.right

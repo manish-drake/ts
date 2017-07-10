@@ -5,7 +5,7 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: Universal.theme == Universal.Dark ? "#414048" : "#D1D3D4"
+    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#38363C"
     Universal.accent: "#01ADEE"
     ColumnLayout{
         anchors.fill: parent
@@ -64,7 +64,7 @@ Rectangle{
                         Rectangle{
                             anchors.fill: parent
                             anchors.margins: 3
-                            color: index == listViewLeftMenu.currentIndex ? Universal.accent : Universal.background
+                            color: index == listViewLeftMenu.currentIndex ? Universal.accent : Universal.theme == Universal.Light ? Universal.background : "#222222"
                             radius: 3
                             layer.enabled: true
                             layer.effect: DropShadow {
@@ -84,7 +84,7 @@ Rectangle{
                                 font.pixelSize: 16
                                 font.weight: Font.DemiBold
                                 font.family: robotoRegular.name
-                                color: index == listViewLeftMenu.currentIndex ? "White" : Universal.accent
+                                color: index == listViewLeftMenu.currentIndex ? "White" : Universal.theme == Universal.Light ? Universal.accent : "White"
                             }
                             MouseArea {
                                 anchors.fill: parent

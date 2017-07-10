@@ -15,7 +15,7 @@ Rectangle {
             height: 50
             anchors.left:parent.left
             anchors.right:parent.right
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Item{
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
@@ -74,7 +74,7 @@ Rectangle {
         }
 
         contentItem:Rectangle{
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             ListView{
                 id: dataListView
                 anchors.fill: parent
@@ -98,7 +98,7 @@ Rectangle {
                             id: rectangle
                             anchors.fill: parent
                             color: Universal.theme == Universal.Dark ? "#333333" : "#fcfcfc"
-                            border.color: "#0d000000"
+                            border.color: Universal.theme == Universal.Light ? "#0d000000" : "#4dffffff"
                             border.width: 1
                             radius: 3
                             layer.enabled: true
@@ -153,7 +153,7 @@ Rectangle {
             height: 40
             anchors.left:parent.left
             anchors.right:parent.right
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Text{
                 enabled: dataListView.currentIndex != -1
                 anchors.centerIn: parent

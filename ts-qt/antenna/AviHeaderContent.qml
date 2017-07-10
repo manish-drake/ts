@@ -9,7 +9,7 @@ Rectangle{
     height: 40
     anchors.left:parent.left
     anchors.right:parent.right
-    color: Universal.background
+    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
 
     RowLayout{
         visible: graphCtrl.areControlsAvailble

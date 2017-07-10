@@ -22,7 +22,7 @@ Item{
             width: 50
             anchors.top: parent.top
             anchors.bottom: parent.bottom
-            opacity:  switchDelegate.checked ? 1.0 : 0.25
+            opacity:  switchDelegate.checked ? 1.0 : 0.35
             Image {
                 id: image
                 anchors.verticalCenter: parent.verticalCenter
@@ -38,7 +38,7 @@ Item{
             rightPadding: parent.spacing
             text: parent.text
             font: parent.font
-            opacity: switchDelegate.checked ? 1.0 : 0.4
+            opacity: switchDelegate.checked ? 1.0 : 0.5
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignLeft
             verticalAlignment: Text.AlignVCenter

@@ -68,7 +68,7 @@ Item{
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 2
-                        color: Universal.background
+                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                         border.color: "#0d000000"
                         border.width: 1
                         radius: 3
