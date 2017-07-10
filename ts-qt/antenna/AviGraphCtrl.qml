@@ -384,8 +384,7 @@ RowLayout{
                         implicitHeight: 28
                         radius: 3
                         Text{
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.centerIn: parent
                             text: "M" + num
                             font.pixelSize: 12
                             font.family: robotoRegular.name
