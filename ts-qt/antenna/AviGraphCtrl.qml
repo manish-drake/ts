@@ -16,6 +16,7 @@ RowLayout{
     property double markerMaxVal
     property double markerStepSize: 1
     property int selectedMarkerIndex: 0
+    property double selectedMarkerVal
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
@@ -425,7 +426,10 @@ RowLayout{
                         }
                     }
                 }
-                onValueChanged: _val = value;
+                onValueChanged: {
+                    _val = value
+                    selectedMarkerVal = value
+                }
             }
         }
     }

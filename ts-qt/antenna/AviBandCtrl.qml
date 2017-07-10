@@ -92,6 +92,7 @@ Item{
                         graphCtrl.markerMinVal = bandList.get(currentIndex).start
                         graphCtrl.markerMaxVal = bandList.get(currentIndex).stop
                         markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
+                        graphCtrl.selectedMarkerVal = bandList.get(currentIndex).defaultmarker
                     }
                 }
             }
