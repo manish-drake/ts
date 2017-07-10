@@ -44,15 +44,15 @@ HEADERS += client.h\
     setup.h
 
 unix {
-    unix:!macx: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
+    unix:!macx:!android: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
 
     INCLUDEPATH += $$PWD/../../../../../usr/local/include
     DEPENDPATH += $$PWD/../../../../../usr/local/include
 
-    unix:!macx: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    unix:!macx:!android: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
 }
 android{
-    unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+    unix:!macx: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
 
     INCLUDEPATH += $$PWD/../../../../zeromq-android/include
     DEPENDPATH += $$PWD/../../../../zeromq-android/include
@@ -66,10 +66,12 @@ macx{
     macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
 }
 win32{
-    win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+    !android{
+        win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
-    INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-    DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+    }
 }
 
 

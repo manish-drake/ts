@@ -5,31 +5,14 @@ import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
-Rectangle{
-    anchors.fill: parent
-    anchors.margins: 10
-    color: Universal.background
-    border.color: "#0d000000"
-    border.width: 1
-    radius: 3
-    layer.enabled: true
-    layer.effect: DropShadow {
-        transparentBorder: true
-        horizontalOffset: 1.1
-        verticalOffset: 1.1
-        radius: 4.0
-        color: "#26000000"
-        spread: 0
-    }
-
+Item{
     Page {
         anchors.fill: parent
         header: Rectangle{
             height: 40
             anchors.left:parent.left
             anchors.right:parent.right
-            color: Universal.background
-
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Item{
                 width: 50
                 anchors.top: parent.top
@@ -58,6 +41,7 @@ Rectangle{
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
                 color: Universal.foreground
+                font.family: robotoRegular.name
             }
 
             Item{
@@ -83,7 +67,7 @@ Rectangle{
         }
 
         contentItem: Rectangle {
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -106,6 +90,7 @@ Rectangle{
                             font.pixelSize: 12
                             font.bold: Font.Medium
                             color: Universal.foreground
+                            font.family: robotoRegular.name
                         }
                         Text {
                             Layout.column: 1
@@ -113,6 +98,7 @@ Rectangle{
                             font.pixelSize: 12
                             font.bold: Font.Medium
                             color: Universal.foreground
+                            font.family: robotoRegular.name
                         }
                     }
                     Repeater{
@@ -128,6 +114,7 @@ Rectangle{
                                 color: Universal.foreground
                                 wrapMode: Text.Wrap
                                 clip: true
+                                font.family: robotoRegular.name
                             }
                             Text {
                                 Layout.column: 1
@@ -135,6 +122,7 @@ Rectangle{
                                 text: msgType
                                 font.pixelSize: 12
                                 color: Universal.foreground
+                                font.family: robotoRegular.name
                             }
                         }
                     }

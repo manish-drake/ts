@@ -4,9 +4,8 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
-Rectangle{
-property string guideTestName
-    color:"#D1D2D3"
+Item{
+    property string guideTestName
     ColumnLayout{
         anchors.fill: parent
         RowLayout{
@@ -35,24 +34,28 @@ property string guideTestName
                     Layout.fillWidth: true
                     text: headerTitle
                     font.pixelSize: 16
-                    font.weight: Font.ExtraBold
-                    color: "#57585B"
+                    font.weight: Font.ExtraBold                    
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                    opacity: 0.6
                 }
                 Text {
                     Layout.row: 1
-                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Ut dapibus, ante tristique blandit convallis."
+                    Layout.fillWidth: true
+                    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus, ante tristique blandit convallis."
+                    wrapMode: Text.WordWrap
                     font.pixelSize: 14
                     font.weight: Font.DemiBold
-                    color: "#57585B"
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                    opacity: 0.6
                 }
             }
         }
-        Rectangle{
-            Layout.row: 2
+        Item{
+            Layout.row: 1
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: "transparent"
             ListView {
                 id: grid
                 anchors.fill: parent
@@ -83,12 +86,13 @@ property string guideTestName
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.background
+                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
                             onClicked: grid.currentIndex = index
-                            onDoubleClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");
+                            onDoubleClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                                /*navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");*/
                         }
                         ColumnLayout{
                             anchors.fill: parent
@@ -105,23 +109,24 @@ property string guideTestName
                                     text: name
                                     font.pixelSize: 16
                                     font.weight: Font.ExtraBold
+                                    font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
-    //                            Item{
-    //                                Layout.column: 1
-    //                                width: 35
-    //                                height: 35
-    //                                Image {
-    //                                    id: favImage
-    //                                    anchors.centerIn: parent
-    //                                    source: "qrc:/img/img/Star Filled-20.png"
-    //                                }
-    //                                ColorOverlay {
-    //                                    anchors.fill: favImage
-    //                                    source: favImage
-    //                                    color: "#666666"
-    //                                }
-    //                            }
+                                //                            Item{
+                                //                                Layout.column: 1
+                                //                                width: 35
+                                //                                height: 35
+                                //                                Image {
+                                //                                    id: favImage
+                                //                                    anchors.centerIn: parent
+                                //                                    source: "qrc:/img/img/Star Filled-20.png"
+                                //                                }
+                                //                                ColorOverlay {
+                                //                                    anchors.fill: favImage
+                                //                                    source: favImage
+                                //                                    color: "#666666"
+                                //                                }
+                                //                            }
                             }
                             Item{
                                 Layout.row: 1
@@ -131,6 +136,7 @@ property string guideTestName
                                     text: "RECENT TEST RESULTS"
                                     font.pixelSize: 12
                                     font.weight: Font.Bold
+                                    font.family: robotoRegular.name
                                     color: Universal.foreground
                                     opacity: 0.4
                                 }

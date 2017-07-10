@@ -9,31 +9,72 @@ import QtGraphicalEffects 1.0
 Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
-    height: 40
+    height: 38
     color: Universal.accent
     radius: 3
     RowLayout{
         anchors.fill: parent
+        spacing: 0
+        Rectangle{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            color: prevMArea.pressed ? "#1A000000" : "transparent"
+            opacity: enabled ? 1.0 : 0.4
+            enabled: graphCtrl.selectedMarkerIndex > 0
+            Image{
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Arrow-left.png"
+            }
+            MouseArea{
+                id: prevMArea
+                anchors.fill: parent
+                onClicked: graphCtrl.selectedMarkerIndex = graphCtrl.selectedMarkerIndex - 1
+            }
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            width: 1
+            color: Universal.background
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            color: nextMArea.pressed ? "#1A000000" : "transparent"
+            opacity: enabled ? 1.0 : 0.4
+            enabled: graphCtrl.selectedMarkerIndex < markersModel.count-1
+            Image{
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Arrow-right.png"
+            }
+            MouseArea{
+                id: nextMArea
+                anchors.fill: parent
+                onClicked: graphCtrl.selectedMarkerIndex = graphCtrl.selectedMarkerIndex + 1
+            }
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            width: 1
+            color: Universal.background
+        }
         Rectangle{
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: decValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
+            enabled: graphCtrl.selectedMarkerVal > graphCtrl.markerMinVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "<<<"
                 color: "white"
             }
             MouseArea{
                 id: decValMArea
                 anchors.fill: parent
-                onClicked: {
-                    markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val - chartCtrl.markerStepSize
-
-                }
+                onClicked: markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val - graphCtrl.markerStepSize
             }
         }
         Rectangle{
@@ -46,20 +87,19 @@ Rectangle {
             Layout.fillWidth: true
             color: incValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            //                enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
+            enabled: graphCtrl.selectedMarkerVal < graphCtrl.markerMaxVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: ">>>"
                 color: "white"
             }
             MouseArea{
                 id: incValMArea
                 anchors.fill: parent
-                onClicked: {
-                    markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val + chartCtrl.markerStepSize
-                }
+                onClicked: markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val + graphCtrl.markerStepSize
             }
         }
         Rectangle{
@@ -76,6 +116,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+V"
                 color: "white"
             }
@@ -99,6 +140,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 16
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+P"
                 color: "white"
             }
@@ -123,6 +165,7 @@ Rectangle {
                 anchors.centerIn: parent
                 font.pixelSize: 22
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 text: "+"
                 color: "white"
             }
@@ -131,7 +174,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     markersModel.append({"num": markersModel.count+1, "_val": 0})
-                    chartCtrl.selectedMarkerIndex= ++chartCtrl.selectedMarkerIndex
+                    graphCtrl.selectedMarkerIndex= ++graphCtrl.selectedMarkerIndex
                 }
             }
         }
@@ -163,7 +206,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     markersModel.remove(markersModel.count-1,1)
-                    chartCtrl.selectedMarkerIndex= --chartCtrl.selectedMarkerIndex
+                    graphCtrl.selectedMarkerIndex= --graphCtrl.selectedMarkerIndex
                 }
             }
         }

@@ -12,7 +12,7 @@ Page {
     header: Rectangle{
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         height: 45
 
         Text {
@@ -63,7 +63,7 @@ Page {
         }
     }
     contentItem: Rectangle {
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width;
@@ -91,6 +91,7 @@ Page {
                             font.pixelSize: 13
                             color: Universal.foreground
                             font.capitalization: Font.AllUppercase
+                            font.family: robotoRegular.name
                         }
                         GridLayout {
 
@@ -114,6 +115,7 @@ Page {
                                         Text{
                                             text:model.modelData.key
                                             font.pixelSize: 12
+                                            font.family: robotoRegular.name
                                             Controls.style:model.modelData.keyStyle
                                             color: Universal.foreground
                                             opacity: 0.65
@@ -121,12 +123,14 @@ Page {
                                         Text{
                                             text:model.modelData.value
                                             font.pixelSize: 12
+                                            font.family: robotoRegular.name
                                             Controls.style:model.modelData.valueStyle
                                             color: Universal.foreground
                                         }
                                         Text{
                                             text:model.modelData.unit
                                             font.pixelSize: 12
+                                            font.family: robotoRegular.name
                                             Controls.style:model.modelData.unitStyle
                                             color: Universal.foreground
                                         }
@@ -145,7 +149,7 @@ Page {
         height: 60
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         RowLayout{
             anchors.left: parent.left
             anchors.right: parent.right

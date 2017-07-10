@@ -15,7 +15,7 @@ Rectangle {
             height: 50
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Item{
                 id: rectangle1
                 anchors.top: parent.top
@@ -42,14 +42,37 @@ Rectangle {
                     text: "%1 GUIDE".arg(guideTestName)
                     font.pixelSize: 16
                     font.weight: Font.DemiBold
+                    font.family: robotoRegular.name
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: Universal.foreground
+                }
+            }
+            Item{
+                id: rectangle
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                width: 50
+                Image {
+                    id: closeImage
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    source: "qrc:/img/img/Delete-25.png"
+                }
+                ColorOverlay{
+                    anchors.fill: closeImage
+                    source: closeImage
+                    color: Universal.foreground
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: guidePopup.close()
                 }
             }
         }
 
         contentItem: Rectangle {
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -106,6 +129,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Direct"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -137,6 +161,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port A"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -168,6 +193,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Port B"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -208,6 +234,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"GPS"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -240,6 +267,7 @@ Rectangle {
                                             Layout.alignment: Qt.AlignHCenter
                                             text:"Wi-Fi"
                                             font.pixelSize: 14
+                                            font.family: robotoRegular.name
                                             color: Universal.foreground
                                         }
                                     }
@@ -257,27 +285,6 @@ Rectangle {
                         text:"<p>When running a UAT Out test, usethe directional antenna with
 Port A for over the air Testing.</p><br><p>Attach the GPS antenna to acquire LAT, LON an time.</p>"
                     }
-                }
-            }
-        }
-
-
-        footer:Rectangle{
-            height: 40
-            anchors.left: parent.left
-            anchors.right: parent.right
-            color: Universal.background
-            Text{
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: 20
-                text: "CLOSE"
-                font.pixelSize: 16
-                font.weight: Font.DemiBold
-                color: Universal.foreground
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: guidePopup.close()
                 }
             }
         }

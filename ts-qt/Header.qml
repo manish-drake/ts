@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 Rectangle {
     id: content
     height: 48
-    color: Universal.background
+    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
 
     Item{
         id: toggleMenu
@@ -42,6 +42,7 @@ Rectangle {
         font.bold: Font.DemiBold
         color: Universal.accent
         font.pixelSize: 16
+        font.family: robotoRegular.name
         anchors.leftMargin: 5
         elide: Text.ElideRight
     }

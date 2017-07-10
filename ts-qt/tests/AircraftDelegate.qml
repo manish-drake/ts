@@ -8,8 +8,8 @@ Item {
     Rectangle {
         id: rectangle
         anchors.fill: parent
-        color: Universal.theme == Universal.Dark ? "#333333" : "#fcfcfc"
-        border.color: "#0d000000"
+        color: Universal.theme == Universal.Light ? "#fafafa" : "#333333"
+        border.color: Universal.theme == Universal.Light ? "#0d000000" : "#4dffffff"
         border.width: 1
         radius: 3
         layer.enabled: true
@@ -34,6 +34,7 @@ Item {
                 fontSizeMode: Text.Fit
                 font.pixelSize: 14
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
 

@@ -51,6 +51,8 @@ int main(int argc, char *argv[])
         return builder.build();
     } else {
         QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+
         QGuiApplication app(argc, argv);
 
         qInstallMessageHandler(myMessageOutput);

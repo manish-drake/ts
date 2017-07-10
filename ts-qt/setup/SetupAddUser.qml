@@ -12,13 +12,14 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
             text: qsTr("ADD USER")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             anchors.horizontalCenter: parent.horizontalCenter
             color: Universal.foreground
         }
@@ -46,8 +47,9 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
+            id: flickable
             anchors.fill: parent
             contentWidth: parent.width;
             contentHeight: grid.height + grid.y + 10
@@ -66,12 +68,16 @@ Page {
                     text: qsTr("USER ID:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
+                    id: usedId
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter User ID"
+                    inputMethodHints: Qt.ImhNoAutoUppercase
                 }
 
                 Text {
@@ -79,12 +85,15 @@ Page {
                     text: qsTr("NAME:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 TextField {
+                    id: name
                     Layout.row: 1
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter Name"
                 }
 
@@ -93,6 +102,7 @@ Page {
                     text: qsTr("LANGUAGE:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 ComboBox{
@@ -109,20 +119,25 @@ Page {
                     text: qsTr("EMAIL:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
                 TextField {
+                    id: emailId
                     Layout.row: 3
                     Layout.column: 1
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     placeholderText: "Enter Email ID"
+                    inputMethodHints: Qt.ImhEmailCharactersOnly
                 }
                 Text {
                     Layout.row: 4
                     text: qsTr("EMAIL SAVED TESTS:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 

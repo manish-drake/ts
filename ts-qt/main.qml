@@ -5,8 +5,8 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
-
 import QtQuick.Controls.Universal 2.1
+//import QtQuick.VirtualKeyboard 2.1
 
 ApplicationWindow {
     id: appWindow
@@ -14,173 +14,189 @@ ApplicationWindow {
     width: 480
     height: 800
     title: qsTr("TS")
-    property string headerTitle: "Home"
+    property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    Universal.accent: "#01ADEE";
+    Universal.accent: "#25A1CC"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
-    Page {
-        anchors.fill: parent
+    FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
+    FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
+//    Item {
+//        id: appContainer
+//        anchors.left: parent.left
+//        anchors.top: parent.top
+//        anchors.right: parent.right
+//        anchors.bottom: inputPanel.top
+        Page {
+            anchors.fill: parent
 
-        header: Header{id: header}
+            header: Header{id: header}
 
-        contentItem: Rectangle {
-            id:contentRect
-            color: Universal.theme == Universal.Dark ? "#444444" : "#D1D2D3"
-            Loader {
-                id:contentLoader
-                anchors.fill: parent
-                source: registry.getPageFromViewId(navigationModel.currentView)
-                onLoaded: console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
-            }
+            contentItem: Rectangle {
+                id:contentRect
+                color: Universal.theme == Universal.Light ? "#E7E8E8" : "#414048"
+                Loader {
+                    id:contentLoader
+                    anchors.fill: parent
+                    source: registry.getPageFromViewId(navigationModel.currentView)
+                    onLoaded: console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
+                }
 
-            Rectangle{
-                id: contentOpaqueBack
-                anchors.fill: parent
-                color: opaqueBackground
-                visible: false
-            }
+                Rectangle{
+                    id: contentOpaqueBack
+                    anchors.fill: parent
+                    color: opaqueBackground
+                    visible: false
+                }
 
-            Item{
-                width: 320
-                anchors.top: parent.top
-                anchors.topMargin: 5
-                anchors.horizontalCenter: parent.horizontalCenter
-                Popup {
-                    id: configPanelPopup                                       
-                    width: parent.width
-                    padding: 0
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                    onClosed: contentOpaqueBack.visible = false
-                    onOpened: contentOpaqueBack.visible = true
-                    contentItem: ConfigPanel{
-                        id: configPanel
+                Item{
+                    width: 320
+                    anchors.top: parent.top
+                    anchors.topMargin: 5
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Popup {
+                        id: configPanelPopup
+                        width: parent.width
+                        padding: 0
+                        modal: true
+                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                        onClosed: contentOpaqueBack.visible = false
+                        onOpened: contentOpaqueBack.visible = true
+                        contentItem: ConfigPanel{
+                            id: configPanel
+                        }
+                    }
+                }
+                Item{
+                    anchors.right: parent.right
+                    Layout.maximumHeight: parent.height
+                    Popup {
+                        id: moreActionsPopover
+                        width: 220
+                        Layout.maximumHeight: contentRect.height - 50
+                        padding: 0
+                        topMargin: 55
+                        rightMargin: 5
+                        modal: true
+                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+                        onClosed: contentOpaqueBack.visible = false
+                        onOpened: contentOpaqueBack.visible = true
+                        contentItem: MoreActions{}
                     }
                 }
             }
-            Item{
-                anchors.right: parent.right
-                Layout.maximumHeight: parent.height
-                Popup {
-                    id: moreActionsPopover
-                    width: 220
-                    Layout.maximumHeight: contentRect.height - 50
-                    padding: 0
-                    topMargin: 55
-                    rightMargin: 5
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                    onClosed: contentOpaqueBack.visible = false
-                    onOpened: contentOpaqueBack.visible = true
-                    contentItem: MoreActions{}
-                }
+
+            footer: Footer{
+                id: footer
+                visible: Qt.inputMethod.visible ? false : true
+                currentOperator: configPanel.currentOperator
             }
         }
 
-        footer: Footer{
-            id: footer
-            currentOperator: configPanel.currentOperator
+        Drawer {
+            id: sideMenuDrawer
+            width: 250
+            height: parent.height - footer.height
+            contentItem: SideMenu{}
         }
-    }
 
-    Drawer {
-        id: sideMenuDrawer
-        width: 250
-        height: parent.height - footer.height
-        contentItem: SideMenu{}
-    }
-
-    Popup {
-        id: testSetupPopup
-        height: parent.height
-        width: parent.width
-        topPadding: 60
-        bottomPadding: 60
-        leftPadding: 30
-        rightPadding: 30
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: testSetupPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestSetup{}
         }
-        contentItem: TestSetup{}
-    }
 
-    Popup {
-        id: helpPopup
-        height: parent.height
-        width: parent.width
-        topPadding: 60
-        bottomPadding: 60
-        leftPadding: 30
-        rightPadding: 30
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: helpPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestHelp{}
         }
-        contentItem: TestHelp{}
-    }
 
-    Popup {
-        id: connectionReqPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: connectionReqPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionReqest{}
         }
-        contentItem: ConnectionReqest{}
-    }
 
-    Popup {
-        id: pinConfirmPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: pinConfirmPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: PINConfirmation{}
         }
-        contentItem: PINConfirmation{}
-    }
 
-    Timer{
-        id:  pinaccepttimer
-        interval: 3000
-        onTriggered:{
-            pinConfirmPopup.close()
-            connectionAckPopup.open()
+        Timer{
+            id:  pinaccepttimer
+            interval: 3000
+            onTriggered:{
+                pinConfirmPopup.close()
+                connectionAckPopup.open()
+            }
         }
-    }
 
-    Popup {
-        id: connectionAckPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: connectionAckPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionAck{}
         }
-        contentItem: ConnectionAck{}
-    }
 
-    Popup {
-        id: connectionLostPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: opaqueBackground
+        Popup {
+            id: connectionLostPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionLost{}
         }
-        contentItem: ConnectionLost{}
-    }
+//    }
 
+//    InputPanel {
+//        id: inputPanel
+//        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+//    }
 }
 
 

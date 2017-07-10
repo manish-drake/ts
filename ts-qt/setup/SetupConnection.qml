@@ -12,13 +12,14 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
             text: qsTr("CONNECTION")
             font.pixelSize: 16
             font.weight: Font.DemiBold
+            font.family: robotoRegular.name
             color: Universal.foreground
         }
 
@@ -45,7 +46,7 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width;
@@ -62,23 +63,26 @@ Page {
                 columnSpacing: 30
 
                 Text {
-                    text: qsTr("DEFAULT POWER:")
+                    text: qsTr("DEFAULT POWER")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
                     Layout.column: 1
                     text: qsTr("1dB")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
                 Text {
                     Layout.row: 1
-                    text: qsTr("DEFALT DISTANCE:")
+                    text: qsTr("DEFAULT DISTANCE")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -86,14 +90,16 @@ Page {
                     Layout.column: 1
                     text: qsTr("25Ft")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
                 Text {
                     Layout.row: 2
-                    text: qsTr("DEFAULT CABLE LOSS:")
+                    text: qsTr("DEFAULT CABLE LOSS")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
                 Text {
@@ -101,14 +107,16 @@ Page {
                     Layout.column: 1
                     text: qsTr("2.3dB")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
                 Text {
                     Layout.row: 3
-                    text: qsTr("UUT ANTENNA GAIN:")
+                    text: qsTr("UUT ANTENNA GAIN")
                     font.pixelSize: 12
                     font.bold: Font.Medium
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
 
@@ -117,6 +125,7 @@ Page {
                     Layout.column: 1
                     text: qsTr("0.0dB")
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     color: Universal.foreground
                 }
             }

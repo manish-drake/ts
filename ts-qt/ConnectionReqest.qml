@@ -18,6 +18,7 @@ Item {
                 anchors.centerIn: parent
                 text:"Connection Request"
                 font.pixelSize: 18
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
         }
@@ -29,6 +30,7 @@ Item {
                 anchors.centerIn: parent
                 text:"A remote device requested to connect"
                 font.pixelSize: 14
+                font.family: robotoRegular.name
                 color: "gray"
             }
         }
@@ -48,6 +50,7 @@ Item {
                         anchors.centerIn: parent
                         text: "REJECT"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: "gray"
                         MouseArea{
                             anchors.fill: parent
@@ -63,6 +66,7 @@ Item {
                         anchors.centerIn: parent
                         text: "ACCEPT"
                         font.pixelSize: 14
+                        font.family: robotoRegular.name
                         color: Universal.accent
                         MouseArea{
                             anchors.fill: parent

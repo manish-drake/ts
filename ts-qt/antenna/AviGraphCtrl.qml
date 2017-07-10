@@ -16,6 +16,7 @@ RowLayout{
     property double markerMaxVal
     property double markerStepSize: 1
     property int selectedMarkerIndex: 0
+    property double selectedMarkerVal
     property bool isDTFMode
     property bool isDTFUnitSwitched
     property bool areControlsAvailble: true
@@ -62,6 +63,7 @@ RowLayout{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "Return<br>Loss"
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -100,6 +102,7 @@ RowLayout{
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "VSWR"
                     font.pixelSize: 12
+                    font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
             }
@@ -147,6 +150,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: val
                         font.pixelSize: 12
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                 }
@@ -190,6 +194,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: val
                         font.pixelSize: 12
+                        font.family: robotoRegular.name
                         color: Universal.foreground
                     }
                 }
@@ -231,6 +236,7 @@ RowLayout{
                     width: (impFreqList.width - 30)/(impFreqModel.count - 1)
                     Text{
                         text: val
+                        font.family: robotoRegular.name
                     }
                 }
             }
@@ -241,7 +247,7 @@ RowLayout{
 
         Item{
             id: freqValsList
-            visible: freqEndVal != 0
+            visible: !isDTFMode
             Layout.row: 4
             Layout.columnSpan: 3
             Layout.fillWidth: true
@@ -252,6 +258,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqStartVal
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
             Text{
                 id: freqMiddle
@@ -259,6 +266,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqMiddleVal
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
             Text{
                 id: freqStop
@@ -266,6 +274,7 @@ RowLayout{
                 color: Universal.foreground
                 text: freqEndVal + " MHz"
                 font.pixelSize: 12
+                font.family: robotoRegular.name
             }
         }
 
@@ -289,6 +298,7 @@ RowLayout{
                             text: val
                             color: Universal.foreground
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
                         }
                     }
                 }
@@ -330,6 +340,7 @@ RowLayout{
                         anchors.horizontalCenter: parent.horizontalCenter
                         text: lengthUnitSwitch.checked ? "Ft" : "M"
                         horizontalAlignment: Text.AlignHCenter
+                        font.family: robotoRegular.name
                     }
                 }
                 onCheckedChanged: {
@@ -355,6 +366,7 @@ RowLayout{
                 Layout.fillWidth: true
                 Layout.leftMargin: -14
                 Layout.rightMargin: -14
+                z: index == selectedMarkerIndex ? 1 : 0
                 implicitHeight: 28
                 minimumValue: markerMinVal
                 maximumValue: markerMaxVal
@@ -364,19 +376,20 @@ RowLayout{
                     groove:  Item{
                         Layout.fillWidth: parent
                     }
-                    handle:
-                        Rectangle {
-                        color: control.pressed ? "#e7e7e7" : "#ededed"
+                    handle: Rectangle {
+                        opacity: control.pressed ? 0.9 : 1
+                        color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
                         border.color: "#dddddd"
-                        border.width: 1
+                        border.width: index == selectedMarkerIndex ? 0 : 1
                         implicitWidth: 30
                         implicitHeight: 28
                         radius: 3
                         Text{
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.centerIn: parent
                             text: "M" + num
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            color: index == selectedMarkerIndex ? "white" : "black"
                         }
                         Rectangle{
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -386,27 +399,37 @@ RowLayout{
                             height: graphImage.height
                         }
                         Text{
-                            visible: !isDTFMode
+                            visible: !isDTFMode && index == selectedMarkerIndex
                             anchors.right: parent.left
                             anchors.rightMargin: 5
                             anchors.verticalCenter: parent.verticalCenter
                             text: markerSlider.value;
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.8
                         }
                         Text{
-                            visible: isDTFMode
+                            visible: isDTFMode && index == selectedMarkerIndex
                             anchors.right: parent.left
                             anchors.rightMargin: 5
                             anchors.verticalCenter: parent.verticalCenter
                             text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
                             font.pixelSize: 12
+                            font.family: robotoRegular.name
+                            color: Universal.foreground
+                            opacity: 0.8
                         }
                         MouseArea{
                             anchors.fill: parent
+                            onClicked: console.log("marker selected")
                         }
                     }
                 }
-                onValueChanged: _val = value;
+                onValueChanged: {
+                    _val = value
+                    selectedMarkerVal = value
+                }
             }
         }
     }

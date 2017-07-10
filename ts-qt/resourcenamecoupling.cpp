@@ -42,9 +42,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "antenna/AviationCableLoss.qml";
     case 37:
         return "antenna/AviationDTF.qml";
-    case 38 ... 41:
-        return "antenna/AviationCal.qml";
-    case 42:
+    case 38:
         return "AppLogs.qml";
     case 2:
         return "tests/TestGroup.qml";

@@ -147,17 +147,17 @@ int DataBuilder::build()
     View vwAntAviationDtf("Antenna-Aviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-    View vwAntAviationCalShort("Antenna-Aviation-CAL-Short");
-    viewDao->addView(vwAntAviationCalShort);
+//    View vwAntAviationCalShort("Antenna-Aviation-CAL-Short");
+//    viewDao->addView(vwAntAviationCalShort);
 
-    View vwAntAviationCalOpen("Antenna-Aviation-CAL-Open");
-    viewDao->addView(vwAntAviationCalOpen);
+//    View vwAntAviationCalOpen("Antenna-Aviation-CAL-Open");
+//    viewDao->addView(vwAntAviationCalOpen);
 
-    View vwAntAviationCalLoad("Antenna-Aviation-CAL-Load");
-    viewDao->addView(vwAntAviationCalLoad);
+//    View vwAntAviationCalLoad("Antenna-Aviation-CAL-Load");
+//    viewDao->addView(vwAntAviationCalLoad);
 
-    View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
-    viewDao->addView(vwAntAviationCalThru);
+//    View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
+//    viewDao->addView(vwAntAviationCalThru);
 
     View vwAppLogs("Global-App-Logs");
     viewDao->addView(vwAppLogs);
@@ -1303,9 +1303,6 @@ int DataBuilder::build()
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
     navigationDaoPtr->addNavigation(setupToConn);
 
-    Navigation antennaToAviationCalShort(vwAntenna.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(antennaToAviationCalShort);
-
     Navigation antennaToAviationVSWR(vwAntenna.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(antennaToAviationVSWR);
 
@@ -1321,101 +1318,17 @@ int DataBuilder::build()
     Navigation AviationVswrToDtf(vwAntAviationVswr.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationVswrToDtf);
 
-    Navigation AviationVswrToCalShort(vwAntAviationVswr.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationVswrToCalShort);
-
-
-
     Navigation AviationClToVswr(vwAntAviationCl.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationClToVswr);
 
     Navigation AviationClToDtf(vwAntAviationCl.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(AviationClToDtf);
 
-    Navigation AviationClToCalShort(vwAntAviationCl.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationClToCalShort);
-
-
     Navigation AviationDtfToVswr(vwAntAviationDtf.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(AviationDtfToVswr);
 
     Navigation AviationDtfToCl(vwAntAviationDtf.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationDtfToCl);
-
-    Navigation AviationDtfToCalShort(vwAntAviationDtf.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationDtfToCalShort);   
-
-    Navigation AviationCalShortToVswr(vwAntAviationCalShort.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToVswr);
-
-    Navigation AviationCalShortToCl(vwAntAviationCalShort.id(), "Aviation-Cl",0, vwAntAviationCl.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToCl);
-
-    Navigation AviationCalShortToDtf(vwAntAviationCalShort.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToDtf);
-
-    Navigation AviationCalShortToOpen(vwAntAviationCalShort.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToOpen);
-
-    Navigation AviationCalShortToLoad(vwAntAviationCalShort.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToLoad);
-
-    Navigation AviationCalShortToThru(vwAntAviationCalShort.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
-    navigationDaoPtr->addNavigation(AviationCalShortToThru);
-
-    Navigation AviationCalOpenToVswr(vwAntAviationCalOpen.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToVswr);
-
-    Navigation AviationCalOpenToCl(vwAntAviationCalOpen.id(), "Aviation-Cl",0, vwAntAviationCl.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToCl);
-
-    Navigation AviationCalOpenToDtf(vwAntAviationCalOpen.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToDtf);
-
-    Navigation AviationCalOpenToShort(vwAntAviationCalOpen.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToShort);
-
-    Navigation AviationCalOpenToLoad(vwAntAviationCalOpen.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToLoad);
-
-    Navigation AviationCalOpenToThru(vwAntAviationCalOpen.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
-    navigationDaoPtr->addNavigation(AviationCalOpenToThru);
-
-    Navigation AviationCalLoadToVswr(vwAntAviationCalLoad.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToVswr);
-
-    Navigation AviationCalLoadToCl(vwAntAviationCalLoad.id(), "Aviation-Cl",0, vwAntAviationCl.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToCl);
-
-    Navigation AviationCalLoadToDtf(vwAntAviationCalLoad.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToDtf);
-
-    Navigation AviationCalLoadToShort(vwAntAviationCalLoad.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToShort);
-
-    Navigation AviationCalLoadToOpen(vwAntAviationCalLoad.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToOpen);
-
-    Navigation AviationCalLoadToThru(vwAntAviationCalLoad.id(), "Aviation-Cal-Thru",0, vwAntAviationCalThru.id());
-    navigationDaoPtr->addNavigation(AviationCalLoadToThru);
-
-    Navigation AviationCalThruToVswr(vwAntAviationCalThru.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToVswr);
-
-    Navigation AviationCalThruToCl(vwAntAviationCalThru.id(), "Aviation-Cl",0, vwAntAviationCl.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToCl);
-
-    Navigation AviationCalThruToDtf(vwAntAviationCalThru.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToDtf);
-
-    Navigation AviationCalThruToShort(vwAntAviationCalThru.id(), "Aviation-Cal-Short",0, vwAntAviationCalShort.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToShort);
-
-    Navigation AviationCalThruToOpen(vwAntAviationCalThru.id(), "Aviation-Cal-Open",0, vwAntAviationCalOpen.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToOpen);
-
-    Navigation AviationCalThruToLoad(vwAntAviationCalThru.id(), "Aviation-Cal-Load",0, vwAntAviationCalLoad.id());
-    navigationDaoPtr->addNavigation(AviationCalThruToLoad);
 
     Navigation aviationVswrToAnt(vwAntAviationVswr.id(), "back", 0, vwAntenna.id());
     navigationDaoPtr->addNavigation(aviationVswrToAnt);
@@ -1425,18 +1338,6 @@ int DataBuilder::build()
 
     Navigation aviationDtfToAnt(vwAntAviationDtf.id(), "back", 0, vwAntenna.id());
     navigationDaoPtr->addNavigation(aviationDtfToAnt);
-
-    Navigation aviationCalShortToAnt(vwAntAviationCalShort.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationCalShortToAnt);
-
-    Navigation aviationCalOpenToAnt(vwAntAviationCalOpen.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationCalOpenToAnt);
-
-    Navigation aviationCalLoadToAnt(vwAntAviationCalLoad.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationCalLoadToAnt);
-
-    Navigation aviationCalThruToAnt(vwAntAviationCalThru.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationCalThruToAnt);
 
     Navigation globalToAppLogs(vwGlobal.id(), "App-Logs",0, vwAppLogs.id());
     navigationDaoPtr->addNavigation(globalToAppLogs);

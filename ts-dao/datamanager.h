@@ -27,7 +27,7 @@ class QSqlQuery;
 
 #ifdef Q_OS_LINUX
     const QString DB_FILE = "../../ts/ts.db";
-#elif
+#else
     const QString DB_FILE = "c:/git/qt/ts/ts.db";
 #endif
 

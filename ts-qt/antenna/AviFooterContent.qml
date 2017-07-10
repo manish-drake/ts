@@ -2,7 +2,8 @@ import QtQuick 2.7
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
-Item{
+Item{    
+    property bool isCal: true
     id:testFooterRect
     anchors.bottom: parent.bottom
     height: 80
@@ -24,6 +25,7 @@ Item{
             anchors.centerIn: parent
             smooth: true
         }
+
         MouseArea {
             id: mouseArea
             anchors.fill: parent
@@ -62,5 +64,40 @@ Item{
                 }
             }
         ]
+    }
+    Rectangle{
+        id: calButton
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
+        anchors.right: toggleButton.left
+        anchors.rightMargin: 15
+        height: 50
+        width: 50
+        radius: 25
+        color: Universal.accent
+        visible: isCal
+        Item{
+            anchors.fill: parent
+            Image {
+                id: image1
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Settings-25.png"
+            }
+            ColorOverlay{
+                anchors.fill: image1
+                source: image1
+                color: "white"
+            }
+//          navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short")
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    calPopup.open()
+                }
+//                onPressed: parent.opacity = 0.5
+//                onReleased: parent.opacity = 1
+            }
+        }
     }
 }
