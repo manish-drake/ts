@@ -6,7 +6,7 @@ import QtGraphicalEffects 1.0
 
 Rectangle{
     color: Universal.theme == Universal.Light ? "#D1D3D4" : "#38363C"
-    Universal.accent: "#01ADEE"
+    Universal.accent: "#25A1CC"
     ColumnLayout{
         anchors.fill: parent
         Image {

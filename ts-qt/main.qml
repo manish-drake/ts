@@ -17,7 +17,7 @@ ApplicationWindow {
     property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    Universal.accent: "#01ADEE"
+    Universal.accent: "#25A1CC"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }

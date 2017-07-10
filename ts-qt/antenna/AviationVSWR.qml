@@ -19,7 +19,7 @@ Item{
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
-                contentHeight: content.height + content.y + 10
+                contentHeight: content.height + content.y + 50
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
                 Column{
