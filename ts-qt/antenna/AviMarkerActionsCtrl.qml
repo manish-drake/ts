@@ -19,7 +19,7 @@ Rectangle {
             Layout.fillWidth: true
             color: decValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val > chartCtrl.markerMinVal
+            enabled: markersModel.get(graphCtrl.selectedMarkerIndex)._val > graphCtrl.markerMinVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
@@ -32,7 +32,7 @@ Rectangle {
                 id: decValMArea
                 anchors.fill: parent
                 onClicked: {
-                    markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val - chartCtrl.markerStepSize
+                    markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val - graphCtrl.markerStepSize
                 }
             }
         }
@@ -46,7 +46,7 @@ Rectangle {
             Layout.fillWidth: true
             color: incValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            enabled: markersModel.get(chartCtrl.selectedMarkerIndex)._val < chartCtrl.markerMaxVal
+            enabled: markersModel.get(graphCtrl.selectedMarkerIndex)._val < graphCtrl.markerMaxVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
@@ -59,7 +59,7 @@ Rectangle {
                 id: incValMArea
                 anchors.fill: parent
                 onClicked: {
-                    markersModel.get(chartCtrl.selectedMarkerIndex)._val = markersModel.get(chartCtrl.selectedMarkerIndex)._val + chartCtrl.markerStepSize
+                    markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val + graphCtrl.markerStepSize
                 }
             }
         }
@@ -135,7 +135,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     markersModel.append({"num": markersModel.count+1, "_val": 0})
-                    chartCtrl.selectedMarkerIndex= ++chartCtrl.selectedMarkerIndex
+                    graphCtrl.selectedMarkerIndex= ++graphCtrl.selectedMarkerIndex
                 }
             }
         }
@@ -167,7 +167,7 @@ Rectangle {
                 anchors.fill: parent
                 onClicked: {
                     markersModel.remove(markersModel.count-1,1)
-                    chartCtrl.selectedMarkerIndex= --chartCtrl.selectedMarkerIndex
+                    graphCtrl.selectedMarkerIndex= --graphCtrl.selectedMarkerIndex
                 }
             }
         }

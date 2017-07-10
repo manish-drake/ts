@@ -365,6 +365,7 @@ RowLayout{
                 Layout.fillWidth: true
                 Layout.leftMargin: -14
                 Layout.rightMargin: -14
+                z: index == selectedMarkerIndex ? 1 : 0
                 implicitHeight: 28
                 minimumValue: markerMinVal
                 maximumValue: markerMaxVal
@@ -374,20 +375,20 @@ RowLayout{
                     groove:  Item{
                         Layout.fillWidth: parent
                     }
-                    handle:
-                        Rectangle {
-                        color: control.pressed ? "#e7e7e7" : "#ededed"
+                    handle: Rectangle {
+                        opacity: control.pressed ? 0.9 : 1
+                        color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
                         border.color: "#dddddd"
-                        border.width: 1
+                        border.width: index == selectedMarkerIndex ? 0 : 1
                         implicitWidth: 30
                         implicitHeight: 28
                         radius: 3
                         Text{
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.centerIn: parent
                             text: "M" + num
                             font.pixelSize: 12
                             font.family: robotoRegular.name
+                            color: index == selectedMarkerIndex ? "white" : "black"
                         }
                         Rectangle{
                             anchors.horizontalCenter: parent.horizontalCenter
@@ -397,7 +398,7 @@ RowLayout{
                             height: graphImage.height
                         }
                         Text{
-                            visible: !isDTFMode
+                            visible: !isDTFMode && index == selectedMarkerIndex
                             anchors.right: parent.left
                             anchors.rightMargin: 5
                             anchors.verticalCenter: parent.verticalCenter
@@ -408,7 +409,7 @@ RowLayout{
                             opacity: 0.8
                         }
                         Text{
-                            visible: isDTFMode
+                            visible: isDTFMode && index == selectedMarkerIndex
                             anchors.right: parent.left
                             anchors.rightMargin: 5
                             anchors.verticalCenter: parent.verticalCenter
@@ -420,6 +421,7 @@ RowLayout{
                         }
                         MouseArea{
                             anchors.fill: parent
+                            onClicked: console.log("marker selected")
                         }
                     }
                 }

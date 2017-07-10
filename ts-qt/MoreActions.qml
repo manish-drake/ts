@@ -4,26 +4,27 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
+import QtGraphicalEffects 1.0
 
 
 Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.background
-    border.color: "lightgray"
+    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    border.color: "gray"
     border.width: 1
     Column{
         id: columnLayout
         anchors.left: parent.left
         anchors.right: parent.right
-//        CustomSwitchDelegate{
-//            text: "SETUP"
-//            source: "qrc:/img/img/Circled Chevron Down-30.png"
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: { moreActionsPopover.close(); configPanelPopup.open()}
-//            }
-//        }
+        //        CustomSwitchDelegate{
+        //            text: "SETUP"
+        //            source: "qrc:/img/img/Circled Chevron Down-30.png"
+        //            MouseArea{
+        //                anchors.fill: parent
+        //                onClicked: { moreActionsPopover.close(); configPanelPopup.open()}
+        //            }
+        //        }
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/Settings-25.png"
@@ -91,15 +92,27 @@ Rectangle{
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     spacing: 5
-                    Image{
-                        anchors.verticalCenter: parent.verticalCenter
-                        source: "qrc:/img/img/Attach-18.png"
+                    Item{
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        width: 20
+                        Image{
+                            id: imageAttach
+                            anchors.verticalCenter: parent.verticalCenter
+                            source: "qrc:/img/img/Attach-18.png"
+                        }
+                        ColorOverlay{
+                            anchors.fill: imageAttach
+                            source: imageAttach
+                            color: Universal.foreground
+                        }
                     }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
                         text: "App Logs"
-                        font.pixelSize: 12                        
+                        font.pixelSize: 12
                         font.family: robotoRegular.name
+                        color: Universal.foreground
                     }
                 }
                 MouseArea{
@@ -115,7 +128,7 @@ Rectangle{
                 text: "Version 0.0.01"
                 font.pixelSize: 12
                 color: Universal.foreground
-                opacity: 0.7                
+                opacity: 0.7
                 font.family: robotoRegular.name
                 MouseArea{
                     anchors.fill: parent

@@ -6,7 +6,7 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: Universal.background
+    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
     property string currentOperator
     GridLayout {
         id: grid
@@ -23,7 +23,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -58,7 +58,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -112,7 +112,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -172,7 +172,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -203,7 +203,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -247,7 +247,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -280,7 +280,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -325,7 +325,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -372,7 +372,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: "#d3d3d3"
+            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Layout.columnSpan: 2

@@ -86,7 +86,7 @@ Item{
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.background
+                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent

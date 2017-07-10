@@ -5,7 +5,7 @@ import QtGraphicalEffects 1.0
 Rectangle {
     id: content
     height: 48
-    color: Universal.background
+    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
 
     Item{
         id: toggleMenu

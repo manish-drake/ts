@@ -12,7 +12,7 @@ Page {
         height: 45
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         Item{
             id: rectangle1
             anchors.top: parent.top
@@ -89,7 +89,7 @@ Page {
 
     contentItem: Rectangle{
         id:scanResults
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         ListView{
             id: aircraftListView
             currentIndex: -1
@@ -164,7 +164,7 @@ Page {
         height: 60
         anchors.left: parent.left
         anchors.right: parent.right
-        color: Universal.background
+        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         RowLayout{
             anchors.left: parent.left
             anchors.right: parent.right

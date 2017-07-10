@@ -23,7 +23,7 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -104,7 +104,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -184,7 +184,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -283,7 +283,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -382,7 +382,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -421,7 +421,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
@@ -460,7 +460,7 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.background
+                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3

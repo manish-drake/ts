@@ -15,11 +15,11 @@ Item{
         }
 
         contentItem: Rectangle {
-            color: Universal.background
+            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
-                contentHeight: content.height + content.y + 10
+                contentHeight: content.height + content.y + 50
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
                 Column{
@@ -30,8 +30,8 @@ Item{
                     anchors.margins: 15
                     spacing: 30
 
-                    AviChartCtrl{
-                        id: chartCtrl
+                    AviGraphCtrl{
+                        id: graphCtrl
                         isDTFMode: true
                         markerMinVal: 0
                         markerMaxVal: 15
@@ -48,24 +48,40 @@ Item{
                         AviModeCtrl{
                             currentModeIndex: 2
                         }
-                        ListModel{
-                            id: markersModel
-                            ListElement{num: 1; _val: 0}
-
-                        }
-                    }
-                    Column{
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        Repeater{
-                            model: markersModel
-                            Text{
-                                color: Universal.foreground
-                                font.pixelSize: 12
-                                font.family: robotoRegular.name
-                                text: chartCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
+                        ColumnLayout{
+                            Layout.row: 2
+                            Layout.fillWidth: true
+                            spacing: 2
+                            Repeater{
+                                model: markersModel
+                                Rectangle{
+                                    anchors.left: parent.left
+                                    anchors.right: parent.right
+                                    height: 20
+                                    color: "#0d000000"
+                                    Text{
+                                        anchors.left: parent.left
+                                        anchors.leftMargin: 10
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        color: Universal.foreground
+                                        font.pixelSize: 12
+                                        font.family: robotoRegular.name
+                                        text: graphCtrl.isDTFUnitSwitched ? "M" + num + "  " + _val.toFixed(2) +" Ft" : "M" + num + "  " + _val.toFixed(2) +" m"
+                                        font.bold: graphCtrl.selectedMarkerIndex == index
+                                        opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
+                                        MouseArea{
+                                            anchors.fill: parent
+                                            onClicked: graphCtrl.selectedMarkerIndex = index
+                                        }
+                                    }
+                                }
                             }
                         }
+                    }
+                    ListModel{
+                        id: markersModel
+                        ListElement{num: 1; _val: 0}
+
                     }
                 }
             }
@@ -93,8 +109,8 @@ Item{
         height: parent.height
         leftPadding: 40
         rightPadding: 40
-        topPadding: 100
-        bottomPadding: 100
+        topPadding: 60
+        bottomPadding: 60
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{

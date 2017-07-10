@@ -17,7 +17,7 @@ ApplicationWindow {
     property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    Universal.accent: "#01ADEE";
+    Universal.accent: "#25A1CC"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
@@ -35,7 +35,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme == Universal.Dark ? "#444444" : "#D1D2D3"
+                color: Universal.theme == Universal.Light ? "#E7E8E8" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent
