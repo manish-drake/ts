@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
+import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 
@@ -24,7 +25,7 @@ Rectangle{
                 id: image1
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/img/img/Download-22.png"                
+                source: "qrc:/img/img/Download-22.png"
             }
             ColorOverlay{
                 anchors.fill: image1
@@ -53,15 +54,18 @@ Rectangle{
                     case "VSWR":
                         var bandName = bandCtrl.bandName
                         snapshotModel.addAviationVswr(datetime, user,data,markerPosition,markerName,range,bandRange,bandName);
+                        notifyPopup.open(); closeTimer.running = true;
                         break;
                     case "CABLE LOSS":
                         var bandName2 = bandCtrl.bandName
                         snapshotModel.addAviationCl(datetime,user,data,markerPosition,markerName,range,bandRange,bandName2);
+                        notifyPopup.open(); closeTimer.running = true;
                         break;
                     case "DISTANCE TO FAULT":
-                        var velocity = coaxList.get(coaxComboBox.currentIndex).vel
-                        var cableType = coaxList.get(coaxComboBox.currentIndex).text
+                        var velocity = coaxCtrl.selectedCableVelocity
+                        var cableType = coaxCtrl.selectedCableType
                         snapshotModel.addAviationDtf(datetime,user,data,markerPosition,markerName,range,velocity,cableType);
+                        notifyPopup.open(); closeTimer.running = true;
                         break;
                     }
                 }
@@ -119,5 +123,38 @@ Rectangle{
             anchors.fill: parent
             onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
         }
+    }
+
+    Item{
+        width: 160
+        anchors.top: parent.top
+        anchors.topMargin: 5
+        anchors.horizontalCenter: parent.horizontalCenter
+        Popup {
+            id: notifyPopup
+            width: parent.width
+            height: 40
+            padding: 0
+            modal: true
+            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+            background: Rectangle{
+                color: testHeaderRect.color
+            }
+            contentItem: Rectangle{
+                color: Universal.foreground
+                radius: 20
+                Text{
+                    anchors.centerIn: parent
+                    text: "Data Saved"
+                    font.pixelSize: 14
+                    color: Universal.background
+                }
+            }
+        }
+    }
+
+    Timer{
+        id: closeTimer
+        interval: 3000; running: false; onTriggered: notifyPopup.close()
     }
 }

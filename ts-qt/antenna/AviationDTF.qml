@@ -44,7 +44,7 @@ Item{
                         columnSpacing: 15
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
-                        AviCoaxCtrl{}
+                        AviCoaxCtrl{ id: coaxCtrl }
                         AviModeCtrl{
                             currentModeIndex: 2
                         }
