@@ -32,6 +32,7 @@ Item{
 
                     AviGraphCtrl{
                         id: graphCtrl
+                        refData: snapshotModel.refData
                     }
 
                     GridLayout {

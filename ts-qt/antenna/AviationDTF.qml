@@ -32,6 +32,7 @@ Item{
 
                     AviGraphCtrl{
                         id: graphCtrl
+                        refData: snapshotModel.refData
                         isDTFMode: true
                         markerMinVal: 0
                         markerMaxVal: 15

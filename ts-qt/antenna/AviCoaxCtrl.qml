@@ -60,7 +60,7 @@ Item{
                             color: "white"
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
-                            text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
+                            text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel + "%"
                         }
                     }
                 }
@@ -72,11 +72,11 @@ Item{
             }
             ListModel {
                 id: coaxList
-                ListElement { text: "PE Solid"; vel: "66%"}
-                ListElement { text: "PE Foam"; vel: "85%"}
-                ListElement { text: "Teflon"; vel: "70%"}
-                ListElement { text: "Teflon Foam"; vel: "80%"}
-                ListElement { text: "User"; vel: ""}
+                ListElement { text: "PE Solid"; vel: 66}
+                ListElement { text: "PE Foam"; vel: 85}
+                ListElement { text: "Teflon"; vel: 70}
+                ListElement { text: "Teflon Foam"; vel: 80}
+                ListElement { text: "User"; vel: 0}
             }
         }
     }
