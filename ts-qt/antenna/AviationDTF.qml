@@ -32,6 +32,7 @@ Item{
 
                     AviGraphCtrl{
                         id: graphCtrl
+                        refData: snapshotModel.refData
                         isDTFMode: true
                         markerMinVal: 0
                         markerMaxVal: 15
@@ -44,7 +45,7 @@ Item{
                         columnSpacing: 15
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
-                        AviCoaxCtrl{}
+                        AviCoaxCtrl{ id: coaxCtrl }
                         AviModeCtrl{
                             currentModeIndex: 2
                         }
@@ -99,7 +100,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: "#b3000000"
         }
         contentItem: DataPopupContent{}
     }
@@ -114,7 +115,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: "#b3000000"
         }
         contentItem: AviationCal{mode: "COAX"}
     }

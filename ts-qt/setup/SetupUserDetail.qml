@@ -149,13 +149,15 @@ Page {
                     Layout.row: 6
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "RESTORE FACTORY DEFAULTS"
+                    enabled: false
                 }
 
                 Button{
                     Layout.row: 8
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "DELETE USER"
-                    enabled: navigationModel.navigationParameter.user.isRemovable
+//                    enabled: navigationModel.navigationParameter.user.isRemovable
+                    enabled: false
                 }
             }
         }

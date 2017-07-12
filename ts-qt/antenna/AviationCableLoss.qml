@@ -32,6 +32,7 @@ Item{
 
                     AviGraphCtrl{
                         id: graphCtrl
+                        refData: snapshotModel.refData
                     }
 
                     GridLayout {
@@ -98,7 +99,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: "#b3000000"
         }
         contentItem: DataPopupContent{}
     }
@@ -113,7 +114,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: "#b3000000"
         }
         contentItem: AviationCal{ mode: "VSWR/CL" }
     }
