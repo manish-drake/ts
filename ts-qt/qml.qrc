@@ -45,6 +45,7 @@
         <file>Global.qml</file>
         <file>antenna/AviCoaxCtrl.qml</file>
         <file>antenna/AviGraphCtrl.qml</file>
+        <file>tests/TestSetup.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -98,6 +99,10 @@
         <file>img/checked.png</file>
         <file>img/Arrow-left.png</file>
         <file>img/Arrow-right.png</file>
+        <file>img/antenna.png</file>
+        <file>img/target_aircraft.png</file>
+        <file>img/geo_fence.png</file>
+        <file>img/top-bottom.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>ts.db</file>
