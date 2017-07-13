@@ -8,7 +8,6 @@ Rectangle {
     id: rectangle4
     height: 40
     color: Universal.theme == Universal.Light ? "#A7A9AC" : "#333333"
-    property string currentOperator
     property bool isController: true
 
     Text {

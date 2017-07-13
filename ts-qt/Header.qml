@@ -14,8 +14,7 @@ Rectangle {
         width: 50
         Image {
             id:toggleMenuImg
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             source: "qrc:/img/img/Menu-25.png"
         }
         ColorOverlay{

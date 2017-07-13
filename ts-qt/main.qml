@@ -20,6 +20,7 @@ ApplicationWindow {
     Universal.accent: "#25A1CC"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
+    property string currentOperator;
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
     Item {
@@ -90,7 +91,6 @@ ApplicationWindow {
             footer: Footer{
                 id: footer
                 visible: Qt.inputMethod.visible ? false : true
-                currentOperator: configPanel.currentOperator
             }
         }
 

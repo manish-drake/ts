@@ -7,7 +7,6 @@ import QtGraphicalEffects 1.0
 
 Rectangle{
     color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-    property string currentOperator
     GridLayout {
         id: grid
         anchors.left: parent.left

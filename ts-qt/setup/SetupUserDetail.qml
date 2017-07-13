@@ -70,7 +70,7 @@ Page {
                 }
                 Text {
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.userID)
+                    text: navigationModel.navigationParameter.user.userID
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -88,7 +88,7 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.userName)
+                    text: navigationModel.navigationParameter.user.userName
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -106,7 +106,7 @@ Page {
                 Text {
                     Layout.row: 2
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.language)
+                    text: navigationModel.navigationParameter.user.language
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -125,7 +125,7 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.emailID)
+                    text: navigationModel.navigationParameter.user.emailID
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
