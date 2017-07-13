@@ -18,7 +18,7 @@ ApplicationWindow {
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#25A1CC"
-    property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
+    property color opaqueBackground: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
     property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
@@ -84,6 +84,7 @@ ApplicationWindow {
                         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
                         onClosed: contentOpaqueBack.visible = false
                         onOpened: contentOpaqueBack.visible = true
+                        background: Item{}
                         contentItem: MoreActions{}
                     }
                 }
@@ -102,94 +103,94 @@ ApplicationWindow {
             contentItem: SideMenu{}
         }
 
-        Popup {
-            id: testSetupPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: TestSetup{}
-        }
+//        Popup {
+//            id: testSetupPopup
+//            height: parent.height
+//            width: parent.width
+//            topPadding: 60
+//            bottomPadding: 60
+//            leftPadding: 30
+//            rightPadding: 30
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: TestSetup{}
+//        }
 
-        Popup {
-            id: helpPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: TestHelp{}
-        }
+//        Popup {
+//            id: helpPopup
+//            height: parent.height
+//            width: parent.width
+//            topPadding: 60
+//            bottomPadding: 60
+//            leftPadding: 30
+//            rightPadding: 30
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: TestHelp{}
+//        }
 
-        Popup {
-            id: connectionReqPopup
-            height: parent.height
-            width: parent.width
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: ConnectionReqest{}
-        }
+//        Popup {
+//            id: connectionReqPopup
+//            height: parent.height
+//            width: parent.width
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: ConnectionReqest{}
+//        }
 
-        Popup {
-            id: pinConfirmPopup
-            height: parent.height
-            width: parent.width
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: PINConfirmation{}
-        }
+//        Popup {
+//            id: pinConfirmPopup
+//            height: parent.height
+//            width: parent.width
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: PINConfirmation{}
+//        }
 
-        Timer{
-            id:  pinaccepttimer
-            interval: 3000
-            onTriggered:{
-                pinConfirmPopup.close()
-                connectionAckPopup.open()
-            }
-        }
+//        Timer{
+//            id:  pinaccepttimer
+//            interval: 3000
+//            onTriggered:{
+//                pinConfirmPopup.close()
+//                connectionAckPopup.open()
+//            }
+//        }
 
-        Popup {
-            id: connectionAckPopup
-            height: parent.height
-            width: parent.width
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: ConnectionAck{}
-        }
+//        Popup {
+//            id: connectionAckPopup
+//            height: parent.height
+//            width: parent.width
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: ConnectionAck{}
+//        }
 
-        Popup {
-            id: connectionLostPopup
-            height: parent.height
-            width: parent.width
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: opaqueBackground
-            }
-            contentItem: ConnectionLost{}
-        }
+//        Popup {
+//            id: connectionLostPopup
+//            height: parent.height
+//            width: parent.width
+//            modal: true
+//            closePolicy: Popup.CloseOnEscape
+//            background: Rectangle{
+//                color: opaqueBackground
+//            }
+//            contentItem: ConnectionLost{}
+//        }
     }
     InputPanel {
         id: inputPanel

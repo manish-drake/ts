@@ -11,7 +11,7 @@ Item {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        radius: 5
+        radius: 4
         color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         height: content.height
         ColumnLayout{

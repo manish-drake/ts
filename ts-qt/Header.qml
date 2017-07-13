@@ -37,7 +37,8 @@ Rectangle {
         text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: toggleMenu.right
-        anchors.right: toggleConfigPanel.left
+        anchors.right: parent.right
+        anchors.rightMargin: 40
         font.bold: Font.DemiBold
         color: Universal.accent
         font.pixelSize: 18

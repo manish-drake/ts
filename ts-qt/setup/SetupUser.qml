@@ -204,8 +204,8 @@ Item{
         anchors.bottomMargin: 10
         anchors.right: parent.right
         anchors.rightMargin: 20
-        height: 40
-        width: 40
+        height: 50
+        width: 50
         radius: width*0.5
         color: Universal.accent
         layer.enabled: true
@@ -218,10 +218,7 @@ Item{
             spread: 0
         }
         Text{
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.topMargin: 1
-            anchors.leftMargin: 10
+            anchors.centerIn: parent
             text:"+"
             font.pixelSize: 28
             font.weight: Font.Bold
@@ -234,7 +231,6 @@ Item{
                 //usersModel.insert(0,{ "userID": "st", "userName": "ST", "language": "En","emailID": "st","isRemovable": true})
                 navigationModel.currentView = navigationModel.getTargetView("AddUser")
             }
-
         }
     }
 }
