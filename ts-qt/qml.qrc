@@ -105,7 +105,6 @@
         <file>img/top-bottom.png</file>
     </qresource>
     <qresource prefix="/database">
-        <file>ts.db</file>
         <file>logs.db</file>
     </qresource>
     <qresource prefix="/fonts">
