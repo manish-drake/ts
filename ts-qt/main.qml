@@ -52,24 +52,24 @@ ApplicationWindow {
                     visible: false
                 }
 
-//                Item{
-//                    width: 320
-//                    anchors.top: parent.top
-//                    anchors.topMargin: 5
-//                    anchors.horizontalCenter: parent.horizontalCenter
-//                    Popup {
-//                        id: configPanelPopup
-//                        width: parent.width
-//                        padding: 0
-//                        modal: true
-//                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-//                        onClosed: contentOpaqueBack.visible = false
-//                        onOpened: contentOpaqueBack.visible = true
-//                        contentItem: ConfigPanel{
-//                            id: configPanel
-//                        }
-//                    }
-//                }
+                Item{
+                    width: 320
+                    anchors.top: parent.top
+                    anchors.topMargin: 5
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    Popup {
+                        id: configPanelPopup
+                        width: parent.width
+                        padding: 0
+                        modal: true
+                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+                        onClosed: contentOpaqueBack.visible = false
+                        onOpened: contentOpaqueBack.visible = true
+                        contentItem: ConfigPanel{
+                            id: configPanel
+                        }
+                    }
+                }
                 Item{
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height

@@ -47,32 +47,32 @@ Rectangle {
         elide: Text.ElideRight
     }
 
-//     Item{
-//        id: toggleConfigPanel
-//        anchors.horizontalCenter: parent.horizontalCenter
-//        anchors.top: parent.top
-//        anchors.bottom: parent.bottom
-//        width: 50
-//        Image {
-//            id: imageCenter
-//            anchors.verticalCenter: parent.verticalCenter
-//            anchors.horizontalCenter: parent.horizontalCenter
-//            source: "qrc:/img/img/Circled Chevron Down-30.png"
-//        }
-//        ColorOverlay{
-//            anchors.fill: imageCenter
-//            source: imageCenter
-//            color: Universal.accent
-//        }
-//        MouseArea {
-//            anchors.fill: parent
-//            onClicked: {
-//                configPanelPopup.open()
-//            }
-//            onPressed: parent.opacity = 0.5
-//            onReleased: parent.opacity = 1
-//        }
-//    }
+     Item{
+        id: toggleConfigPanel
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        width: 50
+        Image {
+            id: imageCenter
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            source: "qrc:/img/img/Circled Chevron Down-30.png"
+        }
+        ColorOverlay{
+            anchors.fill: imageCenter
+            source: imageCenter
+            color: Universal.accent
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                configPanelPopup.open()
+            }
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1
+        }
+    }
      Item{
         anchors.right: parent.right
         anchors.top: parent.top

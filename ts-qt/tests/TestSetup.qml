@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -81,31 +81,43 @@ Item {
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Item{
+                        SwitchDelegate {
+                            id: gpsSourceSwitch
                             Layout.fillWidth: true
                             Layout.fillHeight: true
-                            Image {
-                                id: gpsImg
-                                anchors.fill: parent
-                                anchors.margins: 2
-                                source: "qrc:/img/img/geo_fence.png"
-                                fillMode: Image.PreserveAspectFit
-                                smooth: true
+                            font.pixelSize: 14
+                            text: checked ? "EXTERNAL" : "INTERNAL"
+                            padding: 0
+                            background: Item{}
+                            indicator: Item{}
+                            contentItem: ColumnLayout{
+                                Item{
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Image {
+                                        id: gpsImg
+                                        anchors.fill: parent
+                                        anchors.margins: 2
+                                        source: "qrc:/img/img/geo_fence.png"
+                                        fillMode: Image.PreserveAspectFit
+                                        smooth: true
+                                    }
+                                    ColorOverlay{
+                                        anchors.fill: gpsImg
+                                        source: gpsImg
+                                        color: Universal.accent
+                                    }
+                                }
+                                Text{
+                                    Layout.alignment: Qt.AlignHCenter
+                                    horizontalAlignment: Text.Center
+                                    text: gpsSourceSwitch.text
+                                    font.pixelSize: 12
+                                    font.weight: Font.DemiBold
+                                    font.family: robotoRegular.name
+                                    color: Universal.accent
+                                }
                             }
-                            ColorOverlay{
-                                anchors.fill: gpsImg
-                                source: gpsImg
-                                color: Universal.accent
-                            }
-                        }
-                        Text{
-                            Layout.alignment: Qt.AlignHCenter
-                            horizontalAlignment: Text.Center
-                            text: "INTERNAL"
-                            font.pixelSize: 12
-                            font.weight: Font.DemiBold
-                            font.family: robotoRegular.name
-                            color: Universal.accent
                         }
                     }
                     ColumnLayout{
@@ -120,30 +132,43 @@ Item {
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Item{
+                        SwitchDelegate {
+                            id:uutAntennaSwitch
                             Layout.fillWidth: true
                             Layout.fillHeight: true
-                            Image {
-                                id: topBottomImg
-                                anchors.fill: parent
-                                source: "qrc:/img/img/top-bottom.png"
-                                fillMode: Image.PreserveAspectFit
-                                smooth: true
+                            font.pixelSize: 14
+                            text: checked ? "BOTTOM" : "TOP"
+                            padding: 0
+                            background: Item{}
+                            indicator: Item{}
+                            contentItem: ColumnLayout{
+                                Item{
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                    Image {
+                                        id: topBottomImg
+                                        anchors.fill: parent
+                                        anchors.margins: 2
+                                        source: "qrc:/img/img/top-bottom.png"
+                                        fillMode: Image.PreserveAspectFit
+                                        smooth: true
+                                    }
+                                    ColorOverlay{
+                                        anchors.fill: topBottomImg
+                                        source: topBottomImg
+                                        color: Universal.accent
+                                    }
+                                }
+                                Text{
+                                    Layout.alignment: Qt.AlignHCenter
+                                    horizontalAlignment: Text.Center
+                                    text: uutAntennaSwitch.text
+                                    font.pixelSize: 12
+                                    font.weight: Font.DemiBold
+                                    font.family: robotoRegular.name
+                                    color: Universal.accent
+                                }
                             }
-                            ColorOverlay{
-                                anchors.fill: topBottomImg
-                                source: topBottomImg
-                                color: Universal.accent
-                            }
-                        }
-                        Text{
-                            Layout.alignment: Qt.AlignHCenter
-                            horizontalAlignment: Text.Center
-                            text: "TOP"
-                            font.pixelSize: 12
-                            font.weight: Font.DemiBold
-                            font.family: robotoRegular.name
-                            color: Universal.accent
                         }
                     }
                     ColumnLayout{
@@ -158,36 +183,48 @@ Item {
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Item{
-                            Layout.fillHeight: true
+                        SwitchDelegate {
+                            id: otherToggleSwitch
                             Layout.fillWidth: true
-                            Rectangle{
-                                anchors.centerIn: parent
-                                width: 45
-                                height: 45
-                                color: "transparent"
-                                border.width: 1.5
-                                border.color: Universal.accent
-                                radius: height/2
+                            Layout.fillHeight: true
+                            font.pixelSize: 14
+                            text: checked ? "OFF" : "ON"
+                            padding: 0
+                            background: Item{}
+                            indicator: Item{}
+                            contentItem: ColumnLayout{
+                                Item{
+                                    Layout.fillHeight: true
+                                    Layout.fillWidth: true
+                                    Rectangle{
+                                        anchors.centerIn: parent
+                                        width: 45
+                                        height: 45
+                                        color: "transparent"
+                                        border.width: 1.5
+                                        border.color: Universal.accent
+                                        radius: height/2
+                                        Text{
+                                            anchors.centerIn: parent
+                                            text: otherToggleSwitch.checked ? "OFF" : "ON"
+                                            font.pixelSize: 18
+                                            font.weight: Font.Bold
+                                            font.family: robotoRegular.name
+                                            color: Universal.accent
+
+                                        }
+                                    }
+                                }
                                 Text{
-                                    anchors.centerIn: parent
-                                    text: "ON"
-                                    font.pixelSize: 18
-                                    font.weight: Font.Bold
+                                    Layout.alignment: Qt.AlignHCenter
+                                    horizontalAlignment: Text.Center
+                                    text: otherToggleSwitch.text
+                                    font.pixelSize: 12
+                                    font.weight: Font.DemiBold
                                     font.family: robotoRegular.name
                                     color: Universal.accent
-
                                 }
                             }
-                        }
-                        Text{
-                            Layout.alignment: Qt.AlignHCenter
-                            horizontalAlignment: Text.Center
-                            text: "ON"
-                            font.pixelSize: 12
-                            font.weight: Font.DemiBold
-                            font.family: robotoRegular.name
-                            color: Universal.accent
                         }
                     }
                     Item{
@@ -382,41 +419,61 @@ Item {
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Rectangle{
+                        Item{
                             Layout.fillWidth: true
                             Layout.fillHeight: true
-                            color: "transparent"
-                            border.width: 1
-                            border.color: Universal.accent
-                            radius: 3
-                            ColumnLayout{
-                                anchors.fill: parent
-                                anchors.margins: 5
-                                Item{
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                    Image {
-                                        id: aircraftImg
-                                        anchors.fill: parent
-                                        anchors.margins: 2
-                                        source: "qrc:/img/img/target_aircraft.png"
-                                        fillMode: Image.PreserveAspectFit
+                            ComboBox {
+                                id: aicraftComboBox
+                                implicitWidth: parent.width
+                                implicitHeight: parent.height
+                                textRole: "item"
+                                style: ComboBoxStyle{
+                                    background: Rectangle{
+                                        Layout.fillWidth: true
+                                        Layout.fillHeight: true
+                                        color: "transparent"
+                                        border.width: 1
+                                        border.color: Universal.accent
+                                        radius: 3
+                                        ColumnLayout{
+                                            anchors.fill: parent
+                                            anchors.margins: 5
+                                            Item{
+                                                Layout.fillWidth: true
+                                                Layout.fillHeight: true
+                                                Image {
+                                                    id: aircraftImg
+                                                    anchors.fill: parent
+                                                    anchors.margins: 2
+                                                    source: "qrc:/img/img/target_aircraft.png"
+                                                    fillMode: Image.PreserveAspectFit
+                                                }
+                                                ColorOverlay{
+                                                    anchors.fill: aircraftImg
+                                                    source: aircraftImg
+                                                    color: Universal.accent
+                                                }
+                                            }
+                                            Text{
+                                                Layout.fillWidth: true
+                                                horizontalAlignment: Text.AlignHCenter
+                                                elide: Text.ElideRight
+                                                text: control.currentText
+                                                font.pixelSize: 12
+                                                font.weight: Font.DemiBold
+                                                font.family: robotoRegular.name
+                                                color: Universal.accent
+                                            }
+                                        }
                                     }
-                                    ColorOverlay{
-                                        anchors.fill: aircraftImg
-                                        source: aircraftImg
-                                        color: Universal.accent
-                                    }
+                                    label: Item {}
                                 }
-                                Text{
-                                    Layout.fillWidth: true
-                                    horizontalAlignment: Text.AlignHCenter
-                                    elide: Text.ElideRight
-                                    text: "Piper PA-28-161 Warrior II"
-                                    font.pixelSize: 12
-                                    font.weight: Font.DemiBold
-                                    font.family: robotoRegular.name
-                                    color: Universal.accent
+                                model: ListModel {
+                                    id: aircraftList
+                                    ListElement { item: "Piper PA-28-161 Warrior II" }
+                                    ListElement { item: "Aircraft 2" }
+                                    ListElement { item: "Aircraft 3" }
+                                    ListElement { item: "Aircraft 4" }
                                 }
                             }
                         }
@@ -443,52 +500,72 @@ Item {
                                     color: Universal.foreground
                                     opacity: 0.7
                                 }
-                                Rectangle{
+                                Item{
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    color: "transparent"
-                                    border.width: 1
-                                    border.color: Universal.accent
-                                    radius: 3
-                                    ColumnLayout{
-                                        anchors.fill: parent
-                                        anchors.margins: 5
-                                        Item{
-                                            Layout.fillWidth: true
-                                            Layout.fillHeight: true
-                                            Rectangle{
-                                                anchors.centerIn: parent
-                                                width: 45
-                                                height: 45
+                                    ComboBox {
+                                        id: classComboBox
+                                        implicitWidth: parent.width
+                                        implicitHeight: parent.height
+                                        textRole: "item"
+                                        style: ComboBoxStyle{
+                                            background: Rectangle{
+                                                Layout.fillWidth: true
+                                                Layout.fillHeight: true
                                                 color: "transparent"
-                                                border.width: 1.5
+                                                border.width: 1
                                                 border.color: Universal.accent
-                                                radius: height/2
-                                                Text{
-                                                    anchors.centerIn: parent
-                                                    text: "A"
-                                                    font.pixelSize: 26
-                                                    font.weight: Font.Bold
-                                                    font.family: robotoRegular.name
-                                                    color: Universal.accent
+                                                radius: 3
+                                                ColumnLayout{
+                                                    anchors.fill: parent
+                                                    anchors.margins: 5
+                                                    Item{
+                                                        Layout.fillWidth: true
+                                                        Layout.fillHeight: true
+                                                        Rectangle{
+                                                            anchors.centerIn: parent
+                                                            width: 45
+                                                            height: 45
+                                                            color: "transparent"
+                                                            border.width: 1.5
+                                                            border.color: Universal.accent
+                                                            radius: height/2
+                                                            Text{
+                                                                anchors.centerIn: parent
+                                                                text: control.currentText
+                                                                font.pixelSize: 26
+                                                                font.weight: Font.Bold
+                                                                font.family: robotoRegular.name
+                                                                color: Universal.accent
 
+                                                            }
+                                                        }
+                                                    }
+                                                    Text{
+                                                        Layout.fillWidth: true
+                                                        horizontalAlignment: Text.AlignHCenter
+                                                        elide: Text.ElideRight
+                                                        text: "CLASS " + control.currentText
+                                                        font.pixelSize: 12
+                                                        font.weight: Font.DemiBold
+                                                        font.family: robotoRegular.name
+                                                        color: Universal.accent
+                                                    }
                                                 }
                                             }
+                                            label: Item {}
                                         }
-                                        Text{
-                                            Layout.fillWidth: true
-                                            horizontalAlignment: Text.AlignHCenter
-                                            elide: Text.ElideRight
-                                            text: "CLASS A"
-                                            font.pixelSize: 12
-                                            font.weight: Font.DemiBold
-                                            font.family: robotoRegular.name
-                                            color: Universal.accent
+                                        model: ListModel {
+                                            id: classList
+                                            ListElement { item: "A" }
+                                            ListElement { item: "B" }
+                                            ListElement { item: "C" }
                                         }
                                     }
                                 }
                             }
                         }
+
                         Item{
                             Layout.fillHeight: true
                             Layout.fillWidth: true
@@ -504,46 +581,64 @@ Item {
                                     color: Universal.foreground
                                     opacity: 0.7
                                 }
-                                Rectangle{
+                                Item{
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    color: "transparent"
-                                    border.width: 1
-                                    border.color: Universal.accent
-                                    radius: 3
-                                    ColumnLayout{
-                                        anchors.fill: parent
-                                        anchors.margins: 5
-                                        Item{
-                                            Layout.fillWidth: true
-                                            Layout.fillHeight: true
-                                            Image {
-                                                id: antennaImg
-                                                anchors.fill: parent
-                                                anchors.margins: 2
-                                                source: "qrc:/img/img/antenna.png"
-                                                fillMode: Image.PreserveAspectFit
+                                    ComboBox {
+                                        id: connectionComboBox
+                                        implicitWidth: parent.width
+                                        implicitHeight: parent.height
+                                        textRole: "item"
+                                        style: ComboBoxStyle{
+                                            background: Rectangle{
+                                                color: "transparent"
+                                                border.width: 1
+                                                border.color: Universal.accent
+                                                radius: 3
+                                                ColumnLayout{
+                                                    anchors.fill: parent
+                                                    anchors.margins: 5
+                                                    Item{
+                                                        Layout.fillWidth: true
+                                                        Layout.fillHeight: true
+                                                        Image {
+                                                            id: antennaImg1
+                                                            anchors.fill: parent
+                                                            anchors.margins: 2
+                                                            source: "qrc:/img/img/antenna.png"
+                                                            fillMode: Image.PreserveAspectFit
+                                                        }
+                                                        ColorOverlay{
+                                                            anchors.fill: antennaImg1
+                                                            source: antennaImg1
+                                                            color: Universal.accent
+                                                        }
+                                                    }
+                                                    Text{
+                                                        Layout.fillWidth: true
+                                                        horizontalAlignment: Text.AlignHCenter
+                                                        elide: Text.ElideRight
+                                                        text: control.currentText
+                                                        font.pixelSize: 12
+                                                        font.weight: Font.DemiBold
+                                                        font.family: robotoRegular.name
+                                                        color: Universal.accent
+                                                    }
+                                                }
                                             }
-                                            ColorOverlay{
-                                                anchors.fill: antennaImg
-                                                source: antennaImg
-                                                color: Universal.accent
-                                            }
+                                            label: Item {}
                                         }
-                                        Text{
-                                            Layout.fillWidth: true
-                                            horizontalAlignment: Text.AlignHCenter
-                                            elide: Text.ElideRight
-                                            text: "PORT A"
-                                            font.pixelSize: 12
-                                            font.weight: Font.DemiBold
-                                            font.family: robotoRegular.name
-                                            color: Universal.accent
+                                        model: ListModel {
+                                            id: connectionList
+                                            ListElement { item: "PORT A" }
+                                            ListElement { item: "PORT B" }
+                                            ListElement { item: "PORT C" }
                                         }
                                     }
                                 }
                             }
                         }
+
                     }
                 }
             }
