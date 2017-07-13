@@ -33,7 +33,7 @@ ApplicationWindow {
         Page {
             anchors.fill: parent
 
-            header: Header{id: header}
+            header: Header{id: _header}
 
             contentItem: Rectangle {
                 id:contentRect

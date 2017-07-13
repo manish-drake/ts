@@ -24,6 +24,7 @@ Item{
                 text: navigationModel.navigationParameter.title
                 font.pixelSize: 18
                 font.weight: Font.DemiBold
+                font.family: robotoRegular.name
                 color: Universal.foreground
             }
             PageIndicator {
@@ -279,7 +280,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#99ffffff"
         }
         contentItem: TestSetup{}
     }
