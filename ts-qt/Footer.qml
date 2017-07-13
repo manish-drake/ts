@@ -16,7 +16,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 10
         font.pixelSize: 15
-        text: currentOperator
+        text: currentUser
         font.weight: Font.DemiBold
         font.family: robotoRegular.name
         elide:  Text.ElideRight

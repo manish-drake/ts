@@ -45,13 +45,38 @@ Rectangle{
                 currentIndex: 0
                 model: ListModel{
                     id:cbOperatorItems
-                    ListElement{text:"Operator"}
-                    ListElement{text:"Ken Filardo"}
-                    ListElement{text:"Dave Klamet"}
-                    ListElement{text:"Steve O'Hara"}
+                    ListElement {
+                        userID: "Default"
+                        text: "OPERATOR"
+                        language: "English"
+                        emailID: "operator@mail.com"
+                        isRemovable: false
+                    }
+                    ListElement {
+                        userID: "ken"
+                        text: "KEN FILARDO"
+                        language: "English"
+                        emailID: "ken@mail.com"
+                        isRemovable: true
+                    }
+                    ListElement {
+                        userID: "dave"
+                        text: "DAVE KLAMET"
+                        language: "English"
+                        emailID: "dave@mail.com"
+                        isRemovable: true
+                    }
+                    ListElement {
+                        userID: "steve"
+                        text: "STEVE O'HARA"
+                        language: "English"
+                        emailID: "steve@mail.com"
+                        isRemovable: true
+                    }
                 }
                 onCurrentIndexChanged: {
-                    currentOperator = cbOperatorItems.get(operatorCombobox.currentIndex).text
+                    currentUser = cbOperatorItems.get(operatorCombobox.currentIndex).text
+                    currentUserEmail = cbOperatorItems.get(operatorCombobox.currentIndex).emailID
                 }
             }
         }

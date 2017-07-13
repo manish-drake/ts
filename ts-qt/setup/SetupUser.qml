@@ -57,7 +57,10 @@ Item{
             model: usersModel
             delegate: userCardDelegate
             clip: true
-            onCurrentIndexChanged: currentOperator = usersModel.get(currentIndex).userName
+            onCurrentIndexChanged: {
+                currentUser = usersModel.get(currentIndex).userName
+                currentUserEmail = usersModel.get(currentIndex).emailID
+            }
             Component{
                 id: userCardDelegate
                 Item{

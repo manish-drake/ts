@@ -17,14 +17,20 @@ Rectangle{
         id: columnLayout
         anchors.left: parent.left
         anchors.right: parent.right
-        //        CustomSwitchDelegate{
-        //            text: "SETUP"
-        //            source: "qrc:/img/img/Circled Chevron Down-30.png"
-        //            MouseArea{
-        //                anchors.fill: parent
-        //                onClicked: { moreActionsPopover.close(); configPanelPopup.open()}
-        //            }
-        //        }
+        CustomSwitchDelegate{
+            text: Universal.theme == Universal.Light ? "INDOOR" : "OUTDOOR"
+            source: "qrc:/img/img/Sun Filled-25.png"
+            isChecked: true
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    if(Universal.theme == Universal.Light) {
+                        _theme = Universal.Dark
+                    }
+                    else {_theme = Universal.Light}
+                }
+            }
+        }
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/Settings-25.png"

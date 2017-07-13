@@ -20,7 +20,8 @@ ApplicationWindow {
     Universal.accent: "#25A1CC"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#1a000000" : "#1affffff"
     property string pin;
-    property string currentOperator;
+    property string currentUser: "Operator"
+    property string currentUserEmail: "operator@mail.com"
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
     Item {
@@ -51,24 +52,24 @@ ApplicationWindow {
                     visible: false
                 }
 
-                Item{
-                    width: 320
-                    anchors.top: parent.top
-                    anchors.topMargin: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    Popup {
-                        id: configPanelPopup
-                        width: parent.width
-                        padding: 0
-                        modal: true
-                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                        onClosed: contentOpaqueBack.visible = false
-                        onOpened: contentOpaqueBack.visible = true
-                        contentItem: ConfigPanel{
-                            id: configPanel
-                        }
-                    }
-                }
+//                Item{
+//                    width: 320
+//                    anchors.top: parent.top
+//                    anchors.topMargin: 5
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    Popup {
+//                        id: configPanelPopup
+//                        width: parent.width
+//                        padding: 0
+//                        modal: true
+//                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+//                        onClosed: contentOpaqueBack.visible = false
+//                        onOpened: contentOpaqueBack.visible = true
+//                        contentItem: ConfigPanel{
+//                            id: configPanel
+//                        }
+//                    }
+//                }
                 Item{
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height
