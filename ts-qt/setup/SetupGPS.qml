@@ -24,26 +24,26 @@ Page {
             color: Universal.foreground
         }
 
-        Item{
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            width: 50
-            Image {
-                id: closeImage
-                anchors.centerIn: parent
-                source: "qrc:/img/img/Delete-25.png"
-            }
-            ColorOverlay{
-                anchors.fill: closeImage
-                source: closeImage
-                color: Universal.foreground
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-            }
-        }
+//        Item{
+//            anchors.top: parent.top
+//            anchors.bottom: parent.bottom
+//            anchors.right: parent.right
+//            width: 50
+//            Image {
+//                id: closeImage
+//                anchors.centerIn: parent
+//                source: "qrc:/img/img/Delete-25.png"
+//            }
+//            ColorOverlay{
+//                anchors.fill: closeImage
+//                source: closeImage
+//                color: Universal.foreground
+//            }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+//            }
+//        }
     }
 
     contentItem: Rectangle {

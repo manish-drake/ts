@@ -102,6 +102,7 @@
         <file>img/target_aircraft.png</file>
         <file>img/geo_fence.png</file>
         <file>img/top-bottom.png</file>
+        <file>img/left.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

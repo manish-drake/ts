@@ -9,6 +9,7 @@ Rectangle {
 
     Item{
         id: toggleMenu
+        visible: isMenuView
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -29,7 +30,32 @@ Rectangle {
             onClicked: {
                 sideMenuDrawer.open()
             }
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.8
+            onReleased: parent.opacity = 1
+        }
+    }
+    Item{
+        id: goBack
+        visible: !isMenuView
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        width: 50
+        Image {
+            id:leftImg
+            anchors.centerIn: parent
+            source: "qrc:/img/img/left.png"
+        }
+        ColorOverlay{
+            anchors.fill: leftImg
+            source: leftImg
+            color: Universal.accent
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
+            onPressed: parent.opacity = 0.8
             onReleased: parent.opacity = 1
         }
     }
@@ -38,14 +64,14 @@ Rectangle {
         id: headerTitleText
         text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: toggleMenu.right
+        anchors.left: parent.left
+        anchors.leftMargin: 60
         anchors.right: parent.right
         anchors.rightMargin: 40
         font.bold: Font.DemiBold
         color: Universal.accent
         font.pixelSize: 18
         font.family: robotoRegular.name
-        anchors.leftMargin: 5
         elide: Text.ElideRight
     }
 

@@ -64,29 +64,29 @@ Item{
                 visible: Universal.theme == Universal.Dark
             }
 
-            Item{
-                id: rectangle
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                anchors.rightMargin: 5
-                width: 50
-                Image {
-                    id: closeImage
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Delete-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-                }
-            }
+//            Item{
+//                id: rectangle
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+//                anchors.right: parent.right
+//                anchors.rightMargin: 5
+//                width: 50
+//                Image {
+//                    id: closeImage
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    source: "qrc:/img/img/Delete-25.png"
+//                }
+//                ColorOverlay{
+//                    anchors.fill: closeImage
+//                    source: closeImage
+//                    color: Universal.foreground
+//                }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+//                }
+//            }
         }
 
         contentItem: Rectangle{
