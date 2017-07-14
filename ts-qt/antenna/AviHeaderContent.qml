@@ -16,10 +16,10 @@ Rectangle{
         visible: graphCtrl.areControlsAvailble
         height: parent.height
         anchors.left: parent.left
-        anchors.leftMargin: 5
+        anchors.leftMargin: 10
         Item{
             height:25
-            width: 35
+            width: 40
             Layout.alignment: Qt.AlignVCenter
             Image {
                 id: image1
@@ -73,7 +73,7 @@ Rectangle{
         }
         Item{
             height:25
-            width: 35
+            width: 40
             Layout.alignment: Qt.AlignVCenter
             Image {
                 id: image2
@@ -107,6 +107,7 @@ Rectangle{
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.right: parent.right
+        anchors.rightMargin: 5
         width: 50
         Image {
             id: closeImage

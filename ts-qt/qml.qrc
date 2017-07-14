@@ -8,7 +8,6 @@
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
         <file>antenna/Antenna.qml</file>
-        <file>antenna/AviationCal.qml</file>
         <file>antenna/AviationDTF.qml</file>
         <file>setup/Setup.qml</file>
         <file>setup/SetupAddUser.qml</file>
@@ -46,6 +45,7 @@
         <file>antenna/AviGraphCtrl.qml</file>
         <file>tests/TestSetup.qml</file>
         <file>antenna/AviCommonCtrls.qml</file>
+        <file>antenna/AviCalibration.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -64,7 +64,6 @@
         <file>img/Info-24.png</file>
         <file>img/Download-22.png</file>
         <file>img/waveform.png</file>
-        <file>img/radar.png</file>
         <file>img/Radar-25.png</file>
         <file>img/View Details-25.png</file>
         <file>img/Area Chart-25.png</file>

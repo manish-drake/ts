@@ -27,6 +27,7 @@ Rectangle{
                         _theme = Universal.Dark
                     }
                     else {_theme = Universal.Light}
+                    moreActionsPopover.close()
                 }
             }
         }

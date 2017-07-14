@@ -15,7 +15,6 @@ Item{
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             height: 45
-
             Text {
                 id: title
                 anchors.top: parent.top
@@ -46,6 +45,7 @@ Item{
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
+                anchors.rightMargin: 5
                 width: 50
                 Image {
                     id: closeImage
@@ -280,7 +280,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#99ffffff"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

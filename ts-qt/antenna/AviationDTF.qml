@@ -99,17 +99,13 @@ Item{
     }
     Popup {
         id: calPopup
-        width: parent.width
         height: parent.height
-        leftPadding: 40
-        rightPadding: 40
-        topPadding: 60
-        bottomPadding: 60
+        width: parent.width
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#b3000000"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: AviationCal{mode: "COAX"}
+        contentItem: AviCalibration{mode: "COAX"}
     }
 }

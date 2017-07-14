@@ -8,7 +8,6 @@ import QtQuick.Controls.Universal 2.1
 
 Item{
     Layout.row: 1
-    Layout.column: 0
     Layout.fillWidth: true
     property string bandName
     property bool isEnabled: true

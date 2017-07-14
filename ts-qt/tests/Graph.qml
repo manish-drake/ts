@@ -19,6 +19,7 @@ Item{
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
+                anchors.leftMargin: 5
                 width: 50
                 Image {
                     id: image1
@@ -67,6 +68,7 @@ Item{
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right
+                anchors.rightMargin: 5
                 width: 50
                 Image {
                     id: closeImage
@@ -243,7 +245,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#99ffffff"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }
