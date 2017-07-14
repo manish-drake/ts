@@ -8,7 +8,6 @@ Rectangle {
     id: rectangle4
     height: 40
     color: Universal.theme == Universal.Light ? "#A7A9AC" : "#333333"
-    property string currentOperator
     property bool isController: true
 
     Text {
@@ -17,7 +16,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 10
         font.pixelSize: 15
-        text: currentOperator
+        text: currentUser
         font.weight: Font.DemiBold
         font.family: robotoRegular.name
         elide:  Text.ElideRight

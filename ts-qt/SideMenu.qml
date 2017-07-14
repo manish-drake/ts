@@ -29,7 +29,7 @@ Rectangle{
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "Operator"
+                    text: currentUser
                     color: "white"
                     font.pixelSize: 14
                     font.bold: true
@@ -38,7 +38,7 @@ Rectangle{
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "operator@mail.com"
+                    text: currentUserEmail
                     color: "white"
                     font.pixelSize: 14
                     font.family: robotoRegular.name

@@ -234,7 +234,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#99ffffff"
         }
         contentItem: TestGuide{}
     }

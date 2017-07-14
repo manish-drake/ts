@@ -36,7 +36,7 @@ Rectangle{
                 anchors.fill: parent
                 onClicked: {
                     var datetime = new Date();
-                    var user = configPanel.currentOperator;
+                    var user = configPanel.currentUser;
                     var markerPosition = markersModel.get(0)._val;
                     var markerName = "M" + markersModel.get(0).num;
                     var range = graphCtrl.isScaleChecked ? "-6,-18" : "0,-30";
