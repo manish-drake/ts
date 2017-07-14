@@ -27,7 +27,7 @@ Item{
         Item{
             Layout.row: 1
             Layout.fillWidth: true
-            height: 50
+            height: 45
             ComboBox {
                 id: bandComboBox
                 implicitWidth: parent.width

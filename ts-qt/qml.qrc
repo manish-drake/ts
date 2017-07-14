@@ -24,7 +24,6 @@
         <file>TestSetup.qml</file>
         <file>antenna/AviMarkerActionsCtrl.qml</file>
         <file>antenna/AviModeCtrl.qml</file>
-        <file>antenna/AviFooterContent.qml</file>
         <file>antenna/AviHeaderContent.qml</file>
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
@@ -46,6 +45,7 @@
         <file>antenna/AviCoaxCtrl.qml</file>
         <file>antenna/AviGraphCtrl.qml</file>
         <file>tests/TestSetup.qml</file>
+        <file>antenna/AviCommonCtrls.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

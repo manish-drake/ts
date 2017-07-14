@@ -7,8 +7,8 @@ import QtQuick.Controls 1.4
 import QtGraphicalEffects 1.0
 
 Item{
-    Layout.row: 1
-    Layout.column: 1
+    Layout.row: 2
+//    Layout.column: 1
     Layout.fillWidth: true
     property int currentModeIndex
     height: content1.height
@@ -26,7 +26,7 @@ Item{
         Item{
             Layout.row: 1
             Layout.fillWidth: true
-            height: 50
+            height: 45
             ComboBox {
                 id: modeComboBox
                 implicitWidth: parent.width

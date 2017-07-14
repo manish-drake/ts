@@ -162,7 +162,7 @@ Item{
 
         footer: Rectangle{
             id:testFooterRect
-            height: 70
+            height: 80
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -237,9 +237,9 @@ Item{
                     id: toggleButton
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
-                    height: 60
-                    width: 60
-                    radius: 30
+                    height: 70
+                    width: 70
+                    radius: 35
                     color: Universal.accent
                     property alias imageSource: buttonImage.source
                     state: "play"
