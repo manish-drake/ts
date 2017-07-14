@@ -98,7 +98,7 @@ ApplicationWindow {
 
         Drawer {
             id: sideMenuDrawer
-            width: 250
+            width: 270
             height: parent.height - footer.height
             contentItem: SideMenu{}
         }

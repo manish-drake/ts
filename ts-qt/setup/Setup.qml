@@ -44,8 +44,9 @@ Item {
                         id: user
                         text: qsTr("USER")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -124,8 +125,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("DISPLAY")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -204,8 +206,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("GPS")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -303,8 +306,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("NETWORK")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -402,8 +406,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("SYSTEM INFO")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -441,8 +446,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("CONNECTION")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
@@ -480,8 +486,9 @@ Item {
                         anchors.margins: 10
                         text: qsTr("RUN MANUAL BIT")
                         elide:Text.ElideRight
-                        font.pixelSize: 16
-                        font.weight: Font.ExtraBold
+                        font.pixelSize: 18
+                        font.weight: Font.Black
+                        font.capitalization: Font.AllUppercase
                         font.family: robotoRegular.name
                         color: Universal.accent
                     }
