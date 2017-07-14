@@ -11,6 +11,8 @@ Rectangle {
         id: toggleMenu
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 5
         width: 50
         Image {
             id:toggleMenuImg

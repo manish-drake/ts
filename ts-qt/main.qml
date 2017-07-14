@@ -17,7 +17,7 @@ ApplicationWindow {
     property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    Universal.accent: "#25A1CC"
+    Universal.accent: "#00AEEF"
     property color opaqueBackground: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
     property string pin;
     property string currentUser: "Operator"
