@@ -34,8 +34,6 @@ Item{
                 implicitHeight: parent.height
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: coaxComboBox.height
-                        width: coaxComboBox.width
                         color: Universal.accent
                         opacity: coaxComboBox.pressed ? 0.9 : 1.0
                         radius: 3

@@ -34,8 +34,6 @@ Item{
                 currentIndex: currentModeIndex
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: modeComboBox.height
-                        width: modeComboBox.width
                         color: Universal.accent
                         opacity: modeComboBox.pressed ? 0.9 : 1.0
                         radius: 3

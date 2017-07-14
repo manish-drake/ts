@@ -35,8 +35,6 @@ Item{
                 textRole: "text"
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: bandComboBox.height
-                        width: bandComboBox.width
                         color: Universal.accent
                         opacity: bandComboBox.pressed ? 0.9 : 1.0
                         radius: 3
