@@ -5,7 +5,7 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: Universal.theme == Universal.Light ? "#999999" : "#222222"
+    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
     Universal.accent: "#00AEEF"
     ColumnLayout{
         anchors.fill: parent
@@ -29,7 +29,7 @@ Rectangle{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: currentUser
-                    color: "white"
+                    color: Universal.accent
                     font.pixelSize: 14
                     font.weight: Font.Black
                     font.family: robotoRegular.name
@@ -38,7 +38,7 @@ Rectangle{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: currentUserEmail
-                    color: "white"
+                    color: Universal.accent
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                 }
@@ -48,7 +48,7 @@ Rectangle{
             Layout.row: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: Universal.theme == Universal.Light ? "#E5E7E8" : "#38363C"
+            color: Universal.theme == Universal.Light ? Universal.background : "#38363C"
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
@@ -60,11 +60,11 @@ Rectangle{
                     Item{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: 55
+                        height: 50
                         Rectangle{
                             anchors.fill: parent
                             anchors.margins: 3
-                            color: index == listViewLeftMenu.currentIndex ? Universal.accent : Universal.theme == Universal.Light ? Universal.background : "#222222"
+                            color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
                             radius: 3
                             layer.enabled: true
                             layer.effect: DropShadow {
@@ -81,10 +81,10 @@ Rectangle{
                                 anchors.left: parent.left
                                 anchors.leftMargin: 20
                                 text: name
-                                font.pixelSize: 18
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 17
+                                font.weight: Font.Bold
                                 font.family: robotoRegular.name
-                                color: index == listViewLeftMenu.currentIndex ? "White" : Universal.theme == Universal.Light ? Universal.accent : "White"
+                                color: "White"
                             }
                             MouseArea {
                                 anchors.fill: parent

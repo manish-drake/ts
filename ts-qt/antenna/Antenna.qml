@@ -92,16 +92,16 @@ Item{
                             anchors.fill: parent
                             onClicked: grid.currentIndex = index
                             onDoubleClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                                /*navigationModel.currentView = navigationModel.getTargetView("Aviation-Cal-Short");*/
                         }
                         ColumnLayout{
-                            anchors.fill: parent
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.leftMargin: 20
                             anchors.rightMargin: 20
-                            anchors.topMargin: 5
-                            anchors.bottomMargin: 5
+                            anchors.topMargin: 10
                             clip: true
-                            spacing: 10
+                            spacing: 0
                             RowLayout{
                                 Text {
                                     Layout.fillWidth: true
@@ -113,34 +113,35 @@ Item{
                                     font.family: robotoRegular.name
                                     color: Universal.accent                                    
                                 }
-                                //                            Item{
-                                //                                Layout.column: 1
-                                //                                width: 35
-                                //                                height: 35
-                                //                                Image {
-                                //                                    id: favImage
-                                //                                    anchors.centerIn: parent
-                                //                                    source: "qrc:/img/img/Star Filled-20.png"
-                                //                                }
-                                //                                ColorOverlay {
-                                //                                    anchors.fill: favImage
-                                //                                    source: favImage
-                                //                                    color: "#666666"
-                                //                                }
-                                //                            }
                             }
-                            Item{
-                                Layout.row: 1
-                                Layout.fillHeight: true
-                                Text {
-                                    elide:Text.ElideRight
-                                    text: "RECENT TEST RESULTS"
-                                    font.pixelSize: 12
-                                    font.weight: Font.Bold
-                                    font.family: robotoRegular.name
-                                    color: Universal.foreground
-                                    opacity: 0.5
-                                }
+                            Rectangle{
+                                Layout.topMargin: 10
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                height: 1
+                                color: Universal.foreground
+                                opacity: 0.1
+                            }
+                            Text {
+                                Layout.topMargin: 5
+                                Layout.fillWidth: true
+                                elide:Text.ElideRight
+                                text: "RECENT TEST RESULTS"
+                                font.pixelSize: 12
+                                font.weight: Font.Bold
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.5
+                            }
+                            Text {
+                                Layout.fillWidth: true
+                                elide:Text.ElideRight
+                                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus"
+                                font.pixelSize: 12
+                                font.weight: Font.Bold
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.7
                             }
                         }
                     }

@@ -16,79 +16,105 @@ Item{
         Item{
             Layout.fillWidth: true
         }
-        Rectangle{
+        ColumnLayout{
             Layout.alignment: Qt.AlignBottom
-            height: 50
-            width: 50
-            radius: 25
-            color: Universal.accent
-            Image {
-                id: setupImage
-                anchors.centerIn: parent
-                source: "qrc:/img/img/Settings-25.png"
+            Rectangle{
+                Layout.alignment: Qt.AlignBottom
+                height: 50
+                width: 50
+                radius: 25
+                color: Universal.accent
+                Image {
+                    id: setupImage
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Settings-25.png"
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: calPopup.open()
+                    onPressed: parent.opacity = 0.9
+                    onReleased: parent.opacity = 1
+                }
             }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: calPopup.open()
-                onPressed: parent.opacity = 0.9
-                onReleased: parent.opacity = 1
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: "CAL"
+                font.pixelSize: 12
+                font.capitalization: Font.AllUppercase
+                font.weight: Font.Black
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.6
             }
         }
-        Rectangle{
-            id: toggleButton
+        ColumnLayout{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
-            height: 70
-            width: 70
-            radius: 35
-            color: Universal.accent
-            property alias imageSource: buttonImage.source
-            state: "play"
-            Image {
-                id: buttonImage
-                anchors.centerIn: parent
-                smooth: true
-            }
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                onPressed: {
-                    onPressed: parent.opacity = 0.9
-                    if (parent.state == "play") {
-                        parent.state = "pause"
-                    }
-                    else if(parent.state == "pause"){
-                        parent.state = "stop"
-                    }
-                    else{
-                        parent.state = "play"
-                    }
+            Rectangle{
+                id: toggleButton
+                Layout.alignment: Qt.AlignHCenter
+                height: 70
+                width: 70
+                radius: 35
+                color: Universal.accent
+                property alias imageSource: buttonImage.source
+                state: "start"
+                Image {
+                    id: buttonImage
+                    anchors.centerIn: parent
+                    smooth: true
                 }
-                onReleased: parent.opacity = 1
-            }
-            states: [
-                State {
-                    name: "play"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/play-button.png"
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    onPressed: {
+                        parent.opacity = 0.9
+                        if (parent.state == "start") {
+                            parent.state = "pause"
+                        }
+                        else if(parent.state == "pause"){
+                            parent.state = "stop"
+                        }
+                        else{
+                            parent.state = "start"
+                        }
                     }
-                },
-                State {
-                    name: "stop"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/stop-button.png"
-                    }
-                },
-                State {
-                    name: "pause"
-                    PropertyChanges {
-                        target: toggleButton
-                        imageSource: "qrc:/img/img/pause-button.png"
-                    }
+                    onReleased: parent.opacity = 1
                 }
-            ]
+                states: [
+                    State {
+                        name: "start"
+                        PropertyChanges {
+                            target: toggleButton
+                            imageSource: "qrc:/img/img/play-button.png"
+                        }
+                    },
+                    State {
+                        name: "stop"
+                        PropertyChanges {
+                            target: toggleButton
+                            imageSource: "qrc:/img/img/stop-button.png"
+                        }
+                    },
+                    State {
+                        name: "pause"
+                        PropertyChanges {
+                            target: toggleButton
+                            imageSource: "qrc:/img/img/pause-button.png"
+                        }
+                    }
+                ]
+            }
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: toggleButton.state
+                font.pixelSize: 12
+                font.capitalization: Font.AllUppercase
+                font.weight: Font.Black
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.6
+            }
         }
     }
 }

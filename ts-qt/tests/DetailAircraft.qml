@@ -33,7 +33,7 @@ Item{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar", { "playState": toggleButton.state })
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar", { "runState": toggleButton.state })
                 }
             }
 
@@ -62,29 +62,29 @@ Item{
                 visible: Universal.theme == Universal.Dark
             }
 
-//            Item{
-//                id: rectangle
-//                anchors.top: parent.top
-//                anchors.bottom: parent.bottom
-//                anchors.right: parent.right
-//                anchors.rightMargin: 5
-//                width: 50
-//                Image {
-//                    id: closeImage
-//                    anchors.horizontalCenter: parent.horizontalCenter
-//                    anchors.verticalCenter: parent.verticalCenter
-//                    source: "qrc:/img/img/Delete-25.png"
-//                }
-//                ColorOverlay{
-//                    anchors.fill: closeImage
-//                    source: closeImage
-//                    color: Universal.foreground
-//                }
-//                MouseArea {
-//                    anchors.fill: parent
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//                }
-//            }
+            //            Item{
+            //                id: rectangle
+            //                anchors.top: parent.top
+            //                anchors.bottom: parent.bottom
+            //                anchors.right: parent.right
+            //                anchors.rightMargin: 5
+            //                width: 50
+            //                Image {
+            //                    id: closeImage
+            //                    anchors.horizontalCenter: parent.horizontalCenter
+            //                    anchors.verticalCenter: parent.verticalCenter
+            //                    source: "qrc:/img/img/Delete-25.png"
+            //                }
+            //                ColorOverlay{
+            //                    anchors.fill: closeImage
+            //                    source: closeImage
+            //                    color: Universal.foreground
+            //                }
+            //                MouseArea {
+            //                    anchors.fill: parent
+            //                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+            //                }
+            //            }
 
 
         }
@@ -164,7 +164,7 @@ Item{
 
         footer: Rectangle{
             id:testFooterRect
-            height: 80
+            height: 110
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -173,125 +173,176 @@ Item{
                 anchors.right: parent.right
                 anchors.leftMargin: 15
                 anchors.rightMargin: 15
-                Rectangle{
+                anchors.verticalCenter: parent.verticalCenter
+                ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
-                    height: 50
-                    width: 50
-                    radius: 25
-                    color: Universal.accent
-                    Image {
-                        anchors.centerIn: parent
-                        source: "qrc:/img/img/previous.png"
+                    Layout.leftMargin: 10
+                    Rectangle{
+                        Layout.alignment: Qt.AlignHCenter
+                        height: 50
+                        width: 50
+                        radius: 25
+                        color: Universal.accent
+                        Image {
+                            anchors.centerIn: parent
+                            source: "qrc:/img/img/previous.png"
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
+                            onPressed: parent.opacity = 0.9
+                            onReleased: parent.opacity = 1
+                        }
                     }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
-                        onPressed: parent.opacity = 0.9
-                        onReleased: parent.opacity = 1
+                    Text {
+                        Layout.alignment: Qt.AlignHCenter
+                        text: "PREV"
+                        font.pixelSize: 12
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.6
                     }
                 }
 
-                Rectangle{
+                ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
-                    height: 50
-                    width: 50
-                    radius: 25
-                    color: Universal.accent
-                    Image {
-                        anchors.centerIn: parent
-                        source: "qrc:/img/img/next.png"
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked:{
-                            navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
-                                                               "title": navigationModel.navigationParameter.title,
-                                                               "playState": toggleButton.state
-                                                           })
+                    Rectangle{
+                        Layout.alignment: Qt.AlignHCenter
+                        height: 50
+                        width: 50
+                        radius: 25
+                        color: Universal.accent
+                        Image {
+                            anchors.centerIn: parent
+                            source: "qrc:/img/img/next.png"
                         }
-                        onPressed: parent.opacity = 0.9
-                        onReleased: parent.opacity = 1
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked:{
+                                navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
+                                                                   "title": navigationModel.navigationParameter.title,
+                                                                   "runState": toggleButton.state
+                                                               })
+                            }
+                            onPressed: parent.opacity = 0.9
+                            onReleased: parent.opacity = 1
+                        }
+                    }
+                    Text {
+                        Layout.alignment: Qt.AlignHCenter
+                        text: "NEXT"
+                        font.pixelSize: 12
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.6
                     }
                 }
                 Item{
                     Layout.fillWidth: true
                 }
-                Rectangle{
+                ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
-                    height: 50
-                    width: 50
-                    radius: 25
-                    color: Universal.accent
-                    Image {
-                        id: setupImage
-                        anchors.centerIn: parent
-                        source: "qrc:/img/img/Settings-25.png"
+                    Rectangle{
+                        Layout.alignment: Qt.AlignHCenter
+                        height: 50
+                        width: 50
+                        radius: 25
+                        color: Universal.accent
+                        Image {
+                            id: setupImage
+                            anchors.centerIn: parent
+                            source: "qrc:/img/img/Settings-25.png"
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: testSetupPopup.open()
+                            onPressed: parent.opacity = 0.9
+                            onReleased: parent.opacity = 1
+                        }
                     }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: testSetupPopup.open()
-                        onPressed: parent.opacity = 0.9
-                        onReleased: parent.opacity = 1
+                    Text {
+                        Layout.alignment: Qt.AlignHCenter
+                        text: "SETUP"
+                        font.pixelSize: 12
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.6
                     }
                 }
-                Rectangle{
-                    id: toggleButton
+                ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
-                    height: 70
-                    width: 70
-                    radius: 35
-                    color: Universal.accent
-                    property alias imageSource: buttonImage.source
-                    state: navigationModel.navigationParameter.playState
-                    Image {
-                        id: buttonImage
-                        anchors.centerIn: parent
-                        smooth: true
-                    }
-                    MouseArea {
-                        id: mouseArea
-                        anchors.fill: parent
-                        onPressed: {
-                            parent.opacity = 0.9
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
-                            if (parent.state == "play") {
-                                parent.state = "pause"
-                            }
-                            else if(parent.state == "pause"){
-                                parent.state = "stop"
-                            }
-                            else{
-                                parent.state = "play"
-                            }
+                    Rectangle{
+                        id: toggleButton
+                        Layout.alignment: Qt.AlignHCenter
+                        height: 70
+                        width: 70
+                        radius: 35
+                        color: Universal.accent
+                        property alias imageSource: buttonImage.source
+                        state: navigationModel.navigationParameter.runState
+                        Image {
+                            id: buttonImage
+                            anchors.centerIn: parent
+                            smooth: true
                         }
-                        onReleased: parent.opacity = 1
-                    }
-                    states: [
-                        State {
-                            name: "play"
-                            PropertyChanges {
-                                target: toggleButton
-                                imageSource: "qrc:/img/img/play-button.png"
+                        MouseArea {
+                            id: mouseArea
+                            anchors.fill: parent
+                            onPressed: {
+                                parent.opacity = 0.9
+                                zmq.toggleScan()
+                                console.log(zmq.scanResults)
+                                if (parent.state == "start") {
+                                    parent.state = "pause"
+                                }
+                                else if(parent.state == "pause"){
+                                    parent.state = "stop"
+                                }
+                                else{
+                                    parent.state = "start"
+                                }
                             }
-                        },
-                        State {
-                            name: "stop"
-                            PropertyChanges {
-                                target: toggleButton
-                                imageSource: "qrc:/img/img/stop-button.png"
-                            }
-                        },
-                        State {
-                            name: "pause"
-                            PropertyChanges {
-                                target: toggleButton
-                                imageSource: "qrc:/img/img/pause-button.png"
-                            }
+                            onReleased: parent.opacity = 1
                         }
-                    ]
+                        states: [
+                            State {
+                                name: "start"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/play-button.png"
+                                }
+                            },
+                            State {
+                                name: "stop"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/stop-button.png"
+                                }
+                            },
+                            State {
+                                name: "pause"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            }
+                        ]
+                    }
+                    Text {
+                        Layout.alignment: Qt.AlignHCenter
+                        text: toggleButton.state
+                        font.pixelSize: 12
+                        font.capitalization: Font.AllUppercase
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.6
+                    }
                 }
             }
         }
