@@ -32,10 +32,6 @@
         <file>PINConfirmation.qml</file>
         <file>ConnectionAck.qml</file>
         <file>tests/AircraftDelegate.qml</file>
-        <file>tests/AircraftScan.qml</file>
-        <file>tests/Graph.qml</file>
-        <file>tests/Radar.qml</file>
-        <file>tests/TestDetail.qml</file>
         <file>tests/TestGroup.qml</file>
         <file>tests/TestGuide.qml</file>
         <file>ConnectionLost.qml</file>
@@ -46,6 +42,10 @@
         <file>tests/TestSetup.qml</file>
         <file>antenna/AviCommonCtrls.qml</file>
         <file>antenna/AviCalibration.qml</file>
+        <file>tests/DetailAircraft.qml</file>
+        <file>tests/DetailGraph.qml</file>
+        <file>tests/DetailRadar.qml</file>
+        <file>tests/DetailSummary.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

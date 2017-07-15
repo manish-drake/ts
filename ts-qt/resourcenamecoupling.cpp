@@ -6,14 +6,14 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "tests/TestGroup.qml";
     case 13:
     case 5:
-        return "tests/AircraftScan.qml";
+        return "tests/DetailAircraft.qml";
     case 14 ... 19:
     case 6 ... 12:
-        return "tests/TestDetail.qml";
+        return "tests/DetailSummary.qml";
     case 29 ... 30:
-        return "tests/Radar.qml";
+        return "tests/DetailRadar.qml";
     case 31 ... 32:
-        return "tests/Graph.qml";
+        return "tests/DetailGraph.qml";
     case 4:
         return "setup/Setup.qml";
     case 20:
