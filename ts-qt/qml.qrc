@@ -46,6 +46,7 @@
         <file>tests/DetailGraph.qml</file>
         <file>tests/DetailRadar.qml</file>
         <file>tests/DetailSummary.qml</file>
+        <file>tests/DetailLanding.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -103,6 +104,8 @@
         <file>img/geo_fence.png</file>
         <file>img/top-bottom.png</file>
         <file>img/left.png</file>
+        <file>img/results.png</file>
+        <file>img/guide.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

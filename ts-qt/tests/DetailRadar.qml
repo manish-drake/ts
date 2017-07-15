@@ -35,7 +35,7 @@ Item{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Graph")
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Graph", { "playState": toggleButton.state })
                 }
             }
             Text {
@@ -337,7 +337,7 @@ Item{
                     radius: 35
                     color: Universal.accent
                     property alias imageSource: buttonImage.source
-                    state: "play"
+                    state: navigationModel.navigationParameter.playState
                     Image {
                         id: buttonImage
                         anchors.centerIn: parent

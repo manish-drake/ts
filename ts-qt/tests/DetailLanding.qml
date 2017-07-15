@@ -1,94 +1,16 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
+import QtGraphicalEffects 1.0
+import com.ti.controls 1.0
 
 Item{
     Page {
-        id: item1
         anchors.fill: parent
-        header: Rectangle{
-            id:testHeaderRect
-            height: 45
-            anchors.left: parent.left
-            anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-            Item{
-                id: rectangle1
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                width: 50
-                Image {
-                    id: image1
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/View Details-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: image1
-                    source: image1
-                    color: Universal.foreground
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Scan")
-                }
-            }
-
-            Text {
-                id: title
-                anchors.top: parent.top
-                anchors.topMargin: 5
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: navigationModel.navigationParameter.title
-                font.pixelSize: 18
-                font.weight: Font.DemiBold
-                font.family: robotoRegular.name
-                color: Universal.foreground
-            }
-            PageIndicator {
-                id: pageIndicator
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                count: 7
-                currentIndex: summaryModel.currentPage
-            }
-            ColorOverlay{
-                anchors.fill: pageIndicator
-                source: pageIndicator
-                color: Universal.foreground
-                visible: Universal.theme == Universal.Dark
-            }
-
-//            Item{
-//                id: rectangle
-//                anchors.top: parent.top
-//                anchors.bottom: parent.bottom
-//                anchors.right: parent.right
-//                anchors.rightMargin: 5
-//                width: 50
-//                Image {
-//                    id: closeImage
-//                    anchors.horizontalCenter: parent.horizontalCenter
-//                    anchors.verticalCenter: parent.verticalCenter
-//                    source: "qrc:/img/img/Delete-25.png"
-//                }
-//                ColorOverlay{
-//                    anchors.fill: closeImage
-//                    source: closeImage
-//                    color: Universal.foreground
-//                }
-//                MouseArea {
-//                    anchors.fill: parent
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//                }
-//            }
-        }
-
-        contentItem: Rectangle{
+        contentItem: Rectangle {
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
@@ -98,13 +20,41 @@ Item{
                 clip: true
                 Column{
                     id: content
-                    y: 20
+                    y: 60
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.margins: 10
-                    Image {
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        source: "qrc:/img/img/waveform.png"
+                    spacing: 25
+                    Text {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        horizontalAlignment: Text.AlignHCenter
+                        text: navigationModel.navigationParameter.title
+                        font.pixelSize: 24
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.7
+                    }
+                    Text {
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.leftMargin: 45
+                        anchors.rightMargin: 45
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.WordWrap
+                        text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut"
+                        font.pixelSize: 16
+                        font.weight: Font.Bold
+                        font.family: robotoRegular.name
+                        color: Universal.foreground
+                        opacity: 0.6
+                    }
+                    Image{
+                        id: guideImg
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        fillMode: Image.PreserveAspectFit
+                        source: "qrc:/img/img/guide.png"
                     }
                 }
             }
@@ -112,15 +62,23 @@ Item{
 
         footer: Rectangle{
             id:testFooterRect
-            height: 80
+            height: 90
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            Rectangle{
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 1
+                color: Universal.foreground
+                opacity: 0.2
+            }
             RowLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 15
                 anchors.rightMargin: 15
+                anchors.verticalCenter: parent.verticalCenter
                 Rectangle{
                     Layout.alignment: Qt.AlignBottom
                     height: 50
@@ -128,34 +86,20 @@ Item{
                     radius: 25
                     color: Universal.accent
                     Image {
+                        id: resultsImg
                         anchors.centerIn: parent
-                        source: "qrc:/img/img/previous.png"
+                        source: "qrc:/img/img/results.png"
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
-                    }
-                }
-
-                Rectangle{
-                    Layout.column: 1
-                    Layout.alignment: Qt.AlignBottom
-                    Layout.leftMargin: 10
-                    height: 50
-                    width: 50
-                    radius: 25
-                    color: Universal.accent
-                    Image {
-                        anchors.centerIn: parent
-                        source: "qrc:/img/img/next.png"
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: navigationModel.currentView = navigationModel.getTargetView("Next")
-                        onPressed: parent.opacity = 0.9
-                        onReleased: parent.opacity = 1
+                        onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
+                                                                     "_detailLanding",
+                                                                     navigationModel.navigationParameter.id), {
+                                                                     "title": navigationModel.navigationParameter.title,
+                                                                     "playState": toggleButton.state
+                                                                 });
                     }
                 }
                 Item{
@@ -188,7 +132,7 @@ Item{
                     radius: 35
                     color: Universal.accent
                     property alias imageSource: buttonImage.source
-                    state: navigationModel.navigationParameter.playState
+                    state: "play"
                     Image {
                         id: buttonImage
                         anchors.centerIn: parent
@@ -209,6 +153,12 @@ Item{
                                 parent.state = "play"
                             }
                         }
+                        onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
+                                                                     "_detailLanding",
+                                                                     navigationModel.navigationParameter.id), {
+                                                                     "title": navigationModel.navigationParameter.title,
+                                                                     "playState": toggleButton.state
+                                                                 });
                         onReleased: parent.opacity = 1
                     }
                     states: [
