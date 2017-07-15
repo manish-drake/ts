@@ -9,7 +9,7 @@ import QtGraphicalEffects 1.0
 Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
-    height: 38
+    height: 35
     color: Universal.accent
     radius: 3
     RowLayout{

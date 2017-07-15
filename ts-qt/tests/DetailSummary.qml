@@ -15,7 +15,6 @@ Item{
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             height: 45
-
             Text {
                 id: title
                 anchors.top: parent.top
@@ -41,28 +40,29 @@ Item{
                 visible: Universal.theme == Universal.Dark
             }
 
-            Item{
-                id: rectangle
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                width: 50
-                Image {
-                    id: closeImage
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Delete-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-                }
-            }
+//            Item{
+//                id: rectangle
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+//                anchors.right: parent.right
+//                anchors.rightMargin: 5
+//                width: 50
+//                Image {
+//                    id: closeImage
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    source: "qrc:/img/img/Delete-25.png"
+//                }
+//                ColorOverlay{
+//                    anchors.fill: closeImage
+//                    source: closeImage
+//                    color: Universal.foreground
+//                }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+//                }
+//            }
         }
         contentItem: Rectangle {
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -148,7 +148,7 @@ Item{
 
         footer: Rectangle{
             id:testFooterRect
-            height: 70
+            height: 80
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -218,9 +218,9 @@ Item{
                     id: toggleButton
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
-                    height: 60
-                    width: 60
-                    radius: 30
+                    height: 70
+                    width: 70
+                    radius: 35
                     color: Universal.accent
                     property alias imageSource: buttonImage.source
                     state: navigationModel.navigationParameter.playState
@@ -280,7 +280,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#99ffffff"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

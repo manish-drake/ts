@@ -13,13 +13,13 @@ Item{
         header: AviHeaderContent{
             detailTitle: "VSWR"
         }
-
+        
         contentItem: Rectangle {
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
-                contentHeight: content.height + content.y + 50
+                contentHeight: content.height + content.y + 15
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
                 Column{
@@ -46,31 +46,28 @@ Item{
                         AviModeCtrl{
                             currentModeIndex: 0
                         }
-                        ColumnLayout{
-                            Layout.row: 2
-                            Layout.fillWidth: true
-                            spacing: 2
-                            Repeater{
-                                model: markersModel
-                                Rectangle{
-                                    anchors.left: parent.left
-                                    anchors.right: parent.right
-                                    height: 20
-                                    color: "#0d000000"
-                                    Text{
-                                        anchors.left: parent.left
-                                        anchors.leftMargin: 10
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        color: Universal.foreground
-                                        font.pixelSize: 12
-                                        font.family: robotoRegular.name
-                                        text: "M" + num + "  " + _val
-                                        font.bold: graphCtrl.selectedMarkerIndex == index
-                                        opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
-                                        MouseArea{
-                                            anchors.fill: parent
-                                            onClicked: graphCtrl.selectedMarkerIndex = index
-                                        }
+                        AviCommonCtrls{}
+                    }
+                    ColumnLayout{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        Repeater{
+                            model: markersModel
+                            Item{
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                height: 20
+                                Text{
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    color: Universal.foreground
+                                    font.pixelSize: 12
+                                    font.family: robotoRegular.name
+                                    text: "M" + num + "  " + _val
+                                    font.bold: graphCtrl.selectedMarkerIndex == index
+                                    opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
+                                    MouseArea{
+                                        anchors.fill: parent
+                                        onClicked: graphCtrl.selectedMarkerIndex = index
                                     }
                                 }
                             }
@@ -81,9 +78,6 @@ Item{
                         ListElement{num: 1; _val: 0}
                     }
                 }
-            }
-            AviFooterContent{
-                isCal: true
             }
         }
     }
@@ -103,18 +97,13 @@ Item{
 
     Popup {
         id: calPopup
-        width: parent.width
         height: parent.height
-        leftPadding: 40
-        rightPadding: 40
-        topPadding: 60
-        bottomPadding: 60
+        width: parent.width
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#b3000000"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: AviationCal{ mode: "VSWR/CL" }
+        contentItem: AviCalibration{ mode: "VSWR/CL" }
     }
-
 }

@@ -147,20 +147,11 @@ int DataBuilder::build()
     View vwAntAviationDtf("Antenna-Aviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-//    View vwAntAviationCalShort("Antenna-Aviation-CAL-Short");
-//    viewDao->addView(vwAntAviationCalShort);
-
-//    View vwAntAviationCalOpen("Antenna-Aviation-CAL-Open");
-//    viewDao->addView(vwAntAviationCalOpen);
-
-//    View vwAntAviationCalLoad("Antenna-Aviation-CAL-Load");
-//    viewDao->addView(vwAntAviationCalLoad);
-
-//    View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
-//    viewDao->addView(vwAntAviationCalThru);
-
     View vwAppLogs("Global-App-Logs");
     viewDao->addView(vwAppLogs);
+
+    View vwTestDetailLanding("Test-Detail-Landing");
+    viewDao->addView(vwTestDetailLanding);
 
     SectionModel secModel{};
 
@@ -1039,23 +1030,35 @@ int DataBuilder::build()
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
 
-    //For Home Tests---------------------------------
 
-    Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
-    testModel.addTest(homeAdsbOut1090);
+//    //For Home Tests---------------------------------
 
-    Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(homeToadsbOut1090);
+//    Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
+//    testModel.addTest(homeAdsbOut1090);
 
-    Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
-    testModel.addTest(homeadsbOutUat);
+//    Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwADSBout1090Scan.id());
+//    navigationDaoPtr->addNavigation(homeToadsbOut1090);
 
-    Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(homeToadsbOutUat);
-    //-----------------------------------------------
+//    Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
+//    testModel.addTest(homeadsbOutUat);
 
-    Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(main1090ToScanPage);
+//    Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwADSBoutUATScan.id());
+//    navigationDaoPtr->addNavigation(homeToadsbOutUat);
+//    //-----------------------------------------------
+
+
+
+//    Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
+//    navigationDaoPtr->addNavigation(main1090ToScanPage);
+
+    Navigation adsbOut1090ToDetail(vwADSB.id(), "_test", adsbOut1090.id(), vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbOut1090ToDetail);
+
+    Navigation adsbOut1090LandingToAircraft(vwTestDetailLanding.id(), "_detailLanding",adsbOut1090.id(), vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(adsbOut1090LandingToAircraft);
+
+    Navigation adsbOut1090LandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(adsbOut1090LandingToGroup);
 
     Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
     navigationDaoPtr->addNavigation(scan1090ToRadar);
@@ -1075,8 +1078,17 @@ int DataBuilder::build()
     Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(graphUatToScan);
 
-    Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(mainUatToScanPage);
+//    Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
+//    navigationDaoPtr->addNavigation(mainUatToScanPage);
+
+    Navigation adsbOutUatToDetail(vwADSB.id(), "_test", adsbOutUat.id(), vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbOutUatToDetail);
+
+    Navigation adsbOutUatLandingToAircraft(vwTestDetailLanding.id(), "_detailLanding",adsbOutUat.id(), vwADSBout1090Scan.id());
+    navigationDaoPtr->addNavigation(adsbOutUatLandingToAircraft);
+
+    Navigation adsbOutUatLandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(adsbOutUatLandingToGroup);
 
     Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(scanTo1090P1);
