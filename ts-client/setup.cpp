@@ -27,6 +27,7 @@ void Setup::onMessageReceivedHandler(std::function<void (const QJsonArray &)> ca
 
 void Setup::listUsers()
 {
+    m_session.open();
     auto response = this->m_session.request(RequestFactory::instance().createSetupListUsers()).string();
     if(m_callback){
         m_callback(parseMessage(response));

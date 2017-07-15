@@ -17,6 +17,7 @@ public:
 private:
     QString m_endpoint;
     zmq::socket_t m_socket;
+    bool m_isOpen = false;
 };
 
 #endif // SESSION_H

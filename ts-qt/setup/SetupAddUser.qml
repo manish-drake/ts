@@ -95,6 +95,12 @@ Page {
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     placeholderText: "Enter Name"
+                    text: setup.newUser.name
+                    Binding{
+                        target: setup.newUser
+                        property: "name"
+                        value: name.text
+                    }
                 }
 
                 Text {

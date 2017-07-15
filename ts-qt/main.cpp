@@ -51,13 +51,14 @@ int main(int argc, char *argv[])
         return builder.build();
     } else {
         QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+//        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
         QGuiApplication app(argc, argv);
 
         qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
+
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
@@ -103,6 +104,8 @@ int main(int argc, char *argv[])
         ControlNavigationModel controlNavigationModel;
         context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
+        SetupModel setupModel;
+        context->setContextProperty("setup", &setupModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
