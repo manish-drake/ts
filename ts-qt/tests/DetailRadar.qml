@@ -381,6 +381,18 @@ Item{
         }
     }
     Popup {
+        id: detailMenuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DetailMenu{}
+    }
+    Popup {
         id: testSetupPopup
         height: parent.height
         width: parent.width

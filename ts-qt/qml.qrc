@@ -48,6 +48,7 @@
         <file>tests/DetailSummary.qml</file>
         <file>tests/DetailLanding.qml</file>
         <file>tests/DetailHeader.qml</file>
+        <file>tests/DetailMenu.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -62,7 +63,6 @@
         <file>img/Repeat-25.png</file>
         <file>img/Upload to the Cloud-25.png</file>
         <file>img/album.png</file>
-        <file>img/Star Filled-20.png</file>
         <file>img/Info-24.png</file>
         <file>img/Download-22.png</file>
         <file>img/waveform.png</file>
@@ -107,6 +107,9 @@
         <file>img/left.png</file>
         <file>img/results.png</file>
         <file>img/guide.png</file>
+        <file>img/Star.png</file>
+        <file>img/brightness.png</file>
+        <file>img/exit.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

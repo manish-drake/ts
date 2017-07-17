@@ -88,7 +88,7 @@ Rectangle{
             anchors.fill: parent
             onPressed: parent.opacity = 0.8
             onReleased: parent.opacity = 1
-            onClicked: {}
+            onClicked: detailMenuPopup.open()
         }
     }
 }
