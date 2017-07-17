@@ -6,7 +6,7 @@ import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
-//import QtQuick.VirtualKeyboard 2.1
+import QtQuick.VirtualKeyboard 2.1
 
 ApplicationWindow {
     id: appWindow
@@ -25,12 +25,12 @@ ApplicationWindow {
     property bool isMenuView;
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
-//    Item {
-//        id: appContainer
-//        anchors.left: parent.left
-//        anchors.top: parent.top
-//        anchors.right: parent.right
-//        anchors.bottom: inputPanel.top
+    Item {
+        id: appContainer
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: inputPanel.top
         Page {
             anchors.fill: parent
 
@@ -206,13 +206,13 @@ ApplicationWindow {
         //            }
         //            contentItem: ConnectionLost{}
         //        }
-//    }
-//    InputPanel {
-//        id: inputPanel
-//        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//    }
+    }
+    InputPanel {
+        id: inputPanel
+        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 }
 
 
