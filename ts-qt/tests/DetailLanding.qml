@@ -99,6 +99,7 @@ Item{
                             onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                          "_detailLanding",
                                                                          navigationModel.navigationParameter.id), {
+                                                                         "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
                                                                          "runState": toggleButton.state
                                                                      });
@@ -181,6 +182,7 @@ Item{
                             onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                          "_detailLanding",
                                                                          navigationModel.navigationParameter.id), {
+                                                                         "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
                                                                          "runState": toggleButton.state
                                                                      });

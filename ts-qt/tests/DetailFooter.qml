@@ -31,7 +31,7 @@ Rectangle{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous")
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous",{"id": navigationModel.navigationParameter.id})
                     onPressed: parent.opacity = 0.9
                     onReleased: parent.opacity = 1
                 }
@@ -64,6 +64,7 @@ Rectangle{
                     anchors.fill: parent
                     onClicked:{
                         navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
+                                                           "id": navigationModel.navigationParameter.id,
                                                            "title": navigationModel.navigationParameter.title,
                                                            "runState": toggleButton.state
                                                        })
