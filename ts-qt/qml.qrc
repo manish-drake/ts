@@ -47,6 +47,7 @@
         <file>tests/DetailRadar.qml</file>
         <file>tests/DetailSummary.qml</file>
         <file>tests/DetailLanding.qml</file>
+        <file>tests/DetailHeader.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

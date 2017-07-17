@@ -10,61 +10,10 @@ import com.ti.controls 1.0
 Item{
     Page {
         anchors.fill: parent
-        header: Rectangle{
-            anchors.left: parent.left
-            anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-            height: 45
-            Text {
-                id: title
-                anchors.top: parent.top
-                anchors.topMargin: 5
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: navigationModel.navigationParameter.title
-                font.pixelSize: 18
-                font.weight: Font.DemiBold
-                font.family: robotoRegular.name
-                color: Universal.foreground
-            }
-            PageIndicator {
-                id: pageIndicator
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horizontalCenter
-                count: 7
-                currentIndex: summaryModel.currentPage
-            }
-            ColorOverlay{
-                anchors.fill: pageIndicator
-                source: pageIndicator
-                color: Universal.foreground
-                visible: Universal.theme == Universal.Dark
-            }
 
-            //            Item{
-            //                id: rectangle
-            //                anchors.top: parent.top
-            //                anchors.bottom: parent.bottom
-            //                anchors.right: parent.right
-            //                anchors.rightMargin: 5
-            //                width: 50
-            //                Image {
-            //                    id: closeImage
-            //                    anchors.horizontalCenter: parent.horizontalCenter
-            //                    anchors.verticalCenter: parent.verticalCenter
-            //                    source: "qrc:/img/img/Delete-25.png"
-            //                }
-            //                ColorOverlay{
-            //                    anchors.fill: closeImage
-            //                    source: closeImage
-            //                    color: Universal.foreground
-            //                }
-            //                MouseArea {
-            //                    anchors.fill: parent
-            //                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-            //                }
-            //            }
-        }
-        contentItem: Rectangle {
+        header: DetailHeader{}
+
+        contentItem: Rectangle{
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
@@ -160,7 +109,6 @@ Item{
                 anchors.verticalCenter: parent.verticalCenter
                 ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
-                    Layout.leftMargin: 10
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
                         height: 50

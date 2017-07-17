@@ -23,6 +23,7 @@ ApplicationWindow {
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
     property bool isMenuView;
+    property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
     Item {
@@ -34,7 +35,10 @@ ApplicationWindow {
         Page {
             anchors.fill: parent
 
-            header: Header{id: _header}
+            header: Header{
+                id: mainheader
+                visible: isHeaderAvailable
+            }
 
             contentItem: Rectangle {
                 id:contentRect
@@ -45,17 +49,24 @@ ApplicationWindow {
                     source: registry.getPageFromViewId(navigationModel.currentView)
                     onLoaded: {
                         console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
-                        switch (navigationModel.currentView) {
-                        case 3:
-                        case 4:
-                        case 34:
-                        case 2:
-                        case 1:
-                        case 0:
+                        var x = navigationModel.currentView;
+                        switch (true) {
+                        case x < 5:
+                        case x == 34:
                             isMenuView = true;
+                            isHeaderAvailable = true;
+                            break;
+                        case x == 5:
+                        case (x > 13 && x < 20):
+                        case (x > 5 && x < 13):
+                        case (x > 28 && x < 31):
+                        case (x > 30 && x < 33):
+                            isHeaderAvailable = false;
                             break;
                         default:
                             isMenuView = false;
+                            isHeaderAvailable = true;
+                            break;
                         }
                     }
                 }
