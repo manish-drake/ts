@@ -37,7 +37,9 @@ SOURCES += \
     aviationvswrmodel.cpp \
     controlnavigationmodel.cpp \
     setupmodel.cpp \
-    loggingmodel.cpp
+    loggingmodel.cpp \
+    sectionparammodel.cpp \
+    qsectionparams.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -55,7 +57,9 @@ HEADERS +=\
     aviationvswrmodel.h \
     controlnavigationmodel.h \
     setupmodel.h \
-    loggingmodel.h
+    loggingmodel.h \
+    sectionparammodel.h \
+    qsectionparams.h
 
 unix {
     target.path = /usr/lib

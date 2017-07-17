@@ -1,6 +1,7 @@
 #include "databuilder.h"
 #include "datamanager.h"
 #include "sectionmodel.h"
+#include "sectionparammodel.h"
 #include "testmodel.h"
 #include "summarymodel.h"
 #include "testparammodel.h"
@@ -147,58 +148,56 @@ int DataBuilder::build()
     View vwAntAviationDtf("Antenna-Aviation-DTF");
     viewDao->addView(vwAntAviationDtf);
 
-//    View vwAntAviationCalShort("Antenna-Aviation-CAL-Short");
-//    viewDao->addView(vwAntAviationCalShort);
-
-//    View vwAntAviationCalOpen("Antenna-Aviation-CAL-Open");
-//    viewDao->addView(vwAntAviationCalOpen);
-
-//    View vwAntAviationCalLoad("Antenna-Aviation-CAL-Load");
-//    viewDao->addView(vwAntAviationCalLoad);
-
-//    View vwAntAviationCalThru("Antenna-Aviation-CAL-Thru");
-//    viewDao->addView(vwAntAviationCalThru);
-
     View vwAppLogs("Global-App-Logs");
     viewDao->addView(vwAppLogs);
 
     SectionModel secModel{};
+    SectionParamModel spModel{};
 
-    Section secHome("Home");
+    Section secHome("");
     secModel.addSection(secHome);
 
-    Section secTransponder("Transponder");
-    secModel.addSection(secTransponder);
+    Section secTests("Tests");
+    secModel.addSection(secTests);
 
-    Section secModeS("Mode S");
-    secModel.addSection(secModeS);
+    Section secSystem("System");
+    secModel.addSection(secSystem);
 
-    Section secADSB("ADS-B");
-    secModel.addSection(secADSB);
+    SectionParam spHome("Home", secHome.id());
+    spModel.addSectionParam(spHome);
 
-    Section secNav("NAV");
-    secModel.addSection(secNav);
+    SectionParam spTransponder("Transponder", secTests.id());
+    spModel.addSectionParam(spTransponder);
 
-    Section secComm("Comm");
-    secModel.addSection(secComm);
+    SectionParam spModeS("Mode S", secTests.id());
+    spModel.addSectionParam(spModeS);
 
-    Section secAntenna("Antenna");
-    secModel.addSection(secAntenna);
+    SectionParam spADSB("ADS-B", secTests.id());
+    spModel.addSectionParam(spADSB);
 
-    Section secReports("Reports");
-    secModel.addSection(secReports);
+    SectionParam spNAV("NAV", secTests.id());
+    spModel.addSectionParam(spNAV);
 
-    Section secSetup("Setup");
-    secModel.addSection(secSetup);
+    SectionParam spComm("Comm", secTests.id());
+    spModel.addSectionParam(spComm);
 
-    Section secSearch("Search");
-    secModel.addSection(secSearch);
+    SectionParam spAntenna("Antenna", secTests.id());
+    spModel.addSectionParam(spAntenna);
+
+    SectionParam spReports("Reports", secTests.id());
+    spModel.addSectionParam(spReports);
+
+    SectionParam spSetup("Setup", secSystem.id());
+    spModel.addSectionParam(spSetup);
+
+    SectionParam spSearch("Search", secSystem.id());
+    spModel.addSectionParam(spSearch);
 
     TestModel testModel { };
     SummaryModel sumModel { };
     TestParamModel tpModel { };
 
-    Test adsbOut1090("1090 ADS-B OUT", secADSB.id());
+    Test adsbOut1090("1090 ADS-B OUT", spADSB.id());
     testModel.addTest(adsbOut1090);
 
     //------------------------------P1-------------------------------
@@ -623,12 +622,12 @@ int DataBuilder::build()
     TestParam tpRfDataEc("error-conditions", sumRfData.id(), "Error conditions", "__________", "", 2, 0, 1, 2, "l60.v70.u10");
     tpModel.addTestParam(tpRfDataEc);
 
-    Test in1090("1090 ADS-B IN", secADSB.id());
+    Test in1090("1090 ADS-B IN", spADSB.id());
     testModel.addTest(in1090);
 
     //------------------------------uatOut-------------------------------
 
-    Test adsbOutUat("UAT ADS-B OUT", secADSB.id());
+    Test adsbOutUat("UAT ADS-B OUT", spADSB.id());
     testModel.addTest(adsbOutUat);
 
     //------------------------------P1-------------------------------
@@ -1019,35 +1018,35 @@ int DataBuilder::build()
     TestParam tpUatMsgSumMsgPld("message-Payloads", sumUatMsgSum.id(), "Message Payloads", "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _", "", 5, 0, 1, 2, "l70.v90.u10");
     tpModel.addTestParam(tpUatMsgSumMsgPld);
 
-    Test uatIn("UAT ADS-B IN", secADSB.id());
+    Test uatIn("UAT ADS-B IN", spADSB.id());
     testModel.addTest(uatIn);
 
-    Test antennaAviation("Aviation", secAntenna.id());
+    Test antennaAviation("Aviation", spAntenna.id());
     testModel.addTest(antennaAviation);
 
     auto navigationDaoPtr = DataManager::instance().navigationDao();
 
-    Navigation secToHome(vwGlobal.id(), "_section", secHome.id(), vwHome.id());
+    Navigation secToHome(vwGlobal.id(), "_section", spHome.id(), vwHome.id());
     navigationDaoPtr->addNavigation(secToHome);
 
-    Navigation secToTestGroup(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
+    Navigation secToTestGroup(vwGlobal.id(), "_section", spADSB.id(), vwADSB.id());
     navigationDaoPtr->addNavigation(secToTestGroup);
 
-    Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
+    Navigation secToAntenna(vwGlobal.id(), "_section", spAntenna.id(), vwAntenna.id());
     navigationDaoPtr->addNavigation(secToAntenna);
 
-    Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
+    Navigation secToSetup(vwGlobal.id(), "_section", spSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
 
     //For Home Tests---------------------------------
 
-    Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
+    Test homeAdsbOut1090("1090 ADS-B OUT", spHome.id());
     testModel.addTest(homeAdsbOut1090);
 
     Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwADSBout1090Scan.id());
     navigationDaoPtr->addNavigation(homeToadsbOut1090);
 
-    Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
+    Test homeadsbOutUat("UAT ADS-B OUT", spHome.id());
     testModel.addTest(homeadsbOutUat);
 
     Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwADSBoutUATScan.id());

@@ -12,6 +12,7 @@
 
 #include "databuilder.h"
 #include "sectionmodel.h"
+#include "sectionparammodel.h"
 #include "testmodel.h"
 #include "summarymodel.h"
 #include "testparammodel.h"
@@ -72,6 +73,9 @@ int main(int argc, char *argv[])
 
         SectionModel sectionModel;
         context->setContextProperty("sectionModel", &sectionModel);
+
+        SectionParamModel sectionParamModel;
+        context->setContextProperty("sectionParamModel", &sectionParamModel);
 
         TestModel testModel;
         context->setContextProperty("testModel", &testModel);

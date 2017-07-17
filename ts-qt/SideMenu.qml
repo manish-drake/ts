@@ -3,10 +3,9 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
-
 Rectangle{
-    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#38363C"
-    Universal.accent: "#25A1CC"
+    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
+    Universal.accent: "#00AEEF"
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -15,11 +14,10 @@ Rectangle{
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
         }
-        Rectangle{
+        Item{
             Layout.row: 1
             Layout.fillWidth: true
             height: 60
-            color: "#33000000"
             ColumnLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -29,26 +27,27 @@ Rectangle{
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "Operator"
-                    color: "white"
+                    text: currentUser
+                    color: Universal.accent
                     font.pixelSize: 14
-                    font.bold: true
+                    font.weight: Font.Black
                     font.family: robotoRegular.name
                 }
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "operator@mail.com"
-                    color: "white"
+                    text: currentUserEmail
+                    color: Universal.accent
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                 }
             }
         }
-        Item{
+        Rectangle{
             Layout.row: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
+            color: Universal.theme == Universal.Light ? Universal.background : "#38363C"
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
@@ -57,42 +56,58 @@ Rectangle{
                 clip: true
                 currentIndex: -1
                 delegate:  Component {
-                    Item{
+                    ColumnLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: 55
-                        Rectangle{
-                            anchors.fill: parent
-                            anchors.margins: 3
-                            color: index == listViewLeftMenu.currentIndex ? Universal.accent : Universal.theme == Universal.Light ? Universal.background : "#222222"
-                            radius: 3
-                            layer.enabled: true
-                            layer.effect: DropShadow {
-                                transparentBorder: true
-                                horizontalOffset: 1.0
-                                verticalOffset: 1.1
-                                radius: 4.0
-                                color: "#33000000"
-                                spread: 0
-                                opacity: 0.1
-                            }
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
+                        Text{
+                            Layout.topMargin: 2
+                            Layout.leftMargin: 10
+                            text: sectionGroup
+                            font.capitalization: Font.AllUppercase
+                            font.pixelSize: 12
+                            opacity: 0.6
+                            color: Universal.foreground
+                        }
+                        Repeater{
+                            model: sectionModel.getSectionParamsForsection(id)
+                            Item{
                                 anchors.left: parent.left
-                                anchors.leftMargin: 20
-                                text: name
-                                font.pixelSize: 16
-                                font.weight: Font.DemiBold
-                                font.family: robotoRegular.name
-                                color: index == listViewLeftMenu.currentIndex ? "White" : Universal.theme == Universal.Light ? Universal.accent : "White"
-                            }
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    navigationModel.currentView = navigationModel.getTargetView("_section", id)
-                                    headerTitle = name
-                                    listViewLeftMenu.currentIndex = index
-                                    sideMenuDrawer.close()
+                                anchors.right: parent.right
+                                height: 50
+                                Rectangle{
+                                    anchors.fill: parent
+                                    anchors.margins: 3
+                                    color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
+                                    radius: 3
+                                    layer.enabled: true
+                                    layer.effect: DropShadow {
+                                        transparentBorder: true
+                                        horizontalOffset: 1.0
+                                        verticalOffset: 1.1
+                                        radius: 4.0
+                                        color: "#33000000"
+                                        spread: 0
+                                        opacity: 0.1
+                                    }
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        anchors.left: parent.left
+                                        anchors.leftMargin: 20
+                                        text: model.modelData.name
+                                        font.pixelSize: 17
+                                        font.weight: Font.Bold
+                                        font.family: robotoRegular.name
+                                        color: "White"
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
+                                            headerTitle = name
+                                            listViewLeftMenu.currentIndex = index
+                                            sideMenuDrawer.close()
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -101,12 +116,4 @@ Rectangle{
             }
         }
     }
-    //    Rectangle{
-    //        anchors.right: parent.right
-    //        anchors.top: parent.top
-    //        anchors.bottom: parent.bottom
-    //        width: 1
-    //        color: Universal.foreground
-    //        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
-    //    }
 }

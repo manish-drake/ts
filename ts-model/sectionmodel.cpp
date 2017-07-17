@@ -1,7 +1,24 @@
 #include "sectionmodel.h"
 #include "sectiondao.h"
+#include "datamanager.h"
+#include <QVariant>
+#include "sectionparam.h"
+
 using namespace std;
 
+const QList<QObject*> SectionModel::getSectionParamsForsection(int sectionGroupId) const
+{
+    QList<QObject*> qtp;
+    for(auto &summ: *m_sections){
+        if(summ->id() == sectionGroupId){
+            for(std::unique_ptr<SectionParam> &tp: *(summ->sectionParams())){
+                qtp.append(new QSectionParams(tp->name()));
+
+            }
+        }
+    }
+    return qtp;
+}
 SectionModel::SectionModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
@@ -40,9 +57,9 @@ QVariant SectionModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case Roles::IDRole:
             return section.id();
-        case Roles::NameRole:
+        case Roles::SectionGroupRole:
         case Qt::DisplayRole:
-            return section.name();
+            return section.sectionGroup();
         default:
             return QVariant();
         }
@@ -57,8 +74,8 @@ bool SectionModel::setData(const QModelIndex &index, const QVariant &value, int 
     if(isIndexValid(index)) {
         Section &section = *m_sections->at(index.row());
         switch (role) {
-            case Roles::NameRole:
-            section.setName(value.toString());
+            case Roles::SectionGroupRole:
+            section.setSectionGroup(value.toString());
             break;
         default:
             break;
@@ -93,7 +110,7 @@ QHash<int, QByteArray> SectionModel::roleNames() const
 {
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
-    hash.insert(Roles::NameRole, "name");
+    hash.insert(Roles::SectionGroupRole, "sectionGroup");
     return hash;
 }
 
