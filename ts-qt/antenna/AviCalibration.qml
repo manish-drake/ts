@@ -37,7 +37,7 @@ Item {
                     Text {
                         anchors.centerIn: parent
                         text: "CALIBRATE"
-                        font.pixelSize: 20
+                        font.pixelSize: 18
                         font.weight: Font.DemiBold
                         font.family: robotoRegular.name
                         color: Universal.foreground

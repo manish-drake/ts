@@ -27,7 +27,6 @@
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
-        <file>antenna/DataPopupContent.qml</file>
         <file>ConnectionReqest.qml</file>
         <file>PINConfirmation.qml</file>
         <file>ConnectionAck.qml</file>
@@ -50,6 +49,7 @@
         <file>tests/DetailHeader.qml</file>
         <file>tests/DetailMenu.qml</file>
         <file>tests/DetailFooter.qml</file>
+        <file>antenna/AviHistory.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
