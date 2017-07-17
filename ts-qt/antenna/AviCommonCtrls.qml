@@ -3,18 +3,16 @@ import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 
-Item{    
-    property bool isCal: true
-    id:testFooterRect
-    anchors.bottom: parent.bottom
-    height: 70
-    anchors.left:parent.left
-    anchors.right:parent.right
+Item{
+    Layout.row: 1
+    Layout.column: 1
+    Layout.rowSpan: 2
+    Layout.fillWidth: true
+    Layout.fillHeight: true
     RowLayout{
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.leftMargin: 15
-        anchors.rightMargin: 15
+        anchors.bottom: parent.bottom
         Item{
             Layout.fillWidth: true
         }
@@ -24,7 +22,6 @@ Item{
             width: 50
             radius: 25
             color: Universal.accent
-            visible: isCal
             Image {
                 id: setupImage
                 anchors.centerIn: parent
@@ -41,9 +38,9 @@ Item{
             id: toggleButton
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
-            height: 60
-            width: 60
-            radius: 30
+            height: 70
+            width: 70
+            radius: 35
             color: Universal.accent
             property alias imageSource: buttonImage.source
             state: "play"

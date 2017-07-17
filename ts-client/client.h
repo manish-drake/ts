@@ -10,6 +10,8 @@
 #include <scan.h>
 #include <setup.h>
 
+#define SERVER "tcp://" + m_server + ":6000"
+
 class TSCLIENTSHARED_EXPORT Client: public QObject
 {
     Q_OBJECT

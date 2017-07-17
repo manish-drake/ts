@@ -11,37 +11,43 @@ Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
     color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-    border.color: "gray"
-    border.width: 1
+    radius: 4
     Column{
         id: columnLayout
         anchors.left: parent.left
         anchors.right: parent.right
-        //        CustomSwitchDelegate{
-        //            text: "SETUP"
-        //            source: "qrc:/img/img/Circled Chevron Down-30.png"
-        //            MouseArea{
-        //                anchors.fill: parent
-        //                onClicked: { moreActionsPopover.close(); configPanelPopup.open()}
-        //            }
-        //        }
+        CustomSwitchDelegate{
+            text: Universal.theme == Universal.Light ? "INDOOR" : "OUTDOOR"
+            source: "qrc:/img/img/Sun Filled-25.png"
+            isChecked: true
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {
+                    if(Universal.theme == Universal.Light) {
+                        _theme = Universal.Dark
+                    }
+                    else {_theme = Universal.Light}
+                    moreActionsPopover.close()
+                }
+            }
+        }
         CustomSwitchDelegate{
             text: "SETUP TEST"
             source: "qrc:/img/img/Settings-25.png"
             isChecked: true
-            MouseArea{
-                anchors.fill: parent
-                onClicked: { moreActionsPopover.close(); testSetupPopup.open()}
-            }
+//            MouseArea{
+//                anchors.fill: parent
+//                onClicked: { moreActionsPopover.close(); testSetupPopup.open()}
+//            }
         }
         CustomSwitchDelegate{
             text: "HELP"
             source: "qrc:/img/img/Help Filled-25.png"
             isChecked: true
-            MouseArea{
-                anchors.fill: parent
-                onClicked: { moreActionsPopover.close(); helpPopup.open() }
-            }
+//            MouseArea{
+//                anchors.fill: parent
+//                onClicked: { moreActionsPopover.close(); helpPopup.open() }
+//            }
         }
         CustomSwitchDelegate{
             text: "CLEAR"
@@ -130,13 +136,13 @@ Rectangle{
                 color: Universal.foreground
                 opacity: 0.7
                 font.family: robotoRegular.name
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        moreActionsPopover.close();
-                        connectionReqPopup.open()
-                    }
-                }
+//                MouseArea{
+//                    anchors.fill: parent
+//                    onClicked: {
+//                        moreActionsPopover.close();
+//                        connectionReqPopup.open()
+//                    }
+//                }
             }
         }
     }

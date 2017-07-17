@@ -27,15 +27,13 @@ Item{
         Item{
             Layout.row: 1
             Layout.fillWidth: true
-            height: 50
+            height: 45
             ComboBox {
                 id: coaxComboBox
                 implicitWidth: parent.width
                 implicitHeight: parent.height
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: coaxComboBox.height
-                        width: coaxComboBox.width
                         color: Universal.accent
                         opacity: coaxComboBox.pressed ? 0.9 : 1.0
                         radius: 3

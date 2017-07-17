@@ -5,8 +5,8 @@ import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#38363C"
-    Universal.accent: "#25A1CC"
+    color: Universal.theme == Universal.Light ? "#999999" : "#222222"
+    Universal.accent: "#00AEEF"
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -15,11 +15,10 @@ Rectangle{
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
         }
-        Rectangle{
+        Item{
             Layout.row: 1
             Layout.fillWidth: true
             height: 60
-            color: "#33000000"
             ColumnLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -29,26 +28,27 @@ Rectangle{
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "Operator"
+                    text: currentUser
                     color: "white"
                     font.pixelSize: 14
-                    font.bold: true
+                    font.weight: Font.Black
                     font.family: robotoRegular.name
                 }
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
-                    text: "operator@mail.com"
+                    text: currentUserEmail
                     color: "white"
                     font.pixelSize: 14
                     font.family: robotoRegular.name
                 }
             }
         }
-        Item{
+        Rectangle{
             Layout.row: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
+            color: Universal.theme == Universal.Light ? "#E5E7E8" : "#38363C"
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
@@ -81,7 +81,7 @@ Rectangle{
                                 anchors.left: parent.left
                                 anchors.leftMargin: 20
                                 text: name
-                                font.pixelSize: 16
+                                font.pixelSize: 18
                                 font.weight: Font.DemiBold
                                 font.family: robotoRegular.name
                                 color: index == listViewLeftMenu.currentIndex ? "White" : Universal.theme == Universal.Light ? Universal.accent : "White"
@@ -101,12 +101,4 @@ Rectangle{
             }
         }
     }
-    //    Rectangle{
-    //        anchors.right: parent.right
-    //        anchors.top: parent.top
-    //        anchors.bottom: parent.bottom
-    //        width: 1
-    //        color: Universal.foreground
-    //        opacity: Universal.theme == Universal.Light ? 0.05 : 0.15
-    //    }
 }

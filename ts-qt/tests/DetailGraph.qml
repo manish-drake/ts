@@ -6,6 +6,7 @@ import QtQuick.Controls.Universal 2.1
 
 Item{
     Page {
+        id: item1
         anchors.fill: parent
         header: Rectangle{
             id:testHeaderRect
@@ -18,12 +19,13 @@ Item{
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
+                anchors.leftMargin: 5
                 width: 50
                 Image {
                     id: image1
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Radar-25.png"
+                    source: "qrc:/img/img/View Details-25.png"
                 }
                 ColorOverlay{
                     anchors.fill: image1
@@ -32,12 +34,12 @@ Item{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
+                    onClicked:navigationModel.currentView = navigationModel.getTargetView("Scan")
                 }
             }
 
             Text {
-                id: testDetailTitleText
+                id: title
                 anchors.top: parent.top
                 anchors.topMargin: 5
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -61,100 +63,48 @@ Item{
                 visible: Universal.theme == Universal.Dark
             }
 
-            Item{
-                id: rectangle
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                width: 50
-                Image {
-                    id: closeImage
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    source: "qrc:/img/img/Delete-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-                }
-            }
-
-
+//            Item{
+//                id: rectangle
+//                anchors.top: parent.top
+//                anchors.bottom: parent.bottom
+//                anchors.right: parent.right
+//                anchors.rightMargin: 5
+//                width: 50
+//                Image {
+//                    id: closeImage
+//                    anchors.horizontalCenter: parent.horizontalCenter
+//                    anchors.verticalCenter: parent.verticalCenter
+//                    source: "qrc:/img/img/Delete-25.png"
+//                }
+//                ColorOverlay{
+//                    anchors.fill: closeImage
+//                    source: closeImage
+//                    color: Universal.foreground
+//                }
+//                MouseArea {
+//                    anchors.fill: parent
+//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
+//                }
+//            }
         }
 
         contentItem: Rectangle{
-            id:scanResults
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-            ListView{
-                id: aircraftListView
-                currentIndex: -1
-                anchors.fill:parent
-                //model:zmq.scanResults
-                model: aircraftModel
-                delegate:aircraftDetail
-                spacing: 5
-                anchors.leftMargin: 15
-                anchors.rightMargin: 15
+            Flickable {
+                anchors.fill: parent
+                contentWidth: parent.width;
+                contentHeight: content.height + content.y + 10
+                boundsBehavior: Flickable.StopAtBounds
                 clip: true
-                highlightMoveDuration: 0
-                highlight:Rectangle{
-                    color:"transparent"
-                    border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                    border.width: 1
-                    radius:5
-                }
-                Component{
-                    id:aircraftDetail
-                    Item{
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        height: 100
-                        AircraftDelegate{
-                            anchors.fill:parent
-                            anchors.margins: 1
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked:{
-                                aircraftListView.currentIndex = index
-                            }
-                        }
-                    }
-                }
-                ListModel {//as per discussion only top four values will be displayed here
-                    id:aircraftModel
-                    ListElement {
-                        aircraftId: "#1"
-                        address: "2345AA (H) /23734510 (0)"
-                        flight: "N 1246W"
-                        bsdrevd: "0,5 0.8 0,9 6,0 6.1 6.5"
-                        rflevel: "Strong"
-                    }
-                    ListElement {
-                        aircraftId: "#2"
-                        address: "CA310A (H) I 74361202 (0)"
-                        flight: "Device1"
-                        bsdrevd: "0.6 0.8 6,5"
-                        rflevel: "Medium"
-                    }
-                    ListElement {
-                        aircraftId: "#3"
-                        address: "9CDA34 (H)/47800213 (0)"
-                        flight: "VIPER1"
-                        bsdrevd: "0,5 0.8 0,8 0.9 6.5"
-                        rflevel: "Weak"
-                    }
-                    ListElement {
-                        aircraftId: "#4"
-                        address: "3BCA14 (H) /12800208 (0)"
-                        flight: "Device2"
-                        bsdrevd: "0,3 0,7 0.7 0.8 6.4"
-                        rflevel: "Strong"
+                Column{
+                    id: content
+                    y: 20
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.margins: 10
+                    Image {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        source: "qrc:/img/img/waveform.png"
                     }
                 }
             }
@@ -162,7 +112,7 @@ Item{
 
         footer: Rectangle{
             id:testFooterRect
-            height: 70
+            height: 80
             anchors.left: parent.left
             anchors.right: parent.right
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -190,6 +140,7 @@ Item{
                 }
 
                 Rectangle{
+                    Layout.column: 1
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
                     height: 50
@@ -202,12 +153,7 @@ Item{
                     }
                     MouseArea {
                         anchors.fill: parent
-                        onClicked:{
-                            navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
-                                                               "title": navigationModel.navigationParameter.title,
-                                                               "playState": toggleButton.state
-                                                           })
-                        }
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("Next")
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
                     }
@@ -237,12 +183,12 @@ Item{
                     id: toggleButton
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
-                    height: 60
-                    width: 60
-                    radius: 30
+                    height: 70
+                    width: 70
+                    radius: 35
                     color: Universal.accent
                     property alias imageSource: buttonImage.source
-                    state: "play"
+                    state: navigationModel.navigationParameter.playState
                     Image {
                         id: buttonImage
                         anchors.centerIn: parent
@@ -253,8 +199,6 @@ Item{
                         anchors.fill: parent
                         onPressed: {
                             parent.opacity = 0.9
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
                             if (parent.state == "play") {
                                 parent.state = "pause"
                             }
@@ -301,9 +245,8 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }
 }
-

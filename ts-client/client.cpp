@@ -18,8 +18,8 @@ Client::Client(QObject *parent) :
     m_up_scanResults{new JsonArrayModel()},
     m_ctx{1},
     m_server{"localhost"},
-    m_scan{m_ctx, "tcp://" + m_server + ":6000"},
-    m_setup{m_ctx, "tcp://" + m_server + ":6000"}
+    m_scan{m_ctx, SERVER},
+    m_setup{m_ctx, SERVER}
 {
 }
 

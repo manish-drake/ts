@@ -91,7 +91,7 @@ Item{
                         MouseArea {
                             anchors.fill: parent
                             onClicked: grid.currentIndex = index
-                            onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name});
+                            onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
                         }
                         ColumnLayout{
                             anchors.fill: parent
@@ -106,8 +106,9 @@ Item{
                                     Layout.fillWidth: true
                                     elide:Text.ElideRight
                                     text: name
-                                    font.pixelSize: 16
-                                    font.weight: Font.ExtraBold
+                                    font.pixelSize: 18
+                                    font.weight: Font.Black
+                                    font.capitalization: Font.AllUppercase
                                     font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
@@ -136,29 +137,29 @@ Item{
                                     }
                                 }
 
-                                Item{
-                                    Layout.column: 2
-                                    width: 35
-                                    height: 35
-                                    Image {
-                                        id: saveImage
-                                        anchors.centerIn: parent
-                                        source: "qrc:/img/img/Download-22.png"
-                                    }
-                                    ColorOverlay {
-                                        anchors.fill: saveImage
-                                        source: saveImage
-                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            //  popupCenter.open()
-                                        }
-                                        onPressed: parent.opacity = 0.5
-                                        onReleased: parent.opacity = 1
-                                    }
-                                }
+//                                Item{
+//                                    Layout.column: 2
+//                                    width: 35
+//                                    height: 35
+//                                    Image {
+//                                        id: saveImage
+//                                        anchors.centerIn: parent
+//                                        source: "qrc:/img/img/Download-22.png"
+//                                    }
+//                                    ColorOverlay {
+//                                        anchors.fill: saveImage
+//                                        source: saveImage
+//                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+//                                    }
+//                                    MouseArea {
+//                                        anchors.fill: parent
+//                                        onClicked: {
+//                                            //  popupCenter.open()
+//                                        }
+//                                        onPressed: parent.opacity = 0.5
+//                                        onReleased: parent.opacity = 1
+//                                    }
+//                                }
 
                                 //                            Item{
                                 //                                Layout.column: 3
@@ -176,32 +177,32 @@ Item{
                                 //                                }
                                 //                            }
 
-                                RowLayout {
-                                    id: rowLayout1
-                                    Layout.column: 4
-                                    spacing: 5
-                                    Item{
-                                        width: album.width
-                                        height: album.height
-                                        Image {
-                                            id: album
-                                            source: "qrc:/img/img/album.png"
-                                        }
-                                        ColorOverlay {
-                                            anchors.fill: album
-                                            source: album
-                                            color: "#666666"
-                                        }
-                                    }
-                                    Text {
-                                        Layout.column: 1
-                                        text: "7"
-                                        font.pixelSize: 14
-                                        font.family: robotoRegular.name
-                                        color: "#666666"
-                                        font.bold: true
-                                    }
-                                }
+//                                RowLayout {
+//                                    id: rowLayout1
+//                                    Layout.column: 4
+//                                    spacing: 5
+//                                    Item{
+//                                        width: album.width
+//                                        height: album.height
+//                                        Image {
+//                                            id: album
+//                                            source: "qrc:/img/img/album.png"
+//                                        }
+//                                        ColorOverlay {
+//                                            anchors.fill: album
+//                                            source: album
+//                                            color: "#666666"
+//                                        }
+//                                    }
+//                                    Text {
+//                                        Layout.column: 1
+//                                        text: "7"
+//                                        font.pixelSize: 14
+//                                        font.family: robotoRegular.name
+//                                        color: "#666666"
+//                                        font.bold: true
+//                                    }
+//                                }
                             }
                             Item{
                                 Layout.row: 1
@@ -213,7 +214,7 @@ Item{
                                     font.weight: Font.Bold
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
-                                    opacity: 0.4
+                                    opacity: 0.5
                                 }
                             }
 
@@ -234,7 +235,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: "#99000000"
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestGuide{}
     }
