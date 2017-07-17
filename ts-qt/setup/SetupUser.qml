@@ -19,7 +19,6 @@ Item{
             font.family: robotoRegular.name
             color: Universal.foreground
         }
-//<<<<<<< HEAD
 //        Item{
 //            id: rectangle
 //            anchors.top: parent.top
@@ -30,7 +29,7 @@ Item{
 //                id: closeImage
 //                anchors.horizontalCenter: parent.horizontalCenter
 //                anchors.verticalCenter: parent.verticalCenter
-//                   source: "qrc:/img/img/Delete-25.png"
+//                source: "qrc:/img/img/Delete-25.png"
 //            }
 //            ColorOverlay{
 //                anchors.fill: closeImage
@@ -40,37 +39,11 @@ Item{
 //            MouseArea {
 //                anchors.fill: parent
 //                onClicked: {
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back");
+//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
 //                }
 //            }
 //        }
-//=======
-////        Item{
-////            id: rectangle
-////            anchors.top: parent.top
-////            anchors.bottom: parent.bottom
-////            anchors.right: parent.right
-////            width: 50
-////            Image {
-////                id: closeImage
-////                anchors.horizontalCenter: parent.horizontalCenter
-////                anchors.verticalCenter: parent.verticalCenter
-////                source: "qrc:/img/img/Delete-25.png"
-////            }
-////            ColorOverlay{
-////                anchors.fill: closeImage
-////                source: closeImage
-////                color: Universal.foreground
-////            }
-////            MouseArea {
-////                anchors.fill: parent
-////                onClicked: {
-////                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-////                }
-////            }
-////        }
-//>>>>>>> e4d4f105a40531321ada4e66e5f7fc3a1906086c
-//    }
+    }
 
     Item{
         anchors.top: header.bottom
