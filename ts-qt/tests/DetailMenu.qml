@@ -10,7 +10,7 @@ Item{
         anchors.right: parent.right
         Rectangle{
             Layout.fillWidth: true
-            Layout.maximumWidth: 400
+            Layout.maximumWidth: 500
             Layout.alignment: Qt.AlignHCenter
             color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4

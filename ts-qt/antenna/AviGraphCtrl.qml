@@ -25,14 +25,10 @@ RowLayout{
     anchors.left: parent.left
     anchors.right: parent.right
     spacing: 0
-    Item{
-        Layout.column: 0
-        Layout.fillWidth: true
-    }
-
     GridLayout{
-        Layout.column: 1
+        Layout.fillWidth: true
         Layout.maximumWidth: 450
+        Layout.alignment: Qt.AlignHCenter
         rowSpacing: 0
         columnSpacing: 0
         SwitchDelegate{
@@ -432,10 +428,6 @@ RowLayout{
                 }
             }
         }
-    }
-    Item{
-        Layout.column: 2
-        Layout.fillWidth: true
     }
 }
 

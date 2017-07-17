@@ -7,10 +7,12 @@ import QtQuick.Controls.Styles 1.4
 import QtGraphicalEffects 1.0
 
 Item {
+    RowLayout{
+        anchors.fill: parent
     Rectangle{
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
+        Layout.fillWidth: true
+        Layout.maximumWidth: 650
+        Layout.alignment: Qt.AlignCenter
         radius: 4
         color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
         height: content.height
@@ -710,5 +712,6 @@ Item {
                 }
             }
         }
+    }
     }
 }
