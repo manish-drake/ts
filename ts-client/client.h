@@ -5,8 +5,12 @@
 #include <QObject>
 #include <memory>
 #include <zmq.hpp>
-#include <scan.h>
 #include "jsonarraymodel.h"
+
+#include <scan.h>
+#include <setup.h>
+
+#define SERVER "tcp://" + m_server + ":6000"
 
 class TSCLIENTSHARED_EXPORT Client: public QObject
 {
@@ -17,6 +21,8 @@ public:
     Q_PROPERTY(QString server READ server WRITE setServer NOTIFY serverChanged)
 
     Q_INVOKABLE bool toggleScan();
+    Q_INVOKABLE bool queryUsers();
+    bool addUser(int &userID, const QString &name);
 
     QString server();
     void setServer(const QString &server);
@@ -34,6 +40,7 @@ private:
     zmq::context_t m_ctx;
     QString m_server;
     Scan m_scan;
+    Setup m_setup;
 };
 
 #endif // CLIENT_H

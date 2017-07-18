@@ -79,7 +79,7 @@ Rectangle{
         }
         CustomSwitchDelegate{
             text: "HOME"
-            source: "qrc:/img/img/Star Filled-20.png"
+            source: "qrc:/img/img/Star.png"
         }
         CustomSwitchDelegate{
             text: "GUIDE"

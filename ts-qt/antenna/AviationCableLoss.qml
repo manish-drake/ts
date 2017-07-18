@@ -88,13 +88,13 @@ Item{
         id: savedDataPopup
         width: parent.width
         height: parent.height
-        padding: 40
         modal: true
         closePolicy: Popup.CloseOnEscape
+        padding: 20
         background: Rectangle{
             color: "#b3000000"
         }
-        contentItem: DataPopupContent{}
+        contentItem: AviHistory{}
     }
     Popup {
         id: calPopup

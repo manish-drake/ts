@@ -33,11 +33,11 @@ Item{
                 Text {
                     Layout.fillWidth: true
                     text: headerTitle
-                    font.pixelSize: 16
-                    font.weight: Font.ExtraBold
+                    font.pixelSize: 18
+                    font.weight: Font.Black
                     font.family: robotoRegular.name
                     color: Universal.foreground
-                    opacity: 0.6
+                    opacity: 0.7
                 }
                 Text {
                     Layout.row: 1
@@ -94,13 +94,14 @@ Item{
                             onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
                         }
                         ColumnLayout{
-                            anchors.fill: parent
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.leftMargin: 20
                             anchors.rightMargin: 20
-                            anchors.topMargin: 5
-                            anchors.bottomMargin: 5
+                            anchors.topMargin: 10
                             clip: true
-                            spacing: 10
+                            spacing: 0
                             RowLayout{
                                 Text {
                                     Layout.fillWidth: true
@@ -112,112 +113,61 @@ Item{
                                     font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
-                                Item{
-                                    Layout.column: 2
-                                    width: 35
-                                    height: 35
-                                    Image {
-                                        id: guideImage
-                                        anchors.centerIn: parent
-                                        source: "qrc:/img/img/Info-24.png"
-                                    }
-                                    ColorOverlay {
-                                        anchors.fill: guideImage
-                                        source: guideImage
-                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-                                    }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            guideTestName = name
-                                            guidePopup.open()
-                                        }
-                                        onPressed: parent.opacity = 0.5
-                                        onReleased: parent.opacity = 1
-                                    }
-                                }
-
 //                                Item{
 //                                    Layout.column: 2
 //                                    width: 35
 //                                    height: 35
 //                                    Image {
-//                                        id: saveImage
+//                                        id: guideImage
 //                                        anchors.centerIn: parent
-//                                        source: "qrc:/img/img/Download-22.png"
+//                                        source: "qrc:/img/img/Info-24.png"
 //                                    }
 //                                    ColorOverlay {
-//                                        anchors.fill: saveImage
-//                                        source: saveImage
+//                                        anchors.fill: guideImage
+//                                        source: guideImage
 //                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
 //                                    }
 //                                    MouseArea {
 //                                        anchors.fill: parent
 //                                        onClicked: {
-//                                            //  popupCenter.open()
+//                                            guideTestName = name
+//                                            guidePopup.open()
 //                                        }
 //                                        onPressed: parent.opacity = 0.5
 //                                        onReleased: parent.opacity = 1
 //                                    }
 //                                }
 
-                                //                            Item{
-                                //                                Layout.column: 3
-                                //                                width: 35
-                                //                                height: 35
-                                //                                Image {
-                                //                                    id: favImage
-                                //                                    anchors.centerIn: parent
-                                //                                    source: "qrc:/img/img/Star Filled-20.png"
-                                //                                }
-                                //                                ColorOverlay {
-                                //                                    anchors.fill: favImage
-                                //                                    source: favImage
-                                //                                    color: "#666666"
-                                //                                }
-                                //                            }
-
-//                                RowLayout {
-//                                    id: rowLayout1
-//                                    Layout.column: 4
-//                                    spacing: 5
-//                                    Item{
-//                                        width: album.width
-//                                        height: album.height
-//                                        Image {
-//                                            id: album
-//                                            source: "qrc:/img/img/album.png"
-//                                        }
-//                                        ColorOverlay {
-//                                            anchors.fill: album
-//                                            source: album
-//                                            color: "#666666"
-//                                        }
-//                                    }
-//                                    Text {
-//                                        Layout.column: 1
-//                                        text: "7"
-//                                        font.pixelSize: 14
-//                                        font.family: robotoRegular.name
-//                                        color: "#666666"
-//                                        font.bold: true
-//                                    }
-//                                }
                             }
-                            Item{
-                                Layout.row: 1
-                                Layout.fillHeight: true
-                                Text {
-                                    elide:Text.ElideRight
-                                    text: "RECENT TEST RESULTS"
-                                    font.pixelSize: 12
-                                    font.weight: Font.Bold
-                                    font.family: robotoRegular.name
-                                    color: Universal.foreground
-                                    opacity: 0.5
-                                }
+                            Rectangle{
+                                Layout.topMargin: 10
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                height: 1
+                                color: Universal.foreground
+                                opacity: 0.1
                             }
-
+                            Text {
+                                Layout.topMargin: 5
+                                Layout.fillWidth: true
+                                elide:Text.ElideRight
+                                text: "RECENT TEST RESULTS"
+                                font.pixelSize: 12
+                                font.weight: Font.Bold
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.5
+                            }
+                            Text {
+                                Layout.fillWidth: true
+                                elide:Text.ElideRight
+                                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus"
+                                font.pixelSize: 12
+                                font.weight: Font.Bold
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
                         }
                     }
                 }

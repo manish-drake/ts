@@ -229,7 +229,8 @@ Item{
             anchors.fill: parent
             onClicked: {
                 //usersModel.insert(0,{ "userID": "st", "userName": "ST", "language": "En","emailID": "st","isRemovable": true})
-                navigationModel.currentView = navigationModel.getTargetView("AddUser")
+                setup.createNewUser();
+                navigationModel.currentView = navigationModel.getTargetView("AddUser");
             }
         }
     }

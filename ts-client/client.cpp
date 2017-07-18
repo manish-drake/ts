@@ -17,8 +17,9 @@ Client::Client(QObject *parent) :
     QObject(parent),
     m_up_scanResults{new JsonArrayModel()},
     m_ctx{1},
-    m_server{"127.0.0.1"},
-    m_scan{m_ctx, "tcp://" + m_server + ":6000"}
+    m_server{"localhost"},
+    m_scan{m_ctx, SERVER},
+    m_setup{m_ctx, SERVER}
 {
 }
 
@@ -37,11 +38,29 @@ bool Client::toggleScan(){
     }
 }
 
+bool Client::queryUsers()
+{
+    this->m_setup.onMessageReceivedHandler([this](const QJsonArray &results){
+        this->setScanResults(JsonArrayModel::fromQJsonArray(results));
+    });
+    m_setup.listUsers();
+}
+
+bool Client::addUser(int &userID, const QString &name)
+{
+    this->m_setup.onMessageReceivedHandler([this](const QJsonArray &results){
+        this->setScanResults(JsonArrayModel::fromQJsonArray(results));
+    });
+    this->m_setup.addUser(userID, name);
+    return true;
+}
+
 void Client::setServer(const QString &server)
 {
     if(m_server != server){
         m_server = server;
         m_scan.changeEndpoint("tcp://" + server + ":6000");
+        m_setup.changeEndpoint("tcp://" + server + ":6000");
         emit serverChanged();
     }
 }
@@ -58,7 +77,6 @@ JsonArrayModel *Client::scanResults() const
 
 void Client::setScanResults(std::unique_ptr<JsonArrayModel> model)
 {
-
     m_up_scanResults = std::move(model);
     emit this->scanResultsChanged(m_up_scanResults.get());
 }

@@ -39,7 +39,8 @@ SOURCES += \
     loggingmodel.cpp \
     sectiongroupmodel.cpp \
     sectionmodel.cpp \
-    qsections.cpp
+    qsections.cpp\
+    user.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -59,7 +60,8 @@ HEADERS +=\
     loggingmodel.h \
     qsections.h \
     sectiongroupmodel.h \
-    sectionmodel.h
+    sectionmodel.h\
+    user.h
 
 unix {
     target.path = /usr/lib
@@ -79,3 +81,40 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-dao/ -lts-dao
 
 INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
+
+win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-client/debug/ -lts-client
+else:unix: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
+
+INCLUDEPATH += $$PWD/../ts-client
+DEPENDPATH += $$PWD/../ts-client
+unix {
+    unix:!macx:!android: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
+
+    INCLUDEPATH += $$PWD/../../../../../usr/local/include
+    DEPENDPATH += $$PWD/../../../../../usr/local/include
+
+    unix:!macx:!android: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+}
+android{
+    unix:!macx: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+
+    INCLUDEPATH += $$PWD/../../../../zeromq-android/include
+    DEPENDPATH += $$PWD/../../../../zeromq-android/include
+}
+macx{
+    macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+
+    INCLUDEPATH += $$PWD/../../../libzmq_dist/include
+    DEPENDPATH += $$PWD/../../../libzmq_dist/include
+
+    macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
+}
+win32{
+    !android{
+        win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+
+        INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+    }
+}

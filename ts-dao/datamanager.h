@@ -33,7 +33,11 @@ class QSqlQuery;
 #endif
 
 const QString DATABASE_FILENAME = "ts.db";
-const QString LOG_DB_FILE = "c:/git/qt/ts/logs.db";
+#ifdef Q_OS_LINUX
+    const QString LOG_DB_FILE = "../../ts/logs.db";
+#else
+    const QString LOG_DB_FILE = "c:/git/qt/ts/logs.db";
+#endif
 
 class TSDAOSHARED_EXPORT DataManager
 {
@@ -57,6 +61,7 @@ public:
     std::shared_ptr<const AviationVswrDao> aviationVswrDao() const;
     std::shared_ptr<const AviationClDao> aviationClDao() const;
     std::shared_ptr<const AviationDtfDao> aviationDtfDao() const;
+
     std::shared_ptr<const LoggingDao> loggingDao() const;
     ~DataManager();
 

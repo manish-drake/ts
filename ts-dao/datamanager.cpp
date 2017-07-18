@@ -5,8 +5,10 @@
 #include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
+#include <stdlib.h>
+#include <mutex>
 
-
+std::mutex mutx;
 
 DataManager &DataManager::instance()
 {
@@ -30,6 +32,7 @@ DataManager &DataManager::instance()
 
 DataManager &DataManager::logger()
 {
+    mutx.lock();
 #if defined (Q_OS_ANDROID) || defined (Q_OS_IOS)
     QFile assetDbFile(":/database/logs.db");/*   :/database/logs.db   */
     QString destinationDbFile = QStandardPaths::writableLocation(
@@ -43,21 +46,16 @@ DataManager &DataManager::logger()
 #else
     static DataManager _logger(LOG_DB_FILE,true);
 #endif
+    mutx.unlock();
     return _logger;
 }
 DataManager::DataManager(const QString &path, bool forLog):
-    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
+    m_database(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE", forLog? "LOG":"DB")))
 {
-//    QDir dir("/home/manish/git/ts");
-//    QString s;
-
-//    s = dir.relativeFilePath("images/file.jpg");     // s is "images/file.jpg"
-//    s = dir.relativeFilePath("/home/mary/file.txt"); // s is "../mary/file.txt"
-
-
     m_database->setDatabaseName(path);
 
     bool openStatus = m_database->open();
+
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
 
     if(forLog){

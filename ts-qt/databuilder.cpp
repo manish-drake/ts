@@ -1214,61 +1214,61 @@ int DataBuilder::build()
     Navigation outUATP1ToUATscan(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(outUATP1ToUATscan);
 
-    Navigation out1090RadarTomainADSB(vwADSBout1090Radar.id(), "back", 0, vwADSB.id());
+    Navigation out1090RadarTomainADSB(vwADSBout1090Radar.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090RadarTomainADSB);
 
-    Navigation out1090GraphTomainADSB(vwADSBout1090Graph.id(), "back", 0, vwADSB.id());
+    Navigation out1090GraphTomainADSB(vwADSBout1090Graph.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090GraphTomainADSB);
 
-    Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwADSB.id());
+    Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090scanTomainADSB);
 
-    Navigation out1090P1TomainADSB(vwADSBout1090P1.id(), "back", 0, vwADSB.id());
+    Navigation out1090P1TomainADSB(vwADSBout1090P1.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P1TomainADSB);
 
-    Navigation out1090P2TomainADSB(vwADSBout1090P2.id(), "back", 0, vwADSB.id());
+    Navigation out1090P2TomainADSB(vwADSBout1090P2.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P2TomainADSB);
 
-    Navigation out1090P3TomainADSB(vwADSBout1090P3.id(), "back", 0, vwADSB.id());
+    Navigation out1090P3TomainADSB(vwADSBout1090P3.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P3TomainADSB);
 
-    Navigation out1090P4TomainADSB(vwADSBout1090P4.id(), "back", 0, vwADSB.id());
+    Navigation out1090P4TomainADSB(vwADSBout1090P4.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P4TomainADSB);
 
-    Navigation out1090P5TomainADSB(vwADSBout1090P5.id(), "back", 0, vwADSB.id());
+    Navigation out1090P5TomainADSB(vwADSBout1090P5.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P5TomainADSB);
 
-    Navigation out1090P6TomainADSB(vwADSBout1090P6.id(), "back", 0, vwADSB.id());
+    Navigation out1090P6TomainADSB(vwADSBout1090P6.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P6TomainADSB);
 
-    Navigation out1090P7TomainADSB(vwADSBout1090P7.id(), "back", 0, vwADSB.id());
+    Navigation out1090P7TomainADSB(vwADSBout1090P7.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P7TomainADSB);
 
-    Navigation outUATRadarTomainADSB(vwADSBoutUatRadar.id(), "back", 0, vwADSB.id());
+    Navigation outUATRadarTomainADSB(vwADSBoutUatRadar.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATRadarTomainADSB);
 
-    Navigation outUATGraphTomainADSB(vwADSBoutUatGraph.id(), "back", 0, vwADSB.id());
+    Navigation outUATGraphTomainADSB(vwADSBoutUatGraph.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATGraphTomainADSB);
 
-    Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwADSB.id());
+    Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATscanTomainADSB);
 
-    Navigation outUATP1TomainADSB(vwADSBoutUATP1.id(), "back", 0, vwADSB.id());
+    Navigation outUATP1TomainADSB(vwADSBoutUATP1.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP1TomainADSB);
 
-    Navigation outUATP2TomainADSB(vwADSBoutUATP2.id(), "back", 0, vwADSB.id());
+    Navigation outUATP2TomainADSB(vwADSBoutUATP2.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP2TomainADSB);
 
-    Navigation outUATP3TomainADSB(vwADSBoutUATP3.id(), "back", 0, vwADSB.id());
+    Navigation outUATP3TomainADSB(vwADSBoutUATP3.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP3TomainADSB);
 
-    Navigation outUATP4TomainADSB(vwADSBoutUATP4.id(), "back", 0, vwADSB.id());
+    Navigation outUATP4TomainADSB(vwADSBoutUATP4.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP4TomainADSB);
 
-    Navigation outUATP5TomainADSB(vwADSBoutUATP5.id(), "back", 0, vwADSB.id());
+    Navigation outUATP5TomainADSB(vwADSBoutUATP5.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP5TomainADSB);
 
-    Navigation outUATP6TomainADSB(vwADSBoutUATP6.id(), "back", 0, vwADSB.id());
+    Navigation outUATP6TomainADSB(vwADSBoutUATP6.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP6TomainADSB);
 
     Navigation sUserToSetup (vwSetupUser.id(), "back", 0, vwSetup.id());
