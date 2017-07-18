@@ -1,34 +1,35 @@
-#ifndef SECTIONPARAMMODEL_H
-#define SECTIONPARAMMODEL_H
+#ifndef SECTIONGROUPMODEL_H
+#define SECTIONGROUPMODEL_H
 
 #include <QAbstractListModel>
 #include <QHash>
-#include <QMessageLogger>
 
 #include <vector>
 #include <memory>
+#include <QList>
 
-#include <sectionParam.h>
+#include <sectiongroup.h>
 #include <datamanager.h>
 
 #include "ts-model_global.h"
 #include "modelbase.h"
 
-class TSMODELSHARED_EXPORT SectionParamModel: public ModelBase
+#include "qsections.h"
+
+class TSMODELSHARED_EXPORT SectionGroupModel: public ModelBase
 {
     Q_OBJECT
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
-        NameRole,
-        SectionGroupIDRole
+        NameRole
     };
 
+    Q_INVOKABLE const QList<QObject *> getSectionsForsecGroup(const int sectionGroupId) const;
 
+    SectionGroupModel(QObject *parent = 0);
 
-    SectionParamModel(QObject *parent = 0);
-
-    QModelIndex addSectionParam(SectionParam &sectionParam);
+    QModelIndex addSectionGroup(SectionGroup &sectionGroup);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -36,7 +37,7 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    ~SectionParamModel();
+    ~SectionGroupModel();
 signals:
 private:
     void qualifyByView(const int view) override;
@@ -44,7 +45,7 @@ private:
     double m_listHeight;
 private:
     DataManager &m_db;
-    std::unique_ptr<std::vector<std::unique_ptr<SectionParam>>> m_sectionParams;
+    std::unique_ptr<std::vector<std::unique_ptr<SectionGroup>>> m_sectionGroups;
 };
 
-#endif // SECTIONPARAMMODEL_H
+#endif // SectionGroupModel_H

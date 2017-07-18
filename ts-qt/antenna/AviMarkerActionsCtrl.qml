@@ -9,17 +9,60 @@ import QtGraphicalEffects 1.0
 Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
-    height: 40
+    height: 35
     color: Universal.accent
     radius: 3
     RowLayout{
         anchors.fill: parent
+        spacing: 0
+        Rectangle{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            color: prevMArea.pressed ? "#1A000000" : "transparent"
+            opacity: enabled ? 1.0 : 0.4
+            enabled: graphCtrl.selectedMarkerIndex > 0
+            Image{
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Arrow-left.png"
+            }
+            MouseArea{
+                id: prevMArea
+                anchors.fill: parent
+                onClicked: graphCtrl.selectedMarkerIndex = graphCtrl.selectedMarkerIndex - 1
+            }
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            width: 1
+            color: Universal.background
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            color: nextMArea.pressed ? "#1A000000" : "transparent"
+            opacity: enabled ? 1.0 : 0.4
+            enabled: graphCtrl.selectedMarkerIndex < markersModel.count-1
+            Image{
+                anchors.centerIn: parent
+                source: "qrc:/img/img/Arrow-right.png"
+            }
+            MouseArea{
+                id: nextMArea
+                anchors.fill: parent
+                onClicked: graphCtrl.selectedMarkerIndex = graphCtrl.selectedMarkerIndex + 1
+            }
+        }
+        Rectangle{
+            Layout.fillHeight: true
+            width: 1
+            color: Universal.background
+        }
         Rectangle{
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: decValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            enabled: markersModel.get(graphCtrl.selectedMarkerIndex)._val > graphCtrl.markerMinVal
+            enabled: graphCtrl.selectedMarkerVal > graphCtrl.markerMinVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
@@ -31,9 +74,7 @@ Rectangle {
             MouseArea{
                 id: decValMArea
                 anchors.fill: parent
-                onClicked: {
-                    markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val - graphCtrl.markerStepSize
-                }
+                onClicked: markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val - graphCtrl.markerStepSize
             }
         }
         Rectangle{
@@ -46,7 +87,7 @@ Rectangle {
             Layout.fillWidth: true
             color: incValMArea.pressed ? "#1A000000" : "transparent"
             opacity: enabled ? 1.0 : 0.4
-            enabled: markersModel.get(graphCtrl.selectedMarkerIndex)._val < graphCtrl.markerMaxVal
+            enabled: graphCtrl.selectedMarkerVal < graphCtrl.markerMaxVal
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
@@ -58,9 +99,7 @@ Rectangle {
             MouseArea{
                 id: incValMArea
                 anchors.fill: parent
-                onClicked: {
-                    markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val + graphCtrl.markerStepSize
-                }
+                onClicked: markersModel.get(graphCtrl.selectedMarkerIndex)._val = markersModel.get(graphCtrl.selectedMarkerIndex)._val + graphCtrl.markerStepSize
             }
         }
         Rectangle{

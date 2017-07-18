@@ -1,24 +1,8 @@
 #include "sectionmodel.h"
 #include "sectiondao.h"
 #include "datamanager.h"
-#include <QVariant>
-#include "sectionparam.h"
-
 using namespace std;
 
-const QList<QObject*> SectionModel::getSectionParamsForsection(int sectionGroupId) const
-{
-    QList<QObject*> qtp;
-    for(auto &summ: *m_sections){
-        if(summ->id() == sectionGroupId){
-            for(std::unique_ptr<SectionParam> &tp: *(summ->sectionParams())){
-                qtp.append(new QSectionParams(tp->name()));
-
-            }
-        }
-    }
-    return qtp;
-}
 SectionModel::SectionModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
@@ -31,10 +15,6 @@ QModelIndex SectionModel::addSection(Section &section)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto sectionDao = this->m_db.sectionDao();
-//    const Section *sectionPtr = &section;
-
-//    unique_ptr<Section> newSection(sectionPtr);
-
     sectionDao->addSection(section);
     endInsertRows();
     this->m_sections->push_back(unique_ptr<Section>(&section));
@@ -57,9 +37,11 @@ QVariant SectionModel::data(const QModelIndex &index, int role) const
         switch (role) {
         case Roles::IDRole:
             return section.id();
-        case Roles::SectionGroupRole:
+        case Roles::NameRole:
         case Qt::DisplayRole:
-            return section.sectionGroup();
+            return section.name();
+        case Roles::SectionGroupIDRole:
+            return section.sectionGroupId();
         default:
             return QVariant();
         }
@@ -74,9 +56,12 @@ bool SectionModel::setData(const QModelIndex &index, const QVariant &value, int 
     if(isIndexValid(index)) {
         Section &section = *m_sections->at(index.row());
         switch (role) {
-            case Roles::SectionGroupRole:
-            section.setSectionGroup(value.toString());
+            case Roles::NameRole:
+            section.setName(value.toString());
             break;
+        case Roles::SectionGroupIDRole:
+        section.setSectionGroupId(value.toInt());
+        break;
         default:
             break;
         }
@@ -110,7 +95,8 @@ QHash<int, QByteArray> SectionModel::roleNames() const
 {
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
-    hash.insert(Roles::SectionGroupRole, "sectionGroup");
+    hash.insert(Roles::NameRole, "name");
+    hash.insert(Roles::SectionGroupIDRole, "sectionGroupId");
     return hash;
 }
 

@@ -5,9 +5,9 @@
 #include <QThread>
 
 #include "ts-dao_global.h"
-#include "section.h"
+#include "sectiongroup.h"
+#include "sectiongroupdao.h"
 #include "sectiondao.h"
-#include "sectionparamdao.h"
 #include "testdao.h"
 #include "summarydao.h"
 #include "testparamdao.h"
@@ -43,8 +43,8 @@ public:
     static DataManager &instance();
     static DataManager &logger();
 
+    std::shared_ptr<const SectionGroupDao> sectionGroupDao() const;
     std::shared_ptr<const SectionDao> sectionDao() const;
-    std::shared_ptr<const SectionParamDao> sectionParamDao() const;
 
     std::shared_ptr<const TestDao> testDao() const;
     std::shared_ptr<const SummaryDao> summaryDao() const;

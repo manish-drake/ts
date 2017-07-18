@@ -25,7 +25,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += datamanager.cpp \
-    sectiondao.cpp \
     dao.cpp \
     testdao.cpp \
     summarydao.cpp \
@@ -38,11 +37,11 @@ SOURCES += datamanager.cpp \
     aviationvswrdao.cpp \
     snapshotdao.cpp \
     loggingdao.cpp \
-    sectionparamdao.cpp
+    sectiongroupdao.cpp \
+    sectiondao.cpp
 
 HEADERS += datamanager.h\
         ts-dao_global.h \
-    sectiondao.h \
     dao.h \
     testdao.h \
     summarydao.h \
@@ -55,7 +54,8 @@ HEADERS += datamanager.h\
     aviationmarkersdao.h \
     snapshotdao.h \
     loggingdao.h \
-    sectionparamdao.h
+    sectiongroupdao.h \
+    sectiondao.h
 
 unix {
     target.path = /usr/lib

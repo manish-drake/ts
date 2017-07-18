@@ -23,26 +23,26 @@ Page {
             color: Universal.foreground
         }
 
-        Item{
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            width: 50
-            Image {
-                id: closeImage
-                anchors.centerIn: parent
-                source: "qrc:/img/img/Delete-25.png"
-            }
-            ColorOverlay{
-                anchors.fill: closeImage
-                source: closeImage
-                color: Universal.foreground
-            }
-            MouseArea {
-                anchors.fill: parent
-                onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
-            }
-        }
+//        Item{
+//            anchors.top: parent.top
+//            anchors.bottom: parent.bottom
+//            anchors.right: parent.right
+//            width: 50
+//            Image {
+//                id: closeImage
+//                anchors.centerIn: parent
+//                source: "qrc:/img/img/Delete-25.png"
+//            }
+//            ColorOverlay{
+//                anchors.fill: closeImage
+//                source: closeImage
+//                color: Universal.foreground
+//            }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
+//            }
+//        }
     }
 
     contentItem: Rectangle {
@@ -70,7 +70,7 @@ Page {
                 }
                 Text {
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.userID)
+                    text: navigationModel.navigationParameter.user.userID
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -88,7 +88,7 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.userName)
+                    text: navigationModel.navigationParameter.user.userName
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -106,7 +106,7 @@ Page {
                 Text {
                     Layout.row: 2
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.language)
+                    text: navigationModel.navigationParameter.user.language
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -125,7 +125,7 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 1
-                    text: qsTr(navigationModel.navigationParameter.user.emailID)
+                    text: navigationModel.navigationParameter.user.emailID
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -149,13 +149,15 @@ Page {
                     Layout.row: 6
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "RESTORE FACTORY DEFAULTS"
+                    enabled: false
                 }
 
                 Button{
                     Layout.row: 8
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "DELETE USER"
-                    enabled: navigationModel.navigationParameter.user.isRemovable
+//                    enabled: navigationModel.navigationParameter.user.isRemovable
+                    enabled: false
                 }
             }
         }

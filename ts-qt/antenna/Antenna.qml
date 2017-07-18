@@ -107,10 +107,11 @@ Item{
                                     Layout.fillWidth: true
                                     elide:Text.ElideRight
                                     text: name
-                                    font.pixelSize: 16
-                                    font.weight: Font.ExtraBold
+                                    font.pixelSize: 18
+                                    font.weight: Font.Black
+                                    font.capitalization: Font.AllUppercase
                                     font.family: robotoRegular.name
-                                    color: Universal.accent
+                                    color: Universal.accent                                    
                                 }
                                 //                            Item{
                                 //                                Layout.column: 1
@@ -138,7 +139,7 @@ Item{
                                     font.weight: Font.Bold
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
-                                    opacity: 0.4
+                                    opacity: 0.5
                                 }
                             }
                         }

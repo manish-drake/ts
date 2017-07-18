@@ -11,6 +11,8 @@ Item{
     Layout.column: 0
     Layout.fillWidth: true
     height: content1.height
+    property string selectedCableType
+    property double selectedCableVelocity
     ColumnLayout{
         id: content1
         anchors.left: parent.left
@@ -25,15 +27,13 @@ Item{
         Item{
             Layout.row: 1
             Layout.fillWidth: true
-            height: 50
+            height: 45
             ComboBox {
                 id: coaxComboBox
                 implicitWidth: parent.width
                 implicitHeight: parent.height
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: coaxComboBox.height
-                        width: coaxComboBox.width
                         color: Universal.accent
                         opacity: coaxComboBox.pressed ? 0.9 : 1.0
                         radius: 3
@@ -58,20 +58,24 @@ Item{
                             color: "white"
                             font.weight: Font.DemiBold
                             font.family: robotoRegular.name
-                            text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel
+                            text: control.currentText + "  VEL " + coaxList.get(coaxComboBox.currentIndex).vel + "%"
                         }
                     }
                 }
-                model: ListModel {
-                    id: coaxList
-                    ListElement { text: "PE Solid"; vel: "66%"}
-                    ListElement { text: "PE Foam"; vel: "85%"}
-                    ListElement { text: "Teflon"; vel: "70%"}
-                    ListElement { text: "Teflon Foam"; vel: "80%"}
-                    ListElement { text: "User"; vel: ""}
+                model: coaxList
+                onCurrentIndexChanged:{
+                    selectedCableType = coaxList.get(currentIndex).text
+                    selectedCableVelocity = coaxList.get(currentIndex).vel
                 }
             }
-
+            ListModel {
+                id: coaxList
+                ListElement { text: "PE Solid"; vel: 66}
+                ListElement { text: "PE Foam"; vel: 85}
+                ListElement { text: "Teflon"; vel: 70}
+                ListElement { text: "Teflon Foam"; vel: 80}
+                ListElement { text: "User"; vel: 0}
+            }
         }
     }
 }

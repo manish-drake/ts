@@ -6,7 +6,6 @@
 
 #include <vector>
 #include <memory>
-#include <QList>
 
 #include <section.h>
 #include <datamanager.h>
@@ -14,18 +13,17 @@
 #include "ts-model_global.h"
 #include "modelbase.h"
 
-#include "qsectionparams.h"
-
 class TSMODELSHARED_EXPORT SectionModel: public ModelBase
 {
     Q_OBJECT
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
-        SectionGroupRole
+        NameRole,
+        SectionGroupIDRole
     };
 
-    Q_INVOKABLE const QList<QObject *> getSectionParamsForsection(const int sectionGroupId) const;
+
 
     SectionModel(QObject *parent = 0);
 

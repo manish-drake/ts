@@ -9,13 +9,15 @@ Rectangle {
 
     Item{
         id: toggleMenu
+        visible: isMenuView
         anchors.top: parent.top
         anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 5
         width: 50
         Image {
             id:toggleMenuImg
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.centerIn: parent
             source: "qrc:/img/img/Menu-25.png"
         }
         ColorOverlay{
@@ -28,7 +30,32 @@ Rectangle {
             onClicked: {
                 sideMenuDrawer.open()
             }
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.8
+            onReleased: parent.opacity = 1
+        }
+    }
+    Item{
+        id: goBack
+        visible: !isMenuView
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 5
+        width: 50
+        Image {
+            id:leftImg
+            anchors.centerIn: parent
+            source: "qrc:/img/img/left.png"
+        }
+        ColorOverlay{
+            anchors.fill: leftImg
+            source: leftImg
+            color: Universal.accent
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
+            onPressed: parent.opacity = 0.8
             onReleased: parent.opacity = 1
         }
     }
@@ -37,42 +64,43 @@ Rectangle {
         id: headerTitleText
         text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: toggleMenu.right
-        anchors.right: toggleConfigPanel.left
+        anchors.left: parent.left
+        anchors.leftMargin: 60
+        anchors.right: parent.right
+        anchors.rightMargin: 40
         font.bold: Font.DemiBold
         color: Universal.accent
-        font.pixelSize: 16
+        font.pixelSize: 18
         font.family: robotoRegular.name
-        anchors.leftMargin: 5
         elide: Text.ElideRight
     }
 
-     Item{
-        id: toggleConfigPanel
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        width: 50
-        Image {
-            id: imageCenter
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            source: "qrc:/img/img/Circled Chevron Down-30.png"
-        }
-        ColorOverlay{
-            anchors.fill: imageCenter
-            source: imageCenter
-            color: Universal.accent
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                configPanelPopup.open()
-            }
-            onPressed: parent.opacity = 0.5
-            onReleased: parent.opacity = 1
-        }
-    }
+//     Item{
+//        id: toggleConfigPanel
+//        anchors.horizontalCenter: parent.horizontalCenter
+//        anchors.top: parent.top
+//        anchors.bottom: parent.bottom
+//        width: 50
+//        Image {
+//            id: imageCenter
+//            anchors.verticalCenter: parent.verticalCenter
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            source: "qrc:/img/img/Circled Chevron Down-30.png"
+//        }
+//        ColorOverlay{
+//            anchors.fill: imageCenter
+//            source: imageCenter
+//            color: Universal.accent
+//        }
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: {
+//                configPanelPopup.open()
+//            }
+//            onPressed: parent.opacity = 0.5
+//            onReleased: parent.opacity = 1
+//        }
+//    }
      Item{
         anchors.right: parent.right
         anchors.top: parent.top

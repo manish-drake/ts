@@ -11,8 +11,8 @@
 #include <controlnavigationmodel.h>
 
 #include "databuilder.h"
+#include "sectiongroupmodel.h"
 #include "sectionmodel.h"
-#include "sectionparammodel.h"
 #include "testmodel.h"
 #include "summarymodel.h"
 #include "testparammodel.h"
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
         return builder.build();
     } else {
         QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+//        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
         QGuiApplication app(argc, argv);
 
@@ -71,11 +71,11 @@ int main(int argc, char *argv[])
         dummygraphdata dummy;
         context->setContextProperty("dummy", &dummy);
 
-        SectionModel sectionModel;
-        context->setContextProperty("sectionModel", &sectionModel);
+        SectionGroupModel sectionGroupModel;
+        context->setContextProperty("sectionGroupModel", &sectionGroupModel);
 
-        SectionParamModel sectionParamModel;
-        context->setContextProperty("sectionParamModel", &sectionParamModel);
+        SectionModel sectionModel;
+        context->setContextProperty("sectionModel", &sectionModel);        
 
         TestModel testModel;
         context->setContextProperty("testModel", &testModel);

@@ -23,7 +23,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    sectionmodel.cpp \
     testmodel.cpp \
     summarymodel.cpp \
     testparammodel.cpp \
@@ -38,12 +37,12 @@ SOURCES += \
     controlnavigationmodel.cpp \
     setupmodel.cpp \
     loggingmodel.cpp \
-    sectionparammodel.cpp \
-    qsectionparams.cpp
+    sectiongroupmodel.cpp \
+    sectionmodel.cpp \
+    qsections.cpp
 
 HEADERS +=\
         ts-model_global.h \
-    sectionmodel.h \
     testmodel.h \
     summarymodel.h \
     testparammodel.h \
@@ -58,8 +57,9 @@ HEADERS +=\
     controlnavigationmodel.h \
     setupmodel.h \
     loggingmodel.h \
-    sectionparammodel.h \
-    qsectionparams.h
+    qsections.h \
+    sectiongroupmodel.h \
+    sectionmodel.h
 
 unix {
     target.path = /usr/lib

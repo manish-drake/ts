@@ -20,7 +20,6 @@ void NavigationModel::onLoaded(const QString &str) const
 int NavigationModel::getTargetView(const QString &link, const int &linkId) const
 {
     for(auto const &navPtr: *m_navigations){
-         qDebug() << navPtr->link() + " == " + link + " == " +navPtr->linkId() + " == " + linkId+"+++++++++++++";
         if((navPtr->link() == link) && (navPtr->linkId() == linkId)){
             int view(navPtr->targetViewId());
 

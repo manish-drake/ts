@@ -166,6 +166,8 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{
+
+
                         savedDataPopup.close();
                     }
                 }

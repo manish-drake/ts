@@ -3,11 +3,6 @@
 
 #include "ts-core_global.h"
 #include <QString>
-#include <memory>
-#include <vector>
-
-class SectionParam;
-using up_vec_up_sec = std::unique_ptr<std::vector<std::unique_ptr<SectionParam> > >;
 
 class TSCORESHARED_EXPORT Section
 {
@@ -16,19 +11,19 @@ public:
     int id() const;
     void setId(int id);
 
-    QString sectionGroup() const;
-    void setSectionGroup(const QString &sectionGroup);
+    QString name() const;
+    void setName(const QString &name);
 
-    const up_vec_up_sec &sectionParams() const;
-    void setSectionParams(up_vec_up_sec &sectionParams);
+    int sectionGroupId() const;
+    void setSectionGroupId(const int &sectionGroupId);
 
-    explicit Section(const QString &sectionGroup = "");
+    explicit Section(const QString &name = "", const int sectionGroupId = 0);
     Section() = default;
     ~Section();
 private:
     int m_id = 0;
-    QString m_sectionGroup;
-    up_vec_up_sec m_sectionParams;
+    QString m_name;
+    int m_sectionGroupId = 0;
 };
 
 #endif // SECTION_H

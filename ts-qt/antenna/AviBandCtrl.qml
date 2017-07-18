@@ -8,7 +8,6 @@ import QtQuick.Controls.Universal 2.1
 
 Item{
     Layout.row: 1
-    Layout.column: 0
     Layout.fillWidth: true
     property string bandName
     property bool isEnabled: true
@@ -27,7 +26,7 @@ Item{
         Item{
             Layout.row: 1
             Layout.fillWidth: true
-            height: 50
+            height: 45
             ComboBox {
                 id: bandComboBox
                 implicitWidth: parent.width
@@ -35,8 +34,6 @@ Item{
                 textRole: "text"
                 style: ComboBoxStyle{
                     background: Rectangle{
-                        height: bandComboBox.height
-                        width: bandComboBox.width
                         color: Universal.accent
                         opacity: bandComboBox.pressed ? 0.9 : 1.0
                         radius: 3
@@ -92,6 +89,7 @@ Item{
                         graphCtrl.markerMinVal = bandList.get(currentIndex).start
                         graphCtrl.markerMaxVal = bandList.get(currentIndex).stop
                         markersModel.get(0)._val = bandList.get(currentIndex).defaultmarker
+                        graphCtrl.selectedMarkerVal = bandList.get(currentIndex).defaultmarker
                     }
                 }
             }

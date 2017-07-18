@@ -3,9 +3,11 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtGraphicalEffects 1.0
+
 Rectangle{
     color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
     Universal.accent: "#00AEEF"
+    property int selectedMenuIndex: -1
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -52,7 +54,7 @@ Rectangle{
                 id: listViewLeftMenu
                 anchors.fill: parent
                 anchors.margins: 7
-                model: sectionModel
+                model: sectionGroupModel
                 clip: true
                 currentIndex: -1
                 delegate:  Component {
@@ -62,14 +64,14 @@ Rectangle{
                         Text{
                             Layout.topMargin: 2
                             Layout.leftMargin: 10
-                            text: sectionGroup
+                            text: name
                             font.capitalization: Font.AllUppercase
                             font.pixelSize: 12
                             opacity: 0.6
                             color: Universal.foreground
                         }
                         Repeater{
-                            model: sectionModel.getSectionParamsForsection(id)
+                            model: sectionGroupModel.getSectionsForsecGroup(id)
                             Item{
                                 anchors.left: parent.left
                                 anchors.right: parent.right
@@ -77,7 +79,7 @@ Rectangle{
                                 Rectangle{
                                     anchors.fill: parent
                                     anchors.margins: 3
-                                    color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
+                                    color: selectedMenuIndex == model.modelData.id ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
                                     radius: 3
                                     layer.enabled: true
                                     layer.effect: DropShadow {
@@ -102,9 +104,9 @@ Rectangle{
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
-                                            navigationModel.currentView = navigationModel.getTargetView("_section", id)
-                                            headerTitle = name
-                                            listViewLeftMenu.currentIndex = index
+                                            navigationModel.currentView = navigationModel.getTargetView("_section", model.modelData.id)
+                                            headerTitle = model.modelData.name
+                                            selectedMenuIndex = model.modelData.id
                                             sideMenuDrawer.close()
                                         }
                                     }

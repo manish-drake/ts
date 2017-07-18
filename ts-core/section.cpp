@@ -1,5 +1,4 @@
 #include "section.h"
-#include "sectionparam.h"
 
 
 int Section::id() const
@@ -12,31 +11,30 @@ void Section::setId(int id)
     this->m_id = id;
 }
 
-QString Section::sectionGroup() const
+QString Section::name() const
 {
-    return this->m_sectionGroup;
+    return this->m_name;
 }
 
-void Section::setSectionGroup(const QString &sectionGroup)
+void Section::setName(const QString &name)
 {
-    this->m_sectionGroup = sectionGroup;
+    this->m_name = name;
 }
 
-
-
-const up_vec_up_sec &Section::sectionParams() const
+int Section::sectionGroupId() const
 {
-    return this->m_sectionParams;
+    return this->m_sectionGroupId;
 }
 
-void Section::setSectionParams(up_vec_up_sec &sectionParams)
+void Section::setSectionGroupId(const int &sectionGroupId)
 {
-    this->m_sectionParams = std::move(sectionParams);
+    this->m_sectionGroupId = sectionGroupId;
 }
 
-Section::Section(const QString &sectionGroup):
+Section::Section(const QString &name, const int sectionGroupId):
     m_id{0},
-    m_sectionGroup{sectionGroup}
+    m_name{name},
+    m_sectionGroupId{sectionGroupId}
 {
 }
 

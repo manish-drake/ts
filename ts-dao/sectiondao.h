@@ -1,6 +1,8 @@
 #ifndef SECTIONDAO_H
 #define SECTIONDAO_H
 
+
+
 #include <vector>
 #include <memory>
 
@@ -22,9 +24,10 @@ public:
     void removeSection(int id) const;
 
     std::unique_ptr<std::vector<std::unique_ptr<Section> > > sections() const;
-    
+
     ~SectionDao();
 private:
     int getIntOrDefault(const QSqlQuery &query, const QString &col, const int defaultVal) const ;
 };
+
 #endif // SECTIONDAO_H
