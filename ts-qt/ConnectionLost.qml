@@ -2,7 +2,6 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
 Item {
     Page{

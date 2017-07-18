@@ -4,8 +4,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
-
+//import QtGraphicalEffects 1.0
 
 Rectangle{
     anchors.left: parent.left
@@ -33,21 +32,21 @@ Rectangle{
         }
         CustomSwitchDelegate{
             text: "SETUP TEST"
-            source: "qrc:/img/img/Settings-25.png"
+            source: "qrc:/img/img/Settings-black.png"
             isChecked: true
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: { moreActionsPopover.close(); testSetupPopup.open()}
-//            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: { moreActionsPopover.close(); testSetupPopup.open()}
+            }
         }
         CustomSwitchDelegate{
             text: "HELP"
             source: "qrc:/img/img/Help Filled-25.png"
             isChecked: true
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: { moreActionsPopover.close(); helpPopup.open() }
-//            }
+            MouseArea{
+                anchors.fill: parent
+                onClicked: { moreActionsPopover.close(); helpPopup.open() }
+            }
         }
         CustomSwitchDelegate{
             text: "CLEAR"
@@ -79,7 +78,7 @@ Rectangle{
         }
         CustomSwitchDelegate{
             text: "HOME"
-            source: "qrc:/img/img/Star.png"
+            source: "qrc:/img/img/star-filled.png"
         }
         CustomSwitchDelegate{
             text: "GUIDE"
@@ -107,11 +106,11 @@ Rectangle{
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/Attach-18.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: imageAttach
-                            source: imageAttach
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: imageAttach
+//                            source: imageAttach
+//                            color: Universal.foreground
+//                        }
                     }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
@@ -136,13 +135,13 @@ Rectangle{
                 color: Universal.foreground
                 opacity: 0.7
                 font.family: robotoRegular.name
-//                MouseArea{
-//                    anchors.fill: parent
-//                    onClicked: {
-//                        moreActionsPopover.close();
-//                        connectionReqPopup.open()
-//                    }
-//                }
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        moreActionsPopover.close();
+                        connectionReqPopup.open()
+                    }
+                }
             }
         }
     }

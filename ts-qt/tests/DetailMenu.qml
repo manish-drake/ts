@@ -1,5 +1,4 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -47,11 +46,6 @@ Item{
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: closeImg
-                            source: closeImg
-                            color: Universal.accent
-                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: detailMenuPopup.close()
@@ -75,12 +69,7 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Image {
                                 id: saveImg
-                                source: "qrc:/img/img/Download-22.png"
-                            }
-                            ColorOverlay{
-                                anchors.fill: saveImg
-                                source: saveImg
-                                color: "white"
+                                source: "qrc:/img/img/Download-white.png"
                             }
                         }
                         Text{
@@ -119,11 +108,6 @@ Item{
                             Image {
                                 id: exitImg
                                 source: "qrc:/img/img/exit.png"
-                            }
-                            ColorOverlay{
-                                anchors.fill: exitImg
-                                source: exitImg
-                                color: "white"
                             }
                         }
                         Text{
@@ -172,11 +156,6 @@ Item{
                                 id: starImg
                                 source: "qrc:/img/img/Star.png"
                             }
-                            ColorOverlay{
-                                anchors.fill: starImg
-                                source: starImg
-                                color: "white"
-                            }
                         }
                         Text{
                             Layout.leftMargin: 10
@@ -215,11 +194,6 @@ Item{
                             Image {
                                 id: brighnessImg
                                 source: "qrc:/img/img/brightness.png"
-                            }
-                            ColorOverlay{
-                                anchors.fill: brighnessImg
-                                source: brighnessImg
-                                color: "white"
                             }
                         }
                         Text{

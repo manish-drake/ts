@@ -4,7 +4,6 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
-import QtGraphicalEffects 1.0
 import Graphs 1.0
 
 
@@ -45,15 +44,8 @@ RowLayout{
                 anchors.fill: parent
                 radius: 3
                 color: parent.checked ? "#dddddd" : "#ededed"
-                layer.enabled: true
-                layer.effect: DropShadow {
-                    transparentBorder: true
-                    horizontalOffset: 1.1
-                    verticalOffset: 1.1
-                    radius: 4.0
-                    color: "#4d000000"
-                    spread: 0
-                }
+                border.width: 1
+                border.color: "lightgray"
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -84,15 +76,8 @@ RowLayout{
                 anchors.fill: parent
                 radius: 3
                 color: parent.checked ? "#dddddd" : "#ededed"
-                layer.enabled: true
-                layer.effect: DropShadow {
-                    transparentBorder: true
-                    horizontalOffset: 1.1
-                    verticalOffset: 1.1
-                    radius: 4.0
-                    color: "#4d000000"
-                    spread: 0
-                }
+                border.width: 1
+                border.color: "lightgray"
                 Text{
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -322,15 +307,8 @@ RowLayout{
                 indicator:Rectangle{
                     anchors.fill: parent
                     color: "#ededed"
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#4d000000"
-                        spread: 0
-                    }
+                    border.width: 1
+                    border.color: "lightgray"
                     Text{
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter

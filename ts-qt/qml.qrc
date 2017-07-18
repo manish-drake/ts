@@ -111,6 +111,12 @@
         <file>img/Star.png</file>
         <file>img/brightness.png</file>
         <file>img/exit.png</file>
+        <file>img/Expand Arrow-black.png</file>
+        <file>img/Settings-black.png</file>
+        <file>img/star-filled.png</file>
+        <file>img/Delete-white.png</file>
+        <file>img/Download-white.png</file>
+        <file>img/port.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

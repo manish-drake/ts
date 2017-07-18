@@ -4,7 +4,6 @@ import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 //import QtQuick.VirtualKeyboard 2.1
 
@@ -22,6 +21,7 @@ ApplicationWindow {
     property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
+    property string deviceName: "MD-15"
     property bool isMenuView;
     property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
@@ -42,7 +42,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme == Universal.Light ? "#E7E8E8" : "#414048"
+                color: Universal.theme == Universal.Light ? "#D1D3D4" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent
@@ -129,101 +129,101 @@ ApplicationWindow {
             contentItem: SideMenu{}
         }
 
-        //        Popup {
-        //            id: testSetupPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            topPadding: 60
-        //            bottomPadding: 60
-        //            leftPadding: 30
-        //            rightPadding: 30
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: TestSetup{}
-        //        }
+                Popup {
+                    id: testSetupPopup
+                    height: parent.height
+                    width: parent.width
+                    topPadding: 60
+                    bottomPadding: 60
+                    leftPadding: 30
+                    rightPadding: 30
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: TestSetup{}
+                }
 
-        //        Popup {
-        //            id: helpPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            topPadding: 60
-        //            bottomPadding: 60
-        //            leftPadding: 30
-        //            rightPadding: 30
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: TestHelp{}
-        //        }
+                Popup {
+                    id: helpPopup
+                    height: parent.height
+                    width: parent.width
+                    topPadding: 60
+                    bottomPadding: 60
+                    leftPadding: 30
+                    rightPadding: 30
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: TestHelp{}
+                }
 
-        //        Popup {
-        //            id: connectionReqPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionReqest{}
-        //        }
+                Popup {
+                    id: connectionReqPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionReqest{}
+                }
 
-        //        Popup {
-        //            id: pinConfirmPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: PINConfirmation{}
-        //        }
+                Popup {
+                    id: pinConfirmPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: PINConfirmation{}
+                }
 
-        //        Timer{
-        //            id:  pinaccepttimer
-        //            interval: 3000
-        //            onTriggered:{
-        //                pinConfirmPopup.close()
-        //                connectionAckPopup.open()
-        //            }
-        //        }
+                Timer{
+                    id:  pinaccepttimer
+                    interval: 3000
+                    onTriggered:{
+                        pinConfirmPopup.close()
+                        connectionAckPopup.open()
+                    }
+                }
 
-        //        Popup {
-        //            id: connectionAckPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionAck{}
-        //        }
+                Popup {
+                    id: connectionAckPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionAck{}
+                }
 
-        //        Popup {
-        //            id: connectionLostPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionLost{}
-        //        }
-//    }
-//    InputPanel {
-//        id: inputPanel
-//        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//    }
+                Popup {
+                    id: connectionLostPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionLost{}
+                }
+    }
+    InputPanel {
+        id: inputPanel
+        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 }
 
 

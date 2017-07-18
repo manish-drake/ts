@@ -2,9 +2,9 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
 
 Rectangle {
+    color: Universal.background
     radius: 4
     ColumnLayout{
         anchors.fill: parent
@@ -22,11 +22,6 @@ Rectangle {
                     id: viewImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Info-24.png"
-                }
-                ColorOverlay{
-                    anchors.fill: viewImage
-                    source: viewImage
-                    color: Universal.foreground
                 }
             }
             Text {
@@ -49,11 +44,6 @@ Rectangle {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent

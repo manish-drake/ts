@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Item {
@@ -28,15 +27,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -113,15 +103,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -194,15 +175,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -294,15 +266,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -394,15 +357,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -434,15 +388,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -474,15 +419,6 @@ Item {
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top

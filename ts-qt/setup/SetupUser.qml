@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Item{
     Item{
@@ -19,30 +19,6 @@ Item{
             font.family: robotoRegular.name
             color: Universal.foreground
         }
-//        Item{
-//            id: rectangle
-//            anchors.top: parent.top
-//            anchors.bottom: parent.bottom
-//            anchors.right: parent.right
-//            width: 50
-//            Image {
-//                id: closeImage
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                anchors.verticalCenter: parent.verticalCenter
-//                source: "qrc:/img/img/Delete-25.png"
-//            }
-//            ColorOverlay{
-//                anchors.fill: closeImage
-//                source: closeImage
-//                color: Universal.foreground
-//            }
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked: {
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//                }
-//            }
-//        }
     }
 
     Item{
@@ -73,15 +49,6 @@ Item{
                         anchors.margins: 4
                         color: Universal.theme == Universal.Light ? Universal.background : "#222222"
                         radius: 3
-                        layer.enabled: true
-                        layer.effect: DropShadow {
-                            transparentBorder: true
-                            horizontalOffset: 1.1
-                            verticalOffset: 1.1
-                            radius: 3
-                            color: "#26000000"
-                            spread: 0
-                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:{
@@ -101,11 +68,11 @@ Item{
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                ColorOverlay{
-                                    anchors.fill: checkedImg
-                                    source: checkedImg
-                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
-                                }
+//                                ColorOverlay{
+//                                    anchors.fill: checkedImg
+//                                    source: checkedImg
+//                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
+//                                }
                             }
                             Text {
                                 Layout.column: 1
@@ -208,15 +175,6 @@ Item{
         width: 50
         radius: width*0.5
         color: Universal.accent
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 1.1
-            verticalOffset: 1.1
-            radius: 4.0
-            color: "#80000000"
-            spread: 0
-        }
         Text{
             anchors.centerIn: parent
             text:"+"
