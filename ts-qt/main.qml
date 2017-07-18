@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Universal 2.1
-//import QtQuick.VirtualKeyboard 2.1
+import QtQuick.VirtualKeyboard 2.1
 
 ApplicationWindow {
     id: appWindow
@@ -26,12 +26,12 @@ ApplicationWindow {
     property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
-//    Item {
-//        id: appContainer
-//        anchors.left: parent.left
-//        anchors.top: parent.top
-//        anchors.right: parent.right
-//        anchors.bottom: inputPanel.top
+    Item {
+        id: appContainer
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: inputPanel.top
         Page {
             anchors.fill: parent
 
@@ -225,5 +225,4 @@ ApplicationWindow {
         anchors.right: parent.right
     }
 }
-
 
