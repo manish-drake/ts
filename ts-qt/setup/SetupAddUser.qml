@@ -157,9 +157,9 @@ Page {
                     Layout.column: 0
                     Layout.alignment: Qt.AlignRight
                     text: "Save"
-                    enabled: false
+                    enabled: true
                     onClicked: {
-
+                        setup.addNewUser();
                     }
                 }
 

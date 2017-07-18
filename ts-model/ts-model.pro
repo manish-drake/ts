@@ -77,3 +77,8 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-dao/ -lts-dao
 
 INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
+
+unix|win32: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
+
+INCLUDEPATH += $$PWD/../ts-client
+DEPENDPATH += $$PWD/../ts-client

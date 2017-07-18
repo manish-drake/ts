@@ -46,6 +46,15 @@ bool Client::queryUsers()
     m_setup.listUsers();
 }
 
+bool Client::addUser(int &userID, const QString &name)
+{
+    this->m_setup.onMessageReceivedHandler([this](const QJsonArray &results){
+        this->setScanResults(JsonArrayModel::fromQJsonArray(results));
+    });
+    this->m_setup.addUser(userID, name);
+    return true;
+}
+
 void Client::setServer(const QString &server)
 {
     if(m_server != server){

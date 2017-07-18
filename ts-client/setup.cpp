@@ -28,7 +28,18 @@ void Setup::onMessageReceivedHandler(std::function<void (const QJsonArray &)> ca
 void Setup::listUsers()
 {
     m_session.open();
-    auto response = this->m_session.request(RequestFactory::instance().createSetupListUsers()).string();
+    auto response = this->m_session.request(RequestFactory::instance()
+                                            .createSetupListUsers()).string();
+    if(m_callback){
+        m_callback(parseMessage(response));
+    }
+}
+
+void Setup::addUser(int &userID, const QString &name)
+{
+    m_session.open();
+    auto response = this->m_session.request(RequestFactory::instance()
+                                            .createSetupAddUser(userID, name)).string();
     if(m_callback){
         m_callback(parseMessage(response));
     }

@@ -13,6 +13,7 @@ public:
     void changeEndpoint(const QString &newEndpoint);
     void onMessageReceivedHandler(std::function<void (const QJsonArray&)> callback);
     void listUsers();
+    void addUser(int &userID, const QString &name);
 private:
     Session m_session;
     std::function<void (const QJsonArray&)> m_callback;

@@ -1,4 +1,5 @@
 #include "setupmodel.h"
+#include "client.h"
 
 void SetupModel::createNewUser()
 {
@@ -7,7 +8,10 @@ void SetupModel::createNewUser()
 
 void SetupModel::addNewUser()
 {
+    Client c;
 
+    int userID = 10;
+    c.addUser(userID, m_newUser->name());
 }
 
 SetupModel::SetupModel()

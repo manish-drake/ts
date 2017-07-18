@@ -33,8 +33,8 @@ const int DATA_CREATION_MODE = 0;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
-    fprintf(stderr,localMsg.constData());
-    fflush(stderr);
+//    fprintf(stderr,localMsg.constData());
+//    fflush(stderr);
     QDateTime dateTime = QDateTime::currentDateTime();
     if(type >= 1)
     {

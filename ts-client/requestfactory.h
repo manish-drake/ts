@@ -100,6 +100,7 @@ public:
 
     //SETUP
     std::unique_ptr<Request> createSetupListUsers() const;
+    std::unique_ptr<Request> createSetupAddUser(int &userID, const QString &name) const;
 
 private:
     RequestFactory();

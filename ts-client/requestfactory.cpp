@@ -603,6 +603,21 @@ private:
     }
 };
 
+class SetupAddUser: public Request
+{
+public:
+    SetupAddUser(){}
+    SetupAddUser(int &userID, const QString &name):
+        m_userID{userID},
+        m_name{name}{}
+private:
+    int m_userID = 0;
+    QString m_name;
+    std::string message() const override {
+        return "{\"request\": {\"message\":16394,\"source\":\"qt\",\"params\":{\"email\":\"chris.laganga@gmail.com\",\"email-results\":true,\"user-name\":\"Chris\"}}}";
+    }
+};
+
 RequestFactory RequestFactory::instance()
 {
     static RequestFactory singleton;
@@ -714,6 +729,11 @@ std::unique_ptr<Request> RequestFactory::createEndScanCalPrevCal() const { retur
 std::unique_ptr<Request> RequestFactory::createSetupListUsers() const
 {
     return std::unique_ptr<Request>(new SetupListUsers());
+}
+
+std::unique_ptr<Request> RequestFactory::createSetupAddUser(int &userID, const QString &name) const
+{
+    return std::unique_ptr<Request>(new SetupAddUser(userID, name));
 }
 
 RequestFactory::RequestFactory()
