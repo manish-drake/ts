@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Item{
@@ -23,11 +23,11 @@ Item{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Upload to the Cloud-25.png"
                 }
-                ColorOverlay{
-                    anchors.fill: image1
-                    source: image1
-                    color: Universal.foreground
-                }
+//                ColorOverlay{
+//                    anchors.fill: image1
+//                    source: image1
+//                    color: Universal.foreground
+//                }
                 MouseArea {
                     anchors.fill: parent
                     onClicked:{}
@@ -43,27 +43,6 @@ Item{
                 color: Universal.foreground
                 font.family: robotoRegular.name
             }
-
-//            Item{
-//                width: 50
-//                anchors.top: parent.top
-//                anchors.bottom: parent.bottom
-//                anchors.right: parent.right
-//                Image {
-//                    id: closeImage
-//                    anchors.centerIn: parent
-//                    source: "qrc:/img/img/Delete-25.png"
-//                }
-//                ColorOverlay{
-//                    anchors.fill: closeImage
-//                    source: closeImage
-//                    color: Universal.foreground
-//                }
-//                MouseArea {
-//                    anchors.fill: parent
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//                }
-//            }
         }
 
         contentItem: Rectangle {

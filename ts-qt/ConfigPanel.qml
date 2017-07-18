@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
 
 Rectangle{
     color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
@@ -106,11 +105,6 @@ Rectangle{
                     id:sunImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Sun Filled-25.png"
-                }
-                ColorOverlay {
-                    anchors.fill: sunImage
-                    source: sunImage
-                    color: Universal.foreground
                 }
             }
             Text{
@@ -252,11 +246,6 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Marker-25.png"
                 }
-                ColorOverlay {
-                    anchors.fill: markerImage
-                    source: markerImage
-                    color: Universal.foreground
-                }
             }
             Text{
                 id: label11
@@ -329,11 +318,6 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Circled Up-25.png"
                 }
-                ColorOverlay {
-                    anchors.fill: uutImage
-                    source: uutImage
-                    color: Universal.foreground
-                }
             }
             Text{
                 id: label7
@@ -372,11 +356,6 @@ Rectangle{
                     id: connImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/filter-results-button.png"
-                }
-                ColorOverlay {
-                    anchors.fill: connImage
-                    source: connImage
-                    color: Universal.foreground
                 }
             }
             ComboBox{

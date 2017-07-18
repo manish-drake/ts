@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Rectangle{
     color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
@@ -66,16 +66,16 @@ Rectangle{
                             anchors.margins: 3
                             color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
                             radius: 3
-                            layer.enabled: true
-                            layer.effect: DropShadow {
-                                transparentBorder: true
-                                horizontalOffset: 1.0
-                                verticalOffset: 1.1
-                                radius: 4.0
-                                color: "#33000000"
-                                spread: 0
-                                opacity: 0.1
-                            }
+//                            layer.enabled: true
+//                            layer.effect: DropShadow {
+//                                transparentBorder: true
+//                                horizontalOffset: 1.0
+//                                verticalOffset: 1.1
+//                                radius: 4.0
+//                                color: "#33000000"
+//                                spread: 0
+//                                opacity: 0.1
+//                            }
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.left: parent.left

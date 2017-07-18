@@ -4,7 +4,6 @@ import QtQuick.Controls 1.2
 import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 import QtQuick.VirtualKeyboard 2.1
 
@@ -129,94 +128,94 @@ ApplicationWindow {
             contentItem: SideMenu{}
         }
 
-        //        Popup {
-        //            id: testSetupPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            topPadding: 60
-        //            bottomPadding: 60
-        //            leftPadding: 30
-        //            rightPadding: 30
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: TestSetup{}
-        //        }
+                Popup {
+                    id: testSetupPopup
+                    height: parent.height
+                    width: parent.width
+                    topPadding: 60
+                    bottomPadding: 60
+                    leftPadding: 30
+                    rightPadding: 30
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: TestSetup{}
+                }
 
-        //        Popup {
-        //            id: helpPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            topPadding: 60
-        //            bottomPadding: 60
-        //            leftPadding: 30
-        //            rightPadding: 30
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: TestHelp{}
-        //        }
+                Popup {
+                    id: helpPopup
+                    height: parent.height
+                    width: parent.width
+                    topPadding: 60
+                    bottomPadding: 60
+                    leftPadding: 30
+                    rightPadding: 30
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: TestHelp{}
+                }
 
-        //        Popup {
-        //            id: connectionReqPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionReqest{}
-        //        }
+                Popup {
+                    id: connectionReqPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionReqest{}
+                }
 
-        //        Popup {
-        //            id: pinConfirmPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: PINConfirmation{}
-        //        }
+                Popup {
+                    id: pinConfirmPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: PINConfirmation{}
+                }
 
-        //        Timer{
-        //            id:  pinaccepttimer
-        //            interval: 3000
-        //            onTriggered:{
-        //                pinConfirmPopup.close()
-        //                connectionAckPopup.open()
-        //            }
-        //        }
+                Timer{
+                    id:  pinaccepttimer
+                    interval: 3000
+                    onTriggered:{
+                        pinConfirmPopup.close()
+                        connectionAckPopup.open()
+                    }
+                }
 
-        //        Popup {
-        //            id: connectionAckPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionAck{}
-        //        }
+                Popup {
+                    id: connectionAckPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionAck{}
+                }
 
-        //        Popup {
-        //            id: connectionLostPopup
-        //            height: parent.height
-        //            width: parent.width
-        //            modal: true
-        //            closePolicy: Popup.CloseOnEscape
-        //            background: Rectangle{
-        //                color: opaqueBackground
-        //            }
-        //            contentItem: ConnectionLost{}
-        //        }
+                Popup {
+                    id: connectionLostPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: opaqueBackground
+                    }
+                    contentItem: ConnectionLost{}
+                }
     }
     InputPanel {
         id: inputPanel

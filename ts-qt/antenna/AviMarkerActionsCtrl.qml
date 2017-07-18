@@ -4,8 +4,6 @@ import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
-import QtGraphicalEffects 1.0
-
 Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
@@ -194,12 +192,7 @@ Rectangle {
                 anchors.centerIn: parent
                 height: 22
                 width: 22
-                source: "qrc:/img/img/Delete-25.png"
-            }
-            ColorOverlay{
-                anchors.fill: image1
-                source: image1
-                color: "white"
+                source: "qrc:/img/img/Delete-white.png"
             }
             MouseArea{
                 id: remMArea

@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Rectangle {
     id: content
@@ -20,11 +20,11 @@ Rectangle {
             anchors.centerIn: parent
             source: "qrc:/img/img/Menu-25.png"
         }
-        ColorOverlay{
-            anchors.fill: toggleMenuImg
-            source: toggleMenuImg
-            color: Universal.accent
-        }
+        //        ColorOverlay{
+        //            anchors.fill: toggleMenuImg
+        //            source: toggleMenuImg
+        //            color: Universal.accent
+        //        }
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -47,11 +47,11 @@ Rectangle {
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
         }
-        ColorOverlay{
-            anchors.fill: leftImg
-            source: leftImg
-            color: Universal.accent
-        }
+        //        ColorOverlay{
+        //            anchors.fill: leftImg
+        //            source: leftImg
+        //            color: Universal.accent
+        //        }
         MouseArea {
             anchors.fill: parent
             onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
@@ -75,33 +75,33 @@ Rectangle {
         elide: Text.ElideRight
     }
 
-//     Item{
-//        id: toggleConfigPanel
-//        anchors.horizontalCenter: parent.horizontalCenter
-//        anchors.top: parent.top
-//        anchors.bottom: parent.bottom
-//        width: 50
-//        Image {
-//            id: imageCenter
-//            anchors.verticalCenter: parent.verticalCenter
+//         Item{
+//            id: toggleConfigPanel
 //            anchors.horizontalCenter: parent.horizontalCenter
-//            source: "qrc:/img/img/Circled Chevron Down-30.png"
-//        }
-//        ColorOverlay{
-//            anchors.fill: imageCenter
-//            source: imageCenter
-//            color: Universal.accent
-//        }
-//        MouseArea {
-//            anchors.fill: parent
-//            onClicked: {
-//                configPanelPopup.open()
+//            anchors.top: parent.top
+//            anchors.bottom: parent.bottom
+//            width: 50
+//            Image {
+//                id: imageCenter
+//                anchors.verticalCenter: parent.verticalCenter
+//                anchors.horizontalCenter: parent.horizontalCenter
+//                source: "qrc:/img/img/Circled Chevron Down-30.png"
 //            }
-//            onPressed: parent.opacity = 0.5
-//            onReleased: parent.opacity = 1
+////            ColorOverlay{
+////                anchors.fill: imageCenter
+////                source: imageCenter
+////                color: Universal.accent
+////            }
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: {
+//                    configPanelPopup.open()
+//                }
+//                onPressed: parent.opacity = 0.5
+//                onReleased: parent.opacity = 1
+//            }
 //        }
-//    }
-     Item{
+    Item{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom

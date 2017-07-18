@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Item {
     Page{
@@ -26,11 +26,11 @@ Item {
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Settings-25.png"
                 }
-                ColorOverlay{
-                    anchors.fill: viewImage
-                    source: viewImage
-                    color: Universal.foreground
-                }
+//                ColorOverlay{
+//                    anchors.fill: viewImage
+//                    source: viewImage
+//                    color: Universal.foreground
+//                }
             }
             Column{
                 anchors.verticalCenter: parent.verticalCenter
@@ -63,11 +63,6 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
                 }
                 MouseArea {
                     anchors.fill: parent
@@ -107,13 +102,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage1
-                            source: arrowImage1
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage1
+//                            source: arrowImage1
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -121,7 +116,7 @@ Item {
                                 if(slidePanel1.visible){
                                     arrowImage1.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage1.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage1.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -170,13 +165,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage2
-                            source: arrowImage2
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage2
+//                            source: arrowImage2
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -184,7 +179,7 @@ Item {
                                 if(slidePanel2.visible){
                                     arrowImage2.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage2.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage2.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -210,13 +205,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage3
-                            source: arrowImage3
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage3
+//                            source: arrowImage3
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -224,7 +219,7 @@ Item {
                                 if(slidePanel3.visible){
                                     arrowImage3.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage3.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage3.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -250,13 +245,13 @@ Item {
                             width: 15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage4
-                            source: arrowImage4
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage4
+//                            source: arrowImage4
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -264,7 +259,7 @@ Item {
                                 if(slidePanel4.visible){
                                     arrowImage4.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage4.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage4.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -290,13 +285,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage5
-                            source: arrowImage5
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage5
+//                            source: arrowImage5
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -304,7 +299,7 @@ Item {
                                 if(slidePanel5.visible){
                                     arrowImage5.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage5.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage5.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -330,13 +325,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage6
-                            source: arrowImage6
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage6
+//                            source: arrowImage6
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -344,7 +339,7 @@ Item {
                                 if(slidePanel6.visible){
                                     arrowImage6.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage6.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage6.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -370,13 +365,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage7
-                            source: arrowImage7
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage7
+//                            source: arrowImage7
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -384,7 +379,7 @@ Item {
                                 if(slidePanel7.visible){
                                     arrowImage7.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage7.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage7.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }
@@ -410,13 +405,13 @@ Item {
                             width:15
                             height: 15
                             anchors.right: parent.right
-                            source: "qrc:/img/img/Expand Arrow-20.png"
+                            source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: arrowImage8
-                            source: arrowImage8
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: arrowImage8
+//                            source: arrowImage8
+//                            color: Universal.foreground
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -424,7 +419,7 @@ Item {
                                 if(slidePanel8.visible){
                                     arrowImage8.source = "qrc:/img/img/Collapse Arrow-20.png"
                                 }else{
-                                    arrowImage8.source = "qrc:/img/img/Expand Arrow-20.png"
+                                    arrowImage8.source = "qrc:/img/img/Expand Arrow-black.png"
                                 }
                             }
                         }

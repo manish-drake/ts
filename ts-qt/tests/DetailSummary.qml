@@ -4,7 +4,6 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
-import QtGraphicalEffects 1.0
 import com.ti.controls 1.0
 
 Item{

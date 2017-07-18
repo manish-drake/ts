@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Layouts 1.3
 import QtQml 2.2
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
 
 Rectangle {
     id: rectangle4
@@ -69,11 +68,6 @@ Rectangle {
                 id: img1
                 anchors.centerIn: parent
                 source: "qrc:/img/img/Network Cable-22.png"
-            }
-            ColorOverlay{
-                anchors.fill: img1
-                source: img1
-                color: "#ffffff"
             }
         }
 
