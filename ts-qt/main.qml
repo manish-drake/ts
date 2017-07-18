@@ -21,6 +21,7 @@ ApplicationWindow {
     property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
+    property string deviceName: "MD-15"
     property bool isMenuView;
     property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
@@ -41,7 +42,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme == Universal.Light ? "#E7E8E8" : "#414048"
+                color: Universal.theme == Universal.Light ? "#D1D3D4" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent

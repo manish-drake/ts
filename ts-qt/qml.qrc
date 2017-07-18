@@ -116,6 +116,7 @@
         <file>img/star-filled.png</file>
         <file>img/Delete-white.png</file>
         <file>img/Download-white.png</file>
+        <file>img/port.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

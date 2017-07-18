@@ -61,6 +61,7 @@ Item{
                 anchors.margins: 8
                 model: testModel
                 delegate: testCardDelegate
+                currentIndex: -1
                 focus: true
                 clip: true
                 highlightMoveDuration: 0
@@ -89,8 +90,7 @@ Item{
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: grid.currentIndex = index
-                            onDoubleClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                            onClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
                         }
                         ColumnLayout{
                             anchors.top: parent.top

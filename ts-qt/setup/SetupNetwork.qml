@@ -294,7 +294,7 @@ Page {
                             Layout.columnSpan: 2
                             visible: editDNameSwitch.checked
                             placeholderText: "Device Name"
-                            text: qsTr("TestSet14")
+                            text: deviceName
                             validator: RegExpValidator{regExp: /([^\s]+)/ }
                             font.pixelSize: 14
                             Layout.maximumWidth: 100
@@ -337,6 +337,7 @@ Page {
                                 }
                                 else{
                                     deviceNameField.focus = false;
+                                    deviceName = deviceNameField.text
                                 }
                             }
                         }

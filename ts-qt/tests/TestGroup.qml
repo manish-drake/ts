@@ -63,6 +63,7 @@ Item{
                 delegate: testCardDelegate
                 focus: true
                 clip: true
+                currentIndex: -1
                 highlightMoveDuration: 0
                 highlight:Item{
                     Rectangle{
@@ -89,8 +90,7 @@ Item{
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: grid.currentIndex = index
-                            onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
                         }
                         ColumnLayout{
                             anchors.top: parent.top
