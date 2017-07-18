@@ -12,8 +12,8 @@
 class Scan
 {
 public:
-    bool isScanning() const;
     Scan(zmq::context_t &ctx, const QString &endpoint);
+    bool isScanning() const;
     void onMessageReceivedHandler(std::function<void (const QJsonArray&)> callback);
     void start();
     void stop();

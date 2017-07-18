@@ -37,7 +37,8 @@ SOURCES += \
     aviationvswrmodel.cpp \
     controlnavigationmodel.cpp \
     setupmodel.cpp \
-    loggingmodel.cpp
+    loggingmodel.cpp \
+    user.cpp
 
 HEADERS +=\
         ts-model_global.h \
@@ -55,7 +56,8 @@ HEADERS +=\
     aviationvswrmodel.h \
     controlnavigationmodel.h \
     setupmodel.h \
-    loggingmodel.h
+    loggingmodel.h \
+    user.h
 
 unix {
     target.path = /usr/lib
@@ -75,3 +77,8 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-dao/ -lts-dao
 
 INCLUDEPATH += $$PWD/../ts-dao
 DEPENDPATH += $$PWD/../ts-dao
+
+unix|win32: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
+
+INCLUDEPATH += $$PWD/../ts-client
+DEPENDPATH += $$PWD/../ts-client

@@ -98,6 +98,10 @@ public:
     std::unique_ptr<Request> createEndScanCalThru() const;
     std::unique_ptr<Request> createEndScanCalPrevCal() const;
 
+    //SETUP
+    std::unique_ptr<Request> createSetupListUsers() const;
+    std::unique_ptr<Request> createSetupAddUser(int &userID, const QString &name) const;
+
 private:
     RequestFactory();
 };

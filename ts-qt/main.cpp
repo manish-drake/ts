@@ -33,14 +33,14 @@ const int DATA_CREATION_MODE = 0;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QByteArray localMsg = msg.toLocal8Bit();
-    fprintf(stderr,localMsg.constData());
-    fflush(stderr);
+//    fprintf(stderr,localMsg.constData());
+//    fflush(stderr);
     QDateTime dateTime = QDateTime::currentDateTime();
     if(type >= 1)
     {
-//        auto loggingDao = DataManager::logger().loggingDao();
-//        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
-        //        loggingDao->addLogging(log);
+        auto loggingDao = DataManager::logger().loggingDao();
+        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
+                loggingDao->addLogging(log);
     }
 }
 
@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
         qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
+
         QQmlApplicationEngine engine;
         QQmlContext *context = engine.rootContext();
 
@@ -103,6 +104,8 @@ int main(int argc, char *argv[])
         ControlNavigationModel controlNavigationModel;
         context->setContextProperty("controlNavigationModel", &controlNavigationModel);
 
+        SetupModel setupModel;
+        context->setContextProperty("setup", &setupModel);
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 

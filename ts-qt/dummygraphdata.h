@@ -28,8 +28,8 @@ private:
         int random_integer;
         int lowest=0, highest=20, step = highest/2;
         int range=(highest-lowest)+1;
-        for(int index=0; index<400; index++){
-            random_integer = lowest+int(range*rand()/(RAND_MAX + 1.0));
+        for(int index=0; index < 400; index++){
+            random_integer = lowest + int(range * (rand() + 1.0)/(RAND_MAX + 1.0));
             list.push_back(random_integer);
 
             lowest = (random_integer - step) < 0? 0: (random_integer - step);
