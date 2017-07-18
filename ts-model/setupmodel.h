@@ -5,7 +5,9 @@
 
 #include <user.h>
 
-class SetupModel: public QObject
+#include "ts-model_global.h"
+
+class TSMODELSHARED_EXPORT SetupModel: public QObject
 {
     Q_OBJECT
 public:
