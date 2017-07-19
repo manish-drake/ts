@@ -245,7 +245,7 @@ Page {
                         }
                         SwitchDelegate{
                             id: editIPAddSwitch
-                            enabled: ipAddressField.acceptableInput
+//                            enabled: ipAddressField.acceptableInput
                             Layout.column:3
                             Layout.columnSpan: 2
                             spacing: 0
