@@ -92,7 +92,7 @@ Page {
                 ComboBox{
                     Layout.row: 2
                     Layout.column: 1
-                    currentIndex: 0
+                    currentIndex: setup.newUser.language + 1
                     model: ListModel{
                         ListElement{text:"English"}
                     }
@@ -114,6 +114,7 @@ Page {
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     placeholderText: "Enter Email ID"
+                    text: setup.newUser.email
                     inputMethodHints: Qt.ImhEmailCharactersOnly
                 }
                 Text {
@@ -128,6 +129,7 @@ Page {
                 Switch {
                     Layout.row: 4
                     Layout.column: 1
+                    checked: setup.newUser.emailSavedTest
                 }
 
                 Button{
