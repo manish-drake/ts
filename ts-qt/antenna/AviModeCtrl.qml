@@ -8,8 +8,8 @@ import QtQuick.Controls 1.4
 Item{
     Layout.row: 2
     Layout.fillWidth: true
-    property int currentModeIndex
     height: content1.height
+    property string mode
     ColumnLayout{
         id: content1
         anchors.left: parent.left
@@ -26,61 +26,35 @@ Item{
             Layout.row: 1
             Layout.fillWidth: true
             height: 45
-            ComboBox {
-                id: modeComboBox
-                implicitWidth: parent.width
-                implicitHeight: parent.height
-                currentIndex: currentModeIndex
-                style: ComboBoxStyle{
-                    background: Rectangle{
-                        color: Universal.accent
-                        opacity: modeComboBox.pressed ? 0.9 : 1.0
-                        radius: 3
-                        Image {
-                            source: "qrc:/img/img/Expand Arrow-20.png"
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.right: parent.right
-                            anchors.rightMargin: 10
-                        }
+            Rectangle{
+                anchors.fill: parent
+                color: Universal.accent
+                radius: 3
+                RowLayout{
+                    anchors.fill: parent
+                    Text {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 10
+                        Layout.alignment: Qt.AlignVCenter
+                        elide: Text.ElideRight
+                        font.pixelSize: 14
+                        font.weight: Font.Black
+                        font.family: robotoRegular.name
+                        color: "White"
+                        text: mode
                     }
-                    label:Item {
-                        anchors.fill: parent
-                        Text {
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.leftMargin: 10
-                            anchors.rightMargin: 20
-                            elide: Text.ElideRight
-                            font.pixelSize: 14
-                            font.weight: Font.DemiBold
-                            font.family: robotoRegular.name
-                            color: "white"
-                            text: control.currentText
-                        }
+                    Image {
+                        source: "qrc:/img/img/Expand Arrow-20.png"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: 10
                     }
                 }
-                model: ListModel {
-//                    ListElement { text: "CAL"; }
-                    ListElement { text: "VSWR"; }
-                    ListElement { text: "LOSS"; }
-                    ListElement { text: "DTF"; }
-                }
-                onCurrentIndexChanged:{
-                    switch(currentIndex){
-                    case 0:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                        break;
-                    case 1:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                        break;
-                    case 2:
-                        console.log(currentModeIndex+": "+currentIndex)
-                        navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
-                        break;
-                    }
+                MouseArea{
+                    anchors.fill: parent
+                    onPressed: parent.opacity = 0.9
+                    onReleased: parent.opacity = 1
+                    onClicked: modeSelectionPopup.open()
                 }
             }
         }

@@ -53,11 +53,11 @@ Item {
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: closeImage
-//                            source: closeImage
-//                            color: Universal.accent
-//                        }
+                        //                        ColorOverlay{
+                        //                            anchors.fill: closeImage
+                        //                            source: closeImage
+                        //                            color: Universal.accent
+                        //                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:calPopup.close()
@@ -74,7 +74,6 @@ Item {
                         anchors.right: parent.right
                         AviBandCtrl{
                             visible: mode == "VSWR/CL"
-                            isEnabled: false
                         }
                     }
                 }
@@ -86,7 +85,9 @@ Item {
                         id: grid2
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        AviCoaxCtrl{visible: mode == "COAX"}
+                        AviCoaxCtrl{
+                            visible: mode == "COAX"
+                        }
                     }
                 }
                 Rectangle{
@@ -220,11 +221,11 @@ Item {
                                     id: checkedImg1
                                     source: "qrc:/img/img/checked.png"
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: checkedImg1
-//                                    source: checkedImg1
-//                                    color: Universal.foreground
-//                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg1
+                                //                                    source: checkedImg1
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -306,11 +307,11 @@ Item {
                                     id: checkedImg2
                                     source: "qrc:/img/img/checked.png"
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: checkedImg2
-//                                    source: checkedImg2
-//                                    color: Universal.foreground
-//                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg2
+                                //                                    source: checkedImg2
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -392,11 +393,11 @@ Item {
                                     id: checkedImg3
                                     source: "qrc:/img/img/checked.png"
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: checkedImg3
-//                                    source: checkedImg3
-//                                    color: Universal.foreground
-//                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg3
+                                //                                    source: checkedImg3
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -472,5 +473,34 @@ Item {
                 }
             }
         }
+    }
+
+    Popup {
+        id: bandSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviBandSelection{
+            id: bandSelection
+            isEnabled: false
+        }
+    }
+
+    Popup {
+        id: coaxSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviCoaxSelection{id: coaxSelection}
     }
 }

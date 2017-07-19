@@ -39,12 +39,8 @@ Item{
                         columnSpacing: 15
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
-                        AviBandCtrl{
-                            id: bandCtrl
-                        }
-                        AviModeCtrl{
-                            currentModeIndex: 0
-                        }
+                        AviBandCtrl{}
+                        AviModeCtrl{ mode: "VSWR" }
                         AviCommonCtrls{}
                     }
                     ColumnLayout{
@@ -82,6 +78,19 @@ Item{
     }
 
     Popup {
+        id: modeSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviModeSelection{ selectedIndex: 0 }
+    }
+
+    Popup {
         id: savedDataPopup
         width: parent.width
         height: parent.height
@@ -104,5 +113,18 @@ Item{
             color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCalibration{ mode: "VSWR/CL" }
+    }
+
+    Popup {
+        id: bandSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviBandSelection{id: bandSelection}
     }
 }

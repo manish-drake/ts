@@ -49,18 +49,18 @@ Rectangle{
                 }
                 switch(detailTitle){
                 case "VSWR":
-                    var bandName = bandCtrl.bandName
+                    var bandName = bandSelection.bandName
                     snapshotModel.addAviationVswr(datetime, user,data,markerPosition,markerName,range,bandRange,bandName);
                     notifyPopup.open(); closeTimer.running = true;
                     break;
                 case "CABLE LOSS":
-                    var bandName2 = bandCtrl.bandName
+                    var bandName2 = bandSelection.bandName
                     snapshotModel.addAviationCl(datetime,user,data,markerPosition,markerName,range,bandRange,bandName2);
                     notifyPopup.open(); closeTimer.running = true;
                     break;
                 case "DISTANCE TO FAULT":
-                    var velocity = coaxCtrl.selectedCableVelocity
-                    var cableType = coaxCtrl.selectedCableType
+                    var velocity = coaxSelection.selectedCableVelocity
+                    var cableType = coaxSelection.selectedCableType
                     snapshotModel.addAviationDtf(datetime,user,data,markerPosition,markerName,range,velocity,cableType);
                     notifyPopup.open(); closeTimer.running = true;
                     break;

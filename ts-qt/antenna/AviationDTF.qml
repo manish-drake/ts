@@ -45,9 +45,7 @@ Item{
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
                         AviCoaxCtrl{ id: coaxCtrl }
-                        AviModeCtrl{
-                            currentModeIndex: 2
-                        }
+                        AviModeCtrl{ mode: "DTF" }
                         AviCommonCtrls{}
                     }
                     ColumnLayout{
@@ -85,6 +83,19 @@ Item{
     }
 
     Popup {
+        id: modeSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviModeSelection{ selectedIndex: 2}
+    }
+
+    Popup {
         id: savedDataPopup
         width: parent.width
         height: parent.height
@@ -96,6 +107,7 @@ Item{
         }
         contentItem: AviHistory{}
     }
+
     Popup {
         id: calPopup
         height: parent.height
@@ -106,5 +118,18 @@ Item{
             color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCalibration{mode: "COAX"}
+    }
+
+    Popup {
+        id: coaxSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviCoaxSelection{id: coaxSelection}
     }
 }
