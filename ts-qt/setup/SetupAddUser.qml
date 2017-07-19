@@ -43,23 +43,6 @@ Page {
                 columnSpacing: 30
 
                 Text {
-                    text: qsTr("USER ID:")
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    font.family: robotoRegular.name
-                    color: Universal.foreground
-                }
-                TextField {
-                    id: usedId
-                    Layout.column: 1
-                    font.pixelSize: 12
-                    font.family: robotoRegular.name
-                    placeholderText: "Enter User ID"
-                    inputMethodHints: Qt.ImhNoAutoUppercase
-                    text:setup.newUser.userID
-                }
-
-                Text {
                     Layout.row: 1
                     text: qsTr("NAME:")
                     font.pixelSize: 12
@@ -150,22 +133,26 @@ Page {
                     }
                 }
 
-                Button{
+                Rectangle{
                     Layout.row: 6
-                    Layout.column: 0
-                    Layout.alignment: Qt.AlignRight
-                    text: "Save"
-                    enabled: true
-                    onClicked: {
-                        setup.addNewUser();
+                    Layout.columnSpan: 2
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 50
+                    height: 35
+                    width: 120
+                    radius: 4
+                    color: Universal.accent
+                    Text{
+                        anchors.centerIn: parent
+                        text: "SAVE"
+                        color: "white"
+                        font.weight: Font.Bold
+                        font.pixelSize: 16
                     }
-                }
-
-                Button{
-                    Layout.row: 6
-                    Layout.column: 1
-                    text: "Cancel"
-                    onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: setup.addNewUser();
+                    }
                 }
             }
         }

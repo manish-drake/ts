@@ -84,7 +84,7 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-//                            zmq.queryUsers();
+                            zmq.queryUsers();
                             navigationModel.currentView = navigationModel.getTargetView("User");
                         }
                     }

@@ -35,8 +35,8 @@ Item{
             delegate: userCardDelegate
             clip: true
             onCurrentIndexChanged: {
-                currentUser = usersModel.get(currentIndex).userName
-                currentUserEmail = usersModel.get(currentIndex).emailID
+                currentUser = tempModel.get(currentIndex).userName
+                currentUserEmail = tempModel.get(currentIndex).emailID
             }
             Component{
                 id: userCardDelegate
@@ -124,7 +124,7 @@ Item{
                                     onClicked: {
                                         navigationModel.setCurrentView(
                                                     navigationModel.getTargetView("UserDetail"),
-                                                    {"user": usersModel.get(index)})
+                                                    {"user": tempModel.get(index)})
                                     }
                                 }
                             }

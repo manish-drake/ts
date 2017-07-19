@@ -39,22 +39,6 @@ Page {
                 rowSpacing: 22
 
                 Text {
-                    elide: Text.ElideRight
-                    text: qsTr("USER ID")
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    font.family: robotoRegular.name
-                    color: Universal.foreground
-                }
-                Text {
-                    Layout.column: 1
-                    text: navigationModel.navigationParameter.user.userID
-                    font.pixelSize: 12
-                    font.family: robotoRegular.name
-                    color: Universal.foreground
-                }
-
-                Text {
                     Layout.row: 1
                     elide: Text.ElideRight
                     text: qsTr("NAME")
@@ -66,7 +50,7 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 1
-                    text: navigationModel.navigationParameter.user.userName
+                    text: navigationModel.navigationParameter.user.name
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -103,7 +87,7 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 1
-                    text: navigationModel.navigationParameter.user.emailID
+                    text: navigationModel.navigationParameter.user.email
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
@@ -121,6 +105,7 @@ Page {
                 Switch {
                     Layout.row: 4
                     Layout.column: 1
+                    checked: navigationModel.navigationParameter.user.emailSavedTests
                 }
 
                 Button{
