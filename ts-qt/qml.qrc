@@ -50,6 +50,7 @@
         <file>tests/DetailMenu.qml</file>
         <file>tests/DetailFooter.qml</file>
         <file>antenna/AviHistory.qml</file>
+        <file>antenna/AviLanding.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

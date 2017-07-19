@@ -153,6 +153,10 @@ int DataBuilder::build()
     View vwTestDetailLanding("Test-Detail-Landing");
     viewDao->addView(vwTestDetailLanding);
 
+    View vwAviationLanding("Aviation-Landing");
+    viewDao->addView(vwAviationLanding);
+
+
     SectionModel secModel{};
 
     Section secHome("Home");
@@ -1315,14 +1319,17 @@ int DataBuilder::build()
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
     navigationDaoPtr->addNavigation(setupToConn);
 
-    Navigation antennaToAviationVSWR(vwAntenna.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
-    navigationDaoPtr->addNavigation(antennaToAviationVSWR);
+    Navigation antennaToAviationLanding(vwAntenna.id(), "Aviation-Landing",0, vwAviationLanding.id());
+    navigationDaoPtr->addNavigation(antennaToAviationLanding);
 
-    Navigation antennaToAviationCL(vwAntenna.id(), "Aviation-Cl",0, vwAntAviationCl.id());
-    navigationDaoPtr->addNavigation(antennaToAviationCL);
+    Navigation aviationLandingToVSWR(vwAviationLanding.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
+    navigationDaoPtr->addNavigation(aviationLandingToVSWR);
 
-    Navigation antennaToAviationDTF(vwAntenna.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
-    navigationDaoPtr->addNavigation(antennaToAviationDTF);
+    Navigation aviationLandingToCL(vwAviationLanding.id(), "Aviation-Cl",0, vwAntAviationCl.id());
+    navigationDaoPtr->addNavigation(aviationLandingToCL);
+
+    Navigation aviationLandingToDTF(vwAviationLanding.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
+    navigationDaoPtr->addNavigation(aviationLandingToDTF);
 
     Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationVswrToCl);
@@ -1342,14 +1349,17 @@ int DataBuilder::build()
     Navigation AviationDtfToCl(vwAntAviationDtf.id(), "Aviation-Cl",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(AviationDtfToCl);
 
-    Navigation aviationVswrToAnt(vwAntAviationVswr.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationVswrToAnt);
+    Navigation aviationLandingToAntenna(vwAviationLanding.id(), "back", 0, vwAntenna.id());
+    navigationDaoPtr->addNavigation(aviationLandingToAntenna);
 
-    Navigation aviationClToAnt(vwAntAviationCl.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationClToAnt);
+    Navigation vswrToAviationLanding(vwAntAviationVswr.id(), "back", 0, vwAviationLanding.id());
+    navigationDaoPtr->addNavigation(vswrToAviationLanding);
 
-    Navigation aviationDtfToAnt(vwAntAviationDtf.id(), "back", 0, vwAntenna.id());
-    navigationDaoPtr->addNavigation(aviationDtfToAnt);
+    Navigation ClToAviationLanding(vwAntAviationCl.id(), "back", 0, vwAviationLanding.id());
+    navigationDaoPtr->addNavigation(ClToAviationLanding);
+
+    Navigation dtfToAviationLanding(vwAntAviationDtf.id(), "back", 0, vwAviationLanding.id());
+    navigationDaoPtr->addNavigation(dtfToAviationLanding);
 
     Navigation globalToAppLogs(vwGlobal.id(), "App-Logs",0, vwAppLogs.id());
     navigationDaoPtr->addNavigation(globalToAppLogs);

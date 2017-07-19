@@ -90,7 +90,7 @@ Item{
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                            onClicked:  navigationModel.setCurrentView(navigationModel.getTargetView("Aviation-Landing"),{"title": name})
                         }
                         ColumnLayout{
                             anchors.top: parent.top
