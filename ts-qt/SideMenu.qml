@@ -7,6 +7,7 @@ import QtQuick.Controls.Universal 2.1
 Rectangle{
     color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
     Universal.accent: "#00AEEF"
+    property int selectedMenuIndex: -1
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -53,46 +54,62 @@ Rectangle{
                 id: listViewLeftMenu
                 anchors.fill: parent
                 anchors.margins: 7
-                model: sectionModel
+                model: sectionGroupModel
                 clip: true
                 currentIndex: -1
                 delegate:  Component {
-                    Item{
+                    ColumnLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        height: 50
-                        Rectangle{
-                            anchors.fill: parent
-                            anchors.margins: 3
-                            color: index == listViewLeftMenu.currentIndex ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
-                            radius: 3
-//                            layer.enabled: true
-//                            layer.effect: DropShadow {
-//                                transparentBorder: true
-//                                horizontalOffset: 1.0
-//                                verticalOffset: 1.1
-//                                radius: 4.0
-//                                color: "#33000000"
-//                                spread: 0
-//                                opacity: 0.1
-//                            }
-                            Text {
-                                anchors.verticalCenter: parent.verticalCenter
+                        Text{
+                            Layout.topMargin: 2
+                            Layout.leftMargin: 10
+                            text: name
+                            font.capitalization: Font.AllUppercase
+                            font.pixelSize: 12
+                            opacity: 0.6
+                            color: Universal.foreground
+                        }
+                        Repeater{
+                            model: sectionGroupModel.getSectionsForsecGroup(id)
+                            Item{
                                 anchors.left: parent.left
-                                anchors.leftMargin: 20
-                                text: name
-                                font.pixelSize: 17
-                                font.weight: Font.Bold
-                                font.family: robotoRegular.name
-                                color: "White"
-                            }
-                            MouseArea {
-                                anchors.fill: parent
-                                onClicked: {
-                                    navigationModel.currentView = navigationModel.getTargetView("_section", id)
-                                    headerTitle = name
-                                    listViewLeftMenu.currentIndex = index
-                                    sideMenuDrawer.close()
+                                anchors.right: parent.right
+                                height: 50
+                                Rectangle{
+                                    anchors.fill: parent
+                                    anchors.margins: 3
+                                    color: selectedMenuIndex == model.modelData.id ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
+                                    radius: 3
+//                                    layer.enabled: true
+//                                    layer.effect: DropShadow {
+//                                        transparentBorder: true
+//                                        horizontalOffset: 1.0
+//                                        verticalOffset: 1.1
+//                                        radius: 4.0
+//                                        color: "#33000000"
+//                                        spread: 0
+//                                        opacity: 0.1
+//                                    }
+                                    Text {
+                                        anchors.verticalCenter: parent.verticalCenter
+                                        anchors.left: parent.left
+                                        anchors.leftMargin: 20
+                                        text: model.modelData.name
+                                        font.pixelSize: 17
+                                        font.weight: Font.Bold
+                                        font.family: robotoRegular.name
+                                        color: "White"
+                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: {
+                                            navigationModel.currentView = navigationModel.getTargetView("_section", model.modelData.id)
+                                            headerTitle = model.modelData.name
+                                            selectedMenuIndex = model.modelData.id
+                                            sideMenuDrawer.close()
+                                        }
+                                    }
                                 }
                             }
                         }

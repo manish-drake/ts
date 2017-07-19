@@ -14,12 +14,16 @@ public:
     QString name() const;
     void setName(const QString &name);
 
-    explicit Section(const QString &name = "");
+    int sectionGroupId() const;
+    void setSectionGroupId(const int &sectionGroupId);
+
+    explicit Section(const QString &name = "", const int sectionGroupId = 0);
     Section() = default;
     ~Section();
 private:
     int m_id = 0;
     QString m_name;
+    int m_sectionGroupId = 0;
 };
 
 #endif // SECTION_H

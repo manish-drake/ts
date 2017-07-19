@@ -11,7 +11,7 @@
 #include <controlnavigationmodel.h>
 
 #include "databuilder.h"
-#include "sectionmodel.h"
+#include "sectiongroupmodel.h"
 #include "testmodel.h"
 #include "summarymodel.h"
 #include "testparammodel.h"
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
         QGuiApplication app(argc, argv);
 
-//        qInstallMessageHandler(myMessageOutput);
+        qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
 
@@ -71,17 +71,14 @@ int main(int argc, char *argv[])
         dummygraphdata dummy;
         context->setContextProperty("dummy", &dummy);
 
-        SectionModel sectionModel;
-        context->setContextProperty("sectionModel", &sectionModel);
+        SectionGroupModel sectionGroupModel;
+        context->setContextProperty("sectionGroupModel", &sectionGroupModel);
 
         TestModel testModel;
         context->setContextProperty("testModel", &testModel);
 
         SummaryModel summaryModel;
         context->setContextProperty("summaryModel", &summaryModel);
-
-        TestParamModel testParamModel;
-        context->setContextProperty("testParamModel", &testParamModel);
 
         NavigationModel navigationModel;
         context->setContextProperty("navigationModel", &navigationModel);
@@ -109,8 +106,7 @@ int main(int argc, char *argv[])
 
         context->setContextProperty("registry", &ResourceNameCoupling::instance());
 
-        QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
-                         &sectionModel, SLOT(currentViewChanged(const int&)));
+
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),
                          &summaryModel, SLOT(currentViewChanged(const int&)));
         QObject::connect(&navigationModel, SIGNAL(currentViewChanged(const int&)),

@@ -75,6 +75,13 @@ DataManager::~DataManager()
     m_database->close();
 }
 
+std::shared_ptr<const SectionGroupDao> DataManager::sectionGroupDao() const
+{
+    auto daoPtr = this->daoRegistry["sectionGroup"];
+    auto sectionGroupDaoPtr = std::dynamic_pointer_cast<SectionGroupDao>(daoPtr);
+    return  sectionGroupDaoPtr;
+}
+
 std::shared_ptr<const SectionDao> DataManager::sectionDao() const
 {
     auto daoPtr = this->daoRegistry["section"];
@@ -163,6 +170,8 @@ std::shared_ptr<const LoggingDao> DataManager::loggingDao() const
 
 void DataManager::createRegistry()
 {
+    daoRegistry.insert("sectionGroup",
+                       std::shared_ptr<Dao>(new SectionGroupDao(*m_database)));
     daoRegistry.insert("section",
                        std::shared_ptr<Dao>(new SectionDao(*m_database)));
     daoRegistry.insert("test",

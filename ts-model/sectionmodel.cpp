@@ -1,5 +1,6 @@
 #include "sectionmodel.h"
 #include "sectiondao.h"
+#include "datamanager.h"
 using namespace std;
 
 SectionModel::SectionModel(QObject *parent):
@@ -14,10 +15,6 @@ QModelIndex SectionModel::addSection(Section &section)
     int row = this->rowCount();
     beginInsertRows(QModelIndex(), row, row);
     auto sectionDao = this->m_db.sectionDao();
-//    const Section *sectionPtr = &section;
-
-//    unique_ptr<Section> newSection(sectionPtr);
-
     sectionDao->addSection(section);
     endInsertRows();
     this->m_sections->push_back(unique_ptr<Section>(&section));
@@ -43,6 +40,8 @@ QVariant SectionModel::data(const QModelIndex &index, int role) const
         case Roles::NameRole:
         case Qt::DisplayRole:
             return section.name();
+        case Roles::SectionGroupIDRole:
+            return section.sectionGroupId();
         default:
             return QVariant();
         }
@@ -60,6 +59,9 @@ bool SectionModel::setData(const QModelIndex &index, const QVariant &value, int 
             case Roles::NameRole:
             section.setName(value.toString());
             break;
+        case Roles::SectionGroupIDRole:
+        section.setSectionGroupId(value.toInt());
+        break;
         default:
             break;
         }
@@ -94,6 +96,7 @@ QHash<int, QByteArray> SectionModel::roleNames() const
     QHash<int, QByteArray> hash;
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::NameRole, "name");
+    hash.insert(Roles::SectionGroupIDRole, "sectionGroupId");
     return hash;
 }
 
