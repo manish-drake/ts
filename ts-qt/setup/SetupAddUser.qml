@@ -56,6 +56,7 @@ Page {
                     font.family: robotoRegular.name
                     placeholderText: "Enter User ID"
                     inputMethodHints: Qt.ImhNoAutoUppercase
+                    text:setup.newUser.userID
                 }
 
                 Text {
@@ -90,11 +91,17 @@ Page {
                     color: Universal.foreground
                 }
                 ComboBox{
+                    id:languageComboBox
                     Layout.row: 2
                     Layout.column: 1
-                    currentIndex: setup.newUser.language + 1
+                    currentIndex: setup.newUser.language - 1
                     model: ListModel{
                         ListElement{text:"English"}
+                    }
+                    Binding{
+                        target: setup.newUser
+                        property:"language"
+                        value: languageComboBox.currentIndex + 1
                     }
                 }
 
@@ -116,6 +123,11 @@ Page {
                     placeholderText: "Enter Email ID"
                     text: setup.newUser.email
                     inputMethodHints: Qt.ImhEmailCharactersOnly
+                    Binding{
+                        target: setup.newUser
+                        property: "email"
+                        value: emailId.text
+                    }
                 }
                 Text {
                     Layout.row: 4
@@ -127,9 +139,15 @@ Page {
                 }
 
                 Switch {
+                    id:emailSavedTest
                     Layout.row: 4
                     Layout.column: 1
-                    checked: setup.newUser.emailSavedTest
+                    checked: setup.newUser.emailSavedTests
+                    Binding{
+                        target: setup.newUser
+                        property: "emailSavedTests"
+                        value: emailSavedTest.checked
+                    }
                 }
 
                 Button{
