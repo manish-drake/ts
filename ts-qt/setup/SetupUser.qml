@@ -30,7 +30,8 @@ Item{
             id: userListView
             anchors.fill: parent
             anchors.margins: 10
-            model: usersModel
+            model: tempModel
+//          model:  zmq.queryUsers()
             delegate: userCardDelegate
             clip: true
             onCurrentIndexChanged: {
@@ -79,7 +80,7 @@ Item{
                                 Layout.fillWidth: true
                                 Layout.leftMargin: 15
                                 Layout.topMargin: 10
-                                text: qsTr(userName)
+                                text: qsTr(name)
                                 elide:Text.ElideRight
                                 font.pixelSize: 14
                                 font.weight: Font.DemiBold
@@ -132,33 +133,37 @@ Item{
                 }
             }
             ListModel {//as per discussion only top four values will be displayed here
-                id:usersModel
+                id:tempModel
                 ListElement {
                     userID: "Default"
-                    userName: "OPERATOR"
+                    name: "OPERATOR"
                     language: "English"
-                    emailID: "operator@mail.com"
+                    email: "operator@mail.com"
+                    emailSavedTests:false
                     isRemovable: false
                 }
                 ListElement {
                     userID: "ken"
-                    userName: "KEN FILARDO"
+                    name: "KEN FILARDO"
                     language: "English"
-                    emailID: "ken@mail.com"
+                    email: "ken@mail.com"
+                    emailSavedTests:false
                     isRemovable: true
                 }
                 ListElement {
                     userID: "dave"
-                    userName: "DAVE KLAMET"
+                    name: "DAVE KLAMET"
                     language: "English"
-                    emailID: "dave@mail.com"
+                    email: "dave@mail.com"
+                    emailSavedTests:false
                     isRemovable: true
                 }
                 ListElement {
                     userID: "steve"
-                    userName: "STEVE O'HARA"
+                    name: "STEVE O'HARA"
                     language: "English"
-                    emailID: "steve@mail.com"
+                    email: "steve@mail.com"
+                    emailSavedTests:false
                     isRemovable: true
                 }
             }
@@ -186,7 +191,6 @@ Item{
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                //usersModel.insert(0,{ "userID": "st", "userName": "ST", "language": "En","emailID": "st","isRemovable": true})
                 setup.createNewUser();
                 navigationModel.currentView = navigationModel.getTargetView("AddUser");
             }

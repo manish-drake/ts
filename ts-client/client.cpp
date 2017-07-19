@@ -46,12 +46,12 @@ bool Client::queryUsers()
     m_setup.listUsers();
 }
 
-bool Client::addUser(int &userID, const QString &name)
+bool Client::addUser(int &userID, const QString &name,const int &language, const QString &email,const bool &emailSavedTests)
 {
     this->m_setup.onMessageReceivedHandler([this](const QJsonArray &results){
         this->setScanResults(JsonArrayModel::fromQJsonArray(results));
     });
-    this->m_setup.addUser(userID, name);
+    this->m_setup.addUser(userID, name, language, email, emailSavedTests);
     return true;
 }
 
