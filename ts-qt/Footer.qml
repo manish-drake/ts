@@ -35,6 +35,12 @@ Rectangle {
         Image {
             Layout.alignment: Qt.AlignVCenter
             Layout.rightMargin: 20
+            source: "qrc:/img/img/wifi-direct.png"
+            visible: false
+        }
+        Image {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.rightMargin: 20
             source: "qrc:/img/img/port.png"
         }
         Image {

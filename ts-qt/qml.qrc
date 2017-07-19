@@ -118,6 +118,7 @@
         <file>img/Delete-white.png</file>
         <file>img/Download-white.png</file>
         <file>img/port.png</file>
+        <file>img/wifi-direct.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>
