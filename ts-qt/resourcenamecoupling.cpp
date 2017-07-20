@@ -49,7 +49,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     case 40:
         return "antenna/AviLanding.qml";
     case 2:
-//        return "tests/TestGroup.qml";
+        return "Home.qml";
     case 1:
     default:
         return "Global.qml";

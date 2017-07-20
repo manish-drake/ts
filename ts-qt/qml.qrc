@@ -59,6 +59,7 @@
         <file>tests/SetupAircraftSelection.qml</file>
         <file>tests/SetupDistanceInput.qml</file>
         <file>tests/SetupIcaoAddressSelection.qml</file>
+        <file>Home.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
