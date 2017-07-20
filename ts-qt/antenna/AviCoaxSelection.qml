@@ -74,13 +74,24 @@ Item{
                             RowLayout{
                                 anchors.fill: parent
                                 Text {
-                                    Layout.leftMargin: 10
+                                    Layout.leftMargin: 15
                                     Layout.alignment: Qt.AlignVCenter
-                                    font.pixelSize: 14
+                                    font.pixelSize: 15
                                     font.weight: Font.Black
                                     font.family: robotoRegular.name
                                     color: "White"
-                                    text: name + "  VEL " + vel + "%"
+                                    text: name
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    Layout.leftMargin: 8
+                                    Layout.rightMargin: 25
+                                    Layout.alignment: Qt.AlignVCenter
+                                    font.pixelSize: 15
+                                    font.family: robotoRegular.name
+                                    color: "White"
+                                    text: "VEL " + vel + "%"
+                                    elide: Text.ElideRight
                                 }
                             }
                             MouseArea{

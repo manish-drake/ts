@@ -33,15 +33,24 @@ Item{
                 RowLayout{
                     anchors.fill: parent
                     Text {
-                        Layout.fillWidth: true
-                        Layout.leftMargin: 10
+                        Layout.leftMargin: 15
                         Layout.alignment: Qt.AlignVCenter
                         elide: Text.ElideRight
-                        font.pixelSize: 14
+                        font.pixelSize: 16
                         font.weight: Font.Black
                         font.family: robotoRegular.name
                         color: "White"
-                        text: coaxSelection.selectedCableType + "  VEL " + coaxSelection.selectedCableVelocity + "%"
+                        text: coaxSelection.selectedCableType
+                    }
+                    Text {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 8
+                        Layout.alignment: Qt.AlignVCenter
+                        elide: Text.ElideRight
+                        font.pixelSize: 15
+                        font.family: robotoRegular.name
+                        color: "White"
+                        text: "VEL " + coaxSelection.selectedCableVelocity + "%"
                     }
                     Image {
                         source: "qrc:/img/img/Expand Arrow-20.png"

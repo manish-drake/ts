@@ -196,8 +196,9 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.black
+
                                                 font.family: robotoRegular.name
                                                 text: isOpenMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -282,8 +283,8 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.Black
                                                 font.family: robotoRegular.name
                                                 text: isLoadMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -368,8 +369,8 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.Black
                                                 font.family: robotoRegular.name
                                                 text: isThruMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -417,7 +418,7 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Layout.topMargin: 30
-                    Layout.bottomMargin: 15
+                    Layout.bottomMargin: 25
                     height: 40
                     RowLayout{
                         anchors.fill: parent
@@ -430,8 +431,8 @@ Item {
                             radius: 3
                             Text{
                                 anchors.centerIn: parent
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Bold
                                 font.family: robotoRegular.name
                                 text: "DONE"
                                 color: "white"
@@ -457,8 +458,8 @@ Item {
                                 anchors.margins: 5
                                 horizontalAlignment: Text.AlignHCenter
                                 elide: Text.ElideRight
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Bold
                                 font.family: robotoRegular.name
                                 text: areParametersCalculated ? "RE-CALCULATE PARAMETERS" : "CALCULATE PARAMETERS"
                                 color: "white"

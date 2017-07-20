@@ -74,9 +74,9 @@ Item{
                             RowLayout{
                                 anchors.fill: parent
                                 Text {
-                                    Layout.leftMargin: 10
+                                    Layout.leftMargin: 15
                                     Layout.alignment: Qt.AlignVCenter
-                                    font.pixelSize: 14
+                                    font.pixelSize: 15
                                     font.weight: Font.Black
                                     font.family: robotoRegular.name
                                     color: "White"
@@ -87,7 +87,7 @@ Item{
                                     Layout.leftMargin: 10
                                     Layout.rightMargin: 25
                                     Layout.alignment: Qt.AlignVCenter
-                                    font.pixelSize: 14
+                                    font.pixelSize: 15
                                     font.family: robotoRegular.name
                                     color: "White"
                                     text: freq + " MHz"

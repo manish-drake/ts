@@ -34,10 +34,10 @@ Item{
                     anchors.fill: parent
                     Text {
                         Layout.fillWidth: true
-                        Layout.leftMargin: 10
+                        Layout.leftMargin: 15
                         Layout.alignment: Qt.AlignVCenter
                         elide: Text.ElideRight
-                        font.pixelSize: 14
+                        font.pixelSize: 15
                         font.weight: Font.Black
                         font.family: robotoRegular.name
                         color: "White"
