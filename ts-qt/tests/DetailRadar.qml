@@ -221,6 +221,7 @@ Item{
         height: parent.height
         width: parent.width
         modal: true
+        padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
             color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"

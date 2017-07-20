@@ -8,6 +8,7 @@ import QtQuick.Controls.Styles 1.4
 Item {
     RowLayout{
         anchors.fill: parent
+        anchors.margins: 20
         Rectangle{
             Layout.fillWidth: true
             Layout.maximumWidth: 650
@@ -71,8 +72,8 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter
                                 horizontalAlignment: Text.Center
                                 text: "GPS<br>SOURCE"
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Black
                                 font.family: robotoRegular.name
                                 color: Universal.foreground
                                 opacity: 0.7
@@ -103,8 +104,8 @@ Item {
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
                                         text: gpsSourceSwitch.text
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
+                                        font.pixelSize: 13
+                                        font.weight: Font.Black
                                         font.family: robotoRegular.name
                                         color: Universal.accent
                                     }
@@ -117,8 +118,8 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter
                                 horizontalAlignment: Text.Center
                                 text: "UUT<br/>ANTENNA"
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Black
                                 font.family: robotoRegular.name
                                 color: Universal.foreground
                                 opacity: 0.7
@@ -149,8 +150,8 @@ Item {
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
                                         text: uutAntennaSwitch.text
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
+                                        font.pixelSize: 13
+                                        font.weight: Font.Black
                                         font.family: robotoRegular.name
                                         color: Universal.accent
                                     }
@@ -163,8 +164,8 @@ Item {
                                 Layout.alignment: Qt.AlignHCenter
                                 horizontalAlignment: Text.Center
                                 text: "OTHER<br/>TOGGLE"
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Black
                                 font.family: robotoRegular.name
                                 color: Universal.foreground
                                 opacity: 0.7
@@ -194,7 +195,7 @@ Item {
                                                 anchors.centerIn: parent
                                                 text: otherToggleSwitch.checked ? "OFF" : "ON"
                                                 font.pixelSize: 18
-                                                font.weight: Font.Bold
+                                                font.weight: Font.Black
                                                 font.family: robotoRegular.name
                                                 color: Universal.accent
 
@@ -205,8 +206,8 @@ Item {
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
                                         text: otherToggleSwitch.text
-                                        font.pixelSize: 12
-                                        font.weight: Font.DemiBold
+                                        font.pixelSize: 13
+                                        font.weight: Font.Black
                                         font.family: robotoRegular.name
                                         color: Universal.accent
                                     }
@@ -230,50 +231,36 @@ Item {
                         anchors.right:parent.right
                         Text{
                             text: "TEST SET ICAO ADDRESS"
-                            font.pixelSize: 12
-                            font.weight: Font.DemiBold
+                            font.pixelSize: 14
+                            font.weight: Font.Black
                             font.family: robotoRegular.name
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Item{
+                        Rectangle{
                             anchors.left:parent.left
                             anchors.right:parent.right
                             height: 40
-                            ComboBox {
-                                id: icaoAddressComboBox
-                                implicitWidth: parent.width
-                                implicitHeight: parent.height
-                                textRole: "item"
-                                style: ComboBoxStyle{
-                                    background: Rectangle{
-                                        color: "transparent"
-                                        border.width: 1
-                                        border.color: Universal.accent
-                                        opacity: icaoAddressComboBox.pressed ? 0.9 : 1.0
-                                        radius: 3
-                                        RowLayout {
-                                            anchors.fill: parent
-                                            Text {
-                                                Layout.leftMargin: 10
-                                                Layout.alignment: Qt.AlignVCenter
-                                                font.pixelSize: 16
-                                                font.weight: Font.DemiBold
-                                                font.family: robotoRegular.name
-                                                color: Universal.foreground
-                                                text: control.currentText
-                                                opacity: 0.5
-                                            }
-                                        }
-                                    }
-                                    label: Item{}
+                            color: "transparent"
+                            border.width: 1
+                            border.color: Universal.accent
+                            radius: 3
+                            RowLayout {
+                                anchors.fill: parent
+                                Text {
+                                    Layout.leftMargin: 10
+                                    Layout.alignment: Qt.AlignVCenter
+                                    font.pixelSize: 16
+                                    font.weight: Font.DemiBold
+                                    font.family: robotoRegular.name
+                                    color: Universal.foreground
+                                    text: icaoAdressSelection.selectedIcaoAdress
+                                    opacity: 0.5
                                 }
-                                model: ListModel {
-                                    id: icaoAddressList
-                                    ListElement { item: "AC82EC" }
-                                    ListElement { item: "AC82DF" }
-                                    ListElement { item: "AC82FG" }
-                                }
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: icaoAdressSelectionPopup.open()
                             }
                         }
                     }
@@ -291,8 +278,8 @@ Item {
                         Text{
                             Layout.bottomMargin: 5
                             text: "DISTANCE TO UUT"
-                            font.pixelSize: 12
-                            font.weight: Font.DemiBold
+                            font.pixelSize: 14
+                            font.weight: Font.Black
                             font.family: robotoRegular.name
                             color: Universal.foreground
                             opacity: 0.7
@@ -310,7 +297,7 @@ Item {
                                     Layout.fillWidth: true
                                     elide: Text.ElideRight
                                     text: 50 + "FT"
-                                    font.pixelSize: 12
+                                    font.pixelSize: 13
                                     font.weight: Font.DemiBold
                                     color: Universal.foreground
                                     opacity: 0.5
@@ -321,7 +308,7 @@ Item {
                                     horizontalAlignment: Text.AlignHCenter
                                     elide: Text.ElideRight
                                     text: 100 + "FT"
-                                    font.pixelSize: 12
+                                    font.pixelSize: 13
                                     font.weight: Font.DemiBold
                                     color: Universal.foreground
                                     opacity: 0.5
@@ -331,7 +318,7 @@ Item {
                                     horizontalAlignment: Text.AlignHCenter
                                     elide: Text.ElideRight
                                     text: 150 + "FT"
-                                    font.pixelSize: 12
+                                    font.pixelSize: 13
                                     font.weight: Font.DemiBold
                                     color: Universal.foreground
                                     opacity: 0.5
@@ -342,7 +329,7 @@ Item {
                                     horizontalAlignment: Text.AlignHCenter
                                     elide: Text.ElideRight
                                     text: 200 + "FT"
-                                    font.pixelSize: 12
+                                    font.pixelSize: 13
                                     font.weight: Font.DemiBold
                                     color: Universal.foreground
                                     opacity: 0.5
@@ -352,7 +339,7 @@ Item {
                                     horizontalAlignment: Text.AlignRight
                                     elide: Text.ElideRight
                                     text: 250 + "FT"
-                                    font.pixelSize: 12
+                                    font.pixelSize: 13
                                     font.weight: Font.DemiBold
                                     color: Universal.foreground
                                     opacity: 0.5
@@ -394,7 +381,7 @@ Item {
                                     Layout.minimumWidth: 0
                                     minimumValue: 50
                                     maximumValue: 250
-                                    value: 98
+                                    value: distanceInput.uutDistance
                                     style: SliderStyle {
                                         groove:  Rectangle{
                                             Layout.fillWidth: parent
@@ -413,8 +400,12 @@ Item {
                                                 anchors.top: parent.bottom
                                                 color: Universal.accent
                                                 text: control.value.toFixed(0) + " FT"
-                                                font.pixelSize: 12
+                                                font.pixelSize: 14
                                                 font.weight: Font.DemiBold
+                                                MouseArea{
+                                                    anchors.fill: parent
+                                                    onClicked: distanceInputPopup.open()
+                                                }
                                             }
                                         }
                                     }
@@ -461,63 +452,47 @@ Item {
                                     Layout.fillWidth: true
                                     elide: Text.ElideRight
                                     text: "TARGET AIRCRAFT"
-                                    font.pixelSize: 12
-                                    font.weight: Font.DemiBold
+                                    font.pixelSize: 14
+                                    font.weight: Font.Black
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
                                     opacity: 0.7
                                 }
-                                Item{
+                                Rectangle{
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    ComboBox {
-                                        id: aicraftComboBox
-                                        implicitWidth: parent.width
-                                        implicitHeight: parent.height
-                                        textRole: "item"
-                                        style: ComboBoxStyle{
-                                            background: Rectangle{
-                                                Layout.fillWidth: true
-                                                Layout.fillHeight: true
-                                                color: "transparent"
-                                                border.width: 1
-                                                border.color: Universal.accent
-                                                radius: 3
-                                                ColumnLayout{
-                                                    anchors.fill: parent
-                                                    anchors.margins: 5
-                                                    Item{
-                                                        Layout.fillWidth: true
-                                                        Layout.fillHeight: true
-                                                        Image {
-                                                            id: aircraftImg
-                                                            anchors.fill: parent
-                                                            anchors.margins: 2
-                                                            source: "qrc:/img/img/target_aircraft.png"
-                                                            fillMode: Image.PreserveAspectFit
-                                                        }
-                                                    }
-                                                    Text{
-                                                        Layout.fillWidth: true
-                                                        horizontalAlignment: Text.AlignHCenter
-                                                        elide: Text.ElideRight
-                                                        text: control.currentText
-                                                        font.pixelSize: 12
-                                                        font.weight: Font.DemiBold
-                                                        font.family: robotoRegular.name
-                                                        color: Universal.accent
-                                                    }
-                                                }
+                                    color: "transparent"
+                                    border.width: 1
+                                    border.color: Universal.accent
+                                    radius: 3
+                                    ColumnLayout{
+                                        anchors.fill: parent
+                                        anchors.margins: 5
+                                        Item{
+                                            Layout.fillWidth: true
+                                            Layout.fillHeight: true
+                                            Image {
+                                                id: aircraftImg
+                                                anchors.fill: parent
+                                                anchors.margins: 2
+                                                source: "qrc:/img/img/target_aircraft.png"
+                                                fillMode: Image.PreserveAspectFit
                                             }
-                                            label: Item {}
                                         }
-                                        model: ListModel {
-                                            id: aircraftList
-                                            ListElement { item: "Piper PA-28-161 Warrior II" }
-                                            ListElement { item: "Aircraft 2" }
-                                            ListElement { item: "Aircraft 3" }
-                                            ListElement { item: "Aircraft 4" }
+                                        Text{
+                                            Layout.fillWidth: true
+                                            horizontalAlignment: Text.AlignHCenter
+                                            elide: Text.ElideRight
+                                            text: aircraftSelection.selectedAircraft
+                                            font.pixelSize: 14
+                                            font.weight: Font.Black
+                                            font.family: robotoRegular.name
+                                            color: Universal.accent
                                         }
+                                    }
+                                    MouseArea{
+                                        anchors.fill: parent
+                                        onClicked: aircraftSelectionPopup.open()
                                     }
                                 }
                             }
@@ -537,73 +512,57 @@ Item {
                                             Layout.fillWidth: true
                                             elide: Text.ElideRight
                                             text: "CLASS"
-                                            font.pixelSize: 12
-                                            font.weight: Font.DemiBold
+                                            font.pixelSize: 14
+                                            font.weight: Font.Black
                                             font.family: robotoRegular.name
                                             color: Universal.foreground
                                             opacity: 0.7
                                         }
-                                        Item{
+                                        Rectangle{
                                             Layout.fillWidth: true
                                             Layout.fillHeight: true
-                                            ComboBox {
-                                                id: classComboBox
-                                                implicitWidth: parent.width
-                                                implicitHeight: parent.height
-                                                textRole: "item"
-                                                style: ComboBoxStyle{
-                                                    background: Rectangle{
-                                                        Layout.fillWidth: true
-                                                        Layout.fillHeight: true
+                                            color: "transparent"
+                                            border.width: 1
+                                            border.color: Universal.accent
+                                            radius: 3
+                                            ColumnLayout{
+                                                anchors.fill: parent
+                                                anchors.margins: 5
+                                                Item{
+                                                    Layout.fillWidth: true
+                                                    Layout.fillHeight: true
+                                                    Rectangle{
+                                                        anchors.centerIn: parent
+                                                        width: 45
+                                                        height: 45
                                                         color: "transparent"
-                                                        border.width: 1
+                                                        border.width: 1.5
                                                         border.color: Universal.accent
-                                                        radius: 3
-                                                        ColumnLayout{
-                                                            anchors.fill: parent
-                                                            anchors.margins: 5
-                                                            Item{
-                                                                Layout.fillWidth: true
-                                                                Layout.fillHeight: true
-                                                                Rectangle{
-                                                                    anchors.centerIn: parent
-                                                                    width: 45
-                                                                    height: 45
-                                                                    color: "transparent"
-                                                                    border.width: 1.5
-                                                                    border.color: Universal.accent
-                                                                    radius: height/2
-                                                                    Text{
-                                                                        anchors.centerIn: parent
-                                                                        text: control.currentText
-                                                                        font.pixelSize: 26
-                                                                        font.weight: Font.Bold
-                                                                        font.family: robotoRegular.name
-                                                                        color: Universal.accent
-
-                                                                    }
-                                                                }
-                                                            }
-                                                            Text{
-                                                                Layout.fillWidth: true
-                                                                horizontalAlignment: Text.AlignHCenter
-                                                                elide: Text.ElideRight
-                                                                text: "CLASS " + control.currentText
-                                                                font.pixelSize: 12
-                                                                font.weight: Font.DemiBold
-                                                                font.family: robotoRegular.name
-                                                                color: Universal.accent
-                                                            }
+                                                        radius: height/2
+                                                        Text{
+                                                            anchors.centerIn: parent
+                                                            text: classSelection.selectedClass
+                                                            font.pixelSize: 28
+                                                            font.weight: Font.Black
+                                                            font.family: robotoRegular.name
+                                                            color: Universal.accent
                                                         }
                                                     }
-                                                    label: Item {}
                                                 }
-                                                model: ListModel {
-                                                    id: classList
-                                                    ListElement { item: "A" }
-                                                    ListElement { item: "B" }
-                                                    ListElement { item: "C" }
+                                                Text{
+                                                    Layout.fillWidth: true
+                                                    horizontalAlignment: Text.AlignHCenter
+                                                    elide: Text.ElideRight
+                                                    text: "CLASS " + classSelection.selectedClass
+                                                    font.pixelSize: 14
+                                                    font.weight: Font.Black
+                                                    font.family: robotoRegular.name
+                                                    color: Universal.accent
                                                 }
+                                            }
+                                            MouseArea{
+                                                anchors.fill: parent
+                                                onClicked: classSelectionPopup.open()
                                             }
                                         }
                                     }
@@ -618,60 +577,47 @@ Item {
                                             Layout.fillWidth: true
                                             elide: Text.ElideRight
                                             text: "CONNECTION"
-                                            font.pixelSize: 12
-                                            font.weight: Font.DemiBold
+                                            font.pixelSize: 14
+                                            font.weight: Font.Black
                                             font.family: robotoRegular.name
                                             color: Universal.foreground
                                             opacity: 0.7
                                         }
-                                        Item{
-                                            Layout.fillWidth: true
+                                        Rectangle{
                                             Layout.fillHeight: true
-                                            ComboBox {
-                                                id: connectionComboBox
-                                                implicitWidth: parent.width
-                                                implicitHeight: parent.height
-                                                textRole: "item"
-                                                style: ComboBoxStyle{
-                                                    background: Rectangle{
-                                                        color: "transparent"
-                                                        border.width: 1
-                                                        border.color: Universal.accent
-                                                        radius: 3
-                                                        ColumnLayout{
-                                                            anchors.fill: parent
-                                                            anchors.margins: 5
-                                                            Item{
-                                                                Layout.fillWidth: true
-                                                                Layout.fillHeight: true
-                                                                Image {
-                                                                    id: antennaImg1
-                                                                    anchors.fill: parent
-                                                                    anchors.margins: 2
-                                                                    source: "qrc:/img/img/antenna.png"
-                                                                    fillMode: Image.PreserveAspectFit
-                                                                }
-                                                            }
-                                                            Text{
-                                                                Layout.fillWidth: true
-                                                                horizontalAlignment: Text.AlignHCenter
-                                                                elide: Text.ElideRight
-                                                                text: control.currentText
-                                                                font.pixelSize: 12
-                                                                font.weight: Font.DemiBold
-                                                                font.family: robotoRegular.name
-                                                                color: Universal.accent
-                                                            }
-                                                        }
+                                            Layout.fillWidth: true
+                                            color: "transparent"
+                                            border.width: 1
+                                            border.color: Universal.accent
+                                            radius: 3
+                                            ColumnLayout{
+                                                anchors.fill: parent
+                                                anchors.margins: 5
+                                                Item{
+                                                    Layout.fillWidth: true
+                                                    Layout.fillHeight: true
+                                                    Image {
+                                                        id: antennaImg1
+                                                        anchors.fill: parent
+                                                        anchors.margins: 2
+                                                        source: "qrc:/img/img/antenna.png"
+                                                        fillMode: Image.PreserveAspectFit
                                                     }
-                                                    label: Item {}
                                                 }
-                                                model: ListModel {
-                                                    id: connectionList
-                                                    ListElement { item: "PORT A" }
-                                                    ListElement { item: "PORT B" }
-                                                    ListElement { item: "PORT C" }
+                                                Text{
+                                                    Layout.fillWidth: true
+                                                    horizontalAlignment: Text.AlignHCenter
+                                                    elide: Text.ElideRight
+                                                    text: connectionSelection.selectedConnection
+                                                    font.pixelSize: 14
+                                                    font.weight: Font.Black
+                                                    font.family: robotoRegular.name
+                                                    color: Universal.accent
                                                 }
+                                            }
+                                            MouseArea{
+                                                anchors.fill: parent
+                                                onClicked: connectionSelectionPopup.open()
                                             }
                                         }
                                     }
@@ -682,5 +628,81 @@ Item {
                 }
             }
         }
+    }
+
+    Popup {
+        id: distanceInputPopup
+        height: parent.height
+        width: parent.width
+        z: 0
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: SetupDistanceInput{id: distanceInput}
+        onOpened: testSetupPopup.opacity = 0
+        onClosed: testSetupPopup.opacity = 1
+    }
+
+    Popup {
+        id: icaoAdressSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: SetupIcaoAddressSelection{id: icaoAdressSelection}
+        onOpened: testSetupPopup.opacity = 0
+        onClosed: testSetupPopup.opacity = 1
+    }
+
+    Popup {
+        id: aircraftSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: SetupAircraftSelection{id: aircraftSelection}
+        onOpened: testSetupPopup.opacity = 0
+        onClosed: testSetupPopup.opacity = 1
+    }
+
+    Popup {
+        id: classSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: SetupClassSelection{id: classSelection}
+        onOpened: testSetupPopup.opacity = 0
+        onClosed: testSetupPopup.opacity = 1
+    }
+
+    Popup {
+        id: connectionSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: SetupConnectionSelection{id: connectionSelection}
+        onOpened: testSetupPopup.opacity = 0
+        onClosed: testSetupPopup.opacity = 1
     }
 }

@@ -54,6 +54,11 @@
         <file>antenna/AviBandSelection.qml</file>
         <file>antenna/AviModeSelection.qml</file>
         <file>antenna/AviCoaxSelection.qml</file>
+        <file>tests/SetupClassSelection.qml</file>
+        <file>tests/SetupConnectionSelection.qml</file>
+        <file>tests/SetupAircraftSelection.qml</file>
+        <file>tests/SetupDistanceInput.qml</file>
+        <file>tests/SetupIcaoAddressSelection.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -122,6 +127,7 @@
         <file>img/Download-white.png</file>
         <file>img/port.png</file>
         <file>img/wifi-direct.png</file>
+        <file>img/antenna2.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>
