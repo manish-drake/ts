@@ -78,9 +78,9 @@ unique_ptr<vector<unique_ptr<SectionGroup>>> SectionGroupDao::sectionGroups() co
     const QString strQuery = QString(
                 "SELECT sectiongroups.ID as sgID, sectiongroups.name as sgName, "
                 "sections.ID as secID, sections.name as secName, "
-                "sections.sectionGroupID "
+                "sections.sectionGroupId "
                 "FROM sectiongroups INNER JOIN sections "
-                "ON sectiongroups.ID = sections.sectionGroupID "
+                "ON sectiongroups.ID = sections.sectionGroupId "
                 );
 
     query.exec(strQuery);
