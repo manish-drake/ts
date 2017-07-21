@@ -39,12 +39,13 @@ Item {
                 font.italic: true
                 opacity: 0.3
                 color: Universal.foreground
+                visible: testsListView.count == 0
             }
             ListView {
-                id: grid
+                id: testsListView
                 anchors.fill: parent
                 anchors.margins: 8
-//                model: homeModel
+                model: testModel
                 delegate: testCardDelegate
                 focus: true
                 clip: true

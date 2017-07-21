@@ -14,6 +14,8 @@ Rectangle{
             Layout.topMargin: 12
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
+            sourceSize.width: 80
+            sourceSize.height: 80
         }
         Item{
             Layout.row: 1
