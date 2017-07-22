@@ -47,6 +47,16 @@ Item{
 
         contentItem: Rectangle {
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+            Text {
+                anchors.centerIn: parent
+                elide:Text.ElideRight
+                text: "No log data"
+                font.pixelSize: 12
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.3
+                visible: repeater1.count == 0
+            }
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -79,9 +89,10 @@ Item{
                             color: Universal.foreground
                             font.family: robotoRegular.name
                         }
-                    }
+                    }                    
                     Repeater{
-                        model:loggingModel
+                        id: repeater1
+//                        model: loggingModel
                         RowLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right
@@ -104,7 +115,7 @@ Item{
                                 font.family: robotoRegular.name
                             }
                         }
-                    }
+                    }                    
                 }
             }
         }

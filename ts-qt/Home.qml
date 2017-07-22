@@ -39,7 +39,7 @@ Item {
                 font.italic: true
                 opacity: 0.3
                 color: Universal.foreground
-                visible: testsListView.count === 0
+                visible: testsListView.count == 0
             }
             ListView {
                 id: testsListView
