@@ -14,7 +14,7 @@ Item {
             Layout.maximumWidth: 650
             Layout.alignment: Qt.AlignCenter
             radius: 4
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             height: content.height
             ColumnLayout{
                 id: content
@@ -639,7 +639,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: SetupDistanceInput{id: distanceInput}
         onOpened: testSetupPopup.opacity = 0
@@ -654,7 +654,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: SetupIcaoAddressSelection{id: icaoAdressSelection}
         onOpened: testSetupPopup.opacity = 0
@@ -669,7 +669,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: SetupAircraftSelection{id: aircraftSelection}
         onOpened: testSetupPopup.opacity = 0
@@ -684,7 +684,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: SetupClassSelection{id: classSelection}
         onOpened: testSetupPopup.opacity = 0
@@ -699,7 +699,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: SetupConnectionSelection{id: connectionSelection}
         onOpened: testSetupPopup.opacity = 0

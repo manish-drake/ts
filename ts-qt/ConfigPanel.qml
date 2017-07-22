@@ -5,7 +5,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Universal 2.1
 
 Rectangle{
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     GridLayout {
         id: grid
         anchors.left: parent.left
@@ -21,7 +21,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -81,7 +81,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -109,7 +109,7 @@ Rectangle{
             }
             Text{
                 id: label2
-                text: Universal.theme == Universal.Light ? "Indoor":"Outdoor"
+                text: Universal.theme === Universal.Light ? "Indoor":"Outdoor"
                 font.pixelSize: 14
                 font.family: robotoRegular.name
                 anchors.bottom: parent.bottom
@@ -120,7 +120,7 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    if(Universal.theme == Universal.Light) {
+                    if(Universal.theme === Universal.Light) {
                         _theme = Universal.Dark
                     }
                     else {_theme = Universal.Light}
@@ -130,7 +130,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -190,7 +190,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -221,7 +221,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -260,7 +260,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -293,7 +293,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -333,7 +333,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -375,7 +375,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Layout.columnSpan: 2

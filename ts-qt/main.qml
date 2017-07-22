@@ -17,7 +17,7 @@ ApplicationWindow {
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#00AEEF"
-    property color opaqueBackground: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
+    property color opaqueBackground: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
     property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
@@ -42,7 +42,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme == Universal.Light ? "#D1D3D4" : "#414048"
+                color: Universal.theme === Universal.Light ? "#D1D3D4" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent

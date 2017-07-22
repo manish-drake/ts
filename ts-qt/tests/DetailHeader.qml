@@ -8,7 +8,7 @@ Rectangle{
     height: 58
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     Item{
         anchors.left: parent.left
         anchors.leftMargin: 5
@@ -54,7 +54,7 @@ Rectangle{
 //        anchors.fill: pageIndicator
 //        source: pageIndicator
 //        color: Universal.foreground
-//        visible: Universal.theme == Universal.Dark
+//        visible: Universal.theme === Universal.Dark
 //    }
     Item{
         anchors.right: parent.right

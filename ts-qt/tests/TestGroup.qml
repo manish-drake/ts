@@ -86,7 +86,7 @@ Item{
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
@@ -124,7 +124,7 @@ Item{
 //                                    ColorOverlay {
 //                                        anchors.fill: guideImage
 //                                        source: guideImage
-//                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+//                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
 //                                    }
 //                                    MouseArea {
 //                                        anchors.fill: parent
@@ -184,7 +184,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestGuide{}
     }

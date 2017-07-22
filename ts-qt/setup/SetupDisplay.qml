@@ -11,7 +11,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -24,7 +24,7 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width;
@@ -64,7 +64,7 @@ Page {
                         Layout.column: 2
                         Layout.alignment: Qt.AlignRight
                         anchors.verticalCenter: parent.verticalCenter
-                        checked: _theme == Universal.Dark
+                        checked: _theme === Universal.Dark
                         onCheckedChanged: {
                             console.log(switch1.checked)
                             if(switch1.checked) {

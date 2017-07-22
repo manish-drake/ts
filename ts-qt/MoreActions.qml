@@ -9,20 +9,20 @@ import QtQuick.Layouts 1.1
 Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     radius: 4
     Column{
         id: columnLayout
         anchors.left: parent.left
         anchors.right: parent.right
         CustomSwitchDelegate{
-            text: Universal.theme == Universal.Light ? "INDOOR" : "OUTDOOR"
+            text: Universal.theme === Universal.Light ? "INDOOR" : "OUTDOOR"
             source: "qrc:/img/img/Sun Filled-25.png"
             isChecked: true
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    if(Universal.theme == Universal.Light) {
+                    if(Universal.theme === Universal.Light) {
                         _theme = Universal.Dark
                     }
                     else {_theme = Universal.Light}

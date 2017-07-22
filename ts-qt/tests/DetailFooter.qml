@@ -8,7 +8,7 @@ Rectangle{
     height: 110
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     property bool isScanPage
     RowLayout{
         anchors.left: parent.left

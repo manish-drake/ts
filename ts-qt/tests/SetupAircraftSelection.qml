@@ -13,7 +13,7 @@ Item{
             Layout.maximumWidth: 500
             Layout.maximumHeight: content.height
             Layout.alignment: Qt.AlignCenter
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             clip: true
             ColumnLayout{

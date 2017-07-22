@@ -129,6 +129,7 @@
         <file>img/port.png</file>
         <file>img/wifi-direct.png</file>
         <file>img/antenna2.png</file>
+        <file>img/Sun Filled-white.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

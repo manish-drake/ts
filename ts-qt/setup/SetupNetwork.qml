@@ -12,7 +12,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -25,7 +25,7 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             id: flickable
             anchors.fill: parent
@@ -254,7 +254,7 @@ Page {
                             checked: false
                             indicator: Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editIPAddSwitch.checked ? "DONE" : "EDIT"
@@ -322,7 +322,7 @@ Page {
                             checked: false
                             indicator:Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editDNameSwitch.checked ? "DONE" : "EDIT"

@@ -12,7 +12,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: 650
             Layout.alignment: Qt.AlignHCenter
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             border.color: "gray"
             border.width: 1
@@ -88,7 +88,7 @@ Item{
                     highlightMoveDuration: 0
                     highlight:Rectangle{
                         color:"transparent"
-                        border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                        border.color: Universal.theme === Universal.Dark ? "white" : Universal.accent
                         border.width: 1
                         radius:3
                     }
@@ -99,8 +99,8 @@ Item{
                             anchors.left:parent.left
                             anchors.right:parent.right
                             height: 60
-                            color: Universal.theme == Universal.Dark ? "#333333" : "#fcfcfc"
-                            border.color: Universal.theme == Universal.Light ? "#0d000000" : "#4dffffff"
+                            color: Universal.theme === Universal.Dark ? "#333333" : "#fcfcfc"
+                            border.color: Universal.theme === Universal.Light ? "#0d000000" : "#4dffffff"
                             border.width: 1
                             radius: 4
 //                            layer.enabled: true

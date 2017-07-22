@@ -21,7 +21,7 @@ Item {
             Layout.alignment: Qt.AlignCenter
             anchors.verticalCenter: parent.verticalCenter
             radius: 4
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             height: content.height
             ColumnLayout{
                 id: content
@@ -484,7 +484,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviBandSelection{
             id: bandSelection
@@ -500,7 +500,7 @@ Item {
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCoaxSelection{id: coaxSelection}
     }

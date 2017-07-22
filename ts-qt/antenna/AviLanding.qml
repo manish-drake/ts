@@ -10,7 +10,7 @@ Item{
     Page {
         anchors.fill: parent
         contentItem: Rectangle {
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -64,7 +64,7 @@ Item{
             height: 110
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -220,7 +220,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCalibration{ mode: "VSWR/CL" }
     }

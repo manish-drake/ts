@@ -13,7 +13,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: 500
             Layout.alignment: Qt.AlignHCenter
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             height: content.height
             ColumnLayout{
@@ -69,7 +69,7 @@ Item{
                             anchors.leftMargin: 20
                             anchors.rightMargin: 20
                             height: 45
-                            color: index == bandListView.currentIndex ? "#1B75BC" :  Universal.accent
+                            color: index === bandListView.currentIndex ? "#1B75BC" :  Universal.accent
                             radius: 4
                             RowLayout{
                                 anchors.fill: parent

@@ -11,7 +11,7 @@ Item{
         header: DetailHeader{}
 
         contentItem: Rectangle{
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             ColumnLayout{
                 anchors.fill: parent
                 Item{
@@ -50,7 +50,7 @@ Item{
                     highlightMoveDuration: 0
                     highlight:Rectangle{
                         color:"transparent"
-                        border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                        border.color: Universal.theme === Universal.Dark ? "white" : Universal.accent
                         border.width: 1
                         radius:5
                     }
@@ -121,7 +121,7 @@ Item{
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: DetailMenu{}
     }
@@ -133,7 +133,7 @@ Item{
         padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

@@ -39,7 +39,7 @@ Item {
                 font.italic: true
                 opacity: 0.3
                 color: Universal.foreground
-                visible: testsListView.count == 0
+                visible: testsListView.count === 0
             }
             ListView {
                 id: testsListView
@@ -72,7 +72,7 @@ Item {
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent

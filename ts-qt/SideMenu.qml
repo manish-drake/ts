@@ -4,7 +4,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
 Rectangle{
-    color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
+    color: Universal.theme === Universal.Light ? "#D1D3D4" : "#222222"
     Universal.accent: "#00AEEF"
     property int selectedMenuIndex: 1
     ColumnLayout{
@@ -50,7 +50,7 @@ Rectangle{
             Layout.row: 2
             Layout.fillWidth: true
             Layout.fillHeight: true
-            color: Universal.theme == Universal.Light ? Universal.background : "#38363C"
+            color: Universal.theme === Universal.Light ? Universal.background : "#38363C"
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
@@ -80,7 +80,7 @@ Rectangle{
                                 height: 48
                                 Rectangle{
                                     anchors.fill: parent
-                                    color: selectedMenuIndex == model.modelData.id ? "#1B75BC" : Universal.theme == Universal.Light ? Universal.accent : "#222222"
+                                    color: selectedMenuIndex === model.modelData.id ? "#1B75BC" : Universal.theme === Universal.Light ? Universal.accent : "#222222"
                                     radius: 3
                                     Text {
                                         anchors.verticalCenter: parent.verticalCenter
