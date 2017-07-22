@@ -13,11 +13,22 @@ Item{
             anchors.left:parent.left
             anchors.right:parent.right
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+            Text {
+                id: testTitle
+                anchors.centerIn: parent
+                text: qsTr("App Logs")
+                font.pixelSize: 16
+                font.weight: Font.DemiBold
+                color: Universal.foreground
+                font.family: robotoRegular.name
+            }
             Item{
                 width: 50
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                visible: repeater1.count != 0
                 Image {
                     id: image1
                     anchors.centerIn: parent
@@ -32,16 +43,6 @@ Item{
                     anchors.fill: parent
                     onClicked:{}
                 }
-            }
-
-            Text {
-                id: testTitle
-                anchors.centerIn: parent
-                text: qsTr("App Logs")
-                font.pixelSize: 16
-                font.weight: Font.DemiBold
-                color: Universal.foreground
-                font.family: robotoRegular.name
             }
         }
 
@@ -73,6 +74,7 @@ Item{
                     RowLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
+                        visible: repeater1.count != 0
                         Text {
                             Layout.fillWidth: true
                             text: qsTr("MESSAGE")
