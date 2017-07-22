@@ -67,7 +67,7 @@ Item {
                 Item{
                     anchors.left:parent.left
                     anchors.right: parent.right
-                    height:100
+                    height:110
                     Rectangle {
                         id: wrapper
                         anchors.fill: parent
@@ -97,6 +97,26 @@ Item {
                                     font.capitalization: Font.AllUppercase
                                     font.family: robotoRegular.name
                                     color: Universal.accent
+                                }
+                                Item{
+                                    width: 35
+                                    height: 35
+                                    Image {
+                                        id: favImage
+                                        anchors.centerIn: parent
+                                        source: "qrc:/img/img/star-filled.png"
+                                    }
+                                    //                                    ColorOverlay {
+                                    //                                        anchors.fill: favImage
+                                    //                                        source: favImage
+                                    //                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
+                                    //                                    }
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        onClicked: testModel.removeFromHome()
+                                        onPressed: parent.opacity = 0.5
+                                        onReleased: parent.opacity = 1
+                                    }
                                 }
                             }
                             Rectangle{

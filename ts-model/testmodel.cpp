@@ -105,6 +105,17 @@ QHash<int, QByteArray> TestModel::roleNames() const
     return hash;
 }
 
+void TestModel::addToHome(const QString &name, const int &sectionId)
+{
+    auto test = Test(name, sectionId);
+    this->addTest(test);
+}
+
+void TestModel::removeFromHome()
+{
+
+}
+
 TestModel::~TestModel()
 {
 

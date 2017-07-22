@@ -36,6 +36,9 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
+    Q_INVOKABLE void addToHome(const QString &name, const int &sectionId);
+    Q_INVOKABLE void removeFromHome();
+
     ~TestModel();
 signals:
 private:

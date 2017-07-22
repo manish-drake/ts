@@ -1045,25 +1045,21 @@ int DataBuilder::build()
     navigationDaoPtr->addNavigation(secToSetup);
 
 
-    //    //For Home Tests---------------------------------
+//        //For Home Tests---------------------------------
 
-    //    Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
-    //    testModel.addTest(homeAdsbOut1090);
+//        Test homeAdsbOut1090("1090 ADS-B OUT", secHome.id());
+//        testModel.addTest(homeAdsbOut1090);
 
-    //    Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwADSBout1090Scan.id());
-    //    navigationDaoPtr->addNavigation(homeToadsbOut1090);
+//        Navigation homeToadsbOut1090(vwHome.id(), "_test", homeAdsbOut1090.id(), vwTestDetailLanding.id());
+//        navigationDaoPtr->addNavigation(homeToadsbOut1090);
 
-    //    Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
-    //    testModel.addTest(homeadsbOutUat);
+//        Test homeadsbOutUat("UAT ADS-B OUT", secHome.id());
+//        testModel.addTest(homeadsbOutUat);
 
-    //    Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwADSBoutUATScan.id());
-    //    navigationDaoPtr->addNavigation(homeToadsbOutUat);
-    //    //-----------------------------------------------
+//        Navigation homeToadsbOutUat(vwHome.id(), "_test", homeadsbOutUat.id(), vwTestDetailLanding.id());
+//        navigationDaoPtr->addNavigation(homeToadsbOutUat);
+//        //-----------------------------------------------
 
-
-
-    //    Navigation main1090ToScanPage(vwADSB.id(), "_test", adsbOut1090.id(), vwADSBout1090Scan.id());
-    //    navigationDaoPtr->addNavigation(main1090ToScanPage);
 
     Navigation adsbOut1090ToDetail(vwADSB.id(), "_test", adsbOut1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOut1090ToDetail);
@@ -1091,9 +1087,6 @@ int DataBuilder::build()
 
     Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
     navigationDaoPtr->addNavigation(graphUatToScan);
-
-    //    Navigation mainUatToScanPage(vwADSB.id(), "_test", adsbOutUat.id(), vwADSBoutUATScan.id());
-    //    navigationDaoPtr->addNavigation(mainUatToScanPage);
 
     Navigation adsbOutUatToDetail(vwADSB.id(), "_test", adsbOutUat.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOutUatToDetail);
