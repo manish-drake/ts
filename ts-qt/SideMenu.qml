@@ -6,7 +6,7 @@ import QtQuick.Controls.Universal 2.1
 Rectangle{
     color: Universal.theme == Universal.Light ? "#D1D3D4" : "#222222"
     Universal.accent: "#00AEEF"
-    property int selectedMenuIndex: -1
+    property int selectedMenuIndex: 1
     ColumnLayout{
         anchors.fill: parent
         Image {
@@ -57,7 +57,6 @@ Rectangle{
                 anchors.margins: 10
                 model: sectionGroupModel
                 clip: true
-                currentIndex: -1
                 delegate:  Component {
                     ColumnLayout{
                         anchors.left: parent.left
@@ -107,6 +106,7 @@ Rectangle{
                         }
                     }
                 }
+                onCurrentIndexChanged: navigationModel.currentView = navigationModel.getTargetView("_section", 1)
             }
         }
     }
