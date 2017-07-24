@@ -30,8 +30,8 @@ Item{
             id: userListView
             anchors.fill: parent
             anchors.margins: 10
-            model: tempModel
-//          model:  zmq.queryUsers()
+            //            model: tempModel
+            model:  zmq.queryUsers()
             delegate: userCardDelegate
             clip: true
             onCurrentIndexChanged: {
@@ -69,11 +69,11 @@ Item{
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/checked.png"
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: checkedImg
-//                                    source: checkedImg
-//                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
-//                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg
+                                //                                    source: checkedImg
+                                //                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
+                                //                                }
                             }
                             Text {
                                 Layout.column: 1
