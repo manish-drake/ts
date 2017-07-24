@@ -1,9 +1,9 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Styles 1.4
-import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Universal 2.1
 
 Item{
     Layout.row: 2
@@ -28,7 +28,7 @@ Item{
             height: 45
             Rectangle{
                 anchors.fill: parent
-                color: Universal.accent
+                color: Universal.theme === Universal.Light ? Universal.accent : "#38363C"
                 radius: 3
                 RowLayout{
                     anchors.fill: parent

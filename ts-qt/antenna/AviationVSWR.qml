@@ -14,7 +14,7 @@ Item{
         }
         
         contentItem: Rectangle {
-            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;

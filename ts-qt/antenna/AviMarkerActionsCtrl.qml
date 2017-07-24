@@ -8,7 +8,7 @@ Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
     height: 35
-    color: Universal.accent
+    color: Universal.theme === Universal.Light ? Universal.accent : "#38363C"
     radius: 3
     RowLayout{
         anchors.fill: parent

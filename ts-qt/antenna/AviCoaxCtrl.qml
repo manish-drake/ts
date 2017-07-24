@@ -28,7 +28,7 @@ Item{
             height: 45
             Rectangle{
                 anchors.fill: parent
-                color: Universal.accent
+                color: Universal.theme === Universal.Light ? Universal.accent : "#38363C"
                 radius: 3
                 RowLayout{
                     anchors.fill: parent

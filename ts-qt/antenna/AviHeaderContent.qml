@@ -10,7 +10,7 @@ Rectangle{
     height: 40
     anchors.left:parent.left
     anchors.right:parent.right
-    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#414048"
 
     Item{
         anchors.top: parent.top
