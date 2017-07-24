@@ -1069,6 +1069,12 @@ int DataBuilder::build()
 //        navigationDaoPtr->addNavigation(homeToadsbOutUat);
 //        //-----------------------------------------------
 
+    Navigation adsbIn1090ToDetail(vwADSB.id(), "_test", in1090.id(), vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbIn1090ToDetail);
+
+    Navigation adsbInUatToDetail(vwADSB.id(), "_test", uatIn.id(), vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbInUatToDetail);
+
 
     Navigation adsbOut1090ToDetail(vwADSB.id(), "_test", adsbOut1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOut1090ToDetail);
