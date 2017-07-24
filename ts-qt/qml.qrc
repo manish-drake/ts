@@ -60,6 +60,8 @@
         <file>tests/SetupDistanceInput.qml</file>
         <file>tests/SetupIcaoAddressSelection.qml</file>
         <file>Home.qml</file>
+        <file>tests/TransponderLanding.qml</file>
+        <file>tests/TransponderSummary.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -130,6 +132,7 @@
         <file>img/antenna2.png</file>
         <file>img/Sun Filled-white.png</file>
         <file>img/star.png</file>
+        <file>img/star-white.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

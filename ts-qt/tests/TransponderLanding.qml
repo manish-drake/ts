@@ -27,7 +27,7 @@ Item{
                         anchors.left: parent.left
                         anchors.right: parent.right
                         horizontalAlignment: Text.AlignHCenter
-                        text: navigationModel.navigationParameter.title
+                        text: "XPNDR"
                         font.pixelSize: 24
                         font.weight: Font.Black
                         font.family: robotoRegular.name
@@ -95,13 +95,7 @@ Item{
                             anchors.fill: parent
                             onPressed: parent.opacity = 0.9
                             onReleased: parent.opacity = 1
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                                         "_detailSummary",
-                                                                         navigationModel.navigationParameter.id), {
-                                                                         "id": navigationModel.navigationParameter.id,
-                                                                         "title": navigationModel.navigationParameter.title,
-                                                                         "runState": toggleButton.state
-                                                                     });
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER", "runState": toggleButton.state});
                         }
                     }
                     Text {
@@ -178,13 +172,7 @@ Item{
                                     parent.state = "start"
                                 }
                             }
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                                         "_detailSummary",
-                                                                         navigationModel.navigationParameter.id), {
-                                                                         "id": navigationModel.navigationParameter.id,
-                                                                         "title": navigationModel.navigationParameter.title,
-                                                                         "runState": toggleButton.state
-                                                                     });
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER","runState": toggleButton.state});
                             onReleased: parent.opacity = 1
                         }
                         states: [

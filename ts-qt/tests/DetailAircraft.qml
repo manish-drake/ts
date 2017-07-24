@@ -8,7 +8,10 @@ Item{
     Page {
         anchors.fill: parent
 
-        header: DetailHeader{}
+        header: DetailHeader{
+            id: detailHeader
+            pageCount: 7
+        }
 
         contentItem: Rectangle{
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
@@ -24,11 +27,11 @@ Item{
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Radar-25.png"
                     }
-//                    ColorOverlay{
-//                        anchors.fill: image1
-//                        source: image1
-//                        color: Universal.foreground
-//                    }
+                    //                    ColorOverlay{
+                    //                        anchors.fill: image1
+                    //                        source: image1
+                    //                        color: Universal.foreground
+                    //                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")

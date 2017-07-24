@@ -18,6 +18,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
+            visible: detailHeader.pageCount > 1
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50
@@ -49,6 +50,7 @@ Rectangle{
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
+            visible: detailHeader.pageCount > 1
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50

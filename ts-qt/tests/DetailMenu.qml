@@ -154,7 +154,7 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Image {
                                 id: starImg
-                                source: "qrc:/img/img/Star.png"
+                                source: "qrc:/img/img/star-white.png"
                             }
                         }
                         Text{

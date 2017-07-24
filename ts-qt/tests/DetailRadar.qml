@@ -8,7 +8,10 @@ Item{
     Page {
         anchors.fill: parent
 
-        header: DetailHeader{}
+        header: DetailHeader{
+            id: detailHeader
+            pageCount: 7
+        }
 
         contentItem: Rectangle{
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"

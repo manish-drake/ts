@@ -53,14 +53,16 @@ ApplicationWindow {
                         switch (true) {
                         case x < 5:
                         case x == 34:
+                        case x == 41:
                             isMenuView = true;
                             isHeaderAvailable = true;
                             break;
                         case x == 5:
-                        case (x > 13 && x < 20):
                         case (x > 5 && x < 13):
+                        case (x > 13 && x < 20):
                         case (x > 28 && x < 31):
                         case (x > 30 && x < 33):
+                        case x == 42:
                             isHeaderAvailable = false;
                             break;
                         default:
@@ -129,94 +131,94 @@ ApplicationWindow {
             contentItem: SideMenu{}
         }
 
-                Popup {
-                    id: testSetupPopup
-                    height: parent.height
-                    width: parent.width
-                    topPadding: 60
-                    bottomPadding: 60
-                    leftPadding: 30
-                    rightPadding: 30
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: TestSetup{}
-                }
+        Popup {
+            id: testSetupPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestSetup{}
+        }
 
-                Popup {
-                    id: helpPopup
-                    height: parent.height
-                    width: parent.width
-                    topPadding: 60
-                    bottomPadding: 60
-                    leftPadding: 30
-                    rightPadding: 30
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: TestHelp{}
-                }
+        Popup {
+            id: helpPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestHelp{}
+        }
 
-                Popup {
-                    id: connectionReqPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionReqest{}
-                }
+        Popup {
+            id: connectionReqPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionReqest{}
+        }
 
-                Popup {
-                    id: pinConfirmPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: PINConfirmation{}
-                }
+        Popup {
+            id: pinConfirmPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: PINConfirmation{}
+        }
 
-                Timer{
-                    id:  pinaccepttimer
-                    interval: 3000
-                    onTriggered:{
-                        pinConfirmPopup.close()
-                        connectionAckPopup.open()
-                    }
-                }
+        Timer{
+            id:  pinaccepttimer
+            interval: 3000
+            onTriggered:{
+                pinConfirmPopup.close()
+                connectionAckPopup.open()
+            }
+        }
 
-                Popup {
-                    id: connectionAckPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionAck{}
-                }
+        Popup {
+            id: connectionAckPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionAck{}
+        }
 
-                Popup {
-                    id: connectionLostPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionLost{}
-                }
+        Popup {
+            id: connectionLostPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionLost{}
+        }
     }
     InputPanel {
         id: inputPanel
