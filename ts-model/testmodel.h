@@ -29,6 +29,7 @@ public:
     TestModel(QObject *parent = 0);
 
     QModelIndex addTest(Test &test);
+    QModelIndex removeTest(const int &id);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -37,7 +38,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     Q_INVOKABLE void addToHome(const QString &name, const int &sectionId);
-    Q_INVOKABLE void removeFromHome();
+    Q_INVOKABLE void removeFromHome(const int &id);
 
     ~TestModel();
 signals:

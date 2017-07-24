@@ -37,7 +37,7 @@ Item {
                 font.pixelSize: 14
                 font.weight: Font.Thin
                 font.italic: true
-                opacity: 0.3
+                opacity: 0.4
                 color: Universal.foreground
                 visible: testsListView.count == 0
             }
@@ -113,7 +113,7 @@ Item {
                                     //                                    }
                                     MouseArea {
                                         anchors.fill: parent
-                                        onClicked: testModel.removeFromHome()
+                                        onClicked: testModel.removeFromHome(id)
                                         onPressed: parent.opacity = 0.5
                                         onReleased: parent.opacity = 1
                                     }
