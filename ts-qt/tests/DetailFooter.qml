@@ -140,12 +140,8 @@ Rectangle{
                             target: toggleButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
-                    },
-                    State {
-                        name: "stop"
-                        PropertyChanges {
-                            target: toggleButton
-                            imageSource: "qrc:/img/img/stop-button.png"
+                        StateChangeScript{
+                            script: detailFooter.onStop()
                         }
                     },
                     State {
@@ -153,6 +149,19 @@ Rectangle{
                         PropertyChanges {
                             target: toggleButton
                             imageSource: "qrc:/img/img/pause-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onRun()
+                        }
+                    },
+                    State {
+                        name: "stop"
+                        PropertyChanges {
+                            target: toggleButton
+                            imageSource: "qrc:/img/img/stop-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onPause()
                         }
                     }
                 ]
@@ -162,15 +171,12 @@ Rectangle{
                     onPressed: {
                         parent.opacity = 0.9
                         if (parent.state == "start") {
-                            detailFooter.onRun()
-                            parent.state = "pause"                            
+                            parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
-                            detailFooter.onPause()
                             parent.state = "stop"
                         }
                         else{
-                            detailFooter.onStop()
                             parent.state = "start"
                         }
                     }

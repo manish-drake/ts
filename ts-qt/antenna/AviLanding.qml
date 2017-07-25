@@ -166,17 +166,17 @@ Item{
                                 }
                             },
                             State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
-                                }
-                            },
-                            State {
                                 name: "pause"
                                 PropertyChanges {
                                     target: toggleButton
                                     imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            },
+                            State {
+                                name: "stop"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/stop-button.png"
                                 }
                             }
                         ]
@@ -195,8 +195,8 @@ Item{
                                     parent.state = "start"
                                 }
                             }
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
                             onReleased: parent.opacity = 1
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
                         }
                     }
                     Text {

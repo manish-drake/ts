@@ -70,12 +70,8 @@ Item{
                             target: toggleButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
-                    },
-                    State {
-                        name: "stop"
-                        PropertyChanges {
-                            target: toggleButton
-                            imageSource: "qrc:/img/img/stop-button.png"
+                        StateChangeScript{
+                            script: commonCtrls.onStop()
                         }
                     },
                     State {
@@ -83,6 +79,19 @@ Item{
                         PropertyChanges {
                             target: toggleButton
                             imageSource: "qrc:/img/img/pause-button.png"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onRun()
+                        }
+                    },
+                    State {
+                        name: "stop"
+                        PropertyChanges {
+                            target: toggleButton
+                            imageSource: "qrc:/img/img/stop-button.png"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onPause()
                         }
                     }
                 ]
@@ -92,15 +101,12 @@ Item{
                     onPressed: {
                         parent.opacity = 0.9
                         if (parent.state == "start") {
-                            commonCtrls.onRun()
                             parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
-                            commonCtrls.onPause()
                             parent.state = "stop"
                         }
                         else{
-                            commonCtrls.onStop()
                             parent.state = "start"
                         }
                     }

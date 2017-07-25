@@ -162,7 +162,7 @@ Item{
                             id: buttonImage
                             anchors.centerIn: parent
                             smooth: true
-                        }                        
+                        }
                         states: [
                             State {
                                 name: "start"
@@ -172,17 +172,17 @@ Item{
                                 }
                             },
                             State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
-                                }
-                            },
-                            State {
                                 name: "pause"
                                 PropertyChanges {
                                     target: toggleButton
                                     imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            },
+                            State {
+                                name: "stop"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/stop-button.png"
                                 }
                             }
                         ]
@@ -201,6 +201,7 @@ Item{
                                     parent.state = "start"
                                 }
                             }
+                            onReleased: parent.opacity = 1
                             onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                          "_detailSummary",
                                                                          navigationModel.navigationParameter.id), {
@@ -208,7 +209,6 @@ Item{
                                                                          "title": navigationModel.navigationParameter.title,
                                                                          "runState": toggleButton.state
                                                                      });
-                            onReleased: parent.opacity = 1
                         }
                     }
                     Text {

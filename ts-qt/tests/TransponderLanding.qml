@@ -164,12 +164,8 @@ Item{
                                     target: toggleButton
                                     imageSource: "qrc:/img/img/play-button.png"
                                 }
-                            },
-                            State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
+                                StateChangeScript{
+                                    script: detailFooter.onStop()
                                 }
                             },
                             State {
@@ -177,6 +173,19 @@ Item{
                                 PropertyChanges {
                                     target: toggleButton
                                     imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                                StateChangeScript{
+                                    script: detailFooter.onRun()
+                                }
+                            },
+                            State {
+                                name: "stop"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/stop-button.png"
+                                }
+                                StateChangeScript{
+                                    script: detailFooter.onPause()
                                 }
                             }
                         ]
@@ -195,8 +204,8 @@ Item{
                                     parent.state = "start"
                                 }
                             }
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER","runState": toggleButton.state});
                             onReleased: parent.opacity = 1
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER","runState": toggleButton.state});
                         }
                     }
                     Text {
