@@ -2,7 +2,6 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Page {
@@ -12,7 +11,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -22,31 +21,10 @@ Page {
             font.family: robotoRegular.name
             color: Universal.foreground
         }
-
-//        Item{
-//            anchors.top: parent.top
-//            anchors.bottom: parent.bottom
-//            anchors.right: parent.right
-//            width: 50
-//            Image {
-//                id: closeImage
-//                anchors.centerIn: parent
-//                source: "qrc:/img/img/Delete-25.png"
-//            }
-//            ColorOverlay{
-//                anchors.fill: closeImage
-//                source: closeImage
-//                color: Universal.foreground
-//            }
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//            }
-//        }
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
             contentWidth: parent.width;
@@ -86,7 +64,7 @@ Page {
                         Layout.column: 2
                         Layout.alignment: Qt.AlignRight
                         anchors.verticalCenter: parent.verticalCenter
-                        checked: _theme == Universal.Dark
+                        checked: _theme === Universal.Dark
                         onCheckedChanged: {
                             console.log(switch1.checked)
                             if(switch1.checked) {

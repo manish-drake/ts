@@ -1,7 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
@@ -15,7 +14,7 @@ Item{
         }
         
         contentItem: Rectangle {
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -40,12 +39,8 @@ Item{
                         columnSpacing: 15
                         rowSpacing: 20
                         AviMarkerActionsCtrl{}
-                        AviBandCtrl{
-                            id: bandCtrl
-                        }
-                        AviModeCtrl{
-                            currentModeIndex: 0
-                        }
+                        AviBandCtrl{}
+                        AviModeCtrl{ mode: "VSWR" }
                         AviCommonCtrls{}
                     }
                     ColumnLayout{
@@ -83,6 +78,19 @@ Item{
     }
 
     Popup {
+        id: modeSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviModeSelection{ selectedIndex: 0 }
+    }
+
+    Popup {
         id: savedDataPopup
         width: parent.width
         height: parent.height
@@ -102,8 +110,21 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCalibration{ mode: "VSWR/CL" }
+    }
+
+    Popup {
+        id: bandSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviBandSelection{id: bandSelection}
     }
 }

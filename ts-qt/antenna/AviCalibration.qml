@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
@@ -21,7 +21,7 @@ Item {
             Layout.alignment: Qt.AlignCenter
             anchors.verticalCenter: parent.verticalCenter
             radius: 4
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             height: content.height
             ColumnLayout{
                 id: content
@@ -53,11 +53,11 @@ Item {
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: closeImage
-                            source: closeImage
-                            color: Universal.accent
-                        }
+                        //                        ColorOverlay{
+                        //                            anchors.fill: closeImage
+                        //                            source: closeImage
+                        //                            color: Universal.accent
+                        //                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:calPopup.close()
@@ -74,7 +74,6 @@ Item {
                         anchors.right: parent.right
                         AviBandCtrl{
                             visible: mode == "VSWR/CL"
-                            isEnabled: false
                         }
                     }
                 }
@@ -86,7 +85,9 @@ Item {
                         id: grid2
                         anchors.left: parent.left
                         anchors.right: parent.right
-                        AviCoaxCtrl{visible: mode == "COAX"}
+                        AviCoaxCtrl{
+                            visible: mode == "COAX"
+                        }
                     }
                 }
                 Rectangle{
@@ -195,8 +196,9 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.black
+
                                                 font.family: robotoRegular.name
                                                 text: isOpenMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -220,11 +222,11 @@ Item {
                                     id: checkedImg1
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                ColorOverlay{
-                                    anchors.fill: checkedImg1
-                                    source: checkedImg1
-                                    color: Universal.foreground
-                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg1
+                                //                                    source: checkedImg1
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -281,8 +283,8 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.Black
                                                 font.family: robotoRegular.name
                                                 text: isLoadMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -306,11 +308,11 @@ Item {
                                     id: checkedImg2
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                ColorOverlay{
-                                    anchors.fill: checkedImg2
-                                    source: checkedImg2
-                                    color: Universal.foreground
-                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg2
+                                //                                    source: checkedImg2
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -367,8 +369,8 @@ Item {
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
-                                                font.pixelSize: 12
-                                                font.weight: Font.DemiBold
+                                                font.pixelSize: 14
+                                                font.weight: Font.Black
                                                 font.family: robotoRegular.name
                                                 text: isThruMeasured ? "RE-MEASURE" : "MEASURE"
                                                 color: "white"
@@ -392,11 +394,11 @@ Item {
                                     id: checkedImg3
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                ColorOverlay{
-                                    anchors.fill: checkedImg3
-                                    source: checkedImg3
-                                    color: Universal.foreground
-                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg3
+                                //                                    source: checkedImg3
+                                //                                    color: Universal.foreground
+                                //                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -416,7 +418,7 @@ Item {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     Layout.topMargin: 30
-                    Layout.bottomMargin: 15
+                    Layout.bottomMargin: 25
                     height: 40
                     RowLayout{
                         anchors.fill: parent
@@ -429,8 +431,8 @@ Item {
                             radius: 3
                             Text{
                                 anchors.centerIn: parent
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Bold
                                 font.family: robotoRegular.name
                                 text: "DONE"
                                 color: "white"
@@ -456,8 +458,8 @@ Item {
                                 anchors.margins: 5
                                 horizontalAlignment: Text.AlignHCenter
                                 elide: Text.ElideRight
-                                font.pixelSize: 12
-                                font.weight: Font.DemiBold
+                                font.pixelSize: 14
+                                font.weight: Font.Bold
                                 font.family: robotoRegular.name
                                 text: areParametersCalculated ? "RE-CALCULATE PARAMETERS" : "CALCULATE PARAMETERS"
                                 color: "white"
@@ -472,5 +474,34 @@ Item {
                 }
             }
         }
+    }
+
+    Popup {
+        id: bandSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviBandSelection{
+            id: bandSelection
+            isEnabled: false
+        }
+    }
+
+    Popup {
+        id: coaxSelectionPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviCoaxSelection{id: coaxSelection}
     }
 }

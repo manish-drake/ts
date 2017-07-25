@@ -1,5 +1,5 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
@@ -10,7 +10,7 @@ Rectangle{
     height: 40
     anchors.left:parent.left
     anchors.right:parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#414048"
 
     Item{
         anchors.top: parent.top
@@ -24,11 +24,11 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             source:  "qrc:/img/img/Download-22.png"
         }
-        ColorOverlay{
-            anchors.fill: closeImage
-            source: closeImage
-            color: Universal.foreground
-        }
+//        ColorOverlay{
+//            anchors.fill: closeImage
+//            source: closeImage
+//            color: Universal.foreground
+//        }
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -49,18 +49,18 @@ Rectangle{
                 }
                 switch(detailTitle){
                 case "VSWR":
-                    var bandName = bandCtrl.bandName
+                    var bandName = bandSelection.bandName
                     snapshotModel.addAviationVswr(datetime, user,data,markerPosition,markerName,range,bandRange,bandName);
                     notifyPopup.open(); closeTimer.running = true;
                     break;
                 case "CABLE LOSS":
-                    var bandName2 = bandCtrl.bandName
+                    var bandName2 = bandSelection.bandName
                     snapshotModel.addAviationCl(datetime,user,data,markerPosition,markerName,range,bandRange,bandName2);
                     notifyPopup.open(); closeTimer.running = true;
                     break;
                 case "DISTANCE TO FAULT":
-                    var velocity = coaxCtrl.selectedCableVelocity
-                    var cableType = coaxCtrl.selectedCableType
+                    var velocity = coaxSelection.selectedCableVelocity
+                    var cableType = coaxSelection.selectedCableType
                     snapshotModel.addAviationDtf(datetime,user,data,markerPosition,markerName,range,velocity,cableType);
                     notifyPopup.open(); closeTimer.running = true;
                     break;
@@ -91,40 +91,16 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             source: "qrc:/img/img/Past-22.png"
         }
-        ColorOverlay{
-            anchors.fill: historyImg
-            source: historyImg
-            color: Universal.foreground
-        }
+//        ColorOverlay{
+//            anchors.fill: historyImg
+//            source: historyImg
+//            color: Universal.foreground
+//        }
         MouseArea {
             anchors.fill: parent
             onClicked: savedDataPopup.open();
         }
     }
-
-    //    Item{
-    //        id: rectangle
-    //        anchors.top: parent.top
-    //        anchors.bottom: parent.bottom
-    //        anchors.right: parent.right
-    //        anchors.rightMargin: 5
-    //        width: 50
-    //        Image {
-    //            id: closeImage
-    //            anchors.horizontalCenter: parent.horizontalCenter
-    //            anchors.verticalCenter: parent.verticalCenter
-    //            source: "qrc:/img/img/Delete-25.png"
-    //        }
-    //        ColorOverlay{
-    //            anchors.fill: closeImage
-    //            source: closeImage
-    //            color: Universal.foreground
-    //        }
-    //        MouseArea {
-    //            anchors.fill: parent
-    //            onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-    //        }
-    //    }
 
     Item{
         width: 160

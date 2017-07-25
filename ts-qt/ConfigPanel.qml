@@ -3,10 +3,9 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
 
 Rectangle{
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     GridLayout {
         id: grid
         anchors.left: parent.left
@@ -22,7 +21,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -82,7 +81,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -107,15 +106,10 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Sun Filled-25.png"
                 }
-                ColorOverlay {
-                    anchors.fill: sunImage
-                    source: sunImage
-                    color: Universal.foreground
-                }
             }
             Text{
                 id: label2
-                text: Universal.theme == Universal.Light ? "Indoor":"Outdoor"
+                text: Universal.theme === Universal.Light ? "Indoor":"Outdoor"
                 font.pixelSize: 14
                 font.family: robotoRegular.name
                 anchors.bottom: parent.bottom
@@ -126,7 +120,7 @@ Rectangle{
             MouseArea{
                 anchors.fill: parent
                 onClicked: {
-                    if(Universal.theme == Universal.Light) {
+                    if(Universal.theme === Universal.Light) {
                         _theme = Universal.Dark
                     }
                     else {_theme = Universal.Light}
@@ -136,7 +130,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -196,7 +190,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -227,7 +221,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -252,11 +246,6 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Marker-25.png"
                 }
-                ColorOverlay {
-                    anchors.fill: markerImage
-                    source: markerImage
-                    color: Universal.foreground
-                }
             }
             Text{
                 id: label11
@@ -271,7 +260,7 @@ Rectangle{
         }
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -304,7 +293,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -329,11 +318,6 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Circled Up-25.png"
                 }
-                ColorOverlay {
-                    anchors.fill: uutImage
-                    source: uutImage
-                    color: Universal.foreground
-                }
             }
             Text{
                 id: label7
@@ -349,7 +333,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Text{
@@ -373,11 +357,6 @@ Rectangle{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/filter-results-button.png"
                 }
-                ColorOverlay {
-                    anchors.fill: connImage
-                    source: connImage
-                    color: Universal.foreground
-                }
             }
             ComboBox{
                 width: 120
@@ -396,7 +375,7 @@ Rectangle{
 
         Rectangle {
             color: "transparent"
-            border.color: Universal.theme == Universal.Light ? "#eeeeee" : "#444444"
+            border.color: Universal.theme === Universal.Light ? "#eeeeee" : "#444444"
             Layout.preferredWidth : grid.prefWidth(this)
             Layout.preferredHeight : grid.prefHeight(this)
             Layout.columnSpan: 2

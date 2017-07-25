@@ -1,5 +1,4 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 
@@ -63,24 +62,7 @@ Item{
                     id: buttonImage
                     anchors.centerIn: parent
                     smooth: true
-                }
-                MouseArea {
-                    id: mouseArea
-                    anchors.fill: parent
-                    onPressed: {
-                        parent.opacity = 0.9
-                        if (parent.state == "start") {
-                            parent.state = "pause"
-                        }
-                        else if(parent.state == "pause"){
-                            parent.state = "stop"
-                        }
-                        else{
-                            parent.state = "start"
-                        }
-                    }
-                    onReleased: parent.opacity = 1
-                }
+                }                
                 states: [
                     State {
                         name: "start"
@@ -104,6 +86,23 @@ Item{
                         }
                     }
                 ]
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    onPressed: {
+                        parent.opacity = 0.9
+                        if (parent.state == "start") {
+                            parent.state = "pause"
+                        }
+                        else if(parent.state == "pause"){
+                            parent.state = "stop"
+                        }
+                        else{
+                            parent.state = "start"
+                        }
+                    }
+                    onReleased: parent.opacity = 1
+                }
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter

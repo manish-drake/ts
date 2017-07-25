@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Page {
     id: item1
@@ -12,7 +12,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -22,31 +22,10 @@ Page {
             font.family: robotoRegular.name
             color: Universal.foreground
         }
-
-//        Item{
-//            anchors.top: parent.top
-//            anchors.bottom: parent.bottom
-//            anchors.right: parent.right
-//            width: 50
-//            Image {
-//                id: closeImage
-//                anchors.centerIn: parent
-//                source: "qrc:/img/img/Delete-25.png"
-//            }
-//            ColorOverlay{
-//                anchors.fill: closeImage
-//                source: closeImage
-//                color: Universal.foreground
-//            }
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
-//            }
-//        }
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             id: flickable
             anchors.fill: parent
@@ -266,7 +245,7 @@ Page {
                         }
                         SwitchDelegate{
                             id: editIPAddSwitch
-                            enabled: ipAddressField.acceptableInput
+//                            enabled: ipAddressField.acceptableInput
                             Layout.column:3
                             Layout.columnSpan: 2
                             spacing: 0
@@ -275,7 +254,7 @@ Page {
                             checked: false
                             indicator: Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editIPAddSwitch.checked ? "DONE" : "EDIT"
@@ -315,7 +294,7 @@ Page {
                             Layout.columnSpan: 2
                             visible: editDNameSwitch.checked
                             placeholderText: "Device Name"
-                            text: qsTr("TestSet14")
+                            text: deviceName
                             validator: RegExpValidator{regExp: /([^\s]+)/ }
                             font.pixelSize: 14
                             Layout.maximumWidth: 100
@@ -343,7 +322,7 @@ Page {
                             checked: false
                             indicator:Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editDNameSwitch.checked ? "DONE" : "EDIT"
@@ -358,6 +337,7 @@ Page {
                                 }
                                 else{
                                     deviceNameField.focus = false;
+                                    deviceName = deviceNameField.text
                                 }
                             }
                         }
@@ -393,11 +373,6 @@ Page {
                                 id: disAllImage
                                 anchors.centerIn: parent
                                 source: "qrc:/img/img/Delete-25.png"
-                            }
-                            ColorOverlay{
-                                anchors.fill: disAllImage
-                                source: disAllImage
-                                color: Universal.foreground
                             }
                             MouseArea {
                                 anchors.fill: parent
@@ -437,12 +412,12 @@ Page {
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
                                 }
-                                ColorOverlay{
-                                    anchors.fill: symbolImg
-                                    source: symbolImg
-                                    color: Universal.foreground
-                                    opacity: 0.6
-                                }
+//                                ColorOverlay{
+//                                    anchors.fill: symbolImg
+//                                    source: symbolImg
+//                                    color: Universal.foreground
+//                                    opacity: 0.6
+//                                }
                                 Item{
                                     Layout.fillHeight: true
                                     width: 40
@@ -451,11 +426,6 @@ Page {
                                         id: disImage
                                         anchors.centerIn: parent
                                         source: "qrc:/img/img/Delete-25.png"
-                                    }
-                                    ColorOverlay{
-                                        anchors.fill: disImage
-                                        source: disImage
-                                        color: Universal.foreground
                                     }
                                     MouseArea {
                                         anchors.fill: parent

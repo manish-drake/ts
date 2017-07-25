@@ -50,6 +50,18 @@
         <file>tests/DetailMenu.qml</file>
         <file>tests/DetailFooter.qml</file>
         <file>antenna/AviHistory.qml</file>
+        <file>antenna/AviLanding.qml</file>
+        <file>antenna/AviBandSelection.qml</file>
+        <file>antenna/AviModeSelection.qml</file>
+        <file>antenna/AviCoaxSelection.qml</file>
+        <file>tests/SetupClassSelection.qml</file>
+        <file>tests/SetupConnectionSelection.qml</file>
+        <file>tests/SetupAircraftSelection.qml</file>
+        <file>tests/SetupDistanceInput.qml</file>
+        <file>tests/SetupIcaoAddressSelection.qml</file>
+        <file>Home.qml</file>
+        <file>tests/TransponderLanding.qml</file>
+        <file>tests/TransponderSummary.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -108,9 +120,19 @@
         <file>img/left.png</file>
         <file>img/results.png</file>
         <file>img/guide.png</file>
-        <file>img/Star.png</file>
         <file>img/brightness.png</file>
         <file>img/exit.png</file>
+        <file>img/Expand Arrow-black.png</file>
+        <file>img/Settings-black.png</file>
+        <file>img/star-filled.png</file>
+        <file>img/Delete-white.png</file>
+        <file>img/Download-white.png</file>
+        <file>img/port.png</file>
+        <file>img/wifi-direct.png</file>
+        <file>img/antenna2.png</file>
+        <file>img/Sun Filled-white.png</file>
+        <file>img/star.png</file>
+        <file>img/star-white.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 
@@ -8,19 +7,10 @@ Item {
     Rectangle {
         id: rectangle
         anchors.fill: parent
-        color: Universal.theme == Universal.Light ? "#fafafa" : "#333333"
-        border.color: Universal.theme == Universal.Light ? "#0d000000" : "#4dffffff"
+        color: Universal.theme === Universal.Light ? "#fafafa" : "#333333"
+        border.color: Universal.theme === Universal.Light ? "#1a000000" : "#4dffffff"
         border.width: 1
-        radius: 3
-        layer.enabled: true
-        layer.effect: DropShadow {
-            transparentBorder: true
-            horizontalOffset: 1.1
-            verticalOffset: 1.1
-            radius: 4
-            color: "#26000000"
-            spread: 0
-        }
+        radius: 4
         GridLayout{
             anchors.fill: parent
             anchors.margins: 10

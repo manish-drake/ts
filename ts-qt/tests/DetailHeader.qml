@@ -1,14 +1,16 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
+
+//import QtGraphicalEffects 1.0
 
 Rectangle{
     height: 58
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+    property int pageCount: 1
     Item{
         anchors.left: parent.left
         anchors.leftMargin: 5
@@ -19,11 +21,11 @@ Rectangle{
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
         }
-        ColorOverlay{
-            anchors.fill: leftImg
-            source: leftImg
-            color: Universal.accent
-        }
+        //        ColorOverlay{
+        //            anchors.fill: leftImg
+        //            source: leftImg
+        //            color: Universal.accent
+        //        }
         MouseArea {
             anchors.fill: parent
             onPressed: parent.opacity = 0.8
@@ -31,30 +33,37 @@ Rectangle{
             onClicked: navigationModel.currentView = navigationModel.getTargetView("back",{"id": navigationModel.navigationParameter.id})
         }
     }
-    PageIndicator {
-        id: pageIndicator
-        anchors.top: parent.top
-        anchors.topMargin: 5
-        anchors.horizontalCenter: parent.horizontalCenter
-        count: 7
-        currentIndex: summaryModel.currentPage
-    }
-    Text {
-        id: testDetailTitleText
-        anchors.bottom: parent.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: navigationModel.navigationParameter.title
-        font.pixelSize: 22
-        font.weight: Font.Black
-        font.family: robotoRegular.name
-        color: Universal.foreground
-        opacity: 0.7
-    }
-    ColorOverlay{
-        anchors.fill: pageIndicator
-        source: pageIndicator
-        color: Universal.foreground
-        visible: Universal.theme == Universal.Dark
+    ColumnLayout{
+        anchors.fill: parent
+        spacing: 0
+        Item{
+            Layout.alignment: Qt.AlignHCenter
+            height: pageIndicator.height
+            width: pageIndicator.width
+            visible: pageIndicator.visible
+            PageIndicator {
+                id: pageIndicator
+                count: pageCount
+                currentIndex: summaryModel.currentPage
+                visible: count > 1
+            }
+//            ColorOverlay{
+//                anchors.fill: pageIndicator
+//                source: pageIndicator
+//                color: Universal.foreground
+//                visible: Universal.theme === Universal.Dark
+//            }
+        }
+        Text {
+            id: testDetailTitleText
+            Layout.alignment: Qt.AlignCenter
+            text: navigationModel.navigationParameter.title
+            font.pixelSize: 22
+            font.weight: Font.Black
+            font.family: robotoRegular.name
+            color: Universal.foreground
+            opacity: 0.7
+        }
     }
     Item{
         anchors.right: parent.right

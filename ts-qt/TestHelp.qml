@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Item {
     Page{
@@ -12,7 +12,7 @@ Item {
             height: 60
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Item{
                 id: rectangle1
                 anchors.top: parent.top
@@ -25,11 +25,11 @@ Item {
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Help Filled-25.png"
                 }
-                ColorOverlay{
-                    anchors.fill: viewImage
-                    source: viewImage
-                    color: Universal.foreground
-                }
+//                ColorOverlay{
+//                    anchors.fill: viewImage
+//                    source: viewImage
+//                    color: Universal.foreground
+//                }
             }
 
             Column{
@@ -66,11 +66,6 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     source: "qrc:/img/img/Delete-25.png"
                 }
-                ColorOverlay{
-                    anchors.fill: closeImage
-                    source: closeImage
-                    color: Universal.foreground
-                }
                 MouseArea {
                     anchors.fill: parent
                     onClicked: helpPopup.close()
@@ -79,7 +74,7 @@ Item {
         }
 
         contentItem: Rectangle {
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -98,11 +93,11 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         source: "qrc:/img/img/aeroplane.png"
                     }
-                    ColorOverlay{
-                        anchors.fill: planeImage
-                        source: planeImage
-                        color: Universal.foreground
-                    }
+//                    ColorOverlay{
+//                        anchors.fill: planeImage
+//                        source: planeImage
+//                        color: Universal.foreground
+//                    }
                     Text{
                         Layout.row: 1
                         anchors.horizontalCenter: parent.horizontalCenter

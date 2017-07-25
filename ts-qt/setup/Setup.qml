@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
-import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Item {
@@ -23,20 +22,11 @@ Item {
                 Rectangle{
                     anchors.fill: parent
                     anchors.margins: 5
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -94,7 +84,7 @@ Item {
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
-//                            zmq.queryUsers();
+                            zmq.queryUsers();
                             navigationModel.currentView = navigationModel.getTargetView("User");
                         }
                     }
@@ -108,20 +98,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -153,7 +134,7 @@ Item {
                             elide: Text.ElideRight
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: _theme == Universal.Dark ? "Outdoor" : "Indoor"
+                            text: _theme === Universal.Dark ? "Outdoor" : "Indoor"
                             color: Universal.foreground
                         }
                         Text {
@@ -189,20 +170,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -289,20 +261,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -389,20 +352,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -429,20 +383,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top
@@ -469,20 +414,11 @@ Item {
                     anchors.margins: 5
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                     border.color: "#0d000000"
                     border.width: 1
                     radius: 3
                     clip: true
-                    layer.enabled: true
-                    layer.effect: DropShadow {
-                        transparentBorder: true
-                        horizontalOffset: 1.1
-                        verticalOffset: 1.1
-                        radius: 4.0
-                        color: "#26000000"
-                        spread: 0
-                    }
                     Text {
                         anchors.left: parent.left
                         anchors.top: parent.top

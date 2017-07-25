@@ -1,7 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 
 Item{
@@ -12,7 +12,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: 650
             Layout.alignment: Qt.AlignHCenter
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             border.color: "gray"
             border.width: 1
@@ -38,11 +38,11 @@ Item{
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete2-25.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: deleteImg
-                            source: deleteImg
-                            color: "#F53D3D"
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: deleteImg
+//                            source: deleteImg
+//                            color: "#F53D3D"
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {}
@@ -67,11 +67,11 @@ Item{
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: closeImage
-                            source: closeImage
-                            color: Universal.accent
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: closeImage
+//                            source: closeImage
+//                            color: Universal.accent
+//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: savedDataPopup.close()
@@ -88,7 +88,7 @@ Item{
                     highlightMoveDuration: 0
                     highlight:Rectangle{
                         color:"transparent"
-                        border.color: Universal.theme == Universal.Dark ? "white" : Universal.accent
+                        border.color: Universal.theme === Universal.Dark ? "white" : Universal.accent
                         border.width: 1
                         radius:3
                     }
@@ -99,19 +99,19 @@ Item{
                             anchors.left:parent.left
                             anchors.right:parent.right
                             height: 60
-                            color: Universal.theme == Universal.Dark ? "#333333" : "#fcfcfc"
-                            border.color: Universal.theme == Universal.Light ? "#0d000000" : "#4dffffff"
+                            color: Universal.theme === Universal.Dark ? "#333333" : "#fcfcfc"
+                            border.color: Universal.theme === Universal.Light ? "#0d000000" : "#4dffffff"
                             border.width: 1
                             radius: 4
-                            layer.enabled: true
-                            layer.effect: DropShadow {
-                                transparentBorder: true
-                                horizontalOffset: 1.1
-                                verticalOffset: 1.1
-                                radius: 4.0
-                                color: "#33000000"
-                                spread: 0
-                            }
+//                            layer.enabled: true
+//                            layer.effect: DropShadow {
+//                                transparentBorder: true
+//                                horizontalOffset: 1.1
+//                                verticalOffset: 1.1
+//                                radius: 4.0
+//                                color: "#33000000"
+//                                spread: 0
+//                            }
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked:{

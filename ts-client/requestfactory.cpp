@@ -3,9 +3,9 @@
 
 class BeginScan : public Request
 {
-  public:
+public:
     BeginScan() : Request() {}
-  public:
+public:
     std::string message() const override
     {
         return "{\"request\":{\"version\":2,\"message\":8193,\"params\":{\"distance\":100,\"output\":\"antenna-a\"}}}";
@@ -13,9 +13,9 @@ class BeginScan : public Request
 };
 class Scan : public Request
 {
-  public:
+public:
     Scan() {}
-  public:
+public:
     std::string message() const override
     {
         return "{\"request\": {\"version\":2,\"message\":8196,\"params\": { } } }";
@@ -23,9 +23,9 @@ class Scan : public Request
 };
 class EndScan : public Request
 {
-  public:
+public:
     EndScan() {}
-  public:
+public:
     std::string message() const override
     {
         return "{\"request\":{\"version\":2,\"message\":8194,\"params\":{}}}";
@@ -35,10 +35,10 @@ class EndScan : public Request
 //VSWR
 class BeginScanVswrIls : public Request
 {
-  public:
+public:
     BeginScanVswrIls() {}
 
-  private:
+private:
     std::string message() const override
     {
         return "{\"request\":{\"version\":2,\"message\":8194,\"params\":{}}}";
@@ -47,547 +47,547 @@ class BeginScanVswrIls : public Request
 
 class BeginScanVsrwMb : public Request
 {
-  public:
+public:
     BeginScanVsrwMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwVhfNavCom : public Request
 {
-  public:
+public:
     BeginScanVsrwVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwGs : public Request
 {
-  public:
+public:
     BeginScanVsrwGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwUhfCom : public Request
 {
-  public:
+public:
     BeginScanVsrwUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwAtc : public Request
 {
-  public:
+public:
     BeginScanVsrwAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwXpndr : public Request
 {
-  public:
+public:
     BeginScanVsrwXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanVsrwFull : public Request
 {
-  public:
+public:
     BeginScanVsrwFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwIls : public Request
 {
-  public:
+public:
     ScanVsrwIls() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwMb : public Request
 {
-  public:
+public:
     ScanVsrwMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwVhfNavCom : public Request
 {
-  public:
+public:
     ScanVsrwVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwGs : public Request
 {
-  public:
+public:
     ScanVsrwGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwUhfCom : public Request
 {
-  public:
+public:
     ScanVsrwUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwAtc : public Request
 {
-  public:
+public:
     ScanVsrwAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwXpndr : public Request
 {
-  public:
+public:
     ScanVsrwXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanVsrwFull : public Request
 {
-  public:
+public:
     ScanVsrwFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwIls : public Request
 {
-  public:
+public:
     EndScanVsrwIls() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwMb : public Request
 {
-  public:
+public:
     EndScanVsrwMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwVhfNavCom : public Request
 {
-  public:
+public:
     EndScanVsrwVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwGs : public Request
 {
-  public:
+public:
     EndScanVsrwGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwUhfCom : public Request
 {
-  public:
+public:
     EndScanVsrwUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwAtc : public Request
 {
-  public:
+public:
     EndScanVsrwAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwXpndr : public Request
 {
-  public:
+public:
     EndScanVsrwXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanVsrwFull : public Request
 {
-  public:
+public:
     EndScanVsrwFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 
 //LOSS
 class BeginScanLossIls : public Request
 {
-  public:
+public:
     BeginScanLossIls() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossMb : public Request
 {
-  public:
+public:
     BeginScanLossMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossVhfNavCom : public Request
 {
-  public:
+public:
     BeginScanLossVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossGs : public Request
 {
-  public:
+public:
     BeginScanLossGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossUhfCom : public Request
 {
-  public:
+public:
     BeginScanLossUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossAtc : public Request
 {
-  public:
+public:
     BeginScanLossAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossXpndr : public Request
 {
-  public:
+public:
     BeginScanLossXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanLossFull : public Request
 {
-  public:
+public:
     BeginScanLossFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossIls : public Request
 {
-  public:
+public:
     ScanLossIls() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossMb : public Request
 {
-  public:
+public:
     ScanLossMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossVhfNavCom : public Request
 {
-  public:
+public:
     ScanLossVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossGs : public Request
 {
-  public:
+public:
     ScanLossGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossUhfCom : public Request
 {
-  public:
+public:
     ScanLossUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossAtc : public Request
 {
-  public:
+public:
     ScanLossAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossXpndr : public Request
 {
-  public:
+public:
     ScanLossXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanLossFull : public Request
 {
-  public:
+public:
     ScanLossFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossIls : public Request
 {
-  public:
+public:
     EndScanLossIls() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossMb : public Request
 {
-  public:
+public:
     EndScanLossMb() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossVhfNavCom : public Request
 {
-  public:
+public:
     EndScanLossVhfNavCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossGs : public Request
 {
-  public:
+public:
     EndScanLossGs() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossUhfCom : public Request
 {
-  public:
+public:
     EndScanLossUhfCom() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossAtc : public Request
 {
-  public:
+public:
     EndScanLossAtc() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossXpndr : public Request
 {
-  public:
+public:
     EndScanLossXpndr() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanLossFull : public Request
 {
-  public:
+public:
     EndScanLossFull() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 
 //DTF
 class BeginScanDtfReSolid : public Request
 {
-  public:
+public:
     BeginScanDtfReSolid() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanDtfPeFoam : public Request
 {
-  public:
+public:
     BeginScanDtfPeFoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanDtfTeflon : public Request
 {
-  public:
+public:
     BeginScanDtfTeflon() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanDtfTeflonfoam : public Request
 {
-  public:
+public:
     BeginScanDtfTeflonfoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanDtfUser : public Request
 {
-  public:
+public:
     BeginScanDtfUser() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanDtfReSolid : public Request
 {
-  public:
+public:
     ScanDtfReSolid() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanDtfPeFoam : public Request
 {
-  public:
+public:
     ScanDtfPeFoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanDtfTeflon : public Request
 {
-  public:
+public:
     ScanDtfTeflon() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanDtfTeflonfoam : public Request
 {
-  public:
+public:
     ScanDtfTeflonfoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanDtfUser : public Request
 {
-  public:
+public:
     ScanDtfUser() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanDtfReSolid : public Request
 {
-  public:
+public:
     EndScanDtfReSolid() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanDtfPeFoam : public Request
 {
-  public:
+public:
     EndScanDtfPeFoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanDtfTeflon : public Request
 {
-  public:
+public:
     EndScanDtfTeflon() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanDtfTeflonfoam : public Request
 {
-  public:
+public:
     EndScanDtfTeflonfoam() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanDtfUser : public Request
 {
-  public:
+public:
     EndScanDtfUser() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 
 //CAL
 class BeginScanCalShort : public Request
 {
-  public:
+public:
     BeginScanCalShort() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanCalOpen : public Request
 {
-  public:
+public:
     BeginScanCalOpen() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanCalLoad : public Request
 {
-  public:
+public:
     BeginScanCalLoad() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanCalThru : public Request
 {
-  public:
+public:
     BeginScanCalThru() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class BeginScanCalPrevCal : public Request
 {
-  public:
+public:
     BeginScanCalPrevCal() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanCalShort : public Request
 {
-  public:
+public:
     ScanCalShort() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanCalOpen : public Request
 {
-  public:
+public:
     ScanCalOpen() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanCalLoad : public Request
 {
-  public:
+public:
     ScanCalLoad() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanCalThru : public Request
 {
-  public:
+public:
     ScanCalThru() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class ScanCalPrevCal : public Request
 {
-  public:
+public:
     ScanCalPrevCal() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanCalShort : public Request
 {
-  public:
+public:
     EndScanCalShort() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanCalOpen : public Request
 {
-  public:
+public:
     EndScanCalOpen() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanCalLoad : public Request
 {
-  public:
+public:
     EndScanCalLoad() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanCalThru : public Request
 {
-  public:
+public:
     EndScanCalThru() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 class EndScanCalPrevCal : public Request
 {
-  public:
+public:
     EndScanCalPrevCal() {}
-  private:
+private:
     std::string message() const override { return ""; }
 };
 
@@ -607,12 +607,18 @@ class SetupAddUser: public Request
 {
 public:
     SetupAddUser(){}
-    SetupAddUser(int &userID, const QString &name):
+    SetupAddUser(int &userID, const QString &name, const int &language, const QString &email, const bool &emailSavedTests):
         m_userID{userID},
-        m_name{name}{}
+        m_name{name},
+        m_language{language},
+        m_email{email},
+        m_emailSavedTests{emailSavedTests}{}
 private:
     int m_userID = 0;
     QString m_name;
+    int m_language;
+    QString m_email;
+    bool m_emailSavedTests;
     std::string message() const override {
         return "{\"request\": {\"message\":16394,\"source\":\"qt\",\"params\":{\"email\":\"chris.laganga@gmail.com\",\"email-results\":true,\"user-name\":\"Chris\"}}}";
     }
@@ -731,9 +737,9 @@ std::unique_ptr<Request> RequestFactory::createSetupListUsers() const
     return std::unique_ptr<Request>(new SetupListUsers());
 }
 
-std::unique_ptr<Request> RequestFactory::createSetupAddUser(int &userID, const QString &name) const
+std::unique_ptr<Request> RequestFactory::createSetupAddUser(int &userID, const QString &name, const int &language, const QString &email, const bool &emailSavedTests) const
 {
-    return std::unique_ptr<Request>(new SetupAddUser(userID, name));
+    return std::unique_ptr<Request>(new SetupAddUser(userID, name, language, email, emailSavedTests));
 }
 
 RequestFactory::RequestFactory()

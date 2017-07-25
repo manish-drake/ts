@@ -1,5 +1,4 @@
 import QtQuick 2.7
-import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -64,6 +63,7 @@ Item{
                 delegate: testCardDelegate
                 focus: true
                 clip: true
+                currentIndex: -1
                 highlightMoveDuration: 0
                 highlight:Item{
                     Rectangle{
@@ -81,17 +81,16 @@ Item{
                 Item{
                     anchors.left:parent.left
                     anchors.right: parent.right
-                    height:100
+                    height:110
                     Rectangle {
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked: grid.currentIndex = index
-                            onDoubleClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
                         }
                         ColumnLayout{
                             anchors.top: parent.top
@@ -113,30 +112,54 @@ Item{
                                     font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
+
 //                                Item{
-//                                    Layout.column: 2
 //                                    width: 35
 //                                    height: 35
 //                                    Image {
-//                                        id: guideImage
+//                                        id: favImage
 //                                        anchors.centerIn: parent
-//                                        source: "qrc:/img/img/Info-24.png"
+//                                        source: "qrc:/img/img/star.png"
 //                                    }
-//                                    ColorOverlay {
-//                                        anchors.fill: guideImage
-//                                        source: guideImage
-//                                        color: Universal.theme == Universal.Dark ? "white" : Universal.accent
-//                                    }
+//                                    //                                    ColorOverlay {
+//                                    //                                        anchors.fill: favImage
+//                                    //                                        source: favImage
+//                                    //                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
+//                                    //                                    }
 //                                    MouseArea {
 //                                        anchors.fill: parent
-//                                        onClicked: {
-//                                            guideTestName = name
-//                                            guidePopup.open()
-//                                        }
+//                                        onClicked: testModel.addToHome(name, 1);
 //                                        onPressed: parent.opacity = 0.5
 //                                        onReleased: parent.opacity = 1
 //                                    }
 //                                }
+
+
+
+                                //                                Item{
+                                //                                    Layout.column: 2
+                                //                                    width: 35
+                                //                                    height: 35
+                                //                                    Image {
+                                //                                        id: guideImage
+                                //                                        anchors.centerIn: parent
+                                //                                        source: "qrc:/img/img/Info-24.png"
+                                //                                    }
+                                //                                    ColorOverlay {
+                                //                                        anchors.fill: guideImage
+                                //                                        source: guideImage
+                                //                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
+                                //                                    }
+                                //                                    MouseArea {
+                                //                                        anchors.fill: parent
+                                //                                        onClicked: {
+                                //                                            guideTestName = name
+                                //                                            guidePopup.open()
+                                //                                        }
+                                //                                        onPressed: parent.opacity = 0.5
+                                //                                        onReleased: parent.opacity = 1
+                                //                                    }
+                                //                                }
 
                             }
                             Rectangle{
@@ -185,7 +208,7 @@ Item{
         modal: true
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestGuide{}
     }

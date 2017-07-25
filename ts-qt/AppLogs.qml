@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Item{
@@ -12,28 +12,7 @@ Item{
             height: 40
             anchors.left:parent.left
             anchors.right:parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
-            Item{
-                width: 50
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.left: parent.left
-                Image {
-                    id: image1
-                    anchors.centerIn: parent
-                    source: "qrc:/img/img/Upload to the Cloud-25.png"
-                }
-                ColorOverlay{
-                    anchors.fill: image1
-                    source: image1
-                    color: Universal.foreground
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked:{}
-                }
-            }
-
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Text {
                 id: testTitle
                 anchors.centerIn: parent
@@ -43,31 +22,42 @@ Item{
                 color: Universal.foreground
                 font.family: robotoRegular.name
             }
-
-//            Item{
-//                width: 50
-//                anchors.top: parent.top
-//                anchors.bottom: parent.bottom
-//                anchors.right: parent.right
-//                Image {
-//                    id: closeImage
-//                    anchors.centerIn: parent
-//                    source: "qrc:/img/img/Delete-25.png"
-//                }
+            Item{
+                width: 50
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+                anchors.rightMargin: 10
+                visible: repeater1.count != 0
+                Image {
+                    id: image1
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Upload to the Cloud-25.png"
+                }
 //                ColorOverlay{
-//                    anchors.fill: closeImage
-//                    source: closeImage
+//                    anchors.fill: image1
+//                    source: image1
 //                    color: Universal.foreground
 //                }
-//                MouseArea {
-//                    anchors.fill: parent
-//                    onClicked:navigationModel.currentView = navigationModel.getTargetView("back")
-//                }
-//            }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked:{}
+                }
+            }
         }
 
         contentItem: Rectangle {
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+            Text {
+                anchors.centerIn: parent
+                elide:Text.ElideRight
+                text: "No log data"
+                font.pixelSize: 12
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.3
+                visible: repeater1.count == 0
+            }
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -84,6 +74,7 @@ Item{
                     RowLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
+                        visible: repeater1.count != 0
                         Text {
                             Layout.fillWidth: true
                             text: qsTr("MESSAGE")
@@ -100,9 +91,10 @@ Item{
                             color: Universal.foreground
                             font.family: robotoRegular.name
                         }
-                    }
+                    }                    
                     Repeater{
-                        model:loggingModel
+                        id: repeater1
+//                        model: loggingModel
                         RowLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right
@@ -125,7 +117,7 @@ Item{
                                 font.family: robotoRegular.name
                             }
                         }
-                    }
+                    }                    
                 }
             }
         }

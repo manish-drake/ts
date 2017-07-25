@@ -46,8 +46,14 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "AppLogs.qml";
     case 39:
         return "tests/DetailLanding.qml";
+    case 40:
+        return "antenna/AviLanding.qml";
+    case 41:
+        return "tests/TransponderLanding.qml";
+    case 42:
+        return "tests/TransponderSummary.qml";
     case 2:
-//        return "tests/TestGroup.qml";
+        return "Home.qml";
     case 1:
     default:
         return "Global.qml";

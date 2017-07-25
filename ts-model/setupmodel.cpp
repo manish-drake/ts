@@ -11,7 +11,13 @@ void SetupModel::addNewUser()
     Client c;
 
     int userID = 10;
-    c.addUser(userID, m_newUser->name());
+    c.addUser(
+                userID,
+                m_newUser->name(),
+                m_newUser->language(),
+                m_newUser->email(),
+                m_newUser->emailSavedTests()
+                );
 }
 
 SetupModel::SetupModel()
