@@ -162,7 +162,30 @@ Item{
                             id: buttonImage
                             anchors.centerIn: parent
                             smooth: true
-                        }
+                        }                        
+                        states: [
+                            State {
+                                name: "start"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/play-button.png"
+                                }
+                            },
+                            State {
+                                name: "stop"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/stop-button.png"
+                                }
+                            },
+                            State {
+                                name: "pause"
+                                PropertyChanges {
+                                    target: toggleButton
+                                    imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            }
+                        ]
                         MouseArea {
                             id: mouseArea
                             anchors.fill: parent
@@ -187,29 +210,6 @@ Item{
                                                                      });
                             onReleased: parent.opacity = 1
                         }
-                        states: [
-                            State {
-                                name: "start"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            },
-                            State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
-                                }
-                            },
-                            State {
-                                name: "pause"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/pause-button.png"
-                                }
-                            }
-                        ]
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter

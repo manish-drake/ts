@@ -134,27 +134,6 @@ Rectangle{
                     anchors.centerIn: parent
                     smooth: true
                 }
-                MouseArea {
-                    id: mouseArea
-                    anchors.fill: parent
-                    onPressed: {
-                        parent.opacity = 0.9
-                        if (parent.state == "start") {
-                            parent.state = "pause"
-                        }
-                        else if(parent.state == "pause"){
-                            parent.state = "stop"
-                        }
-                        else{
-                            parent.state = "start"
-                        }
-                        if(isScanPage){
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
-                        }
-                    }
-                    onReleased: parent.opacity = 1
-                }
                 states: [
                     State {
                         name: "start"
@@ -178,6 +157,27 @@ Rectangle{
                         }
                     }
                 ]
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    onPressed: {
+                        parent.opacity = 0.9
+                        if (parent.state == "start") {
+                            parent.state = "pause"
+                        }
+                        else if(parent.state == "pause"){
+                            parent.state = "stop"
+                        }
+                        else{
+                            parent.state = "start"
+                        }
+                        if(isScanPage){
+                            zmq.toggleScan()
+                            console.log(zmq.scanResults)
+                        }
+                    }
+                    onReleased: parent.opacity = 1
+                }
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter

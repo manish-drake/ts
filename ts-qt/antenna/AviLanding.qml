@@ -157,24 +157,6 @@ Item{
                             anchors.centerIn: parent
                             smooth: true
                         }
-                        MouseArea {
-                            id: mouseArea
-                            anchors.fill: parent
-                            onPressed: {
-                                parent.opacity = 0.9
-                                if (parent.state == "start") {
-                                    parent.state = "pause"
-                                }
-                                else if(parent.state == "pause"){
-                                    parent.state = "stop"
-                                }
-                                else{
-                                    parent.state = "start"
-                                }
-                            }
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
-                            onReleased: parent.opacity = 1
-                        }
                         states: [
                             State {
                                 name: "start"
@@ -198,6 +180,24 @@ Item{
                                 }
                             }
                         ]
+                        MouseArea {
+                            id: mouseArea
+                            anchors.fill: parent
+                            onPressed: {
+                                parent.opacity = 0.9
+                                if (parent.state == "start") {
+                                    parent.state = "pause"
+                                }
+                                else if(parent.state == "pause"){
+                                    parent.state = "stop"
+                                }
+                                else{
+                                    parent.state = "start"
+                                }
+                            }
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
+                            onReleased: parent.opacity = 1
+                        }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
