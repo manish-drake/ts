@@ -92,12 +92,15 @@ Item{
                     onPressed: {
                         parent.opacity = 0.9
                         if (parent.state == "start") {
+                            commonCtrls.onRun()
                             parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
+                            commonCtrls.onPause()
                             parent.state = "stop"
                         }
                         else{
+                            commonCtrls.onStop()
                             parent.state = "start"
                         }
                     }

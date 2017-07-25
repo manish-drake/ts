@@ -136,6 +136,7 @@
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>
+        <file>ts.db</file>
     </qresource>
     <qresource prefix="/fonts">
         <file>fonts/RobotoCondensed-Regular.ttf</file>

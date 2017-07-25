@@ -112,7 +112,17 @@ Item{
 
         footer: DetailFooter{
             id: detailFooter
-            isScanPage: true
+            function onRun(){
+                console.log("onRun")
+                zmq.toggleScan()
+                console.log(zmq.scanResults)
+            }
+            function onPause(){
+                console.log("onPause")
+            }
+            function onStop(){
+                console.log("onStop")
+            }
         }
     }
 

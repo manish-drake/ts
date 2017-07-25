@@ -9,7 +9,6 @@ Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    property bool isScanPage
     RowLayout{
         anchors.left: parent.left
         anchors.right: parent.right
@@ -163,17 +162,16 @@ Rectangle{
                     onPressed: {
                         parent.opacity = 0.9
                         if (parent.state == "start") {
-                            parent.state = "pause"
+                            detailFooter.onRun()
+                            parent.state = "pause"                            
                         }
                         else if(parent.state == "pause"){
+                            detailFooter.onPause()
                             parent.state = "stop"
                         }
                         else{
+                            detailFooter.onStop()
                             parent.state = "start"
-                        }
-                        if(isScanPage){
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
                         }
                     }
                     onReleased: parent.opacity = 1

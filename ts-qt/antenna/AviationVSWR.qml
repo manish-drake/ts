@@ -41,7 +41,18 @@ Item{
                         AviMarkerActionsCtrl{}
                         AviBandCtrl{}
                         AviModeCtrl{ mode: "VSWR" }
-                        AviCommonCtrls{}
+                        AviCommonCtrls{
+                            id: commonCtrls
+                            function onRun(){
+                                console.log("onRun")
+                            }
+                            function onPause(){
+                                console.log("onPause")
+                            }
+                            function onStop(){
+                                console.log("onStop")
+                            }
+                        }
                     }
                     ColumnLayout{
                         anchors.left: parent.left
