@@ -1,7 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 
 Item{
@@ -38,11 +38,11 @@ Item{
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete2-25.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: deleteImg
-//                            source: deleteImg
-//                            color: "#F53D3D"
-//                        }
+                        ColorOverlay{
+                            anchors.fill: deleteImg
+                            source: deleteImg
+                            color: "#F53D3D"
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {}
@@ -67,11 +67,11 @@ Item{
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: closeImage
-//                            source: closeImage
-//                            color: Universal.accent
-//                        }
+                        ColorOverlay{
+                            anchors.fill: closeImage
+                            source: closeImage
+                            color: Universal.accent
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: savedDataPopup.close()
@@ -103,15 +103,15 @@ Item{
                             border.color: Universal.theme === Universal.Light ? "#0d000000" : "#4dffffff"
                             border.width: 1
                             radius: 4
-//                            layer.enabled: true
-//                            layer.effect: DropShadow {
-//                                transparentBorder: true
-//                                horizontalOffset: 1.1
-//                                verticalOffset: 1.1
-//                                radius: 4.0
-//                                color: "#33000000"
-//                                spread: 0
-//                            }
+                            layer.enabled: true
+                            layer.effect: DropShadow {
+                                transparentBorder: true
+                                horizontalOffset: 1.1
+                                verticalOffset: 1.1
+                                radius: 4.0
+                                color: "#33000000"
+                                spread: 0
+                            }
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked:{

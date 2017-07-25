@@ -1,5 +1,5 @@
 import QtQuick 2.7
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -27,11 +27,11 @@ Item{
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Radar-25.png"
                     }
-                    //                    ColorOverlay{
-                    //                        anchors.fill: image1
-                    //                        source: image1
-                    //                        color: Universal.foreground
-                    //                    }
+                    ColorOverlay{
+                        anchors.fill: image1
+                        source: image1
+                        color: Universal.foreground
+                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")

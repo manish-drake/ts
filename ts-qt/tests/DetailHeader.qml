@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 
 Rectangle{
     height: 58
@@ -21,11 +21,11 @@ Rectangle{
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
         }
-        //        ColorOverlay{
-        //            anchors.fill: leftImg
-        //            source: leftImg
-        //            color: Universal.accent
-        //        }
+        ColorOverlay{
+            anchors.fill: leftImg
+            source: leftImg
+            color: Universal.accent
+        }
         MouseArea {
             anchors.fill: parent
             onPressed: parent.opacity = 0.8
@@ -47,12 +47,12 @@ Rectangle{
                 currentIndex: summaryModel.currentPage
                 visible: count > 1
             }
-//            ColorOverlay{
-//                anchors.fill: pageIndicator
-//                source: pageIndicator
-//                color: Universal.foreground
-//                visible: Universal.theme === Universal.Dark
-//            }
+            ColorOverlay{
+                anchors.fill: pageIndicator
+                source: pageIndicator
+                color: Universal.foreground
+                visible: Universal.theme === Universal.Dark
+            }
         }
         Text {
             id: testDetailTitleText

@@ -2,7 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 
 Item {
     Page{
@@ -25,11 +25,11 @@ Item {
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Help Filled-25.png"
                 }
-//                ColorOverlay{
-//                    anchors.fill: viewImage
-//                    source: viewImage
-//                    color: Universal.foreground
-//                }
+                ColorOverlay{
+                    anchors.fill: viewImage
+                    source: viewImage
+                    color: Universal.foreground
+                }
             }
 
             Column{
@@ -93,11 +93,11 @@ Item {
                         anchors.horizontalCenter: parent.horizontalCenter
                         source: "qrc:/img/img/aeroplane.png"
                     }
-//                    ColorOverlay{
-//                        anchors.fill: planeImage
-//                        source: planeImage
-//                        color: Universal.foreground
-//                    }
+                    ColorOverlay{
+                        anchors.fill: planeImage
+                        source: planeImage
+                        color: Universal.foreground
+                    }
                     Text{
                         Layout.row: 1
                         anchors.horizontalCenter: parent.horizontalCenter

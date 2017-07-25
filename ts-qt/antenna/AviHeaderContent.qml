@@ -1,5 +1,5 @@
 import QtQuick 2.7
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
@@ -24,11 +24,11 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             source:  "qrc:/img/img/Download-22.png"
         }
-//        ColorOverlay{
-//            anchors.fill: closeImage
-//            source: closeImage
-//            color: Universal.foreground
-//        }
+        ColorOverlay{
+            anchors.fill: closeImage
+            source: closeImage
+            color: Universal.foreground
+        }
         MouseArea {
             anchors.fill: parent
             onClicked: {
@@ -91,11 +91,11 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             source: "qrc:/img/img/Past-22.png"
         }
-//        ColorOverlay{
-//            anchors.fill: historyImg
-//            source: historyImg
-//            color: Universal.foreground
-//        }
+        ColorOverlay{
+            anchors.fill: historyImg
+            source: historyImg
+            color: Universal.foreground
+        }
         MouseArea {
             anchors.fill: parent
             onClicked: savedDataPopup.open();
