@@ -66,7 +66,7 @@ Rectangle{
                         navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
                                                            "id": navigationModel.navigationParameter.id,
                                                            "title": navigationModel.navigationParameter.title,
-                                                           "runState": toggleButton.state
+                                                           "runState": testRunButton.state
                                                        })
                     }
                     onPressed: parent.opacity = 0.9
@@ -120,14 +120,15 @@ Rectangle{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
             Rectangle{
-                id: toggleButton
+                id: testRunButton
                 Layout.alignment: Qt.AlignHCenter
                 height: 70
                 width: 70
                 radius: 35
                 color: Universal.accent
                 property alias imageSource: buttonImage.source
-                state: navigationModel.navigationParameter.runState
+//                state: navigationModel.navigationParameter.runState
+                state: "start"
                 Image {
                     id: buttonImage
                     anchors.centerIn: parent
@@ -137,7 +138,7 @@ Rectangle{
                     State {
                         name: "start"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
@@ -147,7 +148,7 @@ Rectangle{
                     State {
                         name: "pause"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
@@ -157,7 +158,7 @@ Rectangle{
                     State {
                         name: "stop"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/stop-button.png"
                         }
                         StateChangeScript{
@@ -185,7 +186,7 @@ Rectangle{
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: toggleButton.state
+                text: testRunButton.state
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black

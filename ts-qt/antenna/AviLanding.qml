@@ -145,7 +145,7 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
                     Rectangle{
-                        id: toggleButton
+                        id: testRunButton
                         height: 70
                         width: 70
                         radius: 35
@@ -161,21 +161,21 @@ Item{
                             State {
                                 name: "start"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/play-button.png"
                                 }
                             },
                             State {
                                 name: "pause"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/pause-button.png"
                                 }
                             },
                             State {
                                 name: "stop"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/stop-button.png"
                                 }
                             }
@@ -201,7 +201,7 @@ Item{
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: toggleButton.state
+                        text: testRunButton.state
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black

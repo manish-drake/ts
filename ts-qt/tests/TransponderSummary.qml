@@ -97,6 +97,15 @@ Item{
 
         footer: DetailFooter{
             id: detailFooter
+            function onRun(){
+                console.log("onRun")
+            }
+            function onPause(){
+                console.log("onPause")
+            }
+            function onStop(){
+                console.log("onStop")
+            }
         }
     }
 

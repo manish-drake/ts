@@ -50,7 +50,7 @@ Item{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
             Rectangle{
-                id: toggleButton
+                id: testRunButton
                 Layout.alignment: Qt.AlignHCenter
                 height: 70
                 width: 70
@@ -67,7 +67,7 @@ Item{
                     State {
                         name: "start"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
@@ -77,7 +77,7 @@ Item{
                     State {
                         name: "pause"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
@@ -87,7 +87,7 @@ Item{
                     State {
                         name: "stop"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/stop-button.png"
                         }
                         StateChangeScript{
@@ -115,7 +115,7 @@ Item{
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: toggleButton.state
+                text: testRunButton.state
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black

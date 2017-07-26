@@ -95,7 +95,7 @@ Item{
                             anchors.fill: parent
                             onPressed: parent.opacity = 0.9
                             onReleased: parent.opacity = 1
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER", "runState": toggleButton.state});
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER", "runState": testRunButton.state});
                         }
                     }
                     Text {
@@ -145,7 +145,7 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
                     Rectangle{
-                        id: toggleButton
+                        id: testRunButton
                         height: 70
                         width: 70
                         radius: 35
@@ -161,31 +161,22 @@ Item{
                             State {
                                 name: "start"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/play-button.png"
-                                }
-                                StateChangeScript{
-                                    script: detailFooter.onStop()
                                 }
                             },
                             State {
                                 name: "pause"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/pause-button.png"
-                                }
-                                StateChangeScript{
-                                    script: detailFooter.onRun()
                                 }
                             },
                             State {
                                 name: "stop"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/stop-button.png"
-                                }
-                                StateChangeScript{
-                                    script: detailFooter.onPause()
                                 }
                             }
                         ]
@@ -205,12 +196,12 @@ Item{
                                 }
                             }
                             onReleased: parent.opacity = 1
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER","runState": toggleButton.state});
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"), {"title": "TRANSPONDER","runState": testRunButton.state});
                         }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: toggleButton.state
+                        text: testRunButton.state
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black
