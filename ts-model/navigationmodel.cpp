@@ -6,7 +6,7 @@
 NavigationModel::NavigationModel(QObject *parent) :
     QObject(parent),
     m_db(DataManager::instance()),
-    m_currentView{1/*Global*/},
+    m_currentView{2/*Home*/},
     m_navigations{m_db.navigationDao()->navigations("Global")}
 {
 
