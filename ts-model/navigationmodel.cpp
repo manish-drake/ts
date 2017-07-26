@@ -7,6 +7,8 @@ NavigationModel::NavigationModel(QObject *parent) :
     QObject(parent),
     m_db(DataManager::instance()),
     m_currentView{2/*Home*/},
+    m_isSideMenuAvailable{true},
+    m_isHeaderAvailable{true},
     m_navigations{m_db.navigationDao()->navigations("Global")}
 {
 
@@ -48,17 +50,74 @@ void NavigationModel::setCurrentView(const int &currentView)
         emit this->currentViewChanged(currentView);
 
         this->m_navigations = m_db.navigationDao()->navigations(currentView);
+
+        this->evaluteCurrentView();
     }
 }
+
 void NavigationModel::setCurrentView(const int &currentView, const QVariant &navParam)
 {
     this->m_navigationParameter = navParam;
     this->setCurrentView(currentView);
 }
 
+bool NavigationModel::isSideMenuAvailable()
+{
+    return m_isSideMenuAvailable;
+}
+
+void NavigationModel::setIsSideMenuAvailable(const bool &isSideMenuAvailable)
+{
+    if(m_isSideMenuAvailable != isSideMenuAvailable){
+        m_isSideMenuAvailable = isSideMenuAvailable;
+        emit isSideMenuAvailableChanged();
+    }
+}
+
+bool NavigationModel::isHeaderAvailable()
+{
+    return m_isHeaderAvailable;
+}
+
+void NavigationModel::setIsHeaderAvailable(const bool &isHeaderAvailable)
+{
+    if(m_isHeaderAvailable != isHeaderAvailable){
+        m_isHeaderAvailable = isHeaderAvailable;
+        emit isHeaderAvailableChanged();
+    }
+}
+
 QVariant NavigationModel::navigationParameter() const
 {
     return this->m_navigationParameter;
+}
+
+void NavigationModel::evaluteCurrentView()
+{
+    switch (this->m_currentView)
+    {
+    case 0 ... 4:
+    case 34:
+    case 41:
+        setIsSideMenuAvailable(true);
+        break;
+    default:
+        setIsSideMenuAvailable(false);
+        break;
+    }
+    switch (this->m_currentView)
+    {
+    case 5:
+    case 6 ... 12:
+    case 14 ... 19:
+    case 29 ... 32:
+    case 42:
+        setIsHeaderAvailable(false);
+        break;
+    default:
+        setIsHeaderAvailable(true);
+        break;
+    }
 }
 
 

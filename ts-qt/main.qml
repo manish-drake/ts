@@ -22,8 +22,8 @@ ApplicationWindow {
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
     property string deviceName: "MD-15"
-    property bool isMenuView;
-    property bool isHeaderAvailable: true
+//    property bool isSideMenuAvailable;
+//    property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
     Item {
@@ -37,7 +37,7 @@ ApplicationWindow {
 
             header: Header{
                 id: mainheader
-                visible: isHeaderAvailable
+                visible: navigationModel.isHeaderAvailable
             }
 
             contentItem: Rectangle {
@@ -49,27 +49,6 @@ ApplicationWindow {
                     source: registry.getPageFromViewId(navigationModel.currentView)
                     onLoaded: {
                         console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
-                        var x = navigationModel.currentView;
-                        switch (true) {
-                        case x < 5:
-                        case x == 34:
-                        case x == 41:
-                            isMenuView = true;
-                            isHeaderAvailable = true;
-                            break;
-                        case x == 5:
-                        case (x > 5 && x < 13):
-                        case (x > 13 && x < 20):
-                        case (x > 28 && x < 31):
-                        case (x > 30 && x < 33):
-                        case x == 42:
-                            isHeaderAvailable = false;
-                            break;
-                        default:
-                            isMenuView = false;
-                            isHeaderAvailable = true;
-                            break;
-                        }
                     }
                 }
 

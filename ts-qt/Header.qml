@@ -9,7 +9,7 @@ Rectangle {
 
     Item{
         id: toggleMenu
-        visible: isMenuView
+        visible: navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -36,7 +36,7 @@ Rectangle {
     }
     Item{
         id: goBack
-        visible: !isMenuView
+        visible: !navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
