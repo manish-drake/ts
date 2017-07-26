@@ -6,7 +6,6 @@ Rectangle {
     id: content
     height: 48
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    property string headerTitle: "Home"
     Item{
         id: toggleMenu
         visible: navigationModel.isSideMenuAvailable
