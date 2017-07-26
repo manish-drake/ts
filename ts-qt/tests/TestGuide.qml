@@ -261,8 +261,8 @@ Rectangle {
                     font.pixelSize: 14
                     wrapMode: Text.Wrap
                     color: Universal.foreground
-                    text:"<p>When running a UAT Out test, usethe directional antenna with
-Port A for over the air Testing.</p><br><p>Attach the GPS antenna to acquire LAT, LON an time.</p>"
+                    text:"<p>When running a UAT Out test, use the directional antenna with
+Port A for over the air Testing.</p><br><p>Attach the GPS antenna to acquire LAT, LON and time.</p>"
                 }
             }
         }
