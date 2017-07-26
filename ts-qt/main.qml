@@ -13,7 +13,6 @@ ApplicationWindow {
     width: 480
     height: 800
     title: "Test Set"
-    property string headerTitle: "Test Set"
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#00AEEF"

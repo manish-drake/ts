@@ -96,7 +96,7 @@ Rectangle{
                                         anchors.fill: parent
                                         onClicked: {
                                             navigationModel.currentView = navigationModel.getTargetView("_section", model.modelData.id)
-                                            headerTitle = model.modelData.name
+                                            mainheader.headerTitle = model.modelData.name
                                             selectedMenuIndex = model.modelData.id
                                             sideMenuDrawer.close()
                                         }
