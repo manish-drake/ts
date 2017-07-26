@@ -17,13 +17,9 @@ ApplicationWindow {
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#00AEEF"
-    property color opaqueBackground: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-    property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
     property string deviceName: "MD-15"
-//    property bool isSideMenuAvailable;
-//    property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
     Item {
@@ -55,7 +51,7 @@ ApplicationWindow {
                 Rectangle{
                     id: contentOpaqueBack
                     anchors.fill: parent
-                    color: opaqueBackground
+                    color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
                     visible: false
                 }
 
@@ -121,7 +117,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: TestSetup{}
         }
@@ -137,7 +133,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: TestHelp{}
         }
@@ -149,7 +145,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionReqest{}
         }
@@ -161,7 +157,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: PINConfirmation{}
         }
@@ -182,7 +178,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionAck{}
         }
@@ -194,7 +190,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionLost{}
         }
