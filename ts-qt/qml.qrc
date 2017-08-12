@@ -7,7 +7,6 @@
         <file>MoreActions.qml</file>
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
-        <file>antenna/Antenna.qml</file>
         <file>antenna/AviationDTF.qml</file>
         <file>setup/Setup.qml</file>
         <file>setup/SetupAddUser.qml</file>
@@ -60,7 +59,6 @@
         <file>tests/SetupDistanceInput.qml</file>
         <file>tests/SetupIcaoAddressSelection.qml</file>
         <file>Home.qml</file>
-        <file>tests/TransponderLanding.qml</file>
         <file>tests/TransponderSummary.qml</file>
     </qresource>
     <qresource prefix="/img">

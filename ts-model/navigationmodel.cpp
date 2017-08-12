@@ -110,7 +110,7 @@ void NavigationModel::evaluteCurrentView()
     case 6 ... 12:
     case 14 ... 19:
     case 29 ... 32:
-    case 42:
+    case 43 ... 51:
         setIsHeaderAvailable(false);
         break;
     default:
