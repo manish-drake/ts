@@ -121,7 +121,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: DetailMenu{}
+        contentItem: DetailMenu{ testID: navigationModel.navigationParameter.id}
     }
     Popup {
         id: testSetupPopup
@@ -134,5 +134,18 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
+    }
+
+    Popup {
+        id: transponderTestsListPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: TransponderTestList{}
     }
 }

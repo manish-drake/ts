@@ -226,7 +226,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: DetailMenu{}
+        contentItem: DetailMenu{testID: navigationModel.navigationParameter.id}
     }
     Popup {
         id: testSetupPopup

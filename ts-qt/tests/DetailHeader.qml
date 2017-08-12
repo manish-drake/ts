@@ -11,28 +11,28 @@ Rectangle{
     anchors.right: parent.right
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     property int pageCount: 1
-    Item{
-        anchors.left: parent.left
-        anchors.leftMargin: 5
-        height: 48
-        width: 48
-        Image {
-            id:leftImg
-            anchors.centerIn: parent
-            source: "qrc:/img/img/left.png"
-        }
-        //        ColorOverlay{
-        //            anchors.fill: leftImg
-        //            source: leftImg
-        //            color: Universal.accent
-        //        }
-        MouseArea {
-            anchors.fill: parent
-            onPressed: parent.opacity = 0.8
-            onReleased: parent.opacity = 1
-            onClicked: navigationModel.currentView = navigationModel.getTargetView("back",{"id": navigationModel.navigationParameter.id})
-        }
-    }
+//    Item{
+//        anchors.left: parent.left
+//        anchors.leftMargin: 5
+//        height: 48
+//        width: 48
+//        Image {
+//            id:leftImg
+//            anchors.centerIn: parent
+//            source: "qrc:/img/img/left.png"
+//        }
+//        //        ColorOverlay{
+//        //            anchors.fill: leftImg
+//        //            source: leftImg
+//        //            color: Universal.accent
+//        //        }
+//        MouseArea {
+//            anchors.fill: parent
+//            onPressed: parent.opacity = 0.8
+//            onReleased: parent.opacity = 1
+//            onClicked: navigationModel.currentView = navigationModel.getTargetView("back",{"id": navigationModel.navigationParameter.id})
+//        }
+//    }
     ColumnLayout{
         anchors.fill: parent
         spacing: 0
