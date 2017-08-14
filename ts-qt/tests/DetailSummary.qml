@@ -42,7 +42,7 @@ Item{
                                 text: name
                                 font.weight: Font.DemiBold
                                 font.pixelSize: 13
-                                color: Universal.foreground
+                                color: Universal.accent
                                 font.capitalization: Font.AllUppercase
                                 font.family: robotoRegular.name
                             }
