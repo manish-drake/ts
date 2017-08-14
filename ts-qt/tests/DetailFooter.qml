@@ -142,7 +142,7 @@ Rectangle{
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
-                            script: detailFooter.onStop()
+                            script: detailFooter.onContinue()
                         }
                     },
                     State {
@@ -156,10 +156,10 @@ Rectangle{
                         }
                     },
                     State {
-                        name: "stop"
+                        name: "continue"
                         PropertyChanges {
                             target: testRunButton
-                            imageSource: "qrc:/img/img/stop-button.png"
+                            imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
                             script: detailFooter.onPause()
@@ -175,10 +175,10 @@ Rectangle{
                             parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
-                            parent.state = "stop"
+                            parent.state = "continue"
                         }
                         else{
-                            parent.state = "start"
+                            parent.state = "pause"
                         }
                     }
                     onReleased: parent.opacity = 1
