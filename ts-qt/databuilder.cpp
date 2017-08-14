@@ -1069,6 +1069,123 @@ int DataBuilder::build()
     Summary sumXTypeLevel("xpndr type & level:", xpndrAutoTest.id(), 0, 0, 2);
     sumModel.addSummary(sumXTypeLevel);
 
+    TestParam tpXTypeLevel("", sumXTypeLevel.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpXTypeLevel);
+
+    Summary sumCommCapa("comm capability:", xpndrAutoTest.id(), 0, 1, 2);
+    sumModel.addSummary(sumCommCapa);
+
+    TestParam tpCommCapa("", sumCommCapa.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpCommCapa);
+
+    Summary sumTailNum("tail number:", xpndrAutoTest.id(), 0, 2, 2);
+    sumModel.addSummary(sumTailNum);
+
+    TestParam tpTailNum("", sumTailNum.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpTailNum);
+
+    Summary sumAircAddr("aircraft address:", xpndrAutoTest.id(), 0, 3, 2);
+    sumModel.addSummary(sumAircAddr);
+
+    TestParam tpAircAddr("", sumAircAddr.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpAircAddr);
+
+    Summary sumfreq1("frequency:", xpndrAutoTest.id(), 0, 4, 2);
+    sumModel.addSummary(sumfreq1);
+
+    TestParam tpfreq1("", sumfreq1.id(), "", "- -", "MHz", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpfreq1);
+
+    Summary sumPowerERP("power (erp):", xpndrAutoTest.id(), 0, 5, 2);
+    sumModel.addSummary(sumPowerERP);
+
+    TestParam tpPowerERP("", sumPowerERP.id(), "", "- -", "dBm", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpPowerERP);
+
+    Summary sumModeACSen("modes a/c sensitivity:", xpndrAutoTest.id(), 0, 6, 2);
+    sumModel.addSummary(sumModeACSen);
+
+    TestParam tpModeACSen("", sumModeACSen.id(), "", "- -", "dBm", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeACSen);
+
+    Summary sumModeSSen("mode s sensitivity (mtl):", xpndrAutoTest.id(), 0, 7, 2);
+    sumModel.addSummary(sumModeSSen);
+
+    TestParam tpModeSSen("", sumModeSSen.id(), "", "- -", "dBm", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeSSen);
+
+    Summary sumAntDivers("ant. diversity:", xpndrAutoTest.id(), 0, 8, 2);
+    sumModel.addSummary(sumAntDivers);
+
+    TestParam tpAntDivers("", sumAntDivers.id(), "", "- -", "dBm", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpAntDivers);
+
+    Summary sumModeAConly("modes a/c only:", xpndrAutoTest.id(), 0, 9, 2);
+    sumModel.addSummary(sumModeAConly);
+
+    TestParam tpModeAConly("", sumModeAConly.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeAConly);
+
+    Summary sumModeAcode("mode a code:", xpndrAutoTest.id(), 0, 10, 2);
+    sumModel.addSummary(sumModeAcode);
+
+    TestParam tpModeAcode("", sumModeAcode.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeAcode);
+
+    Summary sumModeCalt("mode c altitude:", xpndrAutoTest.id(), 0, 11, 2);
+    sumModel.addSummary(sumModeCalt);
+
+    TestParam tpModeCalt("", sumModeCalt.id(), "", "- -", "Ft", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeCalt);
+
+    Summary sumModeASsls("modes a/s sls test:", xpndrAutoTest.id(), 0, 12, 2);
+    sumModel.addSummary(sumModeASsls);
+
+    TestParam tpModeASsls("", sumModeASsls.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeASsls);
+
+    Summary sumModeACSall("modes a/c/s all call:", xpndrAutoTest.id(), 0, 13, 2);
+    sumModel.addSummary(sumModeACSall);
+
+    TestParam tpModeACSall("", sumModeACSall.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeACSall);
+
+    Summary sumUndesiredReply("undesired reply test:", xpndrAutoTest.id(), 0, 14, 2);
+    sumModel.addSummary(sumUndesiredReply);
+
+    TestParam tpUndesiredReply("", sumUndesiredReply.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUndesiredReply);
+
+    Summary sumSIlockout("si lockout test:", xpndrAutoTest.id(), 0, 15, 2);
+    sumModel.addSummary(sumSIlockout);
+
+    TestParam tpSIlockout("", sumSIlockout.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpSIlockout);
+
+    Summary sumVerticalStatus("vertical status:", xpndrAutoTest.id(), 0, 16, 2);
+    sumModel.addSummary(sumVerticalStatus);
+
+    TestParam tpVerticalStatus("", sumVerticalStatus.id(), "", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpVerticalStatus);
+
+    Summary sumSquittersReceiv("squitters received:", xpndrAutoTest.id(), 0, 17, 2);
+    sumModel.addSummary(sumSquittersReceiv);
+
+    TestParam tpSquittersReceiv("", sumSquittersReceiv.id(), "", "DF11;DF-17", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpSquittersReceiv);
+
+    Summary sumModeSsurvRepl("mode s surv replies:", xpndrAutoTest.id(), 0, 18, 2);
+    sumModel.addSummary(sumModeSsurvRepl);
+
+    TestParam tpModeSsurvRepl("", sumModeSsurvRepl.id(), "", "DF0;DF4;DF5;DF11", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeSsurvRepl);
+
+    Summary sumModeScommRepl("mode s comm replies:", xpndrAutoTest.id(), 0, 19, 2);
+    sumModel.addSummary(sumModeScommRepl);
+
+    TestParam tpModeScommRepl("", sumModeScommRepl.id(), "", "DF16;DF20;DF21;DF24", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModeScommRepl);
+
     //------------------------------P2-------------------------------
 
     Summary sumTailnum("Tail Number", xpndrAutoTest.id(), 1, 0, 2);
