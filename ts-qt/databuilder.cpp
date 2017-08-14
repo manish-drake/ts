@@ -1086,13 +1086,13 @@ int DataBuilder::build()
     Summary sumRplyFrq("Reply Frequency", xpndrAutoTest.id(), 1, 2, 2);
     sumModel.addSummary(sumRplyFrq);
 
-    TestParam tpRplyFrqModeA("mode a", sumRplyFrq.id(), "MODE A", "- - MHz", "", 0, 0, 1, 2, "l50.v60.u10");
+    TestParam tpRplyFrqModeA("mode a", sumRplyFrq.id(), "MODE A", "- -", "MHz", 0, 0, 1, 2, "l50.v60.u10");
     tpModel.addTestParam(tpRplyFrqModeA);
 
-    TestParam tpRplyFrqModeC("mode c", sumRplyFrq.id(), "MODE C", "- - MHz", "", 1, 0, 1, 2, "l50.v60.u10");
+    TestParam tpRplyFrqModeC("mode c", sumRplyFrq.id(), "MODE C", "- -", "MHz", 1, 0, 1, 2, "l50.v60.u10");
     tpModel.addTestParam(tpRplyFrqModeC);
 
-    TestParam tpRplyFrqModeS("mode s", sumRplyFrq.id(), "MODE S", "- - MHz", "", 2, 0, 1, 2, "l50.v60.u10");
+    TestParam tpRplyFrqModeS("mode s", sumRplyFrq.id(), "MODE S", "- -", "MHz", 2, 0, 1, 2, "l50.v60.u10");
     tpModel.addTestParam(tpRplyFrqModeS);
 
     Summary sumSls("SUPPRESSION (SLS)", xpndrAutoTest.id(), 1, 3, 2);
@@ -1160,7 +1160,7 @@ int DataBuilder::build()
     Summary sumDfSqt("Df11 Squitter Test", xpndrAutoTest.id(), 2, 2, 2);
     sumModel.addSummary(sumDfSqt);
 
-    TestParam tpDfSqtAntDiv("antenna diversity", sumDfSqt.id(), "Antenna Diversity", "- - dBM", "", 0, 0, 1, 2, "l50.v60.u10");
+    TestParam tpDfSqtAntDiv("antenna diversity", sumDfSqt.id(), "Antenna Diversity", "--", "dBM", 0, 0, 1, 2, "l50.v60.u10");
     tpModel.addTestParam(tpDfSqtAntDiv);
 
     //------------------------------P4-------------------------------
@@ -1185,6 +1185,158 @@ int DataBuilder::build()
 
     TestParam tpaaincorradd("aa incorrect address", sumdf4unreptst.id(), "AA Incorrect Address", "- -", "% Replies", 1, 0, 1, 2, "l50.v60.u10");
     tpModel.addTestParam(tpaaincorradd);
+
+    //------------------------------P5-------------------------------
+
+    Summary sumUf0df0("Uf0/Df0", xpndrAutoTest.id(), 4, 0, 2);
+    sumModel.addSummary(sumUf0df0);
+
+    TestParam tpUf0df0df("df", sumUf0df0.id(), "DF", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0df);
+    TestParam tpUf0df0vs("vs", sumUf0df0.id(), "VS", "", "", 0, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0vs);
+    TestParam tpUf0df0cc("cc", sumUf0df0.id(), "CC", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0cc);
+    TestParam tpUf0df0sl("sl", sumUf0df0.id(), "SL", "", "", 1, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0sl);
+    TestParam tpUf0df0ri("ri", sumUf0df0.id(), "RI", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0ri);
+    TestParam tpUf0df0ac("ac", sumUf0df0.id(), "AC", "", "", 2, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0ac);
+    TestParam tpUf0df0ap("ap", sumUf0df0.id(), "AP", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf0df0ap);
+
+
+
+    //------------------------------P6-------------------------------
+
+    Summary sumUf16df16("Uf16/Df16", xpndrAutoTest.id(), 5, 0, 2);
+    sumModel.addSummary(sumUf16df16);
+
+    TestParam tpUf16df16df("df", sumUf16df16.id(), "DF", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16df);
+    TestParam tpUf16df16vs("vs", sumUf16df16.id(), "VS", "", "", 0, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16vs);
+    TestParam tpUf16df16sl("sl", sumUf16df16.id(), "SL", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16sl);
+    TestParam tpUf16df16ri("ri", sumUf16df16.id(), "RI", "", "", 1, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16ri);
+    TestParam tpUf16df16ac("ac", sumUf16df16.id(), "AC", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16ac);
+    TestParam tpUf16df16ap("ap", sumUf16df16.id(), "AP", "", "", 2, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16ap);
+    TestParam tpUf16df16mv("mv", sumUf16df16.id(), "MV", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf16df16mv);
+
+    Summary sumUf20df20("Uf20/Df20", xpndrAutoTest.id(), 5, 1, 2);
+    sumModel.addSummary(sumUf20df20);
+
+    TestParam tpUf20df20df("df", sumUf20df20.id(), "DF", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20df);
+    TestParam tpUf20df20fs("fs", sumUf20df20.id(), "FS", "", "", 0, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20fs);
+    TestParam tpUf20df20dr("dr", sumUf20df20.id(), "DR", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20dr);
+    TestParam tpUf20df20um("um", sumUf20df20.id(), "UM", "", "", 1, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20um);
+    TestParam tpUf20df20ac("ac", sumUf20df20.id(), "AC", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20ac);
+    TestParam tpUf20df20ap("ap", sumUf20df20.id(), "AP", "", "", 2, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20ap);
+    TestParam tpUf20df20mv("mv", sumUf20df20.id(), "MV", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf20df20mv);
+
+    Summary sumUf21df21("Uf21/Df21", xpndrAutoTest.id(), 5, 2, 2);
+    sumModel.addSummary(sumUf21df21);
+
+    TestParam tpUf21df21df("df", sumUf21df21.id(), "DF", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21df);
+    TestParam tpUf21df21fs("fs", sumUf21df21.id(), "FS", "", "", 0, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21fs);
+    TestParam tpUf21df21dr("dr", sumUf21df21.id(), "DR", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21dr);
+    TestParam tpUf21df21um("um", sumUf21df21.id(), "UM", "", "", 1, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21um);
+    TestParam tpUf21df21id("id", sumUf21df21.id(), "ID", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21id);
+    TestParam tpUf21df21ap("ap", sumUf21df21.id(), "AP", "", "", 2, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21ap);
+    TestParam tpUf21df21mb("mb", sumUf21df21.id(), "MB", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf21df21mb);
+
+    Summary sumUf24df24("Uf24/Df24", xpndrAutoTest.id(), 5, 3, 2);
+    sumModel.addSummary(sumUf24df24);
+
+    TestParam tpUf24df24ke("ke", sumUf24df24.id(), "KE", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf24df24ke);
+    TestParam tpUf24df11nd("nd", sumUf24df24.id(), "ND", "", "", 0, 1, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf24df11nd);
+    TestParam tpUf24df24md("md", sumUf24df24.id(), "MD", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpUf24df24md);
+
+    //------------------------------P7-------------------------------
+
+    Summary sumModesOAllCalUf11("Mode S All-Call Uf11", xpndrAutoTest.id(), 6, 0, 2);
+    sumModel.addSummary(sumModesOAllCalUf11);
+
+    TestParam tpModesOAllCalUf11rplyfrmt("reply format", sumModesOAllCalUf11.id(), "Reply Format", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11rplyfrmt);
+    TestParam tpModesOAllCalUf11AirAdd("aircraft address", sumModesOAllCalUf11.id(), "Aircraft Address", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11AirAdd);
+    TestParam tpModesOAllCalUf11capbty("capability", sumModesOAllCalUf11.id(), "Capability", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11capbty);
+    TestParam tpModesOAllCalUf11tn("tail number", sumModesOAllCalUf11.id(), "Tail Number", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11tn);
+    TestParam tpModesOAllCalUf11ctry("country", sumModesOAllCalUf11.id(), "Country", "", "", 4, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11ctry);
+    TestParam tpModesOAllCalUf11rplyeff("reply efficiency", sumModesOAllCalUf11.id(), "Reply Efficiency", "--", "%", 5, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11rplyeff);
+
+    Summary sumModACAtcrbsOAc("Mode A/C ATCRBS only All-Call", xpndrAutoTest.id(), 6, 1, 2);
+    sumModel.addSummary(sumModACAtcrbsOAc);
+
+    TestParam tpModACAtcrbsOAcRplyFrmt("reply format", sumModACAtcrbsOAc.id(), "Reply format", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcRplyFrmt);
+    TestParam tpModACAtcrbsOAcMac("mode a code", sumModACAtcrbsOAc.id(), "Mode A Code", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcMac);
+    TestParam tpModACAtcrbsOAcMca("mode c altitude", sumModACAtcrbsOAc.id(), "Mode C Altitude", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcMca);
+    TestParam tpModACAtcrbsOAcRplyEff("reply efficiency", sumModACAtcrbsOAc.id(), "Reply Efficiency", "--", "%", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcRplyEff);
+
+    //------------------------------P8-------------------------------
+
+    Summary sumDf17Squtr("DF17 Squitter", xpndrAutoTest.id(), 7, 0, 2);
+    sumModel.addSummary(sumDf17Squtr);
+
+    TestParam tpDf17SqutrAirAdd("aircraft address", sumDf17Squtr.id(), "Aircraft Address", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17SqutrAirAdd);
+    TestParam tpDf17SqutrInterval("interval", sumDf17Squtr.id(), "Interval", "--", "ms", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17SqutrInterval);
+    TestParam tpDf17SqutrVs("vertical status", sumDf17Squtr.id(), "Vertical Status", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17SqutrVs);
+    TestParam tpDf17SqutrAlti("altitude", sumDf17Squtr.id(), "Altitude", "--", "Ft", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17SqutrAlti);
+    TestParam tpDf17Squtrfreq("frequency", sumDf17Squtr.id(), "Frequency", "--", "MHz", 4, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17Squtrfreq);
+    TestParam tpDf17Squtrpwr("power", sumDf17Squtr.id(), "Power", "--", "dBm", 5, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17Squtrpwr);
+    TestParam tpDf17Squtrcount("count", sumDf17Squtr.id(), "Count", "", "", 6, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf17Squtrcount);
+
+    Summary sumDf11Squtr("Df11 Squitter", xpndrAutoTest.id(), 7, 1, 2);
+    sumModel.addSummary(sumDf11Squtr);
+
+    TestParam tpDf11SqutrRplyFrmt("reply format", sumDf11Squtr.id(), "Reply format", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf11SqutrRplyFrmt);
+    TestParam tpDf11SqutrAirAdd("aircraft address", sumDf11Squtr.id(), "aircraft address", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf11SqutrAirAdd);
+    TestParam tpDf11SqutrCapabty("capability", sumDf11Squtr.id(), "capability", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf11SqutrCapabty);
+    TestParam tpDf11SqutrTn("tail number", sumDf11Squtr.id(), "tail number", "", "", 3, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf11SqutrTn);
+    TestParam tpDf11SqutrCountry("country", sumDf11Squtr.id(), "country", "", "", 4, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpDf11SqutrCountry);
 
 
 
