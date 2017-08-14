@@ -101,7 +101,7 @@ Item{
                             }
                             MouseArea{
                                 anchors.fill: parent
-                                onClicked: aircraftListView.currentIndex = index
+                                onClicked: testsListView.currentIndex = index
                             }
                         }
                     }

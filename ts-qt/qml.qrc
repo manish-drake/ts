@@ -60,6 +60,7 @@
         <file>TestGroup.qml</file>
         <file>TestGuide.qml</file>
         <file>tests/TransponderTestList.qml</file>
+        <file>tests/DisplayOptions.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -133,6 +134,7 @@
         <file>img/star-white.png</file>
         <file>img/List.png</file>
         <file>img/SkiptoStart.png</file>
+        <file>img/screen-brightness.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>
