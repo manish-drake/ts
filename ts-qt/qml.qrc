@@ -135,6 +135,7 @@
         <file>img/List.png</file>
         <file>img/SkiptoStart.png</file>
         <file>img/screen-brightness.png</file>
+        <file>img/Home.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

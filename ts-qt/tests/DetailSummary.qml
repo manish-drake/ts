@@ -12,7 +12,7 @@ Item{
 
         header: DetailHeader{
             id: detailHeader
-            pageCount: 7
+            pageCount: navigationModel.navigationParameter.id === 6 ? 8 : 7
         }
 
         contentItem: Rectangle{

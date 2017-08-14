@@ -88,6 +88,44 @@ Rectangle{
         }
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
+            Layout.leftMargin: 10
+            Rectangle{
+                Layout.alignment: Qt.AlignHCenter
+                height: 50
+                width: 50
+                radius: 25
+                color: Universal.accent
+                Image {
+                    id: homeImage
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Home.png"
+                    sourceSize.width: 28
+                    sourceSize.height: 28
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: parent.opacity = 0.9
+                    onReleased: parent.opacity = 1
+                    onClicked: {
+                        navigationModel.currentView = navigationModel.getTargetView("_section", 1)
+                        headerTitle = "Home"
+                        sideMenu.selectedMenuIndex = 1
+                    }
+                }
+            }
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: "HOME"
+                font.pixelSize: 12
+                font.weight: Font.Black
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.6
+            }
+        }
+        ColumnLayout{
+            Layout.alignment: Qt.AlignBottom
+            Layout.leftMargin: 10
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50
@@ -127,8 +165,7 @@ Rectangle{
                 radius: 35
                 color: Universal.accent
                 property alias imageSource: buttonImage.source
-//                state: navigationModel.navigationParameter.runState
-                state: "start"
+                state: navigationModel.navigationParameter.runState
                 Image {
                     id: buttonImage
                     anchors.centerIn: parent
