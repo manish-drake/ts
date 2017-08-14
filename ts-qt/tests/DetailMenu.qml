@@ -303,7 +303,10 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
-                        onClicked: {}
+                        onClicked: {
+                            detailMenuPopup.close()
+                            displayOptionsPopup.open()
+                        }
                     }
                 }
             }

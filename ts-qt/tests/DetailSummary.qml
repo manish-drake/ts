@@ -42,7 +42,7 @@ Item{
                                 text: name
                                 font.weight: Font.DemiBold
                                 font.pixelSize: 13
-                                color: Universal.foreground
+                                color: Universal.accent
                                 font.capitalization: Font.AllUppercase
                                 font.family: robotoRegular.name
                             }
@@ -147,5 +147,18 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TransponderTestList{}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DisplayOptions{}
     }
 }
