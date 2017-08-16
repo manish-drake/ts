@@ -88,8 +88,8 @@ Item{
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
                         onClicked: {
-                            testModel.addToHome(navigationModel.navigationParameter.title,1);
-                            menuPopup.close()
+//                            testModel.addToHome(navigationModel.navigationParameter.title,1);
+//                            menuPopup.close()
                         }
                     }
                 }
