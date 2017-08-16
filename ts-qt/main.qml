@@ -77,7 +77,7 @@ ApplicationWindow {
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height
                     Popup {
-                        id: moreActionsPopover
+                        id: menuPopup
                         width: 220
                         Layout.maximumHeight: contentRect.height - 50
                         padding: 0

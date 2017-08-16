@@ -1812,13 +1812,13 @@ int DataBuilder::build()
     Navigation antennaToAviationLanding(vwAntenna.id(), "_test",antennaAviation.id(), vwAviationLanding.id());
     navigationDaoPtr->addNavigation(antennaToAviationLanding);
 
-    Navigation aviationLandingToVSWR(vwAviationLanding.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation aviationLandingToVSWR(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(aviationLandingToVSWR);
 
-    Navigation aviationLandingToCL(vwAviationLanding.id(), "Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation aviationLandingToCL(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(aviationLandingToCL);
 
-    Navigation aviationLandingToDTF(vwAviationLanding.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation aviationLandingToDTF(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(aviationLandingToDTF);
 
     Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());

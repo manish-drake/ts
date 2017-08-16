@@ -5,37 +5,10 @@ import QtQuick.Controls.Universal 2.1
 Rectangle {
     id: content
     height: 48
-    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    Item{
-        id: toggleMenu
-        visible: navigationModel.isSideMenuAvailable
-        anchors.top: parent.top
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: 5
-        width: 50
-        Image {
-            id:toggleMenuImg
-            anchors.centerIn: parent
-            source: "qrc:/img/img/Menu-25.png"
-        }
-        //        ColorOverlay{
-        //            anchors.fill: toggleMenuImg
-        //            source: toggleMenuImg
-        //            color: Universal.accent
-        //        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                sideMenuDrawer.open()
-            }
-            onPressed: parent.opacity = 0.8
-            onReleased: parent.opacity = 1
-        }
-    }
+    color: Universal.theme === Universal.Light ? "#E6E7E8" : "#1A1A1A"
+
     Item{
         id: goBack
-        visible: !navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -58,7 +31,6 @@ Rectangle {
             onReleased: parent.opacity = 1
         }
     }
-
     Text {
         id: headerTitleText
         text: headerTitle
@@ -73,33 +45,6 @@ Rectangle {
         font.family: robotoRegular.name
         elide: Text.ElideRight
     }
-
-//         Item{
-//            id: toggleConfigPanel
-//            anchors.horizontalCenter: parent.horizontalCenter
-//            anchors.top: parent.top
-//            anchors.bottom: parent.bottom
-//            width: 50
-//            Image {
-//                id: imageCenter
-//                anchors.verticalCenter: parent.verticalCenter
-//                anchors.horizontalCenter: parent.horizontalCenter
-//                source: "qrc:/img/img/Circled Chevron Down-30.png"
-//            }
-////            ColorOverlay{
-////                anchors.fill: imageCenter
-////                source: imageCenter
-////                color: Universal.accent
-////            }
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked: {
-//                    configPanelPopup.open()
-//                }
-//                onPressed: parent.opacity = 0.5
-//                onReleased: parent.opacity = 1
-//            }
-//        }
     Item{
         anchors.right: parent.right
         anchors.top: parent.top
@@ -132,10 +77,10 @@ Rectangle {
             anchors.fill: parent
             onClicked: {
                 menuPopup.open()
-                console.log("TODO: add code for right menu");
             }
             onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
         }
     }
 }
+

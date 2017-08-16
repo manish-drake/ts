@@ -112,18 +112,6 @@ Item{
     }
 
     Popup {
-        id: detailMenuPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        padding: 30
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: DetailMenu{ testID: navigationModel.navigationParameter.id}
-    }
-    Popup {
         id: testSetupPopup
         height: parent.height
         width: parent.width
@@ -150,6 +138,19 @@ Item{
     }
 
     Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DetailMenu{ testID: navigationModel.navigationParameter.id}
+    }
+
+    Popup {
         id: displayOptionsPopup
         height: parent.height
         width: parent.width
@@ -159,6 +160,6 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: DisplayOptions{}
+        contentItem: MenuDisplayOptions{}
     }
 }

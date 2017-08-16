@@ -106,11 +106,15 @@ void NavigationModel::evaluteCurrentView()
     }
     switch (this->m_currentView)
     {
+    case 1:
+        break;
     case 5:
     case 6 ... 12:
     case 14 ... 19:
     case 29 ... 32:
-    case 43 ... 51:
+    case 35 ... 37:
+    case 39 ... 40:
+    case 42 ... 51:
         setIsHeaderAvailable(false);
         break;
     default:
