@@ -10,7 +10,7 @@ Item{
     Page {
         anchors.fill: parent
         contentItem: Rectangle {
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -64,7 +64,7 @@ Item{
             height: 110
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -96,7 +96,7 @@ Item{
                             onPressed: parent.opacity = 0.9
                             onReleased: parent.opacity = 1
                             onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                                         "_detailLanding",
+                                                                         "_detailSummary",
                                                                          navigationModel.navigationParameter.id), {
                                                                          "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
@@ -162,31 +162,7 @@ Item{
                             id: buttonImage
                             anchors.centerIn: parent
                             smooth: true
-                        }
-                        MouseArea {
-                            id: mouseArea
-                            anchors.fill: parent
-                            onPressed: {
-                                parent.opacity = 0.9
-                                if (parent.state == "start") {
-                                    parent.state = "pause"
-                                }
-                                else if(parent.state == "pause"){
-                                    parent.state = "stop"
-                                }
-                                else{
-                                    parent.state = "start"
-                                }
-                            }
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                                         "_detailLanding",
-                                                                         navigationModel.navigationParameter.id), {
-                                                                         "id": navigationModel.navigationParameter.id,
-                                                                         "title": navigationModel.navigationParameter.title,
-                                                                         "runState": toggleButton.state
-                                                                     });
-                            onReleased: parent.opacity = 1
-                        }
+                        }                        
                         states: [
                             State {
                                 name: "start"
@@ -210,6 +186,30 @@ Item{
                                 }
                             }
                         ]
+                        MouseArea {
+                            id: mouseArea
+                            anchors.fill: parent
+                            onPressed: {
+                                parent.opacity = 0.9
+                                if (parent.state == "start") {
+                                    parent.state = "pause"
+                                }
+                                else if(parent.state == "pause"){
+                                    parent.state = "stop"
+                                }
+                                else{
+                                    parent.state = "start"
+                                }
+                            }
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
+                                                                         "_detailSummary",
+                                                                         navigationModel.navigationParameter.id), {
+                                                                         "id": navigationModel.navigationParameter.id,
+                                                                         "title": navigationModel.navigationParameter.title,
+                                                                         "runState": toggleButton.state
+                                                                     });
+                            onReleased: parent.opacity = 1
+                        }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
@@ -230,9 +230,10 @@ Item{
         height: parent.height
         width: parent.width
         modal: true
+        padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

@@ -7,8 +7,8 @@ Item {
     Rectangle {
         id: rectangle
         anchors.fill: parent
-        color: Universal.theme == Universal.Light ? "#fafafa" : "#333333"
-        border.color: Universal.theme == Universal.Light ? "#1a000000" : "#4dffffff"
+        color: Universal.theme === Universal.Light ? "#fafafa" : "#333333"
+        border.color: Universal.theme === Universal.Light ? "#1a000000" : "#4dffffff"
         border.width: 1
         radius: 4
         GridLayout{

@@ -3,7 +3,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 1.4
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 
 Item {
     Page{
@@ -13,7 +13,7 @@ Item {
             height: 60
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Item{
                 id: rectangle1
                 anchors.top: parent.top
@@ -26,11 +26,11 @@ Item {
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Settings-25.png"
                 }
-//                ColorOverlay{
-//                    anchors.fill: viewImage
-//                    source: viewImage
-//                    color: Universal.foreground
-//                }
+                ColorOverlay{
+                    anchors.fill: viewImage
+                    source: viewImage
+                    color: Universal.foreground
+                }
             }
             Column{
                 anchors.verticalCenter: parent.verticalCenter
@@ -72,7 +72,7 @@ Item {
         }
 
         contentItem:Rectangle{
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -104,11 +104,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage1
-//                            source: arrowImage1
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage1
+                            source: arrowImage1
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -167,11 +167,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage2
-//                            source: arrowImage2
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage2
+                            source: arrowImage2
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -207,11 +207,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage3
-//                            source: arrowImage3
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage3
+                            source: arrowImage3
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -247,11 +247,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage4
-//                            source: arrowImage4
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage4
+                            source: arrowImage4
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -287,11 +287,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage5
-//                            source: arrowImage5
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage5
+                            source: arrowImage5
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -327,11 +327,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage6
-//                            source: arrowImage6
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage6
+                            source: arrowImage6
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -367,11 +367,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage7
-//                            source: arrowImage7
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage7
+                            source: arrowImage7
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {
@@ -407,11 +407,11 @@ Item {
                             anchors.right: parent.right
                             source: "qrc:/img/img/Expand Arrow-black.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: arrowImage8
-//                            source: arrowImage8
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: arrowImage8
+                            source: arrowImage8
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked: {

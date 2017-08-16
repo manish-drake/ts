@@ -6,7 +6,7 @@ import QtQuick.Controls.Universal 2.1
 Rectangle {
     id: rectangle4
     height: 40
-    color: Universal.theme == Universal.Light ? "#A7A9AC" : "#333333"
+    color: Universal.theme === Universal.Light ? "#A7A9AC" : "#333333"
     property bool isController: true
     RowLayout{
         anchors.fill: parent
@@ -31,6 +31,12 @@ Rectangle {
             font.family: robotoRegular.name
             text: deviceName
             color: "white"
+        }
+        Image {
+            Layout.alignment: Qt.AlignVCenter
+            Layout.rightMargin: 20
+            source: "qrc:/img/img/wifi-direct.png"
+            visible: false
         }
         Image {
             Layout.alignment: Qt.AlignVCenter

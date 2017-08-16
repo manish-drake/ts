@@ -28,7 +28,8 @@ void SectionDao::init() const
         const QString strQuery(
                     "CREATE TABLE sections "
                     "(ID INTEGER PRIMARY KEY AUTOINCREMENT, "
-                    "name TEXT)");
+                    "name TEXT,"
+                    "sectionGroupId INTEGER)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
     }
@@ -39,10 +40,11 @@ void SectionDao::addSection(Section &section) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO sections "
-                "(name) "
-                "VALUES (:name)");
+                "(name, sectionGroupId) "
+                "VALUES (:name, :sectionGroupId)");
     query.prepare(strQuery);
     query.bindValue(":name", section.name());
+    query.bindValue(":sectionGroupId", section.sectionGroupId());
     query.exec();
     section.setId(query.lastInsertId().toInt());
 
@@ -71,9 +73,8 @@ unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT * "
-                "FROM sections "
-            );
+                "SELECT * FROM sections "
+                "WHERE sections.sectionGroupId = 1");
 
     query.exec(strQuery);
     DataManager::debugQuery(query);
@@ -82,7 +83,8 @@ unique_ptr<vector<unique_ptr<Section>>> SectionDao::sections() const
 
     while (query.next()) {
         unique_ptr<Section> section(
-                    new Section(query.value("name").toString()));
+                    new Section(query.value("name").toString(),
+                                     query.value("sectionGroupId").toInt()));
         section->setId(query.value("ID").toInt());
 
         list->push_back(move(section));

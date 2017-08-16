@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 
 Page {
     id: item1
@@ -12,7 +12,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -25,7 +25,7 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             id: flickable
             anchors.fill: parent
@@ -245,7 +245,7 @@ Page {
                         }
                         SwitchDelegate{
                             id: editIPAddSwitch
-                            enabled: ipAddressField.acceptableInput
+//                            enabled: ipAddressField.acceptableInput
                             Layout.column:3
                             Layout.columnSpan: 2
                             spacing: 0
@@ -254,7 +254,7 @@ Page {
                             checked: false
                             indicator: Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editIPAddSwitch.checked ? "DONE" : "EDIT"
@@ -322,7 +322,7 @@ Page {
                             checked: false
                             indicator:Rectangle{
                                 anchors.fill: parent
-                                color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+                                color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editDNameSwitch.checked ? "DONE" : "EDIT"
@@ -412,12 +412,12 @@ Page {
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: symbolImg
-//                                    source: symbolImg
-//                                    color: Universal.foreground
-//                                    opacity: 0.6
-//                                }
+                                ColorOverlay{
+                                    anchors.fill: symbolImg
+                                    source: symbolImg
+                                    color: Universal.foreground
+                                    opacity: 0.6
+                                }
                                 Item{
                                     Layout.fillHeight: true
                                     width: 40

@@ -29,12 +29,16 @@ public:
     TestModel(QObject *parent = 0);
 
     QModelIndex addTest(Test &test);
+    QModelIndex removeTest(const int &id);
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
+
+    Q_INVOKABLE void addToHome(const QString &name, const int &sectionId);
+    Q_INVOKABLE void removeFromHome(const int &id);
 
     ~TestModel();
 signals:

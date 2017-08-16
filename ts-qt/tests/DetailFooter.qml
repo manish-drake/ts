@@ -8,7 +8,7 @@ Rectangle{
     height: 110
     anchors.left: parent.left
     anchors.right: parent.right
-    color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+    color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     property bool isScanPage
     RowLayout{
         anchors.left: parent.left
@@ -18,6 +18,7 @@ Rectangle{
         anchors.verticalCenter: parent.verticalCenter
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
+            visible: detailHeader.pageCount > 1
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50
@@ -49,6 +50,7 @@ Rectangle{
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
+            visible: detailHeader.pageCount > 1
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50
@@ -132,27 +134,6 @@ Rectangle{
                     anchors.centerIn: parent
                     smooth: true
                 }
-                MouseArea {
-                    id: mouseArea
-                    anchors.fill: parent
-                    onPressed: {
-                        parent.opacity = 0.9
-                        if (parent.state == "start") {
-                            parent.state = "pause"
-                        }
-                        else if(parent.state == "pause"){
-                            parent.state = "stop"
-                        }
-                        else{
-                            parent.state = "start"
-                        }
-                        if(isScanPage){
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
-                        }
-                    }
-                    onReleased: parent.opacity = 1
-                }
                 states: [
                     State {
                         name: "start"
@@ -176,6 +157,27 @@ Rectangle{
                         }
                     }
                 ]
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    onPressed: {
+                        parent.opacity = 0.9
+                        if (parent.state == "start") {
+                            parent.state = "pause"
+                        }
+                        else if(parent.state == "pause"){
+                            parent.state = "stop"
+                        }
+                        else{
+                            parent.state = "start"
+                        }
+                        if(isScanPage){
+                            zmq.toggleScan()
+                            console.log(zmq.scanResults)
+                        }
+                    }
+                    onReleased: parent.opacity = 1
+                }
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter

@@ -11,7 +11,7 @@ Item{
             Layout.fillWidth: true
             Layout.maximumWidth: 500
             Layout.alignment: Qt.AlignHCenter
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             height: content.height
             ColumnLayout{
@@ -154,7 +154,7 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Image {
                                 id: starImg
-                                source: "qrc:/img/img/Star.png"
+                                source: "qrc:/img/img/star-white.png"
                             }
                         }
                         Text{

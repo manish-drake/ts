@@ -3,7 +3,6 @@
 
 #include <QAbstractListModel>
 #include <QHash>
-#include <QMessageLogger>
 
 #include <vector>
 #include <memory>
@@ -20,7 +19,8 @@ class TSMODELSHARED_EXPORT SectionModel: public ModelBase
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
-        NameRole
+        NameRole,
+        SectionGroupIDRole
     };
 
 

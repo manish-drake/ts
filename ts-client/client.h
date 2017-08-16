@@ -22,7 +22,7 @@ public:
 
     Q_INVOKABLE bool toggleScan();
     Q_INVOKABLE bool queryUsers();
-    bool addUser(int &userID, const QString &name);
+    bool addUser(int &userID, const QString &name, const int &language, const QString &email, const bool &emailSavedTests);
 
     QString server();
     void setServer(const QString &server);

@@ -1,7 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 
 Item{
     id:itemOption
@@ -28,11 +28,11 @@ Item{
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
             }
-//            ColorOverlay{
-//                anchors.fill: image
-//                source: image
-//                color: Universal.foreground
-//            }
+            ColorOverlay{
+                anchors.fill: image
+                source: image
+                color: Universal.foreground
+            }
         }
         contentItem: Text {
             rightPadding: parent.spacing

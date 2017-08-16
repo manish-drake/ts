@@ -86,11 +86,11 @@ Item{
                         id: wrapper
                         anchors.fill: parent
                         anchors.margins: 3
-                        color: Universal.theme == Universal.Light ? Universal.background : "#222222"
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked:  navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
+                            onClicked:  navigationModel.setCurrentView(navigationModel.getTargetView("Aviation-Landing"),{"title": name})
                         }
                         ColumnLayout{
                             anchors.top: parent.top

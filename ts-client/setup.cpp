@@ -35,11 +35,11 @@ void Setup::listUsers()
     }
 }
 
-void Setup::addUser(int &userID, const QString &name)
+void Setup::addUser(int &userID, const QString &name, const int language, const QString email, const bool emailSavedTests)
 {
     m_session.open();
     auto response = this->m_session.request(RequestFactory::instance()
-                                            .createSetupAddUser(userID, name)).string();
+                                            .createSetupAddUser(userID, name, language, email, emailSavedTests)).string();
     if(m_callback){
         m_callback(parseMessage(response));
     }

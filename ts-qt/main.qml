@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Universal 2.1
-import QtQuick.VirtualKeyboard 2.1
+//import QtQuick.VirtualKeyboard 2.1
 
 ApplicationWindow {
     id: appWindow
@@ -17,7 +17,7 @@ ApplicationWindow {
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#00AEEF"
-    property color opaqueBackground: Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
+    property color opaqueBackground: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
     property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
@@ -26,12 +26,12 @@ ApplicationWindow {
     property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
-    Item {
-        id: appContainer
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.right: parent.right
-        anchors.bottom: inputPanel.top
+//    Item {
+//        id: appContainer
+//        anchors.left: parent.left
+//        anchors.top: parent.top
+//        anchors.right: parent.right
+//        anchors.bottom: inputPanel.top
         Page {
             anchors.fill: parent
 
@@ -42,7 +42,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme == Universal.Light ? "#D1D3D4" : "#414048"
+                color: Universal.theme === Universal.Light ? "#D1D3D4" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent
@@ -53,14 +53,16 @@ ApplicationWindow {
                         switch (true) {
                         case x < 5:
                         case x == 34:
+                        case x == 41:
                             isMenuView = true;
                             isHeaderAvailable = true;
                             break;
                         case x == 5:
-                        case (x > 13 && x < 20):
                         case (x > 5 && x < 13):
+                        case (x > 13 && x < 20):
                         case (x > 28 && x < 31):
                         case (x > 30 && x < 33):
+                        case x == 42:
                             isHeaderAvailable = false;
                             break;
                         default:
@@ -129,101 +131,100 @@ ApplicationWindow {
             contentItem: SideMenu{}
         }
 
-                Popup {
-                    id: testSetupPopup
-                    height: parent.height
-                    width: parent.width
-                    topPadding: 60
-                    bottomPadding: 60
-                    leftPadding: 30
-                    rightPadding: 30
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: TestSetup{}
-                }
+        Popup {
+            id: testSetupPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestSetup{}
+        }
 
-                Popup {
-                    id: helpPopup
-                    height: parent.height
-                    width: parent.width
-                    topPadding: 60
-                    bottomPadding: 60
-                    leftPadding: 30
-                    rightPadding: 30
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: TestHelp{}
-                }
+        Popup {
+            id: helpPopup
+            height: parent.height
+            width: parent.width
+            topPadding: 60
+            bottomPadding: 60
+            leftPadding: 30
+            rightPadding: 30
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: TestHelp{}
+        }
 
-                Popup {
-                    id: connectionReqPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionReqest{}
-                }
+        Popup {
+            id: connectionReqPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionReqest{}
+        }
 
-                Popup {
-                    id: pinConfirmPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: PINConfirmation{}
-                }
+        Popup {
+            id: pinConfirmPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: PINConfirmation{}
+        }
 
-                Timer{
-                    id:  pinaccepttimer
-                    interval: 3000
-                    onTriggered:{
-                        pinConfirmPopup.close()
-                        connectionAckPopup.open()
-                    }
-                }
+        Timer{
+            id:  pinaccepttimer
+            interval: 3000
+            onTriggered:{
+                pinConfirmPopup.close()
+                connectionAckPopup.open()
+            }
+        }
 
-                Popup {
-                    id: connectionAckPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionAck{}
-                }
+        Popup {
+            id: connectionAckPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionAck{}
+        }
 
-                Popup {
-                    id: connectionLostPopup
-                    height: parent.height
-                    width: parent.width
-                    modal: true
-                    closePolicy: Popup.CloseOnEscape
-                    background: Rectangle{
-                        color: opaqueBackground
-                    }
-                    contentItem: ConnectionLost{}
-                }
-    }
-    InputPanel {
-        id: inputPanel
-        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
-        anchors.left: parent.left
-        anchors.right: parent.right
-    }
+        Popup {
+            id: connectionLostPopup
+            height: parent.height
+            width: parent.width
+            modal: true
+            closePolicy: Popup.CloseOnEscape
+            background: Rectangle{
+                color: opaqueBackground
+            }
+            contentItem: ConnectionLost{}
+        }
+//    }
+//    InputPanel {
+//        id: inputPanel
+//        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
+//        anchors.left: parent.left
+//        anchors.right: parent.right
+//    }
 }
-
 

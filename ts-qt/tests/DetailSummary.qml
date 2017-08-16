@@ -10,10 +10,13 @@ Item{
     Page {
         anchors.fill: parent
 
-        header: DetailHeader{}
+        header: DetailHeader{
+            id: detailHeader
+            pageCount: 7
+        }
 
         contentItem: Rectangle{
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -107,7 +110,7 @@ Item{
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: DetailMenu{}
     }
@@ -115,10 +118,11 @@ Item{
         id: testSetupPopup
         height: parent.height
         width: parent.width
-        modal: true
+        modal: true        
+        padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

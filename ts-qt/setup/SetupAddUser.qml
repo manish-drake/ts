@@ -11,7 +11,7 @@ Page {
         height: 40
         anchors.left:parent.left
         anchors.right:parent.right
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Text {
             id: testTitle
             anchors.centerIn: parent
@@ -25,7 +25,7 @@ Page {
     }
 
     contentItem: Rectangle {
-        color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+        color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             id: flickable
             anchors.fill: parent
@@ -41,22 +41,6 @@ Page {
                 anchors.margins: 15
                 rowSpacing: 22
                 columnSpacing: 30
-
-                Text {
-                    text: qsTr("USER ID:")
-                    font.pixelSize: 12
-                    font.bold: Font.Medium
-                    font.family: robotoRegular.name
-                    color: Universal.foreground
-                }
-                TextField {
-                    id: usedId
-                    Layout.column: 1
-                    font.pixelSize: 12
-                    font.family: robotoRegular.name
-                    placeholderText: "Enter User ID"
-                    inputMethodHints: Qt.ImhNoAutoUppercase
-                }
 
                 Text {
                     Layout.row: 1
@@ -90,11 +74,17 @@ Page {
                     color: Universal.foreground
                 }
                 ComboBox{
+                    id:languageComboBox
                     Layout.row: 2
                     Layout.column: 1
-                    currentIndex: 0
+                    currentIndex: setup.newUser.language - 1
                     model: ListModel{
                         ListElement{text:"English"}
+                    }
+                    Binding{
+                        target: setup.newUser
+                        property:"language"
+                        value: languageComboBox.currentIndex + 1
                     }
                 }
 
@@ -114,7 +104,13 @@ Page {
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     placeholderText: "Enter Email ID"
+                    text: setup.newUser.email
                     inputMethodHints: Qt.ImhEmailCharactersOnly
+                    Binding{
+                        target: setup.newUser
+                        property: "email"
+                        value: emailId.text
+                    }
                 }
                 Text {
                     Layout.row: 4
@@ -126,26 +122,37 @@ Page {
                 }
 
                 Switch {
+                    id:emailSavedTest
                     Layout.row: 4
                     Layout.column: 1
-                }
-
-                Button{
-                    Layout.row: 6
-                    Layout.column: 0
-                    Layout.alignment: Qt.AlignRight
-                    text: "Save"
-                    enabled: true
-                    onClicked: {
-                        setup.addNewUser();
+                    checked: setup.newUser.emailSavedTests
+                    Binding{
+                        target: setup.newUser
+                        property: "emailSavedTests"
+                        value: emailSavedTest.checked
                     }
                 }
 
-                Button{
+                Rectangle{
                     Layout.row: 6
-                    Layout.column: 1
-                    text: "Cancel"
-                    onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
+                    Layout.columnSpan: 2
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.topMargin: 50
+                    height: 35
+                    width: 120
+                    radius: 4
+                    color: Universal.accent
+                    Text{
+                        anchors.centerIn: parent
+                        text: "SAVE"
+                        color: "white"
+                        font.weight: Font.Bold
+                        font.pixelSize: 16
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: setup.addNewUser();
+                    }
                 }
             }
         }

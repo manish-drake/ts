@@ -1,5 +1,5 @@
 import QtQuick 2.7
-//import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -8,10 +8,13 @@ Item{
     Page {
         anchors.fill: parent
 
-        header: DetailHeader{}
+        header: DetailHeader{
+            id: detailHeader
+            pageCount: 7
+        }
 
         contentItem: Rectangle{
-            color: Universal.theme == Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
                 contentWidth: parent.width;
@@ -32,11 +35,11 @@ Item{
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/View Details-25.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: image1
-//                            source: image1
-//                            color: Universal.foreground
-//                        }
+                        ColorOverlay{
+                            anchors.fill: image1
+                            source: image1
+                            color: Universal.foreground
+                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:navigationModel.currentView = navigationModel.getTargetView("Scan")
@@ -63,7 +66,7 @@ Item{
         closePolicy: Popup.CloseOnEscape
         padding: 30
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: DetailMenu{}
     }
@@ -72,9 +75,10 @@ Item{
         height: parent.height
         width: parent.width
         modal: true
+        padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{
-            color: Universal.theme == Universal.Light ? "#99000000" : "#cc666666"
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
     }

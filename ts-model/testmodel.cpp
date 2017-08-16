@@ -27,6 +27,17 @@ QModelIndex TestModel::addTest(Test &test)
     return index(row, 0);
 }
 
+QModelIndex TestModel::removeTest(const int &id)
+{
+    int row = this->rowCount();
+    beginRemoveRows(QModelIndex(),row,row);
+    auto testDao = this->m_db.testDao();
+    testDao->removeTest(id);
+    m_tests->clear();
+    endRemoveRows();
+    return index(row,0);
+}
+
 int TestModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -103,6 +114,17 @@ QHash<int, QByteArray> TestModel::roleNames() const
     hash.insert(Roles::NameRole, "name");
     hash.insert(Roles::SectionIDRole, "sectionId");
     return hash;
+}
+
+void TestModel::addToHome(const QString &name, const int &sectionId)
+{
+    auto test = Test(name, sectionId);
+    this->addTest(test);
+}
+
+void TestModel::removeFromHome(const int &id)
+{
+    this->removeTest(id);
 }
 
 TestModel::~TestModel()
