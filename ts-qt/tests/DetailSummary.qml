@@ -47,11 +47,10 @@ Item{
                                 font.family: robotoRegular.name
                             }
                             GridLayout {
-
                                 Repeater {
                                     model: summaryModel.getTestParamsForsummary(id)
                                     delegate: Rectangle{
-                                        color: "transparent"
+//                                        color: "transparent"
                                         Layout.row: model.modelData.row
                                         Layout.column: model.modelData.col
                                         Layout.fillWidth: true
@@ -61,7 +60,7 @@ Item{
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
-
+                                        Controls.style:model.modelData.keyStyle
                                         Row{
                                             spacing: 4
                                             anchors.fill: parent
