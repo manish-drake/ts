@@ -1066,6 +1066,12 @@ int DataBuilder::build()
 
     //------------------------------P1-------------------------------
 
+    Summary sumOverallResult("", xpndrAutoTest.id(), 0, 0, 2);
+    sumModel.addSummary(sumOverallResult);
+
+    TestParam tpOverallResult("overall result", sumOverallResult.id(), "", "FAIL <Antenna Diversity>", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpOverallResult);
+
     Summary sumXTypeLevel("xpndr type & level:", xpndrAutoTest.id(), 0, 0, 2);
     sumModel.addSummary(sumXTypeLevel);
 
