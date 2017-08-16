@@ -12,7 +12,7 @@ Item{
 
         header: DetailHeader{
             id: detailHeader
-            pageCount: 7
+            pageCount: navigationModel.navigationParameter.id === 6 ? 8 : 7
         }
 
         contentItem: Rectangle{
@@ -104,8 +104,8 @@ Item{
             function onPause(){
                 console.log("onPause")
             }
-            function onStop(){
-                console.log("onStop")
+            function onContinue(){
+                console.log("onContinue")
             }
         }
     }

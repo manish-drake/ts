@@ -103,7 +103,7 @@ ApplicationWindow {
             id: sideMenuDrawer
             width: parent.width * 0.66
             height: parent.height - footer.height
-            contentItem: SideMenu{}
+            contentItem: SideMenu{id: sideMenu}
         }
 
         Popup {

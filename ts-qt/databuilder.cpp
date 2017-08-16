@@ -1068,6 +1068,12 @@ int DataBuilder::build()
 
     //------------------------------P1-------------------------------
 
+    Summary sumOverallResult("", xpndrAutoTest.id(), 0, 0, 2);
+    sumModel.addSummary(sumOverallResult);
+
+    TestParam tpOverallResult("overall result", sumOverallResult.id(), "", "FAIL <Antenna Diversity>", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpOverallResult);
+
     Summary sumXTypeLevel("xpndr type & level:", xpndrAutoTest.id(), 0, 0, 2);
     sumModel.addSummary(sumXTypeLevel);
 
@@ -1310,6 +1316,7 @@ int DataBuilder::build()
     Summary sumUf0df0("Uf0/Df0", xpndrAutoTest.id(), 4, 0, 2);
     sumModel.addSummary(sumUf0df0);
 
+
     TestParam tpUf0df0df("df", sumUf0df0.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
     tpModel.addTestParam(tpUf0df0df);
     TestParam tpUf0df0vs("vs", sumUf0df0.id(), "VS", "", "", 0, 1, 1, 1, "l10.v60.u10");
@@ -1336,10 +1343,10 @@ int DataBuilder::build()
     tpModel.addTestParam(tpUf4df4dr);
     TestParam tpUf4df4um("um", sumUf4df4.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
     tpModel.addTestParam(tpUf4df4um);
-    TestParam tpUf4df4ac("ac", sumUf4df4.id(), "AC", "", "", 2, 0, 1, 1, "l10.v60.u10");
-    tpModel.addTestParam(tpUf4df4dr);
-    TestParam tpUf4df4uap("ap", sumUf4df4.id(), "AP", "2", "", 2, 1, 1, 1, "l10.v60.u10");
-    tpModel.addTestParam(tpUf4df4um);
+    TestParam tpUf4df4ac("ac", sumUf4df4.id(), "AC:", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4ac);
+    TestParam tpUf4df4uap("ap", sumUf4df4.id(), "AP:", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4uap);
 
     Summary sumUf5df5("Uf5/Df5", xpndrAutoTest.id(), 4, 2, 2);
     sumModel.addSummary(sumUf5df5);
@@ -1488,6 +1495,7 @@ int DataBuilder::build()
     tpModel.addTestParam(tpModesOAllCalUf11tn);
     TestParam tpModesOAllCalUf11ctry("country", sumModesOAllCalUf11.id(), "Country", "", "", 4, 0, 1, 2, "l50.v60r.u10");
     tpModel.addTestParam(tpModesOAllCalUf11ctry);
+
     TestParam tpModesOAllCalUf11rplyeff("reply efficiency", sumModesOAllCalUf11.id(), "Reply Efficiency", "- -", "%", 5, 0, 1, 2, "l50.v60r.u10");
     tpModel.addTestParam(tpModesOAllCalUf11rplyeff);
 
@@ -1510,6 +1518,7 @@ int DataBuilder::build()
 
     TestParam tpDf17SqutrAirAdd("aircraft address", sumDf17Squtr.id(), "Aircraft Address", "", "", 0, 0, 1, 2, "l50.v60r.u10");
     tpModel.addTestParam(tpDf17SqutrAirAdd);
+
     TestParam tpDf17SqutrInterval("interval", sumDf17Squtr.id(), "Interval", "- -", "ms", 1, 0, 1, 2, "l50.v60r.u10");
     tpModel.addTestParam(tpDf17SqutrInterval);
     TestParam tpDf17SqutrVs("vertical status", sumDf17Squtr.id(), "Vertical Status", "", "", 2, 0, 1, 2, "l50.v60r.u10");

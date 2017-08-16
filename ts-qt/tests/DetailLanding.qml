@@ -179,10 +179,10 @@ Item{
                                 }
                             },
                             State {
-                                name: "stop"
+                                name: "continue"
                                 PropertyChanges {
                                     target: testRunButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
+                                    imageSource: "qrc:/img/img/play-button.png"
                                 }
                             }
                         ]
@@ -195,10 +195,10 @@ Item{
                                     parent.state = "pause"
                                 }
                                 else if(parent.state == "pause"){
-                                    parent.state = "stop"
+                                    parent.state = "continue"
                                 }
                                 else{
-                                    parent.state = "start"
+                                    parent.state = "pause"
                                 }
                             }
                             onReleased: parent.opacity = 1

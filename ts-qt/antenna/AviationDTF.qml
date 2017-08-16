@@ -54,8 +54,8 @@ Item{
                             function onPause(){
                                 console.log("onPause")
                             }
-                            function onStop(){
-                                console.log("onStop")
+                            function onContinue(){
+                                console.log("onContinue")
                             }
                         }
                     }
