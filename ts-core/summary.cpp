@@ -1,12 +1,20 @@
 #include "summary.h"
 #include "testparam.h"
 
-Summary::Summary(const QString &name, const int testId, const int index, const int order, const int style):
+Summary::Summary(const QString &name,
+                 const int testId,
+                 const int index,
+                 const int order,
+                 const int col,
+                 const int colSpan,
+                 const int style):
     m_id{0},
     m_name{name},
     m_testId{testId},
-    m_index{index},
+    m_index{index},    
     m_order{order},
+    m_col{col},
+    m_colSpan{colSpan},
     m_style{style}
 {
 
@@ -65,6 +73,26 @@ int Summary::order() const
 void Summary::setOrder(const int order)
 {
     this->m_order = order;
+}
+
+int Summary::col() const
+{
+    return this->m_col;
+}
+
+void Summary::setCol(const int col)
+{
+    this->m_col = col;
+}
+
+int Summary::colSpan() const
+{
+    return this->m_colSpan;
+}
+
+void Summary::setColSpan(const int colSpan)
+{
+    this->m_colSpan = colSpan;
 }
 
 int Summary::style() const

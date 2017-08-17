@@ -207,7 +207,7 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Layout.fillWidth: true
                             elide: Text.ElideRight
-                            text: "RESTART TEST STRING"
+                            text: "RESTART TESTS"
                             font.pixelSize: 13
                             font.weight: Font.Bold
                             color: "white"
