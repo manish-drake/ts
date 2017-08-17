@@ -36,6 +36,8 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
                                styleVec[6]
 
                         ));
+                qDebug() << summ->name();
+                qDebug() << tp->key();
             }
         }
     }

@@ -69,11 +69,11 @@ Item{
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                //                                ColorOverlay{
-                                //                                    anchors.fill: checkedImg
-                                //                                    source: checkedImg
-                                //                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
-                                //                                }
+//                                ColorOverlay{
+//                                    anchors.fill: checkedImg
+//                                    source: checkedImg
+//                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
+//                                }
                             }
                             Text {
                                 Layout.column: 1

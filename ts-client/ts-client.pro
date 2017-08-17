@@ -67,10 +67,10 @@ macx{
 }
 win32{
     !android{
-        win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+        win32: LIBS += -L'C:/Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
-        INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-        DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        INCLUDEPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
+        DEPENDPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
     }
 }
 

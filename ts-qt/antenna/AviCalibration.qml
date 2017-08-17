@@ -53,11 +53,11 @@ Item {
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
-                        //                        ColorOverlay{
-                        //                            anchors.fill: closeImage
-                        //                            source: closeImage
-                        //                            color: Universal.accent
-                        //                        }
+//                                                ColorOverlay{
+//                                                    anchors.fill: closeImage
+//                                                    source: closeImage
+//                                                    color: Universal.accent
+//                                                }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:calPopup.close()
@@ -222,11 +222,11 @@ Item {
                                     id: checkedImg1
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                //                                ColorOverlay{
-                                //                                    anchors.fill: checkedImg1
-                                //                                    source: checkedImg1
-                                //                                    color: Universal.foreground
-                                //                                }
+//                                                                ColorOverlay{
+//                                                                    anchors.fill: checkedImg1
+//                                                                    source: checkedImg1
+//                                                                    color: Universal.foreground
+//                                                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -308,11 +308,11 @@ Item {
                                     id: checkedImg2
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                //                                ColorOverlay{
-                                //                                    anchors.fill: checkedImg2
-                                //                                    source: checkedImg2
-                                //                                    color: Universal.foreground
-                                //                                }
+//                                                                ColorOverlay{
+//                                                                    anchors.fill: checkedImg2
+//                                                                    source: checkedImg2
+//                                                                    color: Universal.foreground
+//                                                                }
                             }
                             Text{
                                 Layout.fillWidth: true
@@ -394,11 +394,11 @@ Item {
                                     id: checkedImg3
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                //                                ColorOverlay{
-                                //                                    anchors.fill: checkedImg3
-                                //                                    source: checkedImg3
-                                //                                    color: Universal.foreground
-                                //                                }
+//                                                                ColorOverlay{
+//                                                                    anchors.fill: checkedImg3
+//                                                                    source: checkedImg3
+//                                                                    color: Universal.foreground
+//                                                                }
                             }
                             Text{
                                 Layout.fillWidth: true

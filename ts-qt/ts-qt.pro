@@ -12,7 +12,9 @@ SOURCES += main.cpp \
     controls.cpp \
     controlsattachedtype.cpp \
     controlstyles.cpp \
-    dummygraphdata.cpp
+    dummygraphdata.cpp \
+    loggerthread.cpp \
+    runlater.cpp
 
 QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
 
@@ -74,7 +76,9 @@ HEADERS += \
     controlsattachedtype.h \
     controlstyles.h \
     dummygraphdata.h \
-    controls.h
+    controls.h \
+    loggerthread.h \
+    runlater.h
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client
@@ -114,10 +118,10 @@ macx{
 }
 win32{
     !android{
-        win32: LIBS += -L$$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
+        win32: LIBS += -L'C:/Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
 
-        INCLUDEPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
-        DEPENDPATH += $$PWD/'../../../../Program Files (x86)/ZeroMQ 4.0.4/include'
+        INCLUDEPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
+        DEPENDPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
     }
 }
 

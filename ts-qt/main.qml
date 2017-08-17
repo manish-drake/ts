@@ -54,25 +54,6 @@ ApplicationWindow {
                     color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
                     visible: false
                 }
-
-                //                Item{
-                //                    width: 320
-                //                    anchors.top: parent.top
-                //                    anchors.topMargin: 5
-                //                    anchors.horizontalCenter: parent.horizontalCenter
-                //                    Popup {
-                //                        id: configPanelPopup
-                //                        width: parent.width
-                //                        padding: 0
-                //                        modal: true
-                //                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                //                        onClosed: contentOpaqueBack.visible = false
-                //                        onOpened: contentOpaqueBack.visible = true
-                //                        contentItem: ConfigPanel{
-                //                            id: configPanel
-                //                        }
-                //                    }
-                //                }
                 Item{
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height
@@ -104,38 +85,6 @@ ApplicationWindow {
             width: parent.width * 0.66
             height: parent.height - footer.height
             contentItem: SideMenu{id: sideMenu}
-        }
-
-        Popup {
-            id: testSetupPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-            }
-            contentItem: TestSetup{}
-        }
-
-        Popup {
-            id: helpPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-            }
-            contentItem: TestHelp{}
         }
 
         Popup {

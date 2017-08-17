@@ -27,11 +27,11 @@ Item{
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Radar-25.png"
                     }
-                    //                    ColorOverlay{
-                    //                        anchors.fill: image1
-                    //                        source: image1
-                    //                        color: Universal.foreground
-                    //                    }
+//                    ColorOverlay{
+//                        anchors.fill: image1
+//                        source: image1
+//                        color: Universal.foreground
+//                    }
                     MouseArea {
                         anchors.fill: parent
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")

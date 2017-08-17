@@ -1,10 +1,9 @@
 #ifndef SUMMARYMODEL_H
 #define SUMMARYMODEL_H
 
-
-
 #include <QAbstractListModel>
 #include <QHash>
+#include <QDebug>
 
 #include <vector>
 #include <memory>
@@ -12,9 +11,9 @@
 
 #include "summary.h"
 #include "datamanager.h"
-#include "modelbase.h"
 
 #include "ts-model_global.h"
+#include "modelbase.h"
 
 //#include "testparammodel.h"
 #include "qtestparams.h"
