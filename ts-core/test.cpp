@@ -1,9 +1,10 @@
 #include "test.h"
 
-Test::Test(const QString &name, const int sectionId):
+Test::Test(const QString &name, const int sectionId, const int isFavourite):
     m_id{0},
     m_name{name},
-    m_sectionId{sectionId}
+    m_sectionId{sectionId},
+    m_isFavourite{isFavourite}
 {
 
 }
@@ -37,4 +38,15 @@ void Test::setSectionId(int sectionId)
 {
     m_sectionId = sectionId;
 }
+
+int Test::isFavourite() const
+{
+    return m_isFavourite;
+}
+
+void Test::setIsFavourite(int isFavourite)
+{
+    m_isFavourite = isFavourite;
+}
+
 

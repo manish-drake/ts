@@ -21,7 +21,8 @@ public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
         NameRole,
-        SectionIDRole
+        SectionIDRole,
+        IsFavouriteRole
     };
 
     Q_INVOKABLE QString getName() const;
@@ -37,7 +38,7 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addToHome(const QString &name, const int &sectionId);
+    Q_INVOKABLE void addToHome(const int &testId);
     Q_INVOKABLE void removeFromHome(const int &id);
 
     ~TestModel();

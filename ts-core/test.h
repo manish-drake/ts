@@ -17,12 +17,16 @@ public:
     int sectionId() const;
     void setSectionId(int id);
 
-    Test(const QString &name, const int sectionId);
+    int isFavourite() const;
+    void setIsFavourite(int isFavourite);
+
+    Test(const QString &name, const int sectionId, const int isFavourite);
     Test() = default;
 private:
     int m_id = 0;
     QString m_name;
     int m_sectionId = 0;
+    int m_isFavourite = 0;
 };
 
 #endif // TEST_H
