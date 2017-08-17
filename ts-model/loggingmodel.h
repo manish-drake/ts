@@ -35,7 +35,7 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-
+    Q_INVOKABLE void log(const QString &data);
     ~LoggingModel();
 signals:
 private:

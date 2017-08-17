@@ -44,6 +44,7 @@ ApplicationWindow {
                     anchors.fill: parent
                     source: registry.getPageFromViewId(navigationModel.currentView)
                     onLoaded: {
+                        loggingModel.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)));
                         console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
                     }
                 }
