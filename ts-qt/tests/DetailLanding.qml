@@ -9,6 +9,9 @@ import com.ti.controls 1.0
 Item{
     Page {
         anchors.fill: parent
+
+        header: DetailLandingHeader{}
+
         contentItem: Rectangle {
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
@@ -225,6 +228,7 @@ Item{
             }
         }
     }
+
     Popup {
         id: testSetupPopup
         height: parent.height
@@ -236,5 +240,31 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
+    }
+
+    Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DetailLandingMenu{}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: MenuDisplayOptions{}
     }
 }

@@ -26,7 +26,7 @@ Rectangle{
                         _theme = Universal.Dark
                     }
                     else {_theme = Universal.Light}
-                    moreActionsPopover.close()
+                    menuPopup.close()
                 }
             }
         }
@@ -36,7 +36,7 @@ Rectangle{
 //            isChecked: true
 //            MouseArea{
 //                anchors.fill: parent
-//                onClicked: { moreActionsPopover.close(); testSetupPopup.open()}
+//                onClicked: { menuPopup.close(); testSetupPopup.open()}
 //            }
 //        }
 //        CustomSwitchDelegate{
@@ -45,7 +45,7 @@ Rectangle{
 //            isChecked: true
 //            MouseArea{
 //                anchors.fill: parent
-//                onClicked: { moreActionsPopover.close(); helpPopup.open() }
+//                onClicked: { menuPopup.close(); helpPopup.open() }
 //            }
 //        }
 //        CustomSwitchDelegate{
@@ -123,7 +123,7 @@ Rectangle{
                 MouseArea{
                     anchors.fill: parent
                     onClicked:{
-                        moreActionsPopover.close()
+                        menuPopup.close()
                         navigationModel.currentView = navigationModel.getTargetView("App-Logs")
                     }
                 }
@@ -138,7 +138,7 @@ Rectangle{
                 MouseArea{
                     anchors.fill: parent
                     onClicked: {
-                        moreActionsPopover.close();
+                        menuPopup.close();
                         connectionReqPopup.open()
                     }
                 }

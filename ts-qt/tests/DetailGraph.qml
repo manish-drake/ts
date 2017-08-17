@@ -68,7 +68,7 @@ Item{
     }
 
     Popup {
-        id: detailMenuPopup
+        id: menuPopup
         height: parent.height
         width: parent.width
         modal: true
