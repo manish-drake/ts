@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Page {
     id: item1
@@ -412,12 +412,12 @@ Page {
                                     font.family: robotoRegular.name
                                     color: Universal.foreground
                                 }
-                                ColorOverlay{
-                                    anchors.fill: symbolImg
-                                    source: symbolImg
-                                    color: Universal.foreground
-                                    opacity: 0.6
-                                }
+//                                ColorOverlay{
+//                                    anchors.fill: symbolImg
+//                                    source: symbolImg
+//                                    color: Universal.foreground
+//                                    opacity: 0.6
+//                                }
                                 Item{
                                     Layout.fillHeight: true
                                     width: 40

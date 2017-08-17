@@ -5,7 +5,7 @@ import QtQuick.Controls.Styles 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.3
 import QtQuick.Controls.Universal 2.1
-//import QtQuick.VirtualKeyboard 2.1
+import QtQuick.VirtualKeyboard 2.1
 
 ApplicationWindow {
     id: appWindow
@@ -22,12 +22,12 @@ ApplicationWindow {
     property string deviceName: "MD-15"
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
-//    Item {
-//        id: appContainer
-//        anchors.left: parent.left
-//        anchors.top: parent.top
-//        anchors.right: parent.right
-//        anchors.bottom: inputPanel.top
+    Item {
+        id: appContainer
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottom: inputPanel.top
         Page {
             anchors.fill: parent
 
@@ -54,25 +54,6 @@ ApplicationWindow {
                     color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
                     visible: false
                 }
-
-                //                Item{
-                //                    width: 320
-                //                    anchors.top: parent.top
-                //                    anchors.topMargin: 5
-                //                    anchors.horizontalCenter: parent.horizontalCenter
-                //                    Popup {
-                //                        id: configPanelPopup
-                //                        width: parent.width
-                //                        padding: 0
-                //                        modal: true
-                //                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-                //                        onClosed: contentOpaqueBack.visible = false
-                //                        onOpened: contentOpaqueBack.visible = true
-                //                        contentItem: ConfigPanel{
-                //                            id: configPanel
-                //                        }
-                //                    }
-                //                }
                 Item{
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height
@@ -104,38 +85,6 @@ ApplicationWindow {
             width: parent.width * 0.66
             height: parent.height - footer.height
             contentItem: SideMenu{id: sideMenu}
-        }
-
-        Popup {
-            id: testSetupPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-            }
-            contentItem: TestSetup{}
-        }
-
-        Popup {
-            id: helpPopup
-            height: parent.height
-            width: parent.width
-            topPadding: 60
-            bottomPadding: 60
-            leftPadding: 30
-            rightPadding: 30
-            modal: true
-            closePolicy: Popup.CloseOnEscape
-            background: Rectangle{
-                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-            }
-            contentItem: TestHelp{}
         }
 
         Popup {
@@ -194,12 +143,12 @@ ApplicationWindow {
             }
             contentItem: ConnectionLost{}
         }
-//    }
-//    InputPanel {
-//        id: inputPanel
-//        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
-//        anchors.left: parent.left
-//        anchors.right: parent.right
-//    }
+    }
+    InputPanel {
+        id: inputPanel
+        y: Qt.inputMethod.visible ? parent.height - inputPanel.height : parent.height
+        anchors.left: parent.left
+        anchors.right: parent.right
+    }
 }
 

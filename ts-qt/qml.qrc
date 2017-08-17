@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>ConfigPanel.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
         <file>MoreActions.qml</file>
@@ -18,8 +17,6 @@
         <file>setup/SetupSystemInfo.qml</file>
         <file>setup/SetupUser.qml</file>
         <file>setup/SetupUserDetail.qml</file>
-        <file>TestHelp.qml</file>
-        <file>TestSetup.qml</file>
         <file>antenna/AviMarkerActionsCtrl.qml</file>
         <file>antenna/AviModeCtrl.qml</file>
         <file>antenna/AviationCableLoss.qml</file>
@@ -57,7 +54,6 @@
         <file>tests/SetupIcaoAddressSelection.qml</file>
         <file>Home.qml</file>
         <file>TestGroup.qml</file>
-        <file>TestGuide.qml</file>
         <file>tests/TransponderTestList.qml</file>
         <file>tests/DetailLandingMenu.qml</file>
         <file>tests/MenuDisplayOptions.qml</file>
