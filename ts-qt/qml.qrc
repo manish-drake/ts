@@ -132,7 +132,6 @@
         <file>img/wifi-direct.png</file>
         <file>img/antenna2.png</file>
         <file>img/Sun Filled-white.png</file>
-        <file>img/star.png</file>
         <file>img/star-white.png</file>
     </qresource>
     <qresource prefix="/database">
