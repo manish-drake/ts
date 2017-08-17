@@ -27,6 +27,8 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
                                styleVec[1],
                                styleVec[2]
                         ));
+                qDebug() << summ->name();
+                qDebug() << tp->key();
             }
         }
     }
@@ -95,6 +97,10 @@ QVariant SummaryModel::data(const QModelIndex &index, int role) const
             return summary.index();
         case Roles::OrderRole:
             return summary.order();
+        case Roles::ColRole:
+            return summary.col();
+        case Roles::ColSpanRole:
+            return summary.colSpan();
         case Roles::StyleRole:
             return summary.style();
         case Roles::NameRole:
@@ -125,6 +131,12 @@ bool SummaryModel::setData(const QModelIndex &index, const QVariant &value, int 
             break;
         case Roles::OrderRole:
             summary.setOrder(value.toInt());
+            break;
+        case Roles::ColRole:
+            summary.setCol(value.toInt());
+            break;
+        case Roles::ColSpanRole:
+            summary.setColSpan(value.toInt());
             break;
         case Roles::StyleRole:
             summary.setStyle(value.toInt());
@@ -166,6 +178,8 @@ QHash<int, QByteArray> SummaryModel::roleNames() const
     hash.insert(Roles::TestIDRole, "testId");
     hash.insert(Roles::IndexRole, "index");
     hash.insert(Roles::OrderRole, "order");
+    hash.insert(Roles::ColRole, "col");
+    hash.insert(Roles::ColSpanRole, "colSpan");
     hash.insert(Roles::StyleRole, "style");
     return hash;
 }

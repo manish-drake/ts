@@ -27,13 +27,19 @@ public:
     int order() const;
     void setOrder(const int order);
 
+    int col() const;
+    void setCol(const int col);
+
+    int colSpan() const;
+    void setColSpan(const int col);
+
     int style() const;
     void setStyle(const int style);
 
     const up_vec_up_tp &testParams() const;
     void setTestParams(up_vec_up_tp &testParams);
 
-    Summary(const QString &name, const int testId, const int index, const int order, const int style);
+    Summary(const QString &name, const int testId, const int index, const int order, const int col, const int colSpan, const int style);
     Summary() = default;
     ~Summary();
 private:
@@ -42,6 +48,8 @@ private:
     int m_testId = 0;
     int m_index = 0;
     int m_order = 0;
+    int m_col = 0;
+    int m_colSpan = 1;
     int m_style = 0;
     up_vec_up_tp m_testParams;
 };

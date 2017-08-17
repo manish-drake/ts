@@ -35,6 +35,8 @@ void SummaryDao::init() const
                     "testID INTEGER,"
                     "pageIdx INTEGER,"
                     "ordr INTEGER,"
+                    "col INTEGER,"
+                    "colSpan INTEGER,"
                     "style TEXT)");
         query.exec(strQuery);
         DataManager::debugQuery(query);
@@ -46,13 +48,15 @@ void SummaryDao::addSummary(Summary &summary) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO summaries "
-                "(name, testID, pageIdx, ordr, style) "
-                "VALUES (:name, :testID, :pageIdx, :ordr, :style)");
+                "(name, testID, pageIdx, ordr, col, colSpan, style) "
+                "VALUES (:name, :testID, :pageIdx, :ordr, :col, :colSpan, :style)");
     query.prepare(strQuery);
     query.bindValue(":name", summary.name());
     query.bindValue(":testID", summary.testId());
     query.bindValue(":pageIdx", summary.index());
     query.bindValue(":ordr", summary.order());
+    query.bindValue(":col", summary.col());
+    query.bindValue(":colSpan", summary.colSpan());
     query.bindValue(":style", summary.style());
     query.exec();
     summary.setId(query.lastInsertId().toInt());
@@ -75,13 +79,14 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
     const QString strQuery = QString(
                 "SELECT summaries.ID as sID, summaries.name as sName, "
                 "summaries.testID, summaries.pageIdx, "
-                "summaries.ordr, summaries.style as sStyle, "
+                "summaries.ordr, summaries.col as sCol, "
+                "summaries.colSpan as sColSpan, summaries.style as sStyle, "
                 "testparams.ID as tID, testparams.name as tName, "
                 "testparams.summaryID, testparams.key, testparams.val, "
-                "testparams.unit, testparams.row, testparams.col, "
-                "testparams.rowSpan, testparams.colSpan, "
+                "testparams.unit, testparams.row, testparams.col as tCol, "
+                "testparams.rowSpan, testparams.colSpan as tColSpan, "
                 "testparams.style as tStyle "
-                "FROM summaries  "
+                "FROM summaries "
                 "INNER JOIN testparams "
                 "ON summaries.ID = testparams.summaryID "
                 "WHERE summaries.testID = %1 "
@@ -109,6 +114,8 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                                     query.value("testID").toInt(),
                                     query.value("pageIdx").toInt(),
                                     query.value("ordr").toInt(),
+                                    query.value("sCol").toInt(),
+                                    query.value("sColSpan").toInt(),
                                     query.value("sStyle").toInt()));
             summary->setId(query.value("sID").toInt());
 
@@ -123,9 +130,9 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                         query.value("val").toString(),
                         query.value("unit").toString(),
                         query.value("row").toInt(),
-                        query.value("col").toInt(),
+                        query.value("tCol").toInt(),
                         query.value("rowSpan").toInt(),
-                        query.value("colSpan").toInt(),
+                        query.value("tColSpan").toInt(),
                         query.value("tStyle").toString()
                     });
 
