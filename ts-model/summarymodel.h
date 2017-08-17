@@ -29,6 +29,8 @@ public:
         TestIDRole,
         IndexRole,
         OrderRole,
+        ColRole,
+        ColSpanRole,
         StyleRole
     };
 
