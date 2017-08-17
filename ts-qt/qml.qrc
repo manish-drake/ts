@@ -139,6 +139,7 @@
         <file>img/screen-brightness.png</file>
         <file>img/Home.png</file>
         <file>img/Past-white.png</file>
+        <file>img/Star Filled.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

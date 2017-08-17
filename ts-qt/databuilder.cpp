@@ -1425,6 +1425,9 @@ int DataBuilder::build()
     Navigation adsbOut1090LandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(adsbOut1090LandingToGroup);
 
+    Navigation adsbOut1090LandingToHome(vwTestDetailLanding.id(), "back", 0, vwHome.id());
+    navigationDaoPtr->addNavigation(adsbOut1090LandingToHome);
+
     //    Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
     //    navigationDaoPtr->addNavigation(scan1090ToRadar);
 
@@ -1509,6 +1512,9 @@ int DataBuilder::build()
 
     Navigation adsbOutUatLandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(adsbOutUatLandingToGroup);
+
+    Navigation adsbOutUatLandingToHome(vwTestDetailLanding.id(), "back", 0, vwHome.id());
+    navigationDaoPtr->addNavigation(adsbOutUatLandingToHome);
 
     //    Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
     //    navigationDaoPtr->addNavigation(outUATscanToUATP1);
@@ -1715,6 +1721,9 @@ int DataBuilder::build()
     Navigation aviationLandingToAntenna(vwAviationLanding.id(), "back", 0, vwAntenna.id());
     navigationDaoPtr->addNavigation(aviationLandingToAntenna);
 
+    Navigation aviationLandingToHome(vwAviationLanding.id(), "back", 0, vwHome.id());
+    navigationDaoPtr->addNavigation(aviationLandingToHome);
+
     Navigation vswrToAviationLanding(vwAntAviationVswr.id(), "back", 0, vwAviationLanding.id());
     navigationDaoPtr->addNavigation(vswrToAviationLanding);
 
@@ -1736,6 +1745,9 @@ int DataBuilder::build()
 
     Navigation xpndrLandingToTransponder(vwTransponderLanding.id(), "back", 0, vwTransponder.id());
     navigationDaoPtr->addNavigation(xpndrLandingToTransponder);
+
+    Navigation xpndrLandingToHome(vwTransponderLanding.id(), "back", 0, vwHome.id());
+    navigationDaoPtr->addNavigation(xpndrLandingToHome);
 
     Navigation xpndrToLanding(vwTransponder.id(), "_test", xpndrAutoTest.id(), vwTransponderLanding.id());
     navigationDaoPtr->addNavigation(xpndrToLanding);
