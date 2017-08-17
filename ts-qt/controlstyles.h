@@ -30,7 +30,8 @@ private:
     QHash<QString, QHash<const char*, QVariant>> AddStyle_l70();
     QHash<const char*, QVariant> QQuickText_l70();
 
-
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_v0();
+    QHash<const char*, QVariant> QQuickText_v0();
     QHash<QString, QHash<const char*, QVariant>> AddStyle_v10();
     QHash<const char*, QVariant> QQuickText_v10();
     QHash<QString, QHash<const char*, QVariant>> AddStyle_v20();
@@ -51,13 +52,15 @@ private:
     QHash<const char*, QVariant> QQuickText_v80();
     QHash<QString, QHash<const char*, QVariant>> AddStyle_v90();
     QHash<const char*, QVariant> QQuickText_v90();
-//    QHash<QString, QHash<const char*, QVariant>> AddStyle_v100();
-//    QHash<const char*, QVariant> QQuickText_v100();
 
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_u0();
+    QHash<const char*, QVariant> QQuickText_u0();
     QHash<QString, QHash<const char*, QVariant>> AddStyle_u10();
     QHash<const char*, QVariant> QQuickText_u10();
     QHash<QString, QHash<const char*, QVariant>> AddStyle_u20();
     QHash<const char*, QVariant> QQuickText_u20();
+    QHash<QString, QHash<const char*, QVariant>> AddStyle_u30();
+    QHash<const char*, QVariant> QQuickText_u30();
 
 };
 
