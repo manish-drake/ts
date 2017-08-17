@@ -25,8 +25,6 @@ public:
         IsFavouriteRole
     };
 
-    Q_INVOKABLE QString getName() const;
-
     TestModel(QObject *parent = 0);
 
     QModelIndex addTest(Test &test);
