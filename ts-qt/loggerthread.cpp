@@ -3,11 +3,8 @@
 
 void LoggerThread::run()
 {
-    if(m_log.msgType() >= 1)
-    {
-        auto loggingDao = DataManager::logger().loggingDao();
-        loggingDao->addLogging(m_log);
-    }
+    auto loggingDao = DataManager::logger().loggingDao();
+    loggingDao->addLogging(m_log);
 }
 
 LoggerThread::LoggerThread()

@@ -2,12 +2,6 @@
 #include "testdao.h"
 using namespace std;
 
-
-QString TestModel::getName() const
-{
-    return "From test model..";
-}
-
 TestModel::TestModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
@@ -25,17 +19,6 @@ QModelIndex TestModel::addTest(Test &test)
     endInsertRows();
     this->m_tests->push_back(move(newTest));
     return index(row, 0);
-}
-
-QModelIndex TestModel::removeTest(const int &id)
-{
-    int row = this->rowCount();
-    beginRemoveRows(QModelIndex(),row,row);
-    auto testDao = this->m_db.testDao();
-    testDao->removeTest(id);
-    m_tests->clear();
-    endRemoveRows();
-    return index(row,0);
 }
 
 int TestModel::rowCount(const QModelIndex &parent) const
@@ -66,7 +49,6 @@ QVariant TestModel::data(const QModelIndex &index, int role) const
     } else {
         return QVariant();
     }
-
 }
 
 bool TestModel::setData(const QModelIndex &index, const QVariant &value, int role)
