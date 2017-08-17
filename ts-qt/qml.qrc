@@ -7,7 +7,6 @@
         <file>MoreActions.qml</file>
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
-        <file>antenna/Antenna.qml</file>
         <file>antenna/AviationDTF.qml</file>
         <file>setup/Setup.qml</file>
         <file>setup/SetupAddUser.qml</file>
@@ -23,7 +22,6 @@
         <file>TestSetup.qml</file>
         <file>antenna/AviMarkerActionsCtrl.qml</file>
         <file>antenna/AviModeCtrl.qml</file>
-        <file>antenna/AviHeaderContent.qml</file>
         <file>antenna/AviationCableLoss.qml</file>
         <file>antenna/AviBandCtrl.qml</file>
         <file>antenna/AviationVSWR.qml</file>
@@ -31,8 +29,6 @@
         <file>PINConfirmation.qml</file>
         <file>ConnectionAck.qml</file>
         <file>tests/AircraftDelegate.qml</file>
-        <file>tests/TestGroup.qml</file>
-        <file>tests/TestGuide.qml</file>
         <file>ConnectionLost.qml</file>
         <file>AppLogs.qml</file>
         <file>Global.qml</file>
@@ -60,8 +56,17 @@
         <file>tests/SetupDistanceInput.qml</file>
         <file>tests/SetupIcaoAddressSelection.qml</file>
         <file>Home.qml</file>
-        <file>tests/TransponderLanding.qml</file>
-        <file>tests/TransponderSummary.qml</file>
+        <file>TestGroup.qml</file>
+        <file>TestGuide.qml</file>
+        <file>tests/TransponderTestList.qml</file>
+        <file>tests/DetailLandingMenu.qml</file>
+        <file>tests/MenuDisplayOptions.qml</file>
+        <file>tests/DetailLandingHeader.qml</file>
+        <file>antenna/AviLandingHeader.qml</file>
+        <file>antenna/AviLandingMenu.qml</file>
+        <file>antenna/MenuDisplayOptions.qml</file>
+        <file>antenna/AviMenu.qml</file>
+        <file>antenna/AviHeader.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -133,6 +138,11 @@
         <file>img/antenna2.png</file>
         <file>img/Sun Filled-white.png</file>
         <file>img/star-white.png</file>
+        <file>img/List.png</file>
+        <file>img/SkiptoStart.png</file>
+        <file>img/screen-brightness.png</file>
+        <file>img/Home.png</file>
+        <file>img/Past-white.png</file>
     </qresource>
     <qresource prefix="/database">
         <file>logs.db</file>

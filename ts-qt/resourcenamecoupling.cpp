@@ -2,18 +2,36 @@
 
 QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     switch (viewId) {
+    case 38:
+        return "AppLogs.qml";
+    case 2:
+        return "Home.qml";
     case 3:
-        return "tests/TestGroup.qml";
-    case 13:
-    case 5:
-        return "tests/DetailAircraft.qml";
-    case 14 ... 19:
+    case 34:
+    case 41:
+        return "TestGroup.qml";
+    case 39:
+    case 42:
+        return "tests/DetailLanding.qml";
     case 6 ... 12:
+    case 14 ... 19:
+    case 43 ... 51:
         return "tests/DetailSummary.qml";
+    case 5:
+    case 13:
+        return "tests/DetailAircraft.qml";
     case 29 ... 30:
         return "tests/DetailRadar.qml";
     case 31 ... 32:
         return "tests/DetailGraph.qml";
+    case 40:
+        return "antenna/AviLanding.qml";
+    case 35:
+        return "antenna/AviationVSWR.qml";
+    case 36:
+        return "antenna/AviationCableLoss.qml";
+    case 37:
+        return "antenna/AviationDTF.qml";
     case 4:
         return "setup/Setup.qml";
     case 20:
@@ -34,26 +52,6 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
         return "setup/SetupConnection.qml";
     case 27:
         return "setup/SetupManualBit.qml";
-    case 34:
-        return "antenna/Antenna.qml";
-    case 35:
-        return "antenna/AviationVSWR.qml";
-    case 36:
-        return "antenna/AviationCableLoss.qml";
-    case 37:
-        return "antenna/AviationDTF.qml";
-    case 38:
-        return "AppLogs.qml";
-    case 39:
-        return "tests/DetailLanding.qml";
-    case 40:
-        return "antenna/AviLanding.qml";
-    case 41:
-        return "tests/TransponderLanding.qml";
-    case 42:
-        return "tests/TransponderSummary.qml";
-    case 2:
-        return "Home.qml";
     case 1:
     default:
         return "Global.qml";

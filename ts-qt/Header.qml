@@ -6,10 +6,9 @@ Rectangle {
     id: content
     height: 48
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-
     Item{
         id: toggleMenu
-        visible: isMenuView
+        visible: navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -36,7 +35,7 @@ Rectangle {
     }
     Item{
         id: goBack
-        visible: !isMenuView
+        visible: !navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
@@ -132,7 +131,7 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                moreActionsPopover.open()
+                menuPopup.open()
                 console.log("TODO: add code for right menu");
             }
             onPressed: parent.opacity = 0.5

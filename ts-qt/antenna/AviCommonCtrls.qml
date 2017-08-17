@@ -50,7 +50,7 @@ Item{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
             Rectangle{
-                id: toggleButton
+                id: testRunButton
                 Layout.alignment: Qt.AlignHCenter
                 height: 70
                 width: 70
@@ -67,22 +67,31 @@ Item{
                     State {
                         name: "start"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
-                    },
-                    State {
-                        name: "stop"
-                        PropertyChanges {
-                            target: toggleButton
-                            imageSource: "qrc:/img/img/stop-button.png"
+                        StateChangeScript{
+                            script: commonCtrls.onContinue()
                         }
                     },
                     State {
                         name: "pause"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onRun()
+                        }
+                    },
+                    State {
+                        name: "continue"
+                        PropertyChanges {
+                            target: testRunButton
+                            imageSource: "qrc:/img/img/play-button.png"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onPause()
                         }
                     }
                 ]
@@ -95,10 +104,10 @@ Item{
                             parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
-                            parent.state = "stop"
+                            parent.state = "continue"
                         }
                         else{
-                            parent.state = "start"
+                            parent.state = "pause"
                         }
                     }
                     onReleased: parent.opacity = 1
@@ -106,7 +115,7 @@ Item{
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: toggleButton.state
+                text: testRunButton.state
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black

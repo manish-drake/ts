@@ -12,7 +12,7 @@ Item{
 
         header: DetailHeader{
             id: detailHeader
-            pageCount: 7
+            pageCount: navigationModel.navigationParameter.id === 6 ? 8 : 7
         }
 
         contentItem: Rectangle{
@@ -42,16 +42,15 @@ Item{
                                 text: name
                                 font.weight: Font.DemiBold
                                 font.pixelSize: 13
-                                color: Universal.foreground
+                                color: Universal.accent
                                 font.capitalization: Font.AllUppercase
                                 font.family: robotoRegular.name
                             }
                             GridLayout {
-
                                 Repeater {
                                     model: summaryModel.getTestParamsForsummary(id)
                                     delegate: Rectangle{
-                                        color: "transparent"
+//                                        color: "transparent"
                                         Layout.row: model.modelData.row
                                         Layout.column: model.modelData.col
                                         Layout.fillWidth: true
@@ -61,7 +60,7 @@ Item{
                                         Layout.columnSpan: model.modelData.colSpan
                                         Layout.rowSpan: model.modelData.rowSpan
                                         height: 15
-
+                                        Controls.style:model.modelData.keyStyle
                                         Row{
                                             spacing: 4
                                             anchors.fill: parent
@@ -99,21 +98,18 @@ Item{
 
         footer: DetailFooter{
             id: detailFooter
+            function onRun(){
+                console.log("onRun")
+            }
+            function onPause(){
+                console.log("onPause")
+            }
+            function onContinue(){
+                console.log("onContinue")
+            }
         }
     }
 
-    Popup {
-        id: detailMenuPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        padding: 30
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: DetailMenu{}
-    }
     Popup {
         id: testSetupPopup
         height: parent.height
@@ -125,5 +121,44 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
+    }
+
+    Popup {
+        id: transponderTestsListPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: TransponderTestList{}
+    }
+
+    Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DetailMenu{ testID: navigationModel.navigationParameter.id}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: MenuDisplayOptions{}
     }
 }

@@ -27,7 +27,7 @@ Item {
             color: Universal.background
             Text{
                 anchors.centerIn: parent
-                text: pin
+                text: controlNavigationModel.pin
                 font.pixelSize: 28
                 font.family: robotoRegular.name
                 color: "gray"

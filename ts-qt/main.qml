@@ -12,18 +12,14 @@ ApplicationWindow {
     visible: true
     width: 480
     height: 800
-    title: qsTr("TS")
-    property string headerTitle: "Test Set"
+    title: "Test Set"
+    property string headerTitle: "Home"
     property var _theme: Universal.Light
     Universal.theme: _theme
     Universal.accent: "#00AEEF"
-    property color opaqueBackground: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
-    property string pin;
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
     property string deviceName: "MD-15"
-    property bool isMenuView;
-    property bool isHeaderAvailable: true
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
 //    Item {
@@ -37,7 +33,7 @@ ApplicationWindow {
 
             header: Header{
                 id: mainheader
-                visible: isHeaderAvailable
+                visible: navigationModel.isHeaderAvailable
             }
 
             contentItem: Rectangle {
@@ -49,34 +45,13 @@ ApplicationWindow {
                     source: registry.getPageFromViewId(navigationModel.currentView)
                     onLoaded: {
                         console.log("loading: %1".arg(registry.getPageFromViewId(navigationModel.currentView)))
-                        var x = navigationModel.currentView;
-                        switch (true) {
-                        case x < 5:
-                        case x == 34:
-                        case x == 41:
-                            isMenuView = true;
-                            isHeaderAvailable = true;
-                            break;
-                        case x == 5:
-                        case (x > 5 && x < 13):
-                        case (x > 13 && x < 20):
-                        case (x > 28 && x < 31):
-                        case (x > 30 && x < 33):
-                        case x == 42:
-                            isHeaderAvailable = false;
-                            break;
-                        default:
-                            isMenuView = false;
-                            isHeaderAvailable = true;
-                            break;
-                        }
                     }
                 }
 
                 Rectangle{
                     id: contentOpaqueBack
                     anchors.fill: parent
-                    color: opaqueBackground
+                    color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
                     visible: false
                 }
 
@@ -102,7 +77,7 @@ ApplicationWindow {
                     anchors.right: parent.right
                     Layout.maximumHeight: parent.height
                     Popup {
-                        id: moreActionsPopover
+                        id: menuPopup
                         width: 220
                         Layout.maximumHeight: contentRect.height - 50
                         padding: 0
@@ -128,7 +103,7 @@ ApplicationWindow {
             id: sideMenuDrawer
             width: parent.width * 0.66
             height: parent.height - footer.height
-            contentItem: SideMenu{}
+            contentItem: SideMenu{id: sideMenu}
         }
 
         Popup {
@@ -142,7 +117,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: TestSetup{}
         }
@@ -158,7 +133,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: TestHelp{}
         }
@@ -170,7 +145,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionReqest{}
         }
@@ -182,7 +157,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: PINConfirmation{}
         }
@@ -203,7 +178,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionAck{}
         }
@@ -215,7 +190,7 @@ ApplicationWindow {
             modal: true
             closePolicy: Popup.CloseOnEscape
             background: Rectangle{
-                color: opaqueBackground
+                color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
             }
             contentItem: ConnectionLost{}
         }

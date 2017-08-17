@@ -9,6 +9,9 @@ import com.ti.controls 1.0
 Item{
     Page {
         anchors.fill: parent
+
+        header: DetailLandingHeader{}
+
         contentItem: Rectangle {
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
@@ -100,7 +103,7 @@ Item{
                                                                          navigationModel.navigationParameter.id), {
                                                                          "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
-                                                                         "runState": toggleButton.state
+                                                                         "runState": testRunButton.state
                                                                      });
                         }
                     }
@@ -151,7 +154,7 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
                     Rectangle{
-                        id: toggleButton
+                        id: testRunButton
                         height: 70
                         width: 70
                         radius: 35
@@ -162,27 +165,27 @@ Item{
                             id: buttonImage
                             anchors.centerIn: parent
                             smooth: true
-                        }                        
+                        }
                         states: [
                             State {
                                 name: "start"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            },
-                            State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
                                 }
                             },
                             State {
                                 name: "pause"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            },
+                            State {
+                                name: "continue"
+                                PropertyChanges {
+                                    target: testRunButton
+                                    imageSource: "qrc:/img/img/play-button.png"
                                 }
                             }
                         ]
@@ -195,25 +198,25 @@ Item{
                                     parent.state = "pause"
                                 }
                                 else if(parent.state == "pause"){
-                                    parent.state = "stop"
+                                    parent.state = "continue"
                                 }
                                 else{
-                                    parent.state = "start"
+                                    parent.state = "pause"
                                 }
                             }
+                            onReleased: parent.opacity = 1
                             onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                                         "_detailSummary",
-                                                                         navigationModel.navigationParameter.id), {
+                                                                         "_detailSummary",navigationModel.navigationParameter.id),
+                                                                     {
                                                                          "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
-                                                                         "runState": toggleButton.state
+                                                                         "runState": testRunButton.state
                                                                      });
-                            onReleased: parent.opacity = 1
                         }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: toggleButton.state
+                        text: testRunButton.state
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black
@@ -225,6 +228,7 @@ Item{
             }
         }
     }
+
     Popup {
         id: testSetupPopup
         height: parent.height
@@ -236,5 +240,31 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: TestSetup{}
+    }
+
+    Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: DetailLandingMenu{}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: MenuDisplayOptions{}
     }
 }

@@ -4,7 +4,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
 Item{
-    property int testID
+    property string detailTitle: "VSWR"
     RowLayout{
         anchors.left: parent.left
         anchors.right: parent.right
@@ -61,17 +61,16 @@ Item{
                     height: 45
                     color: Universal.accent
                     radius: 4
-                    visible: testID == 6 ? true : false
                     RowLayout{
                         anchors.fill: parent
                         Item{
-                            height: listImg.height
-                            width: listImg.width
+                            height: pastImg.height
+                            width: pastImg.width
                             Layout.leftMargin: 30
                             Layout.alignment: Qt.AlignVCenter
                             Image {
-                                id: listImg
-                                source: "qrc:/img/img/List.png"
+                                id: pastImg
+                                source: "qrc:/img/img/Past-white.png"
                             }
                         }
                         Text{
@@ -79,7 +78,7 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Layout.fillWidth: true
                             elide: Text.ElideRight
-                            text: "TESTS LIST"
+                            text: "SAVED TEST RESULTS"
                             font.pixelSize: 13
                             font.weight: Font.Bold
                             color: "white"
@@ -89,9 +88,9 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
-                        onClicked: {
+                        onClicked:{
                             menuPopup.close()
-                            transponderTestsListPopup.open()
+                            savedDataPopup.open();
                         }
                     }
                 }
@@ -103,7 +102,6 @@ Item{
                     height: 1
                     color: Universal.foreground
                     opacity: 0.2
-                    visible: testID == 6 ? true : false
                 }
                 Rectangle{
                     anchors.left: parent.left
@@ -140,7 +138,42 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
-                        onClicked: {}
+                        onClicked: {
+                            var datetime = new Date();
+                            var user = currentUser;
+                            var markerPosition = markersModel.get(0)._val;
+                            var markerName = "M" + markersModel.get(0).num;
+                            var range = graphCtrl.isScaleChecked ? "-6,-18" : "0,-30";
+                            var bandRange = graphCtrl.freqStartVal+","+graphCtrl.freqEndVal;
+                            var data = "";
+                            for (var i = 0; i < dummy.points.length; i++){
+                                if(i == 0){
+                                    data = dummy.points[i]
+                                }
+                                else{
+                                    data = data +","+dummy.points[i]
+                                }
+                            }
+                            switch(detailTitle){
+                            case "VSWR":
+                                var bandName = bandSelection.bandName
+                                snapshotModel.addAviationVswr(datetime, user,data,markerPosition,markerName,range,bandRange,bandName);
+                                notifyPopup.open(); closeTimer.running = true;
+                                break;
+                            case "CABLE LOSS":
+                                var bandName2 = bandSelection.bandName
+                                snapshotModel.addAviationCl(datetime,user,data,markerPosition,markerName,range,bandRange,bandName2);
+                                notifyPopup.open(); closeTimer.running = true;
+                                break;
+                            case "DISTANCE TO FAULT":
+                                var velocity = coaxSelection.selectedCableVelocity
+                                var cableType = coaxSelection.selectedCableType
+                                snapshotModel.addAviationDtf(datetime,user,data,markerPosition,markerName,range,velocity,cableType);
+                                notifyPopup.open(); closeTimer.running = true;
+                                break;
+                            }
+                            menuPopup.close()
+                        }
                     }
                 }
                 Rectangle{
@@ -179,45 +212,6 @@ Item{
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
                         onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
-                    }
-                }
-                Rectangle{
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-                    height: 45
-                    color: Universal.accent
-                    radius: 4
-                    visible: testID == 6 ? true : false
-                    RowLayout{
-                        anchors.fill: parent
-                        Item{
-                            height: restartImg.height
-                            width: restartImg.width
-                            Layout.leftMargin: 30
-                            Layout.alignment: Qt.AlignVCenter
-                            Image {
-                                id: restartImg
-                                source: "qrc:/img/img/SkiptoStart.png"
-                            }
-                        }
-                        Text{
-                            Layout.leftMargin: 10
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            text: "RESTART TEST STRING"
-                            font.pixelSize: 13
-                            font.weight: Font.Bold
-                            color: "white"
-                        }
-                    }
-                    MouseArea{
-                        anchors.fill: parent
-                        onPressed: parent.opacity = 0.9
-                        onReleased: parent.opacity = 1
-                        onClicked: {}
                     }
                 }
                 Rectangle{

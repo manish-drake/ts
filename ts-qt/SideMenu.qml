@@ -106,7 +106,6 @@ Rectangle{
                         }
                     }
                 }
-                onCurrentIndexChanged: navigationModel.currentView = navigationModel.getTargetView("_section", 1)
             }
         }
     }

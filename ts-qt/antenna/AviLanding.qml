@@ -9,6 +9,9 @@ import com.ti.controls 1.0
 Item{
     Page {
         anchors.fill: parent
+
+        header: AviLandingHeader{}
+
         contentItem: Rectangle {
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
@@ -95,7 +98,7 @@ Item{
                             anchors.fill: parent
                             onPressed: parent.opacity = 0.9
                             onReleased: parent.opacity = 1
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary");
                         }
                     }
                     Text {
@@ -145,7 +148,7 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     Layout.leftMargin: 10
                     Rectangle{
-                        id: toggleButton
+                        id: testRunButton
                         height: 70
                         width: 70
                         radius: 35
@@ -161,22 +164,22 @@ Item{
                             State {
                                 name: "start"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            },
-                            State {
-                                name: "stop"
-                                PropertyChanges {
-                                    target: toggleButton
-                                    imageSource: "qrc:/img/img/stop-button.png"
                                 }
                             },
                             State {
                                 name: "pause"
                                 PropertyChanges {
-                                    target: toggleButton
+                                    target: testRunButton
                                     imageSource: "qrc:/img/img/pause-button.png"
+                                }
+                            },
+                            State {
+                                name: "continue"
+                                PropertyChanges {
+                                    target: testRunButton
+                                    imageSource: "qrc:/img/img/play-button.png"
                                 }
                             }
                         ]
@@ -189,19 +192,19 @@ Item{
                                     parent.state = "pause"
                                 }
                                 else if(parent.state == "pause"){
-                                    parent.state = "stop"
+                                    parent.state = "continue"
                                 }
                                 else{
-                                    parent.state = "start"
+                                    parent.state = "pause"
                                 }
                             }
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr");
                             onReleased: parent.opacity = 1
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary");
                         }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: toggleButton.state
+                        text: testRunButton.state
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black
@@ -213,6 +216,7 @@ Item{
             }
         }
     }
+
     Popup {
         id: calPopup
         height: parent.height
@@ -223,6 +227,32 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviCalibration{ mode: "VSWR/CL" }
+    }
+
+    Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviLandingMenu{}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: MenuDisplayOptions{}
     }
 }
 

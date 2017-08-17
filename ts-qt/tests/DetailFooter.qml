@@ -9,7 +9,6 @@ Rectangle{
     anchors.left: parent.left
     anchors.right: parent.right
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    property bool isScanPage
     RowLayout{
         anchors.left: parent.left
         anchors.right: parent.right
@@ -67,7 +66,7 @@ Rectangle{
                         navigationModel.setCurrentView(navigationModel.getTargetView("Next"), {
                                                            "id": navigationModel.navigationParameter.id,
                                                            "title": navigationModel.navigationParameter.title,
-                                                           "runState": toggleButton.state
+                                                           "runState": testRunButton.state
                                                        })
                     }
                     onPressed: parent.opacity = 0.9
@@ -89,6 +88,44 @@ Rectangle{
         }
         ColumnLayout{
             Layout.alignment: Qt.AlignBottom
+            Layout.leftMargin: 10
+            Rectangle{
+                Layout.alignment: Qt.AlignHCenter
+                height: 50
+                width: 50
+                radius: 25
+                color: Universal.accent
+                Image {
+                    id: homeImage
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Home.png"
+                    sourceSize.width: 28
+                    sourceSize.height: 28
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: parent.opacity = 0.9
+                    onReleased: parent.opacity = 1
+                    onClicked: {
+                        navigationModel.currentView = navigationModel.getTargetView("_section", 1)
+                        headerTitle = "Home"
+                        sideMenu.selectedMenuIndex = 1
+                    }
+                }
+            }
+            Text {
+                Layout.alignment: Qt.AlignHCenter
+                text: "HOME"
+                font.pixelSize: 12
+                font.weight: Font.Black
+                font.family: robotoRegular.name
+                color: Universal.foreground
+                opacity: 0.6
+            }
+        }
+        ColumnLayout{
+            Layout.alignment: Qt.AlignBottom
+            Layout.leftMargin: 10
             Rectangle{
                 Layout.alignment: Qt.AlignHCenter
                 height: 50
@@ -121,7 +158,7 @@ Rectangle{
             Layout.alignment: Qt.AlignBottom
             Layout.leftMargin: 10
             Rectangle{
-                id: toggleButton
+                id: testRunButton
                 Layout.alignment: Qt.AlignHCenter
                 height: 70
                 width: 70
@@ -138,22 +175,31 @@ Rectangle{
                     State {
                         name: "start"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
-                    },
-                    State {
-                        name: "stop"
-                        PropertyChanges {
-                            target: toggleButton
-                            imageSource: "qrc:/img/img/stop-button.png"
+                        StateChangeScript{
+                            script: detailFooter.onContinue()
                         }
                     },
                     State {
                         name: "pause"
                         PropertyChanges {
-                            target: toggleButton
+                            target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onRun()
+                        }
+                    },
+                    State {
+                        name: "continue"
+                        PropertyChanges {
+                            target: testRunButton
+                            imageSource: "qrc:/img/img/play-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onPause()
                         }
                     }
                 ]
@@ -166,14 +212,10 @@ Rectangle{
                             parent.state = "pause"
                         }
                         else if(parent.state == "pause"){
-                            parent.state = "stop"
+                            parent.state = "continue"
                         }
                         else{
-                            parent.state = "start"
-                        }
-                        if(isScanPage){
-                            zmq.toggleScan()
-                            console.log(zmq.scanResults)
+                            parent.state = "pause"
                         }
                     }
                     onReleased: parent.opacity = 1
@@ -181,7 +223,7 @@ Rectangle{
             }
             Text {
                 Layout.alignment: Qt.AlignHCenter
-                text: toggleButton.state
+                text: testRunButton.state
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black

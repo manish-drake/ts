@@ -9,9 +9,8 @@ Item{
     Page {
         id: item1
         anchors.fill: parent
-        header: AviHeaderContent{
-            detailTitle: "CABLE LOSS"
-        }
+
+        header: AviHeader{title: "CABLE LOSS"}
 
         contentItem: Rectangle {
             color: Universal.theme === Universal.Light ? Universal.background : "#414048"
@@ -28,12 +27,10 @@ Item{
                     anchors.right: parent.right
                     anchors.margins: 15
                     spacing: 30
-
                     AviGraphCtrl{
                         id: graphCtrl
                         refData: snapshotModel.refData
                     }
-
                     GridLayout {
                         anchors.left: parent.left
                         anchors.right: parent.right
@@ -43,7 +40,18 @@ Item{
                         AviMarkerActionsCtrl{}
                         AviBandCtrl{}
                         AviModeCtrl{ mode: "LOSS" }
-                        AviCommonCtrls{}
+                        AviCommonCtrls{
+                            id: commonCtrls
+                            function onRun(){
+                                console.log("onRun")
+                            }
+                            function onPause(){
+                                console.log("onPause")
+                            }
+                            function onContinue(){
+                                console.log("onContinue")
+                            }
+                        }
                     }
                     ColumnLayout{
                         anchors.left: parent.left
@@ -126,5 +134,62 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviBandSelection{id: bandSelection}
+    }
+
+    Popup {
+        id: menuPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        closePolicy: Popup.CloseOnEscape
+        padding: 30
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: AviMenu{detailTitle: "CABLE LOSS"}
+    }
+
+    Popup {
+        id: displayOptionsPopup
+        height: parent.height
+        width: parent.width
+        modal: true
+        padding: 0
+        closePolicy: Popup.CloseOnEscape
+        background: Rectangle{
+            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+        }
+        contentItem: MenuDisplayOptions{}
+    }
+
+    Item{
+        width: 160
+        anchors.top: parent.top
+        anchors.topMargin: 5
+        anchors.horizontalCenter: parent.horizontalCenter
+        Popup {
+            id: notifyPopup
+            width: parent.width
+            height: 40
+            padding: 0
+            modal: true
+            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+            background: Rectangle{ color: "transparent" }
+            contentItem: Rectangle{
+                color: Universal.foreground
+                radius: 20
+                Text{
+                    anchors.centerIn: parent
+                    text: "Data Saved"
+                    font.pixelSize: 14
+                    color: Universal.background
+                }
+            }
+        }
+    }
+
+    Timer{
+        id: closeTimer
+        interval: 3000; running: false; onTriggered: notifyPopup.close()
     }
 }

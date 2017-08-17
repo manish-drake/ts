@@ -157,11 +157,38 @@ int DataBuilder::build()
     View vwAviationLanding("Aviation-Landing");
     viewDao->addView(vwAviationLanding);
 
+    View vwTransponder("Transponder");
+    viewDao->addView(vwTransponder);
+
     View vwTransponderLanding("Transponder-Landing");
     viewDao->addView(vwTransponderLanding);
 
-    View vwTransponderSummary("Transponder-Summary");
-    viewDao->addView(vwTransponderSummary);
+    View vwXpndrAutoTestP1("XPNDR-Auto-Test-P1");
+    viewDao->addView(vwXpndrAutoTestP1);
+
+    View vwXpndrAutoTestP2("XPNDR-Auto-Test-P2");
+    viewDao->addView(vwXpndrAutoTestP2);
+
+    View vwXpndrAutoTestP3("XPNDR-Auto-Test-P3");
+    viewDao->addView(vwXpndrAutoTestP3);
+
+    View vwXpndrAutoTestP4("XPNDR-Auto-Test-P4");
+    viewDao->addView(vwXpndrAutoTestP4);
+
+    View vwXpndrAutoTestP5("XPNDR-Auto-Test-P5");
+    viewDao->addView(vwXpndrAutoTestP5);
+
+    View vwXpndrAutoTestP6("XPNDR-Auto-Test-P6");
+    viewDao->addView(vwXpndrAutoTestP6);
+
+    View vwXpndrAutoTestP7("XPNDR-Auto-Test-P7");
+    viewDao->addView(vwXpndrAutoTestP7);
+
+    View vwXpndrAutoTestP8("XPNDR-Auto-Test-P8");
+    viewDao->addView(vwXpndrAutoTestP8);
+
+    View vwXpndrAutoTestP9("XPNDR-Auto-Test-P9");
+    viewDao->addView(vwXpndrAutoTestP9);
 
     SectionGroupModel sgModel{};
     SectionModel secModel{};
@@ -1036,12 +1063,501 @@ int DataBuilder::build()
     Test antennaAviation("Aviation", secAntenna.id());
     testModel.addTest(antennaAviation);
 
+    Test xpndrAutoTest("Transponder Auto Test", secTransponder.id());
+    testModel.addTest(xpndrAutoTest);
+
+    //------------------------------P1-------------------------------
+
+    Summary sumOverallResult("", xpndrAutoTest.id(), 0, 0, 2);
+    sumModel.addSummary(sumOverallResult);
+
+    TestParam tpOverallResult("overall result", sumOverallResult.id(), "", "FAIL <Antenna Diversity>", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpOverallResult);
+
+    Summary sumXTypeLevel("xpndr type & level:", xpndrAutoTest.id(), 0, 0, 2);
+    sumModel.addSummary(sumXTypeLevel);
+
+    TestParam tpXTypeLevel("", sumXTypeLevel.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpXTypeLevel);
+
+    Summary sumCommCapa("comm capability:", xpndrAutoTest.id(), 0, 1, 2);
+    sumModel.addSummary(sumCommCapa);
+
+    TestParam tpCommCapa("", sumCommCapa.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpCommCapa);
+
+    Summary sumTailNum("tail number:", xpndrAutoTest.id(), 0, 2, 2);
+    sumModel.addSummary(sumTailNum);
+
+    TestParam tpTailNum("", sumTailNum.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpTailNum);
+
+    Summary sumAircAddr("aircraft address:", xpndrAutoTest.id(), 0, 3, 2);
+    sumModel.addSummary(sumAircAddr);
+
+    TestParam tpAircAddr("", sumAircAddr.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpAircAddr);
+
+    Summary sumfreq1("frequency:", xpndrAutoTest.id(), 0, 4, 2);
+    sumModel.addSummary(sumfreq1);
+
+    TestParam tpfreq1("", sumfreq1.id(), "", "- -", "MHz", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpfreq1);
+
+    Summary sumPowerERP("power (erp):", xpndrAutoTest.id(), 0, 5, 2);
+    sumModel.addSummary(sumPowerERP);
+
+    TestParam tpPowerERP("", sumPowerERP.id(), "", "- -", "dBm", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpPowerERP);
+
+    Summary sumModeACSen("modes a/c sensitivity:", xpndrAutoTest.id(), 0, 6, 2);
+    sumModel.addSummary(sumModeACSen);
+
+    TestParam tpModeACSen("", sumModeACSen.id(), "", "- -", "dBm", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeACSen);
+
+    Summary sumModeSSen("mode s sensitivity (mtl):", xpndrAutoTest.id(), 0, 7, 2);
+    sumModel.addSummary(sumModeSSen);
+
+    TestParam tpModeSSen("", sumModeSSen.id(), "", "- -", "dBm", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeSSen);
+
+    Summary sumAntDivers("ant. diversity:", xpndrAutoTest.id(), 0, 8, 2);
+    sumModel.addSummary(sumAntDivers);
+
+    TestParam tpAntDivers("", sumAntDivers.id(), "", "- -", "dBm", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpAntDivers);
+
+    Summary sumModeAConly("modes a/c only:", xpndrAutoTest.id(), 0, 9, 2);
+    sumModel.addSummary(sumModeAConly);
+
+    TestParam tpModeAConly("", sumModeAConly.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeAConly);
+
+    Summary sumModeAcode("mode a code:", xpndrAutoTest.id(), 0, 10, 2);
+    sumModel.addSummary(sumModeAcode);
+
+    TestParam tpModeAcode("", sumModeAcode.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeAcode);
+
+    Summary sumModeCalt("mode c altitude:", xpndrAutoTest.id(), 0, 11, 2);
+    sumModel.addSummary(sumModeCalt);
+
+    TestParam tpModeCalt("", sumModeCalt.id(), "", "- -", "Ft", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeCalt);
+
+    Summary sumModeASsls("modes a/s sls test:", xpndrAutoTest.id(), 0, 12, 2);
+    sumModel.addSummary(sumModeASsls);
+
+    TestParam tpModeASsls("", sumModeASsls.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeASsls);
+
+    Summary sumModeACSall("modes a/c/s all call:", xpndrAutoTest.id(), 0, 13, 2);
+    sumModel.addSummary(sumModeACSall);
+
+    TestParam tpModeACSall("", sumModeACSall.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeACSall);
+
+    Summary sumUndesiredReply("undesired reply test:", xpndrAutoTest.id(), 0, 14, 2);
+    sumModel.addSummary(sumUndesiredReply);
+
+    TestParam tpUndesiredReply("", sumUndesiredReply.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpUndesiredReply);
+
+    Summary sumSIlockout("si lockout test:", xpndrAutoTest.id(), 0, 15, 2);
+    sumModel.addSummary(sumSIlockout);
+
+    TestParam tpSIlockout("", sumSIlockout.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpSIlockout);
+
+    Summary sumVerticalStatus("vertical status:", xpndrAutoTest.id(), 0, 16, 2);
+    sumModel.addSummary(sumVerticalStatus);
+
+    TestParam tpVerticalStatus("", sumVerticalStatus.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpVerticalStatus);
+
+    Summary sumSquittersReceiv("squitters received:", xpndrAutoTest.id(), 0, 17, 2);
+    sumModel.addSummary(sumSquittersReceiv);
+
+    TestParam tpSquittersReceiv("", sumSquittersReceiv.id(), "", "DF11;DF-17", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpSquittersReceiv);
+
+    Summary sumModeSsurvRepl("mode s surv replies:", xpndrAutoTest.id(), 0, 18, 2);
+    sumModel.addSummary(sumModeSsurvRepl);
+
+    TestParam tpModeSsurvRepl("", sumModeSsurvRepl.id(), "", "DF0;DF4;DF5;DF11", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeSsurvRepl);
+
+    Summary sumModeScommRepl("mode s comm replies:", xpndrAutoTest.id(), 0, 19, 2);
+    sumModel.addSummary(sumModeScommRepl);
+
+    TestParam tpModeScommRepl("", sumModeScommRepl.id(), "", "DF16;DF20;DF21;DF24", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpModeScommRepl);
+
+    //------------------------------P2-------------------------------
+
+    Summary sumTailnum("Tail Number", xpndrAutoTest.id(), 1, 0, 2);
+    sumModel.addSummary(sumTailnum);
+
+    TestParam tpsummTailNum("", sumTailnum.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpsummTailNum);
+
+    Summary sumAirAdd("Aircraft Address", xpndrAutoTest.id(), 1, 1, 2);
+    sumModel.addSummary(sumAirAdd);
+
+    TestParam tpSummAirAdd("", sumAirAdd.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpSummAirAdd);
+
+    Summary sumRplyFrq("Reply Frequency", xpndrAutoTest.id(), 1, 2, 2);
+    sumModel.addSummary(sumRplyFrq);
+
+    TestParam tpRplyFrqModeA("mode a", sumRplyFrq.id(), "MODE A", "- -", "MHz", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRplyFrqModeA);
+
+    TestParam tpRplyFrqModeC("mode c", sumRplyFrq.id(), "MODE C", "- -", "MHz", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRplyFrqModeC);
+
+    TestParam tpRplyFrqModeS("mode s", sumRplyFrq.id(), "MODE S", "- -", "MHz", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRplyFrqModeS);
+
+    Summary sumSls("SUPPRESSION (SLS)", xpndrAutoTest.id(), 1, 3, 2);
+    sumModel.addSummary(sumSls);
+
+    TestParam tpSlsModeA("mode a", sumSls.id(), "MODE A", "", "", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpSlsModeA);
+
+    TestParam tpSlsModeC("mode c", sumSls.id(), "MODE C", "", "", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpSlsModeC);
+
+    TestParam tpSlsModeS("mode s", sumSls.id(), "MODE S", "", "", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpSlsModeS);
+
+    Summary sumMtl("Receiver Sensitivity (MTL)", xpndrAutoTest.id(), 1, 4, 2);
+    sumModel.addSummary(sumMtl);
+
+    TestParam tpMtlModeA("mode a", sumMtl.id(), "MODE A", "- - dBm (Bot),", "- - dBm (Top)", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpMtlModeA);
+
+    TestParam tpMtlModeC("mode c", sumMtl.id(), "MODE C", "- - dBm (Bot),", "- - dBm (Top)", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpMtlModeC);
+
+    TestParam tpMtlModeS("mode s", sumMtl.id(), "MODE S", "- - dBm (Bot),", "- - dBm (Top)", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpMtlModeS);
+
+    Summary sumErp("Rf Peak Output Power (ERP)", xpndrAutoTest.id(), 1, 5, 2);
+    sumModel.addSummary(sumErp);
+
+    TestParam tpErpModeA("mode a", sumErp.id(), "MODE A", "- - dBm (Bot),", "- - dBm (Top)", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpErpModeA);
+
+    TestParam tpErpModeC("mode c", sumErp.id(), "MODE C", "- - dBm (Bot),", "- - dBm (Top)", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpErpModeC);
+
+    TestParam tpErpModeS("mode s", sumErp.id(), "MODE S", "- - dBm (Bot),", "- - dBm (Top)", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpErpModeS);
+
+    Summary sumRpp("Reply Delay, Pulse Droop, Pulse Jitter", xpndrAutoTest.id(), 1, 6, 2);
+    sumModel.addSummary(sumRpp);
+
+    TestParam tpRppModeA("mode a", sumRpp.id(), "MODE A", "- - ms;", "- - ms; - - ms", 0, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRppModeA);
+
+    TestParam tpRppModeC("mode c", sumRpp.id(), "MODE C", "- - ms;", "- - ms; - - ms", 1, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRppModeC);
+
+    TestParam tpRppModeS("mode s", sumRpp.id(), "MODE S", "- - ms;", "- - ms; - - ms", 2, 0, 1, 2, "l50.v60.u10");
+    tpModel.addTestParam(tpRppModeS);
+
+    //------------------------------P3-------------------------------
+
+    Summary sumTailnum2("Tail Number", xpndrAutoTest.id(), 2, 0, 2);
+    sumModel.addSummary(sumTailnum2);
+
+    TestParam tpsummTailNum2("", sumTailnum2.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpsummTailNum2);
+
+    Summary sumAirAdd2("Aircraft Address", xpndrAutoTest.id(), 2, 1, 2);
+    sumModel.addSummary(sumAirAdd2);
+
+    TestParam tpSummAirAdd2("", sumAirAdd2.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpSummAirAdd2);
+
+    Summary sumDfSqt("Df11 Squitter Test", xpndrAutoTest.id(), 2, 2, 2);
+    sumModel.addSummary(sumDfSqt);
+
+    TestParam tpDfSqtAntDiv("antenna diversity", sumDfSqt.id(), "Antenna Diversity", "- -", "dBM", 0, 0, 1, 2, "l50.v50.u10");
+    tpModel.addTestParam(tpDfSqtAntDiv);
+
+    //------------------------------P4-------------------------------
+
+    Summary sumTailnum4("Tail Number", xpndrAutoTest.id(), 3, 0, 2);
+    sumModel.addSummary(sumTailnum4);
+
+    TestParam tpsummTailNum4("", sumTailnum4.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpsummTailNum4);
+
+    Summary sumAirAdd4("Aircraft Address", xpndrAutoTest.id(), 3, 1, 2);
+    sumModel.addSummary(sumAirAdd4);
+
+    TestParam tpSummAirAdd4("", sumAirAdd4.id(), "", "", "", 0, 0, 1, 2, "l0.v60.u10");
+    tpModel.addTestParam(tpSummAirAdd4);
+
+    Summary sumdf4unreptst("Df4 undesired replies test", xpndrAutoTest.id(), 3, 2, 2);
+    sumModel.addSummary(sumdf4unreptst);
+
+    TestParam tpaacorradd("aa correct address", sumdf4unreptst.id(), "AA Correct Address", "- -", "% Replies", 0, 0, 1, 2, "l60.v10.u10");
+    tpModel.addTestParam(tpaacorradd);
+
+    TestParam tpaaincorradd("aa incorrect address", sumdf4unreptst.id(), "AA Incorrect Address", "- -", "% Replies", 1, 0, 1, 2, "l60.v10.u10");
+    tpModel.addTestParam(tpaaincorradd);
+
+    //------------------------------P5-------------------------------
+
+    Summary sumUf0df0("Uf0/Df0", xpndrAutoTest.id(), 4, 0, 2);
+    sumModel.addSummary(sumUf0df0);
+
+
+    TestParam tpUf0df0df("df", sumUf0df0.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0df);
+    TestParam tpUf0df0vs("vs", sumUf0df0.id(), "VS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0vs);
+    TestParam tpUf0df0cc("cc", sumUf0df0.id(), "CC", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0cc);
+    TestParam tpUf0df0sl("sl", sumUf0df0.id(), "SL", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0sl);
+    TestParam tpUf0df0ri("ri", sumUf0df0.id(), "RI", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0ri);
+    TestParam tpUf0df0ac("ac", sumUf0df0.id(), "AC", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0ac);
+    TestParam tpUf0df0ap("ap", sumUf0df0.id(), "AP", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf0df0ap);
+
+    Summary sumUf4df4("Uf4/Df4", xpndrAutoTest.id(), 4, 1, 2);
+    sumModel.addSummary(sumUf4df4);
+
+    TestParam tpUf4df4df("df", sumUf4df4.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4df);
+    TestParam tpUf4df4fs("fs", sumUf4df4.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4fs);
+    TestParam tpUf4df4dr("dr", sumUf4df4.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4dr);
+    TestParam tpUf4df4um("um", sumUf4df4.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4um);
+    TestParam tpUf4df4ac("ac", sumUf4df4.id(), "AC:", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4ac);
+    TestParam tpUf4df4uap("ap", sumUf4df4.id(), "AP:", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df4uap);
+
+    Summary sumUf5df5("Uf5/Df5", xpndrAutoTest.id(), 4, 2, 2);
+    sumModel.addSummary(sumUf5df5);
+
+    TestParam tpUf5df5df("df", sumUf5df5.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5df);
+    TestParam tpUf5df5fs("fs", sumUf5df5.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5fs);
+    TestParam tpUf5df5dr("dr", sumUf5df5.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5dr);
+    TestParam tpUf5df5um("um", sumUf5df5.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5um);
+    TestParam tpUf5df5id("ID", sumUf5df5.id(), "ID", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5id);
+    TestParam tpUf5df5uap("ap", sumUf5df5.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df5uap);
+
+    Summary sumUf11df11("Uf11/Df11", xpndrAutoTest.id(), 4, 3, 2);
+    sumModel.addSummary(sumUf11df11);
+
+    TestParam tpUf11df11df("df", sumUf11df11.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf11df11df);
+    TestParam tpUf11df11fca("ca", sumUf11df11.id(), "CA", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf11df11fca);
+    TestParam tpUf11df11aa("aa", sumUf11df11.id(), "AA", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf11df11aa);
+    TestParam tpUf11df11pi("pi", sumUf11df11.id(), "PI", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf11df11pi);
+
+    //------------------------------P6-------------------------------
+
+    Summary sumUf16df16("Uf16/Df16", xpndrAutoTest.id(), 5, 0, 2);
+    sumModel.addSummary(sumUf16df16);
+
+    TestParam tpUf16df16df("df", sumUf16df16.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16df);
+    TestParam tpUf16df16vs("vs", sumUf16df16.id(), "VS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16vs);
+    TestParam tpUf16df16sl("sl", sumUf16df16.id(), "SL", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16sl);
+    TestParam tpUf16df16ri("ri", sumUf16df16.id(), "RI", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16ri);
+    TestParam tpUf16df16ac("ac", sumUf16df16.id(), "AC", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16ac);
+    TestParam tpUf16df16ap("ap", sumUf16df16.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16ap);
+    TestParam tpUf16df16mv("mv", sumUf16df16.id(), "MV", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf16df16mv);
+
+    Summary sumUf4df20("Uf4/Df20", xpndrAutoTest.id(), 5, 1, 2);
+    sumModel.addSummary(sumUf4df20);
+
+    TestParam tpUf4df20df("df", sumUf4df20.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20df);
+    TestParam tpUf4df20fs("fs", sumUf4df20.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20fs);
+    TestParam tpUf4df20dr("dr", sumUf4df20.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20dr);
+    TestParam tpUf4df20um("um", sumUf4df20.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20um);
+    TestParam tpUf4df20ac("ac", sumUf4df20.id(), "AC", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20ac);
+    TestParam tpUf4df20ap("ap", sumUf4df20.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20ap);
+    TestParam tpUf4df20mv("mv", sumUf4df20.id(), "MV", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf4df20mv);
+
+    Summary sumUf20df20("Uf20/Df20", xpndrAutoTest.id(), 5, 2, 2);
+    sumModel.addSummary(sumUf20df20);
+
+    TestParam tpUf20df20df("df", sumUf20df20.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20df);
+    TestParam tpUf20df20fs("fs", sumUf20df20.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20fs);
+    TestParam tpUf20df20dr("dr", sumUf20df20.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20dr);
+    TestParam tpUf20df20um("um", sumUf20df20.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20um);
+    TestParam tpUf20df20ac("ac", sumUf20df20.id(), "AC", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20ac);
+    TestParam tpUf20df20ap("ap", sumUf20df20.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20ap);
+    TestParam tpUf20df20mv("mv", sumUf20df20.id(), "MV", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf20df20mv);
+
+    //------------------------------P7-------------------------------
+
+    Summary sumUf5df21("Uf5/Df21", xpndrAutoTest.id(), 6, 0, 2);
+    sumModel.addSummary(sumUf5df21);
+
+    TestParam tpUf5df21df("df", sumUf5df21.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21df);
+    TestParam tpUf5df21fs("fs", sumUf5df21.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21fs);
+    TestParam tpUf5df21dr("dr", sumUf5df21.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21dr);
+    TestParam tpUf5df21um("um", sumUf5df21.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21um);
+    TestParam tpUf5df21id("id", sumUf5df21.id(), "ID", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21id);
+    TestParam tpUf5df21ap("ap", sumUf5df21.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21ap);
+    TestParam tpUf5df21mb("mb", sumUf5df21.id(), "MB", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf5df21mb);
+
+    Summary sumUf21df21("Uf21/Df21", xpndrAutoTest.id(), 6, 1, 2);
+    sumModel.addSummary(sumUf21df21);
+
+    TestParam tpUf21df21df("df", sumUf21df21.id(), "DF", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21df);
+    TestParam tpUf21df21fs("fs", sumUf21df21.id(), "FS", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21fs);
+    TestParam tpUf21df21dr("dr", sumUf21df21.id(), "DR", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21dr);
+    TestParam tpUf21df21um("um", sumUf21df21.id(), "UM", "", "", 1, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21um);
+    TestParam tpUf21df21id("id", sumUf21df21.id(), "ID", "", "", 2, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21id);
+    TestParam tpUf21df21ap("ap", sumUf21df21.id(), "AP", "", "", 2, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21ap);
+    TestParam tpUf21df21mb("mb", sumUf21df21.id(), "MB", "", "", 3, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf21df21mb);
+
+    Summary sumUf24df24("Uf24/Df24", xpndrAutoTest.id(), 6, 2, 2);
+    sumModel.addSummary(sumUf24df24);
+
+    TestParam tpUf24df24ke("ke", sumUf24df24.id(), "KE", "", "", 0, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf24df24ke);
+    TestParam tpUf24df11nd("nd", sumUf24df24.id(), "ND", "", "", 0, 1, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf24df11nd);
+    TestParam tpUf24df24md("md", sumUf24df24.id(), "MD", "", "", 1, 0, 1, 1, "l10.v60.u10");
+    tpModel.addTestParam(tpUf24df24md);
+
+    //------------------------------P8-------------------------------
+
+    Summary sumModesOAllCalUf11("Mode S All-Call Uf11", xpndrAutoTest.id(), 7, 0, 2);
+    sumModel.addSummary(sumModesOAllCalUf11);
+
+    TestParam tpModesOAllCalUf11rplyfrmt("reply format", sumModesOAllCalUf11.id(), "Reply Format", "", "", 0, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11rplyfrmt);
+    TestParam tpModesOAllCalUf11AirAdd("aircraft address", sumModesOAllCalUf11.id(), "Aircraft Address", "", "", 1, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11AirAdd);
+    TestParam tpModesOAllCalUf11capbty("capability", sumModesOAllCalUf11.id(), "Capability", "", "", 2, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11capbty);
+    TestParam tpModesOAllCalUf11tn("tail number", sumModesOAllCalUf11.id(), "Tail Number", "", "", 3, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11tn);
+    TestParam tpModesOAllCalUf11ctry("country", sumModesOAllCalUf11.id(), "Country", "", "", 4, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11ctry);
+
+    TestParam tpModesOAllCalUf11rplyeff("reply efficiency", sumModesOAllCalUf11.id(), "Reply Efficiency", "- -", "%", 5, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModesOAllCalUf11rplyeff);
+
+    Summary sumModACAtcrbsOAc("Mode A/C ATCRBS only All-Call", xpndrAutoTest.id(), 7, 1, 2);
+    sumModel.addSummary(sumModACAtcrbsOAc);
+
+    TestParam tpModACAtcrbsOAcRplyFrmt("reply format", sumModACAtcrbsOAc.id(), "Reply format", "", "", 0, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcRplyFrmt);
+    TestParam tpModACAtcrbsOAcMac("mode a code", sumModACAtcrbsOAc.id(), "Mode A Code", "", "", 1, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcMac);
+    TestParam tpModACAtcrbsOAcMca("mode c altitude", sumModACAtcrbsOAc.id(), "Mode C Altitude", "- -", "Ft", 2, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcMca);
+    TestParam tpModACAtcrbsOAcRplyEff("reply efficiency", sumModACAtcrbsOAc.id(), "Reply Efficiency", "- -", "%", 3, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpModACAtcrbsOAcRplyEff);
+
+    //------------------------------P9-------------------------------
+
+    Summary sumDf17Squtr("DF17 Squitter", xpndrAutoTest.id(), 8, 0, 2);
+    sumModel.addSummary(sumDf17Squtr);
+
+    TestParam tpDf17SqutrAirAdd("aircraft address", sumDf17Squtr.id(), "Aircraft Address", "", "", 0, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17SqutrAirAdd);
+
+    TestParam tpDf17SqutrInterval("interval", sumDf17Squtr.id(), "Interval", "- -", "ms", 1, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17SqutrInterval);
+    TestParam tpDf17SqutrVs("vertical status", sumDf17Squtr.id(), "Vertical Status", "", "", 2, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17SqutrVs);
+    TestParam tpDf17SqutrAlti("altitude", sumDf17Squtr.id(), "Altitude", "- -", "Ft", 3, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17SqutrAlti);
+    TestParam tpDf17Squtrfreq("frequency", sumDf17Squtr.id(), "Frequency", "- -", "MHz", 4, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17Squtrfreq);
+    TestParam tpDf17Squtrpwr("power", sumDf17Squtr.id(), "Power", "- -", "dBm", 5, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17Squtrpwr);
+    TestParam tpDf17Squtrcount("count", sumDf17Squtr.id(), "Count", "", "", 6, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf17Squtrcount);
+
+    Summary sumDf11Squtr("Df11 Squitter", xpndrAutoTest.id(), 8, 1, 2);
+    sumModel.addSummary(sumDf11Squtr);
+
+    TestParam tpDf11SqutrRplyFrmt("reply format", sumDf11Squtr.id(), "Reply format", "", "", 0, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf11SqutrRplyFrmt);
+    TestParam tpDf11SqutrAirAdd("aircraft address", sumDf11Squtr.id(), "aircraft address", "", "", 1, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf11SqutrAirAdd);
+    TestParam tpDf11SqutrCapabty("capability", sumDf11Squtr.id(), "capability", "", "", 2, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf11SqutrCapabty);
+    TestParam tpDf11SqutrTn("tail number", sumDf11Squtr.id(), "tail number", "", "", 3, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf11SqutrTn);
+    TestParam tpDf11SqutrCountry("country", sumDf11Squtr.id(), "country", "", "", 4, 0, 1, 2, "l50.v60r.u10");
+    tpModel.addTestParam(tpDf11SqutrCountry);
+
+
+
+    //------------------------Navigation Starts---------------------------
+
     auto navigationDaoPtr = DataManager::instance().navigationDao();
+
+    //For Side Menu---------------------------------
 
     Navigation secToHome(vwGlobal.id(), "_section", secHome.id(), vwHome.id());
     navigationDaoPtr->addNavigation(secToHome);
 
-    Navigation secToTransponder(vwGlobal.id(), "_section", secTransponder.id(), vwTransponderLanding.id());
+    Navigation secToTransponder(vwGlobal.id(), "_section", secTransponder.id(), vwTransponder.id());
     navigationDaoPtr->addNavigation(secToTransponder);
 
     Navigation secToTestGroup(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
@@ -1069,6 +1585,8 @@ int DataBuilder::build()
 //        navigationDaoPtr->addNavigation(homeToadsbOutUat);
 //        //-----------------------------------------------
 
+    //For ADSB Tests---------------------------------
+
     Navigation adsbIn1090ToDetail(vwADSB.id(), "_test", in1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbIn1090ToDetail);
 
@@ -1078,41 +1596,36 @@ int DataBuilder::build()
     Navigation adsbOut1090ToDetail(vwADSB.id(), "_test", adsbOut1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOut1090ToDetail);
 
-    Navigation adsbOut1090LandingToAircraft(vwTestDetailLanding.id(), "_detailSummary",adsbOut1090.id(), vwADSBout1090Scan.id());
+    Navigation adsbOut1090LandingToAircraft(vwTestDetailLanding.id(), "_detailSummary",adsbOut1090.id(), vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(adsbOut1090LandingToAircraft);
 
     Navigation adsbOut1090LandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
     navigationDaoPtr->addNavigation(adsbOut1090LandingToGroup);
 
-    Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
-    navigationDaoPtr->addNavigation(scan1090ToRadar);
+//    Navigation scan1090ToRadar(vwADSBout1090Scan.id(), "Radar", 0, vwADSBout1090Radar.id());
+//    navigationDaoPtr->addNavigation(scan1090ToRadar);
 
-    Navigation scanUatToRadar(vwADSBoutUATScan.id(), "Radar", 0, vwADSBoutUatRadar.id());
-    navigationDaoPtr->addNavigation(scanUatToRadar);
+//    Navigation scanUatToRadar(vwADSBoutUATScan.id(), "Radar", 0, vwADSBoutUatRadar.id());
+//    navigationDaoPtr->addNavigation(scanUatToRadar);
 
-    Navigation radar1090ToGraph (vwADSBout1090Radar.id(), "Graph", 0, vwADSBout1090Graph.id());
-    navigationDaoPtr->addNavigation(radar1090ToGraph);
+//    Navigation radar1090ToGraph (vwADSBout1090Radar.id(), "Graph", 0, vwADSBout1090Graph.id());
+//    navigationDaoPtr->addNavigation(radar1090ToGraph);
 
-    Navigation radarUatToGraph (vwADSBoutUatRadar.id(), "Graph", 0, vwADSBoutUatGraph.id());
-    navigationDaoPtr->addNavigation(radarUatToGraph);
+//    Navigation radarUatToGraph (vwADSBoutUatRadar.id(), "Graph", 0, vwADSBoutUatGraph.id());
+//    navigationDaoPtr->addNavigation(radarUatToGraph);
 
-    Navigation graph1090ToScan (vwADSBout1090Graph.id(), "Scan", 0, vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(graph1090ToScan);
+//    Navigation graph1090ToScan (vwADSBout1090Graph.id(), "Scan", 0, vwADSBout1090Scan.id());
+//    navigationDaoPtr->addNavigation(graph1090ToScan);
 
-    Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(graphUatToScan);
+//    Navigation graphUatToScan (vwADSBoutUatGraph.id(), "Scan", 0, vwADSBoutUATScan.id());
+//    navigationDaoPtr->addNavigation(graphUatToScan);
 
     Navigation adsbOutUatToDetail(vwADSB.id(), "_test", adsbOutUat.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOutUatToDetail);
 
-    Navigation adsbOutUatLandingToAircraft(vwTestDetailLanding.id(), "_detailSummary",adsbOutUat.id(), vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(adsbOutUatLandingToAircraft);
 
-    Navigation adsbOutUatLandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
-    navigationDaoPtr->addNavigation(adsbOutUatLandingToGroup);
-
-    Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
-    navigationDaoPtr->addNavigation(scanTo1090P1);
+//    Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
+//    navigationDaoPtr->addNavigation(scanTo1090P1);
 
     Navigation radarTo1090P1(vwADSBout1090Radar.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(radarTo1090P1);
@@ -1138,11 +1651,11 @@ int DataBuilder::build()
     Navigation out1090P6To1090P7(vwADSBout1090P6.id(), "Next", 0, vwADSBout1090P7.id());
     navigationDaoPtr->addNavigation(out1090P6To1090P7);
 
-    Navigation out1090P7Toscan(vwADSBout1090P7.id(), "Next", 0, vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(out1090P7Toscan);
+    Navigation out1090P7To1090P1(vwADSBout1090P7.id(), "Next", 0, vwADSBout1090P1.id());
+    navigationDaoPtr->addNavigation(out1090P7To1090P1);
 
-    Navigation scanTo1090P7(vwADSBout1090Scan.id(), "Previous", 0, vwADSBout1090P7.id());
-    navigationDaoPtr->addNavigation(scanTo1090P7);
+//    Navigation scanTo1090P7(vwADSBout1090Scan.id(), "Previous", 0, vwADSBout1090P7.id());
+//    navigationDaoPtr->addNavigation(scanTo1090P7);
 
     Navigation radarTo1090P7(vwADSBout1090Radar.id(), "Previous", 0, vwADSBout1090P7.id());
     navigationDaoPtr->addNavigation(radarTo1090P7);
@@ -1168,11 +1681,17 @@ int DataBuilder::build()
     Navigation out1090P2To1090P1(vwADSBout1090P2.id(), "Previous", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(out1090P2To1090P1);
 
-    Navigation out1090P1Toscan(vwADSBout1090P1.id(), "Previous", 0, vwADSBout1090Scan.id());
-    navigationDaoPtr->addNavigation(out1090P1Toscan);
+    Navigation out1090P1To1090P7(vwADSBout1090P1.id(), "Previous", 0, vwADSBout1090P7.id());
+    navigationDaoPtr->addNavigation(out1090P1To1090P7);
 
-    Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
-    navigationDaoPtr->addNavigation(outUATscanToUATP1);
+    Navigation adsbOutUatLandingToAircraft(vwTestDetailLanding.id(), "_detailSummary",adsbOutUat.id(), vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(adsbOutUatLandingToAircraft);
+
+    Navigation adsbOutUatLandingToGroup(vwTestDetailLanding.id(), "back", 0, vwADSB.id());
+    navigationDaoPtr->addNavigation(adsbOutUatLandingToGroup);
+
+//    Navigation outUATscanToUATP1(vwADSBoutUATScan.id(), "Next", 0, vwADSBoutUATP1.id());
+//    navigationDaoPtr->addNavigation(outUATscanToUATP1);
 
     Navigation radarToUATP1(vwADSBoutUatRadar.id(), "Next", 0, vwADSBoutUATP1.id());
     navigationDaoPtr->addNavigation(radarToUATP1);
@@ -1195,11 +1714,11 @@ int DataBuilder::build()
     Navigation outUATP5ToUATP6(vwADSBoutUATP5.id(), "Next", 0, vwADSBoutUATP6.id());
     navigationDaoPtr->addNavigation(outUATP5ToUATP6);
 
-    Navigation outUATP6ToUATscan(vwADSBoutUATP6.id(), "Next", 0, vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(outUATP6ToUATscan);
+    Navigation outUATP6ToUATP1(vwADSBoutUATP6.id(), "Next", 0, vwADSBoutUATP1.id());
+    navigationDaoPtr->addNavigation(outUATP6ToUATP1);
 
-    Navigation outUATScanToUATP6(vwADSBoutUATScan.id(), "Previous", 0, vwADSBoutUATP6.id());
-    navigationDaoPtr->addNavigation(outUATScanToUATP6);
+//    Navigation outUATScanToUATP6(vwADSBoutUATScan.id(), "Previous", 0, vwADSBoutUATP6.id());
+//    navigationDaoPtr->addNavigation(outUATScanToUATP6);
 
     Navigation radarToUATP6(vwADSBoutUatRadar.id(), "Previous", 0, vwADSBoutUATP6.id());
     navigationDaoPtr->addNavigation(radarToUATP6);
@@ -1222,8 +1741,8 @@ int DataBuilder::build()
     Navigation outUATP2ToUATP1(vwADSBoutUATP2.id(), "Previous", 0, vwADSBoutUATP1.id());
     navigationDaoPtr->addNavigation(outUATP2ToUATP1);
 
-    Navigation outUATP1ToUATscan(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATScan.id());
-    navigationDaoPtr->addNavigation(outUATP1ToUATscan);
+    Navigation outUATP1ToUATP6(vwADSBoutUATP1.id(), "Previous", 0, vwADSBoutUATP6.id());
+    navigationDaoPtr->addNavigation(outUATP1ToUATP6);
 
     Navigation out1090RadarTomainADSB(vwADSBout1090Radar.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090RadarTomainADSB);
@@ -1231,8 +1750,8 @@ int DataBuilder::build()
     Navigation out1090GraphTomainADSB(vwADSBout1090Graph.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090GraphTomainADSB);
 
-    Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwTestDetailLanding.id());
-    navigationDaoPtr->addNavigation(out1090scanTomainADSB);
+//    Navigation out1090scanTomainADSB(vwADSBout1090Scan.id(), "back", 0, vwTestDetailLanding.id());
+//    navigationDaoPtr->addNavigation(out1090scanTomainADSB);
 
     Navigation out1090P1TomainADSB(vwADSBout1090P1.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(out1090P1TomainADSB);
@@ -1261,8 +1780,8 @@ int DataBuilder::build()
     Navigation outUATGraphTomainADSB(vwADSBoutUatGraph.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATGraphTomainADSB);
 
-    Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwTestDetailLanding.id());
-    navigationDaoPtr->addNavigation(outUATscanTomainADSB);
+//    Navigation outUATscanTomainADSB(vwADSBoutUATScan.id(), "back", 0, vwTestDetailLanding.id());
+//    navigationDaoPtr->addNavigation(outUATscanTomainADSB);
 
     Navigation outUATP1TomainADSB(vwADSBoutUATP1.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP1TomainADSB);
@@ -1281,6 +1800,8 @@ int DataBuilder::build()
 
     Navigation outUATP6TomainADSB(vwADSBoutUATP6.id(), "back", 0, vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(outUATP6TomainADSB);
+
+    //For Setup ------------------------------------
 
     Navigation sUserToSetup (vwSetupUser.id(), "back", 0, vwSetup.id());
     navigationDaoPtr->addNavigation(sUserToSetup);
@@ -1336,16 +1857,18 @@ int DataBuilder::build()
     Navigation setupToConn(vwSetup.id(), "Connection", 0, vwSetupConn.id());
     navigationDaoPtr->addNavigation(setupToConn);
 
-    Navigation antennaToAviationLanding(vwAntenna.id(), "Aviation-Landing",0, vwAviationLanding.id());
+    //For Antenna Tests---------------------------------
+
+    Navigation antennaToAviationLanding(vwAntenna.id(), "_test",antennaAviation.id(), vwAviationLanding.id());
     navigationDaoPtr->addNavigation(antennaToAviationLanding);
 
-    Navigation aviationLandingToVSWR(vwAviationLanding.id(), "Aviation-Vswr",0, vwAntAviationVswr.id());
+    Navigation aviationLandingToVSWR(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationVswr.id());
     navigationDaoPtr->addNavigation(aviationLandingToVSWR);
 
-    Navigation aviationLandingToCL(vwAviationLanding.id(), "Aviation-Cl",0, vwAntAviationCl.id());
+    Navigation aviationLandingToCL(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationCl.id());
     navigationDaoPtr->addNavigation(aviationLandingToCL);
 
-    Navigation aviationLandingToDTF(vwAviationLanding.id(), "Aviation-Dtf",0, vwAntAviationDtf.id());
+    Navigation aviationLandingToDTF(vwAviationLanding.id(), "_detailSummary",0, vwAntAviationDtf.id());
     navigationDaoPtr->addNavigation(aviationLandingToDTF);
 
     Navigation AviationVswrToCl(vwAntAviationVswr.id(), "Aviation-Cl",0, vwAntAviationCl.id());
@@ -1372,11 +1895,13 @@ int DataBuilder::build()
     Navigation vswrToAviationLanding(vwAntAviationVswr.id(), "back", 0, vwAviationLanding.id());
     navigationDaoPtr->addNavigation(vswrToAviationLanding);
 
-    Navigation ClToAviationLanding(vwAntAviationCl.id(), "back", 0, vwAviationLanding.id());
-    navigationDaoPtr->addNavigation(ClToAviationLanding);
+    Navigation clToAviationLanding(vwAntAviationCl.id(), "back", 0, vwAviationLanding.id());
+    navigationDaoPtr->addNavigation(clToAviationLanding);
 
     Navigation dtfToAviationLanding(vwAntAviationDtf.id(), "back", 0, vwAviationLanding.id());
     navigationDaoPtr->addNavigation(dtfToAviationLanding);
+
+    //For App Logs---------------------------------
 
     Navigation globalToAppLogs(vwGlobal.id(), "App-Logs",0, vwAppLogs.id());
     navigationDaoPtr->addNavigation(globalToAppLogs);
@@ -1384,11 +1909,98 @@ int DataBuilder::build()
     Navigation appLogsToHome(vwAppLogs.id(), "back", 0, vwHome.id());
     navigationDaoPtr->addNavigation(appLogsToHome);
 
-    Navigation transponderLandingToSummary(vwTransponderLanding.id(), "_detailSummary", 0, vwTransponderSummary.id());
-    navigationDaoPtr->addNavigation(transponderLandingToSummary);
+    //For Transponder Tests---------------------------------
 
-    Navigation transponderSummaryToLanding(vwTransponderSummary.id(), "back", 0, vwTransponderLanding.id());
-    navigationDaoPtr->addNavigation(transponderSummaryToLanding);
+    Navigation xpndrLandingToTransponder(vwTransponderLanding.id(), "back", 0, vwTransponder.id());
+    navigationDaoPtr->addNavigation(xpndrLandingToTransponder);
+
+    Navigation xpndrToLanding(vwTransponder.id(), "_test", xpndrAutoTest.id(), vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrToLanding);
+
+    Navigation xpndrLandingToxpndrAutoTstP1(vwTransponderLanding.id(), "_detailSummary",xpndrAutoTest.id(), vwXpndrAutoTestP1.id());
+    navigationDaoPtr->addNavigation(xpndrLandingToxpndrAutoTstP1);
+
+    Navigation xpndrAutoTstP1ToP2(vwXpndrAutoTestP1.id(), "Next", 0, vwXpndrAutoTestP2.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP1ToP2);
+
+    Navigation xpndrAutoTstP2ToP3(vwXpndrAutoTestP2.id(), "Next", 0, vwXpndrAutoTestP3.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP2ToP3);
+
+    Navigation xpndrAutoTstP3ToP4(vwXpndrAutoTestP3.id(), "Next", 0, vwXpndrAutoTestP4.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP3ToP4);
+
+    Navigation xpndrAutoTstP4ToP5(vwXpndrAutoTestP4.id(), "Next", 0, vwXpndrAutoTestP5.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP4ToP5);
+
+    Navigation xpndrAutoTstP5ToP6(vwXpndrAutoTestP5.id(), "Next", 0, vwXpndrAutoTestP6.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP5ToP6);
+
+    Navigation xpndrAutoTstP6ToP7(vwXpndrAutoTestP6.id(), "Next", 0, vwXpndrAutoTestP7.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP6ToP7);
+
+    Navigation xpndrAutoTstP7ToP8(vwXpndrAutoTestP7.id(), "Next", 0, vwXpndrAutoTestP8.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP7ToP8);
+
+    Navigation xpndrAutoTstP8To9(vwXpndrAutoTestP8.id(), "Next", 0, vwXpndrAutoTestP9.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP8To9);
+
+    Navigation xpndrAutoTstP9ToP1(vwXpndrAutoTestP9.id(), "Next", 0, vwXpndrAutoTestP1.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP9ToP1);
+
+    Navigation xpndrAutoTstP1ToP9(vwXpndrAutoTestP1.id(), "Previous", 0, vwXpndrAutoTestP9.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP1ToP9);
+
+    Navigation xpndrAutoTstP2ToP1(vwXpndrAutoTestP2.id(), "Previous", 0, vwXpndrAutoTestP1.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP2ToP1);
+
+    Navigation xpndrAutoTstP3ToP2(vwXpndrAutoTestP3.id(), "Previous", 0, vwXpndrAutoTestP2.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP3ToP2);
+
+    Navigation xpndrAutoTstP4ToP3(vwXpndrAutoTestP4.id(), "Previous", 0, vwXpndrAutoTestP3.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP4ToP3);
+
+    Navigation xpndrAutoTstP5ToP4(vwXpndrAutoTestP5.id(), "Previous", 0, vwXpndrAutoTestP4.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP5ToP4);
+
+    Navigation xpndrAutoTstP6ToP5(vwXpndrAutoTestP6.id(), "Previous", 0, vwXpndrAutoTestP5.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP6ToP5);
+
+    Navigation xpndrAutoTstP7ToP6(vwXpndrAutoTestP7.id(), "Previous", 0, vwXpndrAutoTestP6.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP7ToP6);
+
+    Navigation xpndrAutoTstP8ToP7(vwXpndrAutoTestP8.id(), "Previous", 0, vwXpndrAutoTestP7.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP8ToP7);
+
+    Navigation xpndrAutoTstP9ToP8(vwXpndrAutoTestP9.id(), "Previous", 0, vwXpndrAutoTestP8.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP9ToP8);
+
+    Navigation xpndrAutoTstP1ToLanding(vwXpndrAutoTestP1.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP1ToLanding);
+
+    Navigation xpndrAutoTstP2ToLanding(vwXpndrAutoTestP2.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP2ToLanding);
+
+    Navigation xpndrAutoTstP3ToLanding(vwXpndrAutoTestP3.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP3ToLanding);
+
+    Navigation xpndrAutoTstP4ToLanding(vwXpndrAutoTestP4.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP4ToLanding);
+
+    Navigation xpndrAutoTstP5ToLanding(vwXpndrAutoTestP5.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP5ToLanding);
+
+    Navigation xpndrAutoTstP6ToLanding(vwXpndrAutoTestP6.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP6ToLanding);
+
+    Navigation xpndrAutoTstP7ToLanding(vwXpndrAutoTestP7.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP7ToLanding);
+
+    Navigation xpndrAutoTstP8ToLanding(vwXpndrAutoTestP8.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP8ToLanding);
+
+    Navigation xpndrAutoTstP9ToLanding(vwXpndrAutoTestP9.id(), "back", 0, vwTransponderLanding.id());
+    navigationDaoPtr->addNavigation(xpndrAutoTstP9ToLanding);
+
 
     return 1;
 }
