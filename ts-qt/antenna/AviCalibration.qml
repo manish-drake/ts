@@ -197,7 +197,7 @@ Item {
                                                 Layout.alignment: Qt.AlignVCenter
                                                 elide: Text.ElideRight
                                                 font.pixelSize: 14
-                                                font.weight: Font.black
+                                                font.weight: Font.ExtraBold
 
                                                 font.family: robotoRegular.name
                                                 text: isOpenMeasured ? "RE-MEASURE" : "MEASURE"

@@ -30,6 +30,7 @@ QString &validateTypeName(QString &typeName)
 }
 ControlStyles::ControlStyles()
 {
+    m_repository.insert("l10", AddStyle_l0());
     m_repository.insert("l10", AddStyle_l10());
     m_repository.insert("l20", AddStyle_l20());
     m_repository.insert("l30", AddStyle_l30());
@@ -44,12 +45,35 @@ ControlStyles::ControlStyles()
     m_repository.insert("v40", AddStyle_v40());
     m_repository.insert("v50", AddStyle_v50());
     m_repository.insert("v60", AddStyle_v60());
+    m_repository.insert("v60r", AddStyle_v60r());
     m_repository.insert("v70", AddStyle_v70());
     m_repository.insert("v80", AddStyle_v80());
     m_repository.insert("v90", AddStyle_v90());
 
     m_repository.insert("u10", AddStyle_u10());
     m_repository.insert("u20", AddStyle_u20());
+}
+/*
+#0 Add styles
+Add styles for id = l0
+*/
+QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_l0()
+{
+    QHash<QString, QHash<const char *, QVariant> > styles;
+    styles.insert("QQuickText", QQuickText_l0());
+    return  styles;
+}
+
+/*
+Add styles for id = l0, for QQuickText
+*/
+
+QHash<const char *, QVariant> ControlStyles::QQuickText_l0(){
+    QHash<const char *, QVariant> style;
+
+    style.insert("width", QVariant::fromValue(0));
+
+    return style;
 }
 
 /*
@@ -351,6 +375,30 @@ Add styles for id = v60, for QQuickRectangle
     }
 
     /*
+v60r Add styles
+Add styles for id = v60r
+*/
+    QHash<QString, QHash<const char *, QVariant> > ControlStyles::AddStyle_v60r()
+    {
+        QHash<QString, QHash<const char *, QVariant> > styles;
+        styles.insert("QQuickText", QQuickText_v60r());
+        return  styles;
+    }
+
+    /*
+Add styles for id = v60r, for QQuickRectangle
+*/
+
+    QHash<const char *, QVariant> ControlStyles::QQuickText_v60r(){
+        QHash<const char *, QVariant> style;
+
+        style.insert("width", QVariant::fromValue(128));
+        style.insert("horizontalAlignment", QVariant::fromValue(3));
+        return style;
+    }
+
+
+    /*
 v70 Add styles
 Add styles for id = v70
 */
@@ -409,7 +457,7 @@ Add styles for id = v90
     }
 
     /*
-Add styles for id = v100, for QQuickText
+Add styles for id = v90, for QQuickText
 */
 
     QHash<const char *, QVariant> ControlStyles::QQuickText_v90(){

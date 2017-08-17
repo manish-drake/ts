@@ -112,12 +112,22 @@ Item{
 
         footer: DetailFooter{
             id: detailFooter
-            isScanPage: true
+            function onRun(){
+                console.log("onRun")
+                zmq.toggleScan()
+                console.log(zmq.scanResults)
+            }
+            function onPause(){
+                console.log("onPause")
+            }
+            function onContinue(){
+                console.log("onContinue")
+            }
         }
     }
 
     Popup {
-        id: detailMenuPopup
+        id: menuPopup
         height: parent.height
         width: parent.width
         modal: true
@@ -126,7 +136,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: DetailMenu{}
+        contentItem: DetailMenu{testID: navigationModel.navigationParameter.id}
     }
     Popup {
         id: testSetupPopup

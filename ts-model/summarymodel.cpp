@@ -189,6 +189,10 @@ void SummaryModel::qualifyByView(const int view)
         temp_summaries = m_db.summaryDao()->summaries(3, view - 14);
         this->setCurrentPage(view - 14);
         break;
+    case 43 ... 51:
+        temp_summaries = m_db.summaryDao()->summaries(6, view - 43);
+        this->setCurrentPage(view - 43);
+        break;
     default:
         temp_summaries = m_db.summaryDao()->summaries(0, 0);
         this->setCurrentPage(0);

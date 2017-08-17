@@ -1,13 +1,18 @@
 #include "controlnavigationmodel.h"
 
-ControlNavigationModel::ControlNavigationModel() : QObject()
+ControlNavigationModel::ControlNavigationModel() : QObject(), m_pin{getRandomPIN()}
 { }
 
-int ControlNavigationModel::generatePIN(const int Min, const int Max)
-{
-        auto pin = ((qrand() % ((Max + 1) - Min)) + Min);
-        return pin;
 
+int ControlNavigationModel::pin() const
+{
+    return this->m_pin;
+}
+
+void ControlNavigationModel::generatePIN(const int &pin)
+{
+    this->m_pin = getRandomPIN();
+    emit this->pinChanged();
 }
 
 ControlNavigationModel::~ControlNavigationModel()

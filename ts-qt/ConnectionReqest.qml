@@ -71,8 +71,7 @@ Item {
                             anchors.fill: parent
                             onClicked: {
                                 connectionReqPopup.close();
-                                pin = controlNavigationModel.generatePIN();
-                                console.log("New pin generated: " + pin)
+                                controlNavigationModel.generatePIN(0);
                                 pinConfirmPopup.open();
                                 pinaccepttimer.running = true
                             }
