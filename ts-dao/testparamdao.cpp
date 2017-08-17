@@ -30,8 +30,12 @@ void TestParamDao::init() const
                     "name TEXT,"
                     "summaryID INTEGER,"
                     "key TEXT,"
-                    "val TEXT,"
-                    "unit TEXT,"
+                    "val1 TEXT,"
+                    "unit1 TEXT,"
+                    "val2 TEXT,"
+                    "unit2 TEXT,"
+                    "val3 TEXT,"
+                    "unit3 TEXT,"
                     "row INTEGER,"
                     "col INTEGER,"
                     "rowSpan INTEGER,"
@@ -47,14 +51,18 @@ void TestParamDao::addTestParam(TestParam &testParam) const
     QSqlQuery query(m_database);
     const QString strQuery(
                 "INSERT INTO testparams "
-                "(name, summaryID, key, val, unit, row, col, rowSpan, colSpan, style) "
-                "VALUES (:name, :summaryID, :key, :val, :unit, :row, :col, :rowSpan, :colSpan, :style)");
+                "(name, summaryID, key, val1, unit1, val2, unit2, val3, unit3, row, col, rowSpan, colSpan, style) "
+                "VALUES (:name, :summaryID, :key, :val1, :unit1, :val2, :unit2, :val3, :unit3, :row, :col, :rowSpan, :colSpan, :style)");
     query.prepare(strQuery);
     query.bindValue(":name", testParam.name());
     query.bindValue(":summaryID", testParam.summaryId());
     query.bindValue(":key", testParam.key());
-    query.bindValue(":val", testParam.val());
-    query.bindValue(":unit", testParam.unit());
+    query.bindValue(":val1", testParam.val1());
+    query.bindValue(":unit1", testParam.unit1());
+    query.bindValue(":val2", testParam.val2());
+    query.bindValue(":unit2", testParam.unit2());
+    query.bindValue(":val3", testParam.val3());
+    query.bindValue(":unit3", testParam.unit3());
     query.bindValue(":row", testParam.row());
     query.bindValue(":col", testParam.col());
     query.bindValue(":rowSpan", testParam.rowSpan());
@@ -92,8 +100,12 @@ unique_ptr<vector<unique_ptr<TestParam>>> TestParamDao::testParams() const
                     new TestParam(query.value("name").toString(),
                                   query.value("summaryID").toInt(),
                                   query.value("key").toString(),
-                                  query.value("val").toString(),
-                                  query.value("unit").toString(),
+                                  query.value("val1").toString(),
+                                  query.value("unit1").toString(),
+                                  query.value("val2").toString(),
+                                  query.value("unit2").toString(),
+                                  query.value("val3").toString(),
+                                  query.value("unit3").toString(),
                                   query.value("row").toInt(),
                                   query.value("col").toInt(),
                                   query.value("rowSpan").toInt(),

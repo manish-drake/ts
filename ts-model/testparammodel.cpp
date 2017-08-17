@@ -43,10 +43,18 @@ QVariant TestParamModel::data(const QModelIndex &index, int role) const
             return testParam.summaryId();
         case Roles::KeyRole:
             return testParam.key();
-        case Roles::ValRole:
-            return testParam.val();
-        case Roles::UnitRole:
-            return testParam.unit();
+        case Roles::Val1Role:
+            return testParam.val1();
+        case Roles::Unit1Role:
+            return testParam.unit1();
+        case Roles::Val2Role:
+            return testParam.val2();
+        case Roles::Unit2Role:
+            return testParam.unit2();
+        case Roles::Val3Role:
+            return testParam.val3();
+        case Roles::Unit3Role:
+            return testParam.unit3();
         case Roles::RowRole:
             return testParam.row();
         case Roles::ColRole:
@@ -83,11 +91,23 @@ bool TestParamModel::setData(const QModelIndex &index, const QVariant &value, in
         case Roles::KeyRole:
             testParam.setKey(value.toString());
             break;
-        case Roles::ValRole:
-            testParam.setVal(value.toString());
+        case Roles::Val1Role:
+            testParam.setVal1(value.toString());
             break;
-        case Roles::UnitRole:
-            testParam.setUnit(value.toString());
+        case Roles::Unit1Role:
+            testParam.setUnit1(value.toString());
+            break;
+        case Roles::Val2Role:
+            testParam.setVal2(value.toString());
+            break;
+        case Roles::Unit2Role:
+            testParam.setUnit2(value.toString());
+            break;
+        case Roles::Val3Role:
+            testParam.setVal3(value.toString());
+            break;
+        case Roles::Unit3Role:
+            testParam.setUnit3(value.toString());
             break;
         case Roles::RowRole:
             testParam.setRow(value.toInt());
@@ -140,8 +160,12 @@ QHash<int, QByteArray> TestParamModel::roleNames() const
     hash.insert(Roles::NameRole, "name");
     hash.insert(Roles::SummaryIDRole, "summaryId");
     hash.insert(Roles::KeyRole, "key");
-    hash.insert(Roles::ValRole, "val");
-    hash.insert(Roles::UnitRole, "unit");
+    hash.insert(Roles::Val1Role, "val1");
+    hash.insert(Roles::Unit1Role, "unit1");
+    hash.insert(Roles::Val2Role, "val2");
+    hash.insert(Roles::Unit2Role, "unit2");
+    hash.insert(Roles::Val3Role, "val3");
+    hash.insert(Roles::Unit3Role, "unit3");
     hash.insert(Roles::RowRole, "row");
     hash.insert(Roles::ColRole, "col");
     hash.insert(Roles::RowSpanRole, "rowSpan");

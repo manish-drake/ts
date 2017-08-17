@@ -17,15 +17,24 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
 
                 qtp.append(new QTestParams(
                                tp->key(),
-                               tp->val(),
-                               tp->unit(),
+                               tp->val1(),
+                               tp->unit1(),
+                               tp->val2(),
+                               tp->unit2(),
+                               tp->val3(),
+                               tp->unit3(),
                                tp->row(),
                                tp->col(),
                                tp->rowSpan(),
                                tp->colSpan(),
                                styleVec[0],
                                styleVec[1],
-                               styleVec[2]
+                               styleVec[2],
+                               styleVec[3],
+                               styleVec[4],
+                               styleVec[5],
+                               styleVec[6]
+
                         ));
             }
         }
