@@ -21,27 +21,25 @@
 #include "client.h"
 #include "zmq.hpp"
 #include "dummygraphdata.h"
-#include "loggingmodel.h"
-
 #include "datamanager.h"
-#include "logging.h"
-
+#include "loggerthread.h"
+#include <QThreadPool>
 #include "../ts-smtp/SmtpMime"
+#include "loggingmodel.h"
+#include "runlater.h"
 
 const int DATA_CREATION_MODE = 0;
 
+bool g_startLogging = false;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    QByteArray localMsg = msg.toLocal8Bit();
-//    fprintf(stderr,localMsg.constData());
-//    fflush(stderr);
-    QDateTime dateTime = QDateTime::currentDateTime();
-    if(type >= 1)
-    {
-        auto loggingDao = DataManager::logger().loggingDao();
-        auto log = Logging(dateTime, type, localMsg.constData(),context.file, context.line, context.function);
-                loggingDao->addLogging(log);
+    LoggerThread *log = new LoggerThread(type, context, msg);
+    if(g_startLogging){
+        QThreadPool::globalInstance()->start(log);
     }
+}
+void setLoggingOn(){
+    g_startLogging = true;
 }
 
 int main(int argc, char *argv[])
@@ -51,11 +49,11 @@ int main(int argc, char *argv[])
         return builder.build();
     } else {
         QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-//        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
+        qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
 
         QGuiApplication app(argc, argv);
 
-//        qInstallMessageHandler(myMessageOutput);
+        qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
 
@@ -114,6 +112,7 @@ int main(int argc, char *argv[])
 
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
+        RunLater l(3000, true, setLoggingOn);
         return app.exec();
     }
 }

@@ -12,7 +12,9 @@ SOURCES += main.cpp \
     controls.cpp \
     controlsattachedtype.cpp \
     controlstyles.cpp \
-    dummygraphdata.cpp
+    dummygraphdata.cpp \
+    loggerthread.cpp \
+    runlater.cpp
 
 QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
 
@@ -74,7 +76,9 @@ HEADERS += \
     controlsattachedtype.h \
     controlstyles.h \
     dummygraphdata.h \
-    controls.h
+    controls.h \
+    loggerthread.h \
+    runlater.h
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-client/release/ -lts-client

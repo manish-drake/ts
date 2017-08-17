@@ -4,7 +4,7 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
-import QtGraphicalEffects 1.0
+//import QtGraphicalEffects 1.0
 
 Rectangle{
     anchors.left: parent.left
@@ -106,11 +106,11 @@ Rectangle{
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/Attach-18.png"
                         }
-                        ColorOverlay{
-                            anchors.fill: imageAttach
-                            source: imageAttach
-                            color: Universal.foreground
-                        }
+//                        ColorOverlay{
+//                            anchors.fill: imageAttach
+//                            source: imageAttach
+//                            color: Universal.foreground
+//                        }
                     }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter

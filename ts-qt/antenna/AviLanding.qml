@@ -98,7 +98,11 @@ Item{
                             anchors.fill: parent
                             onPressed: parent.opacity = 0.9
                             onReleased: parent.opacity = 1
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary");
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                                                   {
+                                                                                                       "id": navigationModel.navigationParameter.id,
+                                                                                                       "runState": testRunButton.state
+                                                                                                   });
                         }
                     }
                     Text {
@@ -199,7 +203,11 @@ Item{
                                 }
                             }
                             onReleased: parent.opacity = 1
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary");
+                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                                                   {
+                                                                                                       "id": navigationModel.navigationParameter.id,
+                                                                                                       "runState": testRunButton.state
+                                                                                                   });
                         }
                     }
                     Text {

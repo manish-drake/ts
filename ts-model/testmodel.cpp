@@ -55,6 +55,8 @@ QVariant TestModel::data(const QModelIndex &index, int role) const
             return test.id();
         case Roles::SectionIDRole:
             return test.sectionId();
+        case Roles::IsFavouriteRole:
+            return test.isFavourite();
         case Roles::NameRole:
         case Qt::DisplayRole:
             return test.name();
@@ -78,6 +80,8 @@ bool TestModel::setData(const QModelIndex &index, const QVariant &value, int rol
         case Roles::SectionIDRole:
             test.setSectionId(value.toInt());
             break;
+        case Roles::IsFavouriteRole:
+            test.setIsFavourite(value.toInt());
         default:
             break;
         }
@@ -113,18 +117,20 @@ QHash<int, QByteArray> TestModel::roleNames() const
     hash.insert(Roles::IDRole, "id");
     hash.insert(Roles::NameRole, "name");
     hash.insert(Roles::SectionIDRole, "sectionId");
+    hash.insert(Roles::IsFavouriteRole, "isFavourite");
     return hash;
 }
 
-void TestModel::addToHome(const QString &name, const int &sectionId)
+void TestModel::addToHome(const int &testId)
 {
-    auto test = Test(name, sectionId);
-    this->addTest(test);
+    auto testDao = this->m_db.testDao();
+    testDao->editTest(testId, 1);
 }
 
-void TestModel::removeFromHome(const int &id)
+void TestModel::removeFromHome(const int &testId)
 {
-    this->removeTest(id);
+    auto testDao = this->m_db.testDao();
+    testDao->editTest(testId, 0);
 }
 
 TestModel::~TestModel()
@@ -138,7 +144,7 @@ void TestModel::qualifyByView(const int view)
 
     switch (view) {
     case 2:
-        temp_Tests = m_db.testDao()->tests(1);
+        temp_Tests = m_db.testDao()->homeTests();
         break;
     case 41:
         temp_Tests = m_db.testDao()->tests(2);

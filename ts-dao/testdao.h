@@ -19,8 +19,10 @@ public:
 
     void addTest(Test &test) const;
     void removeTest(int id) const;
+    void editTest(int id, int isFavourite) const;
 
-    std::unique_ptr<std::vector<std::unique_ptr<Test> > > tests(const int sectionId) const;
+    std::unique_ptr<std::vector<std::unique_ptr<Test> > > tests(const int sectionId) const;    
+    std::unique_ptr<std::vector<std::unique_ptr<Test> > > homeTests() const;
 
     ~TestDao();
 };

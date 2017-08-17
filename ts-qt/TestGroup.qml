@@ -112,55 +112,6 @@ Item{
                                     font.family: robotoRegular.name
                                     color: Universal.accent
                                 }
-
-//                                Item{
-//                                    width: 35
-//                                    height: 35
-//                                    Image {
-//                                        id: favImage
-//                                        anchors.centerIn: parent
-//                                        source: "qrc:/img/img/star.png"
-//                                    }
-//                                    //                                    ColorOverlay {
-//                                    //                                        anchors.fill: favImage
-//                                    //                                        source: favImage
-//                                    //                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
-//                                    //                                    }
-//                                    MouseArea {
-//                                        anchors.fill: parent
-//                                        onClicked: testModel.addToHome(name, 1);
-//                                        onPressed: parent.opacity = 0.5
-//                                        onReleased: parent.opacity = 1
-//                                    }
-//                                }
-
-
-
-                                //                                Item{
-                                //                                    Layout.column: 2
-                                //                                    width: 35
-                                //                                    height: 35
-                                //                                    Image {
-                                //                                        id: guideImage
-                                //                                        anchors.centerIn: parent
-                                //                                        source: "qrc:/img/img/Info-24.png"
-                                //                                    }
-                                //                                    ColorOverlay {
-                                //                                        anchors.fill: guideImage
-                                //                                        source: guideImage
-                                //                                        color: Universal.theme === Universal.Dark ? "white" : Universal.accent
-                                //                                    }
-                                //                                    MouseArea {
-                                //                                        anchors.fill: parent
-                                //                                        onClicked: {
-                                //                                            guideTestName = name
-                                //                                            guidePopup.open()
-                                //                                        }
-                                //                                        onPressed: parent.opacity = 0.5
-                                //                                        onReleased: parent.opacity = 1
-                                //                                    }
-                                //                                }
-
                             }
                             Rectangle{
                                 Layout.topMargin: 10
@@ -196,20 +147,5 @@ Item{
                 }
             }
         }
-    }
-    Popup {
-        id: guidePopup
-        height: parent.height
-        width: parent.width
-        topPadding: 60
-        bottomPadding: 60
-        leftPadding: 20
-        rightPadding: 20
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: TestGuide{}
     }
 }

@@ -29,8 +29,6 @@ public:
     QString function() const;
     void setFunction(const QString &function);
 
-    QList<int> getDataList();
-
     Logging(const QDateTime &dtLog, const int &msgType, const QString &data, const QString &file, const int &line, const QString &function);
     Logging() = default;
     ~Logging();
