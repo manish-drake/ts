@@ -82,8 +82,10 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                 "summaries.ordr, summaries.col as sCol, "
                 "summaries.colSpan as sColSpan, summaries.style as sStyle, "
                 "testparams.ID as tID, testparams.name as tName, "
-                "testparams.summaryID, testparams.key, testparams.val, "
-                "testparams.unit, testparams.row, testparams.col as tCol, "
+                "testparams.summaryID, testparams.key, "
+                "testparams.val1, testparams.unit1, testparams.val2, "
+                "testparams.unit2,testparams.val3, testparams.unit3, "
+                "testparams.row, testparams.col as tCol, "
                 "testparams.rowSpan, testparams.colSpan as tColSpan, "
                 "testparams.style as tStyle "
                 "FROM summaries "
@@ -127,8 +129,12 @@ unique_ptr<vector<unique_ptr<Summary>>> SummaryDao::summaries(const int testId, 
                         query.value("tName").toString(),
                         inLoop_id,
                         query.value("key").toString(),
-                        query.value("val").toString(),
-                        query.value("unit").toString(),
+                        query.value("val1").toString(),
+                        query.value("unit1").toString(),
+                        query.value("val2").toString(),
+                        query.value("unit2").toString(),
+                        query.value("val3").toString(),
+                        query.value("unit3").toString(),
                         query.value("row").toInt(),
                         query.value("tCol").toInt(),
                         query.value("rowSpan").toInt(),

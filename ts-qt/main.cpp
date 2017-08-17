@@ -33,9 +33,12 @@ const int DATA_CREATION_MODE = 0;
 bool g_startLogging = false;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
-    LoggerThread *log = new LoggerThread(type, context, msg);
-    if(g_startLogging){
-        QThreadPool::globalInstance()->start(log);
+    if(type > QtMsgType::QtWarningMsg){
+
+        LoggerThread *log = new LoggerThread(type, context, msg);
+        if(g_startLogging){
+            QThreadPool::globalInstance()->start(log);
+        }
     }
 }
 void setLoggingOn(){
@@ -44,6 +47,8 @@ void setLoggingOn(){
 
 int main(int argc, char *argv[])
 {
+    qInfo() << "main()";
+
     if(DATA_CREATION_MODE){
         DataBuilder builder;
         return builder.build();
@@ -113,6 +118,7 @@ int main(int argc, char *argv[])
         engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
         RunLater l(3000, true, setLoggingOn);
+        qInfo() << "GUI loop started";
         return app.exec();
     }
 }

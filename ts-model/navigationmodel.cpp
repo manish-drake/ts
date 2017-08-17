@@ -42,7 +42,7 @@ void NavigationModel::setCurrentView(const int &currentView)
 {
     if(this->m_currentView != currentView){
 
-        qDebug() << "Current view: " << currentView;
+        qInfo() << "Current view: " << currentView;
 
         this->m_currentView = currentView;
 

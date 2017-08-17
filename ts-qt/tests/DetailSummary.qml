@@ -79,17 +79,45 @@ Item{
                                                     opacity: 0.5
                                                 }
                                                 Text{
-                                                    text:model.modelData.value
+                                                    text:model.modelData.value1
                                                     font.pixelSize: 12
                                                     font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.valueStyle
+                                                    Controls.style:model.modelData.value1Style
                                                     color: Universal.foreground
                                                 }
                                                 Text{
-                                                    text:model.modelData.unit
+                                                    text:model.modelData.unit1
                                                     font.pixelSize: 12
                                                     font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.unitStyle
+                                                    Controls.style:model.modelData.unit1Style
+                                                    color: Universal.foreground
+                                                }
+                                                Text{
+                                                    text:model.modelData.value2
+                                                    font.pixelSize: 12
+                                                    font.family: robotoRegular.name
+                                                    Controls.style:model.modelData.value2Style
+                                                    color: Universal.foreground
+                                                }
+                                                Text{
+                                                    text:model.modelData.unit2
+                                                    font.pixelSize: 12
+                                                    font.family: robotoRegular.name
+                                                    Controls.style:model.modelData.unit2Style
+                                                    color: Universal.foreground
+                                                }
+                                                Text{
+                                                    text:model.modelData.value3
+                                                    font.pixelSize: 12
+                                                    font.family: robotoRegular.name
+                                                    Controls.style:model.modelData.value3Style
+                                                    color: Universal.foreground
+                                                }
+                                                Text{
+                                                    text:model.modelData.unit3
+                                                    font.pixelSize: 12
+                                                    font.family: robotoRegular.name
+                                                    Controls.style:model.modelData.unit3Style
                                                     color: Universal.foreground
                                                 }
                                             }
