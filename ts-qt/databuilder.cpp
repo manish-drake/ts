@@ -1392,13 +1392,13 @@ int DataBuilder::build()
 
     //For ADSB Tests---------------------------------
 
-    Navigation adsbIn1090ToDetail(vwADSB.id(), "_test", in1090.id(), vwTestDetailLanding.id());
+    Navigation adsbIn1090ToDetail(vwADSB.id(), "_test", in1090.id(), vwADSB.id());
     navigationDaoPtr->addNavigation(adsbIn1090ToDetail);
 
     Navigation homeToadsbIn1090Detail(vwHome.id(), "_test", in1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(homeToadsbIn1090Detail);
 
-    Navigation adsbInUatToDetail(vwADSB.id(), "_test", uatIn.id(), vwTestDetailLanding.id());
+    Navigation adsbInUatToDetail(vwADSB.id(), "_test", uatIn.id(), vwADSB.id());
     navigationDaoPtr->addNavigation(adsbInUatToDetail);
 
     Navigation homeToadsbInUatDetail(vwHome.id(), "_test", uatIn.id(), vwTestDetailLanding.id());
