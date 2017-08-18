@@ -104,19 +104,16 @@ QHash<int, QByteArray> TestModel::roleNames() const
     return hash;
 }
 
-void TestModel::addToHome(const int &testId)
+void TestModel::setFavourite(const int &testId, const bool &isFavourite)
 {
     auto testDao = this->m_db.testDao();
-    testDao->editTest(testId, 1);
-    this->setIsFavourite(true);
-}
-
-void TestModel::removeFromHome(const int &testId)
-{
-    auto testDao = this->m_db.testDao();
-    testDao->editTest(testId, 0);
-    this->setIsFavourite(false);
-    testsUpdated();
+    if(isFavourite){
+        testDao->editTest(testId, 0);
+    }
+    else{
+        testDao->editTest(testId, 1);
+    }
+    this->setIsFavourite(!isFavourite);
 }
 
 bool TestModel::isFavourite(const int testId)

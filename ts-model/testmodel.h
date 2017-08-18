@@ -37,10 +37,8 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 //    Q_PROPERTY(bool isFavourite READ isFavourite WRITE setIsFavourite NOTIFY isFavouriteChanged)
-//    Q_PROPERTY(std::unique_ptr<std::vector<std::unique_ptr<Test>>> m_tests READ m_tests WRITE qualifyByView NOTIFY testsUpdated)
 
-    Q_INVOKABLE void addToHome(const int &testId);
-    Q_INVOKABLE void removeFromHome(const int &id);
+    Q_INVOKABLE void setFavourite(const int &testId,const bool &isFavourite);
     Q_INVOKABLE bool isFavourite(const int testId);
 
     void setIsFavourite(const bool &isFavourite);
@@ -48,7 +46,6 @@ public:
     ~TestModel();
 signals:
     void isFavouriteChanged();
-    void testsUpdated();
 
 private:
     void qualifyByView(const int view) override;

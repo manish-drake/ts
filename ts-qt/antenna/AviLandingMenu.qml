@@ -69,7 +69,8 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Image {
                                 id: starImg
-                                source: "qrc:/img/img/star-white.png"
+                                source: testModel.isFavourite(navigationModel.navigationParameter.id) ?
+                                            "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
                             }
                         }
                         Text{
@@ -77,7 +78,8 @@ Item{
                             Layout.alignment: Qt.AlignVCenter
                             Layout.fillWidth: true
                             elide: Text.ElideRight
-                            text: "ADD TO HOMEPAGE"
+                            text: testModel.isFavourite(navigationModel.navigationParameter.id) ?
+                                      "REMOVE FROM HOMEPAGE" : "ADD TO HOMEPAGE"
                             font.pixelSize: 13
                             font.weight: Font.Bold
                             color: "white"
@@ -88,7 +90,9 @@ Item{
                         onPressed: parent.opacity = 0.9
                         onReleased: parent.opacity = 1
                         onClicked: {
-                            testModel.addToHome(navigationModel.navigationParameter.id);
+                            testModel.setFavourite(
+                                        navigationModel.navigationParameter.id,
+                                        testModel.isFavourite(navigationModel.navigationParameter.id));
                             menuPopup.close()
                         }
                     }

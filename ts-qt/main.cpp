@@ -28,7 +28,7 @@
 #include "loggingmodel.h"
 #include "runlater.h"
 
-const int DATA_CREATION_MODE = 1;
+const int DATA_CREATION_MODE = 0;
 
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
