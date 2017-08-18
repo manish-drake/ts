@@ -3,11 +3,13 @@
 #include "datamanager.h"
 #include <QVariant>
 #include "section.h"
+#include <QDebug>
 
 using namespace std;
 
 const QList<QObject*> SectionGroupModel::getSectionsForsecGroup(int sectionGroupId) const
 {
+    qInfo() << "Query secs: " << sectionGroupId;
     QList<QObject*> qsec;
     for(auto &sg: *m_sectionGroups){
         if(sg->id() == sectionGroupId){
@@ -20,6 +22,7 @@ const QList<QObject*> SectionGroupModel::getSectionsForsecGroup(int sectionGroup
             }
         }
     }
+    qInfo() << "returning secs: " << sectionGroupId;
     return qsec;
 }
 SectionGroupModel::SectionGroupModel(QObject *parent):

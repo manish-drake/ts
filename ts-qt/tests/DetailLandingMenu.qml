@@ -94,6 +94,47 @@ Item{
                     }
                 }
                 Rectangle{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 20
+                    anchors.rightMargin: 20
+                    height: 45
+                    color: Universal.accent
+                    radius: 4
+                    RowLayout{
+                        anchors.fill: parent
+                        Item{
+                            height: starFilledImg.height
+                            width: starFilledImg.width
+                            Layout.leftMargin: 30
+                            Layout.alignment: Qt.AlignVCenter
+                            Image {
+                                id: starFilledImg
+                                source: "qrc:/img/img/Star Filled.png"
+                            }
+                        }
+                        Text{
+                            Layout.leftMargin: 10
+                            Layout.alignment: Qt.AlignVCenter
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            text: "REMOVE FROM HOMEPAGE"
+                            font.pixelSize: 13
+                            font.weight: Font.Bold
+                            color: "white"
+                        }
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.9
+                        onReleased: parent.opacity = 1
+                        onClicked: {
+                            testModel.removeFromHome(navigationModel.navigationParameter.id);
+                            menuPopup.close()
+                        }
+                    }
+                }
+                Rectangle{
                     Layout.bottomMargin: 15
                     anchors.left: parent.left
                     anchors.right: parent.right

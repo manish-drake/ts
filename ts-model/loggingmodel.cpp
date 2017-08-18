@@ -1,6 +1,6 @@
 #include "loggingmodel.h"
 #include "loggingdao.h"
-
+#include <QDebug>
 
 using namespace std;
 
@@ -110,6 +110,11 @@ QHash<int, QByteArray> LoggingModel::roleNames() const
     hash.insert(Roles::LineRole, "line");
     hash.insert(Roles::FunctionRole, "function");
     return hash;
+}
+
+void LoggingModel::log(const QString &data)
+{
+    qInfo() << data;
 }
 
 LoggingModel::~LoggingModel()
