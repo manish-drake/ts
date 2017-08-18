@@ -1,6 +1,6 @@
 TEMPLATE = subdirs
 
-TARGET = "Test Set"
+TARGET = "Test_Set"
 
 SUBDIRS += \
     ts-core \

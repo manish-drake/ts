@@ -141,10 +141,7 @@
         <file>img/Past-white.png</file>
         <file>img/Star Filled.png</file>
     </qresource>
-    <qresource prefix="/database">
-        <file>logs.db</file>
-        <file>ts.db</file>
-    </qresource>
+    <qresource prefix="/database"/>
     <qresource prefix="/fonts">
         <file>fonts/RobotoCondensed-Regular.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>

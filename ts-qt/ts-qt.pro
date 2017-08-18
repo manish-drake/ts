@@ -13,8 +13,7 @@ SOURCES += main.cpp \
     controlsattachedtype.cpp \
     controlstyles.cpp \
     dummygraphdata.cpp \
-    loggerthread.cpp \
-    runlater.cpp
+    loggerthread.cpp
 
 QMAKE_MACOSX_DEPLOYMENT_TARGET = 10.9
 

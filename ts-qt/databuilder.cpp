@@ -259,57 +259,57 @@ int DataBuilder::build()
     Summary sumAvInfo1("Aircraft/Vehicle info", adsbOut1090.id(), 0, 2, 0, 2, 2);
     sumModel.addSummary(sumAvInfo1);
 
-    TestParam tpAvInfoFId("flight-Id", sumAvInfo1.id(), "Flight ID", "______", "", "", "", "", "", 0, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoFId("flight-Id", sumAvInfo1.id(), "Flight ID", "______", "", "", "", "", "", 0, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoFId);
-    TestParam tpAvInfoMsAdd("mode-S-Addr", sumAvInfo1.id(), "Mode S Addr", "______", "", "", "", "", "", 0, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoMsAdd("mode-S-Addr", sumAvInfo1.id(), "Mode S Addr", "______", "", "", "", "", "", 0, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoMsAdd);
-    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______)", "", "", "", "", "", 1, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoEc("emitter-Cat", sumAvInfo1.id(), "Emitter Cat", "__ (______)", "", "", "", "", "", 1, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoEc);
-    TestParam tpAvInfoAcode("3/A-Code", sumAvInfo1.id(), "3/A Code", "_____", "", "", "", "", "", 1, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoAcode("3/A-Code", sumAvInfo1.id(), "3/A Code", "_____", "", "", "", "", "", 1, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoAcode);
-    TestParam tpAvInfoEp("emg/Prty", sumAvInfo1.id(), "Emg/Prty", "_ (________)", "", "", "", "", "", 2, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoEp("emg/Prty", sumAvInfo1.id(), "Emg/Prty", "_ (________)", "", "", "", "", "", 2, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoEp);
-    TestParam tpAvInfoLw("l/w", sumAvInfo1.id(), "L/W", "__ ( __ m / __._m)", "", "", "", "", "", 2, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoLw("l/w", sumAvInfo1.id(), "L/W", "__ ( __ m / __._m)", "", "", "", "", "", 2, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoLw);
-    TestParam tpAvInfoLat("latitude", sumAvInfo1.id(), "Latitude", "__._____°", "N", "", "", "", "", 3, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoLat("latitude", sumAvInfo1.id(), "Latitude", "__._____°", "N", "", "", "", "", 3, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoLat);
-    TestParam tpAvInfoAltbaro("altitude(baro)", sumAvInfo1.id(), "Altitude(baro)"," ____,_____", "", "", "", "", "ft", 3, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoAltbaro("altitude(baro)", sumAvInfo1.id(), "Altitude(baro)", "__,___", "ft", "", "", "", "", 3, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoAltbaro);
-    TestParam tpAvInfoLong("longitude", sumAvInfo1.id(), "Longitude", "____._____°", "W", "", "", "", "", 4, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoLong("longitude", sumAvInfo1.id(), "Longitude", "____._____°", "W", "", "", "", "", 4, 0, 1 , 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoLong);
-    TestParam tpAvInfoAltgeom("altitude(geom)", sumAvInfo1.id(), "Altitude(geom)", "__,___", "ft", "", "", "", "", 4, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoAltgeom("altitude(geom)", sumAvInfo1.id(), "Altitude(geom)", "__,___", "ft", "", "", "", "", 4, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoAltgeom);
-    TestParam tpAvInfoVct("velocity", sumAvInfo1.id(), "Velocity", "___", "kts", "", "", "", "", 5, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAvInfoVct("velocity", sumAvInfo1.id(), "Velocity", "___", "kts", "", "", "", "", 5, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfoVct);
 
     Summary sumYnDisc("YES/NO Discretes", adsbOut1090.id(), 0, 3, 0, 2, 2);
     sumModel.addSummary(sumYnDisc);
 
-    TestParam tpYnDiscUin("uat-In", sumYnDisc.id(),  "UAT IN", "_ (_)", "", "", "", "", "", 0, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpYnDiscUin("uat-In", sumYnDisc.id(),  "UAT IN", "_ (_)", "", "", "", "", "", 0, 0, 1 , 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpYnDiscUin);
-    TestParam tpYnDiscTop("tcas-Op", sumYnDisc.id(), "TCAS Op", "_ (_)", "", "", "", "", "", 0, 1, 1 , 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpYnDiscTop("tcas-Op", sumYnDisc.id(), "TCAS Op", "_ (_)", "", "", "", "", "", 0, 1, 1 , 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpYnDiscTop);
-    TestParam tpYnDiscEsin("1090-ES-In", sumYnDisc.id(), "1090ES IN", "_ (_)", "", "", "", "", "", 1, 0, 1 , 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpYnDiscEsin("1090-ES-In", sumYnDisc.id(), "1090ES IN", "_ (_)", "", "", "", "", "", 1, 0, 1 , 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpYnDiscEsin);
-    TestParam tpYnDiscIdt("ident", sumYnDisc.id(), "IDENT", "_ (_)", "", "", "", "", "", 1, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
+    TestParam tpYnDiscIdt("ident", sumYnDisc.id(), "IDENT", "_ (_)", "", "", "", "", "", 1, 1, 1, 1, "l30.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpYnDiscIdt);
-    TestParam tpYnDiscTra("tcas-Ra", sumYnDisc.id(), "TCAS RA",  "_ (_)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpYnDiscTra("tcas-Ra", sumYnDisc.id(), "TCAS RA",  "_ (_)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpYnDiscTra);
 
     Summary sumIntgFld("Integrity Fields", adsbOut1090.id(), 0, 4, 0, 2, 2);
     sumModel.addSummary(sumIntgFld);
 
-    TestParam tpIntgFldNacp("nacp", sumIntgFld.id(), "NACp", "__ (< __nm)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldNacp("nacp", sumIntgFld.id(), "NACp", "__ (< __nm)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldNacp);
-    TestParam tpIntgFldNacv("nacv", sumIntgFld.id(), "NACv", "__ (< __m/s)", "", "", "", "", "", 0, 1, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldNacv("nacv", sumIntgFld.id(), "NACv", "__ (< __m/s)", "", "", "", "", "", 0, 1, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldNacv);
-    TestParam tpIntgFldSil("sil", sumIntgFld.id(), "SIL", "__ (< __ -__ )", "", "", "", "", "", 1, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldSil("sil", sumIntgFld.id(), "SIL", "__ (< __ -__ )", "", "", "", "", "", 1, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldSil);
-    TestParam tpIntgFldSda("sda", sumIntgFld.id(), "SDA", "__", "", "", "", "", "", 1, 1, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldSda("sda", sumIntgFld.id(), "SDA", "__", "", "", "", "", "", 1, 1, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldSda);
-    TestParam tpIntgFldGva("gva", sumIntgFld.id(), "GVA", "__ (< ___m)", "", "", "", "", "", 2, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldGva("gva", sumIntgFld.id(), "GVA", "__ (< ___m)", "", "", "", "", "", 2, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldGva);
-    TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", "", "", "", "", 2, 1, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpIntgFldNic("nic", sumIntgFld.id(), "NIC", "__ (RC< __nmi)", "", "", "", "", "", 2, 1, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpIntgFldNic);
 
     //------------------------------P2-------------------------------
@@ -336,23 +336,23 @@ int DataBuilder::build()
     Summary sumPos("Position", adsbOut1090.id(), 1, 2, 0, 2, 2);
     sumModel.addSummary(sumPos);
 
-    TestParam tpPosLat("latitude", sumPos.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosLat("latitude", sumPos.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 0, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosLat);
-    TestParam tpPosLong("longitude", sumPos.id(), "Longitude", "____⁰ __ __.___", "W", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosLong("longitude", sumPos.id(), "Longitude", "____⁰ __ __.___", "W", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosLong);
-    TestParam tpPosAltBaro("altitude(baro)", sumPos.id(), "Altitude(baro)"," ____,_____", "ft", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosAltBaro("altitude(baro)", sumPos.id(), "Altitude(baro)"," ____,_____", "ft", "", "", "", "", 2, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosAltBaro);
 
     Summary sumOFlds("Other Fields", adsbOut1090.id(), 1, 3, 0, 2, 2);
     sumModel.addSummary(sumOFlds);
 
-    TestParam tpOFldsSurSts("surveillance-Status", sumOFlds.id(), "Surveillance Status", "__ (____)", "",  "", "", "", "",0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOFldsSurSts("surveillance-Status", sumOFlds.id(), "Surveillance Status", "__ (____)", "",  "", "", "", "",0, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFldsSurSts);
-    TestParam tpOFldsNicSb("nic-SB", sumOFlds.id(), "NIC-SB", "__", "", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOFldsNicSb("nic-SB", sumOFlds.id(), "NIC-SB", "__", "", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFldsNicSb);
-    TestParam tpOFldsCprFrmt("cpr-Format", sumOFlds.id(), "CPR Format", "__ (____)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOFldsCprFrmt("cpr-Format", sumOFlds.id(), "CPR Format", "__ (____)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFldsCprFrmt);
-    TestParam tpOFldsUtcSync("utc-Sync", sumOFlds.id(), "UTC Sync", "__ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOFldsUtcSync("utc-Sync", sumOFlds.id(), "UTC Sync", "__ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFldsUtcSync);
 
     //------------------------------P3-------------------------------
@@ -406,27 +406,27 @@ int DataBuilder::build()
     Summary sumFltData("Flight Data", adsbOut1090.id(), 3, 2, 0, 2, 2);
     sumModel.addSummary(sumFltData);
 
-    TestParam tpFltDataHdg("heading", sumFltData.id(), "Heading", "______", "", "", "", "", "", 0, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpFltDataHdg("heading", sumFltData.id(), "Heading", "______", "", "", "", "", "", 0, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpFltDataHdg);
-    TestParam tpFltDataAirspd("airspeed", sumFltData.id(), "Airspeed", "__ (______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpFltDataAirspd("airspeed", sumFltData.id(), "Airspeed", "__ (______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpFltDataAirspd);
-    TestParam tpFltDataVerRt("vertical-Rate", sumFltData.id(), "Vertical Rate", "______", "fpm", "", "", "", "", 2, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpFltDataVerRt("vertical-Rate", sumFltData.id(), "Vertical Rate", "______", "fpm", "", "", "", "", 2, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpFltDataVerRt);
-    TestParam tpFltDataGBAlt("Geom/Baro Alt", sumFltData.id(), "Geom/Baro Alt", "_____", "ft", "", "", "", "", 3, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpFltDataGBAlt("Geom/Baro Alt", sumFltData.id(), "Geom/Baro Alt", "_____", "ft", "", "", "", "", 3, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpFltDataGBAlt);
 
     Summary sumOFlds1("Other Fields", adsbOut1090.id(), 3, 3, 0, 2, 2);
     sumModel.addSummary(sumOFlds1);
 
-    TestParam tpOFlds1Icf("icf", sumOFlds1.id(), "ICF", "_ (______)", "", "", "", "", "", 0, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpOFlds1Icf("icf", sumOFlds1.id(), "ICF", "_ (______)", "", "", "", "", "", 0, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFlds1Icf);
-    TestParam tpOFlds1AirSpdTyp("airSpd-Type", sumOFlds1.id(), "AirSpd Type", "__ (___)", "", "", "", "", "", 0, 1, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpOFlds1AirSpdTyp("airSpd-Type", sumOFlds1.id(), "AirSpd Type", "__ (___)", "", "", "", "", "", 0, 1, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFlds1AirSpdTyp);
-    TestParam tpOFlds1Nacv("nacv", sumOFlds1.id(), "NACv", "__ (< __ m/s)", "", "", "", "", "", 1, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpOFlds1Nacv("nacv", sumOFlds1.id(), "NACv", "__ (< __ m/s)", "", "", "", "", "", 1, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFlds1Nacv);
-    TestParam tpOFlds1VRSrc("vert-Rate-Src", sumOFlds1.id(), "Vert Rate Src", "_ (_____)", "", "", "", "", "", 1, 1, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpOFlds1VRSrc("vert-Rate-Src", sumOFlds1.id(), "Vert Rate Src", "_ (_____)", "", "", "", "", "", 1, 1, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFlds1VRSrc);
-    TestParam tpOFlds1hdgSts("hdg-Sts", sumOFlds1.id(), "Hdg Sts", "_ (_____)", "", "", "", "", "", 2, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpOFlds1hdgSts("hdg-Sts", sumOFlds1.id(), "Hdg Sts", "_ (_____)", "", "", "", "", "", 2, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOFlds1hdgSts);
 
     //------------------------------P5-------------------------------
@@ -521,31 +521,31 @@ int DataBuilder::build()
     Summary sumTse("Target State Element (TS)", adsbOut1090.id(), 5, 1, 0, 2, 1);
     sumModel.addSummary(sumTse);
 
-    TestParam tpTsSAlt("sel.-Altitude", sumTse.id(), "Sel. Altitude", "__ (<.__ nm)", "",  "", "", "", "", 0, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTsSAlt("sel.-Altitude", sumTse.id(), "Sel. Altitude", "__ (<.__ nm)", "",  "", "", "", "", 0, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTsSAlt);
-    TestParam tpTseNs("nic-supA", sumTse.id(), "NIC-supA", "__", "", "", "", "", "", 0, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpTseNs("nic-supA", sumTse.id(), "NIC-supA", "__", "", "", "", "", "", 0, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTseNs);
-    TestParam tpTseBs("baro-Setting", sumTse.id(), "Baro Setting", "____", "mb", "", "", "", "", 1, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTseBs("baro-Setting", sumTse.id(), "Baro Setting", "____", "mb", "", "", "", "", 1, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTseBs);
-    TestParam tpTseSh("sel.-Heading", sumTse.id(), "Sel. Heading", "____", "deg", "", "", "", "", 2, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTseSh("sel.-Heading", sumTse.id(), "Sel. Heading", "____", "deg", "", "", "", "", 2, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTseSh);
-    TestParam tpTse("status", sumTse.id(), "Status", "__ (_____)", "", "", "", "", "", 2, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpTse("status", sumTse.id(), "Status", "__ (_____)", "", "", "", "", "", 2, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTse);
 
     Summary sumApM1("Autopilot Modes", adsbOut1090.id(), 5, 2, 0, 2, 2);
     sumModel.addSummary(sumApM1);
 
-    TestParam tpApMMbs("mode-Bits-Status", sumApM1.id(), "Mode bits status", "__(_____)", "", "", "", "", "", 0, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMMbs("mode-Bits-Status", sumApM1.id(), "Mode bits status", "__(_____)", "", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMMbs);
-    TestParam tpApMAp("autopilot-(AP)", sumApM1.id(), "Autopilot (AP)", "_ (_______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMAp("autopilot-(AP)", sumApM1.id(), "Autopilot (AP)", "_ (_______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMAp);
-    TestParam tpApMVnav("vnav", sumApM1.id(), "VNAV", "_ (__________)", "", "", "", "", "", 2, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMVnav("vnav", sumApM1.id(), "VNAV", "_ (__________)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMVnav);
-    TestParam tpApMAltH("alt.-Hold-(ALT)", sumApM1.id(), "Alt. Hold (ALT)", "_ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMAltH("alt.-Hold-(ALT)", sumApM1.id(), "Alt. Hold (ALT)", "_ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMAltH);
-    TestParam tpApMApp("approach-(APP)", sumApM1.id(), "Approach (APP)", "__ (___________)", "", "", "", "", "", 4, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMApp("approach-(APP)", sumApM1.id(), "Approach (APP)", "__ (___________)", "", "", "", "", "", 4, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMApp);
-    TestParam tpApMlnav("lnav", sumApM1.id(), "LNAV", "__ (___________)", "", "", "", "", "", 5, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApMlnav("lnav", sumApM1.id(), "LNAV", "__ (___________)", "", "", "", "", "", 5, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApMlnav);
 
     //------------------------------P7-------------------------------
@@ -571,11 +571,11 @@ int DataBuilder::build()
     Summary sumRfData("1090 MHz RF Data", adsbOut1090.id(), 6, 2, 0, 2, 2);
     sumModel.addSummary(sumRfData);
 
-    TestParam tpRfDataMf("measured-frequency", sumRfData.id(), "Measured frequency", "____.___", "MHz", "", "", "", "", 0, 0, 1, 2, "l60.v70.u10.v0.u0.v0.u0");
+    TestParam tpRfDataMf("measured-frequency", sumRfData.id(), "Measured frequency", "____.___", "MHz", "", "", "", "", 0, 0, 1, 2, "l60.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRfDataMf);
-    TestParam tpRfDataMp("measure-power", sumRfData.id(), "Measure power", "___._", "dBm", "", "", "", "", 1, 0, 1, 2, "l60.v70.u10.v0.u0.v0.u0");
+    TestParam tpRfDataMp("measure-power", sumRfData.id(), "Measure power", "___._", "dBm", "", "", "", "", 1, 0, 1, 2, "l60.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRfDataMp);
-    TestParam tpRfDataEc("error-conditions", sumRfData.id(), "Error conditions", "__________", "", "", "", "", "", 2, 0, 1, 2, "l60.v70.u10.v0.u0.v0.u0");
+    TestParam tpRfDataEc("error-conditions", sumRfData.id(), "Error conditions", "__________", "", "", "", "", "", 2, 0, 1, 2, "l60.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRfDataEc);
 
     Test in1090("1090 ADS-B IN", secADSB.id(), 0);
@@ -606,61 +606,61 @@ int DataBuilder::build()
     Summary sumAvInfo3("Aircraft/Vehicle info", adsbOutUat.id(), 0, 2, 0, 2, 2);
     sumModel.addSummary(sumAvInfo3);
 
-    TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", "", "", "", "", 0, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpAvInfo3fid("flight-ID", sumAvInfo3.id(), "Flight ID", "______", "", "", "", "", "", 0, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfo3fid);
-    TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "__ (__________)", "", "", "", "", "", 0, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpAvInfo3csid("csid", sumAvInfo3.id(), "CSID", "__ (__________)", "", "", "", "", "", 0, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfo3csid);
-    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______)", "", "", "", "", "", 1, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpAvInfo3ect("emitter-Cat", sumAvInfo3.id(), "Emitter Cat", "__ (______)", "", "", "", "", "", 1, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfo3ect);
-    TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "_____", "", "", "", "", "", 1, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpAvInfo3acode("3/A-Code", sumAvInfo3.id(), "3/A Code", "_____", "", "", "", "", "", 1, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfo3acode);
-    TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "_ (________)", "", "", "", "", "", 2, 0, 1, 2, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpAvInfo3ep("emg/Prty", sumAvInfo3.id(), "Emg/Prty", "_ (________)", "", "", "", "", "", 2, 0, 1, 2, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAvInfo3ep);
 
     Summary sumCCodes("Capability Codes", adsbOutUat.id(), 0, 3, 0, 2, 2);
     sumModel.addSummary(sumCCodes);
 
-    TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", "", "", "", "", 0, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpCCodesuin("uat-IN", sumCCodes.id(),  "UAT IN", "_ (_)", "", "", "", "", "", 0, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpCCodesuin);
-    TestParam tpCCodestOp("tcas-Op", sumCCodes.id(), "TCAS Op", "_ (_)", "", "", "", "", "", 0, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpCCodestOp("tcas-Op", sumCCodes.id(), "TCAS Op", "_ (_)", "", "", "", "", "", 0, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpCCodestOp);
-    TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "_ (_)", "", "", "", "", "", 1, 0, 1, 2, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpCCodesesin("1090ES-IN", sumCCodes.id(), "1090ES IN", "_ (_)", "", "", "", "", "", 1, 0, 1, 2, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpCCodesesin);
 
     Summary sumOModes("Operational Modes", adsbOutUat.id(), 0, 4, 0, 2, 2);
     sumModel.addSummary(sumOModes);
 
-    TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", "", "", "", "", 0, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOModesAtcS("atc-Svcs", sumOModes.id(), "ATC Svcs", "_ (_)", "", "", "", "", "", 0, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOModesAtcS);
-    TestParam tpOModesidt("ident", sumOModes.id(), "IDENT", "_ (_)", "", "", "", "", "", 0, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOModesidt("ident", sumOModes.id(), "IDENT", "_ (_)", "", "", "", "", "", 0, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOModesidt);
-    TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA",  "_ (_)", "", "", "", "", "", 1, 0, 1, 2, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOModestra("tcas-RA", sumOModes.id(), "TCAS RA",  "_ (_)", "", "", "", "", "", 1, 0, 1, 2, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOModestra);
 
     Summary sumOtherFld("Other Fields", adsbOutUat.id(), 0, 5, 0, 2, 2);
     sumModel.addSummary(sumOtherFld);
 
-    TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", "", "", "", "", 0, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldnacp("nacp", sumOtherFld.id(), "NACp", "__ (< ___nm)", "", "", "", "", "", 0, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldnacp);
-    TestParam tpOtherFldtmso("transmit-MSO", sumOtherFld.id(), "Transmit MSO", "___", "", "", "", "", "", 0, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldtmso("transmit-MSO", sumOtherFld.id(), "Transmit MSO", "___", "", "", "", "", "", 0, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldtmso);
-    TestParam tpOtherFldnacv("nacv", sumOtherFld.id(), "NACv", "__ (< __m/s)", "", "", "", "", "", 1, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldnacv("nacv", sumOtherFld.id(), "NACv", "__ (< __m/s)", "", "", "", "", "", 1, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldnacv);
-    TestParam tpOtherFldsil("sil", sumOtherFld.id(), "SIL", "_ (< ___)", "", "", "", "", "", 1, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldsil("sil", sumOtherFld.id(), "SIL", "_ (< ___)", "", "", "", "", "", 1, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldsil);
-    TestParam tpOtherFldsda("sda", sumOtherFld.id(), "SDA", "__", "", "", "", "", "", 2, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldsda("sda", sumOtherFld.id(), "SDA", "__", "", "", "", "", "", 2, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldsda);
-    TestParam tpOtherFldgva("gva", sumOtherFld.id(), "GVA", "__ (< __m)", "", "", "", "", "", 2, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldgva("gva", sumOtherFld.id(), "GVA", "__ (< __m)", "", "", "", "", "", 2, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldgva);
-    TestParam tpOtherFldmops("mops", sumOtherFld.id(), "MOPS", "__ (__-____)", "", "", "", "", "", 3, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldmops("mops", sumOtherFld.id(), "MOPS", "__ (__-____)", "", "", "", "", "", 3, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldmops);
-    TestParam tpOtherFldssup("sil-Sup", sumOtherFld.id(), "SIL Sup", "__ (_________)", "", "", "", "", "", 3, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldssup("sil-Sup", sumOtherFld.id(), "SIL Sup", "__ (_________)", "", "", "", "", "", 3, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldssup);
-    TestParam tpOtherFldsant("sgl-Ant", sumOtherFld.id(), "Sgl Ant", "__ (________)", "", "", "", "", "", 4, 0, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldsant("sgl-Ant", sumOtherFld.id(), "Sgl Ant", "__ (________)", "", "", "", "", "", 4, 0, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldsant);
-    TestParam tpOtherFldnbaro("nicbaro", sumOtherFld.id(), "NICbaro", "__ (_________)", "", "", "", "", "", 4, 1, 1, 1, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldnbaro("nicbaro", sumOtherFld.id(), "NICbaro", "__ (_________)", "", "", "", "", "", 4, 1, 1, 1, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldnbaro);
-    TestParam tpOtherFldnsup("nicsup", sumOtherFld.id(), "NICsup", "__", "", "", "", "", "", 5, 0, 1, 2, "l30.v80.u10.v0.u0.v0.u0");
+    TestParam tpOtherFldnsup("nicsup", sumOtherFld.id(), "NICsup", "__", "", "", "", "", "", 5, 0, 1, 2, "l30.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFldnsup);
 
     //------------------------------P2-------------------------------
@@ -683,37 +683,37 @@ int DataBuilder::build()
     Summary sumPosVel1("Position & Velocity", adsbOutUat.id(), 1, 2, 0, 2, 2);
     sumModel.addSummary(sumPosVel1);
 
-    TestParam tpPosVel1agst("air/Gnd State", sumPosVel1.id(), "Air/Gnd State", "Air-Subsonic", "", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1agst("air/Gnd State", sumPosVel1.id(), "Air/Gnd State", "Air-Subsonic", "", "", "", "", "", 0, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1agst);
-    TestParam tpPosVel1lat("latitude", sumPosVel1.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1lat("latitude", sumPosVel1.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1lat);
-    TestParam tpPosVel1long("longitude", sumPosVel1.id(), "Longitude", "__⁰ __ __.___", "W", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1long("longitude", sumPosVel1.id(), "Longitude", "__⁰ __ __.___", "W", "", "", "", "", 2, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1long);
-    TestParam tpPosVel1alt("altitude", sumPosVel1.id(), "Altitude", "___,_____", "ft", "", "", "", "", 3, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1alt("altitude", sumPosVel1.id(), "Altitude", "___,_____", "ft", "", "", "", "", 3, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1alt);
-    TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "__ (______)", "", "", "", "", "", 3, 1, 1, 1, "l10.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1typ("type", sumPosVel1.id(), "Type", "__ (______)", "", "", "", "", "", 3, 1, 1, 1, "l10.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1typ);
-    TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "___ kts N ___", "kts W", "", "", "", "", 4, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1hv("horizontal-Velocity", sumPosVel1.id(), "Horizontal Velocity", "___ kts N ___", "kts W", "", "", "", "", 4, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1hv);
-    TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "__,____", "", "", "", "", "", 5, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1trh("vert.-Velocity", sumPosVel1.id(), "Vert. Velocity", "__,____", "", "", "", "", "", 5, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1trh);
-    TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", "", "", "", "", 5, 1, 1, 1, "l10.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel1src("source", sumPosVel1.id(), "Source", "__ (_____)", "", "", "", "", "", 5, 1, 1, 1, "l10.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel1src);
 
     Summary sumOtherFld1("Other Fields", adsbOutUat.id(), 1, 3, 0, 2, 2);
     sumModel.addSummary(sumOtherFld1);
 
-    TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld1Nic("nic", sumOtherFld1.id(), "NIC", "__(< ___m)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld1Nic);
-    TestParam tpOtherFld1Utc("utc", sumOtherFld1.id(), "UTC", "__ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v70.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld1Utc("utc", sumOtherFld1.id(), "UTC", "__ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld1Utc);
-    TestParam tpOtherFld1Uf("uplink-Feedback", sumOtherFld1.id(), "Uplink Feedback", "__ (____=__)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld1Uf("uplink-Feedback", sumOtherFld1.id(), "Uplink Feedback", "__ (____=__)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld1Uf);
 
     Summary sumAuxSv1("Aux.State Vector Element (AUX SV)", adsbOutUat.id(), 1, 4, 0, 2, 2);
     sumModel.addSummary(sumAuxSv1);
 
-    TestParam tpAuxSv1SecAlt("secondary-Altitude", sumAuxSv1.id(), "Secondary Altitude", "____,_____", "ft", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAuxSv1SecAlt("secondary-Altitude", sumAuxSv1.id(), "Secondary Altitude", "____,_____", "ft", "", "", "", "", 0, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAuxSv1SecAlt);
 
 
@@ -737,43 +737,43 @@ int DataBuilder::build()
     Summary sumPosVel2("Position & Velocity", adsbOutUat.id(), 2, 2, 0, 2, 2);
     sumModel.addSummary(sumPosVel2);
 
-    TestParam tpPosVel2agst("air/Gnd State", sumPosVel2.id(), "Air/Gnd State", "Ground", "", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2agst("air/Gnd State", sumPosVel2.id(), "Air/Gnd State", "Ground", "", "", "", "", "", 0, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2agst);
-    TestParam tpPosVel2lat("latitude", sumPosVel2.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2lat("latitude", sumPosVel2.id(), "Latitude", "__⁰ __ __.___", "N", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2lat);
-    TestParam tpPosVel2long("longitude", sumPosVel2.id(), "Longitude", "____⁰ __ __.___", "W", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2long("longitude", sumPosVel2.id(), "Longitude", "____⁰ __ __.___", "W", "", "", "", "", 2, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2long);
-    TestParam tpPosVel2alt("altitude", sumPosVel2.id(), "Altitude", "_,____", "ft", "", "", "", "", 3, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2alt("altitude", sumPosVel2.id(), "Altitude", "_,____", "ft", "", "", "", "", 3, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2alt);
-    TestParam tpPosVel2typ("type", sumPosVel2.id(), "Type", "_ (__________)", "", "", "", "", "", 3, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2typ("type", sumPosVel2.id(), "Type", "_ (__________)", "", "", "", "", "", 3, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2typ);
-    TestParam tpPosVel2gsp("groundspeed", sumPosVel2.id(), "Groundspeed", "___", "kts", "", "", "", "", 4, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2gsp("groundspeed", sumPosVel2.id(), "Groundspeed", "___", "kts", "", "", "", "", 4, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2gsp);
-    TestParam tpPosVel2trh("track/Heading", sumPosVel2.id(), "Track/Heading", "___.__", "deg", "", "", "", "", 5, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2trh("track/Heading", sumPosVel2.id(), "Track/Heading", "___.__", "deg", "", "", "", "", 5, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2trh);
-    TestParam tpPosVel2th("t/h", sumPosVel2.id(), "T/H", "__(______)", "", "", "", "", "", 5, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2th("t/h", sumPosVel2.id(), "T/H", "__(______)", "", "", "", "", "", 5, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2th);
-    TestParam tpPosVel2avlw("a/v-L/W", sumPosVel2.id(), "A/V L/W", "__ (__m/__._m)", "", "", "", "", "", 6, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2avlw("a/v-L/W", sumPosVel2.id(), "A/V L/W", "__ (__m/__._m)", "", "", "", "", "", 6, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2avlw);
-    TestParam tpPosVel2gao("gps-Ant-Offset", sumPosVel2.id(), "GPS Ant Offset", "_ m Right; _ m Aft", "", "", "", "", "", 7, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpPosVel2gao("gps-Ant-Offset", sumPosVel2.id(), "GPS Ant Offset", "_ m Right; _ m Aft", "", "", "", "", "", 7, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPosVel2gao);
 
     Summary sumOtherFld2("Other Fields", adsbOutUat.id(), 2, 3, 0, 2, 2);
     sumModel.addSummary(sumOtherFld2);
 
-    TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld2Nic("nic", sumOtherFld2.id(), "NIC", "__(< ___m)", "", "", "", "", "", 0, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld2Nic);
-    TestParam tpOtherFld2Utc("utc", sumOtherFld2.id(), "UTC", "__ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld2Utc("utc", sumOtherFld2.id(), "UTC", "__ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld2Utc);
-    TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "__ (_____=___)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpOtherFld2Uf("uplink-Feedback", sumOtherFld2.id(), "Uplink Feedback", "__ (_____=___)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpOtherFld2Uf);
 
     Summary sumAuxSv2("Aux.State Vector Element (AUX SV)", adsbOutUat.id(), 2, 4, 0, 2, 2);
     sumModel.addSummary(sumAuxSv2);
 
-    TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", "", "", "", "", 0, 0, 1, 1, "l50.v70.u10.v0.u0.v0.u0");
+    TestParam tpAuxSv2secAlt("secondary-Altitude", sumAuxSv2.id(), "Secondary Altitude", "__,_____", "ft", "", "", "", "", 0, 0, 1, 1, "l50.v70r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAuxSv2secAlt);
-    TestParam tpAuxSv2typ("type", sumAuxSv2.id(), "Type", "__ (_____)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpAuxSv2typ("type", sumAuxSv2.id(), "Type", "__ (_____)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAuxSv2typ);
 
     //------------------------------P4-------------------------------
@@ -793,31 +793,31 @@ int DataBuilder::build()
     Summary sumTS("Target state Element (TS)", adsbOutUat.id(), 3, 1, 0, 2, 1);
     sumModel.addSummary(sumTS);
 
-    TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", "", "", "", "", 0, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTSSAlt("sel.-Altitude", sumTS.id(), "Sel. Altitude", "____,_____", "ft", "", "", "", "", 0, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTSSAlt);
-    TestParam tpTSTyp("type", sumTS.id(), "Type", "_ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpTSTyp("type", sumTS.id(), "Type", "_ (________)", "", "", "", "", "", 0, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTSTyp);
-    TestParam tpTSBStt("baro-Setting", sumTS.id(), "Baro Setting", "____", "mb", "", "", "", "", 1, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTSBStt("baro-Setting", sumTS.id(), "Baro Setting", "____", "mb", "", "", "", "", 1, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTSBStt);
-    TestParam tpTSSelH("sel.-Heading", sumTS.id(), "Sel. Heading", "____", "deg", "", "", "", "", 2, 0, 1, 1, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpTSSelH("sel.-Heading", sumTS.id(), "Sel. Heading", "____", "deg", "", "", "", "", 2, 0, 1, 1, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTSSelH);
-    TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", "", "", "", "", 2, 1, 1, 1, "l10.v50.u10.v0.u0.v0.u0");
+    TestParam tpTSSts("status", sumTS.id(), "Status", "__(_____)", "", "", "", "", "", 2, 1, 1, 1, "l10.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpTSSts);
 
     Summary sumApM2("AutoPilot Modes", adsbOutUat.id(), 3, 2, 0, 2, 2);
     sumModel.addSummary(sumApM2);
 
-    TestParam tpApM2Mbs("mode-bits-status", sumApM2.id(), "Mode bits status", "__(_____)", "", "", "", "", "", 0, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2Mbs("mode-bits-status", sumApM2.id(), "Mode bits status", "__(_____)", "", "", "", "", "", 0, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2Mbs);
-    TestParam tpApM2Ap("autoPilot-(AP)", sumApM2.id(), "AutoPilot (AP)", "_ (_______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2Ap("autoPilot-(AP)", sumApM2.id(), "AutoPilot (AP)", "_ (_______)", "", "", "", "", "", 1, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2Ap);
-    TestParam tpApM2Vnav("vnav", sumApM2.id(), "VNAV", "__ (___________)", "", "", "", "", "", 2, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2Vnav("vnav", sumApM2.id(), "VNAV", "__ (___________)", "", "", "", "", "", 2, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2Vnav);
-    TestParam tpApM2Alt("alt.-Hold-(ALT)", sumApM2.id(), "Alt. Hold (ALT)", "_ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2Alt("alt.-Hold-(ALT)", sumApM2.id(), "Alt. Hold (ALT)", "_ (_______)", "", "", "", "", "", 3, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2Alt);
-    TestParam tpApM2App("approach-(APP)", sumApM2.id(), "Approach (APP)", "__ (___________)", "", "", "", "", "", 4, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2App("approach-(APP)", sumApM2.id(), "Approach (APP)", "__ (___________)", "", "", "", "", "", 4, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2App);
-    TestParam tpApM2lnav("lnav", sumApM2.id(), "LNAV", "__ (___________)", "", "", "", "", "", 5, 0, 1, 2, "l50.v80.u10.v0.u0.v0.u0");
+    TestParam tpApM2lnav("lnav", sumApM2.id(), "LNAV", "__ (___________)", "", "", "", "", "", 5, 0, 1, 2, "l50.v70.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpApM2lnav);
 
     //------------------------------P5-------------------------------
@@ -903,130 +903,127 @@ int DataBuilder::build()
 
     //------------------------------P1-------------------------------
 
-    Summary sumOverallResult("", xpndrAutoTest.id(), 0, 0, 0, 1, 2);
-    sumModel.addSummary(sumOverallResult);
-
-    TestParam tpOverallResult("overall result", sumOverallResult.id(), "", "FAIL <Antenna Diversity>", "", "", "", "", "", 0, 0, 1, 2, "l50.v60.u10.v0.u0.v0.u0");
-    tpModel.addTestParam(tpOverallResult);
+//    Summary sumFail("FAIL <Antenna Diversity", xpndrAutoTest.id(), 0, 0, 0, 2, 1);
+//    sumModel.addSummary(sumFail);
 
     Summary sumXTypeLevel("xpndr type & level:", xpndrAutoTest.id(), 0, 0, 0, 1, 2);
     sumModel.addSummary(sumXTypeLevel);
 
-    TestParam tpXTypeLevel("", sumXTypeLevel.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpXTypeLevel("xpndr type & level", sumXTypeLevel.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpXTypeLevel);
 
     Summary sumCommCapa("comm capability:", xpndrAutoTest.id(), 0, 0, 1, 1, 2);
     sumModel.addSummary(sumCommCapa);
 
-    TestParam tpCommCapa("", sumCommCapa.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpCommCapa("comm capability", sumCommCapa.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v50.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpCommCapa);
 
     Summary sumTailNum("tail number:", xpndrAutoTest.id(), 0, 1, 0, 1, 2);
     sumModel.addSummary(sumTailNum);
 
-    TestParam tpTailNum("", sumTailNum.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpTailNum("tail number", sumTailNum.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v50.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpTailNum);
 
     Summary sumAircAddr("aircraft address:", xpndrAutoTest.id(), 0, 1, 1, 1, 2);
     sumModel.addSummary(sumAircAddr);
 
-    TestParam tpAircAddr("", sumAircAddr.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpAircAddr("aircraft address", sumAircAddr.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpAircAddr);
 
     Summary sumfreq1("frequency:", xpndrAutoTest.id(), 0, 2, 0, 1, 2);
     sumModel.addSummary(sumfreq1);
 
-    TestParam tpfreq1("", sumfreq1.id(), "", "- -", "MHz", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpfreq1("frequency", sumfreq1.id(), "", "- -", "MHz", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpfreq1);
 
     Summary sumPowerERP("power (erp):", xpndrAutoTest.id(), 0, 2, 1, 1, 2);
     sumModel.addSummary(sumPowerERP);
 
-    TestParam tpPowerERP("", sumPowerERP.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpPowerERP("power (erp)", sumPowerERP.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpPowerERP);
 
     Summary sumModeACSen("modes a/c sensitivity:", xpndrAutoTest.id(), 0, 3, 0, 1, 2);
     sumModel.addSummary(sumModeACSen);
 
-    TestParam tpModeACSen("", sumModeACSen.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeACSen("modes a/c sensitivity", sumModeACSen.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeACSen);
 
     Summary sumModeSSen("mode s sensitivity (mtl):", xpndrAutoTest.id(), 0, 3, 1, 1, 2);
     sumModel.addSummary(sumModeSSen);
 
-    TestParam tpModeSSen("", sumModeSSen.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeSSen("mode s sensitivity (mtl)", sumModeSSen.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeSSen);
 
     Summary sumAntDivers("ant. diversity:", xpndrAutoTest.id(), 0, 4, 0, 1, 2);
     sumModel.addSummary(sumAntDivers);
 
-    TestParam tpAntDivers("", sumAntDivers.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpAntDivers("ant. diversity", sumAntDivers.id(), "", "- -", "dBm", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpAntDivers);
 
     Summary sumModeAConly("modes a/c only:", xpndrAutoTest.id(), 0, 4, 1, 1, 2);
     sumModel.addSummary(sumModeAConly);
 
-    TestParam tpModeAConly("", sumModeAConly.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeAConly("modes a/c only", sumModeAConly.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v80.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeAConly);
 
     Summary sumModeAcode("mode a code:", xpndrAutoTest.id(), 0, 5, 0, 1, 2);
     sumModel.addSummary(sumModeAcode);
 
-    TestParam tpModeAcode("", sumModeAcode.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeAcode("mode a code", sumModeAcode.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v80.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeAcode);
 
     Summary sumModeCalt("mode c altitude:", xpndrAutoTest.id(), 0, 5, 1, 1, 2);
     sumModel.addSummary(sumModeCalt);
 
-    TestParam tpModeCalt("", sumModeCalt.id(), "", "- -", "Ft", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeCalt("mode c altitude", sumModeCalt.id(), "", "- -", "Ft", "", "", "", "", 0, 0, 1, 2, "l0.v80.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeCalt);
 
     Summary sumModeASsls("modes a/s sls test:", xpndrAutoTest.id(), 0, 6, 0, 1, 2);
     sumModel.addSummary(sumModeASsls);
 
-    TestParam tpModeASsls("", sumModeASsls.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeASsls("modes a/s sls test", sumModeASsls.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v10.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeASsls);
 
     Summary sumModeACSall("modes a/c/s all call:", xpndrAutoTest.id(), 0, 6, 1, 1, 2);
     sumModel.addSummary(sumModeACSall);
 
-    TestParam tpModeACSall("", sumModeACSall.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeACSall("modes a/c/s all call", sumModeACSall.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeACSall);
 
     Summary sumUndesiredReply("undesired reply test:", xpndrAutoTest.id(), 0, 7, 0, 1, 2);
     sumModel.addSummary(sumUndesiredReply);
 
-    TestParam tpUndesiredReply("", sumUndesiredReply.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpUndesiredReply("undesired reply test", sumUndesiredReply.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v10.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpUndesiredReply);
 
     Summary sumSIlockout("si lockout test:", xpndrAutoTest.id(), 0, 7, 1, 1, 2);
     sumModel.addSummary(sumSIlockout);
 
-    TestParam tpSIlockout("", sumSIlockout.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpSIlockout("si lockout test", sumSIlockout.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v10.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpSIlockout);
 
     Summary sumVerticalStatus("vertical status:", xpndrAutoTest.id(), 0, 8, 0, 1, 2);
     sumModel.addSummary(sumVerticalStatus);
 
-    TestParam tpVerticalStatus("", sumVerticalStatus.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpVerticalStatus("vertical status", sumVerticalStatus.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v10.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpVerticalStatus);
 
     Summary sumSquittersReceiv("squitters received:", xpndrAutoTest.id(), 0, 8, 1, 1, 2);
     sumModel.addSummary(sumSquittersReceiv);
 
-    TestParam tpSquittersReceiv("", sumSquittersReceiv.id(), "", "DF11;DF-17", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpSquittersReceiv("squitters received", sumSquittersReceiv.id(), "", "DF11;DF-17", "", "", "", "", "", 0, 0, 1, 2, "l0.v50.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpSquittersReceiv);
 
     Summary sumModeSsurvRepl("mode s surv replies:", xpndrAutoTest.id(), 0, 9, 0, 1, 2);
     sumModel.addSummary(sumModeSsurvRepl);
 
-    TestParam tpModeSsurvRepl("", sumModeSsurvRepl.id(), "", "DF0;DF4;DF5;DF11", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeSsurvRepl("mode s surv replies", sumModeSsurvRepl.id(), "", "DF0;DF4;DF5;DF11", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeSsurvRepl);
 
     Summary sumModeScommRepl("mode s comm replies:", xpndrAutoTest.id(), 0, 9, 1, 1, 2);
     sumModel.addSummary(sumModeScommRepl);
 
-    TestParam tpModeScommRepl("", sumModeScommRepl.id(), "", "DF16;DF20;DF21;DF24", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpModeScommRepl("mode s comm replies", sumModeScommRepl.id(), "", "DF16;DF20;DF21;DF24", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpModeScommRepl);
 
     //------------------------------P2-------------------------------
@@ -1034,7 +1031,7 @@ int DataBuilder::build()
     Summary sumTailnum("Tail Number", xpndrAutoTest.id(), 1, 0, 0, 1, 2);
     sumModel.addSummary(sumTailnum);
 
-    TestParam tpsummTailNum("", sumTailnum.id(), "N1246W", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u0.v0.u0.v0.u0");
+    TestParam tpsummTailNum("tail number", sumTailnum.id(), "N1246W", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u0.v0.u0.v0.u0");
     tpModel.addTestParam(tpsummTailNum);
 
     Summary sumAirAdd("Aircraft Address", xpndrAutoTest.id(), 1, 0, 1, 1, 2);
@@ -1046,11 +1043,11 @@ int DataBuilder::build()
     Summary sumRplyFrq("Reply Frequency", xpndrAutoTest.id(), 1, 1, 0, 2, 2);
     sumModel.addSummary(sumRplyFrq);
 
-    TestParam tpRplyFrqModeA("mode a", sumRplyFrq.id(), "MODE A", "- -", "MHz", "", "", "", "", 0, 0, 1, 2, "l10.v10.u10.v0.u0.v0.u0");
+    TestParam tpRplyFrqModeA("mode a", sumRplyFrq.id(), "MODE A", "- -", "MHz", "", "", "", "", 0, 0, 1, 2, "l10.v10r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRplyFrqModeA);
-    TestParam tpRplyFrqModeC("mode c", sumRplyFrq.id(), "MODE C", "- -", "MHz", "", "", "", "", 1, 0, 1, 2, "l10.v10.u10.v0.u0.v0.u0");
+    TestParam tpRplyFrqModeC("mode c", sumRplyFrq.id(), "MODE C", "- -", "MHz", "", "", "", "", 1, 0, 1, 2, "l10.v10r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRplyFrqModeC);
-    TestParam tpRplyFrqModeS("mode s", sumRplyFrq.id(), "MODE S", "- -", "MHz", "", "", "", "", 2, 0, 1, 2, "l10.v10.u10.v0.u0.v0.u0");
+    TestParam tpRplyFrqModeS("mode s", sumRplyFrq.id(), "MODE S", "- -", "MHz", "", "", "", "", 2, 0, 1, 2, "l10.v10r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpRplyFrqModeS);
 
     Summary sumSls("SUPPRESSION (SLS)", xpndrAutoTest.id(), 1, 2, 0, 2, 2);
@@ -1066,31 +1063,31 @@ int DataBuilder::build()
     Summary sumMtl("Receiver Sensitivity (MTL)", xpndrAutoTest.id(), 1, 3, 0, 2, 2);
     sumModel.addSummary(sumMtl);
 
-    TestParam tpMtlModeA("mode a", sumMtl.id(), "MODE A", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 0, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpMtlModeA("mode a", sumMtl.id(), "MODE A", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 0, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpMtlModeA);
-    TestParam tpMtlModeC("mode c", sumMtl.id(), "MODE C", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 1, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpMtlModeC("mode c", sumMtl.id(), "MODE C", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 1, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpMtlModeC);
-    TestParam tpMtlModeS("mode s", sumMtl.id(), "MODE S", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 2, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpMtlModeS("mode s", sumMtl.id(), "MODE S", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 2, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpMtlModeS);
 
     Summary sumErp("Rf Peak Output Power (ERP)", xpndrAutoTest.id(), 1, 4, 0, 2, 2);
     sumModel.addSummary(sumErp);
 
-    TestParam tpErpModeA("mode a", sumErp.id(), "MODE A", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 0, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpErpModeA("mode a", sumErp.id(), "MODE A", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 0, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpErpModeA);
-    TestParam tpErpModeC("mode c", sumErp.id(), "MODE C", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 1, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpErpModeC("mode c", sumErp.id(), "MODE C", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 1, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpErpModeC);
-    TestParam tpErpModeS("mode s", sumErp.id(), "MODE S", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 2, 0, 1, 2, "l10.v10.u30.v10.u30.v0.u0");
+    TestParam tpErpModeS("mode s", sumErp.id(), "MODE S", "- -", "dBm (Bot),", "- -", "dBm (Top)", "", "", 2, 0, 1, 2, "l10.v10r.u30.v10r.u30.v0.u0");
     tpModel.addTestParam(tpErpModeS);
 
     Summary sumRpp("Reply Delay, Pulse Droop, Pulse Jitter", xpndrAutoTest.id(), 1, 5, 0, 2, 2);
     sumModel.addSummary(sumRpp);
 
-    TestParam tpRppModeA("mode a", sumRpp.id(), "MODE A", "- -", "ms;", "- -", " ms;", "- -", " ms;", 0, 0, 1, 2, "l10.v10.u10.v10.u10.v10.u10");
+    TestParam tpRppModeA("mode a", sumRpp.id(), "MODE A", "- -", "ms;", "- -", " ms;", "- -", " ms;", 0, 0, 1, 2, "l10.v10r.u10.v10r.u10.v10r.u10");
     tpModel.addTestParam(tpRppModeA);
-    TestParam tpRppModeC("mode c", sumRpp.id(), "MODE C", "- -", "ms;", "- -", " ms;", "- -", " ms;", 1, 0, 1, 2, "l10.v10.u10.v10.u10.v10.u10");
+    TestParam tpRppModeC("mode c", sumRpp.id(), "MODE C", "- -", "ms;", "- -", " ms;", "- -", " ms;", 1, 0, 1, 2, "l10.v10r.u10.v10r.u10.v10r.u10");
     tpModel.addTestParam(tpRppModeC);
-    TestParam tpRppModeS("mode s", sumRpp.id(), "MODE S", "- -", "ms;", "- -", " ms;", "- -", " ms;", 2, 0, 1, 2, "l10.v10.u10.v10.u10.v10.u10");
+    TestParam tpRppModeS("mode s", sumRpp.id(), "MODE S", "- -", "ms;", "- -", " ms;", "- -", " ms;", 2, 0, 1, 2, "l10.v10r.u10.v10r.u10.v10r.u10");
     tpModel.addTestParam(tpRppModeS);
 
     //------------------------------P3-------------------------------
@@ -1098,19 +1095,19 @@ int DataBuilder::build()
     Summary sumTailnum2("Tail Number", xpndrAutoTest.id(), 2, 0, 0, 1, 2);
     sumModel.addSummary(sumTailnum2);
 
-    TestParam tpsummTailNum2("", sumTailnum2.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpsummTailNum2("tail number", sumTailnum2.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpsummTailNum2);
 
     Summary sumAirAdd2("Aircraft Address", xpndrAutoTest.id(), 2, 0, 1, 1, 2);
     sumModel.addSummary(sumAirAdd2);
 
-    TestParam tpSummAirAdd2("", sumAirAdd2.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpSummAirAdd2("aircraft address", sumAirAdd2.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpSummAirAdd2);
 
     Summary sumDfSqt("Df11 Squitter Test", xpndrAutoTest.id(), 2, 1, 0, 2, 2);
     sumModel.addSummary(sumDfSqt);
 
-    TestParam tpDfSqtAntDiv("antenna diversity", sumDfSqt.id(), "Antenna Diversity", "- -", "dBM", "", "", "", "", 0, 0, 1, 2, "l50.v50.u10.v0.u0.v0.u0");
+    TestParam tpDfSqtAntDiv("antenna diversity", sumDfSqt.id(), "Antenna Diversity", "- -", "dBM", "", "", "", "", 0, 0, 1, 2, "l50.v50r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpDfSqtAntDiv);
 
     //------------------------------P4-------------------------------
@@ -1118,7 +1115,7 @@ int DataBuilder::build()
     Summary sumTailnum4("Tail Number", xpndrAutoTest.id(), 3, 0, 0, 1, 2);
     sumModel.addSummary(sumTailnum4);
 
-    TestParam tpsummTailNum4("", sumTailnum4.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
+    TestParam tpsummTailNum4("tail number", sumTailnum4.id(), "", "", "", "", "", "", "", 0, 0, 1, 2, "l0.v60.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpsummTailNum4);
 
     Summary sumAirAdd4("Aircraft Address", xpndrAutoTest.id(), 3, 0, 1, 1, 2);
@@ -1130,10 +1127,10 @@ int DataBuilder::build()
     Summary sumdf4unreptst("Df4 undesired replies test", xpndrAutoTest.id(), 3, 1, 0, 2, 2);
     sumModel.addSummary(sumdf4unreptst);
 
-    TestParam tpaacorradd("aa correct address", sumdf4unreptst.id(), "AA Correct Address", "- -", "% Replies", "", "", "", "", 0, 0, 1, 2, "l60.v10.u10.v0.u0.v0.u0");
+    TestParam tpaacorradd("aa correct address", sumdf4unreptst.id(), "AA Correct Address", "- -", "% Replies", "", "", "", "", 0, 0, 1, 2, "l60.v10r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpaacorradd);
 
-    TestParam tpaaincorradd("aa incorrect address", sumdf4unreptst.id(), "AA Incorrect Address", "- -", "% Replies", "", "", "", "", 1, 0, 1, 2, "l60.v10.u10.v0.u0.v0.u0");
+    TestParam tpaaincorradd("aa incorrect address", sumdf4unreptst.id(), "AA Incorrect Address", "- -", "% Replies", "", "", "", "", 1, 0, 1, 2, "l60.v10r.u10.v0.u0.v0.u0");
     tpModel.addTestParam(tpaaincorradd);
 
     //------------------------------P5-------------------------------
