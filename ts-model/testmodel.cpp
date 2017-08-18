@@ -5,7 +5,8 @@ using namespace std;
 TestModel::TestModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
-    m_tests(m_db.testDao()->tests(0))
+    m_tests(m_db.testDao()->homeTests()),
+    m_isFavourite(false)
 {
 }
 
@@ -107,12 +108,35 @@ void TestModel::addToHome(const int &testId)
 {
     auto testDao = this->m_db.testDao();
     testDao->editTest(testId, 1);
+    this->setIsFavourite(true);
 }
 
 void TestModel::removeFromHome(const int &testId)
 {
     auto testDao = this->m_db.testDao();
     testDao->editTest(testId, 0);
+    this->setIsFavourite(false);
+    testsUpdated();
+}
+
+bool TestModel::isFavourite(const int testId)
+{
+    int isFav = this->m_db.testDao()->isFavourite(testId);
+    if(isFav == 1){
+        m_isFavourite = true;
+    }
+    else{
+        m_isFavourite = false;
+    }
+    return m_isFavourite;
+}
+
+void TestModel::setIsFavourite(const bool &isFavourite)
+{
+    if(m_isFavourite != isFavourite){
+        m_isFavourite = isFavourite;
+        emit isFavouriteChanged();
+    }
 }
 
 TestModel::~TestModel()

@@ -77,6 +77,22 @@ void TestDao::editTest(int id, int isFavourite) const
     DataManager::debugQuery(query);
 }
 
+int TestDao::isFavourite(int id) const
+{
+    QSqlQuery query(m_database);
+    query.prepare("SELECT isFavourite FROM tests WHERE id = ?");
+    query.bindValue(0,id);
+
+    query.exec();
+    DataManager::debugQuery(query);
+
+    int isFav;
+    while (query.next()){
+        isFav = query.value(0).toInt();
+    }
+    return isFav;
+}
+
 unique_ptr<vector<unique_ptr<Test>>> TestDao::tests(const int sectionId) const
 {
     QSqlQuery query(m_database);

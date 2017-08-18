@@ -76,7 +76,7 @@ Item {
                         radius: 4
                         MouseArea {
                             anchors.fill: parent
-                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id});
+                            onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id, "isHome": true});
                         }
                         ColumnLayout{
                             anchors.top: parent.top

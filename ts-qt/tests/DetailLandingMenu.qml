@@ -60,6 +60,7 @@ Item{
                     height: 45
                     color: Universal.accent
                     radius: 4
+                    visible: !testModel.isFavourite(navigationModel.navigationParameter.id)
                     RowLayout{
                         anchors.fill: parent
                         Item{
@@ -101,6 +102,7 @@ Item{
                     height: 45
                     color: Universal.accent
                     radius: 4
+                    visible: testModel.isFavourite(navigationModel.navigationParameter.id)
                     RowLayout{
                         anchors.fill: parent
                         Item{

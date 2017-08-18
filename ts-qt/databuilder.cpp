@@ -565,7 +565,7 @@ int DataBuilder::build()
     Summary sumRfST("RF/ Squitter Timming", adsbOut1090.id(), 6, 1, 0, 2, 1);
     sumModel.addSummary(sumRfST);
 
-    TestParam tpRfSTEsr("extended-Squitter-Rate", sumRfST.id(), "Extended Squitter Rate", "__.__", "sec", "", "", "", "", 0, 0, 1, 2, "l40.v20.u20");
+    TestParam tpRfSTEsr("extended-Squitter-Rate", sumRfST.id(), "Extended Squitter Rate", "__.__", "sec", "", "", "", "", 0, 0, 1, 2, "l40.v20.u20.v0.u0.v0.u0");
     tpModel.addTestParam(tpRfSTEsr);
 
     Summary sumRfData("1090 MHz RF Data", adsbOut1090.id(), 6, 2, 0, 2, 2);

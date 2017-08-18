@@ -103,7 +103,8 @@ Item{
                                                                          navigationModel.navigationParameter.id), {
                                                                          "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
-                                                                         "runState": testRunButton.state
+                                                                         "runState": testRunButton.state,
+                                                                         "isHome": navigationModel.navigationParameter.isHome
                                                                      });
                         }
                     }
@@ -210,7 +211,8 @@ Item{
                                                                      {
                                                                          "id": navigationModel.navigationParameter.id,
                                                                          "title": navigationModel.navigationParameter.title,
-                                                                         "runState": testRunButton.state
+                                                                         "runState": testRunButton.state,
+                                                                         "isHome": navigationModel.navigationParameter.isHome
                                                                      });
                         }
                     }
