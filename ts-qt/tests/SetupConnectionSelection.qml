@@ -38,6 +38,8 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: connectionSelectionPopup.close()
                         }
                     }
@@ -98,6 +100,9 @@ Item{
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
+                                onCanceled: parent.opacity = 1
                                 onClicked: connectionListView.currentIndex = index
                             }
                         }

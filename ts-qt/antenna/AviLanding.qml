@@ -96,7 +96,7 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
-                            onPressed: parent.opacity = 0.9
+                            onPressed: parent.opacity = 0.5
                             onReleased: parent.opacity = 1
                             onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
                                                                                                    {
@@ -134,7 +134,7 @@ Item{
                         MouseArea {
                             anchors.fill: parent
                             onClicked: calPopup.open()
-                            onPressed: parent.opacity = 0.9
+                            onPressed: parent.opacity = 0.5
                             onReleased: parent.opacity = 1
                         }
                     }
@@ -191,7 +191,7 @@ Item{
                             id: mouseArea
                             anchors.fill: parent
                             onPressed: {
-                                parent.opacity = 0.9
+                                parent.opacity = 0.5
                                 if (parent.state == "start") {
                                     parent.state = "pause"
                                 }

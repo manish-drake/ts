@@ -50,6 +50,8 @@ Item {
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: testSetupPopup.close()
                         }
                     }
@@ -59,10 +61,10 @@ Item {
                     anchors.left:parent.left
                     anchors.right:parent.right
                     Layout.topMargin: 15
-                    height: 120
+                    height: 135
                     RowLayout{
                         anchors.fill: parent
-                        spacing: 5
+                        spacing: 0
                         Item{
                             Layout.fillWidth: true
                         }
@@ -85,6 +87,8 @@ Item {
                                 font.pixelSize: 14
                                 text: checked ? "EXTERNAL" : "INTERNAL"
                                 padding: 0
+                                onPressed: opacity = 0.5
+                                onReleased: opacity = 1
                                 background: Item{}
                                 indicator: Item{}
                                 contentItem: ColumnLayout{
@@ -103,6 +107,7 @@ Item {
                                     Text{
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
+                                        Layout.bottomMargin: 15
                                         text: gpsSourceSwitch.text
                                         font.pixelSize: 13
                                         font.weight: Font.Black
@@ -131,6 +136,8 @@ Item {
                                 font.pixelSize: 14
                                 text: checked ? "BOTTOM" : "TOP"
                                 padding: 0
+                                onPressed: opacity = 0.5
+                                onReleased: opacity = 1
                                 background: Item{}
                                 indicator: Item{}
                                 contentItem: ColumnLayout{
@@ -149,6 +156,7 @@ Item {
                                     Text{
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
+                                        Layout.bottomMargin: 15
                                         text: uutAntennaSwitch.text
                                         font.pixelSize: 13
                                         font.weight: Font.Black
@@ -177,6 +185,8 @@ Item {
                                 font.pixelSize: 14
                                 text: checked ? "OFF" : "ON"
                                 padding: 0
+                                onPressed: opacity = 0.5
+                                onReleased: opacity = 1
                                 background: Item{}
                                 indicator: Item{}
                                 contentItem: ColumnLayout{
@@ -205,6 +215,7 @@ Item {
                                     Text{
                                         Layout.alignment: Qt.AlignHCenter
                                         horizontalAlignment: Text.Center
+                                        Layout.bottomMargin: 15
                                         text: otherToggleSwitch.text
                                         font.pixelSize: 13
                                         font.weight: Font.Black
@@ -223,12 +234,12 @@ Item {
                 Item{
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    Layout.topMargin: 15
                     height: column1.height
                     ColumnLayout{
                         id: column1
                         anchors.left:parent.left
                         anchors.right:parent.right
+                        spacing: 0
                         Text{
                             text: "TEST SET ICAO ADDRESS"
                             font.pixelSize: 14
@@ -237,29 +248,36 @@ Item {
                             color: Universal.foreground
                             opacity: 0.7
                         }
-                        Rectangle{
+                        Item{
                             anchors.left:parent.left
                             anchors.right:parent.right
-                            height: 40
-                            color: "transparent"
-                            border.width: 1
-                            border.color: Universal.accent
-                            radius: 3
-                            RowLayout {
+                            height: 45
+                            Rectangle{
                                 anchors.fill: parent
-                                Text {
-                                    Layout.leftMargin: 10
-                                    Layout.alignment: Qt.AlignVCenter
-                                    font.pixelSize: 16
-                                    font.weight: Font.DemiBold
-                                    font.family: robotoRegular.name
-                                    color: Universal.foreground
-                                    text: icaoAdressSelection.selectedIcaoAdress
-                                    opacity: 0.5
+                                anchors.topMargin: 5
+                                anchors.bottomMargin: 5
+                                color: "transparent"
+                                border.width: 1
+                                border.color: Universal.accent
+                                radius: 3
+                                RowLayout {
+                                    anchors.fill: parent
+                                    Text {
+                                        Layout.leftMargin: 10
+                                        Layout.alignment: Qt.AlignVCenter
+                                        font.pixelSize: 16
+                                        font.weight: Font.DemiBold
+                                        font.family: robotoRegular.name
+                                        color: Universal.foreground
+                                        text: icaoAdressSelection.selectedIcaoAdress
+                                        opacity: 0.5
+                                    }
                                 }
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
                                 onClicked: icaoAdressSelectionPopup.open()
                             }
                         }
@@ -269,7 +287,7 @@ Item {
                 Item{
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    Layout.topMargin: 15
+                    Layout.topMargin: 12.5
                     height: column2.height
                     ColumnLayout{
                         id: column2
@@ -367,9 +385,9 @@ Item {
                                     }
                                     MouseArea{
                                         anchors.fill: parent
-                                        onClicked: distanceSlider.value = distanceSlider.value - 1
-                                        onPressed: parent.opacity = 0.9
+                                        onPressed: parent.opacity = 0.5
                                         onReleased: parent.opacity = 1
+                                        onClicked: distanceSlider.value = distanceSlider.value - 1
                                     }
                                 }
                                 Slider{
@@ -404,6 +422,8 @@ Item {
                                                 font.weight: Font.DemiBold
                                                 MouseArea{
                                                     anchors.fill: parent
+                                                    onPressed: parent.opacity = 0.5
+                                                    onReleased: parent.opacity = 1
                                                     onClicked: distanceInputPopup.open()
                                                 }
                                             }
@@ -425,9 +445,9 @@ Item {
                                     }
                                     MouseArea{
                                         anchors.fill: parent
-                                        onClicked: distanceSlider.value = distanceSlider.value + 1
-                                        onPressed: parent.opacity = 0.9
+                                        onPressed: parent.opacity = 0.5
                                         onReleased: parent.opacity = 1
+                                        onClicked: distanceSlider.value = distanceSlider.value + 1
                                     }
                                 }
                             }
@@ -492,6 +512,8 @@ Item {
                                     }
                                     MouseArea{
                                         anchors.fill: parent
+                                        onPressed: parent.opacity = 0.5
+                                        onReleased: parent.opacity = 1
                                         onClicked: aircraftSelectionPopup.open()
                                     }
                                 }
@@ -562,6 +584,8 @@ Item {
                                             }
                                             MouseArea{
                                                 anchors.fill: parent
+                                                onPressed: parent.opacity = 0.5
+                                                onReleased: parent.opacity = 1
                                                 onClicked: classSelectionPopup.open()
                                             }
                                         }
@@ -617,6 +641,8 @@ Item {
                                             }
                                             MouseArea{
                                                 anchors.fill: parent
+                                                onPressed: parent.opacity = 0.5
+                                                onReleased: parent.opacity = 1
                                                 onClicked: connectionSelectionPopup.open()
                                             }
                                         }

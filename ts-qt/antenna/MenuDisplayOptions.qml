@@ -50,6 +50,8 @@ Item {
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: displayOptionsPopup.close()
                         }
                     }
@@ -109,7 +111,9 @@ Item {
                                         color: Universal.accent
                                     }
                                 }
-                            }
+                            }                            
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onCheckedChanged: {
                                 if(checked) {
                                     _theme = Universal.Dark
@@ -178,10 +182,6 @@ Item {
                                                 text: control.value.toFixed(0)
                                                 font.pixelSize: 14
                                                 font.weight: Font.DemiBold
-                                                MouseArea{
-                                                    anchors.fill: parent
-                                                    onClicked: distanceInputPopup.open()
-                                                }
                                             }
                                         }
                                     }

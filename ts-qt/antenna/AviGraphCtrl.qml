@@ -54,7 +54,9 @@ RowLayout{
                     font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
-            }
+            }            
+            onPressed: opacity = 0.5
+            onReleased: opacity = 1
             onCheckedChanged: {
                 isScaleChecked = checked
             }
@@ -86,7 +88,9 @@ RowLayout{
                     font.family: robotoRegular.name
                     horizontalAlignment: Text.AlignHCenter
                 }
-            }
+            }            
+            onPressed: opacity = 0.5
+            onReleased: opacity = 1
         }
 
         Image{
@@ -322,6 +326,8 @@ RowLayout{
                     markerMaxVal = checked ? 49.21 : 15;
                     markersModel.get(selectedMarkerIndex)._val = checked ? (markersModel.get(selectedMarkerIndex)._val * 3.28084) : (markersModel.get(selectedMarkerIndex)._val / 3.28084)
                 }
+                onPressed: opacity = 0.5
+                onReleased: opacity = 1
             }
         }
         Item{
@@ -351,7 +357,7 @@ RowLayout{
                         Layout.fillWidth: parent
                     }
                     handle: Rectangle {
-                        opacity: control.pressed ? 0.9 : 1
+                        opacity: control.pressed ? 0.8 : 1
                         color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
                         border.color: "#dddddd"
                         border.width: index == selectedMarkerIndex ? 0 : 1

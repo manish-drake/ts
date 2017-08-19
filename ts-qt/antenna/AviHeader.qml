@@ -48,7 +48,7 @@ Rectangle{
         }
         MouseArea {
             anchors.fill: parent
-            onPressed: parent.opacity = 0.8
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
             onClicked: menuPopup.open()
         }

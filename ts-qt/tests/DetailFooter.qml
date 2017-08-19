@@ -31,7 +31,7 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked:navigationModel.currentView = navigationModel.getTargetView("Previous",{"id": navigationModel.navigationParameter.id})
-                    onPressed: parent.opacity = 0.9
+                    onPressed: parent.opacity = 0.5
                     onReleased: parent.opacity = 1
                 }
             }
@@ -69,7 +69,7 @@ Rectangle{
                                                            "runState": testRunButton.state
                                                        })
                     }
-                    onPressed: parent.opacity = 0.9
+                    onPressed: parent.opacity = 0.5
                     onReleased: parent.opacity = 1
                 }
             }
@@ -104,7 +104,7 @@ Rectangle{
                 }
                 MouseArea {
                     anchors.fill: parent
-                    onPressed: parent.opacity = 0.9
+                    onPressed: parent.opacity = 0.5
                     onReleased: parent.opacity = 1
                     onClicked: {
                         navigationModel.currentView = navigationModel.getTargetView("_section", 1)
@@ -140,7 +140,7 @@ Rectangle{
                 MouseArea {
                     anchors.fill: parent
                     onClicked: testSetupPopup.open()
-                    onPressed: parent.opacity = 0.9
+                    onPressed: parent.opacity = 0.5
                     onReleased: parent.opacity = 1
                 }
             }
@@ -207,7 +207,7 @@ Rectangle{
                     id: mouseArea
                     anchors.fill: parent
                     onPressed: {
-                        parent.opacity = 0.9
+                        parent.opacity = 0.5
                         if (parent.state == "start") {
                             parent.state = "pause"
                         }

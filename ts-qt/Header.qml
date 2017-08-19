@@ -6,14 +6,14 @@ Rectangle {
     id: content
     height: 48
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    Item{
+    Rectangle{
         id: toggleMenu
         visible: navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 5
         width: 50
+        color: "transparent"
         Image {
             id:toggleMenuImg
             anchors.centerIn: parent
@@ -25,12 +25,10 @@ Rectangle {
 //            color: Universal.accent
 //        }
         MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                sideMenuDrawer.open()
-            }
-            onPressed: parent.opacity = 0.8
+            anchors.fill: parent            
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
+            onClicked: sideMenuDrawer.open()
         }
     }
     Item{
@@ -53,9 +51,9 @@ Rectangle {
 //        }
         MouseArea {
             anchors.fill: parent
-            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
-            onPressed: parent.opacity = 0.8
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
+            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
         }
     }
 
@@ -130,12 +128,12 @@ Rectangle {
         }
         MouseArea {
             anchors.fill: parent
+            onPressed: parent.opacity = 0.4
+            onReleased: parent.opacity = 1            
             onClicked: {
                 menuPopup.open()
                 console.log("TODO: add code for right menu");
             }
-            onPressed: parent.opacity = 0.5
-            onReleased: parent.opacity = 1
         }
     }
 }

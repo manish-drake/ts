@@ -26,7 +26,7 @@ Rectangle {
         //        }
         MouseArea {
             anchors.fill: parent
-            onPressed: parent.opacity = 0.8
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
             onClicked: {
                 if(navigationModel.navigationParameter.isHome){
@@ -87,7 +87,7 @@ Rectangle {
             onClicked: {
                 menuPopup.open()
             }
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
         }
     }
