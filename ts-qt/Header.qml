@@ -13,7 +13,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 50
-        color: "transparent"
+        color: toggleMenuMouseArea.pressed ? "#80999999" : "transparent"
         Image {
             id:toggleMenuImg
             anchors.centerIn: parent
@@ -25,13 +25,14 @@ Rectangle {
 //            color: Universal.accent
 //        }
         MouseArea {
+            id: toggleMenuMouseArea
             anchors.fill: parent            
             onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
             onClicked: sideMenuDrawer.open()
         }
     }
-    Item{
+    Rectangle{
         id: goBack
         visible: !navigationModel.isSideMenuAvailable
         anchors.top: parent.top
@@ -39,6 +40,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 5
         width: 50
+        color: backMouseArea.pressed ? "#80999999" : "transparent"
         Image {
             id:leftImg
             anchors.centerIn: parent
@@ -50,6 +52,7 @@ Rectangle {
 //            color: Universal.accent
 //        }
         MouseArea {
+            id: backMouseArea
             anchors.fill: parent
             onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
@@ -98,11 +101,12 @@ Rectangle {
     //                onReleased: parent.opacity = 1
     //            }
     //        }
-    Item{
+    Rectangle{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
+        color: menuMouseArea.pressed ? "#80999999" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter
@@ -127,6 +131,7 @@ Rectangle {
             }
         }
         MouseArea {
+            id: menuMouseArea
             anchors.fill: parent
             onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1            
