@@ -36,11 +36,17 @@ public:
     bool removeRows(int row, int count, const QModelIndex& parent) override;
     QHash<int, QByteArray> roleNames() const override;
 
-    Q_INVOKABLE void addToHome(const int &testId);
-    Q_INVOKABLE void removeFromHome(const int &id);
+//    Q_PROPERTY(bool isFavourite READ isFavourite WRITE setIsFavourite NOTIFY isFavouriteChanged)
+
+    Q_INVOKABLE void setFavourite(const int &testId,const bool &isFavourite);
+    Q_INVOKABLE bool isFavourite(const int testId);
+
+    void setIsFavourite(const bool &isFavourite);
 
     ~TestModel();
 signals:
+    void isFavouriteChanged();
+
 private:
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
@@ -48,6 +54,7 @@ private:
 private:
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Test>>> m_tests;
+    bool m_isFavourite;
 };
 
 #endif // TESTMODEL_H

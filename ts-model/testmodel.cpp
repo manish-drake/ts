@@ -5,7 +5,8 @@ using namespace std;
 TestModel::TestModel(QObject *parent):
     ModelBase(parent),
     m_db(DataManager::instance()),
-    m_tests(m_db.testDao()->tests(0))
+    m_tests(m_db.testDao()->homeTests()),
+    m_isFavourite(false)
 {
 }
 
@@ -103,16 +104,36 @@ QHash<int, QByteArray> TestModel::roleNames() const
     return hash;
 }
 
-void TestModel::addToHome(const int &testId)
+void TestModel::setFavourite(const int &testId, const bool &isFavourite)
 {
     auto testDao = this->m_db.testDao();
-    testDao->editTest(testId, 1);
+    if(isFavourite){
+        testDao->editTest(testId, 0);
+    }
+    else{
+        testDao->editTest(testId, 1);
+    }
+    this->setIsFavourite(!isFavourite);
 }
 
-void TestModel::removeFromHome(const int &testId)
+bool TestModel::isFavourite(const int testId)
 {
-    auto testDao = this->m_db.testDao();
-    testDao->editTest(testId, 0);
+    int isFav = this->m_db.testDao()->isFavourite(testId);
+    if(isFav == 1){
+        m_isFavourite = true;
+    }
+    else{
+        m_isFavourite = false;
+    }
+    return m_isFavourite;
+}
+
+void TestModel::setIsFavourite(const bool &isFavourite)
+{
+    if(m_isFavourite != isFavourite){
+        m_isFavourite = isFavourite;
+        emit isFavouriteChanged();
+    }
 }
 
 TestModel::~TestModel()

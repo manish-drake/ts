@@ -9,7 +9,7 @@ QString ResourceNameCoupling::getPageFromViewId(const int &viewId) const{
     case 3:
     case 34:
     case 41:
-        return "TestGroup.qml";
+        return "TestGroupPage.qml";
     case 39:
     case 42:
         return "tests/DetailLanding.qml";

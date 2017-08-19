@@ -26,9 +26,18 @@ Rectangle {
         //        }
         MouseArea {
             anchors.fill: parent
-            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
             onPressed: parent.opacity = 0.8
             onReleased: parent.opacity = 1
+            onClicked: {
+                if(navigationModel.navigationParameter.isHome){
+                    navigationModel.currentView = navigationModel.getTargetView("_section", 1)
+                    headerTitle = "Home"
+                    sideMenu.selectedMenuIndex = 1
+                }
+                else{
+                    navigationModel.currentView = navigationModel.getTargetView("back")
+                }
+            }
         }
     }
     Text {
