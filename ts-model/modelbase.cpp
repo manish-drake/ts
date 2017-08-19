@@ -1,3 +1,4 @@
+#include <QDebug>
 #include "modelbase.h"
 
 ModelBase::ModelBase(QObject *parent) : QAbstractListModel(parent)
