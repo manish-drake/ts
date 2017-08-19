@@ -13,7 +13,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 50
-        color: toggleMenuMouseArea.pressed ? "#80999999" : "transparent"
+        color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:toggleMenuImg
             anchors.centerIn: parent
@@ -27,7 +27,7 @@ Rectangle {
         MouseArea {
             id: toggleMenuMouseArea
             anchors.fill: parent            
-            onPressed: parent.opacity = 0.4
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
             onClicked: sideMenuDrawer.open()
         }
@@ -40,7 +40,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 5
         width: 50
-        color: backMouseArea.pressed ? "#80999999" : "transparent"
+        color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:leftImg
             anchors.centerIn: parent
@@ -54,7 +54,7 @@ Rectangle {
         MouseArea {
             id: backMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.4
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
             onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
         }
@@ -74,39 +74,12 @@ Rectangle {
         font.family: robotoRegular.name
         elide: Text.ElideRight
     }
-
-    //         Item{
-    //            id: toggleConfigPanel
-    //            anchors.horizontalCenter: parent.horizontalCenter
-    //            anchors.top: parent.top
-    //            anchors.bottom: parent.bottom
-    //            width: 50
-    //            Image {
-    //                id: imageCenter
-    //                anchors.verticalCenter: parent.verticalCenter
-    //                anchors.horizontalCenter: parent.horizontalCenter
-    //                source: "qrc:/img/img/Circled Chevron Down-30.png"
-    //            }
-    ////            ColorOverlay{
-    ////                anchors.fill: imageCenter
-    ////                source: imageCenter
-    ////                color: Universal.accent
-    ////            }
-    //            MouseArea {
-    //                anchors.fill: parent
-    //                onClicked: {
-    //                    configPanelPopup.open()
-    //                }
-    //                onPressed: parent.opacity = 0.5
-    //                onReleased: parent.opacity = 1
-    //            }
-    //        }
     Rectangle{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
-        color: menuMouseArea.pressed ? "#80999999" : "transparent"
+        color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter
@@ -133,7 +106,7 @@ Rectangle {
         MouseArea {
             id: menuMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.4
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1            
             onClicked: {
                 menuPopup.open()

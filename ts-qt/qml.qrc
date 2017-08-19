@@ -3,7 +3,7 @@
         <file>main.qml</file>
         <file>Header.qml</file>
         <file>Footer.qml</file>
-        <file>MoreActions.qml</file>
+        <file>ActionsMenu.qml</file>
         <file>CustomSwitchDelegate.qml</file>
         <file>SideMenu.qml</file>
         <file>antenna/AviationDTF.qml</file>
@@ -56,42 +56,29 @@
         <file>TestGroupPage.qml</file>
         <file>tests/TransponderTestList.qml</file>
         <file>tests/DetailLandingMenu.qml</file>
-        <file>tests/MenuDisplayOptions.qml</file>
         <file>tests/DetailLandingHeader.qml</file>
         <file>antenna/AviLandingHeader.qml</file>
         <file>antenna/AviLandingMenu.qml</file>
-        <file>antenna/MenuDisplayOptions.qml</file>
         <file>antenna/AviMenu.qml</file>
         <file>antenna/AviHeader.qml</file>
         <file>TestGroup.qml</file>
+        <file>DisplayOptions.qml</file>
+        <file>tests/DisplayOptions.qml</file>
+        <file>antenna/DisplayOptions.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
-        <file>img/Circled Chevron Down-30.png</file>
         <file>img/Delete-25.png</file>
-        <file>img/Sun Filled-25.png</file>
-        <file>img/filter-results-button.png</file>
-        <file>img/Minus-30.png</file>
-        <file>img/Help Filled-25.png</file>
         <file>img/Settings-25.png</file>
-        <file>img/Running-25.png</file>
-        <file>img/Repeat-25.png</file>
         <file>img/Upload to the Cloud-25.png</file>
-        <file>img/album.png</file>
-        <file>img/Info-24.png</file>
         <file>img/Download-22.png</file>
         <file>img/waveform.png</file>
         <file>img/Radar-25.png</file>
         <file>img/View Details-25.png</file>
         <file>img/Area Chart-25.png</file>
-        <file>img/Circled Up-25.png</file>
-        <file>img/Marker-25.png</file>
-        <file>img/aeroplane.png</file>
         <file>img/Expand Arrow-20.png</file>
-        <file>img/Collapse Arrow-20.png</file>
         <file>img/play-button.png</file>
         <file>img/stop-button.png</file>
-        <file>img/Nintendo DS-25.png</file>
         <file>img/graph-back.png</file>
         <file>img/Past-22.png</file>
         <file>img/Delete2-25.png</file>
@@ -99,7 +86,6 @@
         <file>img/Network Cable-22.png</file>
         <file>img/Controller-25.png</file>
         <file>img/Eye-25.png</file>
-        <file>img/Attach-18.png</file>
         <file>img/Full Battery-25.png</file>
         <file>img/wifi-signal-waves.png</file>
         <file>img/profile-circle.png</file>
@@ -122,18 +108,14 @@
         <file>img/left.png</file>
         <file>img/results.png</file>
         <file>img/guide.png</file>
-        <file>img/Star1.png</file>
         <file>img/brightness.png</file>
         <file>img/exit.png</file>
-        <file>img/Expand Arrow-black.png</file>
         <file>img/Settings-black.png</file>
-        <file>img/star-filled.png</file>
         <file>img/Delete-white.png</file>
         <file>img/Download-white.png</file>
         <file>img/port.png</file>
         <file>img/wifi-direct.png</file>
         <file>img/antenna2.png</file>
-        <file>img/Sun Filled-white.png</file>
         <file>img/star-white.png</file>
         <file>img/List.png</file>
         <file>img/SkiptoStart.png</file>
@@ -141,6 +123,7 @@
         <file>img/Home.png</file>
         <file>img/Past-white.png</file>
         <file>img/Star Filled.png</file>
+        <file>img/List View.png</file>
     </qresource>
     <qresource prefix="/database"/>
     <qresource prefix="/fonts">

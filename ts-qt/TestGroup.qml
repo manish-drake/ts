@@ -10,7 +10,7 @@ Item{
     property bool isHome
     Text{
         anchors.centerIn: parent
-        text: "'No test exists in home yet'"
+        text: "'No test exists'"
         font.pixelSize: 14
         font.weight: Font.Thin
         font.italic: true

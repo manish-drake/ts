@@ -267,6 +267,6 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: MenuDisplayOptions{}
+        contentItem: DisplayOptions{}
     }
 }

@@ -7,13 +7,13 @@ Rectangle {
     height: 48
     color: Universal.theme === Universal.Light ? "#E6E7E8" : "#1A1A1A"
 
-    Item{
+    Rectangle{
         id: goBack
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 5
         width: 50
+        color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:leftImg
             anchors.centerIn: parent
@@ -25,8 +25,9 @@ Rectangle {
         //            color: Universal.accent
         //        }
         MouseArea {
+            id: backMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.4
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
             onClicked: {
                 if(navigationModel.navigationParameter.isHome){
@@ -54,11 +55,12 @@ Rectangle {
         font.family: robotoRegular.name
         elide: Text.ElideRight
     }
-    Item{
+    Rectangle{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
+        color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter
@@ -83,12 +85,11 @@ Rectangle {
             }
         }
         MouseArea {
+            id: menuMouseArea
             anchors.fill: parent
-            onClicked: {
-                menuPopup.open()
-            }
-            onPressed: parent.opacity = 0.4
-            onReleased: parent.opacity = 1
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1            
+            onClicked: menuPopup.open()
         }
     }
 }
