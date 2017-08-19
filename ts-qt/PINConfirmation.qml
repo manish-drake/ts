@@ -49,6 +49,8 @@ Item {
                 color: "gray"
                 MouseArea{
                     anchors.fill: parent
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
                     onClicked: {
                         pinaccepttimer.running = false
                         pinConfirmPopup.close()

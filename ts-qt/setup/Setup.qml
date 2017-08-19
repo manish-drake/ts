@@ -83,6 +83,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked: {
                             zmq.queryUsers();
                             navigationModel.currentView = navigationModel.getTargetView("User");
@@ -158,6 +161,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Display")
                     }
                 }
@@ -249,6 +255,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("GPS")
                     }
                 }
@@ -340,6 +349,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Network")
                     }
                 }
@@ -371,6 +383,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("System-Info")
                     }
                 }
@@ -402,6 +417,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Connection")
                     }
                 }
@@ -433,6 +451,9 @@ Item {
                     }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Run-Manual-Bit")
                     }
                 }

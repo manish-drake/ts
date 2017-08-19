@@ -53,6 +53,8 @@ Item {
                         color: "gray"
                         MouseArea{
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: connectionReqPopup.close()
                         }
                     }
@@ -69,6 +71,8 @@ Item {
                         color: Universal.accent
                         MouseArea{
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: {
                                 connectionReqPopup.close();
                                 controlNavigationModel.generatePIN(0);

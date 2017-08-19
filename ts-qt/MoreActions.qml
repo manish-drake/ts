@@ -20,7 +20,9 @@ Rectangle{
             source: Universal.theme === Universal.Light ? "qrc:/img/img/Sun Filled-25.png" : "qrc:/img/img/Sun Filled-white.png"
             isChecked: true
             MouseArea{
-                anchors.fill: parent
+                anchors.fill: parent                
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
                 onClicked: {
                     if(Universal.theme === Universal.Light) {
                         _theme = Universal.Dark
@@ -30,60 +32,6 @@ Rectangle{
                 }
             }
         }
-//        CustomSwitchDelegate{
-//            text: "SETUP TEST"
-//            source: "qrc:/img/img/Settings-black.png"
-//            isChecked: true
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: { menuPopup.close(); testSetupPopup.open()}
-//            }
-//        }
-//        CustomSwitchDelegate{
-//            text: "HELP"
-//            source: "qrc:/img/img/Help Filled-25.png"
-//            isChecked: true
-//            MouseArea{
-//                anchors.fill: parent
-//                onClicked: { menuPopup.close(); helpPopup.open() }
-//            }
-//        }
-//        CustomSwitchDelegate{
-//            text: "CLEAR"
-//            source: "qrc:/img/img/Minus-30.png"
-//            isChecked: true
-//        }
-//        CustomSwitchDelegate{
-//            text: "DUAL PANEL"
-//            source: "qrc:/img/img/Nintendo DS-25.png"
-//            isChecked: true
-//        }
-//        CustomSwitchDelegate{
-//            text: "FILTER"
-//            source: "qrc:/img/img/filter-results-button.png"
-//            isChecked: true
-//        }
-//        CustomSwitchDelegate{
-//            text: "RUN ALL"
-//            source: "qrc:/img/img/Running-25.png"
-//        }
-//        CustomSwitchDelegate{
-//            text: "REPEAT"
-//            source: "qrc:/img/img/Repeat-25.png"
-//        }
-//        CustomSwitchDelegate{
-//            text: "LOG DATA"
-//            source: "qrc:/img/img/Upload to the Cloud-25.png"
-//            isChecked: true
-//        }
-//        CustomSwitchDelegate{
-//            text: "HOME"
-//            source: "qrc:/img/img/star-filled.png"
-//        }
-//        CustomSwitchDelegate{
-//            text: "GUIDE"
-//            source: "qrc:/img/img/Info-24.png"
-//        }
         RowLayout{
             anchors.left: parent.left
             anchors.right: parent.right
@@ -122,6 +70,8 @@ Rectangle{
                 }
                 MouseArea{
                     anchors.fill: parent
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
                     onClicked:{
                         menuPopup.close()
                         navigationModel.currentView = navigationModel.getTargetView("App-Logs")
@@ -137,6 +87,8 @@ Rectangle{
                 font.family: robotoRegular.name
                 MouseArea{
                     anchors.fill: parent
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
                     onClicked: {
                         menuPopup.close();
                         connectionReqPopup.open()

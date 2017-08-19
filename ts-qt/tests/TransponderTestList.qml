@@ -49,6 +49,8 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: transponderTestsListPopup.close()
                         }
                     }
