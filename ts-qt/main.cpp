@@ -43,7 +43,7 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
 
 int main(int argc, char *argv[])
 {
-    qInfo() << "main()";
+    qDebug() << "main()";
 
     if(DATA_CREATION_MODE){
         DataBuilder builder;

@@ -138,7 +138,7 @@ void TestModel::qualifyByView(const int view)
         temp_Tests = m_db.testDao()->tests(7);
         break;
     default:
-        temp_Tests = m_db.testDao()->tests(0);
+        temp_Tests = std::unique_ptr<std::vector<std::unique_ptr<Test>>>();
         break;
     }
 
@@ -149,11 +149,13 @@ void TestModel::qualifyByView(const int view)
         endRemoveRows();
     }
 
-    auto sz_temp = temp_Tests->size();
-    if(sz_temp > 0){
-        beginInsertRows(QModelIndex(), 0, sz_temp - 1);
-        m_tests = std::move(temp_Tests);
-        endInsertRows();
+    if(temp_Tests){
+        auto sz_temp = temp_Tests->size();
+        if(sz_temp > 0){
+            beginInsertRows(QModelIndex(), 0, sz_temp - 1);
+            m_tests = std::move(temp_Tests);
+            endInsertRows();
+        }
     }
 }
 

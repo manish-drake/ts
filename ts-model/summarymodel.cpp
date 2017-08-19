@@ -215,8 +215,7 @@ void SummaryModel::qualifyByView(const int view)
         this->setCurrentPage(view - 43);
         break;
     default:
-        temp_summaries = m_db.summaryDao()->summaries(0, 0);
-        this->setCurrentPage(0);
+        temp_summaries = std::unique_ptr<std::vector<std::unique_ptr<Summary>>>();
         break;
     }
 
@@ -227,11 +226,13 @@ void SummaryModel::qualifyByView(const int view)
         endRemoveRows();
     }
 
-    auto sz_temp = temp_summaries->size();
-    if(sz_temp > 0){
-        beginInsertRows(QModelIndex(), 0, sz_temp - 1);
-        m_summaries = std::move(temp_summaries);
-        endInsertRows();
+    if(temp_summaries){
+        auto sz_temp = temp_summaries->size();
+        if(sz_temp > 0){
+            beginInsertRows(QModelIndex(), 0, sz_temp - 1);
+            m_summaries = std::move(temp_summaries);
+            endInsertRows();
+        }
     }
 }
 
