@@ -19,13 +19,13 @@ Item{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
-                spacing: 4
+                spacing: 0
                 Item{
                     height: 40
                     anchors.left:parent.left
                     anchors.right:parent.right
                     Layout.topMargin: 5
-                    Layout.bottomMargin: 10
+                    Layout.bottomMargin: 12
                     Text {
                         anchors.centerIn: parent
                         text: "OPTIONS"
@@ -35,18 +35,20 @@ Item{
                         color: Universal.foreground
                         opacity: 0.8
                     }
-                    Item{
+                    Rectangle{
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
-                        anchors.rightMargin: 15
-                        width: 35
+                        anchors.rightMargin: 5
+                        width: 55
+                        color: closeMouseArea.pressed ? "#80aaaaaa" : "transparent"
                         Image {
                             id: closeImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
                         }
                         MouseArea {
+                            id: closeMouseArea
                             anchors.fill: parent
                             onPressed: parent.opacity = 0.5
                             onReleased: parent.opacity = 1
@@ -54,37 +56,42 @@ Item{
                         }
                     }
                 }
-                Rectangle{
+                Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-                    height: 45
-                    color: Universal.accent
-                    radius: 4
-                    RowLayout{
+                    height: 49
+                    Rectangle{
                         anchors.fill: parent
-                        Item{
-                            height: starImg.height
-                            width: starImg.width
-                            Layout.leftMargin: 30
-                            Layout.alignment: Qt.AlignVCenter
-                            Image {
-                                id: starImg
-                                source: testModel.isFavourite(navigationModel.navigationParameter.id) ?
-                                            "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+                        anchors.topMargin: 2
+                        anchors.bottomMargin: 2
+                        color: Universal.accent
+                        radius: 4
+                        RowLayout{
+                            anchors.fill: parent
+                            Item{
+                                height: starImg.height
+                                width: starImg.width
+                                Layout.leftMargin: 30
+                                Layout.alignment: Qt.AlignVCenter
+                                Image {
+                                    id: starImg
+                                    source: testModel.isFavourite(navigationModel.navigationParameter.id) ?
+                                                "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
+                                }
                             }
-                        }
-                        Text{
-                            Layout.leftMargin: 10
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            text: testModel.isFavourite(navigationModel.navigationParameter.id) ?
-                                      "REMOVE FROM HOMEPAGE" : "ADD TO HOMEPAGE"
-                            font.pixelSize: 13
-                            font.weight: Font.Bold
-                            color: "white"
+                            Text{
+                                Layout.leftMargin: 10
+                                Layout.alignment: Qt.AlignVCenter
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: testModel.isFavourite(navigationModel.navigationParameter.id) ?
+                                          "REMOVE FROM HOMEPAGE" : "ADD TO HOMEPAGE"
+                                font.pixelSize: 13
+                                font.weight: Font.Bold
+                                color: "white"
+                            }
                         }
                     }
                     MouseArea{
@@ -99,36 +106,41 @@ Item{
                         }
                     }
                 }
-                Rectangle{
-                    Layout.bottomMargin: 15
+                Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-                    height: 45
-                    color: Universal.accent
-                    radius: 4
-                    RowLayout{
+                    height: 49
+                    Layout.bottomMargin: 15
+                    Rectangle{
                         anchors.fill: parent
-                        Item{
-                            height: brighnessImg.height
-                            width: brighnessImg.width
-                            Layout.leftMargin: 30
-                            Layout.alignment: Qt.AlignVCenter
-                            Image {
-                                id: brighnessImg
-                                source: "qrc:/img/img/brightness.png"
+                        anchors.leftMargin: 20
+                        anchors.rightMargin: 20
+                        anchors.topMargin: 2
+                        anchors.bottomMargin: 2
+                        color: Universal.accent
+                        radius: 4
+                        RowLayout{
+                            anchors.fill: parent
+                            Item{
+                                height: brighnessImg.height
+                                width: brighnessImg.width
+                                Layout.leftMargin: 30
+                                Layout.alignment: Qt.AlignVCenter
+                                Image {
+                                    id: brighnessImg
+                                    source: "qrc:/img/img/brightness.png"
+                                }
                             }
-                        }
-                        Text{
-                            Layout.leftMargin: 10
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            text: "DISPLAY OPTIONS"
-                            font.pixelSize: 13
-                            font.weight: Font.Bold
-                            color: "white"
+                            Text{
+                                Layout.leftMargin: 10
+                                Layout.alignment: Qt.AlignVCenter
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: "DISPLAY OPTIONS"
+                                font.pixelSize: 13
+                                font.weight: Font.Bold
+                                color: "white"
+                            }
                         }
                     }
                     MouseArea{
