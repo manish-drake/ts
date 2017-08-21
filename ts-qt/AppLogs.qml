@@ -57,6 +57,8 @@ Item{
                 anchors.bottom: parent.bottom
                 width: 50
                 color: deleteMouseArea.pressed ? "#80aaaaaa" : "transparent"
+                enabled: false
+                opacity: enabled ? 1 : 0.4
                 Image {
                     id: image1
                     anchors.centerIn: parent
