@@ -127,7 +127,7 @@ Item{
                     }                    
                     Repeater{
                         id: repeater1
-//                        model: loggingModel
+                        model: loggingModel
                         RowLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right
