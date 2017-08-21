@@ -41,20 +41,20 @@ public:
     Q_INVOKABLE void setFavourite(const int &testId,const bool &isFavourite);
     Q_INVOKABLE bool isFavourite(const int testId);
 
-    void setIsFavourite(const bool &isFavourite);
-
     ~TestModel();
+private:
+    int getRowIndexByID(const int id) const override;
+    void qualifyByView(const int view) override;
+    bool isIndexValid(const QModelIndex &index) const;
 signals:
     void isFavouriteChanged();
 
 private:
-    void qualifyByView(const int view) override;
-    bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;
-private:
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Test>>> m_tests;
     bool m_isFavourite;
+    int m_selectedSectionID = 0;
 };
 
 #endif // TESTMODEL_H

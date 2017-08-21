@@ -40,6 +40,7 @@ public:
     ~SectionGroupModel();
 signals:
 private:
+    int getRowIndexByID(const int id) const override;
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
     double m_listHeight;

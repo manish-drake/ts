@@ -21,6 +21,22 @@
 class TSMODELSHARED_EXPORT SummaryModel: public ModelBase
 {
     Q_OBJECT
+    struct SummaryCounter{
+        int m_testID;
+        int m_pageIndex;
+
+        SummaryCounter(int testID, int pageIndex):
+            m_testID{testID}, m_pageIndex{pageIndex}{}
+
+        SummaryCounter():
+            m_testID{0}, m_pageIndex{0}{}
+
+        bool operator !=(const SummaryCounter &other){
+            return (m_pageIndex != other.m_pageIndex) ||
+                    (m_testID != other.m_testID);
+        }
+    };
+
 public:
     enum Roles {
         IDRole = Qt::UserRole + 1,
@@ -54,13 +70,15 @@ public:
 signals:
     void currentPageChanged(const int &currentPage);
 private:
+    int getRowIndexByID(const int id) const override;
     void qualifyByView(const int view) override;
     bool isIndexValid(const QModelIndex &index) const;
-    double m_listHeight;
+    std::vector<QString> getMicroStylesFromStyleText(const QString &styleText) const;
 private:
+    double m_listHeight;
     DataManager &m_db;
     std::unique_ptr<std::vector<std::unique_ptr<Summary>>> m_summaries;
     int m_currentPage;
-    std::vector<QString> getMicroStylesFromStyleText(const QString &styleText) const;
+    SummaryCounter m_selectedTest;
 };
 #endif // SUMMARYMODEL_H

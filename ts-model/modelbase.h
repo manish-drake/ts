@@ -14,6 +14,8 @@ signals:
 
 protected:
     virtual void qualifyByView(const int view) = 0;
+    virtual int getRowIndexByID(const int id) const = 0;
+    bool setDataByID(const int &ID, const QVariant &value, int role);
 
 public slots:
     void currentViewChanged(const int &currentView);

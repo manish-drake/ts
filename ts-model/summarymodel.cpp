@@ -28,12 +28,12 @@ const QList<QObject*> SummaryModel::getTestParamsForsummary(const int summaryId)
                                tp->rowSpan(),
                                tp->colSpan(),
                                styleVec[0],
-                               styleVec[1],
-                               styleVec[2],
-                               styleVec[3],
-                               styleVec[4],
-                               styleVec[5],
-                               styleVec[6]
+                           styleVec[1],
+                        styleVec[2],
+                        styleVec[3],
+                        styleVec[4],
+                        styleVec[5],
+                        styleVec[6]
 
                         ));
                 qDebug() << summ->name();
@@ -198,21 +198,53 @@ SummaryModel::~SummaryModel()
 
 }
 
+int SummaryModel::getRowIndexByID(const int id) const
+{
+    int row = -1, idx = 0;
+    for(auto &item: *m_summaries){
+        if(item->id() == id)
+        {
+            row = idx;
+            break;
+        }
+        idx += 1;
+    }
+    return row;
+}
+
 void SummaryModel::qualifyByView(const int view)
 {
     decltype (m_summaries) temp_summaries;
     switch (view) {
-    case 6 ... 12:
-        temp_summaries = m_db.summaryDao()->summaries(1, view - 6);
-        this->setCurrentPage(view - 6);
+    case 6 ... 12: {
+        int testID = 1;
+        auto pageIndex = view - 6;
+        if(m_selectedTest != SummaryCounter(testID, pageIndex)){
+            temp_summaries = m_db.summaryDao()->summaries(testID, pageIndex);
+            this->setCurrentPage(pageIndex);
+            m_selectedTest = SummaryCounter(testID, pageIndex);
+        }
         break;
-    case 14 ... 19:
-        temp_summaries = m_db.summaryDao()->summaries(3, view - 14);
-        this->setCurrentPage(view - 14);
+    }
+    case 14 ... 19:{
+        int testID = 3;
+        auto pageIndex = view - 14;
+        if(m_selectedTest != SummaryCounter(testID, pageIndex)){
+            temp_summaries = m_db.summaryDao()->summaries(testID, pageIndex);
+            this->setCurrentPage(pageIndex);
+            m_selectedTest = SummaryCounter(testID, pageIndex);
+        }
+    }
         break;
-    case 43 ... 51:
-        temp_summaries = m_db.summaryDao()->summaries(6, view - 43);
-        this->setCurrentPage(view - 43);
+    case 43 ... 51:{
+        int testID = 6;
+        auto pageIndex = view - 43;
+        if(m_selectedTest != SummaryCounter(testID, pageIndex)){
+            temp_summaries = m_db.summaryDao()->summaries(testID, pageIndex);
+            this->setCurrentPage(pageIndex);
+            m_selectedTest = SummaryCounter(testID, pageIndex);
+        }
+    }
         break;
     default:
         temp_summaries = std::unique_ptr<std::vector<std::unique_ptr<Summary>>>();
