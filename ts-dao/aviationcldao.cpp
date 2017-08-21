@@ -32,8 +32,11 @@ void AviationClDao::init() const
                     "range TEXT,"
                     "bandRange TEXT,"
                     "bandName TEXT)");
-        query.exec(strQuery);
-        DataManager::debugQuery(query);
+        query.prepare(strQuery);
+        auto token = beginExecAsync(query);
+        endExecAsync(token);
+//        query.exec(strQuery);
+//        DataManager::debugQuery(query);
     }
 }
 
@@ -49,8 +52,12 @@ void AviationClDao::addAviationCl(AviationCl &aviationCl) const
     query.bindValue(":range", aviationCl.range());
     query.bindValue(":bandRange", aviationCl.bandRange());
     query.bindValue(":bandName", aviationCl.bandName());
+
+    auto token = beginExecAsync(query);
+    auto lastInsertedId = endExecAsync(token);
+
     query.exec();
-    aviationCl.setId(query.lastInsertId().toInt());
+    aviationCl.setId(lastInsertedId);
 
     DataManager::debugQuery(query);
 }
