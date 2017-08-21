@@ -135,12 +135,15 @@ Item{
             id: detailFooter
             function onRun(){
                 console.log("onRun")
+                footer.testStatus = "in progress";
             }
             function onPause(){
                 console.log("onPause")
+                footer.testStatus = "stopped";
             }
             function onContinue(){
                 console.log("onContinue")
+                footer.testStatus = "in progress";
             }
         }
     }

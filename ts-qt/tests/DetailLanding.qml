@@ -9,12 +9,23 @@ import com.ti.controls 1.0
 Item{
     function onRun(){
         console.log("onRun")
+        navigationModel.setCurrentView(navigationModel.getTargetView(
+                                           "_detailSummary",navigationModel.navigationParameter.id),
+                                       {
+                                           "id": navigationModel.navigationParameter.id,
+                                           "title": navigationModel.navigationParameter.title,
+                                           "runState": testRunButton.state,
+                                           "isHome": navigationModel.navigationParameter.isHome
+                                       });
+        footer.testStatus = "in progress";
     }
     function onPause(){
         console.log("onPause")
+        footer.testStatus = "stopped";
     }
     function onContinue(){
         console.log("onContinue")
+        footer.testStatus = "in progress";
     }
     Page {
         anchors.fill: parent
@@ -234,14 +245,6 @@ Item{
                                 testRunButton.state = "pause"
                                 onContinue();
                             }
-                            navigationModel.setCurrentView(navigationModel.getTargetView(
-                                                               "_detailSummary",navigationModel.navigationParameter.id),
-                                                           {
-                                                               "id": navigationModel.navigationParameter.id,
-                                                               "title": navigationModel.navigationParameter.title,
-                                                               "runState": testRunButton.state,
-                                                               "isHome": navigationModel.navigationParameter.isHome
-                                                           });
                         }
                     }
                 }

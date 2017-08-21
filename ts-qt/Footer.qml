@@ -10,7 +10,7 @@ Rectangle {
     property bool isController: true
     property string connectionType: "port"
     property string testStatus: "end"
-    property string testRunTime: "0:20"
+    property string testRunTime: "0:00"
     RowLayout{
         anchors.fill: parent
         spacing: 0

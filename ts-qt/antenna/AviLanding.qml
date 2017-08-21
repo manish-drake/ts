@@ -9,12 +9,20 @@ import com.ti.controls 1.0
 Item{
     function onRun(){
         console.log("onRun")
+        navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                    {
+                                                                        "id": navigationModel.navigationParameter.id,
+                                                                        "runState": testRunButton.state
+                                                                    });
+//        footer.testStatus = "in progress";
     }
     function onPause(){
         console.log("onPause")
+        footer.testStatus = "stopped";
     }
     function onContinue(){
         console.log("onContinue")
+        footer.testStatus = "in progress";
     }
     Page {
         anchors.fill: parent
@@ -231,11 +239,6 @@ Item{
                                 testRunButton.state = "pause"
                                 onContinue();
                             }
-                            navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                        {
-                                                                                            "id": navigationModel.navigationParameter.id,
-                                                                                            "runState": testRunButton.state
-                                                                                        });
                         }
                     }
                 }
