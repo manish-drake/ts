@@ -7,6 +7,15 @@ import QtQuick.Controls.Styles 1.4
 import com.ti.controls 1.0
 
 Item{
+    function onRun(){
+        console.log("onRun")
+    }
+    function onPause(){
+        console.log("onPause")
+    }
+    function onContinue(){
+        console.log("onContinue")
+    }
     Page {
         anchors.fill: parent
 
@@ -67,7 +76,7 @@ Item{
             height: 110
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"            
             Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -215,12 +224,15 @@ Item{
                         onClicked:{
                             if (testRunButton.state == "start") {
                                 testRunButton.state = "pause"
+                                onRun();
                             }
                             else if(testRunButton.state == "pause"){
                                 testRunButton.state = "continue"
+                                onPause();
                             }
                             else{
                                 testRunButton.state = "pause"
+                                onContinue();
                             }
                             navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                "_detailSummary",navigationModel.navigationParameter.id),
