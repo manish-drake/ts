@@ -133,6 +133,20 @@ AviationDtfModel::~AviationDtfModel()
 
 }
 
+int AviationDtfModel::getRowIndexByID(const int id) const
+{
+    int row = -1, idx = 0;
+    for(auto &item: *m_aviationDtfs){
+        if(item->id() == id)
+        {
+            row = idx;
+            break;
+        }
+        idx += 1;
+    }
+    return row;
+}
+
 void AviationDtfModel::qualifyByView(const int view)
 {
     Q_UNUSED(view)
