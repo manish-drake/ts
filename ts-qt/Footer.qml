@@ -8,50 +8,84 @@ Rectangle {
     height: 40
     color: Universal.theme === Universal.Light ? "#A7A9AC" : "#333333"
     property bool isController: true
+    property string connectionType: "port"
+    property string testStatus: "end"
+    property string testRunTime: "0:00"
     RowLayout{
         anchors.fill: parent
         spacing: 0
-        Text {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 10
-            font.pixelSize: 15
-            text: currentUser
-            font.weight: Font.DemiBold
-            font.family: robotoRegular.name
-            elide:  Text.ElideRight
-            color: "white"
-        }
-        Text {
+        RowLayout{
+            Layout.fillHeight: true
             Layout.fillWidth: true
-            Layout.alignment: Qt.AlignVCenter
-            Layout.leftMargin: 30
-            elide: Text.ElideRight
-            font.pixelSize: 15
-            font.weight: Font.DemiBold
-            font.family: robotoRegular.name
-            text: deviceName
-            color: "white"
+            visible: !navigationModel.isTestRunPage
+            Text {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 10
+                font.pixelSize: 15
+                text: currentUser
+                font.weight: Font.DemiBold
+                font.family: robotoRegular.name
+                elide:  Text.ElideRight
+                color: "white"
+            }
+            Text {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 30
+                elide: Text.ElideRight
+                font.pixelSize: 15
+                font.weight: Font.DemiBold
+                font.family: robotoRegular.name
+                text: deviceName
+                color: "white"
+            }
         }
-        Image {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.rightMargin: 20
-            source: "qrc:/img/img/wifi-direct.png"
-            visible: false
+        RowLayout{
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            visible: navigationModel.isTestRunPage
+            Text {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 10
+                font.pixelSize: 15
+                text: testStatus
+                font.weight: Font.DemiBold
+                font.family: robotoRegular.name
+                font.capitalization: Font.AllUppercase
+                elide:  Text.ElideRight
+                color: "white"
+            }
+            Text {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                Layout.leftMargin: 30
+                elide: Text.ElideRight
+                font.pixelSize: 15
+                font.weight: Font.DemiBold
+                font.family: robotoRegular.name
+                text: testRunTime
+                color: "white"
+            }
         }
-        Image {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.rightMargin: 20
-            source: "qrc:/img/img/port.png"
-        }
-        Image {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.rightMargin: 20
-            source: "qrc:/img/img/Full Battery-25.png"
-        }
-        Image {
-            Layout.alignment: Qt.AlignVCenter
-            Layout.rightMargin: 20
-            source: "qrc:/img/img/wifi-signal-waves.png"
+        RowLayout{
+            Layout.fillHeight: true
+            Image {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.rightMargin: 20
+                source:{
+                    connectionType == "port" ? "qrc:/img/img/port.png" : "qrc:/img/img/wifi-direct.png"
+                }
+            }
+            Image {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.rightMargin: 20
+                source: "qrc:/img/img/Full Battery-25.png"
+            }
+            Image {
+                Layout.alignment: Qt.AlignVCenter
+                Layout.rightMargin: 20
+                source: "qrc:/img/img/wifi-signal-waves.png"
+            }
         }
     }
 }

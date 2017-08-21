@@ -185,7 +185,7 @@ Rectangle{
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
-                            script: detailFooter.onContinue()
+                            script: detailFooter.onContinue();
                         }
                     },
                     State {
@@ -195,7 +195,7 @@ Rectangle{
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
-                            script: detailFooter.onRun()
+                            script: detailFooter.onRun();
                         }
                     },
                     State {
@@ -205,7 +205,7 @@ Rectangle{
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
-                            script: detailFooter.onPause()
+                            script: detailFooter.onPause();
                         }
                     }
                 ]

@@ -9,7 +9,8 @@ NavigationModel::NavigationModel(QObject *parent) :
     m_currentView{2/*Home*/},
     m_isSideMenuAvailable{true},
     m_isHeaderAvailable{true},
-    m_navigations{m_db.navigationDao()->navigations("Global")}
+    m_isTestRunPage{false},
+    m_navigations{m_db.navigationDao()->navigations("Home")}
 {
 
 }
@@ -86,6 +87,19 @@ void NavigationModel::setIsHeaderAvailable(const bool &isHeaderAvailable)
     }
 }
 
+bool NavigationModel::isTestRunPage()
+{
+    return m_isTestRunPage;
+}
+
+void NavigationModel::setIsTestRunPage(const bool &isTestRunPage)
+{
+    if(m_isTestRunPage != isTestRunPage){
+        m_isTestRunPage = isTestRunPage;
+        emit isTestRunPageChanged();
+    }
+}
+
 QVariant NavigationModel::navigationParameter() const
 {
     return this->m_navigationParameter;
@@ -118,6 +132,21 @@ void NavigationModel::evaluteCurrentView()
         break;
     default:
         setIsHeaderAvailable(true);
+        break;
+    }    
+    switch (this->m_currentView)
+    {
+    case 1:
+        setIsTestRunPage(false);
+    case 6 ... 12:
+    case 14 ... 19:
+    case 29 ... 32:
+    case 35 ... 37:
+    case 43 ... 51:
+        setIsTestRunPage(true);
+        break;
+    default:
+        setIsTestRunPage(false);
         break;
     }
 }

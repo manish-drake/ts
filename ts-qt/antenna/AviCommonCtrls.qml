@@ -74,7 +74,7 @@ Item{
                             imageSource: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
-                            script: commonCtrls.onContinue()
+                            script: commonCtrls.onContinue();
                         }
                     },
                     State {
@@ -84,7 +84,7 @@ Item{
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
-                            script: commonCtrls.onRun()
+                            script: commonCtrls.onRun();
                         }
                     },
                     State {
@@ -92,9 +92,8 @@ Item{
                         PropertyChanges {
                             target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
-                        }
-                        StateChangeScript{
-                            script: commonCtrls.onPause()
+                        }StateChangeScript{
+                            script: commonCtrls.onPause();
                         }
                     }
                 ]

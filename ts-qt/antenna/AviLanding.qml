@@ -113,7 +113,7 @@ Item{
                         onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
                                                                                                {
                                                                                                    "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": testRunButton.state
+                                                                                                   "runState": "start"
                                                                                                });
                     }
                 }
@@ -156,47 +156,22 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     spacing: 0
                     Rectangle{
-                        id: testRunButton
                         Layout.alignment: Qt.AlignHCenter
                         Layout.margins: 5
                         height: 70
                         width: 70
                         radius: 35
                         color: Universal.accent
-                        property alias imageSource: buttonImage.source
-                        state: "start"
                         Image {
                             id: buttonImage
                             anchors.centerIn: parent
+                            source: "qrc:/img/img/play-button.png"
                             smooth: true
                         }
-                        states: [
-                            State {
-                                name: "start"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            },
-                            State {
-                                name: "pause"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/pause-button.png"
-                                }
-                            },
-                            State {
-                                name: "continue"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            }
-                        ]
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: testRunButton.state
+                        text: "Start"
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black
@@ -205,26 +180,14 @@ Item{
                         opacity: 0.6
                     }
                     MouseArea {
-                        id: mouseArea
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked: {
-                            if (testRunButton.state == "start") {
-                                testRunButton.state = "pause"
-                            }
-                            else if(testRunButton.state == "pause"){
-                                testRunButton.state = "continue"
-                            }
-                            else{
-                                testRunButton.state = "pause"
-                            }
-                            navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                        {
-                                                                                            "id": navigationModel.navigationParameter.id,
-                                                                                            "runState": testRunButton.state
-                                                                                        });
-                        }
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                                               {
+                                                                                                   "id": navigationModel.navigationParameter.id,
+                                                                                                   "runState": "pause"
+                                                                                               });
                     }
                 }
             }
