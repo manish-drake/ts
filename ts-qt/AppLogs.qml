@@ -8,27 +8,57 @@ import QtQuick.Controls.Universal 2.1
 Item{
     Page {
         anchors.fill: parent
-        header: Rectangle{
-            height: 40
-            anchors.left:parent.left
-            anchors.right:parent.right
+        header:Rectangle {
+            id: content
+            height: 48
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-            Text {
-                id: testTitle
-                anchors.centerIn: parent
-                text: qsTr("App Logs")
-                font.pixelSize: 16
-                font.weight: Font.DemiBold
-                color: Universal.foreground
-                font.family: robotoRegular.name
-            }
-            Item{
-                width: 50
+            Rectangle{
+                id: toggleMenu
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                width: 50
+                color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
+                Image {
+                    id:toggleMenuImg
+                    anchors.centerIn: parent
+                    source: "qrc:/img/img/Menu-25.png"
+                }
+        //        ColorOverlay{
+        //            anchors.fill: toggleMenuImg
+        //            source: toggleMenuImg
+        //            color: Universal.accent
+        //        }
+                MouseArea {
+                    id: toggleMenuMouseArea
+                    anchors.fill: parent
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
+                    onClicked: sideMenuDrawer.open()
+                }
+            }
+            Text {
+                id: headerTitleText
+                text: "App Logs"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: 60
                 anchors.right: parent.right
-                anchors.rightMargin: 10
-                visible: repeater1.count != 0
+                anchors.rightMargin: 40
+                font.bold: Font.DemiBold
+                color: Universal.accent
+                font.pixelSize: 18
+                font.family: robotoRegular.name
+                elide: Text.ElideRight
+            }
+            Rectangle{
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                width: 50
+                color: deleteMouseArea.pressed ? "#80aaaaaa" : "transparent"
+                enabled: false
+                opacity: enabled ? 1 : 0.4
                 Image {
                     id: image1
                     anchors.centerIn: parent
@@ -40,8 +70,11 @@ Item{
 //                    color: Universal.foreground
 //                }
                 MouseArea {
+                    id: deleteMouseArea
                     anchors.fill: parent
-                    onClicked:{}
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
+                    onClicked: {}
                 }
             }
         }
@@ -94,7 +127,7 @@ Item{
                     }                    
                     Repeater{
                         id: repeater1
-//                        model: loggingModel
+                        model: loggingModel
                         RowLayout{
                             anchors.left: parent.left
                             anchors.right: parent.right

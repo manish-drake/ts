@@ -6,14 +6,14 @@ Rectangle {
     id: content
     height: 48
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
-    Item{
+    Rectangle{
         id: toggleMenu
         visible: navigationModel.isSideMenuAvailable
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        anchors.leftMargin: 5
         width: 50
+        color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:toggleMenuImg
             anchors.centerIn: parent
@@ -25,15 +25,14 @@ Rectangle {
 //            color: Universal.accent
 //        }
         MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                sideMenuDrawer.open()
-            }
-            onPressed: parent.opacity = 0.8
+            id: toggleMenuMouseArea
+            anchors.fill: parent            
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
+            onClicked: sideMenuDrawer.open()
         }
     }
-    Item{
+    Rectangle{
         id: goBack
         visible: !navigationModel.isSideMenuAvailable
         anchors.top: parent.top
@@ -41,6 +40,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.leftMargin: 5
         width: 50
+        color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:leftImg
             anchors.centerIn: parent
@@ -52,10 +52,11 @@ Rectangle {
 //            color: Universal.accent
 //        }
         MouseArea {
+            id: backMouseArea
             anchors.fill: parent
-            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
-            onPressed: parent.opacity = 0.8
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
+            onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
         }
     }
 
@@ -73,38 +74,12 @@ Rectangle {
         font.family: robotoRegular.name
         elide: Text.ElideRight
     }
-
-    //         Item{
-    //            id: toggleConfigPanel
-    //            anchors.horizontalCenter: parent.horizontalCenter
-    //            anchors.top: parent.top
-    //            anchors.bottom: parent.bottom
-    //            width: 50
-    //            Image {
-    //                id: imageCenter
-    //                anchors.verticalCenter: parent.verticalCenter
-    //                anchors.horizontalCenter: parent.horizontalCenter
-    //                source: "qrc:/img/img/Circled Chevron Down-30.png"
-    //            }
-    ////            ColorOverlay{
-    ////                anchors.fill: imageCenter
-    ////                source: imageCenter
-    ////                color: Universal.accent
-    ////            }
-    //            MouseArea {
-    //                anchors.fill: parent
-    //                onClicked: {
-    //                    configPanelPopup.open()
-    //                }
-    //                onPressed: parent.opacity = 0.5
-    //                onReleased: parent.opacity = 1
-    //            }
-    //        }
-    Item{
+    Rectangle{
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         width: 50
+        color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter
@@ -129,13 +104,14 @@ Rectangle {
             }
         }
         MouseArea {
+            id: menuMouseArea
             anchors.fill: parent
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1            
             onClicked: {
                 menuPopup.open()
                 console.log("TODO: add code for right menu");
             }
-            onPressed: parent.opacity = 0.5
-            onReleased: parent.opacity = 1
         }
     }
 }

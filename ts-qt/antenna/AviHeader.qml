@@ -18,11 +18,12 @@ Rectangle{
         color: Universal.foreground
         opacity: 0.7
     }
-    Item{
+    Rectangle{
         anchors.right: parent.right
         anchors.leftMargin: 5
         height: 48
-        width: 48
+        width: 48        
+        color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter:  parent.verticalCenter
@@ -47,8 +48,9 @@ Rectangle{
             }
         }
         MouseArea {
+            id: menuMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.8
+            onPressed: parent.opacity = 0.5
             onReleased: parent.opacity = 1
             onClicked: menuPopup.open()
         }

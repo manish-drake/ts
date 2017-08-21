@@ -54,16 +54,19 @@ Rectangle{
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
-                anchors.margins: 10
+                anchors.topMargin: 10
+                anchors.bottomMargin: 10
                 model: sectionGroupModel
                 clip: true
                 delegate:  Component {
                     ColumnLayout{
                         anchors.left: parent.left
                         anchors.right: parent.right
+                        spacing: 0
                         Text{
-                            Layout.topMargin: 4
-                            Layout.leftMargin: 10
+                            Layout.topMargin: 2.5
+                            Layout.bottomMargin: 2.5
+                            Layout.leftMargin: 20
                             text: name
                             font.capitalization: Font.AllUppercase
                             font.pixelSize: 12
@@ -80,6 +83,10 @@ Rectangle{
                                 height: 48
                                 Rectangle{
                                     anchors.fill: parent
+                                    anchors.leftMargin: 10
+                                    anchors.rightMargin: 10
+                                    anchors.topMargin: 2.5
+                                    anchors.bottomMargin: 2.5
                                     color: selectedMenuIndex === model.modelData.id ? "#1B75BC" : Universal.theme === Universal.Light ? Universal.accent : "#222222"
                                     radius: 3
                                     Text {
@@ -92,14 +99,17 @@ Rectangle{
                                         font.family: robotoRegular.name
                                         color: "White"
                                     }
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            navigationModel.currentView = navigationModel.getTargetView("_section", model.modelData.id)
-                                            headerTitle = model.modelData.name
-                                            selectedMenuIndex = model.modelData.id
-                                            sideMenuDrawer.close()
-                                        }
+                                }                                
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onPressed: parent.opacity = 0.7
+                                    onReleased: parent.opacity = 1
+                                    onCanceled: parent.opacity = 1
+                                    onClicked: {
+                                        navigationModel.currentView = navigationModel.getTargetView("_section", model.modelData.id)
+                                        headerTitle = model.modelData.name
+                                        selectedMenuIndex = model.modelData.id
+                                        sideMenuDrawer.close()
                                     }
                                 }
                             }

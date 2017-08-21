@@ -65,52 +65,6 @@ Item{
                     RowLayout{
                         anchors.fill: parent
                         Item{
-                            height: starImg.height
-                            width: starImg.width
-                            Layout.leftMargin: 30
-                            Layout.alignment: Qt.AlignVCenter
-                            Image {
-                                id: starImg
-                                source: testModel.isFavourite(navigationModel.navigationParameter.id) ?
-                                            "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
-                            }
-                        }
-                        Text{
-                            Layout.leftMargin: 10
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            text: testModel.isFavourite(navigationModel.navigationParameter.id) ?
-                                      "REMOVE FROM HOMEPAGE" : "ADD TO HOMEPAGE"
-                            font.pixelSize: 13
-                            font.weight: Font.Bold
-                            color: "white"
-                        }
-                    }
-                    MouseArea{
-                        anchors.fill: parent
-                        onPressed: parent.opacity = 0.5
-                        onReleased: parent.opacity = 1
-                        onClicked: {
-                            testModel.setFavourite(
-                                        navigationModel.navigationParameter.id,
-                                        !testModel.isFavourite(navigationModel.navigationParameter.id));
-                            menuPopup.close()
-                        }
-                    }
-                }
-                Rectangle{
-                    Layout.bottomMargin: 15
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-                    height: 45
-                    color: Universal.accent
-                    radius: 4
-                    RowLayout{
-                        anchors.fill: parent
-                        Item{
                             height: brighnessImg.height
                             width: brighnessImg.width
                             Layout.leftMargin: 30
@@ -141,8 +95,73 @@ Item{
                         }
                     }
                 }
+                Rectangle{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 20
+                    anchors.rightMargin: 20
+                    height: 45
+                    color: Universal.accent
+                    radius: 4
+                    RowLayout{
+                        anchors.fill: parent
+                        Item{
+                            height: attachImg.height
+                            width: attachImg.width
+                            Layout.leftMargin: 30
+                            Layout.alignment: Qt.AlignVCenter
+                            Image {
+                                id: attachImg
+                                source: "qrc:/img/img/List View.png"
+                            }
+                        }
+                        Text{
+                            Layout.leftMargin: 10
+                            Layout.alignment: Qt.AlignVCenter
+                            Layout.fillWidth: true
+                            elide: Text.ElideRight
+                            text: "APP LOGS"
+                            font.pixelSize: 13
+                            font.weight: Font.Bold
+                            color: "white"
+                        }
+                    }
+                    MouseArea{
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
+                        onClicked: {
+                            menuPopup.close()
+                            navigationModel.currentView = navigationModel.getTargetView("App-Logs")
+                            sideMenu.selectedMenuIndex = -1
+                        }
+                    }
+                }
+                Text{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.leftMargin: 20
+                    anchors.rightMargin: 20
+                    Layout.bottomMargin: 20
+                    horizontalAlignment: Text.AlignRight
+                    text: "App Version 0.0.01"
+                    font.pixelSize: 12
+                    color: Universal.foreground
+                    opacity: 0.7
+                    font.family: robotoRegular.name
+                    MouseArea{
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
+                        onClicked: {
+                            menuPopup.close();
+                            connectionReqPopup.open()
+                        }
+                    }
+                }
             }
         }
     }
 }
+
 

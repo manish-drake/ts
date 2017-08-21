@@ -48,6 +48,8 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: menuPopup.close()
                         }
                     }
@@ -87,7 +89,7 @@ Item{
                     }
                     MouseArea{
                         anchors.fill: parent
-                        onPressed: parent.opacity = 0.9
+                        onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
                         onClicked: {
                             testModel.setFavourite(
@@ -131,7 +133,7 @@ Item{
                     }
                     MouseArea{
                         anchors.fill: parent
-                        onPressed: parent.opacity = 0.9
+                        onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
                         onClicked: {
                             menuPopup.close()

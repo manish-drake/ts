@@ -10,15 +10,13 @@ Item{
             Layout.fillWidth: true
             Layout.fillHeight: true
             Layout.maximumWidth: 500
-            Layout.maximumHeight: content.height
             Layout.alignment: Qt.AlignCenter
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
             clip: true
             ColumnLayout{
                 id: content
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors.fill: parent
                 spacing: 4
                 clip: true
                 Item{
@@ -49,6 +47,8 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: transponderTestsListPopup.close()
                         }
                     }
@@ -56,9 +56,9 @@ Item{
                 ListView{
                     id: testsListView
                     Layout.bottomMargin: 25
+                    Layout.fillHeight: true
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    height: 49 * transponderTestsModel.count
                     clip: true
                     spacing: 4
                     currentIndex: -1
@@ -101,6 +101,9 @@ Item{
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
+                                onCanceled: parent.opacity = 1
                                 onClicked: testsListView.currentIndex = index
                             }
                         }

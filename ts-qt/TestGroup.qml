@@ -10,7 +10,7 @@ Item{
     property bool isHome
     Text{
         anchors.centerIn: parent
-        text: "'No test exists in home yet'"
+        text: "'No test exists'"
         font.pixelSize: 14
         font.weight: Font.Thin
         font.italic: true
@@ -109,8 +109,9 @@ Item{
             }
             MouseArea {
                 anchors.fill: parent
-                onPressed: parent.opacity = 0.8
+                onPressed: parent.opacity = 0.7
                 onReleased: parent.opacity = 1
+                onCanceled: parent.opacity = 1
                 onClicked:navigationModel.setCurrentView(navigationModel.getTargetView("_test", id), {"title":name, "id": id, "isHome": isHome});
             }
         }

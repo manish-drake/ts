@@ -78,13 +78,15 @@ Item{
             RowLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.leftMargin: 15
-                anchors.rightMargin: 15
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 anchors.verticalCenter: parent.verticalCenter
                 ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
+                    spacing: 0
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.margins: 5
                         height: 50
                         width: 50
                         radius: 25
@@ -93,16 +95,6 @@ Item{
                             id: resultsImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/results.png"
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onPressed: parent.opacity = 0.9
-                            onReleased: parent.opacity = 1
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                                   {
-                                                                                                       "id": navigationModel.navigationParameter.id,
-                                                                                                       "runState": testRunButton.state
-                                                                                                   });
                         }
                     }
                     Text {
@@ -114,14 +106,26 @@ Item{
                         color: Universal.foreground
                         opacity: 0.6
                     }
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
+                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                                               {
+                                                                                                   "id": navigationModel.navigationParameter.id,
+                                                                                                   "runState": testRunButton.state
+                                                                                               });
+                    }
                 }
                 Item{
                     Layout.fillWidth: true
                 }
                 ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
+                    spacing: 0
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
+                        Layout.margins: 5
                         height: 50
                         width: 50
                         radius: 25
@@ -130,12 +134,6 @@ Item{
                             id: setupImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Settings-25.png"
-                        }
-                        MouseArea {
-                            anchors.fill: parent
-                            onClicked: calPopup.open()
-                            onPressed: parent.opacity = 0.9
-                            onReleased: parent.opacity = 1
                         }
                     }
                     Text {
@@ -147,12 +145,20 @@ Item{
                         color: Universal.foreground
                         opacity: 0.6
                     }
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: calPopup.open()
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
+                    }
                 }
                 ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
-                    Layout.leftMargin: 10
+                    spacing: 0
                     Rectangle{
                         id: testRunButton
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.margins: 5
                         height: 70
                         width: 70
                         radius: 35
@@ -187,28 +193,6 @@ Item{
                                 }
                             }
                         ]
-                        MouseArea {
-                            id: mouseArea
-                            anchors.fill: parent
-                            onPressed: {
-                                parent.opacity = 0.9
-                                if (parent.state == "start") {
-                                    parent.state = "pause"
-                                }
-                                else if(parent.state == "pause"){
-                                    parent.state = "continue"
-                                }
-                                else{
-                                    parent.state = "pause"
-                                }
-                            }
-                            onReleased: parent.opacity = 1
-                            onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                                   {
-                                                                                                       "id": navigationModel.navigationParameter.id,
-                                                                                                       "runState": testRunButton.state
-                                                                                                   });
-                        }
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
@@ -219,6 +203,28 @@ Item{
                         font.family: robotoRegular.name
                         color: Universal.foreground
                         opacity: 0.6
+                    }
+                    MouseArea {
+                        id: mouseArea
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
+                        onClicked: {
+                            if (testRunButton.state == "start") {
+                                testRunButton.state = "pause"
+                            }
+                            else if(testRunButton.state == "pause"){
+                                testRunButton.state = "continue"
+                            }
+                            else{
+                                testRunButton.state = "pause"
+                            }
+                            navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
+                                                                                        {
+                                                                                            "id": navigationModel.navigationParameter.id,
+                                                                                            "runState": testRunButton.state
+                                                                                        });
+                        }
                     }
                 }
             }
@@ -260,7 +266,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: MenuDisplayOptions{}
+        contentItem: DisplayOptions{}
     }
 }
 
