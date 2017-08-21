@@ -184,6 +184,9 @@ Rectangle{
                             target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
+                        StateChangeScript{
+                            script: detailFooter.onContinue();
+                        }
                     },
                     State {
                         name: "pause"
@@ -191,12 +194,18 @@ Rectangle{
                             target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
+                        StateChangeScript{
+                            script: detailFooter.onRun();
+                        }
                     },
                     State {
                         name: "continue"
                         PropertyChanges {
                             target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onPause();
                         }
                     }
                 ]
@@ -219,15 +228,12 @@ Rectangle{
                 onClicked: {
                     if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
-                        detailFooter.onRun();
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
-                        detailFooter.onPause();
                     }
                     else{
                         testRunButton.state = "pause"
-                        detailFooter.onContinue();
                     }
                 }
             }

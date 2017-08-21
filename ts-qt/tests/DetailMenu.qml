@@ -61,6 +61,7 @@ Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
                     height: 49
+                    visible: testID == 6 ? true : false
                     Rectangle{
                         anchors.fill: parent
                         anchors.leftMargin: 20
@@ -69,7 +70,6 @@ Item{
                         anchors.bottomMargin: 2
                         color: Universal.accent
                         radius: 4
-                        visible: testID == 6 ? true : false
                         RowLayout{
                             anchors.fill: parent
                             Item{
@@ -209,6 +209,7 @@ Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
                     height: 49
+                    visible: testID == 6 ? true : false
                     Rectangle{
                         anchors.fill: parent
                         anchors.leftMargin: 20
@@ -217,7 +218,6 @@ Item{
                         anchors.bottomMargin: 2
                         color: Universal.accent
                         radius: 4
-                        visible: testID == 6 ? true : false
                         RowLayout{
                             anchors.fill: parent
                             Item{

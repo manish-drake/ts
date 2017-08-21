@@ -73,6 +73,9 @@ Item{
                             target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
                         }
+                        StateChangeScript{
+                            script: commonCtrls.onContinue();
+                        }
                     },
                     State {
                         name: "pause"
@@ -80,12 +83,17 @@ Item{
                             target: testRunButton
                             imageSource: "qrc:/img/img/pause-button.png"
                         }
+                        StateChangeScript{
+                            script: commonCtrls.onRun();
+                        }
                     },
                     State {
                         name: "continue"
                         PropertyChanges {
                             target: testRunButton
                             imageSource: "qrc:/img/img/play-button.png"
+                        }StateChangeScript{
+                            script: commonCtrls.onPause();
                         }
                     }
                 ]
@@ -108,15 +116,12 @@ Item{
                 onClicked: {
                     if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
-                        commonCtrls.onRun();
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
-                        commonCtrls.onPause();
                     }
                     else{
                         testRunButton.state = "pause"
-                        commonCtrls.onContinue();
                     }
                 }
             }

@@ -6,27 +6,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import com.ti.controls 1.0
 
-Item{
-    function onRun(){
-        console.log("onRun")
-        navigationModel.setCurrentView(navigationModel.getTargetView(
-                                           "_detailSummary",navigationModel.navigationParameter.id),
-                                       {
-                                           "id": navigationModel.navigationParameter.id,
-                                           "title": navigationModel.navigationParameter.title,
-                                           "runState": testRunButton.state,
-                                           "isHome": navigationModel.navigationParameter.isHome
-                                       });
-        footer.testStatus = "in progress";
-    }
-    function onPause(){
-        console.log("onPause")
-        footer.testStatus = "stopped";
-    }
-    function onContinue(){
-        console.log("onContinue")
-        footer.testStatus = "in progress";
-    }
+Item{    
     Page {
         anchors.fill: parent
 
@@ -87,7 +67,7 @@ Item{
             height: 110
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"            
+            color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Rectangle{
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -135,7 +115,7 @@ Item{
                                                                      navigationModel.navigationParameter.id), {
                                                                      "id": navigationModel.navigationParameter.id,
                                                                      "title": navigationModel.navigationParameter.title,
-                                                                     "runState": testRunButton.state,
+                                                                     "runState": "start",
                                                                      "isHome": navigationModel.navigationParameter.isHome
                                                                  });
                     }
@@ -179,47 +159,22 @@ Item{
                     Layout.alignment: Qt.AlignBottom
                     spacing: 0
                     Rectangle{
-                        id: testRunButton
                         Layout.alignment: Qt.AlignHCenter
                         Layout.margins: 5
                         height: 70
                         width: 70
                         radius: 35
                         color: Universal.accent
-                        property alias imageSource: buttonImage.source
-                        state: "start"
                         Image {
                             id: buttonImage
                             anchors.centerIn: parent
+                            source: "qrc:/img/img/play-button.png"
                             smooth: true
                         }
-                        states: [
-                            State {
-                                name: "start"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            },
-                            State {
-                                name: "pause"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/pause-button.png"
-                                }
-                            },
-                            State {
-                                name: "continue"
-                                PropertyChanges {
-                                    target: testRunButton
-                                    imageSource: "qrc:/img/img/play-button.png"
-                                }
-                            }
-                        ]
                     }
                     Text {
                         Layout.alignment: Qt.AlignHCenter
-                        text: testRunButton.state
+                        text: "Start"
                         font.pixelSize: 12
                         font.capitalization: Font.AllUppercase
                         font.weight: Font.Black
@@ -232,20 +187,14 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked:{
-                            if (testRunButton.state == "start") {
-                                testRunButton.state = "pause"
-                                onRun();
-                            }
-                            else if(testRunButton.state == "pause"){
-                                testRunButton.state = "continue"
-                                onPause();
-                            }
-                            else{
-                                testRunButton.state = "pause"
-                                onContinue();
-                            }
-                        }
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView(
+                                                                      "_detailSummary",navigationModel.navigationParameter.id),
+                                                                  {
+                                                                      "id": navigationModel.navigationParameter.id,
+                                                                      "title": navigationModel.navigationParameter.title,
+                                                                      "runState": "pause",
+                                                                      "isHome": navigationModel.navigationParameter.isHome
+                                                                  });
                     }
                 }
             }
