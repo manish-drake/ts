@@ -49,9 +49,9 @@ Item {
                 color: "gray"
                 MouseArea{
                     anchors.fill: parent
-                    onClicked: {
-                        connectionAckPopup.close()
-                    }
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
+                    onClicked: connectionAckPopup.close()
                 }
             }
         }

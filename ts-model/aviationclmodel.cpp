@@ -127,6 +127,20 @@ AviationClModel::~AviationClModel()
 
 }
 
+int AviationClModel::getRowIndexByID(const int id) const
+{
+    int row = -1, idx = 0;
+    for(auto &item: *m_aviationCls){
+        if(item->id() == id)
+        {
+            row = idx;
+            break;
+        }
+        idx += 1;
+    }
+    return row;
+}
+
 void AviationClModel::qualifyByView(const int view)
 {
     Q_UNUSED(view)

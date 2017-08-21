@@ -52,6 +52,9 @@ Item{
                         radius: 3
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
+                            onCanceled: parent.opacity = 1
                             onClicked:{
                                 userListView.currentIndex = index
                             }
@@ -121,6 +124,9 @@ Item{
                                 }
                                 MouseArea {
                                     anchors.fill: parent
+                                    onPressed: parent.opacity = 0.5
+                                    onReleased: parent.opacity = 1
+                                    onCanceled: parent.opacity = 1
                                     onClicked: {
                                         navigationModel.setCurrentView(
                                                     navigationModel.getTargetView("UserDetail"),
@@ -190,6 +196,8 @@ Item{
         }
         MouseArea{
             anchors.fill: parent
+            onPressed: parent.opacity = 0.5
+            onReleased: parent.opacity = 1
             onClicked: {
                 setup.createNewUser();
                 navigationModel.currentView = navigationModel.getTargetView("AddUser");

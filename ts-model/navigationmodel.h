@@ -20,6 +20,7 @@ public:
     Q_PROPERTY(QVariant navigationParameter READ navigationParameter)
     Q_PROPERTY(bool isSideMenuAvailable READ isSideMenuAvailable WRITE setIsSideMenuAvailable NOTIFY isSideMenuAvailableChanged)
     Q_PROPERTY(bool isHeaderAvailable READ isHeaderAvailable WRITE setIsHeaderAvailable NOTIFY isHeaderAvailableChanged)
+    Q_PROPERTY(bool isTestRunPage READ isTestRunPage WRITE setIsTestRunPage NOTIFY isTestRunPageChanged)
 
 
     Q_INVOKABLE int getTargetView(const QString &link, const int &linkId = 0) const;
@@ -33,6 +34,8 @@ public:
     void setIsSideMenuAvailable(const bool &isSideMenuAvailable);
     bool isHeaderAvailable();
     void setIsHeaderAvailable(const bool &isHeaderAvailable);
+    bool isTestRunPage();
+    void setIsTestRunPage(const bool &isTestRunPage);
 
     QVariant navigationParameter() const;
 
@@ -42,6 +45,7 @@ signals:
     void currentViewChanged(const int &currentView);
     void isSideMenuAvailableChanged();
     void isHeaderAvailableChanged();
+    void isTestRunPageChanged();
 public slots:
 
 private:
@@ -49,6 +53,7 @@ private:
     int m_currentView;
     bool m_isSideMenuAvailable;
     bool m_isHeaderAvailable;
+    bool m_isTestRunPage;
     QVariant m_navigationParameter;
     std::unique_ptr<std::vector<std::unique_ptr<Navigation>>> m_navigations;
 };

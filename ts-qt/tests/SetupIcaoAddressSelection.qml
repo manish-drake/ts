@@ -41,6 +41,8 @@ Item{
                         }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: icaoAdressSelectionPopup.close()
                         }
                     }
@@ -93,6 +95,9 @@ Item{
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
+                                onCanceled: parent.opacity = 1
                                 onClicked: icaoAdressListView.currentIndex = index
                             }
                         }

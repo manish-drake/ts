@@ -55,23 +55,30 @@ ApplicationWindow {
                     color: Universal.theme === Universal.Light ? "#66000000" : "#66ffffff"
                     visible: false
                 }
-                Item{
-                    anchors.right: parent.right
-                    Layout.maximumHeight: parent.height
-                    Popup {
-                        id: menuPopup
-                        width: 220
-                        Layout.maximumHeight: contentRect.height - 50
-                        padding: 0
-                        topMargin: 55
-                        rightMargin: 5
-                        modal: true
-                        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
-                        onClosed: contentOpaqueBack.visible = false
-                        onOpened: contentOpaqueBack.visible = true
-                        background: Item{}
-                        contentItem: MoreActions{}
+                Popup {
+                    id: menuPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    closePolicy: Popup.CloseOnEscape
+                    padding: 30
+                    background: Rectangle{
+                        color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
                     }
+                    contentItem: ActionsMenu{}
+                }
+
+                Popup {
+                    id: displayOptionsPopup
+                    height: parent.height
+                    width: parent.width
+                    modal: true
+                    padding: 0
+                    closePolicy: Popup.CloseOnEscape
+                    background: Rectangle{
+                        color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
+                    }
+                    contentItem: DisplayOptions{}
                 }
             }
 

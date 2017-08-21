@@ -45,6 +45,8 @@ Item{
 //                        }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: {}
                         }
                     }
@@ -74,6 +76,8 @@ Item{
 //                        }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked: savedDataPopup.close()
                         }
                     }
@@ -114,6 +118,9 @@ Item{
 //                            }
                             MouseArea {
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
+                                onCanceled: parent.opacity = 1
                                 onClicked:{
                                     dataListView.currentIndex = index
                                 }
@@ -158,6 +165,9 @@ Item{
                                     }
                                     MouseArea {
                                         anchors.fill: parent
+                                        onPressed: parent.opacity = 0.5
+                                        onReleased: parent.opacity = 1
+                                        onCanceled: parent.opacity = 1
                                         onClicked: savedDataPopup.close()
                                     }
                                 }

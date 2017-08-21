@@ -34,6 +34,8 @@ Item{
 //                    }
                     MouseArea {
                         anchors.fill: parent
+                        onPressed: parent.opacity = 0.5
+                        onReleased: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Radar")
                     }
                 }
@@ -69,9 +71,10 @@ Item{
                             }
                             MouseArea {
                                 anchors.fill: parent
-                                onClicked:{
-                                    aircraftListView.currentIndex = index
-                                }
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
+                                onCanceled: parent.opacity = 1
+                                onClicked: aircraftListView.currentIndex = index
                             }
                         }
                     }

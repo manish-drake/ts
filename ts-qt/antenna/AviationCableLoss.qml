@@ -72,6 +72,8 @@ Item{
                                     opacity: graphCtrl.selectedMarkerIndex == index ? 1 : 0.8
                                     MouseArea{
                                         anchors.fill: parent
+                                        onPressed: parent.opacity = 0.5
+                                        onReleased: parent.opacity = 1
                                         onClicked: graphCtrl.selectedMarkerIndex = index
                                     }
                                 }
@@ -159,7 +161,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: MenuDisplayOptions{}
+        contentItem: DisplayOptions{}
     }
 
     Item{

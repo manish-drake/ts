@@ -60,6 +60,8 @@ Item {
 //                                                }
                         MouseArea {
                             anchors.fill: parent
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked:calPopup.close()
                         }
                     }
@@ -184,7 +186,6 @@ Item {
                                         Layout.fillWidth: true
                                         height: 35
                                         color: Universal.accent
-                                        opacity: mouseArea2.pressed ? 0.8 : 1.0
                                         radius: 3
                                         Row{
                                             anchors.centerIn: parent
@@ -205,8 +206,9 @@ Item {
                                             }
                                         }
                                         MouseArea{
-                                            id: mouseArea2
                                             anchors.fill: parent
+                                            onPressed: parent.opacity = 0.5
+                                            onReleased: parent.opacity = 1
                                             onClicked: isOpenMeasured = true
                                         }
                                     }
@@ -271,7 +273,6 @@ Item {
                                         Layout.fillWidth: true
                                         height: 35
                                         color: Universal.accent
-                                        opacity: mouseArea9.pressed ? 0.8 : 1.0
                                         radius: 3
                                         Row{
                                             anchors.centerIn: parent
@@ -291,8 +292,9 @@ Item {
                                             }
                                         }
                                         MouseArea{
-                                            id: mouseArea9
                                             anchors.fill: parent
+                                            onPressed: parent.opacity = 0.5
+                                            onReleased: parent.opacity = 1
                                             onClicked: isLoadMeasured = true
                                         }
                                     }
@@ -357,7 +359,6 @@ Item {
                                         Layout.fillWidth: true
                                         height: 35
                                         color: Universal.accent
-                                        opacity: mouseArea6.pressed ? 0.8 : 1.0
                                         radius: 3
                                         Row{
                                             anchors.centerIn: parent
@@ -377,8 +378,9 @@ Item {
                                             }
                                         }
                                         MouseArea{
-                                            id: mouseArea6
                                             anchors.fill: parent
+                                            onPressed: parent.opacity = 0.5
+                                            onReleased: parent.opacity = 1
                                             onClicked: isThruMeasured = true
                                         }
                                     }
@@ -427,7 +429,6 @@ Item {
                             Layout.fillHeight: true
                             width: 135
                             color: Universal.accent
-                            opacity: mouseArea4.pressed ? 0.8 : 1.0
                             radius: 3
                             Text{
                                 anchors.centerIn: parent
@@ -438,8 +439,9 @@ Item {
                                 color: "white"
                             }
                             MouseArea{
-                                id: mouseArea4
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
                                 onClicked: calPopup.close()
                             }
                         }
@@ -449,7 +451,6 @@ Item {
                             Layout.fillWidth: true
                             enabled: isOpenMeasured && isLoadMeasured
                             color: enabled ? Universal.accent : "lightgray"
-                            opacity: mouseArea.pressed ? 0.8 : 1.0
                             radius: 3
                             Text{
                                 anchors.left: parent.left
@@ -465,8 +466,9 @@ Item {
                                 color: "white"
                             }
                             MouseArea{
-                                id: mouseArea
                                 anchors.fill: parent
+                                onPressed: parent.opacity = 0.5
+                                onReleased: parent.opacity = 1
                                 onClicked: areParametersCalculated = true
                             }
                         }

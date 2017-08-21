@@ -41,7 +41,9 @@ Item{
 //                            color: Universal.foreground
 //                        }
                         MouseArea {
-                            anchors.fill: parent
+                            anchors.fill: parent                            
+                            onPressed: parent.opacity = 0.5
+                            onReleased: parent.opacity = 1
                             onClicked:navigationModel.currentView = navigationModel.getTargetView("Scan")
                         }
                     }

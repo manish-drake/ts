@@ -63,8 +63,11 @@ bool TestModel::setData(const QModelIndex &index, const QVariant &value, int rol
         case Roles::SectionIDRole:
             test.setSectionId(value.toInt());
             break;
-        case Roles::IsFavouriteRole:
+        case Roles::IsFavouriteRole:{
             test.setIsFavourite(value.toInt());
+            auto testDao = this->m_db.testDao();
+            testDao->editTest(test.id(), value.toInt());
+        }
         default:
             break;
         }
@@ -106,39 +109,41 @@ QHash<int, QByteArray> TestModel::roleNames() const
 
 void TestModel::setFavourite(const int &testId, const bool &isFavourite)
 {
-    auto testDao = this->m_db.testDao();
-    if(isFavourite){
-        testDao->editTest(testId, 0);
+    for(auto &test: *m_tests){
+        if(test->id() == testId){
+            setDataByID(testId, isFavourite, Roles::IsFavouriteRole);
+        }
     }
-    else{
-        testDao->editTest(testId, 1);
-    }
-    this->setIsFavourite(!isFavourite);
 }
 
 bool TestModel::isFavourite(const int testId)
 {
-    int isFav = this->m_db.testDao()->isFavourite(testId);
-    if(isFav == 1){
-        m_isFavourite = true;
+    for(auto &test: *m_tests){
+        if(test->id() == testId){
+            return test->isFavourite();
+        }
     }
-    else{
-        m_isFavourite = false;
-    }
-    return m_isFavourite;
+    return 0;
 }
 
-void TestModel::setIsFavourite(const bool &isFavourite)
-{
-    if(m_isFavourite != isFavourite){
-        m_isFavourite = isFavourite;
-        emit isFavouriteChanged();
-    }
-}
 
 TestModel::~TestModel()
 {
 
+}
+
+int TestModel::getRowIndexByID(const int id) const
+{
+    int row = -1, idx = 0;
+    for(auto &item: *m_tests){
+        if(item->id() == id)
+        {
+            row = idx;
+            break;
+        }
+        idx += 1;
+    }
+    return row;
 }
 
 void TestModel::qualifyByView(const int view)
@@ -147,30 +152,42 @@ void TestModel::qualifyByView(const int view)
 
     switch (view) {
     case 2:
-        temp_Tests = m_db.testDao()->homeTests();
+        if(m_selectedSectionID != 1){
+            temp_Tests = m_db.testDao()->homeTests();
+            m_selectedSectionID = 1;
+        }
         break;
     case 41:
-        temp_Tests = m_db.testDao()->tests(2);
+        if(m_selectedSectionID != 2){
+            temp_Tests = m_db.testDao()->tests(2);
+            m_selectedSectionID = 2;
+        }
         break;
     case 3:
-        temp_Tests = m_db.testDao()->tests(4);
+        if(m_selectedSectionID != 4){
+            temp_Tests = m_db.testDao()->tests(4);
+            m_selectedSectionID = 4;
+        }
         break;
     case 34:
-        temp_Tests = m_db.testDao()->tests(7);
+        if(m_selectedSectionID != 7){
+            temp_Tests = m_db.testDao()->tests(7);
+            m_selectedSectionID = 7;
+        }
         break;
     default:
-        temp_Tests = std::unique_ptr<std::vector<std::unique_ptr<Test>>>();
+        temp_Tests = 0x00;
         break;
-    }
-
-    auto sz = m_tests->size();
-    if(sz > 0){
-        beginRemoveRows(QModelIndex(), 0, sz -1);
-        m_tests->clear();
-        endRemoveRows();
     }
 
     if(temp_Tests){
+        auto sz = m_tests->size();
+        if(sz > 0){
+            beginRemoveRows(QModelIndex(), 0, sz -1);
+            m_tests->clear();
+            endRemoveRows();
+        }
+
         auto sz_temp = temp_Tests->size();
         if(sz_temp > 0){
             beginInsertRows(QModelIndex(), 0, sz_temp - 1);
