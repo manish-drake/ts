@@ -10,7 +10,7 @@ NavigationModel::NavigationModel(QObject *parent) :
     m_isSideMenuAvailable{true},
     m_isHeaderAvailable{true},
     m_isTestRunPage{false},
-    m_navigations{m_db.navigationDao()->navigations("Global")}
+    m_navigations{m_db.navigationDao()->navigations("Home")}
 {
 
 }

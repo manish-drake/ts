@@ -292,7 +292,7 @@ Item{
                         onClicked: {
                             testModel.setFavourite(
                                         navigationModel.navigationParameter.id,
-                                        testModel.isFavourite(navigationModel.navigationParameter.id));
+                                        !testModel.isFavourite(navigationModel.navigationParameter.id));
                             menuPopup.close()
                         }
                     }
