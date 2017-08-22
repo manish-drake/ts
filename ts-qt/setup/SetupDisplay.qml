@@ -90,9 +90,11 @@ Page {
                     }
                     Text{
                         Layout.column: 1
+                        Layout.minimumWidth: 40
                         text: slider.value
                         font.pixelSize: 14
                         font.family: robotoRegular.name
+                        horizontalAlignment: Text.AlignHCenter
                         color: Universal.foreground
                     }
                     Item{
@@ -106,7 +108,7 @@ Page {
                             text: slider.minimumValue
                             font.pixelSize: 14
                             color: Universal.foreground
-                            opacity: 0.8
+                            opacity: 0.5
                             rightPadding: 10
                         }
 
@@ -131,7 +133,7 @@ Page {
                             text: slider.maximumValue
                             font.pixelSize: 14
                             color: Universal.foreground
-                            opacity: 0.8
+                            opacity: 0.5
                             leftPadding: 10
                         }
                     }

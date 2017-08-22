@@ -187,6 +187,7 @@ Page {
                         Layout.row: 4
                         Layout.column: 1
                         Layout.columnSpan: 3
+                        Layout.minimumWidth: 120
                         text: qsTr("192.168 10.196")
                         font.pixelSize: 14
                         font.family: robotoRegular.name
