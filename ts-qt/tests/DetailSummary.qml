@@ -7,7 +7,6 @@ import QtQuick.Controls.Styles 1.4
 import com.ti.controls 1.0
 
 Item{
-    property int time
     Page {
         anchors.fill: parent
 
@@ -136,28 +135,29 @@ Item{
             id: detailFooter
             function onRun(){
                 console.log("onRun")
-//                footer.testStatus = "in progress";
-//                testRunTimer.running = true;
+                footer.testStatus = "in progress";
+                testRunTimer.running = true;
             }
             function onPause(){
                 console.log("onPause")
-//                footer.testStatus = "stopped";
-//                testRunTimer.stop();
+                footer.testStatus = "stopped";
+                testRunTimer.stop();
             }
             function onContinue(){
                 console.log("onContinue")
-//                footer.testStatus = "in progress";
-//                testRunTimer.start();
+                footer.testStatus = "in progress";
+                testRunTimer.start();
             }
-//            Timer{
-//                id: testRunTimer
-//                interval: 1000
-//                repeat: true
-//                onTriggered:{
-//                    footer.testRunTime = time.toString();
-//                    time = time + 1
-//                }
-//            }
+            Timer{
+                id: testRunTimer
+                interval: 1000
+                repeat: true
+                property int dur
+                onTriggered:{
+                    footer.testRunTime = dur.toString() + " s"
+                    dur = dur + 1
+                }
+            }
         }
     }
 
@@ -165,7 +165,7 @@ Item{
         id: testSetupPopup
         height: parent.height
         width: parent.width
-        modal: true        
+        modal: true
         padding: 0
         closePolicy: Popup.CloseOnEscape
         background: Rectangle{

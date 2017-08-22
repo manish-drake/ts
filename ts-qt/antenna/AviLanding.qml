@@ -113,7 +113,7 @@ Item{
                         onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
                                                                                                {
                                                                                                    "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "start"
+                                                                                                   "runState": "idle"
                                                                                                });
                     }
                 }
@@ -186,7 +186,7 @@ Item{
                         onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
                                                                                                {
                                                                                                    "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "pause"
+                                                                                                   "runState": "start"
                                                                                                });
                     }
                 }

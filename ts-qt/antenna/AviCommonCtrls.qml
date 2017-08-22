@@ -59,48 +59,55 @@ Item{
                 width: 70
                 radius: 35
                 color: Universal.accent
-                property alias imageSource: buttonImage.source
-                state: "start"
+                state: "idle"
                 Image {
-                    id: buttonImage
+                    id: testRunImage
                     anchors.centerIn: parent
                     smooth: true
                 }
                 states: [
                     State {
-                        name: "start"
+                        name: "idle"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
-                        }
-                        StateChangeScript{
-                            script: commonCtrls.onContinue();
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
                         }
                     },
                     State {
-                        name: "pause"
+                        name: "start"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/pause-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
                             script: commonCtrls.onRun();
                         }
                     },
                     State {
+                        name: "pause"
+                        PropertyChanges {
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onPause();
+                        }
+                    },
+                    State {
                         name: "continue"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
                         }StateChangeScript{
-                            script: commonCtrls.onPause();
+                            script: commonCtrls.onContinue();
                         }
                     }
                 ]
             }
             Text {
+                id: testRunText
                 Layout.alignment: Qt.AlignHCenter
-                text: testRunButton.state
+                text: "start"
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black
@@ -114,14 +121,21 @@ Item{
                 onPressed: parent.opacity = 0.5
                 onReleased: parent.opacity = 1
                 onClicked: {
-                    if (testRunButton.state == "start") {
+                    if(testRunButton.state == "idle"){
+                        testRunButton.state = "start"
+                        testRunText.text = "pause"
+                    }
+                    else if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
+                        testRunText.text = "continue"
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
+                        testRunText.text = "pause"
                     }
                     else{
                         testRunButton.state = "pause"
+                        testRunText.text = "continue"
                     }
                 }
             }

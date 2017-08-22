@@ -170,49 +170,56 @@ Rectangle{
                 width: 70
                 radius: 35
                 color: Universal.accent
-                property alias imageSource: buttonImage.source
                 state: navigationModel.navigationParameter.runState
                 Image {
-                    id: buttonImage
+                    id: testRunImage
                     anchors.centerIn: parent
                     smooth: true
                 }
                 states: [
                     State {
-                        name: "start"
+                        name: "idle"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
-                        }
-                        StateChangeScript{
-                            script: detailFooter.onContinue();
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
                         }
                     },
                     State {
-                        name: "pause"
+                        name: "start"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/pause-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
                         }
                         StateChangeScript{
                             script: detailFooter.onRun();
                         }
                     },
                     State {
-                        name: "continue"
+                        name: "pause"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
                         }
                         StateChangeScript{
                             script: detailFooter.onPause();
+                        }
+                    },
+                    State {
+                        name: "continue"
+                        PropertyChanges {
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
+                        }
+                        StateChangeScript{
+                            script: detailFooter.onContinue();
                         }
                     }
                 ]
             }
             Text {
+                id: testRunText
                 Layout.alignment: Qt.AlignHCenter
-                text: testRunButton.state
+                text: "start"
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black
@@ -221,19 +228,25 @@ Rectangle{
                 opacity: 0.6
             }
             MouseArea {
-                id: mouseArea
                 anchors.fill: parent
                 onPressed: parent.opacity = 0.5
                 onReleased: parent.opacity = 1
                 onClicked: {
-                    if (testRunButton.state == "start") {
+                    if(testRunButton.state == "idle"){
+                        testRunButton.state = "start"
+                        testRunText.text = "pause"
+                    }
+                    else if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
+                        testRunText.text = "continue"
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
+                        testRunText.text = "pause"
                     }
                     else{
                         testRunButton.state = "pause"
+                        testRunText.text = "continue"
                     }
                 }
             }

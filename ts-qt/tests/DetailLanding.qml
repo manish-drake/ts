@@ -115,7 +115,7 @@ Item{
                                                                      navigationModel.navigationParameter.id), {
                                                                      "id": navigationModel.navigationParameter.id,
                                                                      "title": navigationModel.navigationParameter.title,
-                                                                     "runState": "start",
+                                                                     "runState": "idle",
                                                                      "isHome": navigationModel.navigationParameter.isHome
                                                                  });
                     }
@@ -192,7 +192,7 @@ Item{
                                                                   {
                                                                       "id": navigationModel.navigationParameter.id,
                                                                       "title": navigationModel.navigationParameter.title,
-                                                                      "runState": "pause",
+                                                                      "runState": "start",
                                                                       "isHome": navigationModel.navigationParameter.isHome
                                                                   });
                     }
