@@ -110,11 +110,12 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                               {
-                                                                                                   "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "idle"
-                                                                                               });
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
+                                                                  {
+                                                                      "id": navigationModel.navigationParameter.id,
+                                                                      "runState": "idle",
+                                                                      "isHome": navigationModel.navigationParameter.isHome
+                                                                  });
                     }
                 }
                 Item{
@@ -183,11 +184,12 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                               {
-                                                                                                   "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "start"
-                                                                                               });
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
+                                                                  {
+                                                                      "id": navigationModel.navigationParameter.id,
+                                                                      "runState": "start",
+                                                                      "isHome": navigationModel.navigationParameter.isHome
+                                                                  });
                     }
                 }
             }

@@ -59,7 +59,7 @@ Item{
                 width: 70
                 radius: 35
                 color: Universal.accent
-                state: "idle"
+                state: navigationModel.navigationParameter.runState
                 Image {
                     id: testRunImage
                     anchors.centerIn: parent
@@ -72,12 +72,20 @@ Item{
                             target: testRunImage
                             source: "qrc:/img/img/play-button.png"
                         }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "start"
+                        }
                     },
                     State {
                         name: "start"
                         PropertyChanges {
                             target: testRunImage
                             source: "qrc:/img/img/pause-button.png"
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
                         }
                         StateChangeScript{
                             script: commonCtrls.onRun();
@@ -89,6 +97,10 @@ Item{
                             target: testRunImage
                             source: "qrc:/img/img/play-button.png"
                         }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "continue"
+                        }
                         StateChangeScript{
                             script: commonCtrls.onPause();
                         }
@@ -98,7 +110,12 @@ Item{
                         PropertyChanges {
                             target: testRunImage
                             source: "qrc:/img/img/pause-button.png"
-                        }StateChangeScript{
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
+                        }
+                        StateChangeScript{
                             script: commonCtrls.onContinue();
                         }
                     }
@@ -107,7 +124,6 @@ Item{
             Text {
                 id: testRunText
                 Layout.alignment: Qt.AlignHCenter
-                text: "start"
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black
@@ -123,19 +139,15 @@ Item{
                 onClicked: {
                     if(testRunButton.state == "idle"){
                         testRunButton.state = "start"
-                        testRunText.text = "pause"
                     }
                     else if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
-                        testRunText.text = "continue"
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
-                        testRunText.text = "pause"
                     }
                     else{
                         testRunButton.state = "pause"
-                        testRunText.text = "continue"
                     }
                 }
             }

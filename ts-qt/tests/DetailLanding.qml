@@ -110,7 +110,7 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                      "_detailSummary",
                                                                      navigationModel.navigationParameter.id), {
                                                                      "id": navigationModel.navigationParameter.id,

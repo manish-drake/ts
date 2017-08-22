@@ -183,12 +183,20 @@ Rectangle{
                             target: testRunImage
                             source: "qrc:/img/img/play-button.png"
                         }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "start"
+                        }
                     },
                     State {
                         name: "start"
                         PropertyChanges {
                             target: testRunImage
                             source: "qrc:/img/img/pause-button.png"
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
                         }
                         StateChangeScript{
                             script: detailFooter.onRun();
@@ -200,6 +208,10 @@ Rectangle{
                             target: testRunImage
                             source: "qrc:/img/img/play-button.png"
                         }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "continue"
+                        }
                         StateChangeScript{
                             script: detailFooter.onPause();
                         }
@@ -210,6 +222,10 @@ Rectangle{
                             target: testRunImage
                             source: "qrc:/img/img/pause-button.png"
                         }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
+                        }
                         StateChangeScript{
                             script: detailFooter.onContinue();
                         }
@@ -219,7 +235,6 @@ Rectangle{
             Text {
                 id: testRunText
                 Layout.alignment: Qt.AlignHCenter
-                text: "start"
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black
@@ -234,19 +249,15 @@ Rectangle{
                 onClicked: {
                     if(testRunButton.state == "idle"){
                         testRunButton.state = "start"
-                        testRunText.text = "pause"
                     }
                     else if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
-                        testRunText.text = "continue"
                     }
                     else if(testRunButton.state == "pause"){
                         testRunButton.state = "continue"
-                        testRunText.text = "pause"
                     }
                     else{
                         testRunButton.state = "pause"
-                        testRunText.text = "continue"
                     }
                 }
             }
