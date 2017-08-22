@@ -190,6 +190,21 @@ int DataBuilder::build()
     View vwXpndrAutoTestP9("XPNDR-Auto-Test-P9");
     viewDao->addView(vwXpndrAutoTestP9);
 
+    View vwModeS("MODES");
+    viewDao->addView(vwModeS);
+
+    View vwNav("NAV");
+    viewDao->addView(vwNav);
+
+    View vwComm("COMM");
+    viewDao->addView(vwComm);
+
+    View vwReports("REPORTS");
+    viewDao->addView(vwReports);
+
+    View vwSearch("SEARCH");
+    viewDao->addView(vwSearch);
+
     SectionGroupModel sgModel{};
     SectionModel secModel{};
 
@@ -1380,14 +1395,29 @@ int DataBuilder::build()
     Navigation secToTransponder(vwGlobal.id(), "_section", secTransponder.id(), vwTransponder.id());
     navigationDaoPtr->addNavigation(secToTransponder);
 
-    Navigation secToTestGroup(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
-    navigationDaoPtr->addNavigation(secToTestGroup);
+    Navigation secToModeS(vwGlobal.id(), "_section", secModeS.id(), vwModeS.id());
+    navigationDaoPtr->addNavigation(secToModeS);
+
+    Navigation secToADSB(vwGlobal.id(), "_section", secADSB.id(), vwADSB.id());
+    navigationDaoPtr->addNavigation(secToADSB);
+
+    Navigation secToNAV(vwGlobal.id(), "_section", secNAV.id(), vwNav.id());
+    navigationDaoPtr->addNavigation(secToNAV);
+
+    Navigation secToComm(vwGlobal.id(), "_section", secComm.id(), vwComm.id());
+    navigationDaoPtr->addNavigation(secToComm);
 
     Navigation secToAntenna(vwGlobal.id(), "_section", secAntenna.id(), vwAntenna.id());
     navigationDaoPtr->addNavigation(secToAntenna);
 
+    Navigation secToReports(vwGlobal.id(), "_section", secReports.id(), vwReports.id());
+    navigationDaoPtr->addNavigation(secToReports);
+
     Navigation secToSetup(vwGlobal.id(), "_section", secSetup.id(), vwSetup.id());
     navigationDaoPtr->addNavigation(secToSetup);
+
+    Navigation secToSearch(vwGlobal.id(), "_section", secSearch.id(), vwSearch.id());
+    navigationDaoPtr->addNavigation(secToSearch);
 
 
     //For ADSB Tests---------------------------------

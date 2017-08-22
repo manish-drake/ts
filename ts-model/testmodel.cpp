@@ -163,16 +163,40 @@ void TestModel::qualifyByView(const int view)
             m_selectedSectionID = 2;
         }
         break;
+    case 52:
+        if(m_selectedSectionID != 3){
+            temp_Tests = m_db.testDao()->tests(0);
+            m_selectedSectionID = 3;
+        }
+        break;
     case 3:
         if(m_selectedSectionID != 4){
             temp_Tests = m_db.testDao()->tests(4);
             m_selectedSectionID = 4;
         }
         break;
+    case 53:
+        if(m_selectedSectionID != 5){
+            temp_Tests = m_db.testDao()->tests(0);
+            m_selectedSectionID = 5;
+        }
+        break;
+    case 54:
+        if(m_selectedSectionID != 6){
+            temp_Tests = m_db.testDao()->tests(0);
+            m_selectedSectionID = 6;
+        }
+        break;
     case 34:
         if(m_selectedSectionID != 7){
             temp_Tests = m_db.testDao()->tests(7);
             m_selectedSectionID = 7;
+        }
+        break;
+    case 55:
+        if(m_selectedSectionID != 8){
+            temp_Tests = m_db.testDao()->tests(0);
+            m_selectedSectionID = 8;
         }
         break;
     default:

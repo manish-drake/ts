@@ -112,6 +112,7 @@ void NavigationModel::evaluteCurrentView()
     case 0 ... 4:
     case 34:
     case 41:
+    case 52 ... 56:
         setIsSideMenuAvailable(true);
         break;
     default:
