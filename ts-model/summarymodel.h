@@ -32,8 +32,9 @@ class TSMODELSHARED_EXPORT SummaryModel: public ModelBase
             m_testID{0}, m_pageIndex{0}{}
 
         bool operator !=(const SummaryCounter &other){
-            return (m_pageIndex != other.m_pageIndex) ||
+            auto result = (m_pageIndex != other.m_pageIndex) ||
                     (m_testID != other.m_testID);
+            return result;
         }
     };
 

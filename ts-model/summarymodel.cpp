@@ -247,18 +247,17 @@ void SummaryModel::qualifyByView(const int view)
     }
         break;
     default:
-        temp_summaries = std::unique_ptr<std::vector<std::unique_ptr<Summary>>>();
+        temp_summaries = 0x00;
         break;
     }
 
-    auto sz = m_summaries->size();
-    if(sz > 0){
-        beginRemoveRows(QModelIndex(), 0, sz - 1);
-        m_summaries->clear();
-        endRemoveRows();
-    }
-
     if(temp_summaries){
+        auto sz = m_summaries->size();
+        if(sz > 0){
+            beginRemoveRows(QModelIndex(), 0, sz - 1);
+            m_summaries->clear();
+            endRemoveRows();
+        }
         auto sz_temp = temp_summaries->size();
         if(sz_temp > 0){
             beginInsertRows(QModelIndex(), 0, sz_temp - 1);
