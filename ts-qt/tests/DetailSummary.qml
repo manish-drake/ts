@@ -56,7 +56,7 @@ Item{
                                     Repeater {
                                         model: summaryModel.getTestParamsForsummary(id)
                                         delegate: Rectangle{
-                                            //                                        color: "transparent"
+                                            color: "transparent"
                                             Layout.row: model.modelData.row
                                             Layout.column: model.modelData.col
                                             Layout.fillWidth: true
