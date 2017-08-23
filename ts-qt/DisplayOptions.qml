@@ -152,6 +152,7 @@ Item {
                                     Layout.alignment: Qt.AlignVCenter
                                     color: Universal.foreground
                                     text: brightnessSlider.minimumValue
+                                    opacity: 0.5
                                 }
                                 Slider{
                                     id: brightnessSlider
@@ -190,6 +191,7 @@ Item {
                                     Layout.alignment: Qt.AlignVCenter
                                     color: Universal.foreground
                                     text: brightnessSlider.maximumValue
+                                    opacity: 0.5
                                 }
                             }
                         }
