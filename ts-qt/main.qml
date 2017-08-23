@@ -92,7 +92,11 @@ ApplicationWindow {
             id: sideMenuDrawer
             width: parent.width * 0.66
             height: parent.height - footer.height
-            dragMargin: 0
+            dragMargin: 0            
+            background: Rectangle {
+                color: Universal.foreground
+                opacity: 0.1
+            }
             contentItem: SideMenu{id: sideMenu}
         }
 
