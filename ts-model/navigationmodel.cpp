@@ -8,7 +8,7 @@ NavigationModel::NavigationModel(QObject *parent) :
     m_db(DataManager::instance()),
     m_currentView{2/*Home*/},
     m_isSideMenuAvailable{true},
-    m_isHeaderAvailable{true},
+    m_isHeaderAvailable{false},
     m_isTestRunPage{false},
     m_navigations{m_db.navigationDao()->navigations("Home")}
 {
@@ -123,6 +123,7 @@ void NavigationModel::evaluteCurrentView()
     {
     case 1:
         break;
+    case 2:
     case 5:
     case 6 ... 12:
     case 14 ... 19:
