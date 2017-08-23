@@ -7,12 +7,12 @@ Item {
         anchors.fill: parent
         Image {
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 35
+            Layout.topMargin: 25
             source: "qrc:/img/img/profile-circle.png"
         }
         Text{
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 15
+            Layout.topMargin: 5
             text: currentUser
             font.pixelSize: 16
             font.weight: Font.Thin
@@ -21,7 +21,8 @@ Item {
         }
         Rectangle{
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 35
+            Layout.topMargin: 25
+            Layout.bottomMargin: 15
             width: 40
             height: 1
             color: Universal.foreground
