@@ -27,6 +27,7 @@
 #include "../ts-smtp/SmtpMime"
 #include "loggingmodel.h"
 #include "runlater.h"
+#include <asyncproc.h>
 
 const int DATA_CREATION_MODE = 0;
 
@@ -63,6 +64,10 @@ int main(int argc, char *argv[])
 
         LoggingModel loggingModel;
         context->setContextProperty("loggingModel", &loggingModel);
+
+
+        AsyncProc ap([](){});
+        ap.process();
 
         Client client;
         context->setContextProperty("zmq", &client);

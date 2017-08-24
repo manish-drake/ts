@@ -3,9 +3,10 @@
 
 #include <QFutureWatcher>
 #include <functional>
+#include "ts-dao_global.h"
 #include <QObject>
 
-class AsyncProc : public QObject
+class TSDAOSHARED_EXPORT AsyncProc : public QObject
 {
     Q_OBJECT
 public:

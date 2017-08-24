@@ -3,6 +3,7 @@ TEMPLATE = app
 QT += qml quick
 QT += network
 QT += sql
+QT += concurrent
 
 CONFIG += c++11
 
