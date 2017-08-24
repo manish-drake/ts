@@ -7,6 +7,7 @@
 QT       += sql
 
 QT       -= gui
+QT += concurrent
 
 TARGET = ts-dao
 TEMPLATE = lib
@@ -38,7 +39,8 @@ SOURCES += datamanager.cpp \
     snapshotdao.cpp \
     loggingdao.cpp \
     sectiongroupdao.cpp \
-    sectiondao.cpp
+    sectiondao.cpp \
+    asyncproc.cpp
 
 HEADERS += datamanager.h\
         ts-dao_global.h \
@@ -55,7 +57,8 @@ HEADERS += datamanager.h\
     snapshotdao.h \
     loggingdao.h \
     sectiongroupdao.h \
-    sectiondao.h
+    sectiondao.h \
+    asyncproc.h
 
 unix {
     target.path = /usr/lib
