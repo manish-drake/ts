@@ -63,8 +63,6 @@
         <file>antenna/AviHeader.qml</file>
         <file>TestGroup.qml</file>
         <file>DisplayOptions.qml</file>
-        <file>tests/DisplayOptions.qml</file>
-        <file>antenna/DisplayOptions.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>
@@ -129,5 +127,6 @@
     <qresource prefix="/fonts">
         <file>fonts/RobotoCondensed-Regular.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>
+        <file>fonts/RobotoMono-Regular.ttf</file>
     </qresource>
 </RCC>

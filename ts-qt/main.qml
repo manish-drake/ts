@@ -22,6 +22,7 @@ ApplicationWindow {
     property string deviceName: "MD-15"
     FontLoader { id: robotoRegular; source: "qrc:/fonts/fonts/Roboto-Regular.ttf" }
     FontLoader { id: robotoCondensedRegular; source: "qrc:/fonts/fonts/RobotoCondensed-Regular.ttf" }
+    FontLoader { id: robotoMonoRegular; source: "qrc:/fonts/fonts/RobotoMono-Regular.ttf" }
     Item {
         id: appContainer
         anchors.left: parent.left
@@ -92,7 +93,11 @@ ApplicationWindow {
             id: sideMenuDrawer
             width: parent.width * 0.66
             height: parent.height - footer.height
-            dragMargin: 0
+            dragMargin: 0            
+            background: Rectangle {
+                color: Universal.foreground
+                opacity: 0.1
+            }
             contentItem: SideMenu{id: sideMenu}
         }
 

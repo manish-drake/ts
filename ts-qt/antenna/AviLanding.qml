@@ -110,11 +110,12 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                               {
-                                                                                                   "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "start"
-                                                                                               });
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
+                                                                  {
+                                                                      "id": navigationModel.navigationParameter.id,
+                                                                      "runState": "idle",
+                                                                      "isHome": navigationModel.navigationParameter.isHome
+                                                                  });
                     }
                 }
                 Item{
@@ -183,11 +184,12 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked: navigationModel.currentView = navigationModel.getTargetView("_detailSummary",
-                                                                                               {
-                                                                                                   "id": navigationModel.navigationParameter.id,
-                                                                                                   "runState": "pause"
-                                                                                               });
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
+                                                                  {
+                                                                      "id": navigationModel.navigationParameter.id,
+                                                                      "runState": "start",
+                                                                      "isHome": navigationModel.navigationParameter.isHome
+                                                                  });
                     }
                 }
             }
@@ -217,19 +219,6 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviLandingMenu{}
-    }
-
-    Popup {
-        id: displayOptionsPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        padding: 0
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: DisplayOptions{}
     }
 }
 

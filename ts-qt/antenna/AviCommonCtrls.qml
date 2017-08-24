@@ -59,48 +59,71 @@ Item{
                 width: 70
                 radius: 35
                 color: Universal.accent
-                property alias imageSource: buttonImage.source
-                state: "start"
+                state: navigationModel.navigationParameter.runState
                 Image {
-                    id: buttonImage
+                    id: testRunImage
                     anchors.centerIn: parent
                     smooth: true
                 }
                 states: [
                     State {
-                        name: "start"
+                        name: "idle"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
                         }
-                        StateChangeScript{
-                            script: commonCtrls.onContinue();
+                        PropertyChanges {
+                            target: testRunText
+                            text: "start"
                         }
                     },
                     State {
-                        name: "pause"
+                        name: "start"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/pause-button.png"
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
                         }
                         StateChangeScript{
                             script: commonCtrls.onRun();
                         }
                     },
                     State {
+                        name: "pause"
+                        PropertyChanges {
+                            target: testRunImage
+                            source: "qrc:/img/img/play-button.png"
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "continue"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onPause();
+                        }
+                    },
+                    State {
                         name: "continue"
                         PropertyChanges {
-                            target: testRunButton
-                            imageSource: "qrc:/img/img/play-button.png"
-                        }StateChangeScript{
-                            script: commonCtrls.onPause();
+                            target: testRunImage
+                            source: "qrc:/img/img/pause-button.png"
+                        }
+                        PropertyChanges {
+                            target: testRunText
+                            text: "pause"
+                        }
+                        StateChangeScript{
+                            script: commonCtrls.onContinue();
                         }
                     }
                 ]
             }
             Text {
+                id: testRunText
                 Layout.alignment: Qt.AlignHCenter
-                text: testRunButton.state
                 font.pixelSize: 12
                 font.capitalization: Font.AllUppercase
                 font.weight: Font.Black
@@ -114,7 +137,10 @@ Item{
                 onPressed: parent.opacity = 0.5
                 onReleased: parent.opacity = 1
                 onClicked: {
-                    if (testRunButton.state == "start") {
+                    if(testRunButton.state == "idle"){
+                        testRunButton.state = "start"
+                    }
+                    else if (testRunButton.state == "start") {
                         testRunButton.state = "pause"
                     }
                     else if(testRunButton.state == "pause"){

@@ -49,7 +49,7 @@ Item {
                         Text {
                             font.family: robotoRegular.name
                             font.pixelSize: 12
-                            text: qsTr("CURRENT USER:")
+                            text: qsTr("USER:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -59,7 +59,7 @@ Item {
                             elide: Text.ElideRight
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("Operator")
+                            text: currentUser
                             color: Universal.foreground
                         }
                         Text {
@@ -127,7 +127,7 @@ Item {
                         Text {
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("CURRENT THEME:")
+                            text: qsTr("THEME:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -202,7 +202,7 @@ Item {
                         Text {
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("CURRENT SOURCE:")
+                            text: qsTr("SOURCE:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -219,7 +219,7 @@ Item {
                             Layout.row: 1
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("CURRENT LAT:")
+                            text: qsTr("LAT:")
                             color: Universal.foreground
                             opacity: 0.7
                         }
@@ -237,7 +237,7 @@ Item {
                             Layout.row: 2
                             font.pixelSize: 12
                             font.family: robotoRegular.name
-                            text: qsTr("CURRENT LON:")
+                            text: qsTr("LON:")
                             color: Universal.foreground
                             opacity: 0.7
                         }

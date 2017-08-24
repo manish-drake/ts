@@ -45,14 +45,27 @@ Item{
                             function onRun(){
                                 console.log("onRun")
                                 footer.testStatus = "in progress";
+                                testRunTimer.running = true;
                             }
                             function onPause(){
                                 console.log("onPause")
                                 footer.testStatus = "stopped";
+                                testRunTimer.stop();
                             }
                             function onContinue(){
                                 console.log("onContinue")
                                 footer.testStatus = "in progress";
+                                testRunTimer.start();
+                            }
+                            Timer{
+                                id: testRunTimer
+                                interval: 1000
+                                repeat: true
+                                property int dur
+                                onTriggered:{
+                                    footer.testRunTime = dur.toString() + " s"
+                                    dur = dur + 1
+                                }
                             }
                         }
                     }
@@ -152,19 +165,6 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: AviMenu{detailTitle: "CABLE LOSS"}
-    }
-
-    Popup {
-        id: displayOptionsPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        padding: 0
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: DisplayOptions{}
     }
 
     Item{

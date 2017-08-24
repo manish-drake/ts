@@ -110,12 +110,12 @@ Item{
                         anchors.fill: parent
                         onPressed: parent.opacity = 0.5
                         onReleased: parent.opacity = 1
-                        onClicked:navigationModel.setCurrentView(navigationModel.getTargetView(
+                        onClicked: navigationModel.setCurrentView(navigationModel.getTargetView(
                                                                      "_detailSummary",
                                                                      navigationModel.navigationParameter.id), {
                                                                      "id": navigationModel.navigationParameter.id,
                                                                      "title": navigationModel.navigationParameter.title,
-                                                                     "runState": "start",
+                                                                     "runState": "idle",
                                                                      "isHome": navigationModel.navigationParameter.isHome
                                                                  });
                     }
@@ -192,7 +192,7 @@ Item{
                                                                   {
                                                                       "id": navigationModel.navigationParameter.id,
                                                                       "title": navigationModel.navigationParameter.title,
-                                                                      "runState": "pause",
+                                                                      "runState": "start",
                                                                       "isHome": navigationModel.navigationParameter.isHome
                                                                   });
                     }
@@ -225,18 +225,5 @@ Item{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
         contentItem: DetailLandingMenu{}
-    }
-
-    Popup {
-        id: displayOptionsPopup
-        height: parent.height
-        width: parent.width
-        modal: true
-        padding: 0
-        closePolicy: Popup.CloseOnEscape
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: DisplayOptions{}
     }
 }

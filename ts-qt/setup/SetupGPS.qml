@@ -54,6 +54,7 @@ Page {
                 Text {
                     Layout.row: 0
                     Layout.column:1
+                    Layout.minimumWidth: 80
                     text: gpsSourceSwitch.checked ? "External" : "Internal"
                     font.pixelSize: 14
                     font.family: robotoRegular.name
