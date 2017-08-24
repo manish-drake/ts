@@ -24,11 +24,11 @@ Item{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Menu-25.png"
                 }
-        //        ColorOverlay{
-        //            anchors.fill: toggleMenuImg
-        //            source: toggleMenuImg
-        //            color: Universal.accent
-        //        }
+                //        ColorOverlay{
+                //            anchors.fill: toggleMenuImg
+                //            source: toggleMenuImg
+                //            color: Universal.accent
+                //        }
                 MouseArea {
                     id: toggleMenuMouseArea
                     anchors.fill: parent
@@ -64,11 +64,11 @@ Item{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Upload to the Cloud-25.png"
                 }
-//                ColorOverlay{
-//                    anchors.fill: image1
-//                    source: image1
-//                    color: Universal.foreground
-//                }
+                //                ColorOverlay{
+                //                    anchors.fill: image1
+                //                    source: image1
+                //                    color: Universal.foreground
+                //                }
                 MouseArea {
                     id: deleteMouseArea
                     anchors.fill: parent
@@ -97,73 +97,25 @@ Item{
                 contentHeight: grid.height + grid.y + 10
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
-                Column {
+                ColumnLayout {
                     id: grid
                     y: 15
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 12
                     spacing: 10
-                    RowLayout{
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        visible: repeater1.count != 0
-                        Text {
-                            Layout.fillWidth: true
-                            text: qsTr("MESSAGE")
-                            font.pixelSize: 12
-                            font.bold: Font.Medium
-                            color: Universal.foreground
-                            font.family: robotoRegular.name
-                        }
-                        Text {
-                            Layout.column: 1
-                            text: qsTr("TYPE")
-                            font.pixelSize: 12
-                            font.bold: Font.Medium
-                            color: Universal.foreground
-                            font.family: robotoRegular.name
-                        }
-                    }
-                    ListView{
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        height: 200
+                    Repeater{
                         id: repeater1
                         model: loggingModel.logs()
-                        delegate: Rectangle {
-                            height: 15
-                                Text {
-                                    Layout.fillWidth: true
-                                    text: modelData
-                                    font.pixelSize: 12
-                                    color: Universal.foreground
-                                    wrapMode: Text.Wrap
-                                    font.family: robotoRegular.name
-                                }
-                            }
-//                        RowLayout{
-//                            anchors.left: parent.left
-//                            anchors.right: parent.right
-//                            spacing: 10
-//                            Text {
-//                                Layout.fillWidth: true
-//                                text: data1
-//                                font.pixelSize: 12
-//                                color: Universal.foreground
-//                                wrapMode: Text.Wrap
-//                                clip: true
-//                                font.family: robotoRegular.name
-//                            }
-//                            Text {
-//                                Layout.column: 1
-//                                Layout.alignment: Qt.AlignTop
-//                                text: msgType
-//                                font.pixelSize: 12
-//                                color: Universal.foreground
-//                                font.family: robotoRegular.name
-//                            }
-//                        }
+                        Text {
+                            Layout.fillWidth: true
+                            Layout.bottomMargin: 4
+                            text: modelData
+                            font.pixelSize: 12
+                            color: Universal.foreground
+                            wrapMode: Text.Wrap
+                            font.family: robotoRegular.name
+                        }
                     }
                 }
             }
