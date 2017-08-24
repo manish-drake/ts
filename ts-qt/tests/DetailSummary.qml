@@ -23,23 +23,19 @@ Item{
                 contentHeight: content.height + content.y + 10
                 boundsBehavior: Flickable.StopAtBounds
                 clip: true
-                Column{
+                GridLayout{
                     id: content
                     y: 10
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 15
-                    spacing: 25
-                    GridLayout{
-                        anchors.left: parent.left
-                        anchors.right: parent.right
+                    columnSpacing: 25
                         Repeater{
                             model: summaryModel
                             delegate:
                                 ColumnLayout {
                                 Layout.fillWidth: true
                                 Layout.topMargin: 20
-                                //                                Layout.minimumHeight: 120
                                 Layout.row: order
                                 Layout.column: col
                                 Layout.columnSpan: colSpan
@@ -126,7 +122,6 @@ Item{
                                 }
                             }
                         }
-                    }
                 }
             }
         }
