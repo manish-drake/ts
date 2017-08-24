@@ -124,33 +124,47 @@ Item{
                             color: Universal.foreground
                             font.family: robotoRegular.name
                         }
-                    }                    
-                    Repeater{
+                    }
+                    ListView{
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        height: 200
                         id: repeater1
-                        model: loggingModel
-                        RowLayout{
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            spacing: 10
-                            Text {
-                                Layout.fillWidth: true
-                                text: data1
-                                font.pixelSize: 12
-                                color: Universal.foreground
-                                wrapMode: Text.Wrap
-                                clip: true
-                                font.family: robotoRegular.name
+                        model: loggingModel.logs()
+                        delegate: Rectangle {
+                            height: 15
+                                Text {
+                                    Layout.fillWidth: true
+                                    text: modelData
+                                    font.pixelSize: 12
+                                    color: Universal.foreground
+                                    wrapMode: Text.Wrap
+                                    font.family: robotoRegular.name
+                                }
                             }
-                            Text {
-                                Layout.column: 1
-                                Layout.alignment: Qt.AlignTop
-                                text: msgType
-                                font.pixelSize: 12
-                                color: Universal.foreground
-                                font.family: robotoRegular.name
-                            }
-                        }
-                    }                    
+//                        RowLayout{
+//                            anchors.left: parent.left
+//                            anchors.right: parent.right
+//                            spacing: 10
+//                            Text {
+//                                Layout.fillWidth: true
+//                                text: data1
+//                                font.pixelSize: 12
+//                                color: Universal.foreground
+//                                wrapMode: Text.Wrap
+//                                clip: true
+//                                font.family: robotoRegular.name
+//                            }
+//                            Text {
+//                                Layout.column: 1
+//                                Layout.alignment: Qt.AlignTop
+//                                text: msgType
+//                                font.pixelSize: 12
+//                                color: Universal.foreground
+//                                font.family: robotoRegular.name
+//                            }
+//                        }
+                    }
                 }
             }
         }

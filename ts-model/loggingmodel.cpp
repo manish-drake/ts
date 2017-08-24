@@ -5,12 +5,10 @@
 using namespace std;
 
 LoggingModel::LoggingModel(QObject *parent):
-    ModelBase(parent),
-    m_db(DataManager::logger()),
-    m_logs(m_db.loggingDao()->logs())
+    m_db(DataManager::logger())
 {
 }
-
+/*
 int LoggingModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
@@ -112,16 +110,6 @@ QHash<int, QByteArray> LoggingModel::roleNames() const
     return hash;
 }
 
-void LoggingModel::log(const QString &data)
-{
-    qInfo() << data;
-}
-
-LoggingModel::~LoggingModel()
-{
-
-}
-
 int LoggingModel::getRowIndexByID(const int id) const
 {
     int row = -1, idx = 0;
@@ -151,5 +139,42 @@ bool LoggingModel::isIndexValid(const QModelIndex &index) const
     } else {
         return true;
     }
+}
+
+*/
+
+void LoggingModel::log(const QString &data)
+{
+    qInfo() << data;
+}
+
+QVariant LoggingModel::logs()
+{
+    QStringList dataList;
+    auto logs = m_db.loggingDao()->logs();
+    QDateTime dt;
+    for(auto &log: *logs){
+        QDateTime dtLog = log->dtLog();
+        QDateTime now = QDateTime::currentDateTime();
+        qint64 x = dtLog.daysTo(now);
+        qint64 y = dt.daysTo(now);
+        if(x != y){
+            dt = dtLog;
+            QString date = dtLog.date().toString(Qt::DateFormat::DefaultLocaleLongDate);
+            dataList.append("");
+            dataList.append(date);
+            dataList.append("-------------------------------------");
+        }
+
+        QString msg = log->data();
+        QString time = dtLog.time().toString("HH:mm:ss.zzz");
+        dataList.append(time + ": " + msg);
+    }
+    return QVariant::fromValue(dataList);
+}
+
+LoggingModel::~LoggingModel()
+{
+
 }
 
