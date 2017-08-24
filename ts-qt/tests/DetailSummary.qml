@@ -30,98 +30,98 @@ Item{
                     anchors.right: parent.right
                     anchors.margins: 15
                     columnSpacing: 25
-                        Repeater{
-                            model: summaryModel
-                            delegate:
-                                ColumnLayout {
-                                Layout.fillWidth: true
-                                Layout.topMargin: 20
-                                Layout.row: order
-                                Layout.column: col
-                                Layout.columnSpan: colSpan
-                                Text {
-                                    Layout.fillHeight: true
-                                    text: name
-                                    font.weight: Font.DemiBold
-                                    font.pixelSize: 13
-                                    color: Universal.accent
-                                    font.capitalization: Font.AllUppercase
-                                    font.family: robotoRegular.name
-                                }
-                                GridLayout {
-                                    Repeater {
-                                        model: summaryModel.getTestParamsForsummary(id)
-                                        delegate: Rectangle{
-                                            color: "transparent"
-                                            Layout.row: model.modelData.row
-                                            Layout.column: model.modelData.col
-                                            Layout.fillWidth: true
-                                            Layout.minimumWidth: content.width /2
-                                            //Layout.preferredWidth : 200
-                                            Layout.rightMargin: 9
-                                            Layout.columnSpan: model.modelData.colSpan
-                                            Layout.rowSpan: model.modelData.rowSpan
-                                            height: 15
-                                            Controls.style:model.modelData.keyStyle
-                                            Row{
-                                                spacing: 4
-                                                anchors.fill: parent
-                                                Text{
-                                                    text:model.modelData.key
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.keyStyle
-                                                    color: Universal.foreground
-                                                    opacity: 0.5
-                                                }
-                                                Text{
-                                                    text:model.modelData.value1
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.value1Style
-                                                    color: Universal.foreground
-                                                }
-                                                Text{
-                                                    text:model.modelData.unit1
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.unit1Style
-                                                    color: Universal.foreground
-                                                }
-                                                Text{
-                                                    text:model.modelData.value2
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.value2Style
-                                                    color: Universal.foreground
-                                                }
-                                                Text{
-                                                    text:model.modelData.unit2
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.unit2Style
-                                                    color: Universal.foreground
-                                                }
-                                                Text{
-                                                    text:model.modelData.value3
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.value3Style
-                                                    color: Universal.foreground
-                                                }
-                                                Text{
-                                                    text:model.modelData.unit3
-                                                    font.pixelSize: 12
-                                                    font.family: robotoRegular.name
-                                                    Controls.style:model.modelData.unit3Style
-                                                    color: Universal.foreground
-                                                }
+                    Repeater{
+                        model: summaryModel
+                        delegate:
+                            ColumnLayout {
+                            Layout.fillWidth: true
+                            Layout.topMargin: 20
+                            Layout.row: order
+                            Layout.column: col
+                            Layout.columnSpan: colSpan
+                            Text {
+                                Layout.fillHeight: true
+                                text: name
+                                font.weight: Font.DemiBold
+                                font.pixelSize: 13
+                                color: Universal.accent
+                                font.capitalization: Font.AllUppercase
+                                font.family: robotoRegular.name
+                            }
+                            GridLayout {
+                                Repeater {
+                                    model: summaryModel.getTestParamsForsummary(id)
+                                    delegate: Rectangle{
+                                        color: "transparent"
+                                        Layout.row: model.modelData.row
+                                        Layout.column: model.modelData.col
+                                        Layout.fillWidth: true
+                                        Layout.minimumWidth: content.width /2
+                                        //Layout.preferredWidth : 200
+                                        Layout.rightMargin: 9
+                                        Layout.columnSpan: model.modelData.colSpan
+                                        Layout.rowSpan: model.modelData.rowSpan
+                                        height: 15
+                                        Controls.style:model.modelData.keyStyle
+                                        Row{
+                                            spacing: 4
+                                            anchors.fill: parent
+                                            Text{
+                                                text:model.modelData.key
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.keyStyle
+                                                color: Universal.foreground
+                                                opacity: 0.5
+                                            }
+                                            Text{
+                                                text:model.modelData.value1
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.value1Style
+                                                color: Universal.foreground
+                                            }
+                                            Text{
+                                                text:model.modelData.unit1
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.unit1Style
+                                                color: Universal.foreground
+                                            }
+                                            Text{
+                                                text:model.modelData.value2
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.value2Style
+                                                color: Universal.foreground
+                                            }
+                                            Text{
+                                                text:model.modelData.unit2
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.unit2Style
+                                                color: Universal.foreground
+                                            }
+                                            Text{
+                                                text:model.modelData.value3
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.value3Style
+                                                color: Universal.foreground
+                                            }
+                                            Text{
+                                                text:model.modelData.unit3
+                                                font.pixelSize: 12
+                                                font.family: robotoRegular.name
+                                                Controls.style:model.modelData.unit3Style
+                                                color: Universal.foreground
                                             }
                                         }
                                     }
                                 }
                             }
                         }
+                    }
                 }
             }
         }
