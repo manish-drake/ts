@@ -30,92 +30,94 @@ RowLayout{
         Layout.alignment: Qt.AlignHCenter
         rowSpacing: 0
         columnSpacing: 0
-        SwitchDelegate{
-            id: rlScaleSwitch
-            enabled: areControlsAvailble
-            opacity: areControlsAvailble ? 1 : 0
-            Layout.columnSpan: 2
+        Item{
+            Layout.columnSpan: 3
+            Layout.fillWidth: true
             Layout.bottomMargin: 10
-            spacing: 0
-            implicitHeight: 32
-            implicitWidth: 50
-            checked: vswrScaleSwitch.checked
-            indicator:Rectangle{
-                anchors.fill: parent
-                radius: 3
-                color: parent.checked ? "#dddddd" : "#ededed"
-                border.width: 1
-                border.color: "lightgray"
-                Text{
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "Return<br>Loss"
-                    font.pixelSize: 12
-                    font.family: robotoRegular.name
-                    horizontalAlignment: Text.AlignHCenter
+            height: 32
+            SwitchDelegate{
+                id: rlScaleSwitch
+                anchors.left: parent.left
+                enabled: areControlsAvailble
+                opacity: areControlsAvailble ? 1 : 0
+                spacing: 0
+                implicitHeight: parent.height
+                implicitWidth: 50
+                checked: vswrScaleSwitch.checked
+                indicator:Rectangle{
+                    anchors.fill: parent
+                    radius: 3
+                    color: parent.checked ? "#dddddd" : "#ededed"
+                    border.width: 1
+                    border.color: "lightgray"
+                    Text{
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "Return<br>Loss"
+                        font.pixelSize: 12
+                        font.family: robotoRegular.name
+                        horizontalAlignment: Text.AlignHCenter
+                    }
                 }
-            }            
-            onPressed: opacity = 0.5
-            onReleased: opacity = 1
-            onCheckedChanged: {
-                isScaleChecked = checked
+                onPressed: opacity = 0.5
+                onReleased: opacity = 1
+                onCheckedChanged: {
+                    isScaleChecked = checked
+                }
+            }
+
+            SwitchDelegate{
+                id: vswrScaleSwitch
+                anchors.right: parent.right
+                enabled: areControlsAvailble
+                opacity: enabled ? 1 : 0
+                spacing: 0
+                implicitHeight: parent.height
+                implicitWidth: 50
+                checked: rlScaleSwitch.checked
+                indicator:Rectangle{
+                    anchors.fill: parent
+                    radius: 3
+                    color: parent.checked ? "#dddddd" : "#ededed"
+                    border.width: 1
+                    border.color: "lightgray"
+                    Text{
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: "VSWR"
+                        font.pixelSize: 12
+                        font.family: robotoRegular.name
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+                onPressed: opacity = 0.5
+                onReleased: opacity = 1
             }
         }
 
-        SwitchDelegate{
-            id: vswrScaleSwitch
-            enabled: areControlsAvailble
-            opacity: enabled ? 1 : 0
-            Layout.column: 1
-            Layout.alignment: Qt.AlignRight
-            Layout.columnSpan: 2
-            Layout.bottomMargin: 10
-            spacing: 0
-            implicitHeight: 32
-            implicitWidth: 50
-            checked: rlScaleSwitch.checked
-            indicator:Rectangle{
-                anchors.fill: parent
-                radius: 3
-                color: parent.checked ? "#dddddd" : "#ededed"
-                border.width: 1
-                border.color: "lightgray"
-                Text{
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    text: "VSWR"
-                    font.pixelSize: 12
-                    font.family: robotoRegular.name
-                    horizontalAlignment: Text.AlignHCenter
-                }
-            }            
-            onPressed: opacity = 0.5
-            onReleased: opacity = 1
-        }
-
-        Image{
-            id: graphImage
+        Rectangle{
             Layout.row: 2
             Layout.column: 1
             Layout.fillWidth: true
             Layout.maximumWidth: 400
             height: 256
-            source: "qrc:/img/img/graph-back.png"
-            fillMode: Image.Stretch
-        }
-
-        LineGraph{
-            visible: areControlsAvailble
-            refColor: "yellow"
-            color: "green"
-            Layout.row: 2
-            Layout.column: 1
-            Layout.fillWidth: true
-            Layout.maximumWidth: 400
-            height: 256
-            points: dummy.points
-            refPoints: refData
-            size: 400
+            Image{
+                id: graphImage
+                width: parent.width
+                height: 256
+                source: "qrc:/img/img/graph-back.png"
+                fillMode: Image.Stretch
+            }
+            LineGraph{
+                visible: areControlsAvailble
+                refColor: "yellow"
+                color: "green"
+                width: parent.width
+                height: parent.height
+                points: dummy.points
+                refPoints: refData
+                size: 400
+            }
         }
 
         ListView{
@@ -231,184 +233,181 @@ RowLayout{
         }
 
         Item{
-            id: freqValsList
-            visible: !isDTFMode
             Layout.row: 4
             Layout.columnSpan: 3
             Layout.fillWidth: true
-            Layout.leftMargin: 20
-            Layout.rightMargin: 20
-            Text{
-                id: freqStart
-                color: Universal.foreground
-                text: freqStartVal
-                font.pixelSize: 12
-                font.family: robotoRegular.name
+            Layout.leftMargin: 25
+            Item{
+                id: freqValsList
+                visible: !isDTFMode
+                width: parent.width
+                anchors.rightMargin: 20
+                Text{
+                    id: freqStart
+                    color: Universal.foreground
+                    text: freqStartVal
+                    font.pixelSize: 12
+                    font.family: robotoRegular.name
+                }
+                Text{
+                    id: freqMiddle
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    color: Universal.foreground
+                    text: freqMiddleVal
+                    font.pixelSize: 12
+                    font.family: robotoRegular.name
+                }
+                Text{
+                    id: freqStop
+                    anchors.right: parent.right
+                    color: Universal.foreground
+                    text: freqEndVal + " MHz"
+                    font.pixelSize: 12
+                    font.family: robotoRegular.name
+                }
             }
-            Text{
-                id: freqMiddle
-                anchors.horizontalCenter: parent.horizontalCenter
-                color: Universal.foreground
-                text: freqMiddleVal
-                font.pixelSize: 12
-                font.family: robotoRegular.name
-            }
-            Text{
-                id: freqStop
-                anchors.right: parent.right
-                color: Universal.foreground
-                text: freqEndVal + " MHz"
-                font.pixelSize: 12
-                font.family: robotoRegular.name
-            }
-        }
-
-        Item{
-            visible: isDTFMode
-            Layout.row: 4
-            Layout.column: 1
-            Layout.columnSpan: 2
-            Layout.fillWidth: true
-            ListView{
-                id: lengthScale
-                anchors.left: parent.left
-                anchors.right: lengthUnitSwitch.left
-                anchors.top: parent.top
-                orientation: ListView.Horizontal
-                model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
-                delegate: Component{
-                    Item{
-                        width: (lengthScale.width - 15)/3
+            Item{
+                visible: isDTFMode
+                width: parent.width
+                ListView{
+                    id: lengthScale
+                    anchors.left: parent.left
+                    anchors.right: lengthUnitSwitch.left
+                    anchors.top: parent.top
+                    orientation: ListView.Horizontal
+                    model: lengthUnitSwitch.checked ? feetScaleList : meterScaleList
+                    delegate: Component{
+                        Item{
+                            width: (lengthScale.width - 15)/3
+                            Text{
+                                text: val
+                                color: Universal.foreground
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                            }
+                        }
+                    }
+                    ListModel{
+                        id: meterScaleList
+                        ListElement{ val: "0" }
+                        ListElement{ val: "5" }
+                        ListElement{ val: "10" }
+                        ListElement{ val: "15" }
+                    }
+                    ListModel{
+                        id: feetScaleList
+                        ListElement{ val: "0" }
+                        ListElement{ val: "16" }
+                        ListElement{ val: "33" }
+                        ListElement{ val: "49" }
+                    }
+                }
+                SwitchDelegate{
+                    id: lengthUnitSwitch
+                    anchors.right: parent.right
+                    spacing: 0
+                    implicitHeight: 22
+                    implicitWidth: 25
+                    indicator:Rectangle{
+                        anchors.fill: parent
+                        color: "#ededed"
+                        border.width: 1
+                        border.color: "lightgray"
                         Text{
-                            text: val
-                            color: Universal.foreground
-                            font.pixelSize: 12
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: lengthUnitSwitch.checked ? "Ft" : "M"
+                            horizontalAlignment: Text.AlignHCenter
                             font.family: robotoRegular.name
                         }
                     }
-                }
-                ListModel{
-                    id: meterScaleList
-                    ListElement{ val: "0" }
-                    ListElement{ val: "5" }
-                    ListElement{ val: "10" }
-                    ListElement{ val: "15" }
-                }
-                ListModel{
-                    id: feetScaleList
-                    ListElement{ val: "0" }
-                    ListElement{ val: "16" }
-                    ListElement{ val: "33" }
-                    ListElement{ val: "49" }
-                }
-            }
-            SwitchDelegate{
-                id: lengthUnitSwitch
-                anchors.right: parent.right
-                spacing: 0
-                implicitHeight: 22
-                implicitWidth: 25
-                indicator:Rectangle{
-                    anchors.fill: parent
-                    color: "#ededed"
-                    border.width: 1
-                    border.color: "lightgray"
-                    Text{
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        text: lengthUnitSwitch.checked ? "Ft" : "M"
-                        horizontalAlignment: Text.AlignHCenter
-                        font.family: robotoRegular.name
+                    onCheckedChanged: {
+                        isDTFUnitSwitched = checked
+                        markerMaxVal = checked ? 49.21 : 15;
+                        markersModel.get(selectedMarkerIndex)._val = checked ? (markersModel.get(selectedMarkerIndex)._val * 3.28084) : (markersModel.get(selectedMarkerIndex)._val / 3.28084)
                     }
+                    onPressed: opacity = 0.5
+                    onReleased: opacity = 1
                 }
-                onCheckedChanged: {
-                    isDTFUnitSwitched = checked
-                    markerMaxVal = checked ? 49.21 : 15;
-                    markersModel.get(selectedMarkerIndex)._val = checked ? (markersModel.get(selectedMarkerIndex)._val * 3.28084) : (markersModel.get(selectedMarkerIndex)._val / 3.28084)
-                }
-                onPressed: opacity = 0.5
-                onReleased: opacity = 1
             }
         }
         Item{
             Layout.row: 1
             Layout.column: 1
+            Layout.fillWidth: true
+            Layout.leftMargin: -14
+            Layout.rightMargin: -14
             height: 28
-        }
-
-        Repeater{
-            visible: areControlsAvailble
-            model: markersModel
-            Slider{
-                id: markerSlider
-                Layout.row: 1
-                Layout.column: 1
-                Layout.fillWidth: true
-                Layout.leftMargin: -14
-                Layout.rightMargin: -14
-                z: index == selectedMarkerIndex ? 1 : 0
-                implicitHeight: 28
-                minimumValue: markerMinVal
-                maximumValue: markerMaxVal
-                stepSize: markerStepSize
-                value: _val
-                style: SliderStyle {
-                    groove:  Item{
-                        Layout.fillWidth: parent
-                    }
-                    handle: Rectangle {
-                        opacity: control.pressed ? 0.8 : 1
-                        color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
-                        border.color: "#dddddd"
-                        border.width: index == selectedMarkerIndex ? 0 : 1
-                        implicitWidth: 30
-                        implicitHeight: 28
-                        radius: 3
-                        Text{
-                            anchors.centerIn: parent
-                            text: "M" + num
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            color: index == selectedMarkerIndex ? "white" : "black"
+            Repeater{
+                visible: areControlsAvailble
+                model: markersModel
+                Slider{
+                    id: markerSlider
+                    width: parent.width
+                    z: index == selectedMarkerIndex ? 1 : 0
+                    implicitHeight: 28
+                    minimumValue: markerMinVal
+                    maximumValue: markerMaxVal
+                    stepSize: markerStepSize
+                    value: _val
+                    style: SliderStyle {
+                        groove:  Item{
+                            Layout.fillWidth: parent
                         }
-                        Rectangle{
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.top: parent.bottom
-                            color: "orange"
-                            width: 1
-                            height: graphImage.height
-                        }
-                        Text{
-                            visible: !isDTFMode && index == selectedMarkerIndex
-                            anchors.right: parent.left
-                            anchors.rightMargin: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: markerSlider.value;
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            color: Universal.foreground
-                            opacity: 0.8
-                        }
-                        Text{
-                            visible: isDTFMode && index == selectedMarkerIndex
-                            anchors.right: parent.left
-                            anchors.rightMargin: 5
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            color: Universal.foreground
-                            opacity: 0.8
-                        }
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: console.log("marker selected")
+                        handle: Rectangle {
+                            opacity: control.pressed ? 0.8 : 1
+                            color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
+                            border.color: "#dddddd"
+                            border.width: index == selectedMarkerIndex ? 0 : 1
+                            implicitWidth: 30
+                            implicitHeight: 28
+                            radius: 3
+                            Text{
+                                anchors.centerIn: parent
+                                text: "M" + num
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                color: index == selectedMarkerIndex ? "white" : "black"
+                            }
+                            Rectangle{
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.top: parent.bottom
+                                color: "orange"
+                                width: 1
+                                height: graphImage.height
+                            }
+                            Text{
+                                visible: !isDTFMode && index == selectedMarkerIndex
+                                anchors.right: parent.left
+                                anchors.rightMargin: 5
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: markerSlider.value;
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.8
+                            }
+                            Text{
+                                visible: isDTFMode && index == selectedMarkerIndex
+                                anchors.right: parent.left
+                                anchors.rightMargin: 5
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: lengthUnitSwitch.checked ? (markerSlider.value).toFixed(2) + " Ft" : (markerSlider.value).toFixed(2) + " m"
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                color: Universal.foreground
+                                opacity: 0.8
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: console.log("marker selected")
+                            }
                         }
                     }
-                }
-                onValueChanged: {
-                    _val = value
-                    selectedMarkerVal = value
+                    onValueChanged: {
+                        _val = value
+                        selectedMarkerVal = value
+                    }
                 }
             }
         }
