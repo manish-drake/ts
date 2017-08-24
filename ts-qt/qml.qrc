@@ -127,5 +127,6 @@
     <qresource prefix="/fonts">
         <file>fonts/RobotoCondensed-Regular.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>
+        <file>fonts/RobotoMono-Regular.ttf</file>
     </qresource>
 </RCC>
