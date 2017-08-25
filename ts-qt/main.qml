@@ -16,7 +16,7 @@ ApplicationWindow {
     property string headerTitle: "Home"
     property var _theme: Universal.Light
     Universal.theme: _theme
-    Universal.accent: "#00AEEF"
+    Universal.accent: "#34BFCE"
     property string currentUser: "Operator"
     property string currentUserEmail: "operator@mail.com"
     property string deviceName: "MD-15"

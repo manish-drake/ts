@@ -5,7 +5,7 @@ import QtQuick.Controls.Universal 2.1
 
 Rectangle{
     color: Universal.theme === Universal.Light ? "#D1D3D4" : "#222222"
-    Universal.accent: "#00AEEF"
+    Universal.accent: "#34BFCE"
     property int selectedMenuIndex: 1
     ColumnLayout{
         anchors.fill: parent
@@ -87,7 +87,7 @@ Rectangle{
                                     anchors.rightMargin: 10
                                     anchors.topMargin: 2.5
                                     anchors.bottomMargin: 2.5
-                                    color: selectedMenuIndex === model.modelData.id ? "#1B75BC" : Universal.theme === Universal.Light ? Universal.accent : "#222222"
+                                    color: selectedMenuIndex === model.modelData.id ? "#26909C" : Universal.theme === Universal.Light ? Universal.accent : "#222222"
                                     radius: 3
                                     Text {
                                         anchors.verticalCenter: parent.verticalCenter

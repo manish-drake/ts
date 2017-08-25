@@ -71,7 +71,7 @@ Item{
                             width: (connectionListView.width/3) - 18
                             color: "transparent"
                             border.width: 1
-                            border.color: index == connectionListView.currentIndex ? "#1B75BC" :  Universal.accent
+                            border.color: index == connectionListView.currentIndex ? "#26909C" :  Universal.accent
                             radius: 3
                             ColumnLayout{
                                 anchors.fill: parent
@@ -95,7 +95,7 @@ Item{
                                     font.pixelSize: 14
                                     font.weight: Font.Black
                                     font.family: robotoRegular.name
-                                    color: index == connectionListView.currentIndex ? "#1B75BC" :  Universal.accent
+                                    color: index == connectionListView.currentIndex ? "#26909C" :  Universal.accent
                                 }
                             }
                             MouseArea{

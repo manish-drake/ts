@@ -71,7 +71,7 @@ Item{
                             width: (classListView.width/3) - 18
                             color: "transparent"
                             border.width: 1
-                            border.color: index == classListView.currentIndex ? "#1B75BC" :  Universal.accent
+                            border.color: index == classListView.currentIndex ? "#26909C" :  Universal.accent
                             radius: 3
                             ColumnLayout{
                                 anchors.fill: parent
@@ -85,7 +85,7 @@ Item{
                                         height: 45
                                         color: "transparent"
                                         border.width: 1.5
-                                        border.color: index == classListView.currentIndex ? "#1B75BC" :  Universal.accent
+                                        border.color: index == classListView.currentIndex ? "#26909C" :  Universal.accent
                                         radius: height/2
                                         Text{
                                             anchors.centerIn: parent
@@ -93,7 +93,7 @@ Item{
                                             font.pixelSize: 28
                                             font.weight: Font.Black
                                             font.family: robotoRegular.name
-                                            color: index == classListView.currentIndex ? "#1B75BC" :  Universal.accent
+                                            color: index == classListView.currentIndex ? "#26909C" :  Universal.accent
                                         }
                                     }
                                 }
@@ -105,7 +105,7 @@ Item{
                                     font.pixelSize: 14
                                     font.weight: Font.Black
                                     font.family: robotoRegular.name
-                                    color: index == classListView.currentIndex ? "#1B75BC" :  Universal.accent
+                                    color: index == classListView.currentIndex ? "#26909C" :  Universal.accent
                                 }
                             }
                             MouseArea{

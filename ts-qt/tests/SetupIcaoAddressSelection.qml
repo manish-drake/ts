@@ -77,7 +77,7 @@ Item{
                             anchors.leftMargin: 20
                             anchors.rightMargin: 20
                             height: 45
-                            color: index == icaoAdressListView.currentIndex ? "#1B75BC" :  Universal.accent
+                            color: index == icaoAdressListView.currentIndex ? "#26909C" :  Universal.accent
                             radius: 4
                             RowLayout{
                                 anchors.fill: parent

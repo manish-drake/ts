@@ -300,7 +300,7 @@ Page {
                             Text{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: manualLatSwitch.checked ? "DONE" : "EDIT"
-                                color: manualLatSwitch.enabled ? "#387EF5" : "gray"
+                                color: manualLatSwitch.enabled ? Universal.accent : "gray"
                                 font.pixelSize: 14
                                 font.family: robotoRegular.name
                             }
@@ -370,7 +370,7 @@ Page {
                             Text{
                                 anchors.verticalCenter: parent.verticalCenter
                                 text: manualLonSwitch.checked ? "DONE" : "EDIT"
-                                color: manualLonSwitch.enabled ? "#387EF5" : "gray"
+                                color: manualLonSwitch.enabled ? Universal.accent : "gray"
                                 font.pixelSize: 14
                                 font.family: robotoRegular.name
                             }

@@ -259,7 +259,7 @@ Page {
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editIPAddSwitch.checked ? "DONE" : "EDIT"
-                                    color: parent.enabled ? "#387EF5" : "gray"
+                                    color: parent.enabled ? Universal.accent : "gray"
                                     font.pixelSize: 14
                                     font.family: robotoRegular.name
                                 }
@@ -327,7 +327,7 @@ Page {
                                 Text{
                                     anchors.verticalCenter: parent.verticalCenter
                                     text: editDNameSwitch.checked ? "DONE" : "EDIT"
-                                    color: parent.enabled ? "#387EF5" : "gray"
+                                    color: parent.enabled ? Universal.accent : "gray"
                                     font.pixelSize: 14
                                     font.family: robotoRegular.name
                                 }
