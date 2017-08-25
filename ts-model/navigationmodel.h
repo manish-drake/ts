@@ -17,7 +17,7 @@ public:
     explicit NavigationModel(QObject *parent = 0);
 
     Q_PROPERTY(int currentView READ currentView WRITE setCurrentView NOTIFY currentViewChanged)
-    Q_PROPERTY(QVariant navigationParameter READ navigationParameter)
+    Q_PROPERTY(QVariant navigationParameter READ navigationParameter CONSTANT)
     Q_PROPERTY(bool isSideMenuAvailable READ isSideMenuAvailable WRITE setIsSideMenuAvailable NOTIFY isSideMenuAvailableChanged)
     Q_PROPERTY(bool isHeaderAvailable READ isHeaderAvailable WRITE setIsHeaderAvailable NOTIFY isHeaderAvailableChanged)
     Q_PROPERTY(bool isTestRunPage READ isTestRunPage WRITE setIsTestRunPage NOTIFY isTestRunPageChanged)

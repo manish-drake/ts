@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
         QGuiApplication app(argc, argv);
 
-        qInstallMessageHandler(myMessageOutput);
+//        qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
 
