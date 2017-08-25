@@ -90,29 +90,19 @@ Item{
                                 onPressed: parent.opacity = 0.5
                                 onReleased: parent.opacity = 1
                                 onCanceled: parent.opacity = 1
-                                onClicked: modeListView.currentIndex = index
+                                onClicked: {
+                                    modeListView.currentIndex = index
+                                    navigationModel.currentView = navigationModel.getTargetView(link)
+                                    modeSelectionPopup.close()
+                                }
                             }
                         }
                     }
                     model: ListModel {
                         id: modeList
-                        ListElement { name: "VSWR"; }
-                        ListElement { name: "LOSS"; }
-                        ListElement { name: "DTF"; }
-                    }
-                    onCurrentIndexChanged:{
-                        switch(currentIndex){
-                        case 0:
-                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Vswr")
-                            break;
-                        case 1:
-                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Cl")
-                            break;
-                        case 2:
-                            navigationModel.currentView = navigationModel.getTargetView("Aviation-Dtf")
-                            break;
-                        }
-                        modeSelectionPopup.close()
+                        ListElement { name: "VSWR"; link: "Aviation-Vswr"}
+                        ListElement { name: "LOSS"; link: "Aviation-Cl" }
+                        ListElement { name: "DTF"; link: "Aviation-Dtf"}
                     }
                 }
             }

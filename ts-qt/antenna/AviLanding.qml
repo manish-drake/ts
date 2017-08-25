@@ -113,6 +113,7 @@ Item{
                         onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
                                                                   {
                                                                       "id": navigationModel.navigationParameter.id,
+                                                                      "title": navigationModel.navigationParameter.title,
                                                                       "runState": "idle",
                                                                       "isHome": navigationModel.navigationParameter.isHome
                                                                   });
@@ -187,6 +188,7 @@ Item{
                         onClicked: navigationModel.setCurrentView(navigationModel.getTargetView("_detailSummary"),
                                                                   {
                                                                       "id": navigationModel.navigationParameter.id,
+                                                                      "title": navigationModel.navigationParameter.title,
                                                                       "runState": "start",
                                                                       "isHome": navigationModel.navigationParameter.isHome
                                                                   });

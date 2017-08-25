@@ -233,8 +233,10 @@ Item{
                         onClicked: {
                             navigationModel.currentView = navigationModel.getTargetView(
                                         "back",
-                                        {"isHome": navigationModel.navigationParameter.isHome}
-                                        )
+                                        {
+                                            "title": navigationModel.navigationParameter.title,
+                                            "isHome": navigationModel.navigationParameter.isHome
+                                        })
                         }
                     }
                 }

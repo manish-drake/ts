@@ -121,8 +121,6 @@ void NavigationModel::evaluteCurrentView()
     }
     switch (this->m_currentView)
     {
-    case 1:
-        break;
     case 2:
     case 5:
     case 6 ... 12:
