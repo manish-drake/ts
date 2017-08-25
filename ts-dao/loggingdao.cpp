@@ -49,7 +49,7 @@ void LoggingDao::addLogging(Logging &logging) const
     query.exec();
     logging.setId(query.lastInsertId().toInt());
 
-    DataManager::debugQuery(query);
+//    DataManager::debugQuery(query);
 }
 
 void LoggingDao::removeLogging(int id) const
@@ -71,23 +71,23 @@ unique_ptr<vector<unique_ptr<Logging>>> LoggingDao:: logs() const
 {
     QSqlQuery query(m_database);
     const QString strQuery = QString(
-                "SELECT * "
+                "SELECT ID, dtLog, data "
                 "FROM logs "
                 );
 
     query.exec(strQuery);
-    DataManager::debugQuery(query);
-
+//    DataManager::debugQuery(query);
+    int num = query.size();
     unique_ptr<vector<unique_ptr<Logging>>> list(new vector<unique_ptr<Logging>>());
 
     while (query.next()) {
         unique_ptr<Logging> logging(
                     new Logging(query.value("dtLog").toDateTime(),
-                                query.value("msgType").toInt(),
+                                /*query.value("msgType").toInt()*/0,
                                 query.value("data").toString(),
-                                query.value("file").toString(),
-                                query.value("line").toInt(),
-                                query.value("function").toString()));
+                                /*query.value("file").toString()*/"",
+                                /*query.value("line").toInt()*/0,
+                                /*query.value("function").toString()*/""));
         logging->setId(query.value("ID").toInt());
 
         list->push_back(move(logging));

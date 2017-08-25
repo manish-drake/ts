@@ -66,8 +66,8 @@ int main(int argc, char *argv[])
         context->setContextProperty("loggingModel", &loggingModel);
 
 
-        AsyncProc ap([](){});
-        ap.process();
+//        AsyncProc ap([](){});
+//        ap.process();
 
         Client client;
         context->setContextProperty("zmq", &client);
