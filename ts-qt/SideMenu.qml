@@ -4,51 +4,74 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
 Rectangle{
-    color: Universal.theme === Universal.Light ? "#D1D3D4" : "#222222"
+    color: Universal.theme === Universal.Light ? "#F1F2F2" : "#494949"
     Universal.accent: "#34BFCE"
     property int selectedMenuIndex: 1
     ColumnLayout{
         anchors.fill: parent
+        spacing: 0
         Image {
             id:profileImage
             Layout.topMargin: 12
+            Layout.bottomMargin: 12
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
             sourceSize.width: 80
             sourceSize.height: 80
         }
+        Rectangle{
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 1
+            color: "black"
+            opacity: Universal.theme === Universal.Light ? 0.15 : 0.3
+        }
         Item{
-            Layout.row: 1
-            Layout.fillWidth: true
+            anchors.left: parent.left
+            anchors.right: parent.right
             height: 60
-            ColumnLayout{
+            GridLayout{
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.margins: 12
-                spacing: 0
+                rowSpacing: 0
                 Text{
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: currentUser
                     color: Universal.accent
-                    font.pixelSize: 14
+                    font.pixelSize: 16
                     font.weight: Font.Black
                     font.family: robotoRegular.name
                 }
                 Text{
+                    Layout.row: 1
                     Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: currentUserEmail
                     color: Universal.accent
                     font.pixelSize: 14
+                    font.weight: Font.Black
                     font.family: robotoRegular.name
+                }
+                Image{
+                    Layout.column: 1
+                    Layout.rowSpan: 2
+                    source: "qrc:/img/img/Expand Arrow.png"
                 }
             }
         }
         Rectangle{
-            Layout.row: 2
-            Layout.fillWidth: true
+            anchors.left: parent.left
+            anchors.right: parent.right
+            height: 1
+            color: "black"
+            opacity: Universal.theme === Universal.Light ? 0.15 : 0.3
+        }
+        Rectangle{
+            anchors.left: parent.left
+            anchors.right: parent.right
             Layout.fillHeight: true
             color: Universal.theme === Universal.Light ? Universal.background : "#38363C"
             ListView {
@@ -77,29 +100,54 @@ Rectangle{
                         }
                         Repeater{
                             model: sectionGroupModel.getSectionsForsecGroup(id)
-                            Item{
+                            Item {
                                 anchors.left: parent.left
                                 anchors.right: parent.right
-                                height: 48
-                                Rectangle{
+                                height: 53
+                                Item {
                                     anchors.fill: parent
-                                    anchors.leftMargin: 10
-                                    anchors.rightMargin: 10
+                                    anchors.rightMargin: 30
                                     anchors.topMargin: 2.5
                                     anchors.bottomMargin: 2.5
-                                    color: selectedMenuIndex === model.modelData.id ? "#26909C" : Universal.theme === Universal.Light ? Universal.accent : "#222222"
-                                    radius: 3
-                                    Text {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        anchors.left: parent.left
-                                        anchors.leftMargin: 20
-                                        text: model.modelData.name
-                                        font.pixelSize: 17
-                                        font.weight: Font.Bold
-                                        font.family: robotoRegular.name
-                                        color: "White"
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        anchors.leftMargin: -radius
+                                        radius: 24
+                                        border.width: 1
+                                        border.color: selectedMenuIndex === model.modelData.id ? "#26909C" : Universal.accent
+                                        color: selectedMenuIndex === model.modelData.id ? "#26909C" : "transparent"
+                                        RowLayout{
+                                            anchors.fill: parent
+                                            Text {
+                                                Layout.fillWidth: true
+                                                Layout.alignment: Qt.AlignVCenter
+                                                Layout.leftMargin: 54
+                                                text: model.modelData.name
+                                                font.pixelSize: 17
+                                                font.weight: Font.Bold
+                                                font.family: robotoRegular.name
+                                                elide: Text.ElideRight
+                                                color: selectedMenuIndex === model.modelData.id ? "White" : Universal.accent
+                                            }
+                                            Rectangle{
+                                                Layout.rightMargin: 15
+                                                Layout.alignment: Qt.AlignVCenter
+                                                height: 20
+                                                width: 20
+                                                radius: 10
+                                                color: Universal.theme === Universal.Light ? Universal.background : "#38363C"
+                                                visible: selectedMenuIndex === model.modelData.id
+                                                Rectangle{
+                                                    anchors.centerIn: parent
+                                                    height: 10
+                                                    width: 10
+                                                    radius: 5
+                                                    color: "#26909C"
+                                                }
+                                            }
+                                        }
                                     }
-                                }                                
+                                }
                                 MouseArea {
                                     anchors.fill: parent
                                     onPressed: parent.opacity = 0.7

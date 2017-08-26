@@ -122,6 +122,7 @@
         <file>img/Past-white.png</file>
         <file>img/Star Filled.png</file>
         <file>img/List View.png</file>
+        <file>img/Expand Arrow.png</file>
     </qresource>
     <qresource prefix="/database"/>
     <qresource prefix="/fonts">

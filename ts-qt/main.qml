@@ -38,7 +38,7 @@ ApplicationWindow {
 
             contentItem: Rectangle {
                 id:contentRect
-                color: Universal.theme === Universal.Light ? "#D1D3D4" : "#414048"
+                color: Universal.theme === Universal.Light ? "#E1E2E3" : "#414048"
                 Loader {
                     id:contentLoader
                     anchors.fill: parent
