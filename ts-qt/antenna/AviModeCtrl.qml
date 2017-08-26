@@ -20,16 +20,17 @@ Item{
             font.weight: Font.DemiBold
             font.family: robotoRegular.name
             color: Universal.foreground
-            opacity: 0.7
+            opacity: Universal.theme == Universal.Light ? 0.5 : 0.7
         }
         Item{
-            Layout.row: 1
             Layout.fillWidth: true
             height: 45
             Rectangle{
                 anchors.fill: parent
-                color: Universal.theme === Universal.Light ? Universal.accent : "#38363C"
-                radius: 3
+                color: "transparent"
+                border.width: 2
+                border.color: Universal.accent
+                radius: 22.5
                 RowLayout{
                     anchors.fill: parent
                     Text {
@@ -40,22 +41,22 @@ Item{
                         font.pixelSize: 15
                         font.weight: Font.Black
                         font.family: robotoRegular.name
-                        color: "White"
+                        color: Universal.accent
                         text: mode
                     }
                     Image {
-                        source: "qrc:/img/img/Expand Arrow-20.png"
+                        source: "qrc:/img/img/Expand Arrow.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         anchors.rightMargin: 10
                     }
                 }
-                MouseArea{
-                    anchors.fill: parent
-                    onPressed: parent.opacity = 0.5
-                    onReleased: parent.opacity = 1
-                    onClicked: modeSelectionPopup.open()
-                }
+            }
+            MouseArea{
+                anchors.fill: parent
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
+                onClicked: modeSelectionPopup.open()
             }
         }
     }

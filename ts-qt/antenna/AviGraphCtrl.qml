@@ -65,7 +65,6 @@ RowLayout{
                     isScaleChecked = checked
                 }
             }
-
             SwitchDelegate{
                 id: vswrScaleSwitch
                 anchors.right: parent.right
@@ -335,9 +334,9 @@ RowLayout{
             Layout.row: 1
             Layout.column: 1
             Layout.fillWidth: true
-            Layout.leftMargin: -14
-            Layout.rightMargin: -14
-            height: 28
+            Layout.leftMargin: -16
+            Layout.rightMargin: -16
+            height: 32
             Repeater{
                 visible: areControlsAvailble
                 model: markersModel
@@ -345,7 +344,7 @@ RowLayout{
                     id: markerSlider
                     width: parent.width
                     z: index == selectedMarkerIndex ? 1 : 0
-                    implicitHeight: 28
+                    implicitHeight: 32
                     minimumValue: markerMinVal
                     maximumValue: markerMaxVal
                     stepSize: markerStepSize
@@ -355,25 +354,27 @@ RowLayout{
                             Layout.fillWidth: parent
                         }
                         handle: Rectangle {
+                            id: markerHandle
+                            color: Universal.theme == Universal.Light ? Universal.background : "#414048"
+                            border.color: index == selectedMarkerIndex ? Universal.accent : Universal.theme == Universal.Light ? "#66000000" : "#66ffffff"
+                            border.width: 2
+                            implicitWidth: 32
+                            implicitHeight: 32
+                            radius: 16
                             opacity: control.pressed ? 0.8 : 1
-                            color: index == selectedMarkerIndex ? Universal.accent : "#ededed"
-                            border.color: "#dddddd"
-                            border.width: index == selectedMarkerIndex ? 0 : 1
-                            implicitWidth: 30
-                            implicitHeight: 28
-                            radius: 3
                             Text{
                                 anchors.centerIn: parent
-                                text: "M" + num
-                                font.pixelSize: 12
+                                text: num
+                                font.pixelSize: 16
                                 font.family: robotoRegular.name
-                                color: index == selectedMarkerIndex ? "white" : "black"
+                                font.weight: Font.Black
+                                color: index == selectedMarkerIndex ? Universal.accent : Universal.theme == Universal.Light ? "#80000000" : "#80ffffff"
                             }
                             Rectangle{
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 anchors.top: parent.bottom
-                                color: "orange"
-                                width: 1
+                                color: index == selectedMarkerIndex ? "orange" : "#99ffffff"
+                                width: 2
                                 height: graphImage.height
                             }
                             Text{

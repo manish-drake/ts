@@ -131,11 +131,13 @@ Item{
                         height: 50
                         width: 50
                         radius: 25
-                        color: Universal.accent
+                        color: "transparent"
+                        border.width: 2
+                        border.color: Universal.accent
                         Image {
                             id: setupImage
                             anchors.centerIn: parent
-                            source: "qrc:/img/img/Settings-25.png"
+                            source: "qrc:/img/img/Settings-accent.png"
                         }
                     }
                     Text {

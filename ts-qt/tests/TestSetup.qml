@@ -373,15 +373,15 @@ Item {
                                 Rectangle{
                                     Layout.fillHeight: true
                                     width: 35
-                                    color: Universal.accent
+                                    color: Universal.theme === Universal.Light ? "#11000000" : "#1fffffff"
                                     radius: 3
-                                    enabled: distanceSlider.value > 50
-                                    opacity: enabled ? 1 : 0.8
+                                    enabled: distanceSlider.value > 50 ? true : false
+                                    opacity: enabled ? 1 : 0.4
                                     Image{
                                         anchors.centerIn: parent
-                                        height: 15
-                                        width: 15
-                                        source: "qrc:/img/img/Arrow-left.png"
+                                        height: 20
+                                        width: 20
+                                        source: "qrc:/img/img/Sort Left Filled-accent.png"
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -420,12 +420,6 @@ Item {
                                                 text: control.value.toFixed(0) + " FT"
                                                 font.pixelSize: 14
                                                 font.weight: Font.DemiBold
-                                                MouseArea{
-                                                    anchors.fill: parent
-                                                    onPressed: parent.opacity = 0.5
-                                                    onReleased: parent.opacity = 1
-                                                    onClicked: distanceInputPopup.open()
-                                                }
                                             }
                                         }
                                     }
@@ -433,15 +427,15 @@ Item {
                                 Rectangle{
                                     Layout.fillHeight: true
                                     width: 35
-                                    color: Universal.accent
+                                    color: Universal.theme === Universal.Light ? "#11000000" : "#1fffffff"
                                     radius: 3
-                                    enabled: distanceSlider.value < 250
-                                    opacity: enabled ? 1 : 0.8
+                                    enabled: distanceSlider.value < 250 ? true : false
+                                    opacity: enabled ? 1 : 0.4
                                     Image{
                                         anchors.centerIn: parent
-                                        height: 15
-                                        width: 15
-                                        source: "qrc:/img/img/Arrow-right.png"
+                                        height: 20
+                                        width: 20
+                                        source: "qrc:/img/img/Sort Right Filled-accent.png"
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -654,22 +648,6 @@ Item {
                 }
             }
         }
-    }
-
-    Popup {
-        id: distanceInputPopup
-        height: parent.height
-        width: parent.width
-        z: 0
-        modal: true
-        closePolicy: Popup.CloseOnEscape
-        padding: 30
-        background: Rectangle{
-            color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
-        }
-        contentItem: SetupDistanceInput{id: distanceInput}
-        onOpened: testSetupPopup.opacity = 0
-        onClosed: testSetupPopup.opacity = 1
     }
 
     Popup {

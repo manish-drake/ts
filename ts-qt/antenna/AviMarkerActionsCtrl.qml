@@ -8,8 +8,8 @@ Rectangle {
     Layout.columnSpan: 2
     Layout.fillWidth: true
     height: 35
-    color: Universal.theme === Universal.Light ? Universal.accent : "#38363C"
-    radius: 3
+    color: Universal.theme === Universal.Light ? "#11000000" : "#1fffffff"
+    radius: 4
     RowLayout{
         anchors.fill: parent
         spacing: 0
@@ -17,11 +17,11 @@ Rectangle {
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: prevMArea.pressed ? "#1A000000" : "transparent"
-            opacity: enabled ? 1.0 : 0.4
+            opacity: enabled ? 1.0 : 0.3
             enabled: graphCtrl.selectedMarkerIndex > 0
             Image{
                 anchors.centerIn: parent
-                source: "qrc:/img/img/Arrow-left.png"
+                source: "qrc:/img/img/Sort Left Filled-accent.png"
             }
             MouseArea{
                 id: prevMArea
@@ -31,18 +31,18 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: nextMArea.pressed ? "#1A000000" : "transparent"
-            opacity: enabled ? 1.0 : 0.4
+            opacity: enabled ? 1.0 : 0.3
             enabled: graphCtrl.selectedMarkerIndex < markersModel.count-1
             Image{
                 anchors.centerIn: parent
-                source: "qrc:/img/img/Arrow-right.png"
+                source: "qrc:/img/img/Sort Right Filled-accent.png"
             }
             MouseArea{
                 id: nextMArea
@@ -52,8 +52,8 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
@@ -64,10 +64,10 @@ Rectangle {
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
-                font.weight: Font.DemiBold
+                font.weight: Font.Black
                 font.family: robotoRegular.name
                 text: "<<<"
-                color: "white"
+                color: Universal.accent
             }
             MouseArea{
                 id: decValMArea
@@ -77,8 +77,8 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
@@ -89,10 +89,10 @@ Rectangle {
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
-                font.weight: Font.DemiBold
+                font.weight: Font.Black
                 font.family: robotoRegular.name
                 text: ">>>"
-                color: "white"
+                color: Universal.accent
             }
             MouseArea{
                 id: incValMArea
@@ -102,8 +102,8 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
@@ -113,10 +113,10 @@ Rectangle {
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
-                font.weight: Font.DemiBold
+                font.weight: Font.Black
                 font.family: robotoRegular.name
                 text: "+V"
-                color: "white"
+                color: Universal.accent
             }
             MouseArea{
                 id: valleyMArea
@@ -126,8 +126,8 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
@@ -137,10 +137,10 @@ Rectangle {
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 16
-                font.weight: Font.DemiBold
+                font.weight: Font.Black
                 font.family: robotoRegular.name
                 text: "+P"
-                color: "white"
+                color: Universal.accent
             }
             MouseArea{
                 id: peakValMArea
@@ -150,8 +150,8 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
@@ -162,10 +162,10 @@ Rectangle {
             Text{
                 anchors.centerIn: parent
                 font.pixelSize: 22
-                font.weight: Font.DemiBold
+                font.weight: Font.Black
                 font.family: robotoRegular.name
                 text: "+"
-                color: "white"
+                color: Universal.accent
             }
             MouseArea{
                 id: addMArea
@@ -178,21 +178,21 @@ Rectangle {
         }
         Rectangle{
             Layout.fillHeight: true
-            width: 1
-            color: Universal.background
+            width: 2
+            color: Universal.theme === Universal.Light ? Universal.background : "#414048"
         }
         Rectangle{
             Layout.fillHeight: true
             Layout.fillWidth: true
             color: remMArea.pressed ? "#1A000000" : "transparent"
-            opacity: enabled ? 1.0 : 0.8
+            opacity: enabled ? 1.0 : 0.3
             enabled: markersModel.count > 1
             Image{
                 id: image1
                 anchors.centerIn: parent
                 height: 22
                 width: 22
-                source: "qrc:/img/img/Delete-white.png"
+                source: "qrc:/img/img/Delete-25.png"
             }
             MouseArea{
                 id: remMArea

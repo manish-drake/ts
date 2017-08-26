@@ -88,7 +88,7 @@ Item {
                             contentItem:Rectangle{
                                 color: "transparent"
                                 border.color: Universal.accent
-                                border.width: 1
+                                border.width: 2
                                 radius: 3
                                 RowLayout{
                                     anchors.fill: parent

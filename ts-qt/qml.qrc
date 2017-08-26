@@ -50,7 +50,6 @@
         <file>tests/SetupClassSelection.qml</file>
         <file>tests/SetupConnectionSelection.qml</file>
         <file>tests/SetupAircraftSelection.qml</file>
-        <file>tests/SetupDistanceInput.qml</file>
         <file>tests/SetupIcaoAddressSelection.qml</file>
         <file>Home.qml</file>
         <file>TestGroupPage.qml</file>
@@ -97,8 +96,6 @@
         <file>img/Reset-18.png</file>
         <file>img/Hunt-16.png</file>
         <file>img/checked.png</file>
-        <file>img/Arrow-left.png</file>
-        <file>img/Arrow-right.png</file>
         <file>img/antenna.png</file>
         <file>img/target_aircraft.png</file>
         <file>img/geo_fence.png</file>
@@ -123,6 +120,9 @@
         <file>img/Star Filled.png</file>
         <file>img/List View.png</file>
         <file>img/Expand Arrow.png</file>
+        <file>img/Settings-accent.png</file>
+        <file>img/Sort Left Filled-accent.png</file>
+        <file>img/Sort Right Filled-accent.png</file>
     </qresource>
     <qresource prefix="/database"/>
     <qresource prefix="/fonts">
