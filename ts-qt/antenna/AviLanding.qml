@@ -104,7 +104,7 @@ Item{
                         font.weight: Font.Black
                         font.family: robotoRegular.name
                         color: Universal.foreground
-                        opacity: 0.6
+                        opacity: 0.8
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -147,7 +147,7 @@ Item{
                         font.weight: Font.Black
                         font.family: robotoRegular.name
                         color: Universal.foreground
-                        opacity: 0.6
+                        opacity: 0.8
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -181,7 +181,7 @@ Item{
                         font.weight: Font.Black
                         font.family: robotoRegular.name
                         color: Universal.foreground
-                        opacity: 0.6
+                        opacity: 0.8
                     }
                     MouseArea {
                         anchors.fill: parent

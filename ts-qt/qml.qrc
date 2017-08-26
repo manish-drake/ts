@@ -87,8 +87,6 @@
         <file>img/wifi-signal-waves.png</file>
         <file>img/profile-circle.png</file>
         <file>img/pause-button.png</file>
-        <file>img/previous.png</file>
-        <file>img/next.png</file>
         <file>img/test-logo.png</file>
         <file>img/Thru.png</file>
         <file>img/Load.png</file>
@@ -123,6 +121,8 @@
         <file>img/Settings-accent.png</file>
         <file>img/Sort Left Filled-accent.png</file>
         <file>img/Sort Right Filled-accent.png</file>
+        <file>img/left-arrow.png</file>
+        <file>img/right-arrow.png</file>
     </qresource>
     <qresource prefix="/database"/>
     <qresource prefix="/fonts">

@@ -25,10 +25,12 @@ Rectangle{
                 height: 50
                 width: 50
                 radius: 25
-                color: Universal.accent
+                color: "transparent"
+                border.width: 2
+                border.color: Universal.accent
                 Image {
                     anchors.centerIn: parent
-                    source: "qrc:/img/img/previous.png"
+                    source: "qrc:/img/img/left-arrow.png"
                 }
             }
             Text {
@@ -38,7 +40,7 @@ Rectangle{
                 font.weight: Font.Black
                 font.family: robotoRegular.name
                 color: Universal.foreground
-                opacity: 0.6
+                opacity: 0.8
             }
             MouseArea {
                 anchors.fill: parent
@@ -58,10 +60,12 @@ Rectangle{
                 height: 50
                 width: 50
                 radius: 25
-                color: Universal.accent
+                color: "transparent"
+                border.width: 2
+                border.color: Universal.accent
                 Image {
                     anchors.centerIn: parent
-                    source: "qrc:/img/img/next.png"
+                    source: "qrc:/img/img/right-arrow.png"
                 }
             }
             Text {
@@ -71,7 +75,7 @@ Rectangle{
                 font.weight: Font.Black
                 font.family: robotoRegular.name
                 color: Universal.foreground
-                opacity: 0.6
+                opacity: 0.8
             }
             MouseArea {
                 anchors.fill: parent
@@ -98,7 +102,9 @@ Rectangle{
                 height: 50
                 width: 50
                 radius: 25
-                color: Universal.accent
+                color: "transparent"
+                border.width: 2
+                border.color: Universal.accent
                 Image {
                     id: homeImage
                     anchors.centerIn: parent
@@ -114,7 +120,7 @@ Rectangle{
                 font.weight: Font.Black
                 font.family: robotoRegular.name
                 color: Universal.foreground
-                opacity: 0.6
+                opacity: 0.8
             }
             MouseArea {
                 anchors.fill: parent
@@ -136,11 +142,13 @@ Rectangle{
                 height: 50
                 width: 50
                 radius: 25
-                color: Universal.accent
+                color: "transparent"
+                border.width: 2
+                border.color: Universal.accent
                 Image {
                     id: setupImage
                     anchors.centerIn: parent
-                    source: "qrc:/img/img/Settings-25.png"
+                    source: "qrc:/img/img/Settings-accent.png"
                 }
             }
             Text {
@@ -150,7 +158,7 @@ Rectangle{
                 font.weight: Font.Black
                 font.family: robotoRegular.name
                 color: Universal.foreground
-                opacity: 0.6
+                opacity: 0.8
             }
             MouseArea {
                 anchors.fill: parent
@@ -240,7 +248,7 @@ Rectangle{
                 font.weight: Font.Black
                 font.family: robotoRegular.name
                 color: Universal.foreground
-                opacity: 0.6
+                opacity: 0.8
             }
             MouseArea {
                 anchors.fill: parent
