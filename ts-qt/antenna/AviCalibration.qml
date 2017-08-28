@@ -99,7 +99,7 @@ Item {
                     anchors.right: parent.right
                     Layout.alignment: Qt.AlignTop
                     height: 27
-                    radius: 3
+                    radius: 13
                     color:"#A7A9AC"
                     RowLayout{
                         anchors.left: parent.left
@@ -111,7 +111,7 @@ Item {
                             elide: Text.ElideRight
                             visible: mode == "VSWR/CL"
                             text: "ILS last calibrated"
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.family: robotoCondensedRegular.name
                             color: "white"
                         }
@@ -121,7 +121,7 @@ Item {
                             elide: Text.ElideRight
                             visible: mode == "VSWR/CL"
                             text: "07/01/2017 3:15pm"
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.weight: Font.ExtraBold
                             font.family: robotoRegular.name
                             color: "white"
@@ -131,7 +131,7 @@ Item {
                             elide: Text.ElideRight
                             visible: mode == "COAX"
                             text: "PE Solid last calibrated"
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.family: robotoCondensedRegular.name
                             color: "white"
                         }
@@ -141,7 +141,7 @@ Item {
                             elide: Text.ElideRight
                             visible: mode == "COAX"
                             text: "07/01/2017 3:15pm"
-                            font.pixelSize: 12
+                            font.pixelSize: 14
                             font.weight: Font.ExtraBold
                             font.family: robotoRegular.name
                             color: "white"

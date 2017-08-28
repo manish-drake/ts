@@ -93,7 +93,7 @@ Item{
                     highlight:Rectangle{
                         color:"transparent"
                         border.color: Universal.theme === Universal.Dark ? "white" : Universal.accent
-                        border.width: 1
+                        border.width: 2
                         radius:3
                     }
                     model: snapshotModel
@@ -105,7 +105,7 @@ Item{
                             height: 60
                             color: Universal.theme === Universal.Dark ? "#333333" : "#fcfcfc"
                             border.color: Universal.theme === Universal.Light ? "#0d000000" : "#4dffffff"
-                            border.width: 1
+                            border.width: 2
                             radius: 4
 //                            layer.enabled: true
 //                            layer.effect: DropShadow {

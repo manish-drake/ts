@@ -14,11 +14,14 @@ Rectangle{
     ColumnLayout{
         anchors.fill: parent
         spacing: 0
-        Item{
+        Rectangle{
             Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 5
             height: pageIndicator.height
             width: pageIndicator.width
             visible: pageIndicator.visible
+            radius: 10
+            color: Universal.theme === Universal.Light ? "#11000000" : "#80ffffff"
             PageIndicator {
                 id: pageIndicator
                 count: pageCount

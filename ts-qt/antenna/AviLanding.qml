@@ -90,7 +90,9 @@ Item{
                         height: 50
                         width: 50
                         radius: 25
-                        color: Universal.accent
+                        color: "transparent"
+                        border.width: 2
+                        border.color: Universal.accent
                         Image {
                             id: resultsImg
                             anchors.centerIn: parent

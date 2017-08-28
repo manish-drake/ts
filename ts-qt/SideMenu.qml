@@ -12,8 +12,8 @@ Rectangle{
         spacing: 0
         Image {
             id:profileImage
-            Layout.topMargin: 12
-            Layout.bottomMargin: 12
+            Layout.topMargin: 10
+            Layout.bottomMargin: 10
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle.png"
             sourceSize.width: 80
@@ -77,8 +77,8 @@ Rectangle{
             ListView {
                 id: listViewLeftMenu
                 anchors.fill: parent
-                anchors.topMargin: 10
-                anchors.bottomMargin: 10
+                anchors.topMargin: 8
+                anchors.bottomMargin: 8
                 model: sectionGroupModel
                 clip: true
                 delegate:  Component {
@@ -103,17 +103,17 @@ Rectangle{
                             Item {
                                 anchors.left: parent.left
                                 anchors.right: parent.right
-                                height: 53
+                                height: 54
                                 Item {
                                     anchors.fill: parent
                                     anchors.rightMargin: 30
-                                    anchors.topMargin: 2.5
-                                    anchors.bottomMargin: 2.5
+                                    anchors.topMargin: 3
+                                    anchors.bottomMargin: 3
                                     Rectangle {
                                         anchors.fill: parent
                                         anchors.leftMargin: -radius
                                         radius: 24
-                                        border.width: 1
+                                        border.width: 2
                                         border.color: selectedMenuIndex === model.modelData.id ? "#26909C" : Universal.accent
                                         color: selectedMenuIndex === model.modelData.id ? "#26909C" : "transparent"
                                         RowLayout{

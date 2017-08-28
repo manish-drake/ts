@@ -198,7 +198,7 @@ Item {
                                             width: 45
                                             height: 45
                                             color: "transparent"
-                                            border.width: 1.5
+                                            border.width: 2
                                             border.color: Universal.accent
                                             radius: height/2
                                             Text{
@@ -251,19 +251,19 @@ Item {
                         Item{
                             anchors.left:parent.left
                             anchors.right:parent.right
-                            height: 45
+                            height: 55
                             Rectangle{
                                 anchors.fill: parent
                                 anchors.topMargin: 5
                                 anchors.bottomMargin: 5
                                 color: "transparent"
-                                border.width: 1
+                                border.width: 2
                                 border.color: Universal.accent
-                                radius: 3
+                                radius: 27
                                 RowLayout {
                                     anchors.fill: parent
                                     Text {
-                                        Layout.leftMargin: 10
+                                        Layout.leftMargin: 15
                                         Layout.alignment: Qt.AlignVCenter
                                         font.pixelSize: 16
                                         font.weight: Font.DemiBold
@@ -476,9 +476,9 @@ Item {
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
                                     color: "transparent"
-                                    border.width: 1
+                                    border.width: 2
                                     border.color: Universal.accent
-                                    radius: 3
+                                    radius: 4
                                     ColumnLayout{
                                         anchors.fill: parent
                                         anchors.margins: 5
@@ -538,9 +538,9 @@ Item {
                                             Layout.fillWidth: true
                                             Layout.fillHeight: true
                                             color: "transparent"
-                                            border.width: 1
+                                            border.width: 2
                                             border.color: Universal.accent
-                                            radius: 3
+                                            radius: 4
                                             ColumnLayout{
                                                 anchors.fill: parent
                                                 anchors.margins: 5
@@ -552,7 +552,7 @@ Item {
                                                         width: 45
                                                         height: 45
                                                         color: "transparent"
-                                                        border.width: 1.5
+                                                        border.width: 2
                                                         border.color: Universal.accent
                                                         radius: height/2
                                                         Text{
@@ -605,9 +605,9 @@ Item {
                                             Layout.fillHeight: true
                                             Layout.fillWidth: true
                                             color: "transparent"
-                                            border.width: 1
+                                            border.width: 2
                                             border.color: Universal.accent
-                                            radius: 3
+                                            radius: 4
                                             ColumnLayout{
                                                 anchors.fill: parent
                                                 anchors.margins: 5
