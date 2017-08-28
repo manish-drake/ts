@@ -5,80 +5,127 @@ import QtQuick.Controls.Universal 2.1
 
 Item {
     anchors.fill: parent
-    Flickable {
+    ColumnLayout{
         anchors.fill: parent
-        contentWidth: parent.width;
-        contentHeight: grid.height + 10
-        Grid{
-            id: grid
-            anchors.top: parent.top
+        Flickable {
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.margins: 5
-            columns: 2
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        id: user
-                        text: qsTr("USER")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
+            Layout.fillHeight: true
+            contentWidth: parent.width;
+            contentHeight: content.height + 10
+            clip: true
+            ColumnLayout{
+                id: content
+                anchors.top: parent.top
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.topMargin: 5
+                spacing: 0
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
+                        Text {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("DISPLAY")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
+                            font.family: robotoRegular.name
+                            color: Universal.accent
+                        }
+                        GridLayout {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.margins: 10
+                            columnSpacing: 5
+                            Text {
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: qsTr("THEME:")
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
+                            Text {
+                                Layout.column: 1
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: _theme === Universal.Dark ? "Outdoor" : "Indoor"
+                                color: Universal.foreground
+                            }
+                        }
                     }
-                    GridLayout {
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: 8
-                        columnSpacing: 5
+                    MouseArea {
+                        anchors.fill: parent
+                        onPressed: parent.opacity = 0.7
+                        onReleased: parent.opacity = 1
+                        onCanceled: parent.opacity = 1
+                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Display")
+                    }
+                }
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
                         Text {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            id: user
+                            text: qsTr("USER")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
                             font.family: robotoRegular.name
-                            font.pixelSize: 12
-                            text: qsTr("USER:")
-                            color: Universal.foreground
-                            opacity: 0.7
+                            color: Universal.accent
                         }
-                        Text {
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: currentUser
-                            color: Universal.foreground
-                        }
-                        Text {
-                            Layout.row: 1
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("LANGUAGE:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 1
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("English")
-                            color: Universal.foreground
+                        GridLayout {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.margins: 8
+                            columnSpacing: 5
+                            Text {
+                                font.family: robotoRegular.name
+                                font.pixelSize: 12
+                                text: qsTr("USER:")
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
+                            Text {
+                                Layout.column: 1
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: currentUser
+                                color: Universal.foreground
+                            }
                         }
                     }
                     MouseArea {
@@ -92,166 +139,54 @@ Item {
                         }
                     }
                 }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("DISPLAY")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
-                    }
-                    GridLayout {
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: 10
-                        columnSpacing: 5
-                        Text {
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("THEME:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: _theme === Universal.Dark ? "Outdoor" : "Indoor"
-                            color: Universal.foreground
-                        }
-                        Text {
-                            Layout.row: 1
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("BRIGHTNESS:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 1
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("8")
-                            color: Universal.foreground
-                        }
-                    }
-                    MouseArea {
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
                         anchors.fill: parent
-                        onPressed: parent.opacity = 0.7
-                        onReleased: parent.opacity = 1
-                        onCanceled: parent.opacity = 1
-                        onClicked:navigationModel.currentView = navigationModel.getTargetView("Display")
-                    }
-                }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("GPS")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
-                    }
-                    GridLayout {
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: 10
-                        columnSpacing: 5
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
                         Text {
-                            font.pixelSize: 12
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("GPS")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
                             font.family: robotoRegular.name
-                            text: qsTr("SOURCE:")
-                            color: Universal.foreground
-                            opacity: 0.7
+                            color: Universal.accent
                         }
-                        Text {
-                            font.family: robotoRegular.name
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            text: qsTr("Internal")
-                            color: Universal.foreground
+                        GridLayout {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.margins: 10
+                            columnSpacing: 5
+                            Text {
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: qsTr("SOURCE:")
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
+                            Text {
+                                font.family: robotoRegular.name
+                                Layout.column: 1
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                font.pixelSize: 12
+                                text: qsTr("Internal")
+                                color: Universal.foreground
+                            }
                         }
-                        Text {
-                            Layout.row: 1
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("LAT:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 1
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("40° 43' 50.1960'' N")
-                            color: Universal.foreground
-                        }
-                        Text {
-                            Layout.row: 2
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("LON:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 2
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("73° 56' 6.8712'' W")
-                            color: Universal.foreground
-                        }
-
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -261,91 +196,54 @@ Item {
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("GPS")
                     }
                 }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("NETWORK")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
-                    }
-                    GridLayout {
-                        anchors.bottom: parent.bottom
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.margins: 10
-                        columnSpacing: 5
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
                         Text {
-                            font.pixelSize: 12
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("NETWORK")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
                             font.family: robotoRegular.name
-                            text: qsTr("WIFI:")
-                            color: Universal.foreground
-                            opacity: 0.7
+                            color: Universal.accent
                         }
-                        Text {
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("On")
-                            color: Universal.foreground
+                        GridLayout {
+                            anchors.bottom: parent.bottom
+                            anchors.left: parent.left
+                            anchors.right: parent.right
+                            anchors.margins: 10
+                            columnSpacing: 5
+                            Text {
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: qsTr("WIFI:")
+                                color: Universal.foreground
+                                opacity: 0.7
+                            }
+                            Text {
+                                Layout.column: 1
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                font.pixelSize: 12
+                                font.family: robotoRegular.name
+                                text: qsTr("On")
+                                color: Universal.foreground
+                            }
                         }
-                        Text {
-                            Layout.row: 1
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("REMOTE CONNECTION:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 1
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("On")
-                            color: Universal.foreground
-                        }
-                        Text {
-                            Layout.row: 2
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("WIFI DIRECT:")
-                            color: Universal.foreground
-                            opacity: 0.7
-                        }
-                        Text {
-                            Layout.row: 2
-                            Layout.column: 1
-                            Layout.fillWidth: true
-                            elide: Text.ElideRight
-                            font.pixelSize: 12
-                            font.family: robotoRegular.name
-                            text: qsTr("Off")
-                            color: Universal.foreground
-                        }
-
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -355,31 +253,31 @@ Item {
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Network")
                     }
                 }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("SYSTEM INFO")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
+                        Text {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("SYSTEM INFO")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
+                            font.family: robotoRegular.name
+                            color: Universal.accent
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -389,31 +287,31 @@ Item {
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("System-Info")
                     }
                 }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("CONNECTION")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
+                        Text {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("CONNECTION")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
+                            font.family: robotoRegular.name
+                            color: Universal.accent
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -423,31 +321,31 @@ Item {
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Connection")
                     }
                 }
-            }
-            Item{
-                width: grid.width/2
-                height: 120
-                Rectangle{
-                    anchors.fill: parent
-                    anchors.margins: 5
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: Universal.theme === Universal.Light ? Universal.background : "#222222"
-                    border.color: "#0d000000"
-                    border.width: 1
-                    radius: 3
-                    clip: true
-                    Text {
-                        anchors.left: parent.left
-                        anchors.top: parent.top
-                        anchors.margins: 10
-                        text: qsTr("RUN MANUAL BIT")
-                        elide:Text.ElideRight
-                        font.pixelSize: 18
-                        font.weight: Font.Black
-                        font.capitalization: Font.AllUppercase
-                        font.family: robotoRegular.name
-                        color: Universal.accent
+                Item{
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: 80
+                    Rectangle{
+                        anchors.fill: parent
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        anchors.leftMargin: 11
+                        anchors.rightMargin: 11
+                        color: Universal.theme === Universal.Light ? Universal.background : "#222222"
+                        radius: 4
+                        clip: true
+                        Text {
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.margins: 10
+                            text: qsTr("RUN MANUAL BIT")
+                            elide:Text.ElideRight
+                            font.pixelSize: 18
+                            font.weight: Font.Black
+                            font.capitalization: Font.AllUppercase
+                            font.family: robotoRegular.name
+                            color: Universal.accent
+                        }
                     }
                     MouseArea {
                         anchors.fill: parent
@@ -456,6 +354,30 @@ Item {
                         onCanceled: parent.opacity = 1
                         onClicked:navigationModel.currentView = navigationModel.getTargetView("Run-Manual-Bit")
                     }
+                }
+            }
+        }
+        Text{
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 15
+            anchors.rightMargin: 15
+            Layout.bottomMargin: 3
+            horizontalAlignment: Text.AlignRight
+            text: "App Version 0.0.01"
+            font.pixelSize: 13
+            font.weight: Font.Bold
+            elide: Text.ElideRight
+            color: Universal.foreground
+            opacity: 0.6
+            font.family: robotoRegular.name
+            MouseArea{
+                anchors.fill: parent
+                onPressed: parent.opacity = 0.5
+                onReleased: parent.opacity = 1
+                onClicked: {
+                    menuPopup.close();
+                    connectionReqPopup.open()
                 }
             }
         }

@@ -106,6 +106,7 @@ Item{
                     anchors.left: parent.left
                     anchors.right: parent.right
                     height: 49
+                    Layout.bottomMargin: 15
                     Rectangle{
                         anchors.fill: parent
                         anchors.leftMargin: 20
@@ -148,29 +149,7 @@ Item{
                             sideMenu.selectedMenuIndex = -1
                         }
                     }
-                }
-                Text{
-                    anchors.left: parent.left
-                    anchors.right: parent.right
-                    anchors.leftMargin: 20
-                    anchors.rightMargin: 20
-                    Layout.bottomMargin: 20
-                    horizontalAlignment: Text.AlignRight
-                    text: "App Version 0.0.01"
-                    font.pixelSize: 12
-                    color: Universal.foreground
-                    opacity: 0.7
-                    font.family: robotoRegular.name
-                    MouseArea{
-                        anchors.fill: parent
-                        onPressed: parent.opacity = 0.5
-                        onReleased: parent.opacity = 1
-                        onClicked: {
-                            menuPopup.close();
-                            connectionReqPopup.open()
-                        }
-                    }
-                }
+                }                
             }
         }
     }

@@ -3,56 +3,62 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
 
-Item {
-    Page{
+Item{
+    Rectangle {
         anchors.centerIn: parent
         height: 150
-        width: 320
-        header: Rectangle{
-            height: 60
-            anchors.left: parent.left
-            anchors.right: parent.right
-            color: Universal.background
-            Text{
-                anchors.centerIn: parent
-                text:"Disconnected"
-                font.pixelSize: 18
-                font.family: robotoRegular.name
-                color: Universal.foreground
-            }
-        }
-        contentItem:
-            Rectangle{
+        width: 350
+        radius: 4
+        color: Universal.background
+        Page{
             anchors.fill: parent
-            color: Universal.background
-            Text{
-                anchors.centerIn: parent
-                text: "Remote device disconnected"
-                font.pixelSize: 16
-                font.family: robotoRegular.name
-                color: "gray"
-            }
-        }
-
-        footer:Rectangle{
-            height: 40
-            anchors.left: parent.left
-            anchors.right: parent.right
-            color: Universal.background
-            Text{
-                anchors.verticalCenter: parent.verticalCenter
+            anchors.margins: 5
+            header: Rectangle{
+                height: 60
+                anchors.left: parent.left
                 anchors.right: parent.right
-                anchors.rightMargin: 15
-                text: "OK"
-                font.pixelSize: 14
-                font.family: robotoRegular.name
-                color: "gray"
+                color: Universal.background
+                Text{
+                    anchors.centerIn: parent
+                    text:"Disconnected"
+                    font.pixelSize: 18
+                    font.family: robotoRegular.name
+                    color: Universal.foreground
+                }
             }
-            MouseArea{
+            contentItem:
+                Rectangle{
                 anchors.fill: parent
-                onPressed: parent.opacity = 0.5
-                onReleased: parent.opacity = 1
-                onClicked: connectionLostPopup.close()
+                color: Universal.background
+                Text{
+                    anchors.centerIn: parent
+                    text: "Remote device disconnected"
+                    font.pixelSize: 16
+                    font.family: robotoRegular.name
+                    color: "gray"
+                }
+            }
+
+            footer:Rectangle{
+                height: 40
+                anchors.left: parent.left
+                anchors.right: parent.right
+                color: Universal.background
+                Text{
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.right: parent.right
+                    anchors.rightMargin: 15
+                    text: "OK"
+                    font.pixelSize: 14
+                    font.family: robotoRegular.name
+                    color: "gray"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    onPressed: parent.opacity = 0.5
+                    onReleased: parent.opacity = 1
+                    onClicked: connectionLostPopup.close()
+                }
             }
         }
     }
