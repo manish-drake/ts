@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls.Universal 2.1
 
 Page {
@@ -81,60 +82,47 @@ Page {
                     spacing: 20
                     Text {
                         id: text2
-                        Layout.column: 0
                         text: qsTr("BRIGHTNESS")
                         font.pixelSize: 14
                         font.family: robotoRegular.name
                         font.bold: Font.Medium
                         color: Universal.foreground
                     }
-                    Text{
-                        Layout.column: 1
-                        Layout.minimumWidth: 40
-                        text: slider.value
-                        font.pixelSize: 14
-                        font.family: robotoRegular.name
-                        horizontalAlignment: Text.AlignHCenter
-                        color: Universal.foreground
-                    }
                     Item{
-                        Layout.column: 2
-                        Layout.columnSpan: 2
                         Layout.fillHeight: true
                         Layout.fillWidth: true
-                        Text {
-                            id: startValue
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: slider.minimumValue
-                            font.pixelSize: 14
-                            color: Universal.foreground
-                            opacity: 0.5
-                            rightPadding: 10
-                        }
-
-                        Slider {
-                            id: slider
-                            anchors.left: startValue.right
-                            anchors.right: endValue.left
-                            anchors.verticalCenter: parent.verticalCenter
-                            minimumValue: 1
-                            maximumValue: 10
-                            stepSize: 1
-                            value: 7
-                            updateValueWhileDragging: true
-                            onValueChanged: {
-                                console.log(slider.value)
-                            }
-                        }
-                        Text {
-                            id: endValue
+                        Slider{
+                            id: brightnessSlider
+                            anchors.left: parent.left
                             anchors.right: parent.right
                             anchors.verticalCenter: parent.verticalCenter
-                            text: slider.maximumValue
-                            font.pixelSize: 14
-                            color: Universal.foreground
-                            opacity: 0.5
-                            leftPadding: 10
+                            anchors.leftMargin: 5
+                            anchors.rightMargin: 5
+                            minimumValue: 1
+                            maximumValue: 10
+                            value: 7
+                            style: SliderStyle {
+                                groove:  Rectangle{
+                                    Layout.fillWidth: parent
+                                    height: 1
+                                    color: Universal.foreground
+                                    opacity: 0.2
+                                }
+                                handle: Rectangle {
+                                    opacity: control.pressed ? 0.9 : 1
+                                    color: Universal.accent
+                                    implicitWidth: 30
+                                    implicitHeight: 30
+                                    radius: 15
+                                    Text{
+                                        anchors.centerIn: parent
+                                        color: "white"
+                                        text: control.value.toFixed(1)
+                                        font.pixelSize: 13
+                                        font.weight: Font.DemiBold
+                                    }
+                                }
+                            }
                         }
                     }
                 }

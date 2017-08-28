@@ -146,52 +146,37 @@ Item {
                             anchors.left: parent.left
                             anchors.right: parent.right
                             height: 30
-                            RowLayout{
-                                anchors.fill: parent
-                                Text{
-                                    Layout.alignment: Qt.AlignVCenter
-                                    color: Universal.foreground
-                                    text: brightnessSlider.minimumValue
-                                    opacity: 0.5
-                                }
-                                Slider{
-                                    id: brightnessSlider
-                                    Layout.fillWidth: true
-                                    Layout.alignment: Qt.AlignVCenter
-                                    Layout.leftMargin: 10
-                                    Layout.rightMargin: 10
-                                    Layout.minimumWidth: 0
-                                    minimumValue: 1
-                                    maximumValue: 10
-                                    value: 7
-                                    style: SliderStyle {
-                                        groove:  Rectangle{
-                                            Layout.fillWidth: parent
-                                            height: 1
-                                            color: Universal.foreground
-                                            opacity: 0.2
-                                        }
-                                        handle: Rectangle {
-                                            opacity: control.pressed ? 0.9 : 1
-                                            color: Universal.accent
-                                            implicitWidth: 28
-                                            implicitHeight: 28
-                                            radius: 14
-                                            Text{
-                                                anchors.centerIn: parent
-                                                color: "white"
-                                                text: control.value.toFixed(0)
-                                                font.pixelSize: 14
-                                                font.weight: Font.DemiBold
-                                            }
+                            Slider{
+                                id: brightnessSlider
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.leftMargin: 5
+                                anchors.rightMargin: 5
+                                minimumValue: 1
+                                maximumValue: 10
+                                value: 7
+                                style: SliderStyle {
+                                    groove:  Rectangle{
+                                        Layout.fillWidth: parent
+                                        height: 1
+                                        color: Universal.foreground
+                                        opacity: 0.2
+                                    }
+                                    handle: Rectangle {
+                                        opacity: control.pressed ? 0.9 : 1
+                                        color: Universal.accent
+                                        implicitWidth: 30
+                                        implicitHeight: 30
+                                        radius: 15
+                                        Text{
+                                            anchors.centerIn: parent
+                                            color: "white"
+                                            text: control.value.toFixed(1)
+                                            font.pixelSize: 13
+                                            font.weight: Font.DemiBold
                                         }
                                     }
-                                }
-                                Text{
-                                    Layout.alignment: Qt.AlignVCenter
-                                    color: Universal.foreground
-                                    text: brightnessSlider.maximumValue
-                                    opacity: 0.5
                                 }
                             }
                         }
