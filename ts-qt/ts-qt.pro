@@ -125,15 +125,6 @@ win32{
     }
 }
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/debug/ -lts-smtp
-else:unix: LIBS += -L$$OUT_PWD/../ts-smtp/ -lts-smtp
-
-INCLUDEPATH += $$PWD/../ts-smtp
-DEPENDPATH += $$PWD/../ts-smtp
-
-
-
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/release/ -lzmq
 #else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/debug/ -lzmq
 #else:unix: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq

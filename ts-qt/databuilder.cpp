@@ -205,6 +205,12 @@ int DataBuilder::build()
     View vwSearch("SEARCH");
     viewDao->addView(vwSearch);
 
+    View vwADSBIn1090P1("ADSB-IN-1090-P1");
+    viewDao->addView(vwADSBIn1090P1);
+
+    View vwADSBInUATP1("ADSB-IN-UAT-P1");
+    viewDao->addView(vwADSBInUATP1);
+
     SectionGroupModel sgModel{};
     SectionModel secModel{};
 
@@ -1422,17 +1428,23 @@ int DataBuilder::build()
 
     //For ADSB Tests---------------------------------
 
-    Navigation adsbIn1090ToDetail(vwADSB.id(), "_test", in1090.id(), vwADSB.id());
-    navigationDaoPtr->addNavigation(adsbIn1090ToDetail);
+    Navigation adsbIn1090ToLanding(vwADSB.id(), "_test", in1090.id(), vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbIn1090ToLanding);
 
     Navigation homeToadsbIn1090Detail(vwHome.id(), "_test", in1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(homeToadsbIn1090Detail);
 
-    Navigation adsbInUatToDetail(vwADSB.id(), "_test", uatIn.id(), vwADSB.id());
+    Navigation adsbIn1090LandingToDetail(vwTestDetailLanding.id(), "_detailSummary",in1090.id(), vwADSBIn1090P1.id());
+    navigationDaoPtr->addNavigation(adsbIn1090LandingToDetail);
+
+    Navigation adsbInUatToDetail(vwADSB.id(), "_test", uatIn.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbInUatToDetail);
 
     Navigation homeToadsbInUatDetail(vwHome.id(), "_test", uatIn.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(homeToadsbInUatDetail);
+
+    Navigation adsbInUatLandingToDetail(vwTestDetailLanding.id(), "_detailSummary",uatIn.id(), vwADSBInUATP1.id());
+    navigationDaoPtr->addNavigation(adsbInUatLandingToDetail);
 
     Navigation adsbOut1090ToDetail(vwADSB.id(), "_test", adsbOut1090.id(), vwTestDetailLanding.id());
     navigationDaoPtr->addNavigation(adsbOut1090ToDetail);
@@ -1476,6 +1488,12 @@ int DataBuilder::build()
 
     //    Navigation scanTo1090P1(vwADSBout1090Scan.id(), "Next", 0, vwADSBout1090P1.id());
     //    navigationDaoPtr->addNavigation(scanTo1090P1);
+
+    Navigation adsbIn1090DetailToLanding(vwADSBIn1090P1.id(), "back", 0, vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbIn1090DetailToLanding);
+
+    Navigation adsbInUatDetailToLanding(vwADSBInUATP1.id(), "back", 0, vwTestDetailLanding.id());
+    navigationDaoPtr->addNavigation(adsbInUatDetailToLanding);
 
     Navigation radarTo1090P1(vwADSBout1090Radar.id(), "Next", 0, vwADSBout1090P1.id());
     navigationDaoPtr->addNavigation(radarTo1090P1);

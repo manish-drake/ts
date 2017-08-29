@@ -24,7 +24,7 @@
 #include "datamanager.h"
 #include "loggerthread.h"
 #include <QThreadPool>
-#include "../ts-smtp/SmtpMime"
+//#include "../ts-smtp/SmtpMime"
 #include "loggingmodel.h"
 #include "runlater.h"
 #include <asyncproc.h>
@@ -41,7 +41,6 @@ void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QS
     }
 }
 
-
 int main(int argc, char *argv[])
 {
     qDebug() << "main()";
@@ -55,7 +54,7 @@ int main(int argc, char *argv[])
 
         QGuiApplication app(argc, argv);
 
-        qInstallMessageHandler(myMessageOutput);
+       qInstallMessageHandler(myMessageOutput);
 
         qmlRegisterType<Controls>("com.ti.controls", 1, 0, "Controls");
 
@@ -64,10 +63,6 @@ int main(int argc, char *argv[])
 
         LoggingModel loggingModel;
         context->setContextProperty("loggingModel", &loggingModel);
-
-
-//        AsyncProc ap([](){});
-//        ap.process();
 
         Client client;
         context->setContextProperty("zmq", &client);

@@ -399,7 +399,6 @@ Item {
                                     Layout.minimumWidth: 0
                                     minimumValue: 50
                                     maximumValue: 250
-                                    value: distanceInput.uutDistance
                                     style: SliderStyle {
                                         groove:  Rectangle{
                                             Layout.fillWidth: parent
