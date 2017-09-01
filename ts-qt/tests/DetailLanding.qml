@@ -81,12 +81,16 @@ Item{
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
                 anchors.verticalCenter: parent.verticalCenter
+                spacing: 0
                 ColumnLayout{
                     Layout.alignment: Qt.AlignBottom
                     spacing: 0
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.margins: 5
+                        Layout.topMargin: 5
+                        Layout.bottomMargin: 5
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
                         height: 50
                         width: 50
                         radius: 25
@@ -130,7 +134,10 @@ Item{
                     spacing: 0
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.margins: 5
+                        Layout.topMargin: 5
+                        Layout.bottomMargin: 5
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
                         height: 50
                         width: 50
                         radius: 25
@@ -164,7 +171,10 @@ Item{
                     spacing: 0
                     Rectangle{
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.margins: 5
+                        Layout.topMargin: 5
+                        Layout.bottomMargin: 5
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
                         height: 70
                         width: 70
                         radius: 35

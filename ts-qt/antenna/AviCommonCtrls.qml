@@ -12,6 +12,7 @@ Item{
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        spacing: 0
         Item{
             Layout.fillWidth: true
         }
@@ -20,7 +21,10 @@ Item{
             spacing: 0
             Rectangle{
                 Layout.alignment: Qt.AlignBottom
-                Layout.margins: 5
+                Layout.topMargin: 5
+                Layout.bottomMargin: 5
+                Layout.leftMargin: 10
+                Layout.rightMargin: 10
                 height: 50
                 width: 50
                 radius: 25
@@ -56,7 +60,10 @@ Item{
             Rectangle{
                 id: testRunButton
                 Layout.alignment: Qt.AlignHCenter
-                Layout.margins: 5
+                Layout.topMargin: 5
+                Layout.bottomMargin: 5
+                Layout.leftMargin: 10
+                Layout.rightMargin: 10
                 height: 70
                 width: 70
                 radius: 35

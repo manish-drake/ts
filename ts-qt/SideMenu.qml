@@ -167,4 +167,12 @@ Rectangle{
             }
         }
     }
+    Rectangle{
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        width: 1
+        color: Universal.foreground
+        opacity: 0.1
+    }
 }

@@ -88,15 +88,25 @@ ApplicationWindow {
             }
         }
 
-        Drawer {
+//        Drawer {
+//            id: sideMenuDrawer
+//            width: parent.width * 0.66
+//            height: parent.height - footer.height
+//            dragMargin: 0
+//            background: Rectangle {
+//                color: Universal.foreground
+//                opacity: 0.1
+//            }
+//            contentItem: SideMenu{id: sideMenu}
+//        }
+
+        Popup {
             id: sideMenuDrawer
             width: parent.width * 0.66
             height: parent.height - footer.height
-            dragMargin: 0            
-            background: Rectangle {
-                color: Universal.foreground
-                opacity: 0.1
-            }
+            modal: true
+            closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+            padding: 0
             contentItem: SideMenu{id: sideMenu}
         }
 
