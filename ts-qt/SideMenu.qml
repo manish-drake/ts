@@ -150,7 +150,7 @@ Rectangle{
                                 }
                                 MouseArea {
                                     anchors.fill: parent
-                                    onPressed: parent.opacity = 0.7
+                                    onPressed: parent.opacity = 0.2
                                     onReleased: parent.opacity = 1
                                     onCanceled: parent.opacity = 1
                                     onClicked: {

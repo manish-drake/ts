@@ -10,14 +10,14 @@ Item{
         anchors.fill: parent
         header:Rectangle {
             id: content
-            height: 48
+            height: 55
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Rectangle{
                 id: toggleMenu
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
-                width: 50
+                width: 70
                 color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
                 Image {
                     id:toggleMenuImg
@@ -32,7 +32,7 @@ Item{
                 MouseArea {
                     id: toggleMenuMouseArea
                     anchors.fill: parent
-                    onPressed: parent.opacity = 0.5
+                    onPressed: parent.opacity = 0.4
                     onReleased: parent.opacity = 1
                     onClicked: sideMenuDrawer.open()
                 }
@@ -42,9 +42,9 @@ Item{
                 text: "App Logs"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
-                anchors.leftMargin: 60
+                anchors.leftMargin: 70
                 anchors.right: parent.right
-                anchors.rightMargin: 40
+                anchors.rightMargin: 70
                 font.bold: Font.DemiBold
                 color: Universal.accent
                 font.pixelSize: 18
@@ -55,7 +55,7 @@ Item{
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
-                width: 50
+                width: 70
                 color: deleteMouseArea.pressed ? "#80aaaaaa" : "transparent"
                 enabled: false
                 opacity: enabled ? 1 : 0.4
@@ -72,7 +72,7 @@ Item{
                 MouseArea {
                     id: deleteMouseArea
                     anchors.fill: parent
-                    onPressed: parent.opacity = 0.5
+                    onPressed: parent.opacity = 0.4
                     onReleased: parent.opacity = 1
                     onClicked: {}
                 }

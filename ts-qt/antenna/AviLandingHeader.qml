@@ -4,7 +4,7 @@ import QtQuick.Controls.Universal 2.1
 
 Rectangle {
     id: content
-    height: 48
+    height: 55
     color: Universal.theme === Universal.Light ? "#E6E7E8" : "#1A1A1A"
 
     Rectangle{
@@ -12,7 +12,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: 50
+        width: 70
         color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:leftImg
@@ -27,7 +27,7 @@ Rectangle {
         MouseArea {
             id: backMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1
             onClicked: {
                 if(navigationModel.navigationParameter.isHome){
@@ -46,9 +46,9 @@ Rectangle {
         text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: 60
+        anchors.leftMargin: 70
         anchors.right: parent.right
-        anchors.rightMargin: 40
+        anchors.rightMargin: 70
         font.bold: Font.DemiBold
         color: Universal.accent
         font.pixelSize: 18
@@ -59,7 +59,7 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        width: 50
+        width: 70
         color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter
@@ -87,7 +87,7 @@ Rectangle {
         MouseArea {
             id: menuMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.4
             onReleased: parent.opacity = 1            
             onClicked: menuPopup.open()
         }

@@ -49,8 +49,8 @@ Rectangle{
     Rectangle{
         anchors.right: parent.right
         anchors.leftMargin: 5
-        height: 48
-        width: 48
+        height: 55
+        width: 70
         color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
             anchors.horizontalCenter: parent.horizontalCenter

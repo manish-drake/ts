@@ -4,7 +4,7 @@ import QtQuick.Controls.Universal 2.1
 
 Rectangle {
     id: content
-    height: 48
+    height: 55
     color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
     Rectangle{
         id: toggleMenu
@@ -12,7 +12,7 @@ Rectangle {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        width: 50
+        width: 70
         color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:toggleMenuImg
@@ -27,7 +27,7 @@ Rectangle {
         MouseArea {
             id: toggleMenuMouseArea
             anchors.fill: parent            
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.1
             onReleased: parent.opacity = 1
             onClicked: sideMenuDrawer.open()
         }
@@ -39,7 +39,7 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.leftMargin: 5
-        width: 50
+        width: 70
         color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Image {
             id:leftImg
@@ -54,7 +54,7 @@ Rectangle {
         MouseArea {
             id: backMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.1
             onReleased: parent.opacity = 1
             onClicked: navigationModel.currentView = navigationModel.getTargetView("back")
         }
@@ -65,7 +65,7 @@ Rectangle {
         text: headerTitle
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: 60
+        anchors.leftMargin: 70
         anchors.right: parent.right
         anchors.rightMargin: 40
         font.bold: Font.DemiBold
@@ -78,11 +78,10 @@ Rectangle {
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        width: 50
+        width: 70
         color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter:  parent.verticalCenter
+            anchors.centerIn: parent
             spacing: 3
             Rectangle{
                 color:Universal.accent
@@ -106,7 +105,7 @@ Rectangle {
         MouseArea {
             id: menuMouseArea
             anchors.fill: parent
-            onPressed: parent.opacity = 0.5
+            onPressed: parent.opacity = 0.1
             onReleased: parent.opacity = 1            
             onClicked: {
                 menuPopup.open()
