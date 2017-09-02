@@ -73,6 +73,20 @@ Page {
                             }
                             else {_theme = Universal.Light}
                         }
+                        style: SwitchStyle {
+                            groove: Rectangle {
+                                implicitWidth: 60
+                                implicitHeight: 30
+                                radius: 15
+                                color: "lightgray"
+                            }
+                            handle: Rectangle {
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                radius: 15
+                                color: control.checked ? Universal.accent : "gray"
+                            }
+                        }
                     }
                 }
 

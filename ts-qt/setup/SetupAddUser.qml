@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Universal 2.1
+import QtQuick.Controls.Styles 1.4
 
 Page {
     id: item1
@@ -130,6 +131,20 @@ Page {
                         target: setup.newUser
                         property: "emailSavedTests"
                         value: emailSavedTest.checked
+                    }
+                    style: SwitchStyle {
+                        groove: Rectangle {
+                            implicitWidth: 60
+                            implicitHeight: 30
+                            radius: 15
+                            color: "lightgray"
+                        }
+                        handle: Rectangle {
+                            implicitWidth: 30
+                            implicitHeight: 30
+                            radius: 15
+                            color: control.checked ? Universal.accent : "gray"
+                        }
                     }
                 }
 

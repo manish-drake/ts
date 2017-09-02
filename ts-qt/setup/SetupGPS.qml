@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 
 Page {
     id: item1
@@ -68,6 +69,20 @@ Page {
                     onCheckedChanged: {
                         console.log(gpsSourceSwitch.checked)
                     }
+                    style: SwitchStyle {
+                        groove: Rectangle {
+                            implicitWidth: 60
+                            implicitHeight: 30
+                            radius: 15
+                            color: "lightgray"
+                        }
+                        handle: Rectangle {
+                            implicitWidth: 30
+                            implicitHeight: 30
+                            radius: 15
+                            color: control.checked ? Universal.accent : "gray"
+                        }
+                    }
                 }
 
                 Text {
@@ -97,6 +112,20 @@ Page {
                     onCheckedChanged: {
                         console.log(gpsFormatSwitch.checked)
                     }
+                    style: SwitchStyle {
+                        groove: Rectangle {
+                            implicitWidth: 60
+                            implicitHeight: 30
+                            radius: 15
+                            color: "lightgray"
+                        }
+                        handle: Rectangle {
+                            implicitWidth: 30
+                            implicitHeight: 30
+                            radius: 15
+                            color: control.checked ? Universal.accent : "gray"
+                        }
+                    }
                 }
 
                 Text {
@@ -125,6 +154,20 @@ Page {
                     Layout.alignment: Qt.AlignRight
                     onCheckedChanged: {
                         console.log(altFormatSwitch.checked)
+                    }
+                    style: SwitchStyle {
+                        groove: Rectangle {
+                            implicitWidth: 60
+                            implicitHeight: 30
+                            radius: 15
+                            color: "lightgray"
+                        }
+                        handle: Rectangle {
+                            implicitWidth: 30
+                            implicitHeight: 30
+                            radius: 15
+                            color: control.checked ? Universal.accent : "gray"
+                        }
                     }
                 }
 

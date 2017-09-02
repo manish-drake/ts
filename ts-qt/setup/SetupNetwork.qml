@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 //import QtGraphicalEffects 1.0
 
 Page {
@@ -73,6 +74,20 @@ Page {
                                 wifiDirectSwitch.checked = false
                             }
                         }
+                        style: SwitchStyle {
+                            groove: Rectangle {
+                                implicitWidth: 60
+                                implicitHeight: 30
+                                radius: 15
+                                color: "lightgray"
+                            }
+                            handle: Rectangle {
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                radius: 15
+                                color: control.checked ? Universal.accent : "gray"
+                            }
+                        }
                     }
 
                     Text {
@@ -105,6 +120,20 @@ Page {
                             console.log(remoteSwitch.checked)
                             if(!checked){
                                 connectionLostPopup.open()
+                            }
+                        }
+                        style: SwitchStyle {
+                            groove: Rectangle {
+                                implicitWidth: 60
+                                implicitHeight: 30
+                                radius: 15
+                                color: "lightgray"
+                            }
+                            handle: Rectangle {
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                radius: 15
+                                color: control.checked ? Universal.accent : "gray"
                             }
                         }
                     }
@@ -140,6 +169,20 @@ Page {
                                 dhcpSwitch.checked = false
                             }
                         }
+                        style: SwitchStyle {
+                            groove: Rectangle {
+                                implicitWidth: 60
+                                implicitHeight: 30
+                                radius: 15
+                                color: "lightgray"
+                            }
+                            handle: Rectangle {
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                radius: 15
+                                color: control.checked ? Universal.accent : "gray"
+                            }
+                        }
                     }
 
                     Text {
@@ -169,6 +212,20 @@ Page {
                         enabled: wifiSwitch.checked && wifiDirectSwitch.checked
                         onCheckedChanged: {
                             console.log(dhcpSwitch.checked)
+                        }
+                        style: SwitchStyle {
+                            groove: Rectangle {
+                                implicitWidth: 60
+                                implicitHeight: 30
+                                radius: 15
+                                color: "lightgray"
+                            }
+                            handle: Rectangle {
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                radius: 15
+                                color: control.checked ? Universal.accent : "gray"
+                            }
                         }
                     }
 
