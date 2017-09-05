@@ -15,9 +15,7 @@ Rectangle{
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             Layout.leftMargin: 12
-            source: "qrc:/img/img/profile-circle.png"
-            sourceSize.width: 80
-            sourceSize.height: 80
+            source: "qrc:/img/img/profile-circle2.png"
         }
         Rectangle{
             anchors.left: parent.left

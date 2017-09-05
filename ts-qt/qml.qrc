@@ -117,6 +117,7 @@
         <file>img/left-arrow.png</file>
         <file>img/right-arrow.png</file>
         <file>img/results.png</file>
+        <file>img/profile-circle2.png</file>
     </qresource>
     <qresource prefix="/database"/>
     <qresource prefix="/fonts">

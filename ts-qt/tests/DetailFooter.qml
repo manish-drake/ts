@@ -119,8 +119,6 @@ Rectangle{
                     id: homeImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Home.png"
-                    sourceSize.width: 28
-                    sourceSize.height: 28
                 }
             }
             Text {
