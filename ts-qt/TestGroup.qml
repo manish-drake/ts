@@ -26,7 +26,6 @@ Item{
         model: testModel
         delegate: testCardDelegate
         focus: true
-        clip: true
         currentIndex: -1
         highlightMoveDuration: 0
         highlight:Item{
@@ -62,7 +61,6 @@ Item{
                     anchors.leftMargin: 20
                     anchors.rightMargin: 20
                     anchors.topMargin: 10
-                    clip: true
                     spacing: 0
                     RowLayout{
                         Text {
