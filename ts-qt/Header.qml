@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Controls.Universal 2.1
-//import QtGraphicalEffects 1.0
 
 Rectangle {
     id: content
@@ -19,11 +18,6 @@ Rectangle {
             anchors.centerIn: parent
             source: "qrc:/img/img/Menu-25.png"
         }
-//        ColorOverlay{
-//            anchors.fill: toggleMenuImg
-//            source: toggleMenuImg
-//            color: Universal.accent
-//        }
         MouseArea {
             id: toggleMenuMouseArea
             anchors.fill: parent            
@@ -45,11 +39,6 @@ Rectangle {
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
         }
-//        ColorOverlay{
-//            anchors.fill: leftImg
-//            source: leftImg
-//            color: Universal.accent
-//        }
         MouseArea {
             id: backMouseArea
             anchors.fill: parent

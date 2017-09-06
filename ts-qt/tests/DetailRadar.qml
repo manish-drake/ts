@@ -1,5 +1,4 @@
 import QtQuick 2.7
-//import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
@@ -35,11 +34,6 @@ Item{
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/Area Chart-25.png"
                         }
-//                        ColorOverlay{
-//                            anchors.fill: graphImg
-//                            source: graphImg
-//                            color: Universal.foreground
-//                        }
                         MouseArea {
                             anchors.fill: parent
                             onClicked:navigationModel.currentView = navigationModel.getTargetView("Graph")

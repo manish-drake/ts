@@ -2,7 +2,6 @@ import QtQuick 2.7
 import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.1
 import QtQuick.Controls 1.4
-//import QtGraphicalEffects 1.0
 import QtQuick.Controls.Universal 2.1
 
 Item{
@@ -24,11 +23,6 @@ Item{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Menu-25.png"
                 }
-                //        ColorOverlay{
-                //            anchors.fill: toggleMenuImg
-                //            source: toggleMenuImg
-                //            color: Universal.accent
-                //        }
                 MouseArea {
                     id: toggleMenuMouseArea
                     anchors.fill: parent
@@ -64,11 +58,6 @@ Item{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Upload to the Cloud-25.png"
                 }
-                //                ColorOverlay{
-                //                    anchors.fill: image1
-                //                    source: image1
-                //                    color: Universal.foreground
-                //                }
                 MouseArea {
                     id: deleteMouseArea
                     anchors.fill: parent

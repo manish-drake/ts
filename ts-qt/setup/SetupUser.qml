@@ -2,7 +2,6 @@ import QtQuick 2.7
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 import QtQuick.Layouts 1.1
-//import QtGraphicalEffects 1.0
 
 Item{
     Item{
@@ -71,11 +70,6 @@ Item{
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/checked.png"
                                 }
-                                //                                ColorOverlay{
-                                //                                    anchors.fill: checkedImg
-                                //                                    source: checkedImg
-                                //                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
-                                //                                }
                             }
                             Text {
                                 Layout.column: 1
