@@ -78,7 +78,6 @@ Rectangle{
                 anchors.topMargin: 8
                 anchors.bottomMargin: 8
                 model: sectionGroupModel
-                clip: true
                 delegate:  Component {
                     ColumnLayout{
                         anchors.left: parent.left

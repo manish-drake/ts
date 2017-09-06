@@ -61,7 +61,6 @@ Item{
                     anchors.right: parent.right
                     anchors.margins: 25
                     orientation: ListView.Horizontal
-                    clip: true
                     spacing: 25
                     delegate: Component{
                         id: connectionListItemDelegate

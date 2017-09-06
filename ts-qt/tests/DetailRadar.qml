@@ -20,7 +20,6 @@ Item{
                 contentWidth: parent.width;
                 contentHeight: content.height + 10
                 boundsBehavior: Flickable.StopAtBounds
-                clip: true
                 ColumnLayout{
                     id: content
                     anchors.left: parent.left

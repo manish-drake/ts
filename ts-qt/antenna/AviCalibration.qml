@@ -105,9 +105,9 @@ Item {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
-                        clip: true
                         Text{
                             Layout.leftMargin: 15
+                            Layout.maximumWidth: parent.width
                             elide: Text.ElideRight
                             visible: mode == "VSWR/CL"
                             text: "ILS last calibrated"

@@ -60,7 +60,6 @@ Item{
                     Layout.bottomMargin: 20
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    clip: true
                     spacing: 4
                     currentIndex: selectedIndex
                     delegate: Component{
@@ -73,17 +72,17 @@ Item{
                             height: 45
                             color: index == modeListView.currentIndex ? "#26909C" :  Universal.accent
                             radius: 4
-                            RowLayout{
-                                anchors.fill: parent
-                                Text {
-                                    Layout.leftMargin: 15
-                                    Layout.alignment: Qt.AlignVCenter
-                                    font.pixelSize: 15
-                                    font.weight: Font.Black
-                                    font.family: robotoRegular.name
-                                    color: "White"
-                                    text: name
-                                }
+                            Text {
+                                anchors.left: parent.left
+                                anchors.right: parent.right
+                                anchors.leftMargin: 15
+                                anchors.verticalCenter: parent.verticalCenter
+                                font.pixelSize: 15
+                                font.weight: Font.Black
+                                font.family: robotoRegular.name
+                                color: "White"
+                                text: name
+                                elide: Text.ElideRight
                             }
                             MouseArea{
                                 anchors.fill: parent

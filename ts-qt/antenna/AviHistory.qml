@@ -88,7 +88,6 @@ Item{
                     anchors.left:parent.left
                     anchors.right:parent.right
                     spacing: 10
-                    clip: true
                     highlightMoveDuration: 0
                     highlight:Rectangle{
                         color:"transparent"

@@ -38,9 +38,9 @@ Page {
                 anchors.right: parent.right
                 anchors.margins: 15
                 rowSpacing: 22
-
                 Text {
                     Layout.row: 1
+                    Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("NAME")
                     font.pixelSize: 12
@@ -51,14 +51,17 @@ Page {
                 Text {
                     Layout.row: 1
                     Layout.column: 1
+                    Layout.fillWidth: true
                     text: navigationModel.navigationParameter.user.name
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
 
                 Text {
                     Layout.row: 2
+                    Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("LANGUAGE")
                     font.pixelSize: 12
@@ -69,14 +72,17 @@ Page {
                 Text {
                     Layout.row: 2
                     Layout.column: 1
+                    Layout.fillWidth: true
                     text: navigationModel.navigationParameter.user.language
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
 
                 Text {
                     Layout.row: 3
+                    Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("EMAIL")
                     font.pixelSize: 12
@@ -88,13 +94,16 @@ Page {
                 Text {
                     Layout.row: 3
                     Layout.column: 1
+                    Layout.fillWidth: true
                     text: navigationModel.navigationParameter.user.email
                     font.pixelSize: 12
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
                 Text {
                     Layout.row: 4
+                    Layout.fillWidth: true
                     elide: Text.ElideRight
                     text: qsTr("EMAIL SAVED TESTS")
                     font.pixelSize: 12
@@ -125,6 +134,7 @@ Page {
 
                 Button{
                     Layout.row: 6
+                    Layout.columnSpan: 2
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "RESTORE FACTORY DEFAULTS"
                     enabled: false
@@ -132,6 +142,7 @@ Page {
 
                 Button{
                     Layout.row: 8
+                    Layout.columnSpan: 2
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: "DELETE USER"
 //                    enabled: navigationModel.navigationParameter.user.isRemovable

@@ -61,7 +61,6 @@ Item{
                     Layout.minimumHeight: 450
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    clip: true
                     spacing: 4
                     delegate: Component{
                         id: bandListItemDelegate
@@ -78,11 +77,13 @@ Item{
                                 Text {
                                     Layout.leftMargin: 15
                                     Layout.alignment: Qt.AlignVCenter
+                                    Layout.maximumWidth: parent.width
                                     font.pixelSize: 15
                                     font.weight: Font.Black
                                     font.family: robotoRegular.name
                                     color: "White"
                                     text: name
+                                    elide: Text.ElideRight
                                 }
                                 Text {
                                     Layout.fillWidth: true

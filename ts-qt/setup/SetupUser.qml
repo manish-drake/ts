@@ -33,7 +33,6 @@ Item{
             //            model: tempModel
             model:  zmq.queryUsers()
             delegate: userCardDelegate
-            clip: true
             onCurrentIndexChanged: {
                 currentUser = tempModel.get(currentIndex).userName
                 currentUserEmail = tempModel.get(currentIndex).emailID
@@ -72,11 +71,11 @@ Item{
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/checked.png"
                                 }
-//                                ColorOverlay{
-//                                    anchors.fill: checkedImg
-//                                    source: checkedImg
-//                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
-//                                }
+                                //                                ColorOverlay{
+                                //                                    anchors.fill: checkedImg
+                                //                                    source: checkedImg
+                                //                                    color: userListView.currentIndex == index ? Universal.accent : Universal.foreground
+                                //                                }
                             }
                             Text {
                                 Layout.column: 1
@@ -90,25 +89,17 @@ Item{
                                 font.family: robotoRegular.name
                                 color: Universal.accent
                             }
-                            Row {
+                            Text {
                                 Layout.column: 1
                                 Layout.row: 1
                                 Layout.fillWidth: true
                                 Layout.fillHeight: true
                                 Layout.leftMargin: 15
-                                Text {
-                                    font.pixelSize: 12
-                                    text: qsTr("LANGUAGE: ")
-                                    color: Universal.foreground
-                                    opacity: 0.7
-                                }
-                                Text {
-                                    Layout.fillWidth: true
-                                    elide: Text.ElideRight
-                                    font.pixelSize: 12
-                                    text: qsTr(language)
-                                    color: Universal.foreground
-                                }
+                                font.pixelSize: 12
+                                text: "LANGUAGE: " + language
+                                color: Universal.foreground
+                                opacity: 0.7
+                                elide: Text.ElideRight
                             }
                             Rectangle{
                                 Layout.column: 2

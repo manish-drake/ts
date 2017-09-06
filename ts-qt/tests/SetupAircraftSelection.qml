@@ -15,13 +15,11 @@ Item{
             Layout.alignment: Qt.AlignCenter
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
-            clip: true
             ColumnLayout{
                 id: content
                 anchors.left: parent.left
                 anchors.right: parent.right
                 spacing: 4
-                clip: true
                 Item{
                     height: 40
                     anchors.left:parent.left
@@ -62,7 +60,6 @@ Item{
                     anchors.left:parent.left
                     anchors.right:parent.right
                     height: 49 * aircraftList.count
-                    clip: true
                     spacing: 4
                     delegate: Component{
                         id: aircraftListItemDelegate

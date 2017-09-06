@@ -22,7 +22,6 @@ Item{
                 contentWidth: parent.width;
                 contentHeight: content.height + content.y + 10
                 boundsBehavior: Flickable.StopAtBounds
-                clip: true
                 GridLayout{
                     id: content
                     y: 10

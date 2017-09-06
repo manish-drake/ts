@@ -8,12 +8,12 @@ Item{
     ColumnLayout{
         anchors.fill: parent
         Item{
+            Layout.topMargin: 15
             anchors.left: parent.left
             anchors.right: parent.right
             height: tghContent.height
             GridLayout{
                 id: tghContent
-                Layout.topMargin: 15
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.margins: 15

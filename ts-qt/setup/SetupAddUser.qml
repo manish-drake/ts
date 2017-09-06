@@ -33,7 +33,6 @@ Page {
             contentWidth: parent.width;
             contentHeight: grid.height + grid.y + 10
             boundsBehavior: Flickable.StopAtBounds
-            clip: true
             GridLayout {
                 id: grid
                 y: 30
@@ -45,11 +44,13 @@ Page {
 
                 Text {
                     Layout.row: 1
+                    Layout.fillWidth: true
                     text: qsTr("NAME:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
                 TextField {
                     id: name
@@ -68,11 +69,13 @@ Page {
 
                 Text {
                     Layout.row: 2
+                    Layout.fillWidth: true
                     text: qsTr("LANGUAGE:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
                 ComboBox{
                     id:languageComboBox
@@ -91,11 +94,13 @@ Page {
 
                 Text {
                     Layout.row: 3
+                    Layout.fillWidth: true
                     text: qsTr("EMAIL:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
 
                 TextField {
@@ -115,11 +120,13 @@ Page {
                 }
                 Text {
                     Layout.row: 4
+                    Layout.fillWidth: true
                     text: qsTr("EMAIL SAVED TESTS:")
                     font.pixelSize: 12
                     font.bold: Font.Medium
                     font.family: robotoRegular.name
                     color: Universal.foreground
+                    elide: Text.ElideRight
                 }
 
                 Switch {

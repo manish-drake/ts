@@ -13,7 +13,6 @@ Item {
             Layout.fillHeight: true
             contentWidth: parent.width;
             contentHeight: content.height + 10
-            clip: true
             ColumnLayout{
                 id: content
                 anchors.top: parent.top
@@ -33,9 +32,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("DISPLAY")
@@ -90,9 +89,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             id: user
@@ -151,9 +150,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("GPS")
@@ -208,9 +207,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("NETWORK")
@@ -265,9 +264,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("SYSTEM INFO")
@@ -299,9 +298,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("CONNECTION")
@@ -333,9 +332,9 @@ Item {
                         anchors.rightMargin: 11
                         color: Universal.theme === Universal.Light ? Universal.background : "#222222"
                         radius: 4
-                        clip: true
                         Text {
                             anchors.left: parent.left
+                            anchors.right: parent.right
                             anchors.top: parent.top
                             anchors.margins: 10
                             text: qsTr("RUN MANUAL BIT")

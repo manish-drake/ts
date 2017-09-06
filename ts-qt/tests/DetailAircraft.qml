@@ -51,7 +51,6 @@ Item{
                     spacing: 5
                     anchors.leftMargin: 15
                     anchors.rightMargin: 15
-                    clip: true
                     highlightMoveDuration: 0
                     highlight:Rectangle{
                         color:"transparent"

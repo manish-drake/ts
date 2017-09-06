@@ -13,12 +13,10 @@ Item{
             Layout.alignment: Qt.AlignCenter
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             radius: 4
-            clip: true
             ColumnLayout{
                 id: content
                 anchors.fill: parent
                 spacing: 4
-                clip: true
                 Item{
                     height: 40
                     anchors.left:parent.left
@@ -59,7 +57,6 @@ Item{
                     Layout.fillHeight: true
                     anchors.left:parent.left
                     anchors.right:parent.right
-                    clip: true
                     spacing: 4
                     currentIndex: -1
                     delegate: Component{

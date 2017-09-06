@@ -33,7 +33,6 @@ Page {
             contentWidth: parent.width;
             contentHeight: grid.height + grid.y + 10
             boundsBehavior: Flickable.StopAtBounds
-            clip: true
             GridLayout {
                 id: grid
                 y: 30
