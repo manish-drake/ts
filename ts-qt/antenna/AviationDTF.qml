@@ -184,7 +184,7 @@ Item{
             padding: 0
             modal: true
             closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-            background: Rectangle{ color: "transparent" }
+            background: Item{}
             contentItem: Rectangle{
                 color: Universal.foreground
                 radius: 20

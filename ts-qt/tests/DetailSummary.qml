@@ -50,8 +50,7 @@ Item{
                             GridLayout {
                                 Repeater {
                                     model: summaryModel.getTestParamsForsummary(id)
-                                    delegate: Rectangle{
-                                        color: "transparent"
+                                    delegate: Item{
                                         Layout.row: model.modelData.row
                                         Layout.column: model.modelData.col
                                         Layout.fillWidth: true

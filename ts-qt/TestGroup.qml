@@ -26,18 +26,6 @@ Item{
         model: testModel
         delegate: testCardDelegate
         focus: true
-        currentIndex: -1
-        highlightMoveDuration: 0
-        highlight:Item{
-            Rectangle{
-                anchors.fill: parent
-                anchors.margins: 2
-                color: "transparent"
-                border.color: Universal.accent
-                border.width: 1
-                radius:4
-            }
-        }
     }
     Component{
         id: testCardDelegate
