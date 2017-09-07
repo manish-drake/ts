@@ -29,7 +29,7 @@ Page {
         Flickable {
             id: flickable
             anchors.fill: parent
-            contentWidth: parent.width;
+            contentWidth: width;
             contentHeight: content.height + content.y + 10
             boundsBehavior: Flickable.StopAtBounds
             Column{

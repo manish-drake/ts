@@ -16,7 +16,7 @@ Item{
             color: Universal.theme === Universal.Light ? Universal.background : "#414048"
             Flickable {
                 anchors.fill: parent
-                contentWidth: parent.width;
+                contentWidth: width;
                 contentHeight: content.height + content.y + 15
                 boundsBehavior: Flickable.StopAtBounds
                 Column{

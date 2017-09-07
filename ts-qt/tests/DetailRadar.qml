@@ -16,7 +16,7 @@ Item{
             color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
             Flickable {
                 anchors.fill: parent
-                contentWidth: parent.width;
+                contentWidth: width;
                 contentHeight: content.height + 10
                 boundsBehavior: Flickable.StopAtBounds
                 ColumnLayout{
@@ -110,8 +110,7 @@ Item{
                                 Rectangle{
                                     id:firstRec
                                     anchors.centerIn: parent
-                                    width: parent.width
-                                    height: parent.height
+                                    anchors.fill: parent
                                     color: "transparent"
                                     radius: width/2
                                     border.width: 1

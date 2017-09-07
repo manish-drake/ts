@@ -82,7 +82,7 @@ Item{
             }
             Flickable {
                 anchors.fill: parent
-                contentWidth: parent.width;
+                contentWidth: width
                 contentHeight: grid.height + grid.y + 10
                 boundsBehavior: Flickable.StopAtBounds
                 ColumnLayout {

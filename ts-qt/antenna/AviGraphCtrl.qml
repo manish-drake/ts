@@ -38,11 +38,12 @@ RowLayout{
             SwitchDelegate{
                 id: rlScaleSwitch
                 anchors.left: parent.left
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                width: 50
                 enabled: areControlsAvailble
-                opacity: areControlsAvailble ? 1 : 0
+                opacity: enabled ? 1 : 0
                 spacing: 0
-                implicitHeight: parent.height
-                implicitWidth: 50
                 checked: vswrScaleSwitch.checked
                 indicator:Rectangle{
                     anchors.fill: parent
@@ -68,10 +69,12 @@ RowLayout{
             SwitchDelegate{
                 id: vswrScaleSwitch
                 anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.bottom: parent.bottom
+                width: 50
                 enabled: areControlsAvailble
                 opacity: enabled ? 1 : 0
                 spacing: 0
-                implicitHeight: parent.height
                 implicitWidth: 50
                 checked: rlScaleSwitch.checked
                 indicator:Rectangle{
@@ -102,8 +105,7 @@ RowLayout{
             height: 256
             Image{
                 id: graphImage
-                width: parent.width
-                height: 256
+                anchors.fill: parent
                 source: "qrc:/img/img/graph-back.png"
                 fillMode: Image.Stretch
             }
@@ -239,7 +241,8 @@ RowLayout{
             Item{
                 id: freqValsList
                 visible: !isDTFMode
-                width: parent.width
+                anchors.left: parent.left
+                anchors.right: parent.right
                 anchors.rightMargin: 20
                 Text{
                     id: freqStart
@@ -267,7 +270,8 @@ RowLayout{
             }
             Item{
                 visible: isDTFMode
-                width: parent.width
+                anchors.left: parent.left
+                anchors.right: parent.right
                 ListView{
                     id: lengthScale
                     anchors.left: parent.left
@@ -342,7 +346,8 @@ RowLayout{
                 model: markersModel
                 Slider{
                     id: markerSlider
-                    width: parent.width
+                    anchors.left: parent.left
+                    anchors.right: parent.right
                     z: index == selectedMarkerIndex ? 1 : 0
                     implicitHeight: 32
                     minimumValue: markerMinVal

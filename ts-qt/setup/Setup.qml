@@ -11,7 +11,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             Layout.fillHeight: true
-            contentWidth: parent.width;
+            contentWidth: width;
             contentHeight: content.height + 10
             ColumnLayout{
                 id: content

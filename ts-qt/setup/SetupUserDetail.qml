@@ -28,7 +28,7 @@ Page {
         color: Universal.theme === Universal.Light ? Universal.background : "#1A1A1A"
         Flickable {
             anchors.fill: parent
-            contentWidth: parent.width;
+            contentWidth: width;
             contentHeight: grid.height + grid.y + 10
             boundsBehavior: Flickable.StopAtBounds
             GridLayout {

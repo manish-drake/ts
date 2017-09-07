@@ -30,7 +30,7 @@ Page {
         Flickable {
             id: flickable
             anchors.fill: parent
-            contentWidth: parent.width;
+            contentWidth: width;
             contentHeight: grid.height + grid.y + 10
             boundsBehavior: Flickable.StopAtBounds
             GridLayout {
