@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Layouts 1.3
 import QtQml 2.2
 import QtQuick.Controls.Universal 2.1
