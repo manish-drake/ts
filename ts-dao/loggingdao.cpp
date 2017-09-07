@@ -77,7 +77,7 @@ unique_ptr<vector<unique_ptr<Logging>>> LoggingDao:: logs() const
 
     query.exec(strQuery);
 //    DataManager::debugQuery(query);
-    int num = query.size();
+//    int num = query.size();
     unique_ptr<vector<unique_ptr<Logging>>> list(new vector<unique_ptr<Logging>>());
 
     while (query.next()) {
