@@ -33,7 +33,7 @@ private:
             list.push_back(random_integer);
 
             lowest = (random_integer - step) < 0? 0: (random_integer - step);
-            highest = (random_integer + step) > 255? 255: (random_integer + step);
+//            highest = (random_integer + step) > 255? 255: (random_integer + step);
         }
         return list;
     }
