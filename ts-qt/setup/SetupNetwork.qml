@@ -65,6 +65,7 @@ Page {
                         Layout.columnSpan: 2
                         Layout.alignment: Qt.AlignRight
                         checked: true
+                        opacity: enabled ? 1 : 0.3
                         onCheckedChanged: {
                             console.log(wifiSwitch.checked)
                             if(!checked){
@@ -113,6 +114,7 @@ Page {
                         Layout.columnSpan: 2
                         Layout.alignment: Qt.AlignRight
                         enabled: wifiSwitch.checked
+                        opacity: enabled ? 1 : 0.3
                         checked: true
                         onCheckedChanged: {
                             console.log(remoteSwitch.checked)
@@ -161,6 +163,7 @@ Page {
                         Layout.columnSpan: 2
                         Layout.alignment: Qt.AlignRight
                         enabled: wifiSwitch.checked
+                        opacity: enabled ? 1 : 0.3
                         onCheckedChanged: {
                             console.log(wifiDirectSwitch.checked)
                             if(!checked){
@@ -208,6 +211,7 @@ Page {
                         Layout.columnSpan: 2
                         Layout.alignment: Qt.AlignRight
                         enabled: wifiSwitch.checked && wifiDirectSwitch.checked
+                        opacity: enabled ? 1 : 0.3
                         onCheckedChanged: {
                             console.log(dhcpSwitch.checked)
                         }
@@ -403,7 +407,6 @@ Page {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: 15
-                    topPadding: 20
                     visible: remoteSwitch.checked
                     RowLayout{
                         anchors.left: parent.left

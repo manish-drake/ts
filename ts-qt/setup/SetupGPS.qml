@@ -65,6 +65,7 @@ Page {
                     Layout.row: 0
                     Layout.column: 2
                     Layout.alignment: Qt.AlignRight
+                    opacity: enabled ? 1 : 0.3
                     onCheckedChanged: {
                         console.log(gpsSourceSwitch.checked)
                     }
@@ -108,6 +109,7 @@ Page {
                     Layout.row: 1
                     Layout.column: 2
                     Layout.alignment: Qt.AlignRight
+                    opacity: enabled ? 1 : 0.3
                     onCheckedChanged: {
                         console.log(gpsFormatSwitch.checked)
                     }
@@ -151,6 +153,7 @@ Page {
                     Layout.row: 2
                     Layout.column: 2
                     Layout.alignment: Qt.AlignRight
+                    opacity: enabled ? 1 : 0.3
                     onCheckedChanged: {
                         console.log(altFormatSwitch.checked)
                     }

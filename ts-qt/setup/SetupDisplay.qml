@@ -65,6 +65,7 @@ Page {
                         Layout.alignment: Qt.AlignRight
                         anchors.verticalCenter: parent.verticalCenter
                         checked: _theme === Universal.Dark
+                        opacity: enabled ? 1 : 0.3
                         onCheckedChanged: {
                             console.log(switch1.checked)
                             if(switch1.checked) {

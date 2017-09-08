@@ -116,6 +116,7 @@ Page {
                     Layout.row: 4
                     Layout.column: 1
                     checked: navigationModel.navigationParameter.user.emailSavedTests
+                    opacity: enabled ? 1 : 0.3
                     style: SwitchStyle {
                         groove: Rectangle {
                             implicitWidth: 60

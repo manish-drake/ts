@@ -134,6 +134,7 @@ Page {
                     Layout.row: 4
                     Layout.column: 1
                     checked: setup.newUser.emailSavedTests
+                    opacity: enabled ? 1 : 0.3
                     Binding{
                         target: setup.newUser
                         property: "emailSavedTests"
