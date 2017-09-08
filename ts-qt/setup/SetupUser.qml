@@ -29,8 +29,8 @@ Item{
             id: userListView
             anchors.fill: parent
             anchors.margins: 10
-            model: tempModel
-            //            model:  zmq.queryUsers()
+//            model: tempModel
+            model:  zmq.queryUsers()
             delegate: userCardDelegate
             onCurrentIndexChanged: {
                 currentUser = tempModel.get(currentIndex).userName
