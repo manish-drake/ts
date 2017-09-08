@@ -57,8 +57,7 @@ Rectangle {
         width: 70
         color: menuMouseArea.pressed ? "#80aaaaaa" : "transparent"
         Column{
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter:  parent.verticalCenter
+            anchors.centerIn: parent
             spacing: 3
             Rectangle{
                 color:Universal.accent

@@ -52,8 +52,7 @@ RowLayout{
                     border.width: 1
                     border.color: "lightgray"
                     Text{
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.centerIn: parent
                         text: "Return<br>Loss"
                         font.pixelSize: 12
                         font.family: robotoRegular.name
@@ -84,8 +83,7 @@ RowLayout{
                     border.width: 1
                     border.color: "lightgray"
                     Text{
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.centerIn: parent
                         text: "VSWR"
                         font.pixelSize: 12
                         font.family: robotoRegular.name
@@ -318,8 +316,7 @@ RowLayout{
                         border.width: 1
                         border.color: "lightgray"
                         Text{
-                            anchors.verticalCenter: parent.verticalCenter
-                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.centerIn: parent
                             text: lengthUnitSwitch.checked ? "Ft" : "M"
                             horizontalAlignment: Text.AlignHCenter
                             font.family: robotoRegular.name

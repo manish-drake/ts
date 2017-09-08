@@ -29,8 +29,7 @@ Item{
                         width: 50
                         Image{
                             id: image1
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.centerIn: parent
                             source: "qrc:/img/img/View Details-25.png"
                             asynchronous: true
                         }

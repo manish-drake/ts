@@ -24,8 +24,7 @@ Item{
             opacity:  switchDelegate.checked ? 1.0 : 0.35
             Image{
                 id: image
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.centerIn: parent
                 asynchronous: true
             }
         }

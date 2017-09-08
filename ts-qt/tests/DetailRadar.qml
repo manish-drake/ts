@@ -30,8 +30,7 @@ Item{
                         width: 50
                         Image{
                             id: graphImg
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.centerIn: parent
                             source: "qrc:/img/img/Area Chart-25.png"
                             asynchronous: true
                         }
