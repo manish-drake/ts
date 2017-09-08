@@ -200,7 +200,6 @@ Rectangle{
                 Image{
                     id: testRunImage
                     anchors.centerIn: parent
-                    smooth: true
                     asynchronous: true
                 }
                 states: [

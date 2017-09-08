@@ -98,7 +98,6 @@ Item {
                                         Layout.leftMargin: 15
                                         Layout.alignment: Qt.AlignVCenter
                                         source: "qrc:/img/img/screen-brightness.png"
-                                        smooth: true
                                         asynchronous: true
                                     }
                                     Text{

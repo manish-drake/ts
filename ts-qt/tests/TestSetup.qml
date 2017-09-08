@@ -102,7 +102,6 @@ Item {
                                             anchors.margins: 2
                                             source: "qrc:/img/img/geo_fence.png"
                                             fillMode: Image.PreserveAspectFit
-                                            smooth: true
                                             asynchronous: true
                                         }
                                     }
@@ -152,7 +151,6 @@ Item {
                                             anchors.margins: 2
                                             source: "qrc:/img/img/top-bottom.png"
                                             fillMode: Image.PreserveAspectFit
-                                            smooth: true
                                             asynchronous: true
                                         }
                                     }

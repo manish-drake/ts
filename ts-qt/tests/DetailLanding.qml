@@ -185,7 +185,6 @@ Item{
                             id: buttonImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/play-button.png"
-                            smooth: true
                             asynchronous: true
                         }
                     }
