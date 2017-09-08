@@ -44,11 +44,12 @@ Item{
                         color: Universal.accent
                         text: mode
                     }
-                    Image {
+                    Image{
                         source: "qrc:/img/img/Expand Arrow.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         anchors.rightMargin: 10
+                        asynchronous: true
                     }
                 }
             }

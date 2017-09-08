@@ -13,10 +13,11 @@ Rectangle {
         anchors.left: parent.left
         width: 70
         color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
-        Image {
+        Image{
             id:leftImg
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
+            asynchronous: true
         }
         MouseArea {
             id: backMouseArea

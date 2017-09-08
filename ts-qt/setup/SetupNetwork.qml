@@ -425,10 +425,11 @@ Page {
                             height: 40
                             width: 40
                             opacity: 0.5
-                            Image {
+                            Image{
                                 id: disAllImage
                                 anchors.centerIn: parent
                                 source: "qrc:/img/img/Delete-25.png"
+                                asynchronous: true
                             }
                             MouseArea {
                                 anchors.fill: parent
@@ -460,6 +461,7 @@ Page {
                                     id: symbolImg
                                     anchors.verticalCenter: parent.verticalCenter
                                     source: isController ? "qrc:/img/img/Controller-25.png" : "qrc:/img/img/Eye-25.png"
+                                    asynchronous: true
                                 }
                                 Text{
                                     Layout.fillWidth: true
@@ -474,10 +476,11 @@ Page {
                                     Layout.fillHeight: true
                                     width: 40
                                     opacity: 0.4
-                                    Image {
+                                    Image{
                                         id: disImage
                                         anchors.centerIn: parent
                                         source: "qrc:/img/img/Delete-25.png"
+                                        asynchronous: true
                                     }
                                     MouseArea {
                                         anchors.fill: parent

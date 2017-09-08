@@ -31,10 +31,11 @@ Item{
                 color: "transparent"
                 border.width: 2
                 border.color: Universal.accent
-                Image {
+                Image{
                     id: setupImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Settings-accent.png"
+                    asynchronous: true
                 }
             }
             Text {
@@ -69,10 +70,11 @@ Item{
                 radius: 35
                 color: Universal.accent
                 state: navigationModel.navigationParameter.runState
-                Image {
+                Image{
                     id: testRunImage
                     anchors.centerIn: parent
                     smooth: true
+                    asynchronous: true
                 }
                 states: [
                     State {

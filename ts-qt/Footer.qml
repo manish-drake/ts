@@ -69,22 +69,23 @@ Rectangle {
         }
         RowLayout{
             Layout.fillHeight: true
-            Image {
+            Image{
                 Layout.alignment: Qt.AlignVCenter
                 Layout.rightMargin: 20
-                source:{
-                    connectionType == "port" ? "qrc:/img/img/port.png" : "qrc:/img/img/wifi-direct.png"
-                }
+                source: connectionType == "port" ? "qrc:/img/img/port.png" : "qrc:/img/img/wifi-direct.png"
+                asynchronous: true
             }
-            Image {
+            Image{
                 Layout.alignment: Qt.AlignVCenter
                 Layout.rightMargin: 20
                 source: "qrc:/img/img/Full Battery-25.png"
+                asynchronous: true
             }
-            Image {
+            Image{
                 Layout.alignment: Qt.AlignVCenter
                 Layout.rightMargin: 20
                 source: "qrc:/img/img/wifi-signal-waves.png"
+                asynchronous: true
             }
         }
     }

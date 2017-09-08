@@ -27,11 +27,12 @@ Item{
                     Item{
                         height: 50
                         width: 50
-                        Image {
+                        Image{
                             id: image1
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/View Details-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent                            
@@ -40,9 +41,10 @@ Item{
                             onClicked:navigationModel.currentView = navigationModel.getTargetView("Scan")
                         }
                     }
-                    Image {
+                    Image{
                         anchors.horizontalCenter: parent.horizontalCenter
                         source: "qrc:/img/img/waveform.png"
+                        asynchronous: true
                     }
                 }
             }

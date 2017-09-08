@@ -46,10 +46,11 @@ Item {
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
                         width: 35
-                        Image {
+                        Image{
                             id: closeImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -168,12 +169,13 @@ Item {
                                 radius: 3
                                 ColumnLayout{
                                     anchors.fill: parent
-                                    Image {
+                                    Image{
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
                                         Layout.margins: 15
                                         source: "qrc:/img/img/Open.png"
                                         fillMode: Image.PreserveAspectFit
+                                        asynchronous: true
                                     }
                                     Rectangle{
                                         Layout.fillWidth: true
@@ -186,6 +188,7 @@ Item {
                                             Image{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 source: isOpenMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                                asynchronous: true
                                             }
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
@@ -216,6 +219,7 @@ Item {
                                 Image{
                                     id: checkedImg1
                                     source: "qrc:/img/img/checked.png"
+                                    asynchronous: true
                                 }
                             }
                             Text{
@@ -250,12 +254,13 @@ Item {
                                 radius: 3
                                 ColumnLayout{
                                     anchors.fill: parent
-                                    Image {
+                                    Image{
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
                                         Layout.margins: 15
                                         source: "qrc:/img/img/Load.png"
                                         fillMode: Image.PreserveAspectFit
+                                        asynchronous: true
                                     }
                                     Rectangle{
                                         Layout.fillWidth: true
@@ -268,6 +273,7 @@ Item {
                                             Image{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 source: isLoadMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                                asynchronous: true
                                             }
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
@@ -297,6 +303,7 @@ Item {
                                 Image{
                                     id: checkedImg2
                                     source: "qrc:/img/img/checked.png"
+                                    asynchronous: true
                                 }
                             }
                             Text{
@@ -331,12 +338,13 @@ Item {
                                 radius: 3
                                 ColumnLayout{
                                     anchors.fill: parent
-                                    Image {
+                                    Image{
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
                                         Layout.margins: 15
                                         source: "qrc:/img/img/Thru.png"
                                         fillMode: Image.PreserveAspectFit
+                                        asynchronous: true
                                     }
                                     Rectangle{
                                         Layout.fillWidth: true
@@ -349,6 +357,7 @@ Item {
                                             Image{
                                                 Layout.alignment: Qt.AlignVCenter
                                                 source: isThruMeasured ? "qrc:/img/img/Reset-18.png" : "qrc:/img/img/Hunt-16.png"
+                                                asynchronous: true
                                             }
                                             Text{
                                                 Layout.alignment: Qt.AlignVCenter
@@ -378,6 +387,7 @@ Item {
                                 Image{
                                     id: checkedImg3
                                     source: "qrc:/img/img/checked.png"
+                                    asynchronous: true
                                 }
                             }
                             Text{

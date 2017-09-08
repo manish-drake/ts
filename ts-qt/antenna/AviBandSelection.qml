@@ -42,10 +42,11 @@ Item{
                         anchors.right: parent.right
                         anchors.rightMargin: 15
                         width: 35
-                        Image {
+                        Image{
                             id: closeImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent

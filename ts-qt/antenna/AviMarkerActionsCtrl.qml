@@ -22,6 +22,7 @@ Rectangle {
             Image{
                 anchors.centerIn: parent
                 source: "qrc:/img/img/Sort Left Filled-accent.png"
+                asynchronous: true
             }
             MouseArea{
                 id: prevMArea
@@ -43,6 +44,7 @@ Rectangle {
             Image{
                 anchors.centerIn: parent
                 source: "qrc:/img/img/Sort Right Filled-accent.png"
+                asynchronous: true
             }
             MouseArea{
                 id: nextMArea
@@ -193,6 +195,7 @@ Rectangle {
                 height: 22
                 width: 22
                 source: "qrc:/img/img/Delete-25.png"
+                asynchronous: true
             }
             MouseArea{
                 id: remMArea

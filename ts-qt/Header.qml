@@ -13,10 +13,11 @@ Rectangle {
         anchors.left: parent.left
         width: 70
         color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
-        Image {
+        Image{
             id:toggleMenuImg
             anchors.centerIn: parent
             source: "qrc:/img/img/Menu-25.png"
+            asynchronous: true
         }
         MouseArea {
             id: toggleMenuMouseArea
@@ -34,10 +35,11 @@ Rectangle {
         anchors.left: parent.left
         width: 70
         color: backMouseArea.pressed ? "#80aaaaaa" : "transparent"
-        Image {
+        Image{
             id:leftImg
             anchors.centerIn: parent
             source: "qrc:/img/img/left.png"
+            asynchronous: true
         }
         MouseArea {
             id: backMouseArea

@@ -22,14 +22,14 @@ Item{
             anchors.top: parent.top
             anchors.bottom: parent.bottom
             opacity:  switchDelegate.checked ? 1.0 : 0.35
-            Image {
+            Image{
                 id: image
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
+                asynchronous: true
             }
         }
         contentItem: Text {
-            rightPadding: parent.spacing
             text: parent.text
             font: parent.font
             opacity: switchDelegate.checked ? 1.0 : 0.5

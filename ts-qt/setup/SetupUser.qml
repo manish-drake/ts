@@ -29,8 +29,8 @@ Item{
             id: userListView
             anchors.fill: parent
             anchors.margins: 10
-            //            model: tempModel
-            model:  zmq.queryUsers()
+            model: tempModel
+            //            model:  zmq.queryUsers()
             delegate: userCardDelegate
             onCurrentIndexChanged: {
                 currentUser = tempModel.get(currentIndex).userName
@@ -59,17 +59,13 @@ Item{
                         }
                         GridLayout{
                             anchors.fill: parent
-                            Item{
+                            Image{
                                 Layout.rowSpan: 2
                                 Layout.leftMargin: 15
-                                Layout.fillHeight: true
-                                width: checkedImg.height
+                                Layout.alignment: Qt.AlignVCenter
                                 opacity: userListView.currentIndex == index ? 1 : 0.1
-                                Image{
-                                    id: checkedImg
-                                    anchors.centerIn: parent
-                                    source: "qrc:/img/img/checked.png"
-                                }
+                                source: "qrc:/img/img/checked.png"
+                                asynchronous: true
                             }
                             Text {
                                 Layout.column: 1
@@ -102,10 +98,11 @@ Item{
                                 color: Universal.accent
                                 width: 50
                                 radius: 3
-                                Image {
+                                Image{
                                     id: forwardImg
                                     anchors.centerIn: parent
                                     source: "qrc:/img/img/Forward-16.png"
+                                    asynchronous: true
                                 }
                                 MouseArea {
                                     anchors.fill: parent

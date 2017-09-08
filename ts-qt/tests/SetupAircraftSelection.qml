@@ -32,10 +32,11 @@ Item{
                         anchors.left: parent.left
                         anchors.leftMargin: 15
                         width: 35
-                        Image {
+                        Image{
                             id:leftImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/left.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent

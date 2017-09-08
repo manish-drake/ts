@@ -24,11 +24,12 @@ Item{
                     height: 65
                     color:"white"
                     radius: 35
-                    Image {
+                    Image{
                         anchors.centerIn: parent
                         width: 55
                         height: 55
                         source: "qrc:/img/img/test-logo.png"
+                        asynchronous: true
                     }
                 }
                 Text {

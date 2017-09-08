@@ -53,11 +53,12 @@ Item{
                         color: Universal.accent
                         text: "VEL " + coaxSelection.selectedCableVelocity + "%"
                     }
-                    Image {
+                    Image{
                         source: "qrc:/img/img/Expand Arrow.png"
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: parent.right
                         anchors.rightMargin: 10
+                        asynchronous: true
                     }
                 }
             }

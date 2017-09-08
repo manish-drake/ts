@@ -108,6 +108,7 @@ RowLayout{
                 anchors.fill: parent
                 source: "qrc:/img/img/graph-back.png"
                 fillMode: Image.Stretch
+                asynchronous: true
             }
             LineGraph{
                 visible: areControlsAvailble

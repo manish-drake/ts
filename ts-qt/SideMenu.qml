@@ -10,12 +10,13 @@ Rectangle{
     ColumnLayout{
         anchors.fill: parent
         spacing: 0
-        Image {
+        Image{
             id:profileImage
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             Layout.leftMargin: 12
             source: "qrc:/img/img/profile-circle2.png"
+            asynchronous: true
         }
         Rectangle{
             anchors.left: parent.left
@@ -57,6 +58,7 @@ Rectangle{
                     Layout.column: 1
                     Layout.rowSpan: 2
                     source: "qrc:/img/img/Expand Arrow.png"
+                    asynchronous: true
                 }
             }
         }

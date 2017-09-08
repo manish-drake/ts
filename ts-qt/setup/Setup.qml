@@ -133,7 +133,7 @@ Item {
                         onReleased: parent.opacity = 1
                         onCanceled: parent.opacity = 1
                         onClicked: {
-                            zmq.queryUsers();
+//                            zmq.queryUsers();
                             navigationModel.currentView = navigationModel.getTargetView("User");
                         }
                     }

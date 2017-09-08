@@ -31,10 +31,11 @@ Item{
                         anchors.left: parent.left
                         anchors.leftMargin: 15
                         width: 35
-                        Image {
+                        Image{
                             id:leftImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/left.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -78,12 +79,13 @@ Item{
                                 Item{
                                     Layout.fillWidth: true
                                     Layout.fillHeight: true
-                                    Image {
+                                    Image{
                                         id: antennaImg1
                                         anchors.fill: parent
                                         anchors.margins: 2
                                         source: index == connectionListView.currentIndex ? "qrc:/img/img/antenna2.png" : "qrc:/img/img/antenna.png"
                                         fillMode: Image.PreserveAspectFit
+                                        asynchronous: true
                                     }
                                 }
                                 Text{

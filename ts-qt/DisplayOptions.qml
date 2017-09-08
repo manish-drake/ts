@@ -43,10 +43,11 @@ Item {
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
                         width: 50
-                        Image {
+                        Image{
                             id: closeImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -92,12 +93,13 @@ Item {
                                 radius: 3
                                 RowLayout{
                                     anchors.fill: parent
-                                    Image {
+                                    Image{
                                         id: themeImg
                                         Layout.leftMargin: 15
                                         Layout.alignment: Qt.AlignVCenter
                                         source: "qrc:/img/img/screen-brightness.png"
                                         smooth: true
+                                        asynchronous: true
                                     }
                                     Text{
                                         Layout.fillWidth: true

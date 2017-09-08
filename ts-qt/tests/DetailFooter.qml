@@ -32,9 +32,10 @@ Rectangle{
                 color: "transparent"
                 border.width: 2
                 border.color: Universal.accent
-                Image {
+                Image{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/left-arrow.png"
+                    asynchronous: true
                 }
             }
             Text {
@@ -70,9 +71,10 @@ Rectangle{
                 color: "transparent"
                 border.width: 2
                 border.color: Universal.accent
-                Image {
+                Image{
                     anchors.centerIn: parent
                     source: "qrc:/img/img/right-arrow.png"
+                    asynchronous: true
                 }
             }
             Text {
@@ -115,10 +117,11 @@ Rectangle{
                 color: "transparent"
                 border.width: 2
                 border.color: Universal.accent
-                Image {
+                Image{
                     id: homeImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Home.png"
+                    asynchronous: true
                 }
             }
             Text {
@@ -156,10 +159,11 @@ Rectangle{
                 color: "transparent"
                 border.width: 2
                 border.color: Universal.accent
-                Image {
+                Image{
                     id: setupImage
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Settings-accent.png"
+                    asynchronous: true
                 }
             }
             Text {
@@ -193,10 +197,11 @@ Rectangle{
                 radius: 35
                 color: Universal.accent
                 state: navigationModel.navigationParameter.runState
-                Image {
+                Image{
                     id: testRunImage
                     anchors.centerIn: parent
                     smooth: true
+                    asynchronous: true
                 }
                 states: [
                     State {

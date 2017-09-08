@@ -19,10 +19,11 @@ Item {
                     anchors.margins: 11
                     radius: 4
                     color: Universal.theme == Universal.Light ? "#66ffffff" : "#33000000"
-                    Image {
+                    Image{
                         id:toggleMenuImg
                         anchors.centerIn: parent
                         source: "qrc:/img/img/Menu-25.png"
+                        asynchronous: true
                     }
                 }
                 MouseArea {
@@ -79,9 +80,10 @@ Item {
                 }
             }
         }
-        Image {
+        Image{
             Layout.alignment: Qt.AlignHCenter
             source: "qrc:/img/img/profile-circle.png"
+            asynchronous: true
         }
         Text{
             Layout.alignment: Qt.AlignHCenter

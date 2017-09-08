@@ -32,10 +32,11 @@ Item{
                         anchors.left: parent.left
                         width: 25
                         visible: dataListView.currentIndex != -1
-                        Image {
+                        Image{
                             id: deleteImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete2-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -58,10 +59,11 @@ Item{
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
                         width: 25
-                        Image {
+                        Image{
                             id: closeImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -137,10 +139,11 @@ Item{
                                     width: 50
                                     radius: 4
                                     visible: dataListView.currentIndex == index
-                                    Image {
+                                    Image{
                                         id: forwardImg
                                         anchors.centerIn: parent
                                         source: "qrc:/img/img/Forward-16.png"
+                                        asynchronous: true
                                     }
                                     MouseArea {
                                         anchors.fill: parent

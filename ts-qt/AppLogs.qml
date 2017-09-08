@@ -18,10 +18,11 @@ Item{
                 anchors.left: parent.left
                 width: 70
                 color: toggleMenuMouseArea.pressed ? "#80aaaaaa" : "transparent"
-                Image {
+                Image{
                     id:toggleMenuImg
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Menu-25.png"
+                    asynchronous: true
                 }
                 MouseArea {
                     id: toggleMenuMouseArea
@@ -53,10 +54,11 @@ Item{
                 color: deleteMouseArea.pressed ? "#80aaaaaa" : "transparent"
                 enabled: false
                 opacity: enabled ? 1 : 0.4
-                Image {
+                Image{
                     id: image1
                     anchors.centerIn: parent
                     source: "qrc:/img/img/Upload to the Cloud-25.png"
+                    asynchronous: true
                 }
                 MouseArea {
                     id: deleteMouseArea

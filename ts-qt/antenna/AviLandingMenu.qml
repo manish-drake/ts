@@ -42,10 +42,11 @@ Item{
                         anchors.rightMargin: 5
                         width: 55
                         color: closeMouseArea.pressed ? "#80aaaaaa" : "transparent"
-                        Image {
+                        Image{
                             id: closeImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             id: closeMouseArea
@@ -70,16 +71,11 @@ Item{
                         radius: 4
                         RowLayout{
                             anchors.fill: parent
-                            Item{
-                                height: starImg.height
-                                width: starImg.width
+                            Image{
                                 Layout.leftMargin: 30
                                 Layout.alignment: Qt.AlignVCenter
-                                Image {
-                                    id: starImg
-                                    source: testModel.isFavourite(navigationModel.navigationParameter.id) ?
-                                                "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
-                                }
+                                source: testModel.isFavourite(navigationModel.navigationParameter.id) ? "qrc:/img/img/Star Filled.png" : "qrc:/img/img/star-white.png"
+                                asynchronous: true
                             }
                             Text{
                                 Layout.leftMargin: 10
@@ -121,15 +117,11 @@ Item{
                         radius: 4
                         RowLayout{
                             anchors.fill: parent
-                            Item{
-                                height: brighnessImg.height
-                                width: brighnessImg.width
+                            Image{
                                 Layout.leftMargin: 30
                                 Layout.alignment: Qt.AlignVCenter
-                                Image {
-                                    id: brighnessImg
-                                    source: "qrc:/img/img/brightness.png"
-                                }
+                                source: "qrc:/img/img/brightness.png"
+                                asynchronous: true
                             }
                             Text{
                                 Layout.leftMargin: 10

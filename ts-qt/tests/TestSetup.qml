@@ -43,10 +43,11 @@ Item {
                         anchors.bottom: parent.bottom
                         anchors.right: parent.right
                         width: 50
-                        Image {
+                        Image{
                             id: closeImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Delete-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -95,13 +96,14 @@ Item {
                                     Item{
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
-                                        Image {
+                                        Image{
                                             id: gpsImg
                                             anchors.fill: parent
                                             anchors.margins: 2
                                             source: "qrc:/img/img/geo_fence.png"
                                             fillMode: Image.PreserveAspectFit
                                             smooth: true
+                                            asynchronous: true
                                         }
                                     }
                                     Text{
@@ -144,13 +146,14 @@ Item {
                                     Item{
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
-                                        Image {
+                                        Image{
                                             id: topBottomImg
                                             anchors.fill: parent
                                             anchors.margins: 2
                                             source: "qrc:/img/img/top-bottom.png"
                                             fillMode: Image.PreserveAspectFit
                                             smooth: true
+                                            asynchronous: true
                                         }
                                     }
                                     Text{
@@ -382,6 +385,7 @@ Item {
                                         height: 20
                                         width: 20
                                         source: "qrc:/img/img/Sort Left Filled-accent.png"
+                                        asynchronous: true
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -435,6 +439,7 @@ Item {
                                         height: 20
                                         width: 20
                                         source: "qrc:/img/img/Sort Right Filled-accent.png"
+                                        asynchronous: true
                                     }
                                     MouseArea{
                                         anchors.fill: parent
@@ -484,12 +489,13 @@ Item {
                                         Item{
                                             Layout.fillWidth: true
                                             Layout.fillHeight: true
-                                            Image {
+                                            Image{
                                                 id: aircraftImg
                                                 anchors.fill: parent
                                                 anchors.margins: 2
                                                 source: "qrc:/img/img/target_aircraft.png"
                                                 fillMode: Image.PreserveAspectFit
+                                                asynchronous: true
                                             }
                                         }
                                         Text{
@@ -613,12 +619,13 @@ Item {
                                                 Item{
                                                     Layout.fillWidth: true
                                                     Layout.fillHeight: true
-                                                    Image {
+                                                    Image{
                                                         id: antennaImg1
                                                         anchors.fill: parent
                                                         anchors.margins: 2
                                                         source: "qrc:/img/img/antenna.png"
                                                         fillMode: Image.PreserveAspectFit
+                                                        asynchronous: true
                                                     }
                                                 }
                                                 Text{

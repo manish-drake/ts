@@ -56,6 +56,7 @@ Item{
                         anchors.right: parent.right
                         fillMode: Image.PreserveAspectFit
                         source: "qrc:/img/img/guide.png"
+                        asynchronous: true
                     }
                 }
             }
@@ -96,10 +97,11 @@ Item{
                         color: "transparent"
                         border.width: 2
                         border.color: Universal.accent
-                        Image {
+                        Image{
                             id: resultsImg
                             anchors.centerIn: parent
                             source: "qrc:/img/img/results.png"
+                            asynchronous: true
                         }
                     }
                     Text {
@@ -143,10 +145,11 @@ Item{
                         color: "transparent"
                         border.width: 2
                         border.color: Universal.accent
-                        Image {
+                        Image{
                             id: setupImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/Settings-accent.png"
+                            asynchronous: true
                         }
                     }
                     Text {
@@ -178,11 +181,12 @@ Item{
                         width: 70
                         radius: 35
                         color: Universal.accent
-                        Image {
+                        Image{
                             id: buttonImage
                             anchors.centerIn: parent
                             source: "qrc:/img/img/play-button.png"
                             smooth: true
+                            asynchronous: true
                         }
                     }
                     Text {

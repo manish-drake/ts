@@ -20,11 +20,12 @@ Item{
                     Layout.leftMargin: 10
                     height: 50
                     width: 50
-                    Image {
+                    Image{
                         id: image1
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         source: "qrc:/img/img/Radar-25.png"
+                        asynchronous: true
                     }
                     MouseArea {
                         anchors.fill: parent

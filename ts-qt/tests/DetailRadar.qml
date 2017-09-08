@@ -28,11 +28,12 @@ Item{
                     Item{
                         height: 50
                         width: 50
-                        Image {
+                        Image{
                             id: graphImg
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.verticalCenter: parent.verticalCenter
                             source: "qrc:/img/img/Area Chart-25.png"
+                            asynchronous: true
                         }
                         MouseArea {
                             anchors.fill: parent
