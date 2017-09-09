@@ -6,7 +6,6 @@ import QtQuick.Controls.Universal 2.1
 
 Page {
     id: item1
-    anchors.fill: parent
     header: Rectangle{
         height: 40
         anchors.left:parent.left

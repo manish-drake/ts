@@ -4,7 +4,6 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Universal 2.1
 
 Item {
-    anchors.fill: parent
     ColumnLayout{
         anchors.fill: parent
         Flickable {
