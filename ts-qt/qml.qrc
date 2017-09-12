@@ -39,9 +39,6 @@
         <file>tests/DetailRadar.qml</file>
         <file>tests/DetailSummary.qml</file>
         <file>tests/DetailLanding.qml</file>
-        <file>tests/DetailHeader.qml</file>
-        <file>tests/DetailMenu.qml</file>
-        <file>tests/DetailFooter.qml</file>
         <file>antenna/AviHistory.qml</file>
         <file>antenna/AviLanding.qml</file>
         <file>antenna/AviBandSelection.qml</file>
@@ -62,6 +59,11 @@
         <file>antenna/AviHeader.qml</file>
         <file>TestGroup.qml</file>
         <file>DisplayOptions.qml</file>
+        <file>tests/DetailSummaryHeader.qml</file>
+        <file>tests/DetailSummaryMenu.qml</file>
+        <file>tests/DetailSummaryFooter.qml</file>
+        <file>tests/DetailLandingFooter.qml</file>
+        <file>antenna/AviLandingFooter.qml</file>
     </qresource>
     <qresource prefix="/img">
         <file>img/Menu-25.png</file>

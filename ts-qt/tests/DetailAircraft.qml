@@ -7,7 +7,7 @@ Item{
     Page {
         anchors.fill: parent
 
-        header: DetailHeader{
+        header: DetailSummaryHeader{
             id: detailHeader
             pageCount: 7
         }
@@ -106,7 +106,7 @@ Item{
             }
         }
 
-        footer: DetailFooter{
+        footer: DetailSummaryFooter{
             id: detailFooter
             function onRun(){
                 console.log("onRun")
@@ -132,7 +132,7 @@ Item{
         background: Rectangle{
             color: Universal.theme === Universal.Light ? "#99000000" : "#cc666666"
         }
-        contentItem: DetailMenu{testID: navigationModel.navigationParameter.id}
+        contentItem: DetailSummaryMenu{testID: navigationModel.navigationParameter.id}
     }
     Popup {
         id: testSetupPopup
