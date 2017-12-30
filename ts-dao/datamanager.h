@@ -27,14 +27,14 @@ class QSqlDatabase;
 class QSqlQuery;
 
 #ifdef Q_OS_LINUX
-    const QString DB_FILE = "../../../git/ts/ts.db";
+    const QString DB_FILE = "ts.db";
 #else
     const QString DB_FILE = "c:/git/qt/ts/ts.db";
 #endif
 
 const QString DATABASE_FILENAME = "ts.db";
 #ifdef Q_OS_LINUX
-    const QString LOG_DB_FILE = "../../../git/ts/logs.db";
+    const QString LOG_DB_FILE = "logs.db";
 #else
     const QString LOG_DB_FILE = "c:/git/qt/ts/logs.db";
 #endif

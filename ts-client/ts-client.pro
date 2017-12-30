@@ -43,36 +43,45 @@ HEADERS += client.h\
     controlnavigation.h \
     setup.h
 
+
 unix {
-    unix:!macx:!android: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
+    target.path = /opt/ts-qt/bin
+    INSTALLS += target
 
-    INCLUDEPATH += $$PWD/../../../../../usr/local/include
-    DEPENDPATH += $$PWD/../../../../../usr/local/include
-
-    unix:!macx:!android: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    linux-oe-g++ {
+        LIBS += -L$$PWD/../libzmq-bin/lib -lzmq
+        INCLUDEPATH += $$PWD/../libzmq-bin/include
+        DEPENDPATH += $$PWD/../libzmq-bin/include
+        PRE_TARGETDEPS += $$PWD/../libzmq-bin/lib/libzmq.a
+    } else {
+        LIBS += -L$$PWD/../../../../../usr/local/lib -lzmq
+        INCLUDEPATH += $$PWD/../../../../../usr/local/include
+        DEPENDPATH += $$PWD/../../../../../usr/local/include
+        PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    }
 }
-android{
-    unix:!macx: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
 
-    INCLUDEPATH += $$PWD/../../../../zeromq-android/include
-    DEPENDPATH += $$PWD/../../../../zeromq-android/include
-}
-macx{
-    macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
-
-    INCLUDEPATH += $$PWD/../../../libzmq_dist/include
-    DEPENDPATH += $$PWD/../../../libzmq_dist/include
-
-    macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
-}
 win32{
     !android{
         win32: LIBS += -L'C:/Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
-
         INCLUDEPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
         DEPENDPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
     }
 }
+
+android{
+    unix:!macx: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+    INCLUDEPATH += $$PWD/../../../../zeromq-android/include
+    DEPENDPATH += $$PWD/../../../../zeromq-android/include
+}
+
+macx{
+    macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+    INCLUDEPATH += $$PWD/../../../libzmq_dist/include
+    DEPENDPATH += $$PWD/../../../libzmq_dist/include
+    macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
+}
+
 
 
 

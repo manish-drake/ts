@@ -61,7 +61,7 @@ HEADERS += datamanager.h\
     asyncproc.h
 
 unix {
-    target.path = /usr/lib
+    target.path = /opt/ts-qt/bin
     INSTALLS += target
 }
 

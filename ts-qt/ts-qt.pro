@@ -38,10 +38,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-else: android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+#qnx: target.path = /tmp/$${TARGET}/bin
+#else: unix:!android: target.path = /opt/$${TARGET}/bin
+#else: android: target.path = /opt/$${TARGET}/bin
+#!isEmpty(target.path): INSTALLS += target
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-core/release/ -lts-core
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-core/debug/ -lts-core
@@ -88,41 +88,55 @@ else:unix: LIBS += -L$$OUT_PWD/../ts-client/ -lts-client
 INCLUDEPATH += $$PWD/../ts-client
 DEPENDPATH += $$PWD/../ts-client
 
-#win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/release/ -lts-smtp
-#else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../ts-smtp/debug/ -lts-smtp
-#else:unix: LIBS += -L$$OUT_PWD/../ts-smtp/ -lts-smtp
 
-#INCLUDEPATH += $$PWD/../ts-smtp
-#DEPENDPATH += $$PWD/../ts-smtp
 unix {
-    unix:!macx:!android: LIBS += -L$$PWD/../../../../../usr/local/lib/ -lzmq
+    target.path = /opt/$${TARGET}/bin
+    INSTALLS += target
 
-    INCLUDEPATH += $$PWD/../../../../../usr/local/include
-    DEPENDPATH += $$PWD/../../../../../usr/local/include
+    linux-oe-g++ {
+        LIBS += -L$$PWD/../libzmq-bin/lib -lzmq
+        INCLUDEPATH += $$PWD/../libzmq-bin/include
+        DEPENDPATH += $$PWD/../libzmq-bin/include
+        PRE_TARGETDEPS += $$PWD/../libzmq-bin/lib/libzmq.a
+    } else {
+        LIBS += -L$$PWD/../../../../../usr/local/lib -lzmq
+        INCLUDEPATH += $$PWD/../../../../../usr/local/include
+        DEPENDPATH += $$PWD/../../../../../usr/local/include
+        PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    }
 
-    unix:!macx:!android: PRE_TARGETDEPS += $$PWD/../../../../../usr/local/lib/libzmq.a
+    zeromq.path = /opt/$${TARGET}/bin
+    zeromq.files += $$PWD/../libzmq-bin/lib/libzmq.so
+    zeromq.files += $$PWD/../libzmq-bin/lib/libzmq.so.5.1.2
+    zeromq.files += $$PWD/../libzmq-bin/lib/libzmq.so.5
+    zeromq.files += $$PWD/../libzmq-bin/lib/libzmq.la
+    zeromq.files += $$PWD/../libzmq-bin/lib/libzmq.a
+    INSTALLS += zeromq
+
+    db.path = /home/root
+    db.files = $$PWD/../ts.db
+    INSTALLS += db
 }
-android{
-    unix|win32: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
 
-    INCLUDEPATH += $$PWD/../../../../zeromq-android/include
-    DEPENDPATH += $$PWD/../../../../zeromq-android/include
-}
-macx{
-    macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
-
-    INCLUDEPATH += $$PWD/../../../libzmq_dist/include
-    DEPENDPATH += $$PWD/../../../libzmq_dist/include
-
-    macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
-}
 win32{
     !android{
         win32: LIBS += -L'C:/Program Files (x86)/ZeroMQ 4.0.4/lib/' -llibzmq-v120-mt-4_0_4
-
         INCLUDEPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
         DEPENDPATH += 'C:/Program Files (x86)/ZeroMQ 4.0.4/include'
     }
+}
+
+android{
+    unix:!macx: LIBS += -L$$PWD/../../../../zeromq-android/lib/ -lzmq
+    INCLUDEPATH += $$PWD/../../../../zeromq-android/include
+    DEPENDPATH += $$PWD/../../../../zeromq-android/include
+}
+
+macx{
+    macx: LIBS += -L$$PWD/../../../libzmq_dist/lib/ -lzmq
+    INCLUDEPATH += $$PWD/../../../libzmq_dist/include
+    DEPENDPATH += $$PWD/../../../libzmq_dist/include
+    macx: PRE_TARGETDEPS += $$PWD/../../../libzmq_dist/lib/libzmq.a
 }
 
 #win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../libzmq_dist/lib/release/ -lzmq
@@ -140,7 +154,7 @@ win32{
 
 
 
-macx: LIBS += -L$$PWD/../../../../../usr/lib/libc++.dylib
+#macx: LIBS += -L$$PWD/../../../../../usr/lib/libc++.dylib
 
-INCLUDEPATH += $$PWD/../../../../../usr
-DEPENDPATH += $$PWD/../../../../../usr
+#INCLUDEPATH += $$PWD/../../../../../usr
+#DEPENDPATH += $$PWD/../../../../../usr

@@ -54,6 +54,6 @@ HEADERS +=\
     section.h
 
 unix {
-    target.path = /usr/lib
+    target.path = /opt/ts-qt/bin
     INSTALLS += target
 }
